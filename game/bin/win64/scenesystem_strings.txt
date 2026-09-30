@@ -60,7 +60,7 @@
   w/ large threshold: %d,
   w/ zero threshold: %d,
   w/ zero threshold: (%.1f, %.1f)
- !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P
+ !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$H
  %s | Flags %lld \n
  (08@HPX`jP
  (08@HPXb
@@ -1120,6 +1120,7 @@ $tIP
 ?0x%p
 ?333?333?fff?
 ?Bxt>
+?IS_TRANSLUCENT 
 ?JA7=
 ?Label1
 ?None
@@ -1132,9 +1133,9 @@ $tIP
 ?fff?333?
 ?fff?fff?fff?
 ?ffffff
-?sc_use_clear_subrect
 ?sqrt
 ?success
+@08N
 @33333
 @33333#
 @33333'
@@ -1173,8 +1174,6 @@ $tIP
 @33333{
 @33333}
 @33SA
-@HPX`hv
-@Hide
 @OS/2
 @fff>fff>fff>fff>
 @fffff
@@ -1218,6 +1217,7 @@ $tIP
 @fffffx
 @fffffz
 @fffff|
+@sc_setclassflags %s %d
 A Rather Long Title
 A#4A\v
 A*A3
@@ -2818,6 +2818,7 @@ Here, all circle data is stored in a single interleaved buffer:
 Hex-encode non-ASCII
 Hidden
 HiddenTabBar
+Hide
 Hide Filtered
 Hide tab bar###HideTabBar
 Hierarchy lines
@@ -2912,7 +2913,6 @@ ISSUES_QUERIES
 IS_DISABLED 
 IS_LOADED 
 IS_OPAQUE 
-IS_TRANSLUCENT 
 ITALIC_ANGLE
 ITEM: Button
 ITEM: Checkbox
@@ -3926,6 +3926,7 @@ P+\fGj
 P.P5
 P08@J
 P08JP?!
+P08N
 P3\rA
 P8\nD
 PAPU
@@ -4162,7 +4163,6 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
-R8_UNORM
 R9G9B9E5_SHAREDEXP
 R: %.f\nN: %d
 R: MMM\nN: MMM
@@ -6578,6 +6578,7 @@ outer_size
 overlaps
 p q g j y
 p#p7pP
+p08@H^
 p0jP
 pCRF
 paragraph
@@ -6679,7 +6680,6 @@ s1s:sHsX
 s_hScrambledHalton != GENERIC_DATA_HANDLE_INVALID
 sc_dumpworld %d
 sc_dumpworld3d %d
-sc_setclassflags %s %d
 scaron
 scedilla
 scene_quadindexbuffer

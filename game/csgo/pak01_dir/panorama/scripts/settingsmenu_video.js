@@ -23,6 +23,7 @@ var SettingsMenuVideo;
         UiToolkitAPI.ShowCustomLayoutPopupWithCancelCallback('', 'file://{resources}/layout/popups/popup_hud_edge_positions.xml', () => { });
     }
     SettingsMenuVideo.ShowHudEdgePositions = ShowHudEdgePositions;
+    // On creation
     {
         SelectSimpleVideoSettings();
     }

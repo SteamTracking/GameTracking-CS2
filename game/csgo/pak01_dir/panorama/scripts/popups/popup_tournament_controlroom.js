@@ -22,7 +22,7 @@ var PopupTournamentControlRoom = ( function()
 
 		$( '#id-popup-tournamentcontrolroom-refresh-button' ).visible = false;
 
-		                                            
+		// Always request a fresh match list from GC
 		TournamentsAPI.RequestManagementMatchList( m_eventid );
 		_StartScheduledCountdown();
 	};
@@ -105,10 +105,10 @@ var PopupTournamentControlRoom = ( function()
 
 	var _Updatetournamentcontrolroom = function( type )
 	{
-		                                                               
+		$.Msg( 'tournamentcontrolroom (#' + m_eventid + '): ' + type );
 		m_type = type;
 
-		                                                     
+		$.Msg( 'tournamentcontrolroom status: ' + m_status );
 
 		var elStatus = m_cp.FindChildInLayoutFile( 'id-popup-tournamentcontrolroom-loading' );
 		var elData = m_cp.FindChildInLayoutFile( 'id-popup-tournamentcontrolroom-nodata' );
@@ -146,7 +146,7 @@ var PopupTournamentControlRoom = ( function()
 		newEntry.text = strText;
 		elDropdown.AddOption( newEntry );
 
-		               
+		// set selected
 		if ( strSelectedData === strData )
 		{
 			elDropdown.SetSelected( entryID );
@@ -158,9 +158,9 @@ var PopupTournamentControlRoom = ( function()
 		var elParent = m_cp.FindChildInLayoutFile( 'id-popup-tournamentcontrolroom-entries' );
 		elParent.RemoveAndDeleteChildren();
 
-		  
-		                    
-		  
+		//
+		// Add new match row
+		//
 		{
 			var strTournament = MyPersonaAPI.GetMyOfficialTournamentName();
 			var strCurrentStage = '';
@@ -169,9 +169,9 @@ var PopupTournamentControlRoom = ( function()
 			el.BLoadLayoutSnippet( 'tournamentcontrolroom-entry' );
 			el.SetHasClass( 'newentry', true );
 
-			  
-			                 
-			  
+			//
+			// Stage dropdown
+			//
 			var elStageDropdown = el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-edit-type' );
 			elStageDropdown.RemoveAllOptions();
 			_AddDropdownOption( elStageDropdown, 'PickStage', $.Localize( '#SFUI_Tournament_Stage' ), '', strCurrentStage );
@@ -182,9 +182,9 @@ var PopupTournamentControlRoom = ( function()
 				_AddDropdownOption( elStageDropdown, 'stage_' + i, strStage, strStage, strCurrentStage );
 			}
 
-			  
-			               
-			  
+			//
+			// Map dropdown
+			//
 			var elMapDropdown = el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-edit-map' );
 			elMapDropdown.RemoveAllOptions();
 			_AddDropdownOption( elMapDropdown, 'PickMap', $.Localize( '#SFUI_Tournament_Pick_Map_Title' ), '', '' );
@@ -194,9 +194,9 @@ var PopupTournamentControlRoom = ( function()
 				_AddDropdownOption( elMapDropdown, 'map_' + mymaps[ mmap ], $.Localize( '#SFUI_Map_' + mmap ), mmap, '' );
 			}
 
-			  
-			                 
-			  
+			//
+			// Team dropdowns
+			//
 			for ( var kk = 0; kk < 2; ++ kk )
 			{
 				var elTeamDropdown = el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-edit-team' + kk );
@@ -210,9 +210,9 @@ var PopupTournamentControlRoom = ( function()
 				}
 			}
 
-			  
-			                       
-			  
+			//
+			// Pick score dropdowns
+			//
 			for ( var kk = 0; kk < 2; ++ kk )
 			{
 				var elScoreDropdown = el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-edit-score' + kk );
@@ -233,7 +233,7 @@ var PopupTournamentControlRoom = ( function()
 				};
 
 				TournamentsAPI.RequestAddManagementMatch( m_eventid, 'add',
-					                                                     
+					// $( '#popup-tournamentcontrolroom-edit-pwd' ).text,
 					'[' + fnGetDropDownData( 'popup-tournamentcontrolroom-edit-score0' )
 					+ ':' + fnGetDropDownData( 'popup-tournamentcontrolroom-edit-score1' )
 					+ ']@' + ( new Date().getTime() ),
@@ -252,9 +252,9 @@ var PopupTournamentControlRoom = ( function()
 			} );
 		}
 
-		  
-		                                                    
-		  
+		//
+		// All other matches that were previously registered
+		//
 		for ( var i = 0; i < count; i++ )
 		{
 			var jso = TournamentsAPI.GetManagementMatchJSO( m_eventid, i );
@@ -266,22 +266,22 @@ var PopupTournamentControlRoom = ( function()
 				_WaitForReloadedDataEvent();
 			};
 
-			  
-			                                         
-				                                           
-				                                                                                                          
-			  
-			  
+			/*
+			var fnCopyToClipboard = function( pwd ) {
+				SteamOverlayAPI.CopyTextToClipboard( pwd );
+				UiToolkitAPI.ShowTextTooltip( 'popup-tournamentcontrolroom-entry-pwd-copy', '#AddFriend_copy_code_Hint' );
+			};
+			*/
 
 			var el = $.CreatePanel( 'Panel', elParent, jso.id );
 			el.BLoadLayoutSnippet( 'tournamentcontrolroom-entry' );
 
-			                                                                                      
+			// el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-pwd' ).text = jso.pwd;
 			el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-team0' ).text = jso.team0;
 			el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-team1' ).text = jso.team1;
 			el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-score' ).text = jso.info;
 
-			                                 
+			// jso.pwd has scores split [x:x]
 			if ( jso.pwd.length > 6 && jso.pwd[0] == '[' )
 			{
 				let a = jso.pwd.split( ']' );
@@ -323,7 +323,7 @@ var PopupTournamentControlRoom = ( function()
 						{
 							let elBtn = el.FindChildInLayoutFile( 'ButtonFinalize');
 							elBtn.SetPanelEvent( 'onactivate',
-								fnSetFlags.bind( null, jso.id, '1073741824' )                                     
+								fnSetFlags.bind( null, jso.id, '1073741824' ) // 0x40000000 < finalize this match!
 							);
 							elBtn.RemoveClass( 'hidden' );
 						}
@@ -338,10 +338,10 @@ var PopupTournamentControlRoom = ( function()
 			if ( strStatus )
 				el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-updates' ).text = $.Localize( strStatus );
 
-			                
+			// Stage and map
 			var sValue = jso.stage;
-			                                          
-			                                        
+			// sValue = sValue.replace( ' | ', '\n' );
+			// sValue = sValue.replace( '|', '\n' );
 			el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-type' ).text = sValue;
 			el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-map' ).text = jso.map;
 
@@ -373,7 +373,7 @@ var PopupTournamentControlRoom = ( function()
 				el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-recover').visible = false;
 
 				fnDelayAction( 'popup-tournamentcontrolroom-entry-makelive').SetPanelEvent( 'onactivate',
-					fnSetFlags.bind( null, jso.id, '1073741823' )                                           
+					fnSetFlags.bind( null, jso.id, '1073741823' ) // 0x3FFFFFFF < commit this match results!
 				);
 			}
 			else if ( jso.updates === 'ongoing' )
@@ -386,7 +386,7 @@ var PopupTournamentControlRoom = ( function()
 			else
 			{
 				fnDelayAction( 'popup-tournamentcontrolroom-entry-remove').SetPanelEvent( 'onactivate',
-					fnSetFlags.bind( null, jso.id, '1073741822' )                                              
+					fnSetFlags.bind( null, jso.id, '1073741822' ) // 0x3FFFFFFE < delete this credential entry!
 				);
 
 				el.FindChildInLayoutFile( 'popup-tournamentcontrolroom-entry-ignore').visible = false;
@@ -411,7 +411,7 @@ var PopupTournamentControlRoom = ( function()
 
 	var _Close = function()
 	{
-		                   
+		//_CancelTimeout();
 		$.DispatchEvent( 'UIPopupButtonClicked', '' );
 	};
 
@@ -427,5 +427,5 @@ var PopupTournamentControlRoom = ( function()
 (function(){
 
 	$.RegisterForUnhandledEvent( 'PanoramaComponent_Tournaments_ManagementMatchListReceived', PopupTournamentControlRoom.ManagementMatchListReceived );
-	                                                                
+	// PopupTournamentControlRoom.Init(); // << called from "onload"
 })();

@@ -15,6 +15,7 @@ var AdvertisingToggle;
         _UpdateTooltip(PartyListAPI.GetCount() > 1);
     }
     AdvertisingToggle.OnFilterPressed = OnFilterPressed;
+    //Update button state to represent current state
     function _UpdateToggle() {
         if (PartyListAPI.GetCount() > 1) {
             _m_elBtn.checked = false;
@@ -28,6 +29,7 @@ var AdvertisingToggle;
         _UpdateTooltip(false);
     }
     ;
+    //On btn Press pass the setting we want.
     function _OnActivateToggle() {
         let currentSetting = GetAdvertisingSetting();
         let newSetting = currentSetting === _m_lobbyListerFilter ? '' : _m_lobbyListerFilter;
@@ -52,6 +54,9 @@ var AdvertisingToggle;
         _m_elBtn.SetPanelEvent('onmouseout', function () { UiToolkitAPI.HideTitleTextTooltip(); });
     }
     ;
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_PartyBrowser_LocalPlayerForHireAdvertisingChanged', _AdvertisingChanged);

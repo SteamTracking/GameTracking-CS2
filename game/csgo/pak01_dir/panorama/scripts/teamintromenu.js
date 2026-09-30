@@ -7,6 +7,7 @@ $.LogChannel('p.teamintro', "LV_OFF");
 var TeamIntroMenu;
 (function (TeamIntroMenu) {
     async function _StartTeamIntro() {
+        $.Msg('[p.teamintro] _StartTeamIntro');
         const type = MockAdapter.GetPlayerCompetitiveRankType(GameStateAPI.GetLocalPlayerXuid());
         const elMenu = $.GetContextPanel();
         elMenu.SetHasClass('premier', type === 'Premier');
@@ -103,8 +104,10 @@ var TeamIntroMenu;
         const elInfos = $("#TeamIntroTeammateInfos");
         const elInfo = $.CreatePanel("Panel", elInfos, nOrdinal.toString());
         elInfo.BLoadLayoutSnippet("TeamIntroTeammateInfo");
+        // Populate avatar image.
         const elAvatarImage = elInfo.FindChildInLayoutFile("AvatarImage");
         elAvatarImage.PopulateFromPlayerSlot(GameStateAPI.GetPlayerSlot(sXuid));
+        // Set name.
         const elName = elInfo.FindChildInLayoutFile("Name");
         elName.SetDialogVariableInt("intro_player_slot", GameStateAPI.GetPlayerSlot(sXuid));
         const teamColor = GameStateAPI.GetPlayerColor(sXuid);
@@ -135,7 +138,7 @@ var TeamIntroMenu;
     function _SetupHeader(nTeamNumber) {
         const timeData = GameStateAPI.GetTimeDataJSO();
         const nOvertime = timeData.overtime;
-        const bFirstHalf = timeData.gamephase === 2;
+        const bFirstHalf = timeData.gamephase === 2; // GAMEPHASE_PLAYING_FIRST_HALF
         $("#TeamIntroHeader").RemoveClass("hidden");
         const elIcon = $("#TeamIntroIcon");
         const elHalfLabel = $("#TeamIntroHalfLabel");
@@ -168,6 +171,9 @@ var TeamIntroMenu;
                 break;
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent("StartTeamIntro", _StartTeamIntro);
     }

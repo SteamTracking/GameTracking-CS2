@@ -13,20 +13,23 @@
 /// <reference path="../common/unique_random_number.ts"/>
 var PopupMajorStore;
 (function (PopupMajorStore) {
-    const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
-    const defidxKeyChainItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('keychain');
+    const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker'); // move it to be global in the namespace - this defidx never changes
+    const defidxKeyChainItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('keychain'); // move it to be global in the namespace - this defidx never changes
     function State(cp) {
         return cp.Data();
     }
+    // Shared "most desirable first" order: popularity, then price, then a stable id tie-break.
     function _CompareByPopularity(a, b) {
         if (a.popularity != b.popularity)
-            return b.popularity - a.popularity;
+            return b.popularity - a.popularity; // bigger numbers means more popular, show first
         if (a.price != b.price)
-            return b.price - a.price;
+            return b.price - a.price; // bigger number means more desirable, show first
+        // Keychains have no rawId, so fall back through kc_highlight/itemId for a deterministic order.
         const aId = a.rawId ?? a.kc_highlight ?? a.itemId;
         const bId = b.rawId ?? b.kc_highlight ?? b.itemId;
         return aId < bId ? -1 : (aId > bId ? 1 : 0);
     }
+    // Single access point for the persisted watch list (cl_major_store_watch_list).
     let Bookmarks;
     (function (Bookmarks) {
         const SETTING = 'cl_major_store_watch_list';
@@ -56,17 +59,22 @@ var PopupMajorStore;
             else
                 list.splice(idx, 1);
             GameInterfaceAPI.SetSettingString(SETTING, list.length > 0 ? list.join(',') : '');
-            _cache = list;
+            _cache = list; // keep the cache in sync with what we just wrote
         }
         Bookmarks.toggle = toggle;
     })(Bookmarks || (Bookmarks = {}));
+    // Passed to _SetActiveNavTab when the view belongs to no tab, e.g. search results.
     const NAV_TAB_NONE = '';
+    // The main views: one panel each under the container, one on screen at a time. STORE_VIEWS,
+    // after the nav registry, says what each needs on the way in and on refresh.
     const VIEW_HOME = 'id-major-store-banners';
     const VIEW_CONTENT = 'id-major-store-content';
     const VIEW_CHARMS = 'id-major-store-keychains';
     const VIEW_TEAM = 'id-major-store-team-view';
     const VIEW_SINGLE = 'id-major-store-single-view';
     const NO_SERIES_FILTER = '';
+    // One entry per option in the XML sort dropdown, keyed by that option's id. Holds the item
+    // field it sorts on and the direction, so adding a sort is a row here plus a row there.
     const SORT_OPTIONS = {
         'price-high-low': { field: 'price', direction: 'desc' },
         'price-low-high': { field: 'price', direction: 'asc' },
@@ -84,6 +92,10 @@ var PopupMajorStore;
         AllItems: { key: 'all', default: 'name', hidden: [] },
         Search: { key: 'search', default: 'weekly-high-low', hidden: [] },
     };
+    // The sort menu dismisses itself when focus moves, which is why clicking a tile closes it but
+    // empty space does not. Handing focus to the content page closes it without touching the
+    // control's own open/closed state. Guarded on the menu actually being open, so an ordinary
+    // click never pulls focus off something else -- the search box in particular.
     function _CloseSortDropDown(cp) {
         const elDropDown = _SortDropDown(cp);
         const elMenu = elDropDown ? elDropDown.AccessDropDownMenu() : null;
@@ -98,11 +110,13 @@ var PopupMajorStore;
     function _SortDropDown(cp) {
         return cp.FindChildInLayoutFile('id-major-store-sort-dropdown');
     }
+    /** Drives the sort dropdown without the change counting as a user choice. */
     function _SelectSort(cp, szSortId) {
         m_bApplyingSort = true;
         _SortDropDown(cp).SetSelected(szSortId);
         m_bApplyingSort = false;
     }
+    /** Shows the view's sort options and restores the sort last used in that view. */
     function _ApplyViewSort(cp, sort) {
         State(cp).activeSort = sort;
         const elDropDown = _SortDropDown(cp);
@@ -116,6 +130,7 @@ var PopupMajorStore;
         const szWanted = (szRemembered && !sort.hidden.includes(szRemembered)) ? szRemembered : sort.default;
         _SelectSort(cp, szWanted);
     }
+    /** Records the sort the user just picked against the view they are in. */
     function _RememberViewSort(cp, szSortId) {
         State(cp).mSortByView[State(cp).activeSort.key] = szSortId;
     }
@@ -128,6 +143,9 @@ var PopupMajorStore;
         { toggleId: 'id-major-store-filter-team', loc: '#major_store_filter_type_team_only', chipId: 'id-filter-active-t-only' },
         { toggleId: 'id-major-store-filter-player', loc: '#major_store_filter_type_player_only', chipId: 'id-filter-active-p-only' },
     ];
+    /** True when the view can hold any series and both stickers and charms: search results, the
+        store-wide see all, and favourites. Only those expose the series and highlights controls;
+        a category tab has already fixed both. */
     function _IsMixedContentView(cp) {
         if (State(cp).useBookMarkList) {
             return true;
@@ -141,23 +159,30 @@ var PopupMajorStore;
             return elTab && elTab.checked;
         });
     }
+    /** Major / Champions / Ranked are OR'd; none checked matches everything. */
     function _MatchesSeriesFilter(item, settings) {
         if (!settings.rankedOnly && !settings.championsOnly && !settings.majorOnly) {
             return true;
         }
         return (settings.rankedOnly && item.isRanked)
             || (settings.championsOnly && item.champion)
+            // Keychains have neither flag, so require a sticker here (bookmarks mix both types).
             || (settings.majorOnly && ('rawId' in item) && !item.isRanked && !item.champion);
     }
+    /** Shows only the filter sections that can do something in the view on screen. */
     function _UpdateFilterSections(cp) {
+        // Series and highlights only apply where the contents are mixed.
         const bMixed = _IsMixedContentView(cp);
         cp.FindChildInLayoutFile('id-filter-section-series').visible = bMixed;
         cp.FindChildInLayoutFile('id-filter-section-keychains').visible = bMixed;
+        // A major has a single champions team, so there is nothing for that filter to narrow.
         cp.FindChildInLayoutFile('id-filter-section-teams').visible =
             !cp.FindChildInLayoutFile('id-major-store-filter-champions').checked;
     }
+    /** Selects exactly one series, or none for NO_SERIES_FILTER. */
     function _SetActiveSeriesFilter(cp, toggleId) {
         if (toggleId !== NO_SERIES_FILTER && !SERIES_FILTERS.some(s => s.toggleId === toggleId)) {
+            $.Msg('PopupMajorStore: "' + toggleId + '" is not a series filter; showing every series');
         }
         SERIES_FILTERS.forEach(series => {
             const elToggle = cp.FindChildInLayoutFile(series.toggleId);
@@ -170,8 +195,14 @@ var PopupMajorStore;
     const MAX_SEARCH_RESULTS_SHOWN = 20;
     let m_activeMain = null;
     const m_overlayStack = [];
+    // Guards the programmatic RadioButton.checked writes in _SetActiveNavTab from re-entering onactivate.
     let m_bSyncingNavTabs = false;
+    // Set while the code drives the sort dropdown, so it is not mistaken for a user choice.
     let m_bApplyingSort = false;
+    //
+    // Navigation actions -- the shared vocabulary both registries below can point at. A tab and a
+    // carousel may use the same action or diverge; neither registry owns these.
+    //
     const StoreNavActions = {
         Home: (cp) => {
             _OnActivateClearAll(cp);
@@ -196,6 +227,15 @@ var PopupMajorStore;
         },
     };
     const STORE_CAROUSELS = [
+        // {
+        //     key: 'bookmarked',
+        //     bannerId: 'id-major-store-banners-bookmarks',
+        //     seeAllBtnId: 'id-major-store-see-all-bookmarked-btn',
+        //     hasItems: ( cp ) => _GetBookmarkedItemsList( cp ).length > 0,
+        //     refresh: ( cp ) => _SetUpBookmarkItemsBanner( cp ),
+        //     onSeeAll: StoreNavActions.Bookmarks,
+        //     navTabKey: 'bookmarked',
+        // },
         {
             key: 'ranked',
             bannerId: 'id-banner-ranked',
@@ -205,6 +245,33 @@ var PopupMajorStore;
             onSeeAll: StoreNavActions.Ranked,
             navTabKey: 'ranked',
         },
+        // {
+        //     key: 'champions',
+        //     bannerId: 'id-banner-champions',
+        //     seeAllBtnId: 'id-major-store-see-all-champions-btn',
+        //     hasItems: ( cp ) => State( cp ).aFlatStickersData.some( s => s.champion ),
+        //     refresh: ( cp ) => _SetUpChampionsBanner( cp ),
+        //     onSeeAll: StoreNavActions.Champions,
+        //     navTabKey: 'champions',
+        // },
+        // {
+        //     key: 'charms',
+        //     bannerId: 'id-banner-keychains',
+        //     seeAllBtnId: 'id-major-store-see-all-keychains-btn',
+        //     hasItems: ( cp ) => State( cp ).aFlatKeyChainData.length > 1,
+        //     refresh: ( cp ) => _SetUpKeyChainsBanner( cp ),
+        //     onSeeAll: StoreNavActions.Charms,
+        //     navTabKey: 'charms',
+        // },
+        // {
+        //     key: 'popular',
+        //     bannerId: 'id-banner-popular',
+        //     seeAllBtnId: 'id-major-store-see-all-popular-btn',
+        //     hasItems: ( cp ) => State( cp ).aFlatStickersData.length > 0,
+        //     refresh: ( cp ) => _SetUpPopularityBanner( cp ),
+        //     onSeeAll: ( cp ) => _ShowCategoryList( cp, NO_SERIES_FILTER ),
+        //     navTabKey: 'popular',
+        // },
     ];
     const STORE_NAV_TABS = [
         {
@@ -251,6 +318,7 @@ var PopupMajorStore;
             onRefresh: (cp) => _RefreshHome(cp),
         },
         {
+            // One list serving every category tab, favourites, search results and see-all.
             id: VIEW_CONTENT,
             rebuildIfActive: true,
             onShow: (cp) => { if (!_UpdateFavoritesEmptyState(cp))
@@ -264,6 +332,7 @@ var PopupMajorStore;
             onRefresh: (cp) => _SetUpKeyChainsPage(cp),
         },
         {
+            // Drill-downs. Their opener builds them for a given team or pack before showing, so no onShow.
             id: VIEW_TEAM,
             onRefresh: (cp) => _RefreshTeamView(cp),
         },
@@ -280,6 +349,7 @@ var PopupMajorStore;
         CancelRefreshSubscription(cp);
         CancelRefreshTimerUpdate(cp);
         const state = State(cp);
+        // Cancel timers that could fire after the popup is gone.
         const loadHandle = state.loadDataTimeoutHandler;
         if (loadHandle) {
             $.CancelScheduled(loadHandle);
@@ -294,6 +364,8 @@ var PopupMajorStore;
             $.CancelScheduled(searchHandle);
             cp.Data()[SEARCH_DEBOUNCE_HANDLE] = null;
         }
+        // Release JS callbacks handed to child popups (checkout / inspect / search context menu).
+        // The child popups only invoke these handles, they never unregister them, so it is on us.
         const menuHandle = state.contextMenuCallbackHandle;
         if (menuHandle) {
             UiToolkitAPI.UnregisterJSCallback(menuHandle);
@@ -310,6 +382,8 @@ var PopupMajorStore;
         $.DispatchEvent('ContextMenuEvent', '');
     }
     PopupMajorStore.ClosePopup = ClosePopup;
+    // Track a RegisterJSCallback handle so it can be released in ClosePopup. These callbacks are handed
+    // to child popups (checkout / inspect) which only invoke them, so the store popup owns their cleanup.
     function _TrackJSCallback(cp, handle) {
         if (!State(cp).jsCallbackHandles)
             State(cp).jsCallbackHandles = [];
@@ -317,6 +391,7 @@ var PopupMajorStore;
         return handle;
     }
     function ReadyForDisplay() {
+        $.Msg('PopupMajorStore ReadyForDisplay: ' + $.GetContextPanel().id);
         if (!MyPersonaAPI.IsConnectedToGC()) {
             ClosePopup();
             return;
@@ -333,7 +408,11 @@ var PopupMajorStore;
         State(cp).searchCache = null;
         State(cp).activeSort = VIEW_SORTS.AllItems;
         State(cp).mSortByView = {};
+        // No reveal window open until a price update arrives.
         State(cp).stopTileUpdate = true;
+        // Subscribe to the GC feed with pricing updates -- this must also be a "scheduled function" every 150 seconds or so
+        // because the cart can contain mixed content (stickers and charms) we have to subscribe to all pricesheets so that
+        // cart could reflect price changes regardless of which store user is shopping in
         _SubscribeForAllTournamentItems();
     }
     function Init() {
@@ -347,6 +426,7 @@ var PopupMajorStore;
             ClosePopup();
             return;
         }
+        // Check if we already have a price for all types of items.  If we do we don't need the loader.
         State(cp).arrAwaitingPricesheets = [];
         if (!MissionsAPI.GetSeasonalOperationFauxCreditsCost(g_ActiveTournamentInfo.credits_id, InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxStickerItem, g_ActiveTournamentInfo.stickerids[0])))
             State(cp).arrAwaitingPricesheets.push(g_ActiveTournamentInfo.itemid_dynamic_stickers);
@@ -366,6 +446,7 @@ var PopupMajorStore;
                 State(cp).arrAwaitingPricesheets.push(thg.itemid_dynamic_shop);
         });
         if (!State(cp).loadDataTimeoutHandler && (State(cp).arrAwaitingPricesheets.length > 0)) {
+            $.Msg(" Major Store Init : show loading panel to wait for " + State(cp).arrAwaitingPricesheets.length + " pricesheets...");
             $.GetContextPanel().SetHasClass('data-loading', true);
             _PushOverlay(cp, 'id-major-store-loading');
             State(cp).loadDataTimeoutHandler = $.Schedule(5, () => {
@@ -378,6 +459,7 @@ var PopupMajorStore;
         if (!State(cp).contextMenuCallbackHandle)
             State(cp).contextMenuCallbackHandle = UiToolkitAPI.RegisterJSCallback(OnSearchContextMenuCallBack);
         cp.FindChildInLayoutFile('id-major-store-container-inner').AddClass('show');
+        // Check if we are in the middle of a price update
         PriceRefreshTimerUpdate(cp);
         _UpdateStickerData(cp);
         _UpdateKeyChainsData(cp);
@@ -400,11 +482,15 @@ var PopupMajorStore;
     }
     PopupMajorStore.Init = Init;
     function OnVolatileShopSubscribe(nContainerDef, bNewPricesParsed, cp) {
+        $.Msg("OnVolatileShopSubscribe for " + nContainerDef + " " + (bNewPricesParsed ? '(new prices)' : '(no prices, just notification)'));
+        $.Msg(" seconds until price update: " + StoreAPI.GetSecondsUntilPendingPriceUpdate(nContainerDef));
         const loadHandle = State(cp).loadDataTimeoutHandler;
         if (loadHandle) {
             const state = State(cp);
+            // Only remove the loader spinner when all containers have prices
             state.arrAwaitingPricesheets = state.arrAwaitingPricesheets.filter((xx) => xx != nContainerDef);
             if (state.arrAwaitingPricesheets.length > 0) {
+                $.Msg(" ... waiting for " + state.arrAwaitingPricesheets.length + " more pricesheets ...");
                 return;
             }
             $.CancelScheduled(loadHandle);
@@ -415,6 +501,7 @@ var PopupMajorStore;
         }
         RefreshSubscription(cp);
         PriceRefreshTimerUpdate(cp);
+        // Update Sticker data and update visible panel
         if (bNewPricesParsed) {
             if (nContainerDef == g_ActiveTournamentInfo.itemid_dynamic_stickers ||
                 nContainerDef == g_ActiveTournamentInfo.itemid_champion_stickers ||
@@ -426,13 +513,17 @@ var PopupMajorStore;
             }
             State(cp).stopTileUpdate = false;
             _UpdateVisiblePanel(cp, true);
+            // This is so we don't keep playing the price animation when using the dynamic list.
+            // Otherwise every time a panel is reused it will play the animation. This feels odd after your start scrolling.
             $.Schedule(1, () => { State(cp).stopTileUpdate = true; });
+            //Sync Shopping car prices
             ShoppingCart.cart.syncPrices((itemId) => {
                 const item = State(cp).aFlatStickersData.find(i => i.itemId === itemId);
                 return item ? item.price : undefined;
             });
         }
     }
+    // Redraws the view on screen after a price update or a bookmark change, via its STORE_VIEWS row.
     function _UpdateVisiblePanel(cp, bDisableScroll = false) {
         _ActiveView()?.onRefresh?.(cp, bDisableScroll);
     }
@@ -514,13 +605,18 @@ var PopupMajorStore;
     }
     PopupMajorStore.CancelRefreshTimerUpdate = CancelRefreshTimerUpdate;
     function _UpdateStickerData(cp) {
+        // Regular and ranked stickers share one flat list; ranked entries are just tagged isRanked.
         _BuildStickerData(State(cp).aFlatStickersData, false);
         _BuildStickerData(State(cp).aFlatStickersData, true);
         State(cp).searchCache = null;
+        // Rank every sticker so the top-40 badge works on any surface, not just one banner.
+        // Sorts a copy, then stamps the rank onto the shared objects.
         [...State(cp).aFlatStickersData]
             .sort(_CompareByPopularity)
             .forEach((sticker, i) => { sticker.popularityRank = i; });
     }
+    // Adds the regular (stickerids) or ranked (rankingids) stickers from the team/player/champion/org
+    // sources. We look up existing entries by rawid so a price update patches them instead of duplicating.
     function _BuildStickerData(target, isRanked) {
         const map = MapDataById(target);
         const add = (oData) => _UpdateWithCurrentData(target, map.get(oData.rawId), oData, _GetStickerData);
@@ -562,12 +658,15 @@ var PopupMajorStore;
         return oldStickersData;
     }
     function _UpdateWithCurrentData(aFlatStoredData, savedItemData, oData, _funcGetData) {
+        // We look up the existing data to then update it when we receive a price update
+        // If no date then just save the data
         if (savedItemData) {
             const livePrice = _GetCurrentPriceForItem(savedItemData.itemId);
             if (livePrice !== undefined && savedItemData.price !== undefined) {
+                //Save old price
                 if (savedItemData.price !== livePrice) {
                     savedItemData.oldPrice = savedItemData.price;
-                    savedItemData.priceChangeRevealed = false;
+                    savedItemData.priceChangeRevealed = false; // a new change, not shown yet
                 }
                 savedItemData.price = livePrice;
                 savedItemData.popularity = _GetCurrentTrendData(savedItemData.itemId, 'trend');
@@ -606,6 +705,10 @@ var PopupMajorStore;
             rarityLookup: $.Localize('#major_store_filter_type_' + numRarity),
             name: InventoryAPI.GetItemName(itemId),
             displayName: ItemInfo.GetFormattedName(itemId),
+            // POPULARITY:
+            // a numeric value between -100,000,000 and +100,000,000
+            // negative value means popularity dropping, positive value means very popular, zero is neutral
+            // we could have client-side analysis of trends and pick a threshold for display so that not everything had a green/red arrow
             popularity: _GetCurrentTrendData(itemId, 'trend'),
             weeklyLow: weeklyLow,
             weeklyHigh: weeklyHigh,
@@ -647,11 +750,13 @@ var PopupMajorStore;
         return MissionsAPI.GetSeasonalOperationFauxItemTrend(g_ActiveTournamentInfo.credits_id, itemId, szField);
     }
     function UnreadyForDisplay() {
+        $.Msg('PopupMajorStore UnReadyForDisplay: ' + $.GetContextPanel().id);
     }
     function _VariousButtonActionsAndEvents(cp) {
         cp.FindChildInLayoutFile('id-major-store-container').AddBlurPanel(cp.FindChildInLayoutFile('id-major-store-filters-panel'));
         cp.FindChildInLayoutFile('id-major-store-container').AddBlurPanel(cp.FindChildInLayoutFile('id-major-store-loading'));
         cp.FindChildInLayoutFile('id-major-store-container').AddBlurPanel(cp.FindChildInLayoutFile('id-major-store-search-results'));
+        // Delayed list size
         cp.FindChildInLayoutFile('id-list-large-icons').SetPanelEvent('onactivate', () => {
             _MakeDelayedLoadList(cp);
         });
@@ -659,6 +764,7 @@ var PopupMajorStore;
             _MakeDelayedLoadList(cp);
         });
         cp.FindChildInLayoutFile('id-list-small-icons').checked = true;
+        // Set Dropdown action
         _SortDropDown(cp).SetPanelEvent('oninputsubmit', () => {
             if (!m_bApplyingSort) {
                 const selected = _SortDropDown(cp).GetSelected();
@@ -684,6 +790,7 @@ var PopupMajorStore;
         cp.FindChildInLayoutFile('id-major-store-receipt').SetPanelEvent('onactivate', () => {
             SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://" + SteamOverlayAPI.GetSteamCommunityURL() + "/my/gcpd/" + SteamOverlayAPI.GetAppID() + "/?tab=creditsaudit");
         });
+        // From the checkout
         function _Callback() {
             _UpdateBalance(cp);
         }
@@ -700,6 +807,7 @@ var PopupMajorStore;
         cp.FindChildInLayoutFile('id-major-store-cart-btn').SetPanelEvent('onmouseout', () => {
             UiToolkitAPI.HideTextTooltip();
         });
+        // Search text field Input
         const elSearchBox = cp.FindChildInLayoutFile('id-major-store-search-box');
         elSearchBox.SetPanelEvent('ontextentrychange', () => {
             _Debounce(cp, SEARCH_DEBOUNCE_HANDLE, .3, () => { _ShowSearchResults(cp, _GetItemsForSearch(cp, elSearchBox.text)); });
@@ -707,6 +815,7 @@ var PopupMajorStore;
         elSearchBox.SetPanelEvent('ontextentrysubmit', () => {
             _ShowSearchResults(cp, _GetItemsForSearch(cp, elSearchBox.text));
         });
+        // The store-wide "see all": every series, no refinements.
         cp.FindChildInLayoutFile('id-major-store-see-all-teams-btn').SetPanelEvent('onactivate', () => {
             _OnActivateClearAll(cp);
             _SetActiveSeriesFilter(cp, NO_SERIES_FILTER);
@@ -714,34 +823,49 @@ var PopupMajorStore;
             _ShowMainPanel(cp, VIEW_CONTENT);
             _SetActiveNavTab(cp, NAV_TAB_NONE);
         });
+        // The per-carousel See All buttons are wired from STORE_NAV_TABS in _SetUpStoreNavTabs.
+        //
+        // Events for Full screen overlay panel that holds filters and search results
+        //
         cp.FindChildInLayoutFile('id-major-store-filters-panel').SetPanelEvent('onactivate', () => {
+            // Eat the clicks
         });
         cp.FindChildInLayoutFile('id-major-store-search-results').SetPanelEvent('onactivate', () => {
+            // Eat the clicks
         });
         const elFloatingFilterPanel = cp.FindChildInLayoutFile('id-major-fullscreen-filter');
+        // A click anywhere in the popup dismisses the sort menu. The content page has to accept
+        // focus for that to work, since handing it focus is what closes the menu.
         cp.FindChildInLayoutFile('id-major-store-content-page').SetAcceptsFocus(true);
         cp.FindChildInLayoutFile('id-major-store-container').SetPanelEvent('onactivate', () => _CloseSortDropDown(cp));
+        // Show filter panel
         cp.FindChildInLayoutFile('id-major-store-sort-filter-btn').SetPanelEvent('onactivate', () => {
             _UpdateFilterSections(cp);
             elFloatingFilterPanel.visible = true;
             _PushOverlay(cp, 'id-major-fullscreen-filter');
         });
+        // Close filter overlay
         cp.FindChildInLayoutFile('id-major-fullscreen-filter-btn').SetPanelEvent('onactivate', () => {
             _PopOverlay();
         });
+        // Close text search overlay
         cp.FindChildInLayoutFile('id-major-fullscreen-text-search-btn').SetPanelEvent('onactivate', () => {
             _PopOverlay();
         });
+        // Filter close Button
         cp.FindChildInLayoutFile('id-major-store-filters-close').SetPanelEvent('onactivate', () => {
             _PopOverlay();
         });
+        // Update Slider text when filter is finished show anim
         function fnOnPropertyTransitionEndEvent(panel, propertyName) {
             if (elFloatingFilterPanel === panel && propertyName === 'opacity') {
                 if (elFloatingFilterPanel.visible === true && !panel.BIsTransparent()) {
                     return true;
                 }
                 if (propertyName === 'opacity') {
+                    // Panel is visible and fully transparent
                     if (elFloatingFilterPanel.visible === true && elFloatingFilterPanel.BIsTransparent()) {
+                        // Set visibility to false and unload resources
                         elFloatingFilterPanel.visible = false;
                         return true;
                     }
@@ -754,6 +878,8 @@ var PopupMajorStore;
         const elBookmark = cp.FindChildInLayoutFile('id-major-store-banners-bookmarks');
         $.RegisterEventHandler('PropertyTransitionEnd', elBookmark, (panel, propertyName) => {
             if (elBookmark.id === panel.id && propertyName === 'opacity') {
+                // Shown and fully transparent: collapse to unload resources. Uses the same 'hidden'
+                // class as _RefreshCarousels so nothing writes .visible behind the class's back.
                 if (!elBookmark.BHasClass('hidden') && elBookmark.BIsTransparent()) {
                     elBookmark.SetHasClass('hidden', true);
                     return true;
@@ -802,6 +928,7 @@ var PopupMajorStore;
         return elParent.FindChildInLayoutFile(id)
             ?? $.CreatePanel('Panel', elParent, id, { class: cls });
     }
+    // Panels are reused across refreshes, so a tile is built once then updated in place.
     function _GetOrCreateTile(elParent, id, snippet, onCreate) {
         let elTile = elParent.FindChildInLayoutFile(id);
         if (!elTile) {
@@ -811,6 +938,7 @@ var PopupMajorStore;
         }
         return elTile;
     }
+    // Builds/refreshes a paged carousel of a single flat list.
     function _PopulateCarousel(elParent, cfg) {
         for (let i = 0; i < cfg.numToShow; i++) {
             const nPage = Math.floor(i / cfg.numTilesPerPage);
@@ -848,6 +976,7 @@ var PopupMajorStore;
             cp.FindChildInLayoutFile('id-major-store-banners-bookmarks').SetHasClass('show', false);
             return;
         }
+        // 'show' drives the fade; container visibility is owned by _RefreshCarousels.
         cp.FindChildInLayoutFile('id-major-store-banners-bookmarks').SetHasClass('show', true);
         const elParent = cp.FindChildInLayoutFile('id-major-store-banner-bookmarked');
         const numTilesPerPage = 8;
@@ -865,6 +994,7 @@ var PopupMajorStore;
                 let elPanel = elCarouselPage.FindChildInLayoutFile('id-carousel-sticker' + stickerIndex);
                 if (!elPanel) {
                     elPanel = $.CreatePanel('Panel', elCarouselPage, 'id-carousel-sticker' + stickerIndex);
+                    // Load once: BLoadLayoutSnippet appends, so re-loading stacks duplicate tiles.
                     elPanel.BLoadLayoutSnippet('store-tile');
                 }
                 if (aSorted[stickerIndex]) {
@@ -897,7 +1027,10 @@ var PopupMajorStore;
     }
     function _UpdateBookmarkSetting(cp, reusePanel, defidx) {
         Bookmarks.toggle(defidx);
+        // Favourites can become empty/non-empty, so the tab set can change.
         _UpdateStoreNavTabs(cp);
+        // Home carousels and the favourites list gain or lose the item, so redraw them in place.
+        // Every other view already shows the toggle on the tile itself.
         if (_IsHomeActive() || State(cp).useBookMarkList) {
             _UpdateVisiblePanel(cp, true);
         }
@@ -905,9 +1038,11 @@ var PopupMajorStore;
     function _SetUpOrgBanners(cp) {
         cp.SetDialogVariable('org-name', g_ActiveTournamentInfo.organization);
         const elParent = cp.FindChildInLayoutFile('id-major-store-banner-org-stickers');
+        // Ranked first; sort is stable so each group keeps schema order.
         const aFilteredStickers = State(cp).aFlatStickersData
             .filter(sticker => sticker.isOrg)
             .sort((a, b) => Number(b.isRanked) - Number(a.isRanked));
+        // number of stickers does not change so make them then update them.  
         aFilteredStickers.forEach((sticker, idx) => {
             let elPanel = elParent.FindChildInLayoutFile('id-org-sticker-' + idx);
             if (!elPanel) {
@@ -918,9 +1053,12 @@ var PopupMajorStore;
         });
     }
     function _SetUpKeyChainsBanner(cp) {
+        // Container visibility is owned by _RefreshCarousels; bail out only to skip building tiles.
         const aKeyChains = State(cp).aFlatKeyChainData;
         if (aKeyChains.length <= 1)
             return;
+        // The banner shows a random subset in random order. Pick it once and keep it: re-renders
+        // (price updates, bookmarking) must not reshuffle the carousel under the user.
         let aKeyChainsForBanner = State(cp).aKeyChainBannerItems;
         if (!aKeyChainsForBanner || aKeyChainsForBanner.length < 1) {
             const itemsMap = new Map();
@@ -932,9 +1070,11 @@ var PopupMajorStore;
             g_ActiveTournamentHighlights.forEach(group => {
                 if (group.highlights.length === 0)
                     return;
+                // Range/count clamped to the stage size so short stages can't index out of bounds.
                 const randomGen = new UniqueRandomUtils.UniqueRandomGenerator(0, group.highlights.length - 1);
                 const count = Math.min(numItemsFromEachStage, group.highlights.length);
                 for (let i = 0; i < count; i++) {
+                    // Out of unique picks means the stage is used up; stop rather than duplicate.
                     const nRandom = randomGen.next();
                     if (nRandom === null)
                         break;
@@ -963,6 +1103,7 @@ var PopupMajorStore;
         });
     }
     function _SetUpChampionsBanner(cp) {
+        // Container visibility is owned by _RefreshCarousels; bail out only to skip building tiles.
         const aChamps = [...State(cp).aFlatStickersData].sort(_CompareByPopularity).filter(sticker => sticker.champion);
         if (aChamps.length < 1)
             return;
@@ -975,19 +1116,26 @@ var PopupMajorStore;
             onUpdateTile: (elPanel, i) => _UpdateTile(cp, elPanel, aChamps, i),
         });
     }
+    //
+    // Ranked banner: every page shows one row per rarity tier, top to bottom. Each row is sorted by
+    // price and paginates on its own, so page 2's top row continues where page 1's top row stopped.
+    //
     const RANKED_ROW_RARITIES = [6, 5, 4];
     const RANKED_TILES_PER_ROW = 8;
     const RANKED_MAX_PAGES = 4;
+    /** Ranked stickers as one price-sorted ( high to low ) row per entry in RANKED_ROW_RARITIES. */
     function _GetRankedRarityRows(cp) {
         const aRanked = State(cp).aFlatStickersData.filter(sticker => sticker.isRanked);
         return RANKED_ROW_RARITIES.map(nRarity => aRanked
             .filter(sticker => sticker.rarity === nRarity)
             .sort((a, b) => (b.price - a.price) || _CompareByPopularity(a, b)));
     }
+    /** Rows turn the page together, so the longest row decides how many pages there are. */
     function _GetRankedPageCount(aRows) {
         const nLongestRow = Math.max(0, ...aRows.map(aRow => aRow.length));
         return Math.min(RANKED_MAX_PAGES, Math.ceil(nLongestRow / RANKED_TILES_PER_ROW));
     }
+    /** Fills one rarity row with its slice of a page. Unused slots collapse so the grid keeps its shape. */
     function _FillRankedRarityRow(cp, elRow, aRow, nRarity, nPage) {
         const nStart = nPage * RANKED_TILES_PER_ROW;
         const aPageStickers = aRow.slice(nStart, nStart + RANKED_TILES_PER_ROW);
@@ -1000,6 +1148,7 @@ var PopupMajorStore;
         }
     }
     function _SetUpRankedBanner(cp) {
+        // Container visibility is owned by _RefreshCarousels; bail out only to skip building tiles.
         const aRows = _GetRankedRarityRows(cp);
         const nPages = _GetRankedPageCount(aRows);
         if (nPages < 1)
@@ -1016,11 +1165,13 @@ var PopupMajorStore;
         }
     }
     function _SetUpTeamView(cp, team) {
+        // Set Panel Title
         const elPanel = cp.FindChildInLayoutFile(VIEW_TEAM);
         elPanel.Data().DisplayedTeam = team;
         const teamName = $.Localize('#CSGO_TeamID_' + team.teamid);
         elPanel.SetDialogVariable('team-name', teamName);
         const elTilesContainer = cp.FindChildInLayoutFile('id-major-store-team-tiles');
+        // Make and update the tiles 1 team 5 players
         const numTiles = 6;
         const randomGen = new UniqueRandomUtils.UniqueRandomGenerator(0, 7);
         for (let i = 0; i < numTiles; i++) {
@@ -1033,10 +1184,12 @@ var PopupMajorStore;
             elPackTile.SetDialogVariable('title', i === 0 ? teamName : team.players[i - 1].nick);
             elPackTile.SetHasClass('player', i > 0);
             const elStickerContainer = elPackTile.FindChildInLayoutFile('team-pack-icons');
+            // const stickerIds = i === 0 ? team.stickerids : team.players[ i - 1 ].stickerids;
             const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
             randomGen.reset();
             let xpos = 0;
             let prices = [];
+            // Get the upto date sticker data for the team and players we want.
             const stickers = i === 0 ?
                 State(cp).aFlatStickersData.filter(sticker => (!sticker.isPlayer && sticker.teamId === team.teamid)) :
                 State(cp).aFlatStickersData.filter(sticker => (sticker.isPlayer && sticker.playerCode === team.players[i - 1].code));
@@ -1046,6 +1199,8 @@ var PopupMajorStore;
                 if (!sticker)
                     sticker = $.CreatePanel('ItemImage', elStickerContainer, 'pack-sticker' + idx, { scaling: 'stretch-to-fit-preserve-aspect' });
                 sticker.itemid = stickers[idx].itemId;
+                // The generator only yields 8 unique values and a pack can hold more stickers
+                // (results + champions), so wrap once it runs dry rather than reading null.
                 const zIndex = randomGen.next() ?? (idx % 8);
                 const rotationSetting = zIndex == 3 ? getRandomInt(-15, 15) : getRandomInt(-95, 85);
                 if (idx % 4 === 0) {
@@ -1086,6 +1241,7 @@ var PopupMajorStore;
         } });
         elPanel.Data().SingleViewDisplayedStickers = aStickers;
     }
+    // Re-run the builders with what the view last showed, for price updates while it is on screen.
     function _RefreshTeamView(cp) {
         const team = cp.FindChildInLayoutFile(VIEW_TEAM).Data().DisplayedTeam;
         if (team) {
@@ -1102,6 +1258,7 @@ var PopupMajorStore;
         const idxLookup = InventoryAPI.GetCacheTypeElementIndexByKey('SeasonalOperations', g_ActiveTournamentInfo.credits_id);
         let nRedeemableBalance = 0;
         if (g_ActiveTournamentInfo.credits_id == InventoryAPI.GetCacheTypeElementFieldByIndex('SeasonalOperations', idxLookup, 'season_value')) {
+            // This could come back "undefined" or "null" and should be treated as zero
             nRedeemableBalance = InventoryAPI.GetCacheTypeElementFieldByIndex('SeasonalOperations', idxLookup, 'redeemable_balance');
             nRedeemableBalance = (nRedeemableBalance === null || nRedeemableBalance === undefined) ? 0 : nRedeemableBalance;
         }
@@ -1111,24 +1268,26 @@ var PopupMajorStore;
             const tempBalance = nRedeemableBalance - State(cp).activatedCredits;
             cp.SetDialogVariableInt('balance', tempBalance);
             function CallAtEndAnimation() {
+                // update the local balance to the new value at the end of the animation
                 _PopOverlay();
                 cp.FindChildInLayoutFile('id-major-store-balance').TriggerClass('popup-major-store__top-bar__balance-anim');
                 cp.SetDialogVariableInt('balance', nRedeemableBalance);
             }
             AddMajorTokensAnim.StartAnim(elNotification, cp.FindChildInLayoutFile('id-major-store-balance'), State(cp).activatedCredits, CallAtEndAnimation);
-            State(cp).activatedCredits = 0;
+            State(cp).activatedCredits = 0; // reset incase panel is called again
         }
         else {
             cp.SetDialogVariableInt('balance', nRedeemableBalance);
         }
     }
     function _UpdateItemsList(oSettings) {
+        // Empty favourites shows the hint; nothing to build.
         if (_UpdateFavoritesEmptyState(oSettings.cp))
             return;
         const elParent = oSettings.cp.FindChildInLayoutFile('id-major-store-content-page');
         let elLister = elParent.FindChildInLayoutFile('id-major-store-items-lister');
         if (!elLister)
-            return;
+            return; // this element wasn't created yet
         const filteredList = _GetFilteredSortedIds(oSettings);
         elLister.SetLoadListItemFunction((elLister, nPanelIdx, reusePanel) => {
             const bIsSticker = 'rawId' in filteredList[nPanelIdx];
@@ -1150,6 +1309,7 @@ var PopupMajorStore;
         if (!oSettings.bDisableScroll)
             elLister.ScrollToTop();
     }
+    // Reads the current filter/sort UI state into a settings object. No DOM mutation.
     function _ReadFilterSettings(cp) {
         const elDropDown = _SortDropDown(cp);
         const aTeams = _GetFilteredTeams(cp);
@@ -1193,6 +1353,7 @@ var PopupMajorStore;
                 searchText: elSearchBox.text
             };
     }
+    // Rebuilds the nav-bar chips that mirror the currently-selected filters, and toggles the clear-all controls.
     function _RenderActiveFilterChips(cp) {
         let numFiltersSelected = 0;
         const elNavBarFiltersParent = cp.FindChildInLayoutFile('id-major-store-filters-active');
@@ -1207,6 +1368,7 @@ var PopupMajorStore;
         _GetFilteredTeams(cp).forEach(btn => fnAddChip(btn, '#CSGO_TeamID_' + btn.Data().teamid, 'id-filter-active-r-' + btn.Data().teamid));
         _GetFilteredRarities(cp).forEach(btn => fnAddChip(btn, '#major_store_filter_type_' + btn.Data().rarity, 'id-filter-active-r-' + btn.Data().rarity));
         REFINEMENT_FILTERS.forEach(f => fnAddChip(cp.FindChildInLayoutFile(f.toggleId), f.loc, f.chipId));
+        // Series is tab-owned, so it only earns a chip in views where the user picks it.
         if (_IsMixedContentView(cp)) {
             SERIES_FILTERS.forEach(f => fnAddChip(cp.FindChildInLayoutFile(f.toggleId), f.loc, f.chipId));
         }
@@ -1225,6 +1387,7 @@ var PopupMajorStore;
                 elActiveFilterBtn.DeleteAsync(0);
             });
         }
+        // Clear-all controls only make sense with more than one active filter.
         cp.FindChildInLayoutFile('id-filter-active-clear_all').visible = numFiltersSelected > 1;
         cp.FindChildInLayoutFile('id-major-store-filters-clear').visible = numFiltersSelected > 1;
     }
@@ -1234,6 +1397,7 @@ var PopupMajorStore;
         elActiveFilterBtn.SetDialogVariable('name', $.Localize(locString, selectedFilterBtn));
         elActiveFilterBtn.SetPanelEvent('onactivate', () => {
             selectedFilterBtn.checked = false;
+            // Dropping charms-only gives the sticker refinements back, same as unticking it in the panel.
             if (elActiveFilterBtn.id === 'id-filter-active-k-only') {
                 _EnableDisableFilterPanelBtns(cp, false);
             }
@@ -1249,6 +1413,7 @@ var PopupMajorStore;
         if (!doNotClearSearch) {
             _ClearTextSearch(cp);
         }
+        // Sort is not a filter, so it is left alone. Each navigation sets its own via _ApplyViewSort.
     }
     function _ClearTextSearch(cp) {
         const elSearchBox = cp.FindChildInLayoutFile('id-major-store-search-box');
@@ -1296,8 +1461,10 @@ var PopupMajorStore;
         reusePanel.SwitchClass('sticker-type', stickerData.champion ? 'champion' : stickerData.isRanked ? 'ranked' : '');
         reusePanel.FindChildInLayoutFile('id-store-item-rarity-bar').style.washColor = InventoryAPI.GetItemRarityColor(stickerData.itemId);
         reusePanel.SetHasClass('is-final', false);
+        // Top-40 badge; popularityRank is stamped on every sticker in _UpdateStickerData.
         reusePanel.FindChildInLayoutFile('id-store-item-hot-trend').SetHasClass('show', stickerData.popularityRank < 40);
         reusePanel.SetHasClass('is-player', stickerData.isPlayer);
+        // Image
         reusePanel.FindChildInLayoutFile('id-store-item-image').itemid = stickerData.itemId;
         reusePanel.FindChildInLayoutFile('id-store-item-team-logo').SetImage(stickerData.isOrg ?
             'file://{images}/tournaments/events/tournament_logo_' + g_ActiveTournamentInfo.eventid + '.svg' :
@@ -1311,17 +1478,21 @@ var PopupMajorStore;
             reusePanel.FindChildInLayoutFile('id-store-item-real-price').SetHasClass('show', false);
             _DeleteModelPanel(reusePanel);
         });
+        // The model is only built on hover, so a list re-render under a stationary cursor would
+        // leave the previous item's model up until the next mouse out/in.
         _RebindOpenModelPanel(reusePanel, stickerData.itemId);
         reusePanel.FindChildInLayoutFile('id-inspect-sticker').SetPanelEvent('onactivate', () => {
             _OpenFullscreenInspect(cp, stickerData);
         });
     }
+    // Repoints an already-open hover model at a new item. Does not create one.
     function _RebindOpenModelPanel(reusePanel, itemId) {
         const MapPanel = reusePanel.FindChildInLayoutFile('id-store-item-model');
         if (MapPanel && MapPanel.IsValid())
             MapPanel.SetItemItemId(itemId, '');
     }
     function _MakeModelPanel(reusePanel, itemId) {
+        // Model Panel
         let elParent = reusePanel.FindChildInLayoutFile('id-store-item-image_container');
         let MapPanel = elParent.FindChildInLayoutFile('id-store-item-model');
         if (!MapPanel) {
@@ -1348,6 +1519,8 @@ var PopupMajorStore;
             let nRenderInterval = 1;
             MapPanel.SetRenderInterval(nRenderInterval);
         }
+        // Always rebind: tiles are recycled, and a pending DeleteAsync leaves the old panel findable,
+        // so a surviving panel would otherwise keep showing the item it was created with.
         MapPanel.SetItemItemId(itemId, '');
     }
     function _DeleteModelPanel(reusePanel) {
@@ -1367,7 +1540,9 @@ var PopupMajorStore;
         reusePanel.SetHasClass('is-player', false);
         reusePanel.SetHasClass('is-final', keychainData.stage === 97);
         reusePanel.SetDialogVariable('stage', $.Localize('#CSGO_Tournament_Event_Stage_' + keychainData.stage));
+        // Image
         reusePanel.FindChildInLayoutFile('id-store-item-image').itemid = keychainData.itemId;
+        // Teams
         reusePanel.FindChildInLayoutFile('id-store-item-team-1').SetImage('file://{images}/tournaments/teams/' + PredictionsAPI.GetTeamTag(keychainData.teamid1) + '.svg');
         reusePanel.FindChildInLayoutFile('id-store-item-team-2').SetImage('file://{images}/tournaments/teams/' + PredictionsAPI.GetTeamTag(keychainData.teamid2) + '.svg');
         reusePanel.FindChildInLayoutFile('id-store-item-team-bg-1').SetImage('file://{images}/tournaments/teams/' + PredictionsAPI.GetTeamTag(keychainData.teamid1) + '.svg');
@@ -1393,6 +1568,8 @@ var PopupMajorStore;
             reusePanel.FindChildInLayoutFile('id-store-item-real-price').SetHasClass('show', false);
             _HideVideoClip(reusePanel, keychainData.itemId);
         });
+        // A sticker tile recycled into a charm tile can still hold a 3D model, and a clip already
+        // playing under a stationary cursor would keep showing the previous charm.
         _DeleteModelPanel(reusePanel);
         if (reusePanel.FindChildTraverse('id-store-item-movie-container')?.BHasClass('play'))
             _ShowVideoClip(reusePanel, keychainData.itemId);
@@ -1429,6 +1606,7 @@ var PopupMajorStore;
     }
     function _UpdatePriceAnimOnTile(stickerData, reusePanel, cp) {
         const elChange = reusePanel.FindChildInLayoutFile('id-store-item-price-change');
+        // Ranked stickers never animate a price change.
         const bIsRanked = ('isRanked' in stickerData) && stickerData.isRanked;
         const bPriceChanged = !bIsRanked
             && stickerData.oldPrice !== undefined
@@ -1440,6 +1618,8 @@ var PopupMajorStore;
         }
         reusePanel.SetDialogVariableInt('price-change', Math.abs(stickerData.price - stickerData.oldPrice));
         elChange.SwitchClass('direction', stickerData.price > stickerData.oldPrice ? 'higher' : 'lower');
+        // Animate once per change, and only inside the post-update window. 'price-reveal' hands the
+        // timing to CSS, so nothing holds this recycled panel across a timer.
         const bFirstReveal = !State(cp).stopTileUpdate && !stickerData.priceChangeRevealed;
         if (bFirstReveal) {
             stickerData.priceChangeRevealed = true;
@@ -1450,6 +1630,8 @@ var PopupMajorStore;
     function _SetPriceDataOnTile(stickerData, reusePanel) {
         reusePanel.SetDialogVariableInt('price', stickerData.price);
         reusePanel.FindChildInLayoutFile('id-store-item-price').text = ('isRanked' in stickerData && stickerData.isRanked) ? $.Localize('#major_store_price_locked', reusePanel) : $.Localize('#major_store_price', reusePanel);
+        // You can set this string to debug:
+        // 		"major_store_price"				"{d:price} {d:weeklyLow}-{d:weeklyHigh} (-{d:weeklyDiscount}%) <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>"
         reusePanel.SetDialogVariableInt('weeklyLow', stickerData.weeklyLow);
         reusePanel.SetDialogVariableInt('weeklyHigh', stickerData.weeklyHigh);
         let posDot = (stickerData.weeklyHigh > stickerData.weeklyLow)
@@ -1457,6 +1639,7 @@ var PopupMajorStore;
             : 100;
         posDot = Math.floor(Math.max(0, Math.min(96, posDot)));
         reusePanel.FindChildInLayoutFile('id-store-item-price-pos').style.transform = 'translateX(' + posDot + '%)';
+        // reusePanel.SetDialogVariableInt( 'weeklyDiscount', Math.min( Math.trunc( filteredList[nPanelIdx].weeklyPctReductionFromHigh ), 99 ) );
     }
     function _ShoppingCartControlsOnTile(stickerData, reusePanel) {
         const shopItem = { id: stickerData.itemId, name: stickerData.displayName, price: stickerData.price, oldPrice: stickerData.oldPrice };
@@ -1486,8 +1669,11 @@ var PopupMajorStore;
         });
     }
     function _OpenFullscreenInspect(cp, itemData) {
+        // From the inspect
         function _Callback() {
+            // The inspect popup can write the watch list directly, so drop our cache before re-reading.
             Bookmarks.invalidate();
+            // Redraw in place so the list keeps its scroll position.
             _UpdateVisiblePanel(cp, true);
         }
         ;
@@ -1521,14 +1707,17 @@ var PopupMajorStore;
             aFilteredStickers = btnKeyChainsToggle.checked ? State(cp).aFlatKeyChainData : State(cp).aFlatStickersData;
         }
         aFilteredStickers = aFilteredStickers.filter(s => _MatchesSeriesFilter(s, FilterSortSettings));
+        // Selected teams
         if (FilterSortSettings.selectedTeamIds.length > 0) {
             aFilteredStickers = aFilteredStickers.filter(sticker => FilterSortSettings.selectedTeamIds.includes(sticker.teamId));
         }
+        // Only player or teams od keychains
         if (FilterSortSettings.playersOnly || FilterSortSettings.teamsOnly || FilterSortSettings.keyChainsOnly) {
             aFilteredStickers = aFilteredStickers.filter(sticker => (('kc_highlight' in sticker) && FilterSortSettings.keyChainsOnly) ||
                 (!('kc_highlight' in sticker) && sticker.isPlayer && FilterSortSettings.playersOnly) ||
                 (!('kc_highlight' in sticker) && !sticker.isPlayer && FilterSortSettings.teamsOnly));
         }
+        // rarity
         if (FilterSortSettings.rarity.length > 0) {
             aFilteredStickers = aFilteredStickers.filter(sticker => FilterSortSettings.rarity.includes(sticker.rarity));
         }
@@ -1538,12 +1727,14 @@ var PopupMajorStore;
             let aField = a[filterSetting];
             let bField = b[filterSetting];
             if (filterSetting === 'name') {
+                // When comparing names, always compare case-insensitive
                 aField = aField.toLowerCase();
                 bField = bField.toLowerCase();
             }
             if (aField != bField) {
                 return ((aField < bField) ? -1 : 1) * nSortDirection;
             }
+            // Tie-break when the preferred sort field is equal.
             return _CompareByPopularity(a, b);
         });
     }
@@ -1582,9 +1773,13 @@ var PopupMajorStore;
                 rarityBtn.Data().rarity = r;
             }
         });
+        // Every toggle re-filters the list. The refinements ( teams, rarities, team / player only ) carry
+        // the 'filter-button' attribute Clear All already walks, and the series toggles are the
+        // SERIES_FILTERS rows, so neither set is named again here.
         const fnRefilter = () => _UpdateItemsList({ cp });
         elFilterPanel.FindChildrenWithAttributeTraverse('filter-button').forEach(btn => btn.SetPanelEvent('onactivate', fnRefilter));
         SERIES_FILTERS.forEach(series => elFilterPanel.FindChildInLayoutFile(series.toggleId).SetPanelEvent('onactivate', fnRefilter));
+        // Charms-only also disables the sticker refinements.
         const btnKeyChainsOnly = elFilterPanel.FindChildInLayoutFile('id-major-store-filter-keychains').FindChildInLayoutFile('id-slider-btn');
         btnKeyChainsOnly.SetDialogVariable('slide_toggle_text', $.Localize('#major_store_filter_info_keychains'));
         btnKeyChainsOnly.SetPanelEvent('onactivate', () => {
@@ -1603,6 +1798,8 @@ var PopupMajorStore;
             elClearAllNavBtn.visible = false;
         });
     }
+    /** Clear All means "drop my refinements", so the sort is untouched. The nav tabs own the series,
+        so it survives too -- unless the contents are mixed, where it is the user's to set and clear. */
     function _ClearAllFilters(cp) {
         if (_IsMixedContentView(cp)) {
             _SetActiveSeriesFilter(cp, NO_SERIES_FILTER);
@@ -1617,6 +1814,7 @@ var PopupMajorStore;
         _ApplyViewSort(cp, State(cp).activeSort);
     }
     function _Debounce(cp, handleName, delay, fnAction) {
+        // Dynamic handle names, so index the raw bag rather than the typed StoreState_t.
         const data = cp.Data();
         if (data[handleName]) {
             $.CancelScheduled(data[handleName]);
@@ -1624,6 +1822,7 @@ var PopupMajorStore;
         }
         data[handleName] = $.Schedule(delay, fnAction);
     }
+    // Search
     function _ScoreStickerSearch(stickers, lowerTokens) {
         const szMajor = $.Localize('#major_store_nav_tab_major').toLowerCase();
         const szChampions = $.Localize('#major_store_nav_tab_champions').toLowerCase();
@@ -1636,6 +1835,7 @@ var PopupMajorStore;
             const team = (sticker.teamName) ? sticker.teamName.toLowerCase() : '';
             const real = (sticker.realName) ? sticker.realName.toLowerCase() : '';
             const name = (sticker.name) ? sticker.name.toLowerCase() : '';
+            // Category words mirror the Results filter row. A champion result sticker matches both.
             const category = (sticker.champion ? szChampions + ' ' : '')
                 + (sticker.isRanked ? szResults : '')
                 + (!sticker.champion && !sticker.isRanked ? szMajor : '');
@@ -1697,6 +1897,7 @@ var PopupMajorStore;
         const tokens = searchTxt.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
         if (tokens.length === 0)
             return { stickerResults: [], keychainResults: [] };
+        // The flyout and the item list both ask for the same query, so memo the last one.
         const szKey = tokens.join(' ');
         const cached = State(cp).searchCache;
         if (cached && cached.key === szKey)
@@ -1730,6 +1931,7 @@ var PopupMajorStore;
                 $.CreatePanel('Panel', elResultsPanel, '', { class: 'major-search-results__section__separator' });
             bNeedSeparator = true;
             const elSection = $.CreatePanel('Panel', elResultsPanel, section.id, { class: 'major-search-results__section' });
+            // Button reports the full count; only a capped number of tiles are built.
             _MakeShowSearchResultsBtn(cp, elSection, section.items.length);
             const elListParent = $.CreatePanel('Panel', elSection, '', { class: 'major-search-results__list' });
             section.items.slice(0, MAX_SEARCH_RESULTS_SHOWN).forEach(item => _MakeSearchTile(cp, elListParent, item));
@@ -1747,9 +1949,11 @@ var PopupMajorStore;
             _PopOverlay();
             cp.FindChildInLayoutFile('id-major-store-filter-keychains').FindChildInLayoutFile('id-slider-btn').checked = bIsKeychains;
             _EnableDisableFilterPanelBtns(cp, bIsKeychains);
+            // Results span every series; the user narrows from the panel if they want to.
             _SetActiveSeriesFilter(cp, NO_SERIES_FILTER);
             _ApplyViewSort(cp, VIEW_SORTS.Search);
             _ShowMainPanel(cp, VIEW_CONTENT);
+            // Search results are not a category, so leave the nav bar unhighlighted.
             _SetActiveNavTab(cp, NAV_TAB_NONE);
         });
     }
@@ -1771,16 +1975,21 @@ var PopupMajorStore;
         });
     }
     function OnSearchContextMenuCallBack(msg) {
+        $.Msg('OnSearchContextMenuCallBack: You pressed ' + msg + '\n');
     }
+    // Shared "See All" behaviour: clear filters, optionally tick one category toggle, show the list.
     function _ShowCategoryList(cp, filterToggleId, sort) {
         _OnActivateClearAll(cp);
+        // The tab owns the series, so set it after the refinements are cleared.
         _SetActiveSeriesFilter(cp, filterToggleId);
+        // Sort before showing, so an in-place refresh already has the right order.
         _ApplyViewSort(cp, sort);
         _ShowMainPanel(cp, VIEW_CONTENT);
     }
     function _IsFavoritesEmpty(cp) {
         return State(cp).useBookMarkList && _GetBookmarkedItemsList(cp).length < 1;
     }
+    /** Favorites with nothing in it shows the hint instead of building a list. */
     function _UpdateFavoritesEmptyState(cp) {
         const bEmpty = _IsFavoritesEmpty(cp);
         cp.FindChildInLayoutFile('id-major-store-bookmark-hint').SetHasClass('hidden', !bEmpty);
@@ -1790,21 +1999,29 @@ var PopupMajorStore;
             elLister.visible = !bEmpty;
         return bEmpty;
     }
+    // Rebuilds every registered carousel. Entries not listed simply never get built.
     function _RefreshCarousels(cp) {
         STORE_CAROUSELS.forEach(carousel => {
+            // Containers carry 'hidden' in the layout, so an unregistered carousel is never shown.
             const elBanner = cp.FindChildInLayoutFile(carousel.bannerId);
             if (elBanner)
                 elBanner.SetHasClass('hidden', !carousel.hasItems(cp));
+            // Still refreshed when empty so a carousel can drive its own empty state
+            // ( the favourites banner shows a hint panel ).
             carousel.refresh(cp);
         });
     }
+    // Home is the carousels plus the tab strip, which gains or loses tabs as data and favourites change.
     function _RefreshHome(cp) {
         _RefreshCarousels(cp);
         _UpdateStoreNavTabs(cp);
     }
+    // Wires each carousel's See All button. A carousel whose button is absent from the layout is
+    // skipped, so a carousel can be pulled from the XML without touching this code.
     function _SetUpCarouselSeeAllButtons(cp) {
         STORE_CAROUSELS.forEach(carousel => {
             if (carousel.navTabKey && !STORE_NAV_TABS.some(tab => tab.key === carousel.navTabKey)) {
+                $.Msg('PopupMajorStore: carousel "' + carousel.key + '" has navTabKey "' + carousel.navTabKey + '" with no matching tab');
             }
             const elSeeAll = cp.FindChildInLayoutFile(carousel.seeAllBtnId);
             if (!elSeeAll)
@@ -1816,10 +2033,12 @@ var PopupMajorStore;
             });
         });
     }
+    // Builds one tab per nav registry entry. Deliberately knows nothing about carousels.
     function _SetUpStoreNavTabs(cp) {
         const elParent = cp.FindChildInLayoutFile('id-major-store-nav-tabs-container');
         STORE_NAV_TABS.forEach((tab, i) => {
             if (STORE_NAV_TABS.findIndex(t => t.key === tab.key) !== i) {
+                $.Msg('PopupMajorStore: duplicate nav tab key "' + tab.key + '"; only the first is used');
             }
             let elTab = elParent.FindChild(tab.key);
             if (!elTab) {
@@ -1843,6 +2062,8 @@ var PopupMajorStore;
         });
         _UpdateStoreNavTabs(cp);
     }
+    // Show a tab only when its category actually has items. Driven by the data, not by whether
+    // the matching carousel is present or visible.
     function _UpdateStoreNavTabs(cp) {
         const elParent = cp.FindChildInLayoutFile('id-major-store-nav-tabs-container');
         STORE_NAV_TABS.forEach(tab => {
@@ -1861,6 +2082,7 @@ var PopupMajorStore;
         const elParent = cp.FindChildInLayoutFile('id-major-store-nav-tabs-container');
         const elHome = cp.FindChildInLayoutFile('id-major-store-nav-home');
         m_bSyncingNavTabs = true;
+        // Drive every tab, so an unknown key leaves nothing lit rather than a stale highlight.
         let bMatched = (key === 'home');
         elHome.checked = bMatched;
         STORE_NAV_TABS.forEach(tab => {
@@ -1871,7 +2093,9 @@ var PopupMajorStore;
             bMatched = bMatched || elTab.checked;
         });
         m_bSyncingNavTabs = false;
+        // NAV_TAB_NONE clears on purpose; anything else failing to match is a registry mistake.
         if (!bMatched && key !== NAV_TAB_NONE) {
+            $.Msg('PopupMajorStore: no nav tab for key "' + key + '"; nav bar left unhighlighted');
         }
     }
     function _FindView(viewId) {
@@ -1883,14 +2107,18 @@ var PopupMajorStore;
     function _IsHomeActive() {
         return _ActiveView()?.id === VIEW_HOME;
     }
+    // Swaps the main view. What the incoming view needs comes from its STORE_VIEWS row.
     function _ShowMainPanel(cp, viewId) {
         _CloseSortDropDown(cp);
         const view = _FindView(viewId);
         const elNext = cp.FindChildInLayoutFile(viewId);
         if (!view || !elNext) {
+            $.Msg('PopupMajorStore: "' + viewId + '" is not in STORE_VIEWS or the layout');
             return;
         }
         if (elNext === m_activeMain) {
+            // Already up. The list serves several tabs, so it rebuilds and replays the reveal so a
+            // tab-to-tab move looks like arriving from Home. Every other view ignores the repeat.
             if (view.rebuildIfActive) {
                 view.onShow?.(cp);
                 elNext.TriggerClass('panel-reveal');
@@ -1910,6 +2138,8 @@ var PopupMajorStore;
         _UpdateFooterButtons(cp);
         $.DispatchEvent('CSGOPlaySoundEffect', 'inventory_inspect_close', 'MOUSE');
     }
+    // Back and Escape step out of a drill-down ( single view to team view ) and otherwise go Home,
+    // so the back button, Escape and the Home tab all leave the same state.
     function _GoBack(cp) {
         const szBackTarget = _ActiveView()?.backTarget;
         if (szBackTarget) {
@@ -1919,6 +2149,7 @@ var PopupMajorStore;
             StoreNavActions.Home(cp);
         }
     }
+    // Close only from Home, Back everywhere else.
     function _UpdateFooterButtons(cp) {
         const bHome = _IsHomeActive();
         cp.FindChildInLayoutFile('id-popup-major-store-close-btn').visible = bHome;
@@ -1935,19 +2166,23 @@ var PopupMajorStore;
         const topOverlay = m_overlayStack.pop();
         if (topOverlay && topOverlay.IsValid()) {
             topOverlay.AddClass('hidden');
-            return true;
+            return true; // Successfully closed an overlay
         }
-        return false;
+        return false; // Stack was empty
     }
+    // Handles the Escape key (Cancel event).
     function OnCancelPressed() {
+        // If loading is active, block ESC completely.
         if (m_overlayStack.includes($.GetContextPanel().FindChildInLayoutFile('id-major-store-loading'))) {
             return true;
         }
+        //If there are popups, close the most recent one.
         if (m_overlayStack.length > 0) {
             const topOverlay = m_overlayStack.pop();
             $.GetContextPanel().FindChildTraverse(topOverlay.id).AddClass('hidden');
             return true;
         }
+        // No overlays and not on Home: step back one view, the same as the back button.
         if (_ActiveView() && !_IsHomeActive()) {
             _GoBack($.GetContextPanel());
             return true;
@@ -1956,10 +2191,15 @@ var PopupMajorStore;
         return true;
     }
     PopupMajorStore.OnCancelPressed = OnCancelPressed;
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         const cp = $.GetContextPanel();
         $.RegisterEventHandler('ReadyForDisplay', cp, ReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', cp, UnreadyForDisplay);
+        // Register the global (unhandled) GC subscriptions exactly once for this popup instance.
+        // These are cleaned up when the popup's JS context is destroyed on close 
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', ReadyForDisplay);
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_UpdateConnectionToGC', ReadyForDisplay);
         $.RegisterForUnhandledEvent('PanoramaComponent_Store_VolatileShopSubscribe', (...args) => { OnVolatileShopSubscribe(...args, cp); });

@@ -3,10 +3,14 @@
 var AddMajorTokensAnim;
 (function (AddMajorTokensAnim) {
     function SetTransitionEndEvent(elPanel) {
+        // Add property once
         if (!elPanel.Data().PropertyTransitionEndHandler) {
+            // elPanel.visible = false;
             function fnOnPropertyTransitionEndEventNotifications(panel, propertyName) {
                 if (elPanel === panel && propertyName === 'opacity') {
+                    // Panel is visible and fully transparent
                     if (elPanel.visible === true && elPanel.BIsTransparent()) {
+                        // Set visibility to false and unload resources
                         elPanel.visible = false;
                         return true;
                     }

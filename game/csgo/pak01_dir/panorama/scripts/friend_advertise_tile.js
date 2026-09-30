@@ -48,6 +48,7 @@ var FriendAdvertiseTile;
             xuid: _m_xuid,
             do_fx: true,
             full_details: false,
+            //	api:'partybrowser',
             rating_type: szSkillGroupType,
             leaderboard_details: { score: score },
             local_player: _m_xuid === MyPersonaAPI.GetXuid()
@@ -55,6 +56,7 @@ var FriendAdvertiseTile;
         RatingEmblem.SetXuid(options);
     }
     function _OpenContextMenu(xuid) {
+        // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
         $.DispatchEvent('SidebarContextMenuActive', true);
         let contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid +
             '&type=nearby', () => $.DispatchEvent('SidebarContextMenuActive', false));

@@ -7,6 +7,7 @@ var PopupTournamentTeamsList;
 (function (PopupTournamentTeamsList) {
     function Init() {
         let journalId = $.GetContextPanel().GetAttributeString("journalid", '');
+        // graffitiList.push( g_ActiveTournamentInfo );
         let graffitis = [];
         g_ActiveTournamentTeams.forEach(team => { graffitis.push(team.stickerid_graffiti); });
         graffitis.push(g_ActiveTournamentInfo.stickerid_graffiti);

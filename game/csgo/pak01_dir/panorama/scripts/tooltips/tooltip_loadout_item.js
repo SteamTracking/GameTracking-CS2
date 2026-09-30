@@ -8,6 +8,7 @@ var TooltipLoadoutItem;
         let id = ctx.GetAttributeString("itemid", "");
         let nameOnly = ctx.GetAttributeString("nameonly", "");
         let slot = ctx.GetAttributeString("slot", "");
+        // name
         let idForItemName = id;
         if (slot === 'spray0') {
             idForItemName = ItemInfo.GetFauxReplacementItemID(id, 'graffiti');
@@ -20,6 +21,7 @@ var TooltipLoadoutItem;
         else {
             $.GetContextPanel().FindChildInLayoutFile('id-tooltip-layout-name').style.color = 'white';
         }
+        // description
         $.GetContextPanel().FindChildInLayoutFile('id-tooltip-layout-desc').visible = nameOnly === 'true';
         $.GetContextPanel().FindChildInLayoutFile('id-tooltip-layout-seperator').visible = nameOnly === 'true';
         if (nameOnly === 'true') {

@@ -36,6 +36,7 @@ var LoadoutGrid;
         ct: '',
         noteam: '',
     };
+    // helper for getting correct slot name for weapon.
     const m_arrGenericCharacterGlobalSlots = [
         { slot: 'customplayer', category: 'customplayer' },
         { slot: 'clothing_hands', category: 'clothing' },
@@ -56,6 +57,7 @@ var LoadoutGrid;
             ? false
             : true;
     }
+    // -------Events Handeler registration and unregistration-------
     function OnReadyForDisplay() {
         if (!m_hasRunFirstTime) {
             m_hasRunFirstTime = true;
@@ -67,15 +69,19 @@ var LoadoutGrid;
             UpdateGridFilterIcons();
             UpdateGridShuffleIcons();
             UpdateItemList();
+            // we might have missed OnEquipSlotChanged events, so update all equipped items
             UpdateCharModel('ct');
             UpdateCharModel('t');
             FillOutGridItems('ct');
             FillOutGridItems('t');
+            // We do this here because OnReadyForDisplay() once the panel is visible fires after other events
+            // But when the panel is created it fires before other events.
             m_updatedFromShowItemInLoadout = m_updatedFromShowItemInLoadout ? false : false;
         }
         m_equipSlotChangedHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Loadout_EquipSlotChanged', OnEquipSlotChanged);
         m_setShuffleEnabledHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Loadout_SetShuffleEnabled', UpdateGridShuffleIcons);
         m_inventoryUpdatedHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', () => {
+            $.Msg('LoadoutGrid-PanoramaComponent_MyPersona_InventoryUpdated');
             OnMyPersonaInventoryUpdated();
         });
     }
@@ -115,16 +121,20 @@ var LoadoutGrid;
         }
         FillOutRowItems('ct');
         FillOutRowItems('t');
-        UpdateGridFilterIcons();
+        UpdateGridFilterIcons(); // e.g. if you moved or unequipped the weapon you're filtering by
     }
+    // -------------------------------------------------------------------------------------------------------
     function Init() {
         UpdateCharModel('ct');
         UpdateCharModel('t');
         SetUpTeamSelectBtns();
         InitSortDropDown();
         UpdateGridShuffleIcons();
+        // Select ct team loadout as first selection.
+        // The Style 'loadout_t_selected' is applied by defaul_FillOutGridItemst so when we choose ct on display we get the animation.
         $.DispatchEvent("Activated", $.GetContextPanel().FindChildInLayoutFile('id-loadout-select-team-btn-t'), "mouse");
         $.DispatchEvent("Activated", $.GetContextPanel().FindChildInLayoutFile('id-loadout-select-team-btn-ct'), "mouse");
+        // Disable drag scrolling. It's annoying when you're trying to drag item to your loadout.
         let elItemList = $('#id-loadout-item-list');
         elItemList.SetAttributeInt('DragScrollSpeedHorizontal', 0);
         elItemList.SetAttributeInt('DragScrollSpeedVertical', 0);
@@ -147,10 +157,15 @@ var LoadoutGrid;
         let elSection = $.GetContextPanel().FindChildInLayoutFile('id-loadout-grid-section-' + suffex);
         $.GetContextPanel().SetHasClass('loadout_t_selected', suffex === 't');
         elSection.FindChildInLayoutFile('id-loadout-grid-slots-' + suffex).hittest = true;
+        // keeping these active so you can filter and change team when you this these on the other side. Leaving here may use later.
+        // elSection.FindChildInLayoutFile( 'id-loadout-row-slots-' + suffex ).hittestchildren = true;
         let oppositeTeam = suffex === 't' ? 'ct' : 't';
         let elOppositeSection = $.GetContextPanel().FindChildInLayoutFile('id-loadout-grid-section-' + oppositeTeam);
         elOppositeSection.FindChildInLayoutFile('id-loadout-grid-slots-' + oppositeTeam).hittest = false;
+        // keeping these active so you can filter and change team when you this these on the other side. Leaving here may use later.
+        // elOppositeSection.FindChildInLayoutFile( 'id-loadout-row-slots-' + oppositeTeam ).hittestchildren = false;
         m_selectedTeam = suffex;
+        // Update the slots to make sure we have the right ones when you switch teams
         FillOutGridItems(m_selectedTeam);
         FillOutRowItems(m_selectedTeam);
         if (!_BIsSlotAndTeamConfigurationValid(GetSelectedGroup(), m_selectedTeam)) {
@@ -158,6 +173,7 @@ var LoadoutGrid;
             elGroupDropdown.SetSelected('all');
         }
         else {
+            // UpdateFilters() transitively calls UpdateItemList(). Both can be necessary when changing teams.
             UpdateFilters();
         }
         UiToolkitAPI.HideCustomLayoutTooltip('JsLoadoutItemTooltip');
@@ -181,6 +197,7 @@ var LoadoutGrid;
         let glovesId = LoadoutAPI.GetItemID(team, 'clothing_hands');
         let petId = InventoryAPI.GetPetItemID();
         const settings = ItemInfo.GetOrUpdateVanityCharacterSettings(charId);
+        // If we're filtering by something specific, prefer that over the given weapon ID.
         if (team == m_selectedTeam) {
             let selectedGroup = GetSelectedGroup();
             if (['melee', 'secondary0', 'c4', 'equipment2'].includes(selectedGroup)) {
@@ -197,14 +214,17 @@ var LoadoutGrid;
                 }
             }
         }
+        // Default to the last weapon we showed.
         if (!weaponId || weaponId == '0') {
             weaponId = m_currentCharWeaponId[team];
             if (!weaponId || weaponId == '0')
-                weaponId = LoadoutAPI.GetItemID(team, 'melee');
+                weaponId = LoadoutAPI.GetItemID(team, 'melee'); // Default to knife.
         }
+        // Only update if necessary. Unnecessary updates can result in gloves blinking.
         if (charId != m_currentCharId[team] ||
             glovesId != m_currentCharGlovesId[team] ||
             weaponId != m_currentCharWeaponId[team]
+            // Always update if a pet's equipped in-case something about the pet changed.
             || Number(petId) != 0 || Number(m_currentPetId[team]) != 0) {
             m_currentCharId[team] = charId;
             m_currentCharGlovesId[team] = glovesId;
@@ -223,6 +243,7 @@ var LoadoutGrid;
         for (let column of elGrid.Children()) {
             let aPanels = column.Children().filter(panel => panel.GetAttributeString('data-slot', '') !== '');
             for (let i = 0; i < aPanels.length; i++) {
+                // grenades and equipment are non interactive
                 if (column.GetAttributeString('data-slot', '') === 'equipment' ||
                     column.GetAttributeString('data-slot', '') === 'grenade') {
                     UpdateSlotItemImage(team, aPanels[i], true, false, true);
@@ -241,7 +262,7 @@ var LoadoutGrid;
         let elRow = elSection.FindChildInLayoutFile('id-loadout-row-slots-' + team);
         for (let entry of m_arrGenericCharacterGlobalSlots) {
             if (entry.required_team && entry.required_team !== team)
-                continue;
+                continue; // skip C4 slot for CTs
             let panelId = 'id-loadout-row-slots-' + entry.slot + '-' + team;
             let elBtn = elRow.FindChild(panelId);
             if (!elBtn) {
@@ -284,6 +305,7 @@ var LoadoutGrid;
         }
     }
     function BTeamHasIconForSlot(team, slot) {
+        // T has no defuser slot in the loadout grid
         return (team == "t" && slot == "equipment3") ? false : true;
     }
     function UpdateSlotItemImage(team, elPanel, bUseIcon, bReplacable, bIsEquipment = false) {
@@ -297,7 +319,7 @@ var LoadoutGrid;
                 class: 'loadout-slot__image'
             });
             if (slot === 'spray0') {
-                itemImage.SetAttributeInt('ItemInventoryImagePurpose', 1);
+                itemImage.SetAttributeInt('ItemInventoryImagePurpose', 1); // k_EEconItemInventoryImagePurpose_Graffiti
             }
             if (!bUseIcon) {
                 elRarity = $.CreatePanel('Panel', elPanel, 'id-loadout-item-rarity', {
@@ -336,6 +358,7 @@ var LoadoutGrid;
                 $.CreatePanel('ItemImage', elContainer, 'loudout-item-image-' + slot, {
                     class: 'loadout-slot__image'
                 });
+                $.Msg('Shuffle Name: ' + InventoryAPI.GetItemName(element));
             }
         }
         elPanel.Data().itemid = itemid;
@@ -377,7 +400,9 @@ var LoadoutGrid;
     }
     function GetDefName(itemid, slot) {
         let defName = InventoryAPI.GetItemDefinitionName(itemid);
+        $.Msg('InventoryAPI.GetItemBaseName( itemid ): ' + InventoryAPI.GetItemBaseName(itemid));
         let aDefName = [];
+        //
         if (slot === 'clothing_hands' || slot === 'melee' || slot === 'customplayer' || itemid === '0') {
             return slot;
         }
@@ -423,6 +448,7 @@ var LoadoutGrid;
         });
         elPanel.SetPanelEvent('onmouseover', () => {
             m_mouseOverSlot = elPanel.GetAttributeString('data-slot', '');
+            $.Msg('loudout-item-image-' + m_mouseOverSlot);
             UpdateCharModel(m_selectedTeam, LoadoutAPI.GetItemID(m_selectedTeam, m_mouseOverSlot));
             UiToolkitAPI.ShowCustomLayoutParametersTooltip('loudout-item-image-' + m_mouseOverSlot, 'JsLoadoutItemTooltip', 'file://{resources}/layout/tooltips/tooltip_loadout_item.xml', 'itemid=' + elPanel.Data().itemid +
                 '&' + 'slot=' + m_mouseOverSlot +
@@ -444,6 +470,7 @@ var LoadoutGrid;
                 filterValue += '&contextmenuparam=graffiti';
             OpenContextMenu(elPanel, filterValue);
         });
+        // Weapons in the grid are draggable
         elPanel.SetDraggable(true);
         $.RegisterEventHandler('DragStart', elPanel, (elPanel, drag) => {
             if (m_mouseOverSlot !== null) {
@@ -458,7 +485,9 @@ var LoadoutGrid;
     }
     function OpenContextMenu(elPanel, filterValue) {
         UiToolkitAPI.HideCustomLayoutTooltip('JsLoadoutItemTooltip');
+        // override filter value
         let filterForContextMenuEntries = '&populatefiltertext=' + filterValue;
+        // If you are browsing the inventory
         let contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_inventory_item.xml', 'itemid=' + elPanel.Data().itemid + filterForContextMenuEntries, () => { });
         contextMenuPanel.AddClass("ContextMenu_NoArrow");
     }
@@ -476,6 +505,8 @@ var LoadoutGrid;
         });
     }
     function OnDragStart(elDragSource, drag, itemid, bShuffle) {
+        // Parent to $.GetContextPanel() instead of elDragSource.
+        // Parenting to elDragSource results in item images getting stuck in weird places for some reason.
         let elDragImage = $.CreatePanel('ItemImage', $.GetContextPanel(), '', {
             class: 'loadout-drag-icon',
             textureheight: '128',
@@ -493,6 +524,7 @@ var LoadoutGrid;
         m_elDragSource.AddClass('dragged-away');
         m_dragItemId = itemid;
         UpdateValidDropTargets();
+        // // Disable scrolling while dragging.
         let elItemList = $('#id-loadout-item-list');
         elItemList.hittest = false;
         elItemList.hittestchildren = false;
@@ -504,6 +536,7 @@ var LoadoutGrid;
         m_elDragSource.RemoveClass('dragged-away');
         m_dragItemId = '';
         UpdateValidDropTargets();
+        // Re-enable scrolling.
         let elItemList = $('#id-loadout-item-list');
         elItemList.hittest = true;
         elItemList.hittestchildren = true;
@@ -525,6 +558,7 @@ var LoadoutGrid;
                 else {
                     let category = InventoryAPI.GetLoadoutCategory(itemId);
                     if (_BCanFitIntoNonWeaponSlot(category, m_selectedTeam)) {
+                        // Catch the items that are using the subslot
                         let slot = category === 'spray' ? 'spray0' : category === 'clothing' ? 'clothing_hands' : category;
                         let team = OverrideTeam(m_selectedTeam, slot);
                         let elRow = $.GetContextPanel().FindChildInLayoutFile('id-loadout-row-slots-' + m_selectedTeam);
@@ -546,6 +580,7 @@ var LoadoutGrid;
                 if (InventoryAPI.IsValidItemID(itemId)) {
                     let itemDefIndex = InventoryAPI.GetItemDefinitionIndex(itemId);
                     let oldSlot = LoadoutAPI.GetSlotEquippedWithDefIndex(m_selectedTeam, itemDefIndex);
+                    $.Msg('oldSlot: ' + oldSlot);
                     let isSameId = elDragImage.itemid === elPanel.Data().itemid ? true : false;
                     let equipSuccess = TryEquipItemInSlot(m_selectedTeam, itemId, newSlot);
                     PlayDropSounds(equipSuccess, isSameId);
@@ -556,6 +591,7 @@ var LoadoutGrid;
                     $.Schedule(.5, () => { if (elPanel) {
                         elPanel.RemoveClass('drop-target');
                     } });
+                    // keep gun from making a drop target right away
                     elPanel.hittestchildren = false;
                     $.Schedule(1, () => { elPanel.hittestchildren = true; });
                     let oldTile = FindGridTile(oldSlot);
@@ -578,9 +614,11 @@ var LoadoutGrid;
         }
     }
     const m_aActiveUsedColumns = [
+        // 'id-loadout-column0', equipment
         'id-loadout-column1',
         'id-loadout-column2',
         'id-loadout-column3',
+        // 'id-loadout-column4' grenades
     ];
     function UpdateValidDropTargets() {
         if (m_dragItemId && InventoryAPI.IsValidItemID(m_dragItemId)) {
@@ -614,6 +652,7 @@ var LoadoutGrid;
                 let elColumn = elGrid.FindChildInLayoutFile(columnId);
                 for (let elPanel of elColumn.Children()) {
                     let slot = elPanel.GetAttributeString('data-slot', '');
+                    $.Msg('elColumn- ' + elColumn.id + ' slot- ' + slot + 'oldSlot: ' + oldSlot);
                     if (slot === oldSlot) {
                         return elPanel;
                     }
@@ -636,7 +675,11 @@ var LoadoutGrid;
     function UpdateFilters() {
         let group = GetSelectedGroup();
         if (!_BIsSlotAndTeamConfigurationValid(group, m_selectedTeam)) {
+            // user selected a slot, but this slot is not valid for selected team...
+            // ... well, use the fact that there are only two teams and we should just auto-switch
+            // the user to the opposite team because clearly they want to work on that slot now
             $.DispatchEvent("Activated", $.GetContextPanel().FindChildInLayoutFile('id-loadout-select-team-btn-t'), "mouse");
+            // return here, because activating the button will update filters again
             return;
         }
         let elClearBtn = $.GetContextPanel().FindChildInLayoutFile('id-loadout-clear-filters');
@@ -694,6 +737,8 @@ var LoadoutGrid;
             GameInterfaceAPI.SetSettingString("cl_loadout_saved_sort", sortType);
             GameInterfaceAPI.ConsoleCommand("host_writeconfig");
         }
+        // If we have a item id we are filtering for and change the drop down catagory then clear m_filterItemId
+        // If the item changed under us and is not valid then also clear the m_filterItemId
         if (m_filterItemId !== '' &&
             InventoryAPI.IsValidItemID(m_filterItemId) &&
             group === InventoryAPI.GetRawDefinitionKey(m_filterItemId, 'flexible_loadout_group') &&
@@ -704,7 +749,8 @@ var LoadoutGrid;
             ClearItemIdFilter();
         }
         let elItemList = $.GetContextPanel().FindChildInLayoutFile('id-loadout-item-list');
-        $.DispatchEvent('SetInventoryFilter', elItemList, 'any', 'any', 'any', sortType, loadoutSlotParams, '');
+        $.DispatchEvent('SetInventoryFilter', elItemList, 'any', 'any', 'any', sortType, loadoutSlotParams, '' // text filter
+        );
         UpdateGridFilterIcons();
         ShowHideItemFilterText(m_filterItemId != '');
     }
@@ -875,6 +921,7 @@ var LoadoutGrid;
         for (let column of elGrid.Children()) {
             let aPanels = column.Children().filter(panel => panel.GetAttributeString('data-slot', '') !== '');
             for (let i = 0; i < aPanels.length; i++) {
+                // grenades and equipment are non interactive
                 if (column.GetAttributeString('data-slot', '') !== 'equipment' &&
                     column.GetAttributeString('data-slot', '') !== 'grenade') {
                     LoadoutSlotItemTileEvents(aPanels[i]);
@@ -885,11 +932,15 @@ var LoadoutGrid;
     }
     function TryEquipItemInSlot(szTeam, szItemID, szSlot) {
         let bSuccess = LoadoutAPI.EquipItemInSlot(szTeam, szItemID, szSlot);
+        // Only show the popup if it failed but we thought it was possible.
         if (!bSuccess && LoadoutAPI.CanEquipItemInSlot(szTeam, szItemID, szSlot)) {
             UiToolkitAPI.ShowGenericPopupOk($.Localize('#LoadoutLockedPopupTitle'), $.Localize('#LoadoutLockedPopupText'), '', () => { });
         }
         return bSuccess;
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), OnReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), OnUnreadyForDisplay);

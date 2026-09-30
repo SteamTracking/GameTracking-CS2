@@ -1,4 +1,11 @@
 "use strict";
+// avatar content
+// name content
+// avatar right-click functionality
+// match top bar info styling
+// Ts
+// player stats panel
+// animations
 /// <reference path="csgo.d.ts" />
 /// <reference path="mainmenu_watch.ts" />
 /// <reference path="common/iteminfo.ts" />
@@ -93,10 +100,12 @@ var matchInfo;
             let coinLevel = Number(InventoryAPI.GetItemAttributeValue(id, "upgrade level"));
             let coinRedeemsPurchased = Number(InventoryAPI.GetItemAttributeValue(id, "operation drops awarded 1"));
             if (coinRedeemsPurchased && coinLevel != undefined) {
+                // also support legacy fan coin that didn't have purchased drop souvenirs
                 coinLevel += coinRedeemsPurchased;
             }
             let redeemed = Number(InventoryAPI.GetItemAttributeValue(id, "operation drops awarded 0"));
             let redeemsAvailable = coinLevel - redeemed;
+            // If this is the current tournament and it has "redeem charges" for sale then allow redeem button to show up
             if ((elParentPanel.Data().tournamentIndex == g_ActiveTournamentInfo.eventid) &&
                 g_ActiveTournamentInfo.itemid_charge &&
                 ItemInfo.GetStoreSalePrice(InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_charge, 0), 1, '')) {
@@ -121,7 +130,8 @@ var matchInfo;
         if (totalBars == 0) {
             return;
         }
-        let canWatch = false;
+        // let canWatch = MatchInfoAPI.CanWatch( elParentPanel.Data().matchId );
+        let canWatch = false; // DISABLING round watch in the UI until we make it functional
         for (let i = 1; i <= totalBars; i++) {
             let elRoundStats = elStatsContainer.GetChild(i - 1);
             if (!canWatch) {
@@ -176,6 +186,7 @@ var matchInfo;
         }
         let canWatch = MatchInfoAPI.CanWatch(elParentPanel.Data().matchId);
         _EnableButton(elWatchButton, canWatch);
+        $.Msg('_UpdateMatchMenu for ' + elParentPanel.Data().matchId + ' watch=' + canWatch + ' state=' + matchState);
         if (elParentPanel.Data().matchListDescriptor != 'live') {
             _ShowButton(elWatchButton, canWatch);
             _ShowButton(elWatchHighlightsButton, canWatch);
@@ -310,6 +321,7 @@ var matchInfo;
     }
     function _OnFadeOutEnd(elParentPanel) {
         if (elParentPanel.visible === true && elParentPanel.BIsTransparent()) {
+            // Set visibility to false and unload resources
             elParentPanel.visible = false;
             elParentPanel.SetReadyForDisplay(false);
         }
@@ -389,6 +401,8 @@ var matchInfo;
         }
         let totalBars = elStatsContainer.Children().length;
         elStatsContainer.SetHasClass("horizontal-center", nOvertime == 0);
+        $.Msg("maxrounds: " + maxRounds + "\ttotalrounds: " + totalRounds + "\tplayedrounds: " + playedRounds + "\t OTs: " + nOvertime);
+        // Round wins and losses
         let roundWinsStat = MatchInfoAPI.GetMatchPlayerRoundStats(elParentPanel.Data().matchId, elParentPanel.Data().activePlayerRow.Data().playerXuid, "round_wins");
         let roundWins = roundWinsStat ? roundWinsStat.split(',') : Array(totalRounds).fill(0);
         let mvpsStat = MatchInfoAPI.GetMatchPlayerRoundStats(elParentPanel.Data().matchId, elParentPanel.Data().activePlayerRow.Data().playerXuid, "mvps");
@@ -399,13 +413,18 @@ var matchInfo;
         let headshots = headshotsStat ? headshotsStat.split(',') : Array(totalRounds).fill(0);
         let deathsStat = MatchInfoAPI.GetMatchPlayerRoundStats(elParentPanel.Data().matchId, elParentPanel.Data().activePlayerRow.Data().playerXuid, "deaths");
         let deaths = deathsStat ? deathsStat.split(',') : Array(totalRounds).fill(0);
+        // add bars
         function _IsMajorTick(n) {
+            // first round
             if (n == 1)
                 return true;
+            // end of regulation time
             if (n == maxRounds)
                 return true;
+            // max number of possible rounds including ot
             if (n == totalRounds)
                 return true;
+            // new overtime
             if (n > maxRounds && ((n - maxRounds) % 6 == 0))
                 return true;
             return false;
@@ -421,7 +440,9 @@ var matchInfo;
                 else if (maxRounds <= 8 && maxRounds % 2 == 0)
                     return (n % 2 == 0);
             }
-            else {
+            else // overtime
+             {
+                // no minor ticks in ot
             }
             return false;
         }
@@ -469,16 +490,21 @@ var matchInfo;
             else
                 return '';
         }
+        // "currentTeamId" is the team on which the player finished the match, but the round stats
+        // will be filled out from Round One, so we need to figure out which team the player started on
         let numTimesPlayersChangedSides = 0;
-        numTimesPlayersChangedSides += ((totalRounds > (maxRounds / 2)) ? 1 : 0);
+        numTimesPlayersChangedSides += ((totalRounds > (maxRounds / 2)) ? 1 : 0); // team switch at halftime
         if (totalRounds > maxRounds) {
             let numRoundsPlayedInLastOvertime = (totalRounds - maxRounds) % 6;
             let numFullOvertimesPlayed = (totalRounds - maxRounds - numRoundsPlayedInLastOvertime) / 6;
+            // every full overtime encountered change of sides, and every partial OT going to 2nd half had a change of sides
             numTimesPlayersChangedSides += numFullOvertimesPlayed + ((numRoundsPlayedInLastOvertime > 3) ? 1 : 0);
         }
+        // Flip the starting team from ending team if we see an odd number of side changes
         if (numTimesPlayersChangedSides % 2 == 1) {
             currentTeamId = flipBit(currentTeamId);
         }
+        // Go ahead and create a panel for every round in the match
         for (let i = 1; i <= totalRounds; i++) {
             let elRoundStats = undefined;
             if (i > totalBars) {
@@ -516,6 +542,7 @@ var matchInfo;
                 elIconContainer.RemoveClass('hide');
                 let n = i - 1;
                 let elMVPStarImg = elRoundStats.FindChildTraverse('id-mvp-star');
+                // MVP star on/off and team tint
                 if (mvps[n] != 0) {
                     elMVPStarImg.RemoveClass('hide');
                     elMVPStarImg.RemoveClass('sb-tint--' + TEAMS[flipBit(currentTeamId)]);
@@ -524,6 +551,7 @@ var matchInfo;
                 else {
                     elMVPStarImg.AddClass('hide');
                 }
+                //Kills and headshots
                 let nKills = parseInt(kills[n]);
                 let nHeadshots = parseInt(headshots[n]);
                 let elEliminationWinIcons = elRoundStats.FindChildTraverse('id-mi-eliminations-win');
@@ -543,6 +571,7 @@ var matchInfo;
                         hIcon.RemoveClass('hide');
                     }
                 }
+                //Deaths
                 let elDeathIcon = elIconContainer.FindChildTraverse('id-mi-elimination-death');
                 if (deaths[n] == 1) {
                     elDeathIcon.RemoveClass('hide');
@@ -569,6 +598,7 @@ var matchInfo;
                 currentTeamId = flipBit(currentTeamId);
             }
         }
+        // label the ticks
         elParentPanel.FindChildInLayoutFile('id-mi-round-stats__tick-labels');
         elTickLabels.RemoveAndDeleteChildren();
         for (let i = 1; i <= totalRounds; i++) {
@@ -587,8 +617,9 @@ var matchInfo;
     function _FillScoreboard(elParentPanel) {
         let elScoreboard = elParentPanel.FindChildInLayoutFile('Scoreboard');
         elScoreboard.visible = true;
-        _ShowMatchSpinner(false, elParentPanel);
-        _SetMatchMessage("", false, elParentPanel);
+        _ShowMatchSpinner(false, elParentPanel); // todo: move to this file
+        _SetMatchMessage("", false, elParentPanel); // todo: move to this file
+        // figure out if the teams have switched sides.  If so, the scoreboard needs repopulating to reorder the teams.
         let currentTopPanelTeamId = MatchInfoAPI.GetMatchTournamentTeamID(elParentPanel.Data().matchId, 0);
         if (elParentPanel.Data().teamsFilled) {
             if (currentTopPanelTeamId != elParentPanel.Data().cachedTopPanelTeamId) {
@@ -671,6 +702,9 @@ var matchInfo;
         if (mapName === mapStringPrefix + rawMapName)
             mapName = rawMapName;
         elParentPanel.SetDialogVariable('map_name', mapName);
+        //
+        // Map icon
+        //
         let elMatchMapIcon = elParentPanel.FindChildTraverse("id-mi-map-icon");
         let setDefaultMapImage = function (mapIcon) {
             mapIcon.SetImage("file://{images}/map_icons/map_icon_NONE.png");
@@ -679,6 +713,9 @@ var matchInfo;
             $.RegisterEventHandler('ImageFailedLoad', elMatchMapIcon, setDefaultMapImage.bind(undefined, elMatchMapIcon));
             elMatchMapIcon.SetImage("file://{images}/map_icons/map_icon_" + rawMapName + ".svg");
         }
+        //
+        // Mode icon
+        //
         let elMatchModeIcon = elParentPanel.FindChildTraverse("id-mi-mode-icon");
         let setDefaultModeImage = function (mapIcon) {
             mapIcon.SetImage("file://{images}/icons/ui/competitive.vsvg");
@@ -687,6 +724,9 @@ var matchInfo;
             $.RegisterEventHandler('ImageFailedLoad', elMatchModeIcon, setDefaultModeImage.bind(undefined, elMatchModeIcon));
             elMatchModeIcon.SetImage("file://{images}/icons/ui/" + rawModeName + ".svg");
         }
+        //
+        // Rest of match details
+        //
         let matchDuration = MatchInfoAPI.GetMatchDuration(elParentPanel.Data().matchId);
         matchDuration = Math.max(Math.floor(matchDuration / 60), 1);
         elParentPanel.SetDialogVariable('duration', $.ConstructString('#CSGO_Watch_Minute:f', { value: matchDuration }));
@@ -738,8 +778,8 @@ var matchInfo;
         elParentPanel.SetDialogVariable('matchphase', MatchInfoAPI.IsLive(elParentPanel.Data().matchId) ? $.Localize('#CSGO_Watch_Cat_LiveMatches') : MatchInfoAPI.GetMatchTimestamp(elParentPanel.Data().matchId));
     }
     function Init(elParentPanel) {
-        _ShowMatchSpinner(true, elParentPanel);
-        _SetMatchMessage("", false, elParentPanel);
+        _ShowMatchSpinner(true, elParentPanel); // todo: move to this file
+        _SetMatchMessage("", false, elParentPanel); // todo: move to this file
         let bIsMinimalMatchInfo = MatchInfoAPI.IsServerLogTournamentMatch(elParentPanel.Data().matchId);
         elParentPanel.SetHasClass('matchinfo--minimal', bIsMinimalMatchInfo);
         if (bIsMinimalMatchInfo) {
@@ -782,13 +822,14 @@ var matchInfo;
                         let elMvpsPanel = $.CreatePanel('Panel', elStatsContainer, 'mvps__panel');
                         let elStar = $.CreatePanel("Image", elMvpsPanel, 'mvps--image');
                         elStar.SetImage('file://{images}/icons/ui/star.svg');
+                        // elStar.text = $.Localize( '#Scoreboard_MVP_Star' );
                         elStat = $.CreatePanel('Label', elMvpsPanel, PLAYERSTATS[p]);
                         elStat.AddClass('mi-mvps-shrink-overflow');
                         elMvpsPanel.AddClass('sb-row__cell');
                         elMvpsPanel.AddClass('sb-row__cell--mvps');
                         elStar.AddClass('sb-row__cell--mvps__star');
                         elStat.AddClass('sb-row__cell--mvps__count');
-                        elStat = elMvpsPanel;
+                        elStat = elMvpsPanel; // Make sure the entire star and number get tinted
                     }
                     else {
                         elStat = $.CreatePanel('Panel', elStatsContainer, "");

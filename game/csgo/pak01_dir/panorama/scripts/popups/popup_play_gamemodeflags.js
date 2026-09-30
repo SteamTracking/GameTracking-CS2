@@ -49,7 +49,7 @@ function _OnRadioButtonPressed ( value )
 
 function _Return ( bProceed )
 {
-	                                                      
+	// Invoke callback set up in the parent panel (if set)
 
 
 	var callbackHandle = $.GetContextPanel().GetAttributeInt( "callback", -1 );
@@ -66,18 +66,18 @@ function _Return ( bProceed )
 		UiToolkitAPI.InvokeJSCallback( callback, value, resumeMatchmakingHandle );
 	}
 
-	                               
+	// unregister the callbacks now
 	if ( callbackHandle != -1 )
 		UiToolkitAPI.UnregisterJSCallback( callbackHandle );
 
 	if ( cancelCallbackHandle != -1 )
 		UiToolkitAPI.UnregisterJSCallback( cancelCallbackHandle );
 
-	                                                                                                                                  
+	$.Msg( 'GameModeFlags Popup: ' + 'callback:' + callbackHandle + ' value:' + value + ' resume:' + resumeMatchmakingHandle + '\n' );
 
 
-	                                                                      
-	                                    
+	// Do not forget to dispatch the UIPopupButtonClicked() panorama event
+	// responsible for closing the popup
 	$.DispatchEvent( 'UIPopupButtonClicked', '' );
 }
 

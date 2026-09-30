@@ -20,6 +20,7 @@ var TooltipProgress;
         else {
             value = Number($.GetContextPanel().GetAttributeString("barvalue", "0"));
         }
+        $.Msg('locl player current XP: ' + value);
         $('#TitleLabel').text = $.Localize(titleText);
         $('#TextLabel').text = $.Localize(bodyText);
         $('#TextPercentage').text = Math.floor(value) + '%';

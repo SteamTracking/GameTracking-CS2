@@ -9,9 +9,13 @@
 /// <reference path="popup_inspect_header.ts" />
 /// <reference path="popup_acknowledge_item.ts" />
 /// <reference path="popup_inspect_shared.ts" />
+// - countdown
+// - event for end ans to drive new item display
+// - warnings
 var CapabilityDecodable;
 (function (CapabilityDecodable) {
     function Init() {
+        $.Msg('asyncworktype:  ' + InspectShared.GetPopupSetting('work_type') + ', itemid ' + InspectShared.GetPopupSetting('item_id') + ', toolid ' + InspectShared.GetPopupSetting('tool_id'));
         $.GetContextPanel().Data().itemFromContainer = '';
         $.GetContextPanel().Data().existingRewardFromXrayId = '';
         $.GetContextPanel().Data().unusualItemImagePath = '';
@@ -28,6 +32,7 @@ var CapabilityDecodable;
             $.GetContextPanel().Data().existingRewardFromXrayId = oData.reward;
             if (oData.reward) {
                 if (oData.reward) {
+                    // The item in the x-ray is the initial gun it comes with
                     if (InventoryAPI.IsFauxItemID(oData.reward)) {
                         const elPopup = UiToolkitAPI.ShowGenericPopupOk('#popup_xray_first_use_title', '#popup_xray_first_use_desc', '', () => { });
                         const elMessageLabel = elPopup.FindChildInLayoutFile('MessageLabel');
@@ -39,10 +44,14 @@ var CapabilityDecodable;
                         UiToolkitAPI.ShowGenericPopupOk('#popup_xray_in_use_title', '#popup_xray_in_use_desc', '', () => { });
                     }
                 }
+                // use xray data for the panel item-id
                 InspectShared.SetPopupSetting('item_id', oData.case);
             }
+            // No key was passed. We don't let you pick a key when you come from the case.
+            // If you select the key first then we pass it along.
             if (!InspectShared.GetPopupSetting('tool_id')) {
                 let keyId = ItemInfo.GetKeyForCaseInXray(InspectShared.GetPopupSetting('item_id'));
+                // use xray data for the panel tool-id
                 if (keyId) {
                     InspectShared.SetPopupSetting('tool_id', keyId);
                 }
@@ -50,6 +59,8 @@ var CapabilityDecodable;
         }
         const caseId = InspectShared.GetPopupSetting('item_id');
         const keyId = InspectShared.GetPopupSetting('tool_id');
+        // Set required attributes
+        // cannot: ItemInfo.IsFauxOrRentalOrPreviewTool( key / case ) // << store items use this screen with various purchase options
         if ((keyId && InventoryAPI.IsRental(keyId)) ||
             InventoryAPI.IsRental(InspectShared.GetPopupSetting('item_id'))) {
             InspectShared.SetPopupSetting('show_work_type_warning', false);
@@ -57,6 +68,7 @@ var CapabilityDecodable;
             InspectShared.SetPopupSetting('only_close_btn', true);
             InspectShared.SetPopupSetting('force_hide_async_bar', true);
         }
+        // We did not get a key lets figure out why
         if (!keyId) {
             const associatedItemCount = InventoryAPI.GetAssociatedItemsCount(caseId);
             if (!InventoryAPI.IsItemInfoValid(caseId)) {
@@ -70,6 +82,7 @@ var CapabilityDecodable;
             }
         }
         else {
+            // We have a key!
             if (!InventoryAPI.IsItemInfoValid(keyId)) {
                 return;
             }
@@ -82,6 +95,7 @@ var CapabilityDecodable;
         const caseId = InspectShared.GetPopupSetting('item_id');
         const keyId = InspectShared.GetPopupSetting('tool_id');
         const existingRewardFromXrayId = $.GetContextPanel().Data().existingRewardFromXrayId;
+        // Set attributes that other components can read to set themselves correctly
         if (!keyId) {
             InspectShared.SetPopupSetting('show_work_type_warning', false);
             InspectShared.SetPopupSetting('override_async_bar_desc', false);
@@ -119,6 +133,7 @@ var CapabilityDecodable;
         else {
             _SetCaseModelImage(caseId, 'PopUpInspectModelOrImage');
             if (!ItemInfo.IsSpraySealed(caseId) && !ItemInfo.ItemDefinitionNameSubstrMatch(caseId, 'tournament_pass_')) {
+                // example resultant sound event is called "UIPanorama.container_weapon_fall". This changes depending on the container type and each container type has a "fall" soundevent. 
                 _PlayContainerSound(caseId, 'fall');
             }
             _SetLootListItems(caseId, keyId);
@@ -135,12 +150,18 @@ var CapabilityDecodable;
             elPanel.visible = false;
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Set key and case model and images and animations
+    //--------------------------------------------------------------------------------------------------
     function _SetCaseModelImage(caseId, PanelId) {
         const elItemModelImagePanel = $.GetContextPanel().FindChildInLayoutFile(PanelId);
         const item_attributes = 'item_attributes' in $.GetContextPanel().Data().oSettings ? $.GetContextPanel().Data().oSettings.item_attributes : '';
         InspectModelImage.Init(elItemModelImagePanel, caseId);
         $.GetContextPanel().Data().elCaseModelImagePanel = InspectModelImage.GetModelPanel();
     }
+    //--------------------------------------------------------------------------------------------------
+    // Items In case
+    //--------------------------------------------------------------------------------------------------
     function _SetLootListItems(caseId, keyId) {
         const count = InventoryAPI.GetLootListItemsCount(caseId);
         const elLootList = $.GetContextPanel().FindChildInLayoutFile('DecodableLootlist');
@@ -200,12 +221,14 @@ var CapabilityDecodable;
     }
     function _GetDisplayWeightForScroll(itemid) {
         const rarityVal = InventoryAPI.GetItemRarity(itemid);
+        //position in array is the weight of corresponding rarity
         const displayItemWeight = [150000, 30000, 6000, 1250, 250, 50, 10];
         return displayItemWeight[rarityVal];
     }
     function _UpdateLootListItemInfo(elItem, itemid, caseId) {
         const specialItemId = 'id-special-item';
         if (itemid == specialItemId) {
+            // This is an unsual item in the loot list so treat it differently
             $.GetContextPanel().Data().unusualItemImagePath = InventoryAPI.GetLootListUnusualItemImage(caseId) + ".png";
             _UpdateUnusualItemInfo(elItem, caseId, $.GetContextPanel().Data().unusualItemImagePath, true);
         }
@@ -240,10 +263,14 @@ var CapabilityDecodable;
             elName.text = InventoryAPI.GetLootListUnusualItemName(caseId);
         }
         else {
+            // color @define color-rarity-unusual: #ffd700 in csgo styles
             elItem.FindChildInLayoutFile('JsRarity').style.washColor = '#ffd700';
             elItem.FindChildInLayoutFile('JItemTint').style.washColor = '#ffd700';
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Scroll of items
+    //--------------------------------------------------------------------------------------------------
     function _SetUpCaseOpeningScroll() {
         _ShowHideLootList(false);
         let delay = 0;
@@ -293,6 +320,7 @@ var CapabilityDecodable;
             $.Schedule(_TickSoundIntervals[i], _ScrollTick.bind(undefined, soundEventName));
         }
     }
+    // Intervals at which we play tick sounds while the crate is being opened, over the 6 second period where the items are spinning.
     const _TickSoundIntervals = [0.000, 0.063, 0.125, 0.188, 0.250, 0.313, 0.375, 0.438, 0.500, 0.563, 0.625, 0.688, 0.750, 0.813, 0.875, 0.938, 1.000, 1.063, 1.125, 1.188, 1.250, 1.313, 1.375, 1.483, 1.351, 1.620, 1.701, 1.786, 1.872, 2.003, 2.154, 2.313, 2.466, 2.615, 2.773, 2.941, 3.104, 3.339, 3.630, 3.953, 4.385, 5.004,];
     function _ScrollTick(soundEventName) {
         $.DispatchEvent("CSGOPlaySoundEffect", soundEventName, "MOUSE");
@@ -307,6 +335,10 @@ var CapabilityDecodable;
     function _ShowInspect(contextPanel) {
         contextPanel.Data().showInspectScheduleHandle = null;
         if (contextPanel.Data().itemFromContainer) {
+            // We just unlocked a container and the animation finished so show the new item.
+            // Acknowledge the item here so we don't show the acknowledge panel when the menu closes.
+            // If you never make it to the end of the scroll animation we will still show you the acknowledge
+            // item panel so you know you got a new item
             InventoryAPI.SetItemSessionPropertyValue(contextPanel.Data().itemFromContainer, 'recent', '1');
             InventoryAPI.AcknowledgeNewItembyItemID(contextPanel.Data().itemFromContainer);
             if (ItemInfo.ItemDefinitionNameSubstrMatch(contextPanel.Data().itemFromContainer, 'tournament_journal_')) {
@@ -343,8 +375,12 @@ var CapabilityDecodable;
     }
     function _TimeoutPopup() {
         CapabilityDecodable.ClosePopUp();
+        // We did not get the item you unlocked so show an error dialog
         UiToolkitAPI.ShowGenericPopupOk($.Localize('#SFUI_SteamConnectionErrorTitle'), $.Localize('#SFUI_InvError_Item_Not_Given'), '', () => { });
     }
+    //--------------------------------------------------------------------------------------------------
+    // Fill Scroll with Items
+    //--------------------------------------------------------------------------------------------------
     function _FillScrollsWithItems(lists) {
         const numTilesInScroll = 38;
         const indexItemsFromContainer = 3;
@@ -374,8 +410,10 @@ var CapabilityDecodable;
         if (listId === 'ScrollListMagnified') {
             elTile.AddClass('magnified');
         }
+        // If we already know the item from container them update the end tile to show it
         itemId = (elTile.id === 'ItemFromContainer' && $.GetContextPanel().Data().itemFromContainer) ? $.GetContextPanel().Data().itemFromContainer : itemId;
-        if ((InventoryAPI.GetItemQuality(itemId) === 3) && $.GetContextPanel().Data().unusualItemImagePath) {
+        if ((InventoryAPI.GetItemQuality(itemId) === 3) && $.GetContextPanel().Data().unusualItemImagePath) // AE_UNUSUAL (quality#3)
+         {
             _UpdateUnusualItemInfo(elTile, InspectShared.GetPopupSetting('item_id'), $.GetContextPanel().Data().unusualItemImagePath);
         }
         else {
@@ -385,6 +423,7 @@ var CapabilityDecodable;
         }
     }
     function GetItemBasedOnDisplayWeight(totalWeight, aItemsInLootlist) {
+        //These are fake weights for display only
         let weightOfItem = 0;
         const Random = Math.floor(Math.random() * totalWeight);
         for (let i = 0; i < aItemsInLootlist.length; i++) {
@@ -393,6 +432,9 @@ var CapabilityDecodable;
                 return aItemsInLootlist[i].id;
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // countdown
+    //--------------------------------------------------------------------------------------------------
     function _SetUpCaseOpeningCountdown() {
         _UpdateOpeningCounter.SetIsGraffiti(_GetContainerType(InspectShared.GetPopupSetting('item_id')) === 'graffiti');
         _UpdateOpeningCounter.ShowCounter();
@@ -411,6 +453,7 @@ var CapabilityDecodable;
             timerHandle = null;
             counterVal = counterVal - 1;
             if (counterVal === 0) {
+                $.Msg('cancel timer' + timerHandle);
                 elCountdown.AddClass('hidden');
                 _ShowInspect($.GetContextPanel());
             }
@@ -447,15 +490,21 @@ var CapabilityDecodable;
         }
         _UpdateOpeningCounter.SetIsGraffiti = SetIsGraffiti;
     })(_UpdateOpeningCounter || (_UpdateOpeningCounter = {}));
+    //--------------------------------------------------------------------------------------------------
+    // X-Ray
+    //-------------------------------------------------------------------------------------------------
     function _SetUpXrayPanel() {
         const caseId = InspectShared.GetPopupSetting('item_id');
         if (!caseId) {
+            // no case means nothing to xray
+            $.Msg('empty');
             return;
         }
         const elActionsPanel = $.GetContextPanel().FindChildInLayoutFile('XrayItemsActionPanel');
         const existingRewardFromXrayId = $.GetContextPanel().Data().existingRewardFromXrayId;
         elActionsPanel.AddClass('hidden');
         if (!existingRewardFromXrayId) {
+            // Show case that needs to be xrayed for a reward
             elActionsPanel.RemoveClass('hidden');
             _SetCaseModelImage(caseId, 'PopUpXrayModelOrImage');
             const elBtn = $.GetContextPanel().FindChildInLayoutFile('ConfirmXray');
@@ -463,6 +512,7 @@ var CapabilityDecodable;
             $.GetContextPanel().FindChildInLayoutFile('PopUpXrayStatusLabel').text = $.Localize("#popup_xray_ready_for_use");
         }
         else if (existingRewardFromXrayId) {
+            // Show the Reward and purchase/claim btn
             InspectHeader.Init();
             $.GetContextPanel().FindChildInLayoutFile('XrayItemsActionPanelItemName').RemoveClass('hidden');
             const elImagePanel = $.GetContextPanel().FindChildInLayoutFile('PopUpXrayModelOrImageReveal');
@@ -489,6 +539,7 @@ var CapabilityDecodable;
     }
     function _XrayReveal() {
         const revealDelay = 3.5;
+        // we are giving the GC 3 seconds to retrive the item if it cannot in that time time out.
         $.GetContextPanel().Data().showInspectScheduleHandle = $.Schedule(revealDelay, _ShowXrayReward);
         let oData = {
             clipValue: 0,
@@ -528,6 +579,7 @@ var CapabilityDecodable;
     function _ShowXrayReward() {
         $.GetContextPanel().Data().showInspectScheduleHandle = null;
         if ($.GetContextPanel().Data().existingRewardFromXrayId) {
+            // update the state of the panel
             _SetUpPanelElements();
         }
         else {
@@ -535,11 +587,20 @@ var CapabilityDecodable;
         }
     }
     function _UpdateXrayRewardTile(itemId) {
+        // Update to make sure if we have already revealed the reward
         const oData = ItemInfo.GetItemsInXray();
         $.GetContextPanel().Data().existingRewardFromXrayId = itemId === oData.reward ? oData.reward : '';
         _SetCaseModelImage(itemId, 'PopUpXrayModelOrImageReveal');
     }
+    //-------------------------------------------------------------------------------------------------
+    // Event Handler actions
+    //-------------------------------------------------------------------------------------------------
     function _UpdateScrollResultTile(numericType, type, itemId) {
+        // Update the item the scroll ends on to the one user got from crate.
+        $.Msg('numericType' + numericType + '\n');
+        $.Msg('type' + type + '\n');
+        $.Msg('itemid' + itemId + '\n');
+        $.Msg('item name' + InventoryAPI.GetItemName(itemId) + '\n');
         if (type === "crate_unlock" ||
             type === 'graffity_unseal' ||
             type === 'xray_item_reveal' ||
@@ -559,6 +620,7 @@ var CapabilityDecodable;
             else {
                 $.GetContextPanel().Data().itemFromContainer = itemId;
             }
+            //we are not scrolling so no need to update the tile in the scroll with the unlocked item
             if ($.GetContextPanel().FindChildInLayoutFile('DecodableItemsScroll').BHasClass('hidden')) {
                 if (type === 'graffity_unseal') {
                     _ShowInspect($.GetContextPanel());
@@ -566,6 +628,7 @@ var CapabilityDecodable;
                 return;
             }
             else {
+                // We are in the middle of the scroll and have not timed out but have gotten the item so update the display tile.
                 for (let element of $.GetContextPanel().Data().scrollListsPanelIds) {
                     const elScroll = $.GetContextPanel().FindChildInLayoutFile(element);
                     const elTile = elScroll.FindChildInLayoutFile('ItemFromContainer');
@@ -588,7 +651,7 @@ var CapabilityDecodable;
                 InspectShared.SetPopupSetting('tool_id', ItemId);
                 $.DispatchEvent('HideStoreStatusPanel');
                 _AcknowledgeMatchingKeys(matchingKeyDefName);
-                InspectShared.SetPopupSetting('purchase_item_id', '');
+                InspectShared.SetPopupSetting('purchase_item_id', ''); // Already purchased one. Don't need to sell you another for this item
                 _SetUpPanelElements();
             }
         }

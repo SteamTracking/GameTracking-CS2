@@ -66,6 +66,7 @@
 .?AVIVDataTypeManager@@
 .?AVbad_weak_ptr@std@@
 2\vp,E
+2\vp0
 <Anonymous>
 <INVALID>
 <non-RTTI type>
@@ -188,6 +189,7 @@ RESOURCE_TYPE_TEST
 RESOURCE_TYPE_VDATA
 RSDSqqf,
 RSProfilerTool
+R\fp0
 Range_t
 Re-entrant calls to CResourceSystem::PreShutdown()\n
 Reentrant call to CResourceSystem::BlockUntilManifestLoaded() while already in a frame update!\n
@@ -261,6 +263,7 @@ newSerial == i + 1
 panorama_image
 pthis->HandleUtils_Deref( ch )->m_ResourceId == key
 pthis->StaticDeref( ch, true ) == nullptr
+r\vp0
 removed
 resource_leaks: Invalid resource name '%s'\n
 resource_leaks: No resource named '%s'\n
@@ -295,9 +298,10 @@ vphys
 vpost
 vptest
 vrman
+vseq
 vsgraph
 vsndevts
-vsndstckvseq
+vsndstck
 vsurf
 vsvg
 vtex

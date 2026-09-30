@@ -10,12 +10,13 @@ var CapabilityNameable;
 (function (CapabilityNameable) {
     function Init() {
         const itemId = InspectShared.GetPopupSetting('item_id');
-        if (ItemInfo.IsWeapon(itemId) || ItemInfo.IsMelee(itemId)) {
+        if (ItemInfo.IsWeapon(itemId) || ItemInfo.IsMelee(itemId)) { // Only perform hot-application for the weapons
             InspectShared.SetPopupSetting('temp_display_item_id', InventoryAPI.CreateTempCombinedItemWithTool(itemId, _GetNameTagFauxItemID()));
         }
         else {
             InspectShared.SetPopupSetting('temp_display_item_id', itemId);
         }
+        // Set custom class for storage units
         const defName = InventoryAPI.GetItemDefinitionName(itemId);
         const contextPanel = $.GetContextPanel();
         contextPanel.SetHasClass('isstorageunit', (defName === 'casket'));
@@ -56,6 +57,7 @@ var CapabilityNameable;
                     elItemPanel.ResetPanZoom();
                 }
                 else {
+                    // Ensure arrow keys work for panning
                     elItemPanel.SetFocus();
                 }
             }
@@ -73,11 +75,11 @@ var CapabilityNameable;
         const itemId = InspectShared.GetPopupSetting('item_id');
         InspectAsyncActionBar.Init();
         _ShowPurchase(toolId);
-        CapabilityHeader.Init();
+        CapabilityHeader.Init(); // Header will be configured with real owned item -- because we force-apply a name tag to the temp one
         _SetItemModel(InspectShared.GetPopupSetting('temp_display_item_id'));
         const noTool = (toolId === '');
-        const hasName = InventoryAPI.HasCustomName(itemId);
-        _SetUpButtonStates(itemId, hasName, noTool, contextPanel);
+        const hasName = InventoryAPI.HasCustomName(itemId); // Temp item always has a dummy name tag, check the real item for whether "remove" is allowed
+        _SetUpButtonStates(itemId, hasName, noTool, contextPanel); // Bind "remove" operation to the real item
         _UpdateAcceptState(false, contextPanel);
     }
     ;
@@ -152,7 +154,9 @@ var CapabilityNameable;
     }
     ;
     function _OnRemoveConfirm(itemId) {
+        $.Msg('_OnRemoveConfirm: ' + itemId);
         const temp = UiToolkitAPI.ShowGenericPopupOkCancel($.Localize('#popup_nameable_remove_confirm_title'), $.Localize('#tooltip_nameable_remove'), '', () => {
+            $.Msg('_ActionRemoveName: ' + itemId);
             InventoryAPI.ClearCustomName(itemId);
             ClosePopup();
             $.DispatchEvent('HideSelectItemForCapabilityPopup');
@@ -175,6 +179,7 @@ var CapabilityNameable;
         const elTextEntry = contextPanel.FindChildTraverse('NameableTextEntry');
         const elValidBtn = contextPanel.FindChildInLayoutFile('NameableValidBtn');
         const isValid = InventoryAPI.SetNameToolString(elTextEntry.text, '');
+        $.Msg('isValid: ' + isValid);
         elValidBtn.enabled = isValid;
         elValidBtn.SetPanelEvent('onmouseover', () => {
             if (!isValid)
@@ -194,7 +199,7 @@ var CapabilityNameable;
             if (ItemInfo.IsNameTag(nameTagId)) {
                 InspectShared.SetPopupSetting('tool_id', nameTagId);
                 $.DispatchEvent('HideStoreStatusPanel');
-                InspectShared.SetPopupSetting('purchase_item_id', '');
+                InspectShared.SetPopupSetting('purchase_item_id', ''); // Already purchased one. Don't need to sell you another for this item
                 _SetUpPanelElements($.GetContextPanel());
                 _AcknowlegeNameTags();
             }

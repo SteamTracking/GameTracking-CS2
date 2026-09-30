@@ -7,15 +7,18 @@ var SettingsMenuShared;
             return;
         }
         if (panel.GetChildCount == undefined) {
+            // This happens sometimes. Not sure why
             return;
         }
         if (panel.paneltype == 'CSGOSettingsSlider' || panel.paneltype == 'CSGOSettingsEnumDropDown') {
             panel.RestoreCVarDefault();
         }
         else if (panel.paneltype == 'CSGOSettingsKeyBinder') {
+            // Only need to refresh, as the binds are reset to default using the OptionsMenu component
             panel.OnShow();
         }
-        else {
+        else // We don't have nested settings controls
+         {
             let nCount = panel.GetChildCount();
             for (let i = 0; i < nCount; i++) {
                 let child = panel.GetChild(i);
@@ -24,12 +27,14 @@ var SettingsMenuShared;
         }
     }
     function ResetControls() {
+        $.Msg("Reset defaults");
         GameInterfaceAPI.ResetThreadPoolOptions();
         _ResetControlsRecursive($.GetContextPanel());
         InventoryAPI.StopItemPreviewMusic();
     }
     SettingsMenuShared.ResetControls = ResetControls;
     function ResetKeybdMouseDefaults() {
+        $.Msg("ResetKeybdMouseDefaults");
         OptionsMenuAPI.RestoreKeybdMouseBindingDefaults();
         ResetControls();
     }
@@ -61,9 +66,11 @@ var SettingsMenuShared;
             panel.OnShow();
         }
         if (panel.GetChildCount == undefined) {
+            // This happens sometimes. Not sure why
             return;
         }
-        else {
+        else // We don't have nested settings controls
+         {
             let nCount = panel.GetChildCount();
             for (let i = 0; i < nCount; i++) {
                 let child = panel.GetChild(i);
@@ -95,6 +102,11 @@ var SettingsMenuShared;
         }
     }
     SettingsMenuShared.SetVis = SetVis;
+    // State logic to tracking if there are changes to apply or discard:
+    // Changes in panel controls -> enable both
+    // Reset button pressed -> enable both
+    // Apply button pressed -> disable both
+    // Discard button pressed -> disable both
     let gBtnApplyVideoSettingsButton = null;
     let gBtnDiscardVideoSettingChanges = null;
     let gBtnDiscardVideoSettingChanges2 = null;
@@ -140,19 +152,24 @@ var SettingsMenuShared;
     }
     SettingsMenuShared.VideoSettingsApplyChanges = VideoSettingsApplyChanges;
     function NewTabOpened(newTab) {
+        $.Msg('Settings menu new tab: ' + newTab);
         let videoSettingsStr = 'VideoSettings';
         if (newTab == videoSettingsStr) {
             let videoSettingsPanel = $.GetContextPanel().FindChildInLayoutFile(videoSettingsStr);
+            // Get the apply and discard buttons on the video settings screen
             gBtnApplyVideoSettingsButton = videoSettingsPanel.FindChildInLayoutFile("BtnApplyVideoSettings");
             gBtnDiscardVideoSettingChanges = videoSettingsPanel.FindChildInLayoutFile("BtnDiscardVideoSettingChanges");
             gBtnDiscardVideoSettingChanges2 = videoSettingsPanel.FindChildInLayoutFile("BtnDiscardVideoSettingChanges2");
+            // disabled as no user changes yet
             gBtnApplyVideoSettingsButton.enabled = false;
             gBtnDiscardVideoSettingChanges.enabled = false;
             gBtnDiscardVideoSettingChanges2.enabled = false;
+            // Tell C++ to init controls from convars
             $.DispatchEvent("CSGOVideoSettingsInit");
         }
         let newTabPanel = $.GetContextPanel().FindChildInLayoutFile(newTab);
         _RefreshControlsRecursive(newTabPanel);
+        // Save any changes made to convars, for tabs that do not have an explicit save
         GameInterfaceAPI.ConsoleCommand("host_writeconfig");
         InventoryAPI.StopItemPreviewMusic();
     }
@@ -168,6 +185,7 @@ var SettingsMenuShared;
         }
     }
     SettingsMenuShared.ChangeBackground = ChangeBackground;
+    // On creation
     {
     }
 })(SettingsMenuShared || (SettingsMenuShared = {}));

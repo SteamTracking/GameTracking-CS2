@@ -3,6 +3,7 @@
 /// <reference path="common/teamcolor.ts" />
 var CAvatar = class {
     Init(elAvatar, xuid, type) {
+        //	$.Msg( "avatar image xuid: " + xuid );
         const sXuid = xuid.toString();
         switch (type) {
             case 'playercard':
@@ -55,6 +56,7 @@ var CAvatar = class {
             return;
         }
         let flairItemId = InventoryAPI.GetFlairItemId(xuid);
+        // We can't access the xuid inventory so we ask for the display item a differnt way
         if (flairItemId === "0" || !flairItemId) {
             const flairDefIdx = (type === 'partymember')
                 ? PartyListAPI.GetFriendDisplayItemDefFeatured(xuid)

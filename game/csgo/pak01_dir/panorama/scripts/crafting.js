@@ -16,6 +16,7 @@ var Crafting;
             newEntry.text = $.Localize('#' + sort);
             elDropdown.AddOption(newEntry);
         }
+        // Set initial selection
         elDropdown.SetSelected(InventoryAPI.GetSortMethodByIndex(1));
     }
     function OnReadyToTradeUpClicked() {
@@ -50,15 +51,21 @@ var Crafting;
     function UpdateItemList() {
         let elDropdown = $.GetContextPanel().FindChildInLayoutFile('CraftingSortDropdown');
         let sortType = elDropdown.GetSelected().id;
-        $.DispatchEvent('SetInventoryFilter', $('#Crafting-Items'), 'inv_group_equipment', 'any', 'any', sortType, 'recipe,is_rental:false,is_sealed:false', '');
+        $.DispatchEvent('SetInventoryFilter', $('#Crafting-Items'), 'inv_group_equipment', 'any', 'any', sortType, 'recipe,is_rental:false,is_sealed:false', // items that can go in crafting
+        '' // text filter
+        );
     }
     Crafting.UpdateItemList = UpdateItemList;
     function _UpdateCraftingPanelDisplay() {
         UpdateButtons();
+        // update item list panels
         {
             UpdateItemList();
-            $.DispatchEvent('SetInventoryFilter', $('#Crafting-Ingredients'), 'inv_group_equipment', 'any', 'any', '', 'ingredient', '');
+            $.DispatchEvent('SetInventoryFilter', $('#Crafting-Ingredients'), 'inv_group_equipment', 'any', 'any', '', 'ingredient', // current ingredient items
+            '' // text filter
+            );
         }
+        // update text
         {
             function _UpdateItemCount(ItemListName, LabelName, nRecipeCount) {
                 let elItemList = $.GetContextPanel().FindChildTraverse(ItemListName);
@@ -74,6 +81,9 @@ var Crafting;
             _UpdateItemCount('Crafting-Ingredients', 'CraftingIngredientsText', numRequiredToCraft);
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent('UpdateTradeUpPanel', _UpdateCraftingPanelDisplay);

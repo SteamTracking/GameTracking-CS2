@@ -16,14 +16,14 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 		var matchId = _m_cP.GetAttributeString( "match_id", "" );
 		_m_isOfficial = ( _m_cP.GetAttributeString( "is_official", "" ) === 'true' ) ? true : false;
 
-		                                                                      
+		// answer may come from the watch notice, the event schedule, or both.
 		$.DispatchEvent( 'Tournaments_RequestMatch', matchId );
 
 		_m_cP.SetFocus();
 	}
 
 
-	                                                        
+	// Preserve the order of the countries but group streams
 	function _SortStreams ( arrStreams )
 	{
 		_m_oPriorityMap = {};
@@ -90,7 +90,7 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 
 		_m_myCountryCode = MyPersonaAPI.GetMyCountryCode().toLowerCase();
 
-		                                
+		//_SortStreams( _m_arrStreams );
 		
 		for ( var jdx in _m_arrStreams )
 		{
@@ -99,7 +99,7 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 			var countryCode = oStream.iso;
 			var languageCode = oStream.hasOwnProperty( 'language' ) ? oStream.language : "";
 
-			       
+			// GOTV
 			var bIsGotv = oStream[ 'site' ].toLowerCase() === "gotv";
 			var elGotvBtn = $.GetContextPanel().FindChildTraverse( "id-watchnotice__event__match_gotv" );
 
@@ -117,7 +117,7 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 			else
 			{
 				var elStream = $.CreatePanel( 'Button', elStreamContainer, oStream[ 'stream_id' ] );
-				                                                                                           
+				// elStream.style.backgroundImage = 'url("file://{images}/flags/' + countryCode + '.png")';
 				elStream.AddClass( "eventsched-match__stream" );
 
 				elStream.BLoadLayoutSnippet( "snippet-cm-watchnotice-stream" );
@@ -132,7 +132,7 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 				if ( elStreamName )
 				{
 
-					                                                                                        
+					// find a nice name for the stream, i.e. everything between 'channel=' and the first '&'
 					var streamName = "";
 
 					if ( oStream[ 'resolved_embed' ].search( "channel=" ) != -1 )
@@ -159,7 +159,7 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 			}
 		}
 
-		      
+		// URL
 		if ( 'match_page_url' in oMatch )
 		{
 			var url = oMatch[ 'match_page_url' ];
@@ -182,9 +182,9 @@ var ContextMenuWatchNoticeMatchStream = (function () {
 
 } )();
 
-                                                                                                    
-                                           
-                                                                                                    
+//--------------------------------------------------------------------------------------------------
+// Entry point called when panel is created
+//--------------------------------------------------------------------------------------------------
 (function()
 {
 })();

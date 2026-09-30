@@ -1074,10 +1074,9 @@ $}$i$T$?$+$
 0DaS
 0F4?
 0Q\5
-0XMa
+0XRa
 0^>6u
 0atH
-0p4a
 0q?m;q?QFq?/Qq?
 0w?H8w?
 0ww<
@@ -1117,8 +1116,8 @@ $}$i$T$?$+$
 2UP>
 2W6>a
 2\r>\rI\rU\rk\rw\r
-2\vp8
-2\vpXMa
+2\vpXRa
+2\vpx
 2e>h
 2e[D
 2f=v
@@ -2413,7 +2412,6 @@ Output timestamp precision (fractional seconds)
 Owv?fJ
 P+Q5
 P/L\rC
-P49a
 P6A?
 P;0sT;V\fX;5
 P;8f
@@ -2424,7 +2422,6 @@ P@Y3
 PHGJOZ`nv
 PIGGOT_hq}
 PJ?o,
-PL8a
 PLHGEJOTZ`hnv}
 PLHHGEJLOTZ]`hnrv}
 PLIHGEGJORTZ_bhnqv}
@@ -2438,17 +2435,16 @@ PRN12#
 PTF>
 PURH
 PX$,a
-PXMa
 Partition information read and write path
 Partition is invalid for block size %dx%d
 Pass to execute (1/2/3)
 Path to file containing film grain parameters
-Pp4a
 Prediction mode %d invalid with ref frame %d %d
 Profile 1 requires 4:4:4 color format
 Profile 2 bit-depth <= 10 requires 4:2:2 color format
 Profile > 1 not supported in this build configuration
 Psb\
+Pt<a
 Pt>si|=
 PxLj\tQ
 P}RR
@@ -2504,10 +2500,10 @@ RKJHOQ\ajuy
 RKKHHQQ\\jjyy
 RLIGLPXajpx
 RNLJIIGILOPVX\abjlpvx
-R\fp8
+R\fpXRa
+R\fpx
 R\nz=0
-R\vp8
-R\vpp4a
+R\vpx
 R_T5Y
 Ra=X#c=
 Rate control mode
@@ -3003,7 +2999,7 @@ Z|?4^|?Mb|?bf|?tj|?
 \f\v\v\v\r\v\v\v\v\r\f\f\v\v
 \f\v\v\v\r\v\v\v\v\r\f\f\v\v\v\v\v\n\n\f\n\v\t\t\f\f\f\v\v\r\f\f\t\t\r\r\r\n\n\r\r\r\f\f\r\r\r
 \fa>2id>I
-\fp\v`p4a
+\fp\v`XRa
 \fx76
 \fx82
 \f~\fx\fp\f]\fU\fO\fG\f=\f5\f/\f'\f
@@ -3606,7 +3602,6 @@ Z|?4^|?Mb|?bf|?tj|?
 \r\v\f\f\r\r\t\n\n\f\f\n\v\v\r\r\n\v\v\r\f\f\r\r
 \r\v\n !!!!!!    
 \r\v\n\v\v\f\f\f\r\r\r
-\rp\f`\v0XMa
 \rqT?3
 \rwdn:f
 \rx\rr\rj\r`\rX\rR\rJ\r4\r,\r&\r
@@ -4432,6 +4427,7 @@ _b6Nn[7
 _tric_
 `@TwCu3t"
 `H9SfU9
+`XRa
 `ZVSY_fo{
 `ZWUW^env
 `Z]iz
@@ -4440,7 +4436,6 @@ _tric_
 `[[WWUVSTYY__ffnnvw
 ``1<S09
 `cg7
-`p4a
 `s[OV
 `tH~6
 a;NS<
@@ -5107,10 +5102,9 @@ p@Failed to allocate cpi->h_encoding_thread
 pF>e
 pGUP>
 pKT,=
-pL8a
 pQUG>
 pSO6
-pXMa
+pXRa
 p\rP\f0
 params.lag = %d > 3\n
 partition-info-path
@@ -5118,7 +5112,6 @@ pass
 passes
 pdgN
 pjh\f[FHW2Z
-pp4a
 psnr
 py?&wy?]}y?
 q-hist
@@ -5159,6 +5152,7 @@ rTC<
 rYv*u
 rZ?O
 r\ndQY
+r\vpXRa
 rate-distribution-info
 rate-hist
 rc_2pass_vbr_bias_pct out of range [..100]

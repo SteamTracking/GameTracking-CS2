@@ -20,7 +20,11 @@ var PopupAcceptMatch;
     let m_lobbySettings = null;
     const m_elTimer = $.GetContextPanel().FindChildInLayoutFile('AcceptMatchCountdown');
     let m_jsTimerUpdateHandle = false;
+    //DEVONLY{
+    let spoof10 = false;
+    //}DEVONLY
     function Init() {
+        // reset dialog
         const elPlayerSlots = $.GetContextPanel().FindChildInLayoutFile('AcceptMatchSlots');
         elPlayerSlots.RemoveAndDeleteChildren();
         const settings = $.GetContextPanel().GetAttributeString('map_and_isreconnect', '');
@@ -28,6 +32,7 @@ var PopupAcceptMatch;
         m_gsPing = parseInt($.GetContextPanel().GetAttributeString('ping', '0'));
         $.GetContextPanel().SetDialogVariable('region', m_gsLocation);
         $.GetContextPanel().SetDialogVariableInt('ping', m_gsPing);
+        $.Msg('PopupAcceptMatch ' + settings + ' location = ' + m_gsLocation + ' ping = ' + m_gsPing);
         const settingsList = settings.split(',');
         let map = settingsList[0];
         if (map.charAt(0) === '@') {
@@ -35,9 +40,18 @@ var PopupAcceptMatch;
             m_hasPressedAccept = true;
             map = map.substr(1);
         }
+        // If its a recconect we don't need to show the Accept button
         m_isReconnect = settingsList[1] === 'true' ? true : false;
         m_lobbySettings = LobbyAPI.GetSessionSettings();
+        //DEVONLY{
+        if (spoof10) {
+            m_isNqmmAnnouncementOnly = false;
+            m_hasPressedAccept = true;
+            m_isReconnect = false;
+        }
+        //}DEVONLY
         if (!m_isReconnect && m_lobbySettings && m_lobbySettings.game) {
+            // agreement parent panel
             const elAgreement = $.GetContextPanel().FindChildInLayoutFile('Agreement');
             elAgreement.visible = true;
             const elAgreementComp = $.GetContextPanel().FindChildInLayoutFile('AcceptMatchAgreementCompetitive');
@@ -57,23 +71,39 @@ var PopupAcceptMatch;
     }
     PopupAcceptMatch.Init = Init;
     function _PopulatePlayerList() {
+        $.Msg('AcceptMatch._PopulatePlayerList');
         let numPlayers = LobbyAPI.GetConfirmedMatchPlayerCount();
+        //DEVONLY{
+        if (spoof10) {
+            numPlayers = 10;
+            _UpdateTimeRemainingSeconds();
+            _UpdateUiState();
+        }
+        //}DEVONLY
         if (!numPlayers || numPlayers <= 2)
             return;
         $.GetContextPanel().SetHasClass("accept-match-with-player-list", true);
         $.GetContextPanel().FindChildInLayoutFile('id-map-draft-phase-teams').RemoveClass('hidden');
         let iYourXuidTeamIdx = 0;
         const yourXuid = MyPersonaAPI.GetXuid();
+        // yourXuid should always be on one of the teams
         for (let i = 0; i < numPlayers; ++i) {
             const xuidPlayer = LobbyAPI.GetConfirmedMatchPlayerByIdx(i);
             if (xuidPlayer && xuidPlayer === yourXuid)
                 iYourXuidTeamIdx = (i < (numPlayers / 2)) ? 0 : 1;
         }
+        // Go through each team we care about and update the players
         for (let i = 0; i < numPlayers; ++i) {
             let xuid = LobbyAPI.GetConfirmedMatchPlayerByIdx(i);
             if (!xuid) {
-                continue;
+                //DEVONLY{
+                if (spoof10)
+                    xuid = yourXuid;
+                else
+                    //}DEVONLY
+                    continue;
             }
+            // check if you are in the player list and assing the correct list.
             const iThisPlayerTeamIdx = (i < (numPlayers / 2)) ? 0 : 1;
             const teamPanelId = (iYourXuidTeamIdx === iThisPlayerTeamIdx) ? 'id-map-draft-phase-your-team' : 'id-map-draft-phase-other-team';
             const elTeammates = $.GetContextPanel().FindChildInLayoutFile(teamPanelId).FindChild('id-map-draft-phase-avatars');
@@ -90,10 +120,12 @@ var PopupAcceptMatch;
         elAvatar.FindChildTraverse('JsAvatarImage').PopulateFromSteamID(xuid);
         const elTeamColor = elAvatar.FindChildInLayoutFile('JsAvatarTeamColor');
         elTeamColor.visible = false;
+        $.Msg('Accept: created player entry ' + xuid + ' = ' + FriendsListAPI.GetFriendName(xuid));
         elAvatar.SetDialogVariable('xuid', xuid);
     }
     function _AddOpenPlayerCardAction(elAvatar, xuid) {
         elAvatar.SetPanelEvent("onactivate", () => {
+            // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
             $.DispatchEvent('SidebarContextMenuActive', true);
             if (xuid !== "0") {
                 const contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, () => $.DispatchEvent('SidebarContextMenuActive', false));
@@ -134,6 +166,10 @@ var PopupAcceptMatch;
     }
     function _UpdateTimeRemainingSeconds() {
         m_numSecondsRemaining = LobbyAPI.GetReadyTimeRemainingSeconds();
+        //DEVONLY{
+        if (spoof10)
+            m_numSecondsRemaining = 10;
+        //}DEVONLY
     }
     function _OnTimerUpdate() {
         m_jsTimerUpdateHandle = false;
@@ -150,6 +186,8 @@ var PopupAcceptMatch;
         }
     }
     function _ReadyForMatch(shouldShow, playersReadyCount, numTotalClientsInReservation) {
+        // Called from event PanoramaComponent_Lobby_ReadyUpForMatch.
+        // We are not supposed to show so hide and leave
         if (!shouldShow) {
             if (m_jsTimerUpdateHandle) {
                 $.CancelScheduled(m_jsTimerUpdateHandle);
@@ -160,9 +198,11 @@ var PopupAcceptMatch;
             return;
         }
         if (m_hasPressedAccept && m_numPlayersReady && (playersReadyCount > m_numPlayersReady)) {
+            // $.Msg( "Accept: popup_accept_match_person("+playersReadyCount+">"+m_numPlayersReady+")\n" );
             $.DispatchEvent('CSGOPlaySoundEffectMuteBypass', 'popup_accept_match_person', 'MOUSE', 1.0);
         }
-        if (playersReadyCount == 1 && numTotalClientsInReservation == 1 && (m_numTotalClientsInReservation > 1)) {
+        if (playersReadyCount == 1 && numTotalClientsInReservation == 1 && (m_numTotalClientsInReservation > 1)) { // This is a special notification that we should immediately connect to the match.
+            // Try reusing the match size if configured and spoof everybody as "ready".
             numTotalClientsInReservation = m_numTotalClientsInReservation;
             playersReadyCount = m_numTotalClientsInReservation;
         }
@@ -173,6 +213,12 @@ var PopupAcceptMatch;
         m_jsTimerUpdateHandle = $.Schedule(1.0, _OnTimerUpdate);
     }
     function _UpdatePlayerSlots(elPlayerSlots) {
+        //DEVONLY{
+        if (spoof10) {
+            m_numTotalClientsInReservation = 10;
+            m_numPlayersReady = 3;
+        }
+        //}DEVONLY
         for (let i = 0; i < m_numTotalClientsInReservation; i++) {
             let Slot = $.GetContextPanel().FindChildInLayoutFile('AcceptMatchSlot' + i);
             if (!Slot) {
@@ -186,6 +232,7 @@ var PopupAcceptMatch;
         labelPlayersAccepted.SetDialogVariableInt('slots', m_numTotalClientsInReservation);
         labelPlayersAccepted.text = $.Localize('#match_ready_players_accepted', labelPlayersAccepted);
     }
+    // Called from $.RegisterForUnhandledEvent( 'ServerReserved', PopupAcceptMatch.SetMatchData )
     function _SetMatchData(map) {
         if (!m_lobbySettings || !m_lobbySettings.game)
             return;
@@ -194,6 +241,7 @@ var PopupAcceptMatch;
             gameMode = "gungameprogressive";
         const labelData = $.GetContextPanel().FindChildInLayoutFile('AcceptMatchModeMap');
         let strLocalize = '#match_ready_match_data';
+        $.Msg('Accept: mode=' + gameMode + ', map=' + map + ' (' + GameTypesAPI.GetMapGroupAttribute('mg_' + map, 'competitivemod') + ')');
         labelData.SetDialogVariable('mode', $.Localize('#SFUI_GameMode_' + gameMode));
         const flags = parseInt(m_lobbySettings.game.gamemodeflags);
         if (GameModeFlags.DoesModeUseFlags(gameMode) && flags &&
@@ -208,6 +256,7 @@ var PopupAcceptMatch;
         if ((gameMode === 'competitive') && (map === 'lobby_mapveto')) {
             $('#AcceptMatchModeIcon').SetImage("file://{images}/icons/ui/competitive_teams.svg");
             if (m_lobbySettings.options && m_lobbySettings.options.challengekey) {
+                // It's a Private Matchmaking with challenge key, show it as such
                 strLocalize = '#match_ready_match_data_map';
                 labelData.SetDialogVariable('map', $.Localize('#SFUI_Lobby_LeaderMatchmaking_Type_PremierPrivateQueue'));
             }
@@ -229,11 +278,16 @@ var PopupAcceptMatch;
     }
     PopupAcceptMatch.OnAcceptMatchPressed = OnAcceptMatchPressed;
     function ShowPreMatchInterface() {
+        $.Msg('Show ShowPreMatchInterface');
         PremierPickBan.Init();
         $.GetContextPanel().FindChildInLayoutFile('id-accept-match').AddClass('hide');
         CancelTimerSound();
     }
     PopupAcceptMatch.ShowPreMatchInterface = ShowPreMatchInterface;
+    /*
+    UI_COMPONENT_DECLARE_EVENT2( Lobby, ReadyUpForMatch, "shouldShow", bool, "numPlayersReady", int32 );
+    Spams once we learn of a new readiness, including when you click ready (if it sends successfully that is).
+    */
     $.RegisterForUnhandledEvent('PanoramaComponent_Lobby_ReadyUpForMatch', _ReadyForMatch);
     $.RegisterForUnhandledEvent('MatchAssistedAccept', OnAcceptMatchPressed);
     $.RegisterForUnhandledEvent('PanoramaComponent_Lobby_ShowPreMatchInterface', ShowPreMatchInterface);

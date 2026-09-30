@@ -34,6 +34,7 @@ var SettingsMenuPromoted;
         }
     }
     function _Init() {
+        // Decorate settings this client hasn't seen yet
         let arrUnacknowledgedSettings = PromotedSettingsUtil.GetUnacknowledgedPromotedSettings();
         arrUnacknowledgedSettings.forEach(setting => setting.highlight = true);
         for (const setting of g_PromotedSettings) {
@@ -44,9 +45,11 @@ var SettingsMenuPromoted;
             }
         }
         if (arrUnacknowledgedSettings.length > 0) {
+            // Update last viewed time if we have unacknowledged settings
             $.DispatchEvent("MainMenu_PromotedSettingsViewed");
         }
     }
+    // On creation
     {
         _Init();
     }

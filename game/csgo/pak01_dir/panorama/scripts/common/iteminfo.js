@@ -4,6 +4,7 @@
 /// <reference path="characteranims.ts" />
 var ItemInfo;
 (function (ItemInfo) {
+    // Requires common/formattext.ts
     function GetFormattedName(id) {
         const strName = InventoryAPI.GetItemNameUncustomized(id);
         const strCustomName = InventoryAPI.GetItemNameCustomized(id);
@@ -12,18 +13,19 @@ var ItemInfo;
             let strWeaponName;
             let strPaintName;
             if (splitLoc >= 0) {
-                strWeaponName = strName.substring(0, splitLoc).trim();
-                strPaintName = strName.substring(splitLoc + 1).trim();
+                strWeaponName = strName.substring(0, splitLoc).trim(); // Eat extra whitespace before "|"
+                strPaintName = strName.substring(splitLoc + 1).trim(); // Eat extra whitespace after "|"
                 return new CFormattedText('#CSGO_ItemName_Custom_Painted', { item_name: strWeaponName, paintkit_name: strPaintName, custom_item_name: strCustomName });
             }
             else
                 return new CFormattedText('#CSGO_ItemName_Custom_Simple', { item_name: strName, custom_item_name: strCustomName });
         }
         else {
+            // Check for painted weapon name e.g. "M4A4 | Howl" and split into weapon and paintkit name
             const splitLoc = strName.indexOf('|');
             if (splitLoc >= 0) {
-                const strWeaponName = strName.substring(0, splitLoc).trim();
-                const strPaintName = strName.substring(splitLoc + 1).trim();
+                const strWeaponName = strName.substring(0, splitLoc).trim(); // Eat extra whitespace before "|"
+                const strPaintName = strName.substring(splitLoc + 1).trim(); // Eat extra whitespace after "|"
                 return new CFormattedText('#CSGO_ItemName_Painted', { item_name: strWeaponName, paintkit_name: strPaintName });
             }
             return new CFormattedText('#CSGO_ItemName_Base', { item_name: strName });
@@ -59,6 +61,7 @@ var ItemInfo;
     function GetKeyForCaseInXray(caseId) {
         const numActionItems = InventoryAPI.GetChosenActionItemsCount(caseId, 'decodable');
         if (numActionItems > 0) {
+            // User owns keys for this case and use the oldist one
             const aKeyIds = [];
             for (let i = 0; i < numActionItems; i++) {
                 aKeyIds.push(InventoryAPI.GetChosenActionItemIDByIndex(caseId, 'decodable', i));
@@ -101,7 +104,8 @@ var ItemInfo;
     }
     ItemInfo.GetLoadoutWeapons = GetLoadoutWeapons;
     function DeepCopyVanityCharacterSettings(inVanityCharacterSettings) {
-        const modelRenderSettingsOneOffTempCopy = JSON.parse(JSON.stringify(inVanityCharacterSettings));
+        const modelRenderSettingsOneOffTempCopy = // or google for JS deep copy to ensure that array is not referenced
+         JSON.parse(JSON.stringify(inVanityCharacterSettings));
         modelRenderSettingsOneOffTempCopy.panel = inVanityCharacterSettings.panel;
         return modelRenderSettingsOneOffTempCopy;
     }
@@ -124,6 +128,9 @@ var ItemInfo;
             petItemId: undefined,
             cameraPreset: undefined
         };
+        //
+        // See if we have been passed a character item
+        //
         if (optionalCharacterItemId && InventoryAPI.IsValidItemID(optionalCharacterItemId)) {
             const charTeam = InventoryAPI.GetItemTeam(optionalCharacterItemId);
             if (charTeam.search('Team_CT') !== -1)
@@ -133,10 +140,15 @@ var ItemInfo;
             if (oSettings.team)
                 oSettings.charItemId = optionalCharacterItemId;
         }
+        //
+        // Read team or randomize between CT and T
+        // optional team parameter can be passed to process a specific team
+        //
         if (!oSettings.team) {
             oSettings.team = GameInterfaceAPI.GetSettingString('ui_vanitysetting_team');
             if (oSettings.team !== 'ct' && oSettings.team !== 't') {
                 oSettings.team = (Math.round(Math.random()) > 0) ? 'ct' : 't';
+                $.Msg("  Vanity random team: " + oSettings.team);
                 GameInterfaceAPI.SetSettingString('ui_vanitysetting_team', oSettings.team);
             }
         }
@@ -147,31 +159,53 @@ var ItemInfo;
             };
             const slots = JSON.parse(LoadoutAPI.GetLoadoutSlotNames(false));
             while (slots.length > 0) {
+                // remove MGs from the random weapon list because they squat
                 slots.splice(slots.indexOf('heavy3'), 1);
                 slots.splice(slots.indexOf('heavy4'), 1);
                 const nRandomSlotIndex = Math.floor(Math.random() * slots.length);
-                myResult.loadoutSlot = slots.splice(nRandomSlotIndex, 1)[0];
+                myResult.loadoutSlot = slots.splice(nRandomSlotIndex, 1)[0]; // remove the random slot and use it
                 myResult.weaponItemId = LoadoutAPI.GetItemID(strTeam, myResult.loadoutSlot);
                 if (ItemInfo.IsWeapon(myResult.weaponItemId) || ItemInfo.IsMelee(myResult.weaponItemId))
-                    break;
+                    break; // break out of slots scanning once we found a valid weapon to use
             }
             return myResult;
         }
         ;
+        //
+        // Read the loadout slot that is supposed to be used
+        //
         oSettings.loadoutSlot = GameInterfaceAPI.GetSettingString('ui_vanitysetting_loadoutslot_' + oSettings.team);
+        // Validate the setting slot
         if (!JSON.parse(LoadoutAPI.GetLoadoutSlotNames(false)).includes(oSettings.loadoutSlot))
             oSettings.loadoutSlot = '';
         oSettings.weaponItemId = LoadoutAPI.GetItemID(oSettings.team, oSettings.loadoutSlot);
-        if (!(ItemInfo.IsWeapon(oSettings.weaponItemId) || ItemInfo.IsMelee(oSettings.weaponItemId))) {
+        if (!(ItemInfo.IsWeapon(oSettings.weaponItemId) || ItemInfo.IsMelee(oSettings.weaponItemId))) { // most likely the slot itself is invalid for this team since there's no possible weapon there
+            // re-roll a valid slot and weapon now
             const randomResult = RollRandomLoadoutSlotAndWeapon(oSettings.team);
             oSettings.loadoutSlot = randomResult.loadoutSlot;
             oSettings.weaponItemId = randomResult.weaponItemId;
+            // since we had to re-roll the slot or itemid make sure we write the picked slot into our config
+            $.Msg("  Vanity random slot: " + oSettings.loadoutSlot);
             GameInterfaceAPI.SetSettingString('ui_vanitysetting_loadoutslot_' + oSettings.team, oSettings.loadoutSlot);
         }
+        //
+        // Read the gloves
+        //
         oSettings.glovesItemId = LoadoutAPI.GetItemID(oSettings.team, 'clothing_hands');
-        oSettings.petItemId = InventoryAPI.GetPetItemID();
+        //
+        // Read the pet
+        //
+        oSettings.petItemId = InventoryAPI.GetPetItemID(); // LoadoutAPI.GetItemID( 'noteam', 'pet' ); // << EGG IS NOT AUTO-EQUIPPED, so read any pet
+        //
+        // Read the character from loadout slot if not explicitly requested
+        //
         if (!oSettings.charItemId)
             oSettings.charItemId = LoadoutAPI.GetItemID(oSettings.team, 'customplayer');
+        //
+        // If the caller wants the character in 'unowned' state
+        // then we will not use our own gloves and our own weapon
+        // but rather will use some default ones
+        //
         if (optionalState && optionalState === 'unowned') {
             const randomResult = RollRandomLoadoutSlotAndWeapon(oSettings.team);
             oSettings.loadoutSlot = randomResult.loadoutSlot;
@@ -209,10 +243,16 @@ var ItemInfo;
     }
     ItemInfo.GetitemKeychainList = GetitemKeychainList;
     function GetStoreOriginalPrice(id, count, rules) {
+        // rules is a new optional parameter that is passed as a string to C++
+        // '' (empty string) means to return price formatted in user wallet currency
+        // '#' means to return raw integer number of cents/yens/etc. for relative comparisons in Javascript
         return StoreAPI.GetStoreItemOriginalPrice(id, count, rules ? rules : '');
     }
     ItemInfo.GetStoreOriginalPrice = GetStoreOriginalPrice;
     function GetStoreSalePrice(id, count, rules) {
+        // rules is a new optional parameter that is passed as a string to C++
+        // '' (empty string) means to return price formatted in user wallet currency
+        // '#' means to return raw integer number of cents/yens/etc. for relative comparisons in Javascript
         return StoreAPI.GetStoreItemSalePrice(id, count, rules ? rules : '');
     }
     ItemInfo.GetStoreSalePrice = GetStoreSalePrice;
@@ -274,6 +314,9 @@ var ItemInfo;
     }
     ItemInfo.ItemDefinitionNameStartsWith = ItemDefinitionNameStartsWith;
     function GetFauxReplacementItemID(id, purpose) {
+        // In the case of Tournament Access Coin it can also act as a graffiti, so we may
+        // use a different ID for display that is a synthetic faux item representing the
+        // corresponding graffiti object
         if (purpose === 'graffiti') {
             if (ItemDefinitionNameSubstrMatch(id, 'tournament_journal_')) {
                 return GetFauxItemIdForGraffiti(parseInt(InventoryAPI.GetItemAttributeValue(id, 'sticker slot 0 id')));
@@ -283,7 +326,11 @@ var ItemInfo;
     }
     ItemInfo.GetFauxReplacementItemID = GetFauxReplacementItemID;
     function GetFauxItemIdForGraffiti(stickestickerid_graffiti) {
-        return InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1349, stickestickerid_graffiti);
+        // In the case of Tournament Access Coin it can also act as a graffiti, so we may
+        // use a different ID for display that is a synthetic faux item representing the
+        // corresponding graffiti object
+        return InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(// 'spraypaint'
+        1349, stickestickerid_graffiti);
     }
     ItemInfo.GetFauxItemIdForGraffiti = GetFauxItemIdForGraffiti;
     function GetItemIdForItemEquippedInSlot(team, slot) {
@@ -307,6 +354,8 @@ var ItemInfo;
         const isSprayPaint = itemSchemaDef.name === 'spray';
         const isFanTokenOrShieldItem = itemSchemaDef.name && itemSchemaDef.name.indexOf('tournament_journal_') != -1;
         const isPet = InventoryAPI.DoesItemMatchDefinitionByName(id, 'pet');
+        // if you are one of the items types that has a model then return it
+        // "model_player" is used to defing modesl for weapons.
         if (isSpray || isSprayPaint || isFanTokenOrShieldItem)
             return 'vmt://spraypreview_' + id;
         else if (IsSticker(id) || IsPatch(id))
@@ -319,6 +368,7 @@ var ItemInfo;
         return JSON.parse(schemaString);
     }
     ItemInfo.BuildItemSchemaDef = BuildItemSchemaDef;
+    // returns the path to the mdl specified in the "model_player" keyvalue.
     function GetModelPlayer(id) {
         const itemSchemaDef = BuildItemSchemaDef(id);
         return itemSchemaDef["model_player"];
@@ -363,6 +413,7 @@ var ItemInfo;
     }
     ItemInfo.GetDefaultDefeat = GetDefaultDefeat;
     function GetModelPathFromJSONOrAPI(id) {
+        // 0 may be valid so let that go
         if (id === '' || id === undefined || id === null) {
             return '';
         }
@@ -372,7 +423,9 @@ var ItemInfo;
             pedistalModel = itemSchemaDef.hasOwnProperty('attributes') ? itemSchemaDef.attributes["pedestal display model"] : '';
         }
         else if (ItemHasCapability(id, 'decodable')) {
+            // This is a case that has a model
             pedistalModel = itemSchemaDef.hasOwnProperty("model_player") ? itemSchemaDef.model_player : '';
+            $.Msg('decodable pedistalModel ' + pedistalModel);
         }
         return (pedistalModel === '') ? GetModelPath(id, itemSchemaDef) : pedistalModel;
     }
@@ -391,6 +444,14 @@ var ItemInfo;
     }
     ItemInfo.FindAnyUserOwnedCharacterItemID = FindAnyUserOwnedCharacterItemID;
     function IsFauxOrRentalOrPreviewTool(id) {
+        // Preview of a sticker/patch/keychain can be activated from a tool,
+        // or from a faux item in the store, or from a rental sticker preview,
+        // primarily we are trying to unrestrict items eligible for preview
+        // with a given faux tool and to show a custom warning that "this is merely a preview"
+        // the  9223231297218904062
+        // and  9223231297218904063 < Market inspects
+        // from 9223231297218904064 < dynamic items
+        // to   9223231297218905064
         if ((id && id.length == 19 && id.startsWith('922323129721890'))
             || InventoryAPI.IsFauxItemID(id)
             || InventoryAPI.IsRental(id))

@@ -30,13 +30,13 @@ var OperationMain = ( function()
 		_SetupHeader( oStatus );
 
 		var indexToOpenTo = _m_cp.GetAttributeInt( "start_reward", -1 );
-		                                                                                   
+		// set to -1 so on subsequent updates we don't set the active button to this index.
 		_m_cp.SetAttributeInt( "start_reward", -1 );
 
-		                                         
+		// Set the range for rewards we will show
 		_UpdateDefaultProgressData( oStatus, indexToOpenTo );
 
-		                        
+		// Make the reward tiles
 		_UpdateRewardTiles();
 
 		var elVisibleBar = _m_oProgressFlipModule.DetermineVisiblePanel(
@@ -44,17 +44,17 @@ var OperationMain = ( function()
 			_m_oProgressFlipModule.oData.animPanelB
 		);
 
-		                                                         
+		// Update progress bar to show current range of progress.
 		_UpdateProgressBarSections( _m_oProgressFlipModule.oData, elVisibleBar );
 		
-		                                                                    
+		// Select next reward tile as default selection on the progress bar.
 		var oRewardToHighlight = _GetRewardToHighlight( indexToOpenTo );
 
-		                                                                 
+		// Make or update the reward thumbnail btns for the progress bar.
 		_UpdateRewardsOnProgressBar( elVisibleBar, oRewardToHighlight );
 		
 		var aChildren = elVisibleBar.FindChildInLayoutFile( 'op-main-progressbar-rewards' ).Children();
-		                        
+		// Set the Active Button
 
 		_m_activeRewardBtn = aChildren.filter( element =>
 			element.Data().oReward.itempremium.ids[ 0 ] === oRewardToHighlight.itempremium.ids[ 0 ] &&
@@ -65,7 +65,7 @@ var OperationMain = ( function()
 		_ShowPurchaseSpecificStarsBtn();
 		_SetCheckedMatchingTile();
 
-		                                                                                                                    
+		// We delay this to make sure that the rest of the panel loads before we load a model so we don't have a huge hitch.
 		$.Schedule( 0.3, _UpdateInspectPanel );
 		_SetPurchaseBtn();
 	};
@@ -101,9 +101,9 @@ var OperationMain = ( function()
 		elUpSell.FindChildInLayoutFile( 'op-main-upsell-image' ).SetImage( imgPath );
 		elUpSell.SetPanelEvent( 'onactivate', OperationUtil.OpenUpSell.bind( undefined ) );
 
-		  
-		                               
-		  
+		//
+		// Showcase the sale percentage
+		//
 		var elPassSaleDiscount = elUpSell.FindChildInLayoutFile( 'id-op-reward-open-operation-hub-passsalediscount' );
 		elPassSaleDiscount.visible = ( !bPremiumUser && sUserOwnedOperationPassItemID ) ? false : true;
 		var sPctReduction = StoreAPI.GetStoreItemPercentReduction( sFauxPassItemID );
@@ -156,9 +156,9 @@ var OperationMain = ( function()
 			sectionEnd: 0
 		};
 
-		                                    
-		                                                
-		                                                         
+		// Set the active index for the Bar.
+		// 0 would be a bar the represents 0-100 levels.
+		// If reward index is 345 then the active bar index is 3.
 		var activeIndex = openToRewardIndex > -1 ? Math.floor( openToRewardIndex / SECTIONS_IN_BAR ) : Math.floor( oStatus.nTierUnlocked / SECTIONS_IN_BAR );
 		_m_oProgressFlipModule.CallbackData = oCallbackData;
 		_m_oProgressFlipModule.ActiveIndex = activeIndex;
@@ -168,13 +168,13 @@ var OperationMain = ( function()
 
 		_UpdateProgressBarEnableDisable( _m_oProgressFlipModule.oData );
 		
-		                                                                  
-		                                        
+		$.Msg( 'ACTIVE INDEX SET:' + _m_oProgressFlipModule.ActiveIndex );
+		// _m_oProgressFlipModule.UseCallback();
 	};
 
-	                        
-	                        
-	                        
+	////////////////////////
+	// Rewards Tiles ///////
+	////////////////////////
 	var _UpdateRewardTiles = function(  )
 	{
 		var aTiles = _GetRewardsForTiles();
@@ -200,14 +200,14 @@ var OperationMain = ( function()
 			return elPanel;
 		}
 		var elParent = _m_cp.FindChildInLayoutFile( 'id-op-rewards-list' );
-		                                                                      
+		// var nTierUnlocked = OperationUtil.GetOperationInfo().nTierUnlocked;
 		var currentRow = 0;
 		var maxTiles = 12;
 		var numTileRow = 0;
 
 		for ( var i = 0; i < maxTiles; i++ )
 		{
-			                                                            
+			// $.Msg( 'sorted: ' + aTiles[ i ].rewardsData[0].uiOrder );
 			numTileRow = aTiles[ i ] ? parseInt( aTiles[ i ].rewardsData[ 0 ].uiOrder ) : numTileRow;
 			if( numTileRow !== currentRow )
 			{
@@ -244,12 +244,12 @@ var OperationMain = ( function()
 
 			elTile.SetHasClass( 'small', currentRow !== 1 );
 			elTile.FindChildInLayoutFile( 'id-op-reward-name' ).text = InventoryAPI.GetItemName( aTiles[ i ].rewardId );
-			                                                                                                 
+			// var aClaimedReawrds = aTiles[ i ].rewardsData.filter( reward => reward.idx <= nTierUnlocked );
 
-			                                                                                                                                
+			//elTile.FindChildInLayoutFile( 'id-op-reward-remaining' ).text = aClaimedReawrds.length + '/' + aTiles[ i ].rewardsData.length;
 			elTile.Data().oReward = aTiles[ i ].rewardsData[ 0 ];
 			elTile.Data().showSingleReward = aTiles[ i ].rewardsData.length === 1 ? true : false;
-			elTile.Data().nCategoryButtonIdx = i;                                                                                                                         
+			elTile.Data().nCategoryButtonIdx = i; // Lets us tell the difference between directly clicking on the reward and selecting a category of rewards for OGS stats
 			elTile.SetPanelEvent( 'onactivate', _OnSelectReward.bind( undefined, elTile ) );
 
 			_CacheWeaponMouseOver( elTile, aTiles[ i ].rewardId  );
@@ -269,7 +269,7 @@ var OperationMain = ( function()
 			{
 				var rewardId = aRewards[ i ].itempremium.ids[ 0 ];
 
-				                                                                     
+				$.Msg( 'reward info: id: ' + rewardId + 'idx: ' + aRewards[ i ].idx);
 
 				if ( !aTiles.find( tile =>
 				{
@@ -295,15 +295,15 @@ var OperationMain = ( function()
 		oData.controlBtnPrev.enabled = oData.activeIndex > 0;
 		oData.controlBtnNext.enabled = oData.activeIndex < oData.oCallbackData.maxIndex;
 
-		                                                                         
+		// Don't show buttons if you don't have enough levels to see another bar.
 		oData.controlBtnPrev.visible = oData.oCallbackData.nTierUnlocked >= 100;
 		oData.controlBtnNext.visible = oData.oCallbackData.nTierUnlocked >= 100;
 	};
 
 	var _UpdateProgressBarSections = function( oData, elBarParent )
 	{
-		                                                                  
-		                                        
+		$.Msg( 'ACTIVE INDEX NOW:' + _m_oProgressFlipModule.ActiveIndex );
+		$.Msg( 'SHOWN BAR: ' + elBarParent.id );
 		
 		var elBar = elBarParent.FindChildInLayoutFile( 'op-main-progressbar-sections' );
 		elBar.RemoveAndDeleteChildren();
@@ -330,7 +330,7 @@ var OperationMain = ( function()
 
 	var _GetRewardToHighlight = function( rewardTohighlightIndex )
 	{
-		                                                                                         
+		// var oRewardsNoGaps = OperationUtil.GetRewardsData().filter( reward => !reward.isGap );
 		var oRewards = OperationUtil.GetRewardsData();
 		var count = oRewards.length;
 
@@ -343,7 +343,7 @@ var OperationMain = ( function()
 		{
 			if ( !oRewards[ i ].isUnlocked && !oRewards[ i ].isGap )
 			{
-				                                                            
+				$.Msg( 'Reward id: ' + oRewards[ i ].itempremium.ids[ 0 ] );
 				return oRewards[ i ];
 			}
 		}
@@ -365,12 +365,12 @@ var OperationMain = ( function()
 	var _UpdateRewardPanelsOnProgressBar = function( aGetRewardsInRange, elBar, oRewardToHighlight = null )
 	{
 		var elRewardsPanel = elBar.FindChildInLayoutFile( "op-main-progressbar-rewards" );
-		                                           
+		//elRewardsPanel.RemoveAndDeleteChildren();
 
 		aGetRewardsInRange.forEach(function( reward, index )
 		{
 			var elReward = elRewardsPanel.FindChildInLayoutFile( "bar-reward-" + reward.idx );
-			var bPlayAnim = false;                                                   
+			var bPlayAnim = false;// play the anim the first time panels are created.
 
 			if ( !elReward )
 			{
@@ -381,9 +381,9 @@ var OperationMain = ( function()
 				elReward.Data().oReward = reward;
 			}
 
-			                                                                                                          
-			                                                       
-			                                                                                          
+			// If the idx do not match then we are in t a new range of rewards but the panels have not been recreated.
+			// This happens if you purchase past 100 as an example.
+			// In this case reassign the reaward data to the panel and remove any old highlight state.
 			if( reward.idx !== elReward.Data().oReward.idx )
 			{
 				elReward.Data().oReward = reward;
@@ -421,8 +421,8 @@ var OperationMain = ( function()
 
 			_CacheWeaponMouseOver( elReward ,reward.itempremium.ids[ 0 ] );
 			
-			                                                                                           
-			                                                                                                                             
+			// If we have a selected button then use it but other wise we the next reward to highlight.
+			// We don't use the checked property to drive the highlight style because we sometimes highlight multiple rewards on the bar.
 			var rewardTohighlight = _m_activeRewardBtn ? _m_activeRewardBtn.Data().oReward : oRewardToHighlight;
 			
 			if ( rewardTohighlight )
@@ -467,9 +467,9 @@ var OperationMain = ( function()
 		}
 	};
 
-	                          
-	                          
-	                          
+	//////////////////////////
+	// Update selection //////
+	//////////////////////////
 	var _OnSelectReward = function( elSelected, elBar = undefined, bTrackStats = true )
 	{
 		if ( _m_activeRewardBtn === elSelected )
@@ -494,7 +494,7 @@ var OperationMain = ( function()
 
 		_ShowPurchaseSpecificStarsBtn();
 		
-		                                                               
+		//slight delay to allow the reward panels on the bar to update.
 		$.Schedule( .3, _UpdateInspectPanel );
 	};
 
@@ -544,9 +544,9 @@ var OperationMain = ( function()
 		}
 	};
 
-	                  
-	                  
-	                  
+	//////////////////
+	// Inspect ///////
+	//////////////////
 	var _UpdateInspectPanel = function()
 	{
 		if ( !_m_activeRewardBtn )
@@ -587,7 +587,7 @@ var OperationMain = ( function()
 					);
 				});
 				btnPreviewCase.SetPanelEvent( 'onmouseover', function()
-				{	                                                                                                        
+				{	// nothing to precache for the case inspect, just reset the precache callback we do for characters below
 				});
 			}
 		}
@@ -674,7 +674,7 @@ var OperationMain = ( function()
 			var id = InventoryAPI.GetActiveSeasonCoinItemId();
 			var missionsThreshold = InventoryAPI.GetItemAttributeValue( id, 'upgrade threshold' );
 
-			                                                                                  
+			// Make sure we don't have an unsigned int that returns out of the possible range.
 			if ( !missionsThreshold || missionsThreshold < 0 || missionsThreshold > 1000 )
 			{
 				elWarning.SetHasClass( 'hidden', true );

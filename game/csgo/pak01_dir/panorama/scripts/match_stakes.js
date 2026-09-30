@@ -17,6 +17,7 @@ var MatchStakes;
     }
     function _GetMatchStakesPanel() {
         if (!m_elMatchStakes) {
+            $.Msg('[p.matchstakes] getting matchstakes panel');
             let elHud = _GetRootPanel();
             m_elMatchStakes = elHud.FindChildTraverse('MatchStakes');
         }
@@ -46,6 +47,8 @@ var MatchStakes;
         const score = MockAdapter.GetPlayerCompetitiveRanking(mysteamid);
         const wins = MockAdapter.GetPlayerCompetitiveWins(mysteamid);
         let options = {
+            //	api: 'gamestate',
+            //	xuid: mysteamid,
             root_panel: elMatchStakes,
             rating_type: 'Premier',
             do_fx: false,
@@ -54,12 +57,14 @@ var MatchStakes;
             local_player: true
         };
         RatingEmblem.SetXuid(options);
+        // promotion / relegation
         let introText = RatingEmblem.GetIntroText(elMatchStakes);
         elMatchStakes.SetHasClass('show-intro-text', introText !== '');
         elMatchStakes.SetDialogVariable('introtext', introText);
         elMatchStakes.TriggerClass('reveal-stakes');
         let promotionState = RatingEmblem.GetPromotionState(elMatchStakes);
         let ParticleEffect = '';
+        // todo: get tier from ratingsemblem
         let majorRating = '';
         let arrRating = RatingEmblem.SplitRating(rankStats.score);
         majorRating = arrRating[0];

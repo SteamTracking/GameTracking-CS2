@@ -245,8 +245,6 @@
 .?AVCAMDAntiLagDx11@@
 .?AVCAftermathDx11@@
 .?AVCBarrierHelperEmpty@?1??GetBarrierHelper@CRenderContextBase@@UEAA?AV?$unique_ptr@VIBarrierHelper@@U?$default_delete@VIBarrierHelper@@@std@@@std@@XZ@
-.?AVCColorFormatBase@@
-.?AVCColorFormatDx11@@
 .?AVCCompileTargetExprOpCodeHandler@@
 .?AVCCompileTargetExprStackMachineBuilder@@
 .?AVCDeviceFence@@
@@ -326,7 +324,6 @@
 7xicuU
 8"3hrf
 8&Kx
-8Fyy
 9&aJ
 969p
 :AM:am:PM:pm
@@ -342,7 +339,6 @@
 ?ParseEXRHeaderFromMemory() failed! Error message: %s\n
 ?fff?
 ?~~~~~~~~~~~~~~~~
-@6pf
 @Integer overflow in %s
 AGS Library initialization failed: %d\n
 AGS Library initialized: v%d.%d.%d\n
@@ -449,7 +445,7 @@ CCITT Group 4
 CCITT RLE
 CCITT RLE/W
 CCommandBufferChunk CUtlMemoryPool
-CDeviceFenceDx11::CDeviceFenceDx11(4493): 
+CDeviceFenceDx11::CDeviceFenceDx11(4495): 
 CDmeSheetSequence
 CFALayout
 CFAPlaneColor
@@ -1258,7 +1254,6 @@ Output aborted.
 Overall System GPU memory use:\n
 Overflow of the sheet cache texture. Releasing and starting over. This is ok in asset browser, not so ok if the game is triggering this!\n
 Overflow of the sheet cache texture: Try increasing SheetCacheTextureRows in gameinfo.gi (current value %d)!\n
-P2|J
 PC SM 5.0 (D3D11)
 PC SM 5.0 (VULKAN)
 PC SM 6.0 (VULKAN)
@@ -1880,7 +1875,7 @@ _psrs
 _rtx
 _tools.txt
 _wjb
-`6Xx
+`6hw
 agsDeInitialize
 agsDriverExtensionsDX11_CreateDevice
 agsDriverExtensionsDX11_CreateDevice failed %x, disabling AGS.\n

@@ -15,6 +15,7 @@ var friendLobby;
         _m_isInPopup = elTile.GetAttributeString('showinpopup', 'false') === 'true' ? true : false;
         let lobbyType = PartyBrowserAPI.GetPartyType(_m_xuid);
         let gameMode = PartyBrowserAPI.GetPartySessionSetting(_m_xuid, 'game/mode');
+        // Add a special class for hire
         elTile.SetHasClass('playerforhire', (lobbyType === 'nearby'));
         _SetLobbyLeaderNameAvatar(elTile, lobbyType);
         _SetGroupNameLink(elTile, lobbyType);
@@ -33,6 +34,7 @@ var friendLobby;
     friendLobby.Init = Init;
     function _SetLobbyLeaderNameAvatar(elTile, lobbyType) {
         let xuidLobbyLeader = PartyBrowserAPI.GetPartyMemberXuid(_m_xuid, 0);
+        //JsFriendLobbyLeaderName is an html panel, escape player names
         let rawName = FriendsListAPI.GetFriendName(xuidLobbyLeader);
         elTile.SetDialogVariable('friendname', rawName);
         let nameString = (lobbyType === 'invited') ? '#tooltip_friend_invited_you' : "#tooltip_lobby_leader_name";
@@ -60,8 +62,10 @@ var friendLobby;
         score = Math.floor(score / 10);
         const options = {
             root_panel: elTile.FindChildTraverse('jsRatingEmblem'),
+            //		xuid: _m_xuid,
             do_fx: true,
             full_details: false,
+            //		api: 'partybrowser',
             rating_type: szSkillGroupType,
             leaderboard_details: { score: score },
             local_player: _m_xuid === MyPersonaAPI.GetXuid()
@@ -92,9 +96,10 @@ var friendLobby;
     }
     function _SetLobbyPlayerSlots(elTile, gameMode, lobbyType) {
         if (lobbyType === 'nearby')
-            return;
+            return; // only showing players for hire
         let numSlotsToShow = SessionUtil.GetMaxLobbySlotsForGameMode(gameMode) - 1;
         let elAvatarRow = elTile.FindChildTraverse('JsFriendLobbyAvatars');
+        // Skip the first player because its the lobby leader
         for (let i = 1; i <= numSlotsToShow; i++) {
             let xuid = PartyBrowserAPI.GetPartyMemberXuid(_m_xuid, i);
             let slotId = _m_xuid + ':' + i;
@@ -222,6 +227,7 @@ var friendLobby;
         };
     }
     function _OpenContextMenu(xuid) {
+        // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
         $.DispatchEvent('SidebarContextMenuActive', true);
         var contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, () => $.DispatchEvent('SidebarContextMenuActive', false));
         contextMenuPanel.AddClass("ContextMenu_NoArrow");

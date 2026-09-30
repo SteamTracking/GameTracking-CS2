@@ -14,8 +14,8 @@ var ItemContextMenu = ( function (){
 			p.SetPanelEvent( "onactivate", function () {
 				voteFunc();
 				$.DispatchEvent('UIPopupButtonClicked', '');
-				                                                                                                                            
-				                                                                                                                      
+				// Dispatch CSGOMainMenuResumeGame as async event to ensure that any style changes (e.g. hiding the popupmanager background)
+				// are applied now before the pause menu disappears, otherwise they get applied next time the pause menu is displayed.
 				$.DispatchEventAsync( 0.0, 'CSGOMainMenuResumeGame' );
 			});
 		}
@@ -47,7 +47,7 @@ var ItemContextMenu = ( function (){
 			return [];
 
 		var mapsInMapGroup = strMaps.split( ',' );
-		                            
+		// FIXME: Remove current map
 		return mapsInMapGroup.map( function ( curMap ) {
 			return { displayName: $.Localize( GetMapDisplayName( curMap ) ).toUpperCase(), voteParam: curMap };
 		});
@@ -164,13 +164,13 @@ var ItemContextMenu = ( function (){
 	}
 	
 
-	    
-	                                       
-	   
+	/// 
+	// Client list of potential vote issues
+	// 
 	function GetCurrentVoteIssues() {
 		var VoteIssues = [];
 
-		                                                             
+		// Logic mostly copied from callvote.as EnableMainVoteButtons
 		var bIsQueuedMatchmaking 	= GameStateAPI.IsQueuedMatchmaking();
 		var bIsTournamentMatch 		= MatchStatsAPI.IsTournamentMatch();
 		var bIsWarmup 				= FriendsListAPI.IsGameInWarmup();
@@ -181,12 +181,12 @@ var ItemContextMenu = ( function (){
 		var nLocalPlayerTeamNum		= GameStateAPI.GetAssociatedTeamNumber( GameStateAPI.GetLocalPlayerXuid() );
 		var bLocalPlayerActiveTeam = ( nLocalPlayerTeamNum === 2 || nLocalPlayerTeamNum === 3 );
 
-		  
-		                                            
-		                                                                                  
-		                            
-		                                     
-		  
+		/*
+		// Uncomment/tune to show votes for testing.
+		bIsQueuedMatchmaking=bIsTournamentMatch=bIsWarmup=bIsPaused=bEndMatchMapVote=true;
+		curGameMode = "competitive";
+		mapsInMapGroup = kickablePlayers = 1;
+		*/
 
 		if ( !bIsQueuedMatchmaking )
 		{
@@ -201,7 +201,7 @@ var ItemContextMenu = ( function (){
 		if ( bIsQueuedMatchmaking && bIsTournamentMatch )
 		{
 			if ( bLocalPlayerActiveTeam )
-			{	                                              
+			{	// Players can only call tech pause or timeout
 				VoteIssues.push(new ConstructBaseVoteIssueEnabled( "starttimeout", "#SFUI_Vote_StartTimeout", !bIsWarmup && !bIsPaused ) );
 				VoteIssues.push( new ConstructBaseVoteIssueEnabled( "PauseMatch", "#SFUI_Vote_pause_match", !bIsWarmup && !bIsPaused ) );
 			}

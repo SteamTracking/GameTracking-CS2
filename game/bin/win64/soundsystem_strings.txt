@@ -2242,7 +2242,6 @@ X<"wP
 \nType Name: %s\n
 \nUpdate SoundEvent: %s\n
 \n_V_StringAfterPrefixCaseSensitive
-\rgeneric_data_type
 \t dspmix %1.2f : lvol %1.2f : cvol %1.2f : rvol %1.2f : rlvol %1.2f : rrvol %1.2f\n
 \t x: %4f y: %4f z: %4f\n
 \tRefs %16s : Name (Locks)\n
@@ -2496,6 +2495,7 @@ game_get_soundscape_local_position
 game_get_source_info
 game_get_source_player_info
 game_get_surface_property_string
+generic_data_type
 get_system_globals
 graphName
 greater_than

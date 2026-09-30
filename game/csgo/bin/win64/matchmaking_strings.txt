@@ -378,7 +378,7 @@ $tIJobs/Coroutines
 :upload
 <\n\ncategories
 >\n\tTypeCache
-@HPX`hv
+@08N
 @\n\fSingleObject
 @workshop
 APPSYSTEM: In ConnectGameInterfaces(), s_nRegistrationCount is %d!\n
@@ -708,6 +708,7 @@ Options/searchteamkey
 Options/server
 P08@J@
 P08J
+P08N
 P\n\nattributes
 PartnerItemPaymentRule
 PlayerLocal::UpdateLeaderboardData for %s ...\n
@@ -1119,6 +1120,7 @@ options/sessionHostData
 options/sessionid
 options/sv_load_test
 outofdate_subscribed_caches
+p08@H^
 partner_accountbalance
 partner_accountflags
 partner_accountid

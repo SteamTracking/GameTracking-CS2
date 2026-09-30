@@ -167,6 +167,9 @@
 .?AVMallocAllocator@psd@@
 /\ng_TSPointerListNodes
 2\nP!E
+2\vpT
+2\vpX
+2\vpd
 5;FJ$,XEK4<
 7&F|If
 7T2,
@@ -537,6 +540,7 @@ Premature end-of-partition0 encountered.
 PrimaryChromaticities
 RENDERDOC_GetAPI
 RESOURCE_TYPE_TEXTURE
+R\fpT
 R_T5Y
 RawDataUniqueID
 ReadCompiledTextureMips: callback for %s is still using mip %d, but that data is about to be recycled\n
@@ -791,11 +795,14 @@ null VP8Io passed to VP8GetHeaders()
 o KPBf
 oY.o<
 opqMU
+p>P0
+p>o0
 panorama_
 panorama_rt_
 pixelAspectRatio
 png/jpg
 pseudo-
+r\vpT
 read past end of file (truncated/corrupt)
 renderdoc
 renderdoc.json

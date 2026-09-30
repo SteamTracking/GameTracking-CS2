@@ -295,11 +295,13 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 (#?windowModality@QWidget@@QEBA?AW4WindowModality@Qt@@XZ
 (Custom Colors Disabled)
 (Filter)
+(MNp
 (No Active Session)
 (No Asset)
 (\f?focusOutEvent@QAbstractButton@@MEAAXPEAVQFocusEvent@@@Z
 (\r?hideEvent@QAbstractSpinBox@@MEAAXPEAVQHideEvent@@@Z
 (\v?enterEvent@QToolButton@@MEAAXPEAVQEvent@@@Z
+(aJp
 ) ?timerEvent@QTableView@@MEAAXPEAVQTimerEvent@@@Z
 )\f?focusOutEvent@QAbstractItemView@@MEAAXPEAVQFocusEvent@@@Z
 )\nNx*\nCh+\n'
@@ -848,6 +850,7 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 .webp
 /\r?hideEvent@QScrollBar@@MEAAXPEAVQHideEvent@@@Z
 /]?size@QImage@@QEBA?AVQSize@@XZ
+0>!q0
 0\v?event@QAbstractSlider@@MEAA_NPEAVQEvent@@@Z
 0x%1
 0x%p = %s '%s'
@@ -1039,7 +1042,6 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 2\nP!E
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vpp
 2aboutToShow()
 2accepted()
 2activated( int )
@@ -2658,7 +2660,7 @@ Asset
 Asset Browser
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
-AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempting to register the command %s for context %s multiple times\n
 Autosaved %i
 Autosaves Enabled
@@ -3508,8 +3510,8 @@ Fixed
 Flat
 Float To Game Time
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -3584,13 +3586,13 @@ Greens
 Grid layout should be an array of arrays
 Group3Options
 Group4Options
-H-7p
+H-Gp
 HAC K  Unused Binding
 HSLA
 HSLA\t
 HSVA
 HSVA\t
-HY7p
+HYGp
 H\tV_cosd
 Hable (U2/HLVR)
 Hack Dota Layer Opaque
@@ -3599,7 +3601,7 @@ HalftoneHints
 Has All Flags
 Has Any Flags
 Help
-HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 HeroViewer
 Hex:
 Hide
@@ -3607,7 +3609,7 @@ Hide unless error/warning occurs
 High Contrast
 Highlight Offset EV
 Highlights
-Hm8p
+HmHp
 Home
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HorizontalStrafeCamera
@@ -3619,7 +3621,7 @@ Hue:
 I ?toggleViewAction@QDockWidget@@QEBAPEAVQAction@@XZ
 IAsset*
 IAssetSelectionListener
-IB8p
+IBHp
 IBaseEditorSessionListener
 IBindTarget
 IBindableCameraScene
@@ -4297,7 +4299,7 @@ RSDS6
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vp47
+R\vpt:
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Rad2 Deg
@@ -5102,7 +5104,6 @@ ZoomForwardBack3D
 \n?edit@QAbstractItemView@@MEAA_NAEBVQModelIndex@@W4EditTrigger@1@PEAVQEvent@@@Z
 \n?editingFinished@QLineEdit@@QEAAXXZ
 \n?editorDestroyed@QAbstractItemView@@MEAAXPEAVQObject@@@Z
-\nP47
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
 \r?darker@QColor@@QEBA?AV1@H@Z
 \r?data@QStandardItem@@UEBA?AVQVariant@@H@Z
@@ -5183,7 +5184,6 @@ ZoomForwardBack3D
 \v?fixup@QSpinBox@@MEBAXAEAVQString@@@Z
 \v?focusChanged@QApplication@@QEAAXPEAVQWidget@@0@Z
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\vp47
 ]?sharedPainter@QPaintDevice@@MEBAPEAVQPainter@@XZ
 ]?staticMetaObject@QWindow@@2UQMetaObject@@B
 ]\r?horizontalOffset@QListView@@MEBAHXZ
@@ -5216,12 +5216,12 @@ _wjb
 `?validate@QRegularExpressionValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?value@QColor@@QEBAHXZ
 `?valueF@QColor@@QEBANXZ
-`I9p
+`IIp
 `Q?lightnessF@QColor@@QEBANXZ
 `\r?entryInfoList@QDir@@QEBA?AV?$QList@VQFileInfo@@@@V?$QFlags@W4Filter@QDir@@@@V?$QFlags@W4SortFlag@QDir@@@@@Z
-`\rP\f047
 `\v?event@QSpinBox@@MEAA_NPEAVQEvent@@@Z
-`i9p
+`iIp
+`mLp
 a:fulltype
 a:typeparam
 a?windowText@QPalette@@QEBAAEBVQBrush@@XZ
@@ -5332,6 +5332,7 @@ dropDraggedColorSet
 dummyfilename.tif
 e ?topLevelItem@QTreeWidget@@QEBAPEAVQTreeWidgetItem@@H@Z
 e"?validate@QSpinBox@@MEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
+eSceneSystem
 e\f?convertToFormat_inplace@QImage@@IEAA_NW4Format@1@V?$QFlags@W4ImageConversionFlag@Qt@@@@@Z
 e\f?foregroundRole@QWidget@@QEBA?AW4ColorRole@QPalette@@XZ
 e\n?dragEnterEvent@QAbstractItemView@@MEAAXPEAVQDragEnterEvent@@@Z
@@ -5339,15 +5340,12 @@ editingFinished
 element
 end_as_info
 end_group
-etexcoord
 execution_history
 exp2
 expression_type
-fWm0
 f\n?dragEnterEvent@QAbstractScrollArea@@MEAAXPEAVQDragEnterEvent@@@Z
 f\r?horizontalScrollbarAction@QAbstractItemView@@MEAAXH@Z
 fast
-fcm0
 ffValueIn
 fff?
 field_name
@@ -5640,8 +5638,8 @@ offsetDelta
 opqMU
 optionallycompressedtangentframe
 outputcolor
-p>,m0
-p>\rm0
+p>Mp0
+p>lp0
 pAction
 pAsset
 pAssetMenuObject
@@ -5689,7 +5687,7 @@ pulse_runtime_lib
 q\n?dragLeaveEvent@QAbstractScrollArea@@MEAAXPEAVQDragLeaveEvent@@@Z
 q\v?event@QWidgetAction@@MEAA_NPEAVQEvent@@@Z
 quiet
-r\fp47
+r\fpt:
 rad2deg
 random_position
 read past end of file (truncated/corrupt)

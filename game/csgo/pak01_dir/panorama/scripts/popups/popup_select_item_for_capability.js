@@ -76,11 +76,13 @@ var SelectItemForCapability;
         elDropdown.SetSelected(GameInterfaceAPI.GetSettingString("newest"));
     }
     function UpdateSort() {
+        // just incase drop down is not initiated then just sort with newest
         let elDropdown = _m_cp.FindChildInLayoutFile('InvSortDropdown');
         const sortString = (!elDropdown || !elDropdown.GetSelected()) ? 'newest' : elDropdown.GetSelected().id;
         let filterApplicationToPhantomItems = ItemInfo.IsFauxOrRentalOrPreviewTool(SelectItemForCapability.oCapabilityInfo.initialItemId) ? '' : ',is_rental:false,is_sealed:false';
         let capabilityFilter = SelectItemForCapability.oCapabilityInfo.capability + ':' + SelectItemForCapability.oCapabilityInfo.initialItemId + filterApplicationToPhantomItems;
-        $.DispatchEvent('SetInventoryFilter', _m_elItemList, 'any', 'any', 'any', sortString, capabilityFilter, '');
+        $.DispatchEvent('SetInventoryFilter', _m_elItemList, 'any', 'any', 'any', sortString, capabilityFilter, '' // text filter
+        );
         _ShowHideNoItemsMessage();
     }
     SelectItemForCapability.UpdateSort = UpdateSort;
@@ -95,7 +97,7 @@ var SelectItemForCapability;
         let emptyText = '';
         elEmpty.SetDialogVariable('type', InventoryAPI.GetItemName(SelectItemForCapability.oCapabilityInfo.initialItemId));
         if ((SelectItemForCapability.oCapabilityInfo.capability === 'can_stattrack_swap') && !InventoryAPI.IsTool(SelectItemForCapability.oCapabilityInfo.initialItemId))
-            emptyText = $.Localize('#inv_empty_lister_for_stattrackswap', elEmpty);
+            emptyText = $.Localize('#inv_empty_lister_for_stattrackswap', elEmpty); // second phase didn't find any items to swap with
         else if (SelectItemForCapability.oCapabilityInfo.capability === 'can_collect')
             emptyText = $.Localize('#inv_empty_lister_nocaskets', elEmpty);
         else if (SelectItemForCapability.oCapabilityInfo.capability === 'craft_souvenir')
@@ -180,6 +182,9 @@ var SelectItemForCapability;
         let bIdIsTool = fnWhatIsTool ? fnWhatIsTool(id) : InventoryAPI.IsTool(id);
         let toolId = bIdIsTool ? id : initalId;
         let itemID = bIdIsTool ? initalId : id;
+        $.Msg('SelectedId is tool: ' + InventoryAPI.IsTool(id));
+        $.Msg('Initial_Id is tool: ' + InventoryAPI.IsTool(initalId));
+        $.Msg('(Tool, Item) pair: (' + toolId + ", " + itemID + ')');
         return {
             tool: toolId,
             item: itemID
@@ -224,6 +229,9 @@ var SelectItemForCapability;
     ;
     function _CapabilityCraftSouvenirAction(itemid, umid) {
         if (InventoryAPI.GetItemStickerCount(itemid) > 0) {
+            //
+            // Take the user to a different popup where they can pre-remove all stickers from their weapon
+            //
             const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_capability_can_sticker.xml');
             let oSettings = {
                 popup_panel: elPanel,
@@ -235,6 +243,9 @@ var SelectItemForCapability;
             elPanel.Data().oSettings = oSettings;
         }
         else {
+            //
+            // Go straight to make the souvenir - weapon is fully ready
+            //
             const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('popup-inspect-' + itemid, 'file://{resources}/layout/popups/popup_capability_can_keychain.xml');
             let oSettings = {
                 item_id: itemid,
@@ -285,6 +296,9 @@ var SelectItemForCapability;
     }
     ;
     function _CapabilityStatTrakSwapAction(capInfo, id) {
+        // StatTrak(tm) Swap Tool has a two-stage process:
+        // First stage: capInfo.initialItemId is the Tool itself and we are picking the first item
+        // Second stage: capInfo.initialItemId is the first item selected and we are picking the second item
         if (InventoryAPI.IsTool(capInfo.initialItemId)) {
             const sWorkshop = false;
             $.DispatchEvent('CSGOPlaySoundEffect', 'tab_mainmenu_inventory', 'MOUSE');
@@ -292,6 +306,10 @@ var SelectItemForCapability;
             ClosePopUp();
         }
         else {
+            // both items are now selected:
+            // capInfo.secondaryItemId is The Swap Tool
+            // capInfo.initialItemId is The First Item
+            // id is The Second Item
             const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_capability_can_stattrack_swap.xml');
             let oSettings = {
                 tool_id: capInfo.secondaryItemId,
@@ -303,6 +321,7 @@ var SelectItemForCapability;
     }
     ;
     function _CapabilityPutIntoCasketAction(idCasket, idItem, cap) {
+        $.Msg('Put item ' + idItem + ' into casket ' + idCasket + ' (' + (cap ? cap : 'none') + ')');
         $.DispatchEvent('ContextMenuEvent', '');
         if (!cap) {
             $.DispatchEvent('HideSelectItemForCapabilityPopup');
@@ -310,6 +329,7 @@ var SelectItemForCapability;
             $.DispatchEvent('CapabilityPopupIsOpen', false);
         }
         if (InventoryAPI.GetItemAttributeValue(idCasket, 'modification date')) {
+            // Do the popup
             UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_casket_operation.xml', 'op=add' +
                 (cap ? '&nextcapability=' + cap : '') +
                 '&spinner=1' +
@@ -317,7 +337,8 @@ var SelectItemForCapability;
                 '&subject_item_id=' + idItem);
         }
         else {
-            const fauxNameTag = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1200, 0);
+            // This is a freshly purchased casket, user must give it a name (which also makes it non-refundable)
+            const fauxNameTag = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1200, 0); // "Name Tag"
             const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_capability_nameable.xml');
             let oSettings = {
                 item_id: idCasket,
@@ -336,6 +357,7 @@ var SelectItemForCapability;
         for (let i = 0; i < count; i++) {
             arrItemIDs.push(_m_elItemList.GetSelectedItemId(i).toString());
         }
+        $.Msg('Selected ' + arrItemIDs.length + ' items for ' + capability);
         if (arrItemIDs.length <= 0)
             return;
         switch (capability) {
@@ -372,6 +394,9 @@ var SelectItemForCapability;
         UpdateSort();
         return true;
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent("OnItemTileActivated", _OnItemTileActivated);
         $.RegisterForUnhandledEvent('UpdateSelectItemForCapabilityPopup', _UpdateSelectItemForCapabilityPopup);

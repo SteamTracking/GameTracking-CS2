@@ -53,9 +53,9 @@ var MainMenuStoreTileLinked = ( function()
 		var elPrecent = elItem.FindChildInLayoutFile( 'StoreItemPercent' );
 		var reduction = StoreAPI.GetStoreItemPercentReduction( itemId, 1 );
 
-		  
-		                 
-		  
+		//
+		// pricing order:
+		//
 		var priceItemFirst = itemIdLinked;
 		var priceItemLast = itemId;
 		if ( elItem.Data().oData.linkpricing === 'reverse' )

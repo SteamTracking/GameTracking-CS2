@@ -1,6 +1,9 @@
 "use strict";
 /// <reference path="csgo.d.ts" />
 /// <reference path="common/formattext.ts" />
+/////////////////////////////////////////////////////
+// This is used in Friendlist for the matchmaking status part
+/////////////////////////////////////////////////////
 var MatchmakingStatus;
 (function (MatchmakingStatus) {
     let _m_searchTimeUpdateHandle = false;
@@ -12,14 +15,15 @@ var MatchmakingStatus;
             if (mode === 'survival') {
                 let teamCount = Number(GameInterfaceAPI.GetSettingString('sv_dz_team_count'));
                 if (teamCount > 1)
-                    return false;
+                    return false; // Cannot show this panel in squads (you are "Starting match..." with your party)
                 else
-                    return true;
+                    return true; // Can show this panel for solo players searching for their "Play again" game
             }
-            else {
+            else { // Can never show this panel outside of survival HUD
                 return false;
             }
         }
+        // Otherwise we can always show the panel
         return true;
     }
     function _SessionUpdate() {
@@ -81,6 +85,7 @@ var MatchmakingStatus;
             elStatusWarnings.AddClass('hidden');
             return;
         }
+        // Global warning?
         elStatusWarnings.RemoveClass('hidden');
         let serverWarning = NewsAPI.GetCurrentActiveAlertForUser();
         let isWarning = serverWarning !== '' && serverWarning !== undefined ? true : false;
@@ -100,6 +105,9 @@ var MatchmakingStatus;
             _m_showMatchingMissions = false;
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Helpers for lobby state
+    //--------------------------------------------------------------------------------------------------
     function _IsHost() {
         return LobbyAPI.BIsHost();
     }
@@ -111,6 +119,7 @@ var MatchmakingStatus;
         let StatusString = _GetSearchStatus();
         return (StatusString !== '' && StatusString !== null) ? true : false;
     }
+    //------------------------------------------------------------------------------------------------
     function _UpdateSearchTime() {
         let seconds = LobbyAPI.GetTimeSpentMatchmaking();
         let elSearchTime = _m_elStatusPanel.FindChildInLayoutFile('MatchStatusTime');
@@ -133,10 +142,15 @@ var MatchmakingStatus;
     function _OnShowMenu() {
         _UpdateMatchmakingStatus();
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         _UpdateMatchmakingStatus();
         $.RegisterForUnhandledEvent("PanoramaComponent_Lobby_MatchmakingSessionUpdate", _SessionUpdate);
+        // PanoramaComponent_GC_Hello sets has_ongoingmatch. we should update the button state to show reconnect/abandon if necessary
         $.RegisterForUnhandledEvent('PanoramaComponent_GC_Hello', _SessionUpdate);
+        // ServerReserved passes mapname, bool for if the local player needs to ready up, bool if this is a reconnect to existing match
         $.RegisterForUnhandledEvent("CSGOHideMainMenu", _OnHideMainMenu);
         $.RegisterForUnhandledEvent("CSGOHidePauseMenu", _OnHidePauseMenu);
         $.RegisterForUnhandledEvent("CSGOShowPauseMenu", _OnShowMenu);

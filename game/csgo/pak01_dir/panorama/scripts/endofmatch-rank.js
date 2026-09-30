@@ -21,6 +21,9 @@ var EOM_Rank;
         let oXpData = MockAdapter.XPDataJSO(_m_cP);
         if (!oXpData)
             return false;
+        $.Msg('endofmatch-rank.js -- xp data = ');
+        $.Msg(JSON.stringify(oXpData));
+        // care package
         const xpBonuses = MyPersonaAPI.GetActiveXpBonuses();
         const bEligibleForCarePackage = xpBonuses.split(',').includes('2');
         const earnedFreeRewards = oXpData.hasOwnProperty('free_rewards') ? Number(oXpData.free_rewards) : 0;
@@ -34,35 +37,41 @@ var EOM_Rank;
         let elBar = _m_cP.FindChildInLayoutFile("id-eom-rank__bar");
         let elRankLister = _m_cP.FindChildInLayoutFile("id-eom-rank__lister");
         let elRankListerItems = _m_cP.FindChildInLayoutFile("id-eom-rank__lister__items");
-        let arrPreRankXP = [];
-        let arrPostRankXP = [];
+        let arrPreRankXP = []; // array of xp earned before rank up
+        let arrPostRankXP = []; // array of xp earned after rank up
         let totalXP = 0;
         let maxLevel = InventoryAPI.GetMaxLevel();
         let elPanel = _m_cP.FindChildTraverse('id-eom-rank__current');
         elPanel.TriggerClass('show');
         _m_cP.AddClass('eom-rank-show');
+        // current rank
         let currentRank = oXpData.current_level;
         currentRank = currentRank < maxLevel ? currentRank : maxLevel;
         elCurrent.SetDialogVariableInt("level", currentRank);
         elCurrent.SetDialogVariable('name', $.Localize('#XP_RankName_' + currentRank, elCurrent));
         _m_cP.FindChildInLayoutFile("id-eom-rank__current__emblem").SetImage("file://{images}/icons/xp/level" + currentRank + ".png");
+        // next rank
         const newRank = currentRank < maxLevel ? (currentRank + 1) : maxLevel;
         let elCurrentListerItem;
         let _xpSoundNum = 1;
         let currentXpPointer = 0;
         function _AddXPBar(reason, xp, xpToXpTrailEvent = -1) {
+            // add a progress bar segment and line item to the lister
             const sPerXp = 0.0005;
             const duration = sPerXp * xp;
             const sPerSoundTick = 0.082;
             for (let t = sPerSoundTick; t < duration; t += sPerSoundTick) {
                 $.Schedule(animTime + t, () => $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.XP.Ticker', 'eom-rank'));
             }
+            /////////////////////////////
             $.Schedule(animTime, () => {
                 if (!elBar.IsValid())
                     return 0;
                 let elRankSegment = $.CreatePanel('Panel', elBar, 'id-eom-rank__bar__segment');
                 elRankSegment.AddClass("eom-rank__bar__segment");
+                // move the lister to follow the bar
                 elBar.MoveChildAfter(elRankLister, elRankSegment);
+                // color
                 let colorClass;
                 if (reason == "old") {
                     colorClass = "eom-rank__blue";
@@ -91,9 +100,11 @@ var EOM_Rank;
                     }
                 });
                 elRankSegment.style.transitionDuration = duration + "s";
+                // diminish the previous item
                 if (elCurrentListerItem) {
                     elCurrentListerItem.AddClass("eom-rank__lister__item--old");
                 }
+                // add a lister item
                 if (elRankListerItems && elRankListerItems.IsValid()) {
                     elCurrentListerItem = $.CreatePanel('Panel', elRankListerItems, 'id-eom-rank__lister__items__' + reason);
                     elCurrentListerItem.BLoadLayoutSnippet("snippet_rank__lister__item");
@@ -108,6 +119,7 @@ var EOM_Rank;
                 }
             });
             currentXpPointer += xp;
+            ///// XP TRAIL
             if (xpToXpTrailEvent > -1) {
                 const xpTrailAnimStartTime = xpToXpTrailEvent * sPerXp;
                 $.Schedule(animTime + xpTrailAnimStartTime, () => {
@@ -122,16 +134,20 @@ var EOM_Rank;
             return duration;
         }
         ;
+        // insert existing xp
         totalXP += oXpData.current_xp;
+        // insert new xp
         for (let elem of oXpData.xp_progress_data) {
             let xp = elem.xp_points;
             let key = elem.xp_category;
+            // sort xp by whether it's before or after a rank up event
             if (totalXP + xp < xPPerLevel) {
                 arrPreRankXP.push({ reason: key, xp: xp });
             }
             else {
                 let xp_upto = xPPerLevel - totalXP;
                 let xp_remainder = totalXP + xp - xPPerLevel;
+                // we just crossed the rank limit so split the xp into pre and post
                 if (xp_upto > 0) {
                     arrPreRankXP.push({ reason: key, xp: xp_upto });
                     arrPostRankXP.push({ reason: key, xp: xp_remainder });
@@ -142,6 +158,7 @@ var EOM_Rank;
             totalXP += xp;
         }
         const xpTrailXpPosition = totalXP + (oXpData.hasOwnProperty('xp_trail_xp_needed') ? Number(oXpData.xp_trail_xp_needed) : 0);
+        // NOW SCHEDULE ALL OF THE ANIMATIONS
         function _AnimSequenceNext(func, duration = 0) {
             $.Schedule(animTime, func);
             animTime += duration;
@@ -152,6 +169,7 @@ var EOM_Rank;
         let animTime = 0;
         _AnimPause(1.0);
         function _PlaceXpTrail(xp) {
+            // honor icon
             const elHonorIcon = _m_cP.FindChildTraverse('jsHonorIcon');
             elHonorIcon.Set(xp_trail_level, false);
             _m_cP.SetHasClass('xptrail-enabled', xp >= 0);
@@ -159,20 +177,25 @@ var EOM_Rank;
                 return;
             const XpTrail_pct = (xp / xPPerLevel * 100) - 2;
             elHonorIcon.style.x = (XpTrail_pct) + '%;';
+            $.Msg(xp + ' ' + xPPerLevel + ' ' + (xpTrailXpPosition / xPPerLevel * 100) + '%;');
         }
         function _DisplayXpTrailRemainingTime(xp_trail_remaining) {
             _m_cP.SetHasClass('xptrail-remaining-time-enabled', (xp_trail_remaining != undefined) && (xp_trail_remaining > 0));
             _m_cP.SetDialogVariable('xp-trail-remaining', FormatText.SecondsToSignificantTimeString(xp_trail_remaining).toLowerCase());
         }
+        // EXISTING XP
         if (oXpData.current_xp > 0) {
             const xpToXpTrailEvent = ((xpTrailXpPosition > 0) && (xpTrailXpPosition <= oXpData.current_xp)) ? xpTrailXpPosition : -1;
             _AnimPause(_AddXPBar("old", oXpData.current_xp, xpToXpTrailEvent));
         }
+        // place the xp trail on the current bar?
         const xpToXpTrailEvent = xpTrailXpPosition <= 5000 ? xpTrailXpPosition : -1;
         _PlaceXpTrail(xpToXpTrailEvent);
+        // is the bar going to pass the overdrive icon? if so, wait until it does. Otherwise, display overdrive immediately.
         const DelayXpTrailAnnounce = xpTrailXpPosition > 0 && xpTrailXpPosition <= totalXP;
         if (!DelayXpTrailAnnounce)
             _DisplayXpTrailRemainingTime(oXpData.xp_trail_remaining);
+        // NEW XP
         for (let i = 0; i < arrPreRankXP.length; i++) {
             _AnimPause(1.0);
             if (arrPreRankXP[i].xp > 0) {
@@ -180,9 +203,11 @@ var EOM_Rank;
                 _AnimPause(_AddXPBar(arrPreRankXP[i].reason, arrPreRankXP[i].xp, xpToXpTrailEvent));
             }
         }
+        // NEW RANK?
         if (totalXP >= xPPerLevel) {
             let elRankEarnedCarePackagefx = _m_cP.FindChildInLayoutFile("id-eom-rank_carepackage_earned_effects");
             let elRankCarePackageBgfx = _m_cP.FindChildInLayoutFile("id-eom-rank_carepackage_bg_effects");
+            // SHINE ON
             _AnimSequenceNext(() => {
                 if (!elProgress || !elProgress.IsValid())
                     return;
@@ -194,6 +219,7 @@ var EOM_Rank;
                     elRankCarePackageBgfx.StartParticles();
                 }
             }, 1);
+            // CARE PACKAGE?
             if (earnedFreeRewards > 0) {
                 _AnimSequenceNext(() => {
                     if (!_m_cP || !_m_cP.IsValid())
@@ -201,10 +227,14 @@ var EOM_Rank;
                     let elCarePackage = _m_cP.FindChildTraverse('jsEomCarePackage');
                     $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.tab_mainmenu_shop', 'eom-rank');
                     elCarePackage.AddClass('earned-rewards');
+                    //particles/ui/ui_circle_play.vpcf
+                    //"particles/ui/ui_mainmenu_nav_play.vpcf"
                     elRankEarnedCarePackagefx.SetParticleNameAndRefresh("particles/ui/rank_carepackage_recieve.vpcf");
                     elRankEarnedCarePackagefx.SetControlPoint(3, 0, 0, 1);
                 }, 2);
             }
+            // NEW RANK
+            // Clear and set the new progress bar
             _AnimSequenceNext(() => {
                 if (!elProgress || !elProgress.IsValid() ||
                     !elCurrent || !elCurrent.IsValid() ||
@@ -213,8 +243,11 @@ var EOM_Rank;
                     !elCurrent || !elCurrent.IsValid())
                     return;
                 $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.XP.NewRank', 'eom-rank');
+                // Clear segments
                 elBar.FindChildrenWithClassTraverse("eom-rank__bar__segment").forEach(entry => entry.DeleteAsync(.0));
+                //Reset Background Particles
                 elRankCarePackageBgfx.StopParticlesWithEndcaps();
+                // Update shown current rank to new one
                 elCurrent.SetDialogVariableInt("level", newRank);
                 elCurrent.SetDialogVariable('name', $.Localize('#XP_RankName_' + newRank, elCurrent));
                 _m_cP.SetDialogVariable('rank_new', $.Localize('#XP_RankName_Display', elCurrent));
@@ -225,10 +258,12 @@ var EOM_Rank;
                 elNew.TriggerClass("eom-rank-new-reveal--anim");
                 let elParticleEffect = elNew.FindChildInLayoutFile('id-eom-new-reveal-flare');
                 let aParticleSettings = RankSkillgroupParticles.GetRankParticleSettings(newRank);
+                //returns { particleName: sParticlelevel0, cpNumber: 3, cpValue: [ 1, 0, 1 ], playEndcap: false },
                 elParticleEffect.SetParticleNameAndRefresh(aParticleSettings.particleName);
                 elParticleEffect.SetControlPoint(aParticleSettings.cpNumber, aParticleSettings.cpValue[0], aParticleSettings.cpValue[1], aParticleSettings.cpValue[2]);
                 elParticleEffect.StartParticles();
             }, 3);
+            // do we want to show an xp trail icon on this bar?
             _AnimSequenceNext(() => {
                 if (!_m_cP || !_m_cP.IsValid())
                     return;
@@ -244,14 +279,18 @@ var EOM_Rank;
                     return;
                 elProgress.FindChildInLayoutFile('id-eom-rank-bar-white').RemoveClass('eom-rank__bar--white--show');
             });
+            //	MORE NEW XP?
             for (let i = 0; i < arrPostRankXP.length; i++) {
                 const xpToXpTrailEvent = ((xpTrailXpPosition > currentXpPointer) && (xpTrailXpPosition <= currentXpPointer + arrPostRankXP[i].xp)) ? xpTrailXpPosition - currentXpPointer : -1;
                 _AnimPause(_AddXPBar(arrPostRankXP[i].reason, arrPostRankXP[i].xp, xpToXpTrailEvent));
             }
             _AnimPause(2.0);
         }
+        // fade bar
         _AnimSequenceNext(() => {
+            // elProgress.AddClass( "eom-fade-away" );
         }, 1);
+        // xp shop
         let oXpShopData = MockAdapter.XPShopDataJSO(_m_cP);
         if (oXpShopData && oXpShopData.hasOwnProperty('prematch')) {
             const elRoot = _m_cP.FindChildTraverse('jsXpShopTrackRoot');
@@ -267,7 +306,11 @@ var EOM_Rank;
             _AnimSequenceNext(() => {
                 if (elRoot && elRoot.IsValid())
                     elRoot.AddClass('reveal');
-            }, 0.3);
+            }, 
+            // 	should match:
+            // 	animation-name: xpshop - reveal;
+            // 	animation-duration: 0.5s;
+            0.3);
             if (oXpShopData.hasOwnProperty('postmatch')) {
                 _AnimPause(1.0);
                 _AnimSequenceNext(() => {
@@ -306,7 +349,11 @@ var EOM_Rank;
         EndOfMatch.ShowNextPanel();
     }
     function Shutdown() {
+        // $( '#id-eom-new-reveal-flare' ).StopParticlesWithEndcaps();
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         EndOfMatch.RegisterPanelObject({
             name: 'eom-rank',

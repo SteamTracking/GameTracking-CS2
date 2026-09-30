@@ -8523,6 +8523,7 @@ rK99
 rUUT
 rZlN
 r\tU[B
+r\vp0
 r_32_12_16_init_key
 rand_drbg_enable_locking
 rand_drbg_get_entropy

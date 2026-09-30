@@ -3,13 +3,13 @@
 var TournamentJournal = ( function()
 {
     var m_test_challenges = [
-                                                                                                                                    
+        // { text: 'This is challenge number 1', context: 'trophy', value: 1 }, // <<< elements added in Init based on coin metadata
     ];
 
-                                                                                         
-                                                                                                                            
-                                                         
-                                                                                                                                   
+    // We do this because the previous tournament is active after the Last match is done.
+    // This number is updated when the last match is over but the tournament index has not been made for the new tournament.
+    // The number is one more than the active tournament.
+    // We could check if the last match is done but we would then have to load predictions from GC and we are trying to avoid that.
     var m_activeTournament = 18;
     var m_tokenItemDefName = null;
     var m_scheduleHandle = null;
@@ -20,40 +20,40 @@ var TournamentJournal = ( function()
     {
         var journalId = $.GetContextPanel().GetAttributeString( "journalid", '' );
         var tournamentId = InventoryAPI.GetItemAttributeValue( journalId, "tournament event id" );
-                           
-		                      
+        $.Msg( journalId );
+		$.Msg( tournamentId );
 		
-		switch ( tournamentId ) {                                                               
+		switch ( tournamentId ) { // need to keep these around to activate inventory token items
 			case 18: m_tokenItemDefName = 'tournament_pass_stockh2021_charge'; break;
 		}
 		
-                                     
+        // Setup the challenges array
         var nCampaignID = parseInt( InventoryAPI.GetItemAttributeValue( journalId, "campaign id" ) );
-                                                
+        $.Msg( "Campaign ID = " + nCampaignID );
         var numTotalChallenges = InventoryAPI.GetCampaignNodeCount( nCampaignID );
-                                                            
-                                                              
+        $.Msg( "Total challenges = " + numTotalChallenges );
+        $.Msg( "m_tokenItemDefName = " + m_tokenItemDefName );
         for ( var jj = 0; jj < numTotalChallenges; ++jj )
         {
             var nMissionNodeID = InventoryAPI.GetCampaignNodeIDbyIndex( nCampaignID, jj );
-                                         
+            // Is this mission completed?
             var strNodeState = InventoryAPI.GetCampaignNodeState( nCampaignID, nMissionNodeID, journalId, true );
-                                            
+            // Information about the mission
             var nQuestID = InventoryAPI.GetCampaignNodeQuestID( nCampaignID, nMissionNodeID );
             var strFauxQuestItem = InventoryAPI.GetQuestItemIDFromQuestID( nQuestID );
             var strQuestIcon = InventoryAPI.GetQuestIcon( strFauxQuestItem );
             var strQuestName = InventoryAPI.GetItemName( strFauxQuestItem );
-                                                      
-                                                                                                               
+            // Add it to the journal table of missions
+            $.Msg( "  mission #" + jj + " questid=" + nQuestID + " (" + strQuestName + ") = " + strNodeState );
             m_test_challenges.push( {
                 text: strQuestName,
-                context: ( strQuestIcon === 'watchem' ) ? 'watch' : ( strQuestIcon === 'pickem' ) ?'trophy' : strQuestIcon,                                                   
-                value: ( strNodeState === "complete" ) ? 1 : 0                                              
+                context: ( strQuestIcon === 'watchem' ) ? 'watch' : ( strQuestIcon === 'pickem' ) ?'trophy' : strQuestIcon, // strQuestIcon can be 'pass', 'watchem', 'pickem'
+                value: ( strNodeState === "complete" ) ? 1 : 0 // strNodeState can be 'complete' or 'locked'
             } );
         }
 
         $.GetContextPanel().SetHasClass( 'tournament-over', m_activeTournament !== tournamentId );
-                                               
+        // _SetBackgroundMovie( tournamentId );
         _SetTitle( journalId );
         _SetSubtitle( journalId );
         _SetModel( journalId );
@@ -62,10 +62,10 @@ var TournamentJournal = ( function()
         _UpdateStoreItems();
         _UpdateActivateBtn();
         
-                         
+        // no-active-pass
         if( !_IsValidJournalId( journalId ) )
         {
-                       
+            // No coin 
             $.GetContextPanel().SetHasClass( 'no-active-pass', true );
             return;
         }
@@ -131,7 +131,7 @@ var TournamentJournal = ( function()
 
     var _SetModel = function( id )
     {
-        var fakeId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( 4800, 0 );                                            
+        var fakeId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( 4800, 0 );// bronze for people who do not own the pass
         id = !_IsValidJournalId( id ) ? fakeId : id;
 
         var elModel = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-model' );
@@ -146,7 +146,7 @@ var TournamentJournal = ( function()
     var _SetBannerColor = function( journalId )
     {
         var coinLevel = InventoryAPI.GetItemAttributeValue( journalId, "upgrade level" );
-                                                                                                 
+        $.Msg( 'Coin Level' + InventoryAPI.GetItemAttributeValue( journalId, "upgrade level" ) );
 
         var style = coinLevel < 1 ? 'bronze' : coinLevel === 1 ? 'silver' : coinLevel > 1 ? 'gold' : 'bronze';
         $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-container' ).AddClass( style );
@@ -187,7 +187,7 @@ var TournamentJournal = ( function()
 
         var coinLevel = InventoryAPI.GetItemAttributeValue( journalId, "upgrade level" );
 		var coinRedeemsPurchased = InventoryAPI.GetItemAttributeValue( journalId, "operation drops awarded 1" );
-		if ( coinRedeemsPurchased )                                                                          
+		if ( coinRedeemsPurchased ) // also support legacy fan coin that didn't have purchased drop souvenirs
 			coinLevel += coinRedeemsPurchased;
 
         var redeemed = InventoryAPI.GetItemAttributeValue( journalId, "operation drops awarded 0" );
@@ -197,7 +197,7 @@ var TournamentJournal = ( function()
         $.GetContextPanel().SetDialogVariableInt( 'redeems_earned', redeemsEarned );
         $.GetContextPanel().SetDialogVariableInt( 'redeems_remain', ( redeemsAvailable !== undefined ) ? redeemsAvailable : 0 );
 
-                 
+        // remain
         var elLabel = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-redeem-btn-label' );
 
         elLabel.text = redeemsAvailable === 1 ?
@@ -206,7 +206,7 @@ var TournamentJournal = ( function()
         
         _RedeemBtn( redeemsAvailable );
 
-                 
+        // Earned
         elLabel = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-souvenir-earned' );
         
         var locStringModifier = tournamentId < 16 ? 'souvenir_v2' : 'token';
@@ -290,27 +290,27 @@ var TournamentJournal = ( function()
             elChallenge.BLoadLayoutSnippet( "tournament-challenge" );
             elChallenge.SetHasClass( 'dark', true );
 
-			                            
-			    
-			   	                                                                        
-			    
-                                            
-                
-                                                                                
-                
-                    
-                
-                                     
-                    
-                                                                     
-                    
+			// if ( tournamentId >= 18 )
+			// {
+			// 	elChallenge.SetHasClass( 'margin-top', objData.context === 'calender' );
+			// }
+            // else if ( tournamentId < 16 )
+            // {
+            //     elChallenge.SetHasClass( 'margin-top', ( index % 2 !== 0 ) );
+            // }
+            // else 
+            // {
+            //     if ( index === 1 )
+            //     {
+            //         elChallenge.SetHasClass( 'margin-top', true );
+            //     }
 
-                                                                            
-                    
-                                                
-                                                                     
-                    
-                
+            //     if ( objData.context === 'trophy' && !firstWatchContext )
+            //     {
+            //         firstWatchContext = true;
+            //         elChallenge.SetHasClass( 'margin-top', true );
+            //     }
+            // }
 
             $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-container' ).AddBlurPanel( elChallenge );
             
@@ -329,8 +329,8 @@ var TournamentJournal = ( function()
             elIcon.SetImage( iconPath );
             elChallenge.SetHasClass( 'complete', objData.value === 1 );
 
-                                                                                                          
-            var bForceEnablePlayContext = false;                                                                        
+            // Override to let the buttons with the play context keep working after the tournament is over
+            var bForceEnablePlayContext = false;//objData.context === 'play' && m_activeTournament - 1 === tournamentId;
 
             elChallenge.enabled = objData.value !== 1 && !m_isInMatch && ( m_activeTournament === tournamentId || bForceEnablePlayContext );
 
@@ -412,13 +412,13 @@ var TournamentJournal = ( function()
             
             function OnActivate ( mapGroup )
             {
-				                                                          
+				// Does the user currently have a session and is not host?
 				if ( LobbyAPI.IsSessionActive() && !LobbyAPI.BIsHost() )
-				{	                                                                                                                                       
+				{	// Abandon that session lobby, probably will need some UI prompt before doing that or maybe the play button is not enabled in this case
 					LobbyAPI.CloseSession();
 				}
 
-				                                            
+				// If we are matchmaking currently then stop
 				if ( LobbyAPI.IsSessionActive() )
 				{
 					var settingsGame = LobbyAPI.GetSessionSettings().game;
@@ -429,7 +429,7 @@ var TournamentJournal = ( function()
 
 					settingsGame = LobbyAPI.GetSessionSettings().game;
 					if ( settingsGame && settingsGame.mmqueue )
-					{	                                          
+					{	// unexpectedly cannot cancel matchmaking?
 						return;
 					}
 				}
@@ -445,10 +445,10 @@ var TournamentJournal = ( function()
 				if ( !LobbyAPI.IsSessionActive() )
 					return;
 
-				  
-				                            
-				  
-				                                                                                              
+				//
+				// Start the matchmaking now
+				//
+				$.Msg( 'Play for mission: type=' + gameType + ' mode=' + gameMode + ' mapgroup=' + mapGroup );
 				var settings = {
 					update: {
 						Options: {
@@ -499,7 +499,7 @@ var TournamentJournal = ( function()
         var elImage = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-spray' );
         elImage.itemid = ItemInfo.GetFauxReplacementItemID( journalId, 'graffiti' );
 
-                                                
+        $.Msg( '_SetUpSpray' + elImage.itemid );
         
         var elIBtn = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-selectspray-btn' );
         elIBtn.SetPanelEvent( 'onactivate', function(){
@@ -527,7 +527,7 @@ var TournamentJournal = ( function()
         {
             if( elPanel && elPanel.IsValid() )
             {
-                                           
+                // elPanel.visible = false;
                 elPanel.enabled = false;
                 elPanel.SetHasClass('opacity-none', true )
             }
@@ -547,11 +547,11 @@ var TournamentJournal = ( function()
             return false;
         }
 
-                                                                      
+        // We hard code this so we don't have to load predictions data
         var aData = [
             { tournamentId: 15, team: 'astr', teamname: '#CSGO_TeamID_60', descString: '#CSGO_CollectibleCoin_Katowice2019_Champion' },
             { tournamentId: 16, team: 'astr', teamname: '#CSGO_TeamID_60', descString: '#CSGO_CollectibleCoin_berlin2019_Champion' }
-                                      
+            // add future winners here
         ];
 
         var ObjWinner = aData.filter( winner => winner.tournamentId == tournamentId )[0];
@@ -701,7 +701,7 @@ var TournamentJournal = ( function()
         var elItemsPanel = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-items' );
 		var elBlurPanel = $.GetContextPanel().FindChildInLayoutFile( 'id-tournament-journal-container' );
 		
-		                                        
+		// Determine restrictions in user region
 		var sRestriction = InventoryAPI.GetDecodeableRestriction( "capsule" );
 		var bCanSellCapsules = ( sRestriction !== "restricted" && sRestriction !== "xray" );
 
@@ -742,7 +742,7 @@ var TournamentJournal = ( function()
     var _IsPurchaseable = function( itemid )
     {
         
-                                                                                         
+        $.Msg( 'lkjfdsjlkfdslkjfdslkjfds' + InventoryAPI.GetItemTypeFromEnum( itemid ) );
         var itemSchemaDef = ItemInfo.BuildItemSchemaDef( itemid );
         return itemSchemaDef[ "cannot_inspect" ] === 1 ? false : true;
     };

@@ -8,6 +8,7 @@ var NewNewsEntryCheck;
     }
     NewNewsEntryCheck.GetRssFeed = GetRssFeed;
     function _OnRssFeedReceived(feed) {
+        $.Msg('Received blog RSSs Feed' + feed);
         let feeds = [
             {
                 linkmatch: '/newsentry/',
@@ -21,6 +22,7 @@ var NewNewsEntryCheck;
             }
         ];
         feed['items'].forEach(function (item, i) {
+            // skip "game updates"
             if (item.categories.includes('Minor'))
                 return;
             feeds.forEach(function (feed) {
@@ -53,6 +55,9 @@ var NewNewsEntryCheck;
         }
     }
     NewNewsEntryCheck.UnRegisterForRssReceivedEvent = UnRegisterForRssReceivedEvent;
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         GetRssFeed();
     }

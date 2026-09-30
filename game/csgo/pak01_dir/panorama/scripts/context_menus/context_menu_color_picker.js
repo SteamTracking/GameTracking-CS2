@@ -10,6 +10,7 @@ var ContextMenuColorPicker;
             return;
         }
         const bShowAlphaUi = ('nInitAlpha' in contextData);
+        // Data passed in with defaults if we find none
         const { initRGB: oRGB = { r: 0, g: 255, b: 0 }, nInitAlpha = 0, funcCallback } = contextData;
         const elPicker = contextPanel.FindChildInLayoutFile('id-color-picker');
         const elAlphaSliderTrack = elPicker.FindChildInLayoutFile('color-picker-alpha-slider').FindChildInLayoutFile('SliderTrack');
@@ -17,6 +18,7 @@ var ContextMenuColorPicker;
         let currentRgb = oRGB;
         let currentAlpha = nInitAlpha;
         const MakeResult = (rgb, alpha) => bShowAlphaUi ? { rgb, alpha } : { rgb };
+        // The picker owns the widgets and the R/G/B/A/hex fields; this fires for any change to them
         $.RegisterEventHandler('CSColorPicked', elPicker, (r, g, b, a) => {
             currentRgb = { r, g, b };
             currentAlpha = a;
@@ -29,6 +31,7 @@ var ContextMenuColorPicker;
                 _Debounce(elPicker, 'debounceHandler', .3, () => { funcCallback(result); });
             }
         });
+        // initial states
         elPicker.SetHasClass('hide-alpha', !bShowAlphaUi);
         elPicker.FindChildInLayoutFile('color-box-current').style.backgroundColor = hexColor;
         elPicker.FindChildInLayoutFile('color-box-new').style.backgroundColor = hexColor;
@@ -54,6 +57,7 @@ var ContextMenuColorPicker;
     }
     function rgbToHex({ r, g, b }) {
         const clamp = (val) => Math.max(0, Math.min(255, val));
+        // Convert to base 16 and pad with a leading zero if needed
         const toHex = (channel) => Math.round(clamp(channel)).toString(16).padStart(2, '0');
         return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
     }

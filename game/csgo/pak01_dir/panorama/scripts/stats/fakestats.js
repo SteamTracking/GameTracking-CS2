@@ -45,7 +45,7 @@ var fakeStats = ( function()
 
 	function _RandomMatchSeries ()
 	{
-		var n = Math.ceil( 40 * ( _randomG( 50 ) - 0.5 ) );                                                
+		var n = Math.ceil( 40 * ( _randomG( 50 ) - 0.5 ) ); // no of matches played ( normal distribution )
 
 		var day = {};
 

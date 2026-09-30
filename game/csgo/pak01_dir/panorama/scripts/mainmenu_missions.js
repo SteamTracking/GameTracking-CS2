@@ -19,6 +19,7 @@ var MainMenuMissions;
                 elMissionPanel.BLoadLayoutSnippet("mission");
                 const elNameLabel = elMissionPanel.FindChildTraverse("name");
                 elNameLabel.text = missionInfo.loc_description;
+                //elMissionPanel.SetDialogVariableLocString( "desc", missionInfo.loc_description );
                 elMissionPanel.SetDialogVariableInt("progress", missionInfo.progress_saved);
                 elMissionPanel.SetDialogVariableInt("points", missionInfo.goal_points[0]);
                 elMissionPanel.SetDialogVariableInt("xp", Number(missionInfo.xp_reward[0]));
@@ -34,7 +35,9 @@ var MainMenuMissions;
                 }
                 if (missionInfo.string_tokens) {
                     ExtractStringTokens(missionInfo.string_tokens);
+                    // map image
                     let imagePath = 'undefined';
+                    // is there a map image we should use?
                     if (missionInfo.hasOwnProperty('mapgroup') && missionInfo.mapgroup != '') {
                         const cfg = GameTypesAPI.GetConfig();
                         const mg = cfg.mapgroups[missionInfo['mapgroup']];
@@ -54,18 +57,20 @@ var MainMenuMissions;
         }
     }
     function PlayMission(m) {
+        // UpdateMissionEntries();
+        // return;
         LobbyAPI.CreateSession();
         const gameMode = m.gamemode;
         let gameType = "classic";
         let gmFlags = 0;
         if (gameMode === "deathmatch") {
             gameType = "gungame";
-            gmFlags = 32;
+            gmFlags = 32; // ffa
         }
         let mg = m.mapgroup;
         if (gameMode == "competitive") {
-            mg = "mg_" + m.map;
-            gmFlags = 16;
+            mg = "mg_" + m.map; // singlemap only? 
+            gmFlags = 16; // longmatch
         }
         var settings = {
             update: {
@@ -90,6 +95,9 @@ var MainMenuMissions;
         LobbyAPI.UpdateSessionSettings(settings);
         LobbyAPI.StartMatchmaking('', '', '', '');
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         Init();
         $.RegisterForUnhandledEvent('OnRecurringMissionsReceived', Init);

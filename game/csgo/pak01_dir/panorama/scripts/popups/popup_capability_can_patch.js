@@ -6,6 +6,10 @@
 /// <reference path="popup_inspect_async-bar.ts" />
 var CapabilityCanPatch;
 (function (CapabilityCanPatch) {
+    // let m_prevCameraSlot: number = 0;
+    // let m_firstCameraAnim: boolean = false;
+    // let m_pos = 0;
+    //--------------------------------------------------------------------------------------------------
     function ResetPos() {
         $.GetContextPanel().Data().charCardinal = 'e';
         $.GetContextPanel().Data().bFirstCameraAnim = false;
@@ -24,6 +28,9 @@ var CapabilityCanPatch;
     }
     CapabilityCanPatch.PreviewPatchOnChar = PreviewPatchOnChar;
     ;
+    //--------------------------------------------------------------------------------------------------
+    // camera
+    //--------------------------------------------------------------------------------------------------
     function CameraAnim(activeIndex, contextPanel) {
         let prevCameraSlot = contextPanel.Data().prevCameraSlot;
         if ((prevCameraSlot === activeIndex || activeIndex == -1) && prevCameraSlot)
@@ -55,16 +62,19 @@ var CapabilityCanPatch;
         const patchPosition = InventoryAPI.GetCharacterPatchPosition(charItemId, activeIndex.toString());
         const oPositionData = m_positionData.filter(entry => entry.type === patchPosition)[0];
         if (!oPositionData) {
-            contextPanel.Data().bFirstCameraAnim = false;
+            $.Msg('No position data that matches the patch position you want to look at.');
+            contextPanel.Data().bFirstCameraAnim = false; // if the VMDL was not available, then allow re-lookup of the patch positions
             return;
         }
         InspectModelImage.SetCharScene(elPreviewPanel.Data().id, LoadoutAPI.GetItemID(setting_team, oPositionData.loadoutSlot), contextPanel);
         if (contextPanel.Data().charCardinal !== oPositionData.direction) {
             contextPanel.Data().charCardinal = oPositionData.direction;
         }
+        $.Msg('charCardinal :' + contextPanel.Data().charCardinal + ', oPositionData.direction: ' + oPositionData.direction + ', oPositionData.loadoutSlot: ' + oPositionData.loadoutSlot + ', activeIndex: ' + activeIndex);
         const elModelPanel = elPreviewPanel.FindChildInLayoutFile("CharPreviewPanel");
         $.Schedule(.1, () => { elModelPanel.SetCardinalFacing(contextPanel.Data().charCardinal); });
         const camSuffix = !patchPosition ? 'wide_intro' : patchPosition + _CameraForModel(charItemId, activeIndex);
+        $.Msg('camSuffix: ' + camSuffix + ' cam name: ' + 'cam_char_inspect_' + camSuffix);
         elModelPanel.Data().camera = 'char_inspect_' + camSuffix;
         elModelPanel.TransitionToCamera('cam_char_inspect_' + camSuffix, 1.2);
     }

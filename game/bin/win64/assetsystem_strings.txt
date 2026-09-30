@@ -1153,8 +1153,6 @@ $prefix_element$
 /usr/local/ssl/lib/engines
 /usr/local/ssl/private
 /zt1
-0,k5
-00G5
 0123456789
 02V8[
 05=k
@@ -1162,11 +1160,15 @@ $prefix_element$
 09,h
 0;Q5[
 0<cz
+0L_5
 0M2~@p
+0Tn9
 0W/5
 0Z@q
 0\r0#0)070;0U0Y0[0g0q0y0}0
 0e\r8
+0ln5
+0pJ5
 0pp@5tqE?|sO541
 0tU+xc:
 0x%llx
@@ -1212,7 +1214,8 @@ $prefix_element$
 2\fWQx
 2\nP!E
 2\rlhp
-2\vp,k5
+2\vpTn9
+2\vpln5
 2^pV
 2a"l
 2bT~
@@ -3984,7 +3987,6 @@ P-224
 P-256
 P-384
 P-521
-P0G5
 P1\t98"
 P5[1
 PAGN_4
@@ -4158,6 +4160,7 @@ PKEY_RSA_VERIFYRECOVER
 PKEY_SET_TYPE
 PKEY_USAGE_PERIOD
 PKIX
+PL_5
 POLICYINFO
 POLICYQUALINFO
 POLICY_CONSTRAINTS
@@ -4207,7 +4210,6 @@ Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
 Photoshop
 PixarLog
-PlI5
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Pm8A?
@@ -4225,6 +4227,7 @@ Position Within Box Random
 Position Within Sphere Random
 Position on Model Random
 PosterSettings
+PpJ5
 Pr"V
 Pre-Age Noise
 Predictor
@@ -4400,8 +4403,10 @@ RSA_verify
 RSA_verify_ASN1_OCTET_STRING
 RSA_verify_PKCS1_PSS
 RSA_verify_PKCS1_PSS_mgf1
-R\fp,k5
+R\fpln5
 R\r1>Vp
+R\vpL_5
+R\vpTn9
 R]Di
 R_T5Y
 Radius Random
@@ -5386,7 +5391,9 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
-\fp\v`0G5
+\fp\v`Tn9
+\fp\v`ln5
+\fp\v`pJ5
 \ful2
 \fy&3Gl
 \l:ArR
@@ -5412,6 +5419,7 @@ Z~wl
 \n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
 \n5a=Z
 \n:82H
+\nPL_5
 \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
 \n\tIPSec/IKE/Oakley curve #3 over a 155 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
 \n\tIPSec/IKE/Oakley curve #4 over a 185 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
@@ -5433,7 +5441,7 @@ Z~wl
 \rYYHl
 \r\vpL1
 \r^mX
-\rgame:tools/images/assettypes/generic_sm.png
+\rgame:tools/images/assettypes/generic_lg.png
 \ri1I
 \rjwB\t
 \roKK
@@ -5450,7 +5458,7 @@ Z~wl
 \tJm_9
 \tLa0+
 \tNAN encountered in element '%s' guid %s attribute '%s'!\n
-\tP0G5
+\tPpJ5
 \tV_log2f
 \tV_logd
 \tV_powd
@@ -5464,14 +5472,14 @@ Z~wl
 \vGt5
 \vHCK/
 \vNCE\v
-\vP0G5
+\vPpJ5
 \vUY6[E
 \v\vTSG
-\v`0G5
+\v`pJ5
 \vj0k
 \vjC7
-\vp,k5
-\vp`H5
+\vpL_5
+\vpln5
 ]1h=bfz
 ]FhSD}
 ]GT7]
@@ -5508,7 +5516,6 @@ _user.txt
 _wjb
 _xU`u
 _}eOk
-`0G5
 `28)fk
 `:zQF
 `D$daM-l
@@ -5518,7 +5525,9 @@ _}eOk
 `VX:H
 `fPw.\vM
 `h9T~
+`ln5
 `o_je
+`pJ5
 `yNT
 a null shared library handle was used
 a(hq
@@ -6836,7 +6845,7 @@ g_Cov_DetermineCompileState
 g_pAsyncFileSystem2
 g_pToolsSplashScreen->showMessage
 game/
-game:tools/images/assettypes/generic_lg.png
+game:tools/images/assettypes/generic_sm.png
 game_only.vtest
 gameitemclass
 gameunitclass
@@ -8145,14 +8154,12 @@ p not prime
 p!PcA1|
 p)ou}
 p+"\tHr9
-p,k5
 p.char_two
 p.onBasis
 p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p0G5
 p2{l
 p4Z3
 p4lib
@@ -8199,6 +8206,7 @@ pInfo->m_ExpectedResult.value().m_nFilesCompiled == result.m_nFilesCompiled
 pInfo->m_ExpectedResult.value().m_nFilesFailed == result.m_nFilesFailed
 pInfo->m_ExpectedResult.value().m_nFilesSkipped == result.m_nFilesSkipped
 pIp 
+pL_5
 pMP3ThenWAV_First != nullptr
 pMP3ThenWAV_First->HasFileInLocation( ASSET_LOCATION_CONTENT )
 pMP3ThenWAV_Second == pMP3ThenWAV_First
@@ -8226,6 +8234,7 @@ pSpecified
 pTestMaterial->CompileState() == ASSET_FILE_COMPILED
 pTestMaterial->CompileState() == ASSET_FILE_UNCOMPILED
 pTestMaterial->Test_DoIDependOnAssetWithCRC( TEST_TGA, nLeafTGACRC, true, false )
+pTn9
 pU>\AL
 pVMat->CompileState() == ASSET_FILE_COMPILED
 pVTex->CompileState() == ASSET_FILE_COMPILED
@@ -8346,6 +8355,7 @@ pkey
 pkeyalg
 pkix
 pkparameters2group failure
+pln5
 point arithmetic failure
 point at infinity
 point is not on curve
@@ -8382,6 +8392,7 @@ postion_lock_to_controlpoint
 pp == NULL || *pp != NULL
 pp&c
 ppBasis
+ppJ5
 pqualid
 pre mac length too long
 prefab_has_runtime_entity_by_default
@@ -8497,8 +8508,9 @@ rRfKR
 rX&O0
 rZ1VwGf5
 rZPM
+r\fpL_5
 r\vDi
-r\vp,k5
+r\vpln5
 radiusScale
 radius_random
 radius_scale

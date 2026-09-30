@@ -10,6 +10,7 @@ var PopupRankUpRedemptionStore;
         let fnPopupRankUpRedemptionStoreOnClose = $.GetContextPanel().Data().fnPopupRankUpRedemptionStoreOnClose;
         $.DispatchEvent('UIPopupButtonClicked', '');
         $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.inventory_new_item_accept', 'MOUSE');
+        // Run the callback: see rankup_redemption_store.ts binding DiscoverPanels/ClickToMainMenuAndZoomIn
         if (fnPopupRankUpRedemptionStoreOnClose)
             fnPopupRankUpRedemptionStoreOnClose();
     }

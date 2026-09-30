@@ -6,12 +6,19 @@ var ItemContextMenu;
     function SetupContextMenu() {
         let id = $.GetContextPanel().GetAttributeString("itemid", "(not found)");
         let populateFilterText = $.GetContextPanel().GetAttributeString("populatefiltertext", "(not found)");
+        $.Msg('Item context Menu for: ' + id);
+        $.Msg('Item context type: ' + populateFilterText);
+        // Precache custom materials in case item will be inspected - avoids delay in seeing custom materials on item
         InventoryAPI.PrecacheCustomMaterials(id);
         _PopulateContextMenu(id, populateFilterText);
     }
     ItemContextMenu.SetupContextMenu = SetupContextMenu;
     function _PopulateContextMenu(id, populateFilterText) {
         let elParent = $.GetContextPanel();
+        //--------------------------------------------------------------------------------------------------
+        // Uses item-context-entires.js to get the valid contexts for an item id
+        // FilterEntries is an object is that script
+        //--------------------------------------------------------------------------------------------------
         let validEntries = ItemContextEntries.FilterEntries(id, populateFilterText);
         function OnMouseOver(location, displayText) {
             UiToolkitAPI.ShowTextTooltip(location, displayText);
@@ -52,6 +59,7 @@ var ItemContextMenu;
                 }
             }
         }
+        // if the context menu is empty then close it.
         if (!validEntries.length) {
             let elButton = $.CreatePanel('Button', elParent, 'ContextMenuItem');
             let elLabel = $.CreatePanel('Label', elButton, '', { html: 'true' });

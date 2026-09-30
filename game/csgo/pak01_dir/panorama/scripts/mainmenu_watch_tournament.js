@@ -23,22 +23,22 @@ var mainmenu_watch_tournament = (function () {
 			}
 		}
 
-		                                                                 
+		// TODO: if no data, display relevant error message for each page
 		var pressedTab = $.FindChildInContext( '#' + tab );
 		if ( !pressedTab && oInitData )
 		{
-			                                                               
-			                                                                   
-			                                                                                            
+			// We assume there is a match lister because its in the layout.
+			// we may want to move the lister to a shared xml like the pickems.
+			// We have to generate the Pickem panels id one does not exist and the user wasnt to see it.
 
 			pressedTab = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsTournamentContainer' ), tab );
-			                                                      
+			$.Msg( 'Tournament Panel with id: ' + pressedTab.id );
 
 			pressedTab.BLoadLayout('file://{resources}/layout/tournaments/pickem_' + oInitData.xmltype + '.xml', false, false );
 			pressedTab.RegisterForReadyEvents( true );
 			pressedTab.SetReadyForDisplay( false );
 
-			                                                                      
+			// We hold all the pickem data in here so its easy to get to per panel
 			if ( typeof pressedTab._oPickemData !== 'object' )
 			{
 				pressedTab._oPickemData = {};
@@ -53,13 +53,13 @@ var mainmenu_watch_tournament = (function () {
 		{
 			if ( _m_activeTab )
 			{
-				                                                                     
-				                                                                                          
-				                          
-				                                   
-				    
-				   	                                              
-				    
+				// If we are moving away from a pickem tab then unregister its events
+				// before fading it out. This was its state won't be changed by any shared events from the
+				// panel we are going to. 
+				// if ( _m_activeTab._oPickemData )
+				// {
+				// 	PickemCommon.UnregisterEvents( _m_activeTab );
+				// }
 				
 				_m_activeTab.AddClass( 'tournament-content-container--hidden' );
 			}
@@ -98,16 +98,16 @@ var mainmenu_watch_tournament = (function () {
 		$.RegisterEventHandler( 'ReadyForDisplay', elPanel, PickemCommon.ReadyForDisplay.bind( undefined, elPanel ) );
 		$.RegisterEventHandler( 'UnreadyForDisplay', elPanel, PickemCommon.UnregisterEvents.bind( undefined, elPanel )  );
 
-		                                                                          
-		                                                       
+		// Handler that catches OnPropertyTransitionEndEvent event for this panel.
+		// Check if the panel is transparent then collapse it. 
 		elPanel.OnPropertyTransitionEndEvent = function ( panelName, propertyName )
 		{
 			if( elPanel.id === panelName && propertyName === 'opacity' )
 			{
-				                                         
+				// Panel is visible and fully transparent
 				if( elPanel.visible === true && elPanel.BIsTransparent() )
 				{
-					                                               
+					// Set visibility to false and unload resources
 					elPanel.visible = false;
 					elPanel.SetReadyForDisplay( false );
 					return true;
@@ -128,7 +128,7 @@ var mainmenu_watch_tournament = (function () {
 		}
 	}
 
-	                        
+	// Create NavBar Buttons
 	var _PopulateTournamentNavBarButtons = function( tournament_id, elTournamentTab )
 	{
 		var tournamentNumber = PickemCommon.GetTournamentIdNumFromString( tournament_id );
@@ -139,7 +139,7 @@ var mainmenu_watch_tournament = (function () {
 
 			var _CreateNavBarButton = function( buttonId, buttonTitle, targetTab, oInitData = null, isSelected = false )
 			{
-				                                                                                                 
+				// 'tournament_id' this is assigned to the context panel on creation so we can grab it from here.
 				
 				var elButton = $.CreatePanel( 'RadioButton', navBarPanel, buttonId, {
 					selected: isSelected,
@@ -161,9 +161,9 @@ var mainmenu_watch_tournament = (function () {
 			var restrictions = LicenseUtil.GetCurrentLicenseRestrictions();
 			var bDefaultToMatches = ( ( restrictions === false ) && isCurrentTourament ) ? false : true;
 
-			                                                
+			//Pickem Playoffs && Group Stage && Prelim Stage
 			
-			                           
+			//if ( isCurrentTourament )
 			if ( tournamentNumber <= g_ActiveTournamentInfo.eventid && tournamentNumber >= 13 )
 			{
 				_CreateNavBarButton( 
@@ -222,51 +222,51 @@ var mainmenu_watch_tournament = (function () {
 				);
 			}
 
-			         
+			//Matches
 			_m_matchesTab = _CreateNavBarButton( 'id-nav-matches', $.Localize( '#CSGO_Watch_Tournament_Matches_T2' ), 'JsTournamentMatches', null, bDefaultToMatches );
 
 
-			                                
-			                                                            
-			    
-			   	                                                                                                                     
-			   		 	
-			   			                             
-			   			                 
-			   			                   
-			   			                        
-			   		    
-			   	                                                                                                              
-			   		 	
-			   			                             
-			   			                 
-			   			                 
-			   			                        
-			   		    
-			    
+			//Pickem Playoffs && Group Stage
+			// if ( tournamentNumber === 11 || tournamentNumber === 12 )
+			// {
+			// 	_CreateNavBarButton( 'id-nav-pick-playoffs', $.Localize( '#CSGO_Fantasy_PickEm_Playoffs_Title' ), 'JsPickemPlayoffs',
+			// 		{	
+			// 			tournamentid: tournament_id, 
+			// 			sectionindex: 1, 
+			// 			xmltype: 'bracket',
+			// 			oPickemType: PickEmGroup
+			// 		} );
+			// 	_CreateNavBarButton( 'id-nav-pick-group', $.Localize( '#CSGO_Fantasy_PickEm_Groups_Title' ), 'JsPickemGroup', 
+			// 		{	
+			// 			tournamentid: tournament_id, 
+			// 			sectionindex: 0, 
+			// 			xmltype: 'group',
+			// 			oPickemType: PickEmGroup
+			// 		} );
+			// }
 
-			          
-			             
-			                                                      
-			 
-				                                                                                                   
-			 
+			//DEVONLY{
+			//Team Pickem
+			if ( tournamentNumber <= 10 && tournamentNumber >= 5 )
+			{
+				_CreateNavBarButton( 'id-nav-pick-team', $.Localize( '#CSGO_Team_PickEm_Title' ), 'JsTeamPickem' );
+			}
 
-			              
-			                                                      
-			 
-				                                                                                                            
-			 
+			//Fantasy Team
+			if ( tournamentNumber <= 10 && tournamentNumber >= 8 )
+			{
+				_CreateNavBarButton( 'id-nav-pick-fantasy', $.Localize( '#CSGO_Fantasy_PickEm_Title' ), 'JsPickemFantasy' );
+			}
 
-			          
+			//}DEVONLY
 			elTournamentTab.hasSetUpNavBar = true;
 		}
 	};
 
-	                                                                
+	//Loads layout of the first tab opened and navigates to that tab
 	var _InitializeTournamentsPage = function( tournament_id )
 	{
-		                                                                                                                            
+		$.Msg( '_InitializeTournamentsPage  ' + tournament_id + ( _m_bInitializedTournamentOnce ? " (already initialized)" : "" ) );
 		if ( _m_bInitializedTournamentOnce )
 			return;
 
@@ -277,7 +277,7 @@ var mainmenu_watch_tournament = (function () {
 		_m_bInitializedTournamentOnce = true;
 		elParentPanel.SetDialogVariable( 'tournament_name', $.Localize( "#CSGO_Tournament_Event_Name_" + tournament_id.split( ':' )[ 1 ] ) );
 			
-		                                                                                                      
+		// If this is loaded as the active panel then hide this title bar as the title is in the tabb selected
 		elParentPanel.FindChildInLayoutFile( "id-tournament-title-bar" ).visible = elParentPanel.id !== 'JsActiveTournament';
 
 		_PopulateTournamentNavBarButtons( tournament_id, elParentPanel );
@@ -309,15 +309,15 @@ var mainmenu_watch_tournament = (function () {
 	{
 		if ( tournamentNumber >= 15 )
 		{
-			                                                                           
+			// we hide points and progress with the new tournaments that use challenges
 			elParentPanel.AddClass( 'tournament-has-challenges' );
 		}
 	};
 
 	var _GetParentPanel = function( tournament_id )
 	{
-		                                           
-		                                               
+		//Find out where we are creating the panel.
+		//only matters to hide the tournament title bar
 		
 		var elParent =  $( '#tournament_content_' + tournament_id );
 		if ( elParent )
@@ -370,7 +370,7 @@ var mainmenu_watch_tournament = (function () {
         var elBtn = elPanel.FindChildInLayoutFile( 'JsTournamentOperatorBtn' );
 		var tournamentNum = PickemCommon.GetTournamentIdNumFromString( tournament_id );
 		var bCanControl = false;
-		if ( MyPersonaAPI.GetMyOfficialTournamentName() &&                                                       
+		if ( MyPersonaAPI.GetMyOfficialTournamentName() && // my account has tournament, and this is active event
 			tournamentNum === NewsAPI.GetActiveTournamentEventID() )
 		{
 			bCanControl = true;
@@ -388,7 +388,7 @@ var mainmenu_watch_tournament = (function () {
 		elBtn.SetHasClass( 'hidden', !bCanControl );
     };
 
-	                                                       
+	//Close SubMenu and opens previous tab that was stacked
 	var _CloseSubMenu = function()
 	{
 		$.DispatchEvent( 'CloseSubMenuContent' );

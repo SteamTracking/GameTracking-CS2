@@ -34,7 +34,8 @@ var InspectActionBar;
             elActionBar.Data().panelRegisteredForEvents = true;
             $.RegisterForUnhandledEvent('PanoramaComponent_Loadout_EquipSlotChanged', () => _SetupEquipItemBtns(elActionBar, itemId));
         }
-        if (nPrice) {
+        if (nPrice) // only if this is tournament sale items
+         {
             $.RegisterForUnhandledEvent('PanoramaComponent_Store_VolatileShopSubscribe', (...args) => { _OnVolatileShopSubscribe(...args, elActionBar); });
             _EnsureVolatileShopSubscribed($.GetContextPanel());
         }
@@ -44,15 +45,20 @@ var InspectActionBar;
         if (category == "musickit") {
             InventoryAPI.PlayItemPreviewMusic(itemId, '');
             elActionBar.Data().previewingMusic = true;
+            // allow playing MVP music (unless it's the default music kit)
             const elMusicBtn = elActionBar.FindChildInLayoutFile('InspectPlayMvpBtn');
-            elMusicBtn.SetHasClass('hidden', (InventoryAPI.GetItemRarity(itemId) <= 0));
+            elMusicBtn.SetHasClass('hidden', (InventoryAPI.GetItemRarity(itemId) <= 0)); // default music kit has no MVP track
         }
+        // Default weapon view icon btn to be selected since thats the view we start on.
+        // If you are already is character mode then char will be already selected
         const bisItemInLootlist = InspectShared.GetPopupSetting('is_item_in_lootlist');
         elActionBar.FindChildInLayoutFile('InspectWeaponBtn').checked =
             (!elActionBar.FindChildInLayoutFile('InspectCharBtn').checked &&
                 !elActionBar.FindChildInLayoutFile('LookatWeaponBtn').checked) ||
                 bisItemInLootlist;
+        // If the item is in the lootlist then we always default it to the floating gun view
         if (bisItemInLootlist) {
+            // NavigateModelPanel( 'InspectModel');
             $.DispatchEvent("Activated", elActionBar.FindChildInLayoutFile('InspectWeaponBtn'), "mouse");
         }
     }
@@ -135,7 +141,7 @@ var InspectActionBar;
         };
         elViewHighlightReelAction.SetPanelEvent('onactivate', fnPopupVideoClip);
         elViewHighlightReelAction.SetHasClass('hidden', false);
-        if (ItemInfo.IsKeychain(id)) {
+        if (ItemInfo.IsKeychain(id)) { // auto-play highlight reel if you "inspect" a keychain USB-stick item
             $.Schedule(0.0001, fnPopupVideoClip);
         }
     }
@@ -152,6 +158,7 @@ var InspectActionBar;
             return;
         }
         if (InspectShared.GetPopupSetting('hide_all_action_items')) {
+            $.Msg(`_SetupEquipItemBtns requested to have no action buttons`);
             elMoreActionsBtn.AddClass('hidden');
             elSingleActionBtn.AddClass('hidden');
             _TrySetUpSingleActionPreviewBtn(elPanel, id);
@@ -165,7 +172,9 @@ var InspectActionBar;
         const isSpraySealed = ItemInfo.IsSpraySealed(id);
         const bCloseInspectOnSingleAction = (isSticker || isSpraySealed || isFanToken || isPatch || isKeychain || isStickerDisplaySleeve);
         let isEquipped = InventoryAPI.IsEquipped(id, 't') || InventoryAPI.IsEquipped(id, 'ct') || InventoryAPI.IsEquipped(id, "noteam");
+        // Act like pets are always equipped so we hide the action button
         isEquipped ||= ItemInfo.IsPet(id);
+        // Only show the more actions button for weapons.
         if (ItemInfo.IsEquippalbleButNotAWeapon(id) ||
             bCloseInspectOnSingleAction ||
             isEquipped) {
@@ -184,6 +193,7 @@ var InspectActionBar;
     function _SetUpSingleActionBtn(elPanel, id, closeInspect, contextPanel) {
         const validEntries = ItemContextEntries.FilterEntries(id, 'inspect');
         const elSingleActionBtn = elPanel.FindChildInLayoutFile('SingleAction');
+        $.Msg(`_SetUpSingleActionBtn has ${validEntries.length} valid inspect actions`);
         for (let i = 0; i < validEntries.length; i++) {
             const entry = validEntries[i];
             let displayName = '';
@@ -193,14 +203,16 @@ var InspectActionBar;
             else {
                 displayName = entry.name;
             }
+            $.Msg(` entry[ ${i} ].name = ${displayName}, available for ${id}`);
             elSingleActionBtn.text = '#inv_context_' + displayName;
             elSingleActionBtn.SetPanelEvent('onactivate', () => _OnSingleAction(entry, id, closeInspect, contextPanel));
             elSingleActionBtn.RemoveClass('hidden');
         }
     }
     function _TrySetUpSingleActionPreviewBtn(elPanel, id) {
-        const validEntries = ItemContextEntries.FilterEntries(id, 'preview');
+        const validEntries = ItemContextEntries.FilterEntries(id, 'preview'); //only returns for sticker and key chains
         const elSingleActionBtn = elPanel.FindChildInLayoutFile('SingleAction');
+        $.Msg(`_TrySetUpSingleActionPreviewBtn has ${validEntries.length} valid preview actions`);
         for (let i = 0; i < validEntries.length; i++) {
             const entry = validEntries[i];
             let displayName = '';
@@ -210,6 +222,7 @@ var InspectActionBar;
             else {
                 displayName = entry.name;
             }
+            $.Msg(` entry[ ${i} ].name = ${displayName}, available for ${id}`);
             const previewActionPrefix = displayName.startsWith('preview_') ? '' : 'preview_';
             const contextPanel = $.GetContextPanel();
             elSingleActionBtn.text = '#inv_context_' + previewActionPrefix + displayName;
@@ -268,10 +281,12 @@ var InspectActionBar;
         ;
         const callback = UiToolkitAPI.RegisterJSCallback(_Callback);
         elOpenCartBtn.SetPanelEvent('onactivate', () => {
+            //You came from check out so close this and go back to it
             if (InspectShared.GetPopupSetting('back_to_checkout', cp)) {
                 CloseBtnAction(_GetSettingCallback(cp), elPanel);
                 return;
             }
+            // open check out and call the callback when the transaction finishes
             const popupPanel = UiToolkitAPI.ShowCustomLayoutPopupParameters('id-popup-shopping-cart-checkout', 'file://{resources}/layout/popups/popup_shopping_cart_checkout.xml', '&callback=' + callback);
             popupPanel.Data().eventId = g_ActiveTournamentInfo.eventid;
             popupPanel.Data().isFromInspect = true;
@@ -289,6 +304,7 @@ var InspectActionBar;
             elOpenCartBtn.SetHasClass('hidden', true);
             return;
         }
+        // Open cart btn
         if (ShoppingCart.cart.getTotalItems() < 1) {
             elOpenCartBtn.SetHasClass('hidden', true);
             return;
@@ -326,6 +342,9 @@ var InspectActionBar;
         CloseBtnAction(_GetSettingCallback(contextPanel), contextPanel);
         $.DispatchEvent('UpdateSelectItemForCapabilityPopup', InspectShared.GetPopupSetting('capability', contextPanel), idSubjectItem, !InspectShared.GetPopupSetting('is_selected', contextPanel));
     }
+    //--------------------------------------------------------------------------------------------------
+    // Set up character dropdown
+    //--------------------------------------------------------------------------------------------------
     function _ShowButtonsForWeaponInspect(elPanel, id) {
         const hasAnims = ItemInfo.IsCharacter(id) || ItemInfo.IsWeapon(id) || ItemInfo.IsMelee(id);
         if (InspectShared.GetPopupSetting('hide_char_select')) {
@@ -340,6 +359,7 @@ var InspectActionBar;
             elPanel.FindChildInLayoutFile('InspectCharBtn').SetHasClass('hidden', !hasAnims);
             elPanel.FindChildInLayoutFile('InspectWeaponBtn').SetHasClass('hidden', !hasAnims);
             elPanel.FindChildInLayoutFile('LookatWeaponBtn').SetHasClass('hidden', !(ItemInfo.IsWeapon(id) || ItemInfo.IsMelee(id)));
+            // get unique per team models (user might own multiple of same characters)
             const list = CharacterAnims.GetValidCharacterModels(true).filter((entry) => {
                 return (ItemInfo.IsItemCt(id) && (entry.team === 'ct' || entry.team === 'any')) ||
                     (ItemInfo.IsItemT(id) && (entry.team === 't' || entry.team === 'any')) ||
@@ -377,6 +397,7 @@ var InspectActionBar;
         CharacterButtons.InitCharacterButtons(elCharacterButtons, elPreviewPanel, characterToolbarButtonSettings);
     }
     function _SetDropdown(elPanel, validEntiresList, id) {
+        // Which character will be the default?
         const currentMainMenuVanitySettings = ItemInfo.GetOrUpdateVanityCharacterSettings(ItemInfo.IsItemAnyTeam(id) ? null
             : LoadoutAPI.GetItemID(ItemInfo.IsItemCt(id) ? 'ct' : 't', 'customplayer'));
         const elDropdown = elPanel.FindChildInLayoutFile('InspectDropdownCharModels');
@@ -401,6 +422,9 @@ var InspectActionBar;
         InspectModelImage.SetCharScene(characterItemId, weaponItemId, contextPanel);
     }
     InspectActionBar.OnUpdateCharModel = OnUpdateCharModel;
+    //--------------------------------------------------------------------------------------------------
+    // Actions from button presses
+    //--------------------------------------------------------------------------------------------------
     function NavigateModelPanel(type, bEndWeaponLookat = true) {
         InspectModelImage.ShowHideItemPanel((type !== 'InspectModelChar'));
         InspectModelImage.ShowHideCharPanel((type === 'InspectModelChar'));
@@ -416,14 +440,16 @@ var InspectActionBar;
     InspectActionBar.NavigateModelPanel = NavigateModelPanel;
     function InspectPlayMusic(type, contentPanel) {
         const elActionBar = contentPanel.FindChildInLayoutFile('PopUpInspectActionBar');
+        // This is only to toggle between MVP and main menu music
         if (!elActionBar.Data().previewingMusic)
             return;
         const itemId = InspectShared.GetPopupSetting('item_id', contentPanel);
         if (type === 'mvp') {
             if (elActionBar.Data().schfnMusicMvpPreviewEnd)
-                return;
+                return; // ignore mashing the button while the MVP anthem is already playing
             InventoryAPI.StopItemPreviewMusic();
             InventoryAPI.PlayItemPreviewMusic(itemId, 'MVPPreview');
+            // Make sure that the MVP preview stops after 7 seconds (competitive round restart delay)
             elActionBar.Data().schfnMusicMvpPreviewEnd = $.Schedule(6.8, () => InspectActionBar.InspectPlayMusic('schfn', contentPanel));
         }
         else if (type === 'schfn') {
@@ -436,6 +462,7 @@ var InspectActionBar;
     function ShowContextMenu(contextPanel) {
         const elBtn = contextPanel.FindChildTraverse('InspectActionsButton');
         const id = InspectShared.GetPopupSetting('item_id', contextPanel);
+        $.Msg('Item context Menu OPEN: ' + id);
         const contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent(elBtn.id, '', 'file://{resources}/layout/context_menus/context_menu_inventory_item.xml', 'itemid=' + id + '&populatefiltertext=inspect', () => $.DispatchEvent("CSGOPlaySoundEffect", "weapon_selectReplace", "MOUSE"));
         contextMenuPanel.AddClass("ContextMenu_NoArrow");
     }
@@ -465,6 +492,7 @@ var InspectActionBar;
     InspectActionBar.LookatWeapon = LookatWeapon;
     function CloseBtnAction(callbackHandle = -1, elActionBar) {
         $.DispatchEvent("CSGOPlaySoundEffect", "inventory_inspect_close", "MOUSE");
+        // Invoke callback set up in the parent panel (if set)
         $.DispatchEvent('UIPopupButtonClicked', '');
         UiToolkitAPI.HideTextTooltip();
         if (callbackHandle != -1) {

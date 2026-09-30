@@ -80,6 +80,7 @@ var CanApplyPickSlot;
                 }
             }));
             elHintLabel.SetDialogVariableLocString('autograph_player', locStringPlayer);
+            // elHintLabel.text = $.Localize( '#CSGO_Event_Details_CraftSouvenir_Memento', elHintLabel ); // it's already set in XML
         }
     }
     function ShowHideInfoPanel(bHide, elInfoPanel) {
@@ -113,10 +114,11 @@ var CanApplyPickSlot;
                 slots.push({ index: i, imagePath: imagePath, cost: unCostInCredits });
             }
         }
-        if (worktype === 'craft_souvenir') {
+        if (worktype === 'craft_souvenir') { // Sort slots in the order of highest cost to lowest
             slots.sort((a, b) => (b.cost - a.cost) * 100 + (a.index - b.index));
         }
         for (let j = 0; j < slots.length; j++) {
+            $.Msg("Sticker[" + j + "] at slot " + slots[j].index + " = " + slots[j].imagePath + " (" + slots[j].cost + ")");
             const elPatch = $.CreatePanel('RadioButton', elContainer, slots[j].imagePath, { group: "remove-btns" });
             elPatch.Data().slot = slots[j].index;
             elPatch.Data().itemId = oSettings.itemId;
@@ -184,6 +186,7 @@ var CanApplyPickSlot;
                         const elStickerScrapeLevelSlider = oSettings.infoPanel.FindChildInLayoutFile('StickerScrapeLevelSlider');
                         if (elStickerScrapeLevelSlider) {
                             const newvalue = elStickerScrapeLevelSlider.value;
+                            $.Msg('Sticker scrape slider dragged to ' + newvalue);
                             if (worktype === 'can_sticker') {
                                 $.DispatchEvent('CSGOPlaySoundEffect', 'UI.StickerScratch', 'MOUSE');
                                 CapabilityCanSticker.SetStickerScrapeLevel(newvalue, contextPanel);
@@ -247,7 +250,7 @@ var CanApplyPickSlot;
         }
     }
     function _OnCancel(elContinueBtn, elCancelBtn, elNextSlotBtn, oSettings) {
-        oSettings.funcOnCancel(oSettings);
+        oSettings.funcOnCancel(oSettings); // disable the apply button
         elContinueBtn.enabled = true;
         elNextSlotBtn.enabled = true;
         elNextSlotBtn.SetHasClass('hidden', false);
@@ -278,6 +281,9 @@ var CanApplyPickSlot;
     }
     CanApplyPickSlot.SelectFirstRemoveItem = SelectFirstRemoveItem;
 })(CanApplyPickSlot || (CanApplyPickSlot = {}));
+//--------------------------------------------------------------------------------------------------
+// Slot info, What are the empty slots, active slot, set new slot active ....
+//--------------------------------------------------------------------------------------------------
 var CanApplySlotInfo;
 (function (CanApplySlotInfo) {
     let m_emptySlotList = [];
@@ -311,6 +317,7 @@ var CanApplySlotInfo;
             return 0;
         }
         const activeIndex = (m_slotIndex % emptySlotCount);
+        $.Msg(`GetSelectedEmptySlot( ${m_slotIndex} / ${emptySlotCount} ) -> ${m_emptySlotList[activeIndex].index}`);
         return m_emptySlotList[activeIndex].index;
     }
     CanApplySlotInfo.GetSelectedEmptySlot = GetSelectedEmptySlot;

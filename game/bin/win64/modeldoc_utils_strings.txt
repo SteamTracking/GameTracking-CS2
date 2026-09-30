@@ -7518,7 +7518,7 @@ $prefix_element$
 2DBlendEditor
 2DBlendFromAnimation
 2\n??9FbxDataType@fbxsdk@@QEBA_NAEBV01@@Z
-2\vpH
+2\vpd
 2_BONE_IK
 4-byte data pool
 4096
@@ -8201,7 +8201,7 @@ Associates a semantic identifier with an animgraph2 used by this model.
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Atlas Dimension
-AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Point
 Attach to Morphing Base Mesh
 AttachedSoundEvent
@@ -10211,6 +10211,8 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
+Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
+Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -10482,9 +10484,9 @@ Flip Direction
 Flip Percentage
 Flip the forward (x) axis direction of bones
 Float To Game Time
-FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -10679,9 +10681,10 @@ Height Target
 Height Tolerance
 Height of the primitive to project normals from.
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
+Hexagonal Cylinder
 Hidden
 Hide Materialgroup in Tools
 Hide Render Color in Tools
@@ -11887,6 +11890,7 @@ ORIENT
 O\tV_expd
 Object
 Object Rotation
+Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -12355,14 +12359,11 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
-R8_UNORM
 R9G9B9E5_SHAREDEXP
 RBF Based Anim Constraint
 RGB blend weight for sequence 0
 RGB blend weight for sequence 1
 ROTATION
-R\fpH
-R\vpH
 R_T5Y
 Rad2 Deg
 Radial Basis Function Type
@@ -14531,7 +14532,6 @@ cycle_type
 cyclepose without cycle pose parameter on cmd sequence: %s\n
 cyclestart
 cylinder
-d(0P
 d\tV_frexpf
 damage_direction_cp
 damage_position_cp
@@ -15028,7 +15028,7 @@ group_name
 grow_or_shrink
 growth time
 guide_hair_count
-h*\n07l
+h+\np0l
 hair_count
 halfEdges %d,%d faces %d,%d angle %.1f deg.
 half_angle_degrees
@@ -15064,6 +15064,7 @@ help text for Struct Array!
 help text for Test Enum!
 help text for Translation!
 hemisphere
+hex_cyl
 hiddenFlags
 hiddenGroups
 hidden_in_tools
@@ -16083,6 +16084,7 @@ o KPBf
 oOffset
 oY.o<
 obj2dmx
+oct_cyl
 offseTime
 offsetTime
 offset_angles
@@ -16363,7 +16365,6 @@ quad_bend_tolerance
 quadratic
 quaternion log
 quaternion_array
-r\vpH
 rad2deg
 radius0_key
 radius1_key

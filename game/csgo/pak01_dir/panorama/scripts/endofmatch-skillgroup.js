@@ -45,6 +45,7 @@ var EOM_Skillgroup;
         _m_cP.SetDialogVariable('rating_type', $.Localize('#SFUI_GameMode' + oData.mode));
         _m_cP.SetDialogVariable('map', GameStateAPI.GetMapName());
         if (current_rating < 1 && matchesNeeded <= 0) {
+            //Rank is expired show how to get a skillGroup
             switch (oData.mode) {
                 case 'Wingman':
                 case 'Competitive':
@@ -58,6 +59,7 @@ var EOM_Skillgroup;
             }
         }
         else if (current_rating < 1) {
+            // Not enough wins for a skillGroup
             _m_cP.SetDialogVariableInt('winsneeded', matchesNeeded);
             switch (oData.mode) {
                 case 'Wingman':
@@ -84,11 +86,13 @@ var EOM_Skillgroup;
             switch (oData.mode) {
                 case 'Wingman':
                 case 'Competitive':
+                    // Has Skillgroup to show
                     let modePrefix = (oData.mode === 'Wingman') ? 'wingman' : 'skillgroup';
                     oData.old_image = 'file://{images}/icons/skillgroups/' + modePrefix + oData.old_rating + '.svg';
                     oData.old_rating_info = $.Localize('#RankName_' + oData.old_rating);
                     oData.old_rating_desc = $.Localize(skillgroupDescString, _m_cP);
-                    if (oData.old_rating < oData.new_rating) {
+                    if (oData.old_rating < oData.new_rating) // Has earned now Skillgroup
+                     {
                         oData.new_image = 'file://{images}/icons/skillgroups/' + modePrefix + oData.new_rating + '.svg';
                         oData.new_rating_info = $.Localize('#RankName_' + oData.new_rating);
                         oData.new_rating_desc = $.Localize(skillgroupDescString, _m_cP);
@@ -97,7 +101,8 @@ var EOM_Skillgroup;
                     }
                     break;
                 case 'Premier':
-                    if (oData.old_rating !== oData.new_rating) {
+                    if (oData.old_rating !== oData.new_rating) // Has earned now Skillgroup
+                     {
                         _m_pauseBeforeEnd = 5.0;
                         _LoadAndShowNewRankReveal(oData);
                     }
@@ -107,6 +112,7 @@ var EOM_Skillgroup;
         }
         if (oData.mode === 'Premier') {
             _FilloutPremierRankData(oData);
+            $.Msg('RatingEmblem.GetTierColorClass(' + RatingEmblem.GetTierColorClass(_m_cP.FindChildInLayoutFile('jsRatingEmblem')));
             _m_cP.FindChildInLayoutFile('id-eom-skillgroup-premier-bg').SwitchClass('tier', RatingEmblem.GetTierColorClass(_m_cP.FindChildInLayoutFile('jsRatingEmblem')));
         }
         else {
@@ -130,6 +136,7 @@ var EOM_Skillgroup;
             _m_cP.SetDialogVariable('rank-info', oData.new_rating_info);
             let elParticleFlare = _m_cP.FindChildInLayoutFile('id-eom-skillgroup-emblem--new__pfx--above');
             let aParticleSettings = RankSkillgroupParticles.GetSkillGroupSettings(oData.new_rating, oData.mode);
+            //returns { particleName: sParticlelevel0, cpNumber: 3, cpValue: [ 1, 0, 1 ], playEndcap: false },
             elParticleFlare.SetParticleNameAndRefresh(aParticleSettings.particleName);
             elParticleFlare.SetControlPoint(aParticleSettings.cpNumber, aParticleSettings.cpValue[0], aParticleSettings.cpValue[1], 1);
             elParticleFlare.StartParticles();
@@ -143,6 +150,7 @@ var EOM_Skillgroup;
         else if (oData.mode === 'Premier') {
             let options = {
                 root_panel: _m_cP.FindChildInLayoutFile('jsRatingEmblem'),
+                //	xuid: MockAdapter.GetLocalPlayerXuid(),
                 leaderboard_details: { score: oData.new_rating, matchesWon: oData.num_wins },
                 do_fx: false,
                 presentation: 'digital',
@@ -207,6 +215,7 @@ var EOM_Skillgroup;
         return new_rating < 1000 ? 'digitpanel-container-3-digit-offset' : new_rating < 10000 ? 'digitpanel-container-4-digit-offset' : '';
     }
     function _FilloutPremierRankData(oData) {
+        // you don't have a rating. the reveal will not get called so set the data here
         const options = {
             root_panel: _m_cP.FindChildInLayoutFile('jsRatingEmblem'),
             leaderboard_details: { score: oData.old_rating, matchesWon: oData.num_wins },
@@ -254,6 +263,7 @@ var EOM_Skillgroup;
         _m_cP.FindChildInLayoutFile('id-eom-skillgroup-premier-points').text = $.Localize(sPointsString, _m_cP);
     }
     function GetWinLossStyle(oData) {
+        //emblem anim
         let winLossStyle = ((oData.new_rating === 0) || (oData.new_rating > 0 && oData.old_rating < 1) || !oData.rating_change) ?
             'no-points' : oData.rating_change < 0 ?
             'lost-points' : oData.rating_change > 0 ?
@@ -262,6 +272,7 @@ var EOM_Skillgroup;
     }
     function SpeedLinesAnim(winLossStyle) {
         $.DispatchEvent('CSGOPlaySoundEffect', 'UI.Premier.EOM.SlideIn', 'MOUSE');
+        //speed lines
         $.Schedule(.25, () => {
             if (!_m_cP || !_m_cP.IsValid())
                 return;
@@ -281,9 +292,11 @@ var EOM_Skillgroup;
                 return;
             RatingEmblem.SetXuid(options);
             PremierRankText(oData);
+            // tint elements
             elPanel.SwitchClass('tier', RatingEmblem.GetTierColorClass(_m_cP.FindChildInLayoutFile('jsRatingEmblem')));
         });
         let elPanel = _m_cP.FindChildInLayoutFile('id-eom-skillgroup-premier-bg');
+        // gain or lost layouts
         elPanel.SwitchClass('winloss', winLossStyle);
     }
     function PlayPremierRankSound(winLossStyle) {
@@ -325,6 +338,9 @@ var EOM_Skillgroup;
     }
     function Shutdown() {
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         EndOfMatch.RegisterPanelObject({
             name: 'eom-skillgroup',

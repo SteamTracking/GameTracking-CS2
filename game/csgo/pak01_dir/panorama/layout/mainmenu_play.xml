@@ -278,6 +278,12 @@
 					<RadioButton id="retakes" group="gamemodes" class="content-navbar__tabs__btn">
 						<Label text="#SFUI_GameModeRetakes" />
 					</RadioButton>
+					<RadioButton id="cooperative" group="gamemodes" class="content-navbar__tabs__btn">
+						<Label text="#SFUI_GameModeCooperative" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;cooperative&apos;, &apos;#PlayMenu_guardian_tooltip&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" />
+					</RadioButton>
+					<RadioButton id="coopmission" group="gamemodes" class="content-navbar__tabs__btn">
+						<Label text="#SFUI_GameModeCoopMission" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;coopmission&apos;, &apos;#PlayMenu_guardian_tooltip&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" />
+					</RadioButton>
 					<Panel class="mainmenu-top-navbar__play_seperator" />
 					<RadioButton id="JsDirectChallengeBtn" data-type="competitive" group="gamemodes" class="content-navbar__tabs__btn">
 						<Label text="#DirectChallenge_btn" />

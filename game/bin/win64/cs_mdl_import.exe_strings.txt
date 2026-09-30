@@ -7247,62 +7247,65 @@ $prefix_element$
 .vpk:
 .vvd
 .webp
-0 Va
-00R@
-028@
-02L@
-02O@
-03i@
-04qa
-05L@
+0(Ta
+00L@
+01P@
+02S@
+02i@
+058@
+061@
+063@
 08L@
-0Bi@
+08Y@
+09L@
+0AL@
+0BN@
+0C2@
+0DL@
 0E5@
-0EN@
-0FL@
-0FW@
-0G1@
-0HT@
-0HV@
-0IF@
-0IL@
-0JJ@
-0LL@
-0NF@
-0PF@
-0QC@
-0QQ@
-0RL@
-0V7@
-0V8@
-0VC@
+0FR@
+0Fh@
+0Gh@
+0Hh@
+0Ih@
+0Jh@
+0Lh@
+0MR@
+0NE@
+0PQ@
+0UL@
 0VL@
-0XQa
-0ZU@
+0Y8@
+0ZQ@
 0\r%0t
-0b7@
-0cT@
-0d4@
+0bJ@
 0dh@
-0e3@
-0eC@
-0fA@
-0fh@
-0gH@
-0jh@
-0l5@
-0nX@
-0oP@
-0r6@
-0r7@
-0r8@
-0t1@
-0uU@
-0uX@
-0w1@
-0w6@
+0e2@
+0iJ@
+0iW@
+0jW@
+0kW@
+0lW@
+0lX@
+0lh@
+0mH@
+0mK@
+0mU@
+0mW@
+0mX@
+0nW@
+0oC@
+0oV@
+0pX@
+0ph@
+0qX@
+0sW@
+0tK@
+0v6@
+0v7@
+0vC@
+0vX@
 0x%llx
-0z1@
 1024
 16-byte data pool
 180_recovery
@@ -7315,12 +7318,10 @@ $prefix_element$
 2D Aim
 2D Blend Has No Referenced Animations
 2D Cross
-2D)a
 2DBlend
 2DBlendEditor
 2DBlendFromAnimation
-2\vp Va
-2\vpd
+2\vpt
 2_BONE_IK
 4-byte data pool
 4096
@@ -7335,6 +7336,8 @@ $prefix_element$
 8&Kx
 8-byte data pool
 8192
+81c@
+8Aa@
 969p
 9>No data
 9\tV_asind
@@ -7870,7 +7873,7 @@ Associates a semantic identifier with an animgraph2 used by this model.
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Atlas Dimension
-AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Point
 Attach to Morphing Base Mesh
 AttachedSoundEvent
@@ -9363,7 +9366,6 @@ D16_UNORM
 D24_UNORM_S8_UINT
 D32_FLOAT
 D32_FLOAT_S8X24_UINT
-D9Y@
 DBM&(
 DMX Model
 DMX Model Pipeline Animation Script File
@@ -9381,7 +9383,6 @@ DNGBackwardVersion
 DNGPrivateData
 DNGVersion
 DOT_TO_MORPH
-DXa@
 Damage Direction CP
 Damage Position CP
 Dampen Movement Relative to Control Point
@@ -9790,6 +9791,8 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
+Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
+Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -10015,9 +10018,9 @@ Flip Direction
 Flip Percentage
 Flip the forward (x) axis direction of bones
 Float To Game Time
-FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -10178,6 +10181,7 @@ Grow or shrink a selection
 Grow the selection by adding contiguous components to the selection.
 HAC K  Unused Binding
 HELPER_BONE
+HHa@
 H\tV_cosd
 HairShader
 Half-Angle
@@ -10205,9 +10209,10 @@ Height Target
 Height Tolerance
 Height of the primitive to project normals from.
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
+Hexagonal Cylinder
 Hidden
 Hide Materialgroup in Tools
 Hide Render Color in Tools
@@ -10231,7 +10236,6 @@ HitboxSet
 HitboxSetList
 HitboxSet_Auto
 HitboxSphere
-HjK@
 Hold
 Hold Frame %d Out Of Range, Valid Range: [ %d, %d ]
 Hold Frame %d Remapped To Last Frame Of Source Anim, Valid Range: [ %d, %d ]
@@ -11195,6 +11199,7 @@ ORIENT
 O\tV_expd
 Object
 Object Rotation
+Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -11306,37 +11311,32 @@ Overrides the target VSNAP resource (defaults to "particles/models/%model_name%/
 Overwrite all bone data
 Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
-P08@
-P0T@
-P3L@
-P4Y@
-P4qa
-P5Y@
-P6L@
-P9Y@
-P9i@
-PA5@
-PA7@
-PAL@
+P(Ta
+P0L@
+P1L@
+P1i@
+P2V@
+P48@
+P6T@
+P71@
+P8D@
+P8Y@
+P9L@
+P9T@
 PARENT
-PB7@
-PBA@
-PD8@
-PDh@
-PEW@
-PFL@
+PDH@
+PDL@
+PDR@
 PF\n%d %d\n-1.000000\n
-PFh@
-PGF@
-PGR@
-PH1@
-PH8@
-PHD@
 PHY Import: Invalid solid index %d in keyvalues\n
 PHY Import: Solid with index %d is defined twice!\n
-PI5@
+PI8@
 PIL@
-PL6@
+PJ0@
+PJA@
+PJE@
+PJa@
+PKh@
 PLL@
 PLUG_TYPE_INPUT
 PLUG_TYPE_OUTPUT
@@ -11345,22 +11345,15 @@ PLUG_TYPE_RELAY_PREFAB_INBOUND
 PLUG_TYPE_RELAY_PREFAB_LOCAL
 PLUG_TYPE_RELAY_PREFAB_OUTBOUND
 PLUG_TYPE_UNKNOWN
-PM8@
-POD@
+PNQ@
 POL@
 POSE_SPACE_BONE
 POSE_SPACE_MORPH
-PQS@
-PS3@
-PU6@
-PUQ@
+PRA@
+PSQ@
 PURH
-PVL@
-PW9@
-PXQa
-PYC@
+PXU@
 PYL@
-PZC@
 PZL@
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
@@ -11408,14 +11401,11 @@ Particle system that handles the generated model/snapshot (Must be authored spec
 ParticleCompileBinaryIdenticalHack_underlying_struct
 ParticleParamID_t
 Pass Outflow
-Pb4@
-PbH@
-Pc9@
-PcX@
-Pch@
-Pd8@
-Pe1@
-PeW@
+PcC@
+PcT@
+PdX@
+Pdh@
+PeR@
 Peak Cycle
 Peak Frame
 Peak Frame Number
@@ -11426,13 +11416,8 @@ Perforce
 Perform a set of parametric mesh modification operations.
 Persistent
 Perturb vertex positions using sine waves.
-PfU@
+PfA@
 Pf\n%d %d\n-1.000000\n
-Pfh@
-PgN@
-PgQ@
-PhC@
-PhJ@
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -11471,6 +11456,7 @@ PhysicsShapeHullPrimitive
 PhysicsShapeList
 PhysicsShapeReplacements
 PhysicsSurfaceProperties
+PiA@
 Pick 3 target cloth nodes
 Pick MeshID '%s'
 Pick Target Cloth Nodes:
@@ -11513,11 +11499,8 @@ Pitch Yaw Roll
 Pitch Yaw Roll Max
 PivotPaint
 PixarLog
-PjC@
-PjX@
-Pk1@
-Pk4@
-PlK@
+PjU@
+PkA@
 Place On Attachment
 Place On Bone
 Place on Floor
@@ -11533,6 +11516,10 @@ Plane Primitive
 Plastic
 Plasticity
 Play End Cap Effect
+Plh@
+PmX@
+Pmh@
+PoW@
 Point 0
 Point 1
 Point Bones At
@@ -11581,9 +11568,10 @@ Positions in grid
 PosterSettings
 Posture
 Power scale for applying the supplemental ambient occlusion map.
-PqX@
-Pr1@
-Pr6@
+PpV@
+Pph@
+PqH@
+PrK@
 Pre-Age Noise
 Pre-Clear Selection
 Precision Degrees
@@ -11639,18 +11627,15 @@ Project on World
 Projected Primitive
 PropWorldOrigin
 Prune pieces < error threshold
-Pt7@
-PtO@
-Pu1@
-Pu7@
+PsJ@
 Pull towards control point
 Pulse domain which enables particle content to query leaf code to introspect game state.
 Push Out
 Push mesh faces outward along their local normal. Optionally build shell geometry.
-PvH@
-Px1@
-Py3@
-PzA@
+PvQ@
+Pw6@
+PwC@
+PzJ@
 QAngle
 Quad Bend Tolerance
 Quad: A single camera facing quad. Less mesh complexity but more overdraw. Hull: Higher mesh cost but minimized overdraw.
@@ -11718,15 +11703,11 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
-R8_UNORM
 R9G9B9E5_SHAREDEXP
 RBF Based Anim Constraint
 RGB blend weight for sequence 0
 RGB blend weight for sequence 1
 ROTATION
-R\fp Va
-R\vp Va
-R\vp4qa
 R_T5Y
 Rad2 Deg
 Radial Basis Function Type
@@ -13042,7 +13023,6 @@ ZIPVSetField
 [choices
 [cloth] | [procedural]
 [procedural]
-\fp\v`XQa
 \instances\
 \maps\
 \materialsrc\
@@ -13055,7 +13035,6 @@ ZIPVSetField
 \n***ERROR*** [PsdExtract] File seems to be corrupt, reserved bytes are not zero.
 \n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
 \n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
-\nP4qa
 \n_V_StringAfterPrefixCaseSensitive
 \ndummyfilename.tif
 \ng default\n
@@ -13076,9 +13055,7 @@ ZIPVSetField
 \tV_sscanf_s
 \tV_tand
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\v\n\v\n\v\n\v\n\v\n\v\n\v\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\f\r\f\r\f\r\f\r\f\r\f\r\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
-\vPXQa
-\vp Va
-\vp4qa
+\vP(Ta
 _CustomCommand
 _CustomCommand%d
 _InFrameSpine
@@ -13140,8 +13117,6 @@ _temp_tangent
 _volumeatlas_
 _wjb
 _zero
-`4qa
-`\rP\f04qa
 a:fulltype
 a:typeparam
 a_lean_override_
@@ -13764,6 +13739,7 @@ cutoff_radius
 cycle_type
 cyclestart
 cylinder
+d6a@
 d\tV_frexpf
 damage_direction_cp
 damage_position_cp
@@ -14266,6 +14242,7 @@ help text for Struct Array!
 help text for Test Enum!
 help text for Translation!
 hemisphere
+hex_cyl
 hiddenFlags
 hiddenGroups
 hidden_in_tools
@@ -14290,6 +14267,7 @@ hop_distance_range
 horizontal differencing 
 horizontal_pose_param_name
 houdini
+hua@
 hull
 hullIvr-0.obj
 hullIvr-1.obj
@@ -14995,6 +14973,7 @@ numsides_key
 o KPBf
 oOffset
 oY.o<
+oct_cyl
 offseTime
 offsetTime
 offset_angles
@@ -15065,40 +15044,50 @@ overwrite_existing
 overwrite_existing_flags_only
 ownerlog
 owns_polymorphic_data
-p Va
+p(Ta
+p0Q@
+p1L@
+p1Q@
+p1Y@
+p2L@
+p2Q@
 p38@
-p4L@
-p4Y@
+p3Q@
+p46@
+p4Q@
 p4lib
-p4qa
-p70@
-p7V@
-pC5@
+p5Q@
+p6Q@
+p7Q@
+p7Y@
+p81@
+p8Q@
+p9Q@
+p9Y@
+pA1@
+pBT@
 pCheckpointName
-pDW@
 pDescription
-pER@
-pI1@
-pI5@
-pLA@
-pLO@
-pMA@
-pMP@
-pMT@
-pNA@
-pNQ@
-pNR@
-pOL@
-pR2@
-pR6@
+pET@
+pGL@
+pHh@
+pIh@
+pJL@
+pL5@
+pL8@
+pLF@
+pML@
+pOP@
+pOQ@
+pRL@
+pSE@
 pSL@
+pTC@
 pTagName
-pVF@
-pW7@
-pXQa
-pZD@
+pVD@
+pWQ@
 p\r0\fP!K
-paX@
+pa4@
 panorama_image
 panorama_layout
 panorama_style
@@ -15140,13 +15129,10 @@ pathclass
 pathnode
 pathnodeclass
 pattern
+pb4@
 pc4@
-pcH@
-pcQ@
-pcX@
-pch@
-pd8@
-pe7@
+pd3@
+pdX@
 peak
 peak_attr
 peak_cycle
@@ -15155,7 +15141,9 @@ per particle
 per_material_options
 permissive
 pervertexlighting
-pfh@
+pfX@
+pg8@
+ph9@
 phonememap
 phys
 physicsSimplificationError
@@ -15190,7 +15178,8 @@ pitch_friction
 pitch_stiffness
 pivotOffset
 pixelAspectRatio
-plK@
+pjX@
+plX@
 place_on_floor
 placementOrigin
 placementattachment
@@ -15200,8 +15189,10 @@ plane
 plastic
 plasticity
 playerclip
-pmK@
+pn5@
+pnK@
 poK@
+poX@
 point
 point0_key
 point1_key
@@ -15245,11 +15236,10 @@ posture
 posture_nohands
 posxyz
 powf
-ppH@
-pqU@
-pr6@
-pr7@
-prW@
+ppn@
+pr1@
+pr8@
+prQ@
 preMerge face 0
 preMerge face 1
 precision_degrees
@@ -15271,6 +15261,7 @@ preview_end_index
 preview_scale
 preview_show_indices
 preview_start_index
+prh@
 primary_associated_entity
 primary_root_bone
 primitive_height
@@ -15296,17 +15287,15 @@ propattr_force_readonly
 propattr_stretch_editor_into_label_column
 propdataname
 prune
-ps1@
+psA@
 pseudo-
+puJ@
+puU@
 pulse_node_custom_attributes
 pulse_runtime_lib
 pushout_strength
-pv1@
 pvTarget
-pwQ@
-pwU@
-py1@
-pzP@
+pwW@
 qangle log
 qangle_array
 quad
@@ -15315,8 +15304,6 @@ quadratic
 quaternion log
 quaternion_array
 r%dc%d
-r\fp4qa
-r\vp Va
 rad2deg
 radius0_key
 radius1_key
@@ -15769,7 +15756,9 @@ swing_offset_angle
 switch_threshold
 syncEngineFramerate
 synched
+t1c@
 tBVsInputSignature_t
+tMa@
 tagValue
 tag_list
 tag_list_dynamic
@@ -16426,7 +16415,6 @@ wvec2vec
 wxform
 wyS]
 x0Ysqx
-xEa@
 xfade
 xform
 yaw_bounce

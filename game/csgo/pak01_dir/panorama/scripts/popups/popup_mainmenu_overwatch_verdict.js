@@ -4,6 +4,9 @@ var overwatch_verdict;
 (function (overwatch_verdict) {
     var _verdictTypes = [
         { type: "aimbot", classification: "#Panorama_Overwatch_Major_Disruption", title: "#Panorama_Overwatch_Res_AimHacking", desc: "#SFUI_Overwatch_Res_AimHacking_Desc" },
+        // { type:"wallhack",  classification: "#Panorama_Overwatch_Major_Disruption", title:"#Panorama_Overwatch_Res_WallHacking",  desc:"#SFUI_Overwatch_Res_WallHacking_Desc" },
+        // { type:"speedhack", classification: "#Panorama_Overwatch_Major_Disruption", title:"#Panorama_Overwatch_Res_SpeedHacking", desc:"#SFUI_Overwatch_Res_SpeedHacking_Desc" },
+        // { type:"grief",     classification: "#Panorama_Overwatch_Minor_Disruption", title:"#Panorama_Overwatch_Res_Griefing",     desc:"#SFUI_Overwatch_Res_Griefing_Desc" }
     ];
     var _finalVerdict = "";
     function Init() {
@@ -18,6 +21,7 @@ var overwatch_verdict;
             elVerdict.SetDialogVariable('verdict_title', $.Localize(verdict.title));
             elVerdict.SetDialogVariable('verdict_desc', $.Localize(verdict.desc));
             _SetupVerdictButtons(elVerdict.FindChildInLayoutFile('verdict_btn_not_guilty'), verdict);
+            // _SetupVerdictButtons( elVerdict.FindChildInLayoutFile( 'verdict_btn_maybe_guilty' ) as RadioButton_t, verdict );
             _SetupVerdictButtons(elVerdict.FindChildInLayoutFile('verdict_btn_guilty'), verdict);
         });
     }
@@ -29,6 +33,7 @@ var overwatch_verdict;
         elButton.SetPanelEvent('onselect', _UpdateSubmitButton);
     }
     function _UpdateFinalVerdict() {
+        // reset verdict
         _finalVerdict = "";
         var bHasAllVerdict = true;
         _verdictTypes.forEach(function (verdict, i) {
@@ -38,10 +43,15 @@ var overwatch_verdict;
             if (elVerdict.FindChildInLayoutFile('verdict_btn_not_guilty').checked) {
                 _finalVerdict += verdict.type + ":dismiss;";
             }
+            // else if ( elVerdict.FindChildInLayoutFile( 'verdict_btn_maybe_guilty' ).checked )
+            // {
+            //     _finalVerdict += verdict.type + ":inconclusive;";
+            // }            
             else if (elVerdict.FindChildInLayoutFile('verdict_btn_guilty').checked) {
                 _finalVerdict += verdict.type + ":convict;";
             }
             else {
+                // didn't select this verdict, stop the loop now
                 bHasAllVerdict = false;
                 return true;
             }
@@ -61,6 +71,9 @@ var overwatch_verdict;
     overwatch_verdict.SubmitVerdict = SubmitVerdict;
     ;
 })(overwatch_verdict || (overwatch_verdict = {}));
+//--------------------------------------------------------------------------------------------------
+// Entry point called when panel is created
+//--------------------------------------------------------------------------------------------------
 (function () {
     overwatch_verdict.Init();
 })();

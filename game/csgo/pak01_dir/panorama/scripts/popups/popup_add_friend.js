@@ -13,7 +13,9 @@ var PopupAddFriend;
             SteamOverlayAPI.CopyTextToClipboard(yourCode);
             UiToolkitAPI.ShowTextTooltip('JsPopupYourFriendCode', '#AddFriend_copy_code_Hint');
         });
+        // Set submit button disabled by default.
         $('#JsPopupYourSendRequest').enabled = false;
+        // Set found friends messages hidden by default.
         $('#JsFriendCodeNotFound').visible = false;
         $('#JsFriendCodeFound').visible = false;
         $('#JsAddFriendTextEntryLabel').SetFocus();
@@ -25,12 +27,14 @@ var PopupAddFriend;
         let elTextEntry = $('#JsAddFriendTextEntryLabel');
         let xuid = FriendsListAPI.GetXuidFromFriendCode(elTextEntry.text.toUpperCase());
         if (xuid) {
+            // Show friend
             let elTile = $.GetContextPanel().FindChildTraverse('JsPopupFriendTile');
             if (!elTile) {
                 elTile = $.CreatePanel("Panel", $('#JsFriendCodeFound'), 'JsPopupFriendTile');
                 elTile.SetAttributeString('xuid', xuid);
                 elTile.BLoadLayout('file://{resources}/layout/friendtile.xml', false, false);
             }
+            // This gives the panel enough time to load so we call the init
             $.Schedule(.1, () => {
                 FriendTile.Init(elTile);
                 elTile.RemoveClass('hidden');
@@ -47,6 +51,7 @@ var PopupAddFriend;
                 elNotFoundLabel.visible = false;
                 return;
             }
+            // Show not found Message.
             elNotFoundLabel.SetDialogVariable('code', elTextEntry.text.toUpperCase());
             elNotFoundLabel.text = $.Localize('#AddFriend_not_found', elNotFoundLabel);
             $.GetContextPanel().FindChildInLayoutFile('JSFriendValidIcon').SetHasClass('valid', false);
@@ -69,6 +74,9 @@ var PopupAddFriend;
             FriendTile.Init(elTile);
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created 
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('PanoramaComponent_FriendsList_NameChanged', _FriendsListUpdateName);
     }

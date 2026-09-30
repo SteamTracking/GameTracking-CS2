@@ -416,7 +416,7 @@ PS
 	Texture2D g_tSurfaceProperties2 < Channel(R, Box3(TextureSurfaceAmbientOcclusion2), Linear); Channel(G, Box(TextureSurfaceMetalness2), Linear); Channel(B, Box(TextureSurfaceClothMask2), Linear); Channel(A, Box(TextureSurfaceHeight2), Linear); OutputFormat(BC7); SrgbRead(false); >;
 	Texture2D g_tSurfaceProperties3 < Channel(R, Box3(TextureSurfaceAmbientOcclusion3), Linear); Channel(G, Box(TextureSurfaceMetalness3), Linear); Channel(B, Box(TextureSurfaceClothMask3), Linear); Channel(A, Box(TextureSurfaceHeight3), Linear); OutputFormat(BC7); SrgbRead(false); >;
 	Texture2D g_tSurfaceProperties4 < Channel(R, Box3(TextureSurfaceAmbientOcclusion4), Linear); Channel(G, Box(TextureSurfaceMetalness4), Linear); Channel(B, Box(TextureSurfaceClothMask4), Linear); Channel(A, Box(TextureSurfaceHeight4), Linear); OutputFormat(BC7); SrgbRead(false); >;
-	Texture2D g_tTintId < Channel(RGB, None(TextureObjectTintId), Linear); OutputFormat(I8); SrgbRead(false); >;
+	Texture2D g_tTintId < Channel(RGB, None(TextureObjectTintId), Linear); OutputFormat(67); SrgbRead(false); >;
 	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	

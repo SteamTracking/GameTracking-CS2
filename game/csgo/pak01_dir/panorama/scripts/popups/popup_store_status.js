@@ -13,18 +13,23 @@ var PopupStoreStatus;
         ctx.SetDialogVariable("message", $.Localize(strMsg));
         let bClose = !!parseInt(strClose);
         let bCancel = !!parseInt(strCancel);
+        // scaleform used these arguments in a weird way, just emulate that.
         if (!bClose && !bCancel) {
+            // no cancel button
             $('#CancelButton').visible = false;
         }
         if (bCancel) {
+            // no ok button
             $('#OkButton').visible = false;
         }
+        // Special logic for purchase confirmation button to appear with the total purchase price
         let bPurchaseConfirmation = _strStoreStatusOkCmd.startsWith(_strStoreProceedAfterCheckoutConfirmation);
         let elPurchaseConfirmation = $('#PurchaseConfirmation');
         elPurchaseConfirmation.visible = bPurchaseConfirmation;
         let sPurchaseConfirmation = bPurchaseConfirmation ? _strStoreStatusOkCmd.slice(1 + _strStoreProceedAfterCheckoutConfirmation.length) : '';
         elPurchaseConfirmation.text = sPurchaseConfirmation ? sPurchaseConfirmation : $.Localize('#SFUI_MBox_OKButton');
         if (bCancel && !bClose && !bPurchaseConfirmation) {
+            // spinner visible
             $("#Spinner").AddClass("SpinnerVisible");
         }
     }
@@ -37,6 +42,7 @@ var PopupStoreStatus;
                 GameInterfaceAPI.ConsoleCommand(_strStoreStatusOkCmd);
         }
         _strStoreStatusOkCmd = null;
+        // Close popup
         $.DispatchEvent('UIPopupButtonClicked', '');
     }
     PopupStoreStatus.OnOKPressed = OnOKPressed;

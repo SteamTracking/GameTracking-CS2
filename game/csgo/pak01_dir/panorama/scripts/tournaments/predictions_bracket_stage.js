@@ -6,10 +6,16 @@ var PredictionsBracket;
     let _m_foundTarget = false;
     let _m_aBracketSectionIndexes = [g_ActiveTournamentInfo.num_stages_with_swiss, g_ActiveTournamentInfo.num_stages_with_swiss + 1, g_ActiveTournamentInfo.num_stages_with_swiss + 2];
     let _m_aPickPanels;
+    // Current version of how groups stages work.
     function Init() {
         let oPageData = PopupMajorHub.GetActivePageData();
+        // Doesn't re-fetch saved picks for display the picks when you are just browsing tabs in the major hub
+        // So picks do not change user the user.
         if (!oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
             SetPicksDataOnPanels(oPageData.panel, oPageData.tournamentId);
+            // _UpdateDragTargets( oPageData );
+            // _UpdateDragSourceTeams( oPageData );
+            // _SetUpExtraPickBtns( oPageData );
         }
         _UpdateAllPickSections();
         InitializeMatchLister(oPageData);
@@ -87,11 +93,13 @@ var PredictionsBracket;
     function _AddDragSourceEvents(elTeam) {
         $.RegisterEventHandler('DragStart', elTeam, (elPanel, drag) => {
             OnDragStart(elTeam, drag);
+            // PopupMajorHub.GetActivePageData().panel.SetHasClass( 'is-dragging', true );
             _GetValidDropTargets(elTeam.Data().validSlotIds).forEach(panel => panel.SetHasClass('is-dragging', true));
             elTeam.AddClass('dragged-away');
         });
         $.RegisterEventHandler('DragEnd', elTeam, (elRadial, elDragImage) => {
             OnDragEnd(elDragImage);
+            // PopupMajorHub.GetActivePageData().panel.SetHasClass( 'is-dragging', false );
             _GetValidDropTargets(elTeam.Data().validSlotIds).forEach(panel => panel.SetHasClass('is-dragging', false));
             elTeam.RemoveClass('dragged-away');
         });
@@ -108,6 +116,8 @@ var PredictionsBracket;
         });
     }
     function OnDragStart(elDragSource, drag) {
+        // Parent to $.GetContextPanel() instead of elDragSource.
+        // Parenting to elDragSource results in item images getting stuck in weird places for some reason.
         let elDragImage = $.CreatePanel('ItemImage', $.GetContextPanel(), '', {
             class: 'group-stage-drag-icon',
             textureheight: '48',
@@ -118,6 +128,7 @@ var PredictionsBracket;
         elDragImage.Data().teamId = elDragSource.Data().teamId;
         elDragImage.Data().pickId = elDragSource.Data().pickId;
         elDragImage.Data().validSlotIds = elDragSource.Data().validSlotIds;
+        // elDragImage.Data().isSource = elDragSource.Data().isSource ? elDragSource.Data().isSource : false;
         PopupMajorHub.m_elDragImage = elDragImage;
         drag.displayPanel = elDragImage;
         drag.offsetX = 32;
@@ -126,7 +137,11 @@ var PredictionsBracket;
         $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.inventory_item_pickup', 'MOUSE');
     }
     function OnDragEnd(elDragImage) {
+        // Drop event fires before EndDrag.
+        // If user did not successfully drop and are not from the source icons then remove the pick from the slot
+        // User dragged out into empty space
         if (!_m_foundTarget) {
+            // Add your source slot to the valid list
             let aValidTargets = _GetValidDropTargets(elDragImage.Data().validSlotIds + ',' + elDragImage.Data().pickId);
             aValidTargets.forEach(target => {
                 if (parseInt(target.Data().pickId) >= parseInt(elDragImage.Data().pickId)) {
@@ -158,12 +173,15 @@ var PredictionsBracket;
         });
     }
     function _UpdateDropTarget(elTarget, teamId) {
+        // Null clears out the slot
         if (elTarget && elTarget.IsValid()) {
             let oPageData = PopupMajorHub.GetActivePageData();
             let isActiveSection = PredictionsAPI.GetSectionIsActive(oPageData.tournamentId, oPageData.sectionId);
             let canPick = PredictionsAPI.GetGroupCanPick(oPageData.tournamentId, oPageData.groupId);
             elTarget.SetDraggable((isActiveSection && canPick));
             elTarget.Data().teamId = teamId;
+            // elTarget.SetHasClass( 'has-pick', teamId !== null  ? true : false );
+            // elTarget.SetHasClass( 'not-active', teamId !== null );
             if (teamId === null || !isActiveSection || !canPick) {
                 elTarget.SwitchClass('team-state', 'team-locked');
             }
@@ -229,6 +247,7 @@ var PredictionsBracket;
         }
     }
     function _UpdateAllPicksForSection(oPageData, sectionIndex) {
+        // picks are for the previous section's matches
         let aPicksInSection = _m_aPickPanels.filter(element => element.Data().pickSection === sectionIndex);
         aPicksInSection.forEach(element => {
             UpdatePick(oPageData, element, 0, true);
@@ -249,7 +268,8 @@ var PredictionsBracket;
         if (PopupMajorHub.CheckIfPickIsCorrect(sCorrectPicks, teamId) && teamId) {
             elTeam.SwitchClass('team-state', 'is-correct');
         }
-        else if (teamId && !isActiveSection) {
+        else if (teamId && !isActiveSection) // only add the correct-state if user made a pick
+         {
             elTeam.SwitchClass('team-state', 'is-incorrect');
         }
         else {
@@ -277,11 +297,18 @@ var PredictionsBracket;
         return aPicks;
     }
     ;
+    //
+    // Data and methods for match lister presentation
+    //
     let _m_elSections = {};
     function _GetMatchlisterMatchupsIdForWinCount(numWs) {
+        // Section 3 is Semifinal (teams have 1 win in the bracket, i.e. they won Quarterfinal)
+        // Section 4 is the Grand Final
+        // Section 5 is fake for the Champion (there's no opponent in that matchup)
         return 'bracket-section-' + (2 + numWs);
     }
     function _SetTeamDataIntoPanel(elPanel, idx, teamtag, teamname, score, bIsCorrectPickemPick, extraClass = '') {
+        $.Msg(`       _SetTeamDataIntoPanel ${elPanel.id} (slot ${idx}) - ${teamname} - score ${score} ${bIsCorrectPickemPick ? 'CORRECT' : ''}`);
         if (!elPanel)
             return;
         elPanel = elPanel.FindChildInLayoutFile('team-result-' + idx);
@@ -292,12 +319,19 @@ var PredictionsBracket;
         if (extraClass)
             elPanel.AddClass(extraClass);
         elPanel.FindChildInLayoutFile('id-team-logo').SetImage("file://{images}/tournaments/teams/" + teamtag + ".svg");
-        if (bIsCorrectPickemPick)
+        if (bIsCorrectPickemPick) // important to not remove this class, because matchups are setting this ahead
             elPanel.AddClass('is-correct');
     }
     function InitializeMatchLister(oPageData) {
+        // Must have a stable match list before updating any data in our UI
         if (MatchListAPI.GetState(oPageData.tournamentId) !== 'ready')
             return;
+        //
+        // Find all the sections and fully reset them to default presentation
+        // 1 win = Quarterfinal>>Semifinal
+        // 2 wins = Semifinal >> Grand Final
+        // 3 wins = CHAMPION
+        //
         for (let numWs = 0; numWs <= 3; ++numWs) {
             let strMatchups = _GetMatchlisterMatchupsIdForWinCount(numWs);
             let elMatchups = oPageData.panel.FindChildInLayoutFile(strMatchups);
@@ -335,6 +369,9 @@ var PredictionsBracket;
             }
             _m_elSections[strMatchups] = { matches: arrTeamPairs };
         }
+        //
+        // Dictionary of current team states
+        //
         let teamStates = {};
         function GetTeamState(teamid) {
             if (!teamStates.hasOwnProperty(teamid)) {
@@ -342,7 +379,7 @@ var PredictionsBracket;
                     wins: 0,
                     loss: 0,
                     boXw: 0,
-                    boXl: 0
+                    boXl: 0 // best-of-X (e.g. best-of-3 or best-of-5)
                 };
             }
             return teamStates[teamid];
@@ -361,6 +398,9 @@ var PredictionsBracket;
                 ++state.loss;
             }
         }
+        //
+        // Pin teams to slots through which they can advance
+        //
         for (let idxGroup = 0; idxGroup < 4; ++idxGroup) {
             let nTeams = PredictionsAPI.GetGroupTeamsCount(oPageData.tournamentId, oPageData.groupId + idxGroup);
             for (let i = 0; i < nTeams; ++i) {
@@ -382,8 +422,12 @@ var PredictionsBracket;
                 }
             }
         }
+        //
+        // Let's roll through the match lister
+        //
         for (let idxSection = 0; idxSection <= 2; ++idxSection) {
             let nCount = PredictionsAPI.GetSectionMatchesCount(oPageData.tournamentId, oPageData.sectionId + idxSection);
+            $.Msg('InitializeMatchLister has ' + nCount + ' matches in section ' + idxSection);
             for (let idxMatch = nCount; idxMatch-- > 0;) {
                 let umid = PredictionsAPI.GetSectionMatchByIndex(oPageData.tournamentId, oPageData.sectionId + idxSection, idxMatch);
                 let team0 = MatchInfoAPI.GetMatchTournamentTeamTag(umid, 0);
@@ -399,7 +443,8 @@ var PredictionsBracket;
                 let keyteam = (_m_elSections[matchup]['slot:' + team0] === 0) ? team0 : team1;
                 let steam = GetTeamState(keyteam);
                 const nStageID = MatchInfoAPI.GetMatchTournamentStageID(umid);
-                const numWinsNeeded = MatchInfoAPI.GetMatchTournamentStageIDWinsNeeded(nStageID);
+                const numWinsNeeded = MatchInfoAPI.GetMatchTournamentStageIDWinsNeeded(nStageID); // 2 wins required for best-of-3 series
+                $.Msg('   ' + team0 + '-vs-' + team1 + ' in ' + matchup + ' UMID:' + umid + ' res=' + res);
                 if (_m_elSections[matchup][keyteam] < _m_elSections[matchup].matches.length) {
                     let omatch = _m_elSections[matchup].matches[_m_elSections[matchup][keyteam]];
                     let elTeamPair = omatch.panel;
@@ -408,6 +453,7 @@ var PredictionsBracket;
                     omatch.keyteam_wins += ((winteam == keyteam) ? 1 : 0) * nCountThisMatchForBO3;
                     omatch.keyteam_loss += ((winteam != keyteam) ? 1 : 0) * nCountThisMatchForBO3;
                     let bSwap01 = ((team0 == keyteam) ? false : true);
+                    // BEST-OF-3 scores show "2:0" or "2:1"
                     let nLeftScore = omatch.keyteam_wins;
                     let nRightScore = omatch.keyteam_loss;
                     elTeamPair.SetHasClass('has_valid_matchup', true);
@@ -432,6 +478,7 @@ var PredictionsBracket;
                     AddLoss(GetTeamState((team0 == winteam) ? team1 : team0), numWinsNeeded);
                 }
             }
+            $.Msg('InitializeMatchLister finished processing ' + nCount + ' matches in section ' + idxSection);
         }
     }
 })(PredictionsBracket || (PredictionsBracket = {}));

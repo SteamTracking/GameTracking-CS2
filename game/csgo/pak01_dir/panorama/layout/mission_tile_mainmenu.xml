@@ -20,6 +20,14 @@
 				<Panel class="mission-header">
 					<Label class="mission-title" text="#weekly_mission_title" />
 					<Label class="mission-time-remaining" html="true" text="#weekly_mission_expiration" />
+					<Panel id="dbg-buttons" class="left-right-flow horizontal-align-right">
+						<Button onactivate="GameInterfaceAPI.ConsoleCommand( &apos;mission_dbg_mission_reroll_quest&apos; );">
+							<Image src="s2r://panorama/images/control_icons/icon_refresh_png.vtex" style="height:16px;width:16px;" class="horizontal-align-left" />
+						</Button>
+						<Button onactivate="GameInterfaceAPI.ConsoleCommand( &apos;mission_dbg_advance_mission_period&apos; );">
+							<Image src="s2r://panorama/images/control_icons/arrow_right_png.vtex" style="height:16px;width:16px;" class="horizontal-align-left" />
+						</Button>
+					</Panel>
 				</Panel>
 				<Panel class="mission-location">
 					<Label class="mission-mode-mapgroup" html="true" text="#mission_location" />
@@ -52,6 +60,14 @@
 			<Panel class="mission-header--complete">
 				<Label class="mission-title" text="#weekly_mission_title_complete" />
 				<Label class="mission-time-remaining" html="true" text="#weekly_mission_next_mission" />
+			</Panel>
+			<Panel id="dbg-buttons" class="left-right-flow horizontal-align-right">
+				<Button onactivate="GameInterfaceAPI.ConsoleCommand( &apos;mission_dbg_mission_reroll_quest&apos; );">
+					<Image src="s2r://panorama/images/control_icons/icon_refresh_png.vtex" style="height:16px;width:16px;" class="horizontal-align-left" />
+				</Button>
+				<Button onactivate="GameInterfaceAPI.ConsoleCommand( &apos;mission_dbg_advance_mission_period&apos; );">
+					<Image src="s2r://panorama/images/control_icons/arrow_right_png.vtex" style="height:16px;width:16px;" class="horizontal-align-left" />
+				</Button>
 			</Panel>
 		</Panel>
 	</Panel>

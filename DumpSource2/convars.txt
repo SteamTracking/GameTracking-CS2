@@ -1018,7 +1018,7 @@ cl_crosshair_dynamic_spread_limit 255 (min: 0, max: 255, clientdll archive per_u
 cl_crosshair_friendly_warning 1 (min: 0, max: 1, clientdll archive release)
 	0: off, 1: on
 
-cl_crosshair_gap 4 (min: 0, max: 128, clientdll archive per_user)
+cl_crosshair_gap 4 (min: -3840, max: 3840, clientdll archive per_user)
 	Offset added to the gap between the crosshair center and the bars.
 
 cl_crosshair_length 8 (min: 0, max: 255, clientdll archive per_user)
@@ -1036,7 +1036,7 @@ cl_crosshair_sniper_width 1 (clientdll archive per_user)
 cl_crosshair_t false (clientdll archive per_user)
 	T-style crosshair: hide the top bar
 
-cl_crosshair_thickness 2 (min: 0, max: 31, clientdll archive per_user)
+cl_crosshair_thickness 2 (min: 0, max: 32, clientdll archive per_user)
 	Thickness of the crosshair bars and circle, scaled with screen resolution (minimum 1 pixel)
 
 cl_crosshairalpha 200 (min: 0, max: 255, clientdll hidden archive per_user)
@@ -1057,11 +1057,23 @@ cl_crosshaircolor_r 0 (min: 0, max: 255, clientdll archive per_user)
 cl_crosshairdot false (clientdll archive per_user)
 	Draw a dot at the center of the crosshair
 
+cl_crosshairoutline_a 255 (min: 0, max: 255, clientdll archive per_user)
+	Crosshair outline opacity. 0 = fully transparent, 255 = fully opaque
+
+cl_crosshairoutline_b 0 (min: 0, max: 255, clientdll archive per_user)
+	Crosshair outline color, blue component
+
+cl_crosshairoutline_g 0 (min: 0, max: 255, clientdll archive per_user)
+	Crosshair outline color, green component
+
+cl_crosshairoutline_r 0 (min: 0, max: 255, clientdll archive per_user)
+	Crosshair outline color, red component
+
 cl_crosshairsize 3.9 (clientdll hidden archive per_user)
 	<no description>
 
-cl_crosshairstyle 7 (min: 0, max: 8, clientdll archive per_user)
-	Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square. Styles 0, 1 and 7 track the weapon's actual inaccuracy.
+cl_crosshairstyle 7 (min: 0, max: 9, clientdll archive per_user)
+	Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square, 9 = Static Quad.
 
 cl_crosshairthickness 0.6 (clientdll hidden archive per_user)
 	<no description>
@@ -1372,28 +1384,25 @@ cl_grenadecrosshair_keepusercrosshair true (clientdll archive per_user)
 cl_grenadecrosshair_smoke true (clientdll archive per_user)
 	Is the grenade crosshair enabled
 
-cl_grenadecrosshair_tickinterval 10 (min: 1, max: 45, developmentonly clientdll)
-	Spacing between ticks on the grenade throw crosshair
-
 cl_grenadecrosshair_ticklabels true (developmentonly clientdll)
 	Draw labels on grenade throw crosshair ticks
 
 cl_grenadecrosshair_tickscaling 1.1 (min: 0.5, max: 2, developmentonly clientdll)
 	Scale applied to grenade throw crosshair ticks
 
-cl_grenadecrosshairdelay_decoy 2 (clientdll archive per_user)
+cl_grenadecrosshairdelay_decoy 2 (min: 0, max: 5, clientdll archive per_user)
 	How long should the pin be pulled for before showing the grenade crosshair
 
-cl_grenadecrosshairdelay_explosive 2 (clientdll archive per_user)
+cl_grenadecrosshairdelay_explosive 2 (min: 0, max: 5, clientdll archive per_user)
 	How long should the pin be pulled for before showing the grenade crosshair
 
-cl_grenadecrosshairdelay_fire 2 (clientdll archive per_user)
+cl_grenadecrosshairdelay_fire 2 (min: 0, max: 5, clientdll archive per_user)
 	How long should the pin be pulled for before showing the grenade crosshair
 
-cl_grenadecrosshairdelay_flash 2 (clientdll archive per_user)
+cl_grenadecrosshairdelay_flash 2 (min: 0, max: 5, clientdll archive per_user)
 	How long should the pin be pulled for before showing the grenade crosshair
 
-cl_grenadecrosshairdelay_smoke 2 (clientdll archive per_user)
+cl_grenadecrosshairdelay_smoke 2 (min: 0, max: 5, clientdll archive per_user)
 	How long should the pin be pulled for before showing the grenade crosshair
 
 cl_hide_avatar_images 0 (clientdll archive)
@@ -1532,7 +1541,7 @@ cl_invites_only_mainmenu false (clientdll archive release)
 	If turned on, will ignore all invites when user is playing a match
 
 cl_ironsight_dot_scale 1 (min: 0.1, max: 2, clientdll archive per_user)
-	Ironsight dot scale
+	Scope dot scale
 
 cl_ironsight_filter_alpha 1 (min: 0, max: 1, developmentonly clientdll)
 	Ironsight filter alpha
@@ -7511,6 +7520,15 @@ r_csgo_cmaa_extra_sharp false (developmentonly clientdll defensive)
 
 r_csgo_cmaa_quality 3 (developmentonly clientdll defensive)
 	0=low, 1=medium, 2=high, 3=ultra
+
+r_csgo_crosshair_debug_tiles false (developmentonly clientdll)
+	<no description>
+
+r_csgo_crosshair_debug_tiles_count_red 8 (developmentonly clientdll)
+	<no description>
+
+r_csgo_crosshair_tile_size 128 (developmentonly clientdll)
+	<no description>
 
 r_csgo_csm_max_visible_distance 7500 (developmentonly clientdll)
 	<no description>

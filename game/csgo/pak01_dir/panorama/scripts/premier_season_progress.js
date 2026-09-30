@@ -11,6 +11,9 @@ var SeasonProgress;
     function SetRating() {
         let elRatingEmblem = $.GetContextPanel().FindChildInLayoutFile('js-highest-rating');
         let rating = MyPersonaAPI.GetPipRankHighest("Premier");
+        // debug
+        // rating = 25000;
+        // debug
         let options;
         options = {
             root_panel: elRatingEmblem,
@@ -26,7 +29,11 @@ var SeasonProgress;
     SeasonProgress.SetRating = SetRating;
     function _SetProgressBar(rating) {
         let nWins = MyPersonaAPI.GetPipRankWins("Premier");
+        // debug
+        // nWins = 120;
+        // debug
         let clampedRating = RatingEmblem.GetClampedRating(rating);
+        $.Msg('clampedRating: ' + clampedRating);
         let color = clampedRating;
         let nBars = nWins > 24 && nWins < 50 ? 1 :
             nWins > 49 && nWins < 75 ? 2 :
@@ -42,13 +49,14 @@ var SeasonProgress;
                 elBar = $.CreatePanel('Panel', elParent, 'bar-' + i);
                 elBar.BLoadLayoutSnippet('one-bar');
             }
-            let rangeOfMatchesInBar = { min: i == 1 ? 1 : ((i - 1) * _m_nWinsForMedal), max: (i * _m_nWinsForMedal) };
+            let rangeOfMatchesInBar = { min: i == 1 ? 1 : ((i - 1) * _m_nWinsForMedal), max: (i * _m_nWinsForMedal) }; // 25th is the diamond thats why -1
             let widthInnerBar = (nWins >= (rangeOfMatchesInBar.max - 1)) ? 1 : ((nWins - rangeOfMatchesInBar.min) / (_m_nWinsForMedal - 1));
             elBar.FindChildInLayoutFile('id-inner-bar').style.width = (widthInnerBar * 100) + '%';
             elBar.FindChildInLayoutFile('id-inner-bar').SwitchClass('tier', 'rank-tier-' + color);
             elBar.SwitchClass('num-bars', nBars + '-bars');
             elBar.FindChildInLayoutFile('id-inner-medal').SwitchClass('tier', nWins >= rangeOfMatchesInBar.max ? 'rank-tier-' + color : 'rank-tier-none');
         }
+        // What's the current season number?
         const nSeasonNumberNow = LeaderboardsAPI.GetCurrentSeasonPremierLeaderboard().replace('official_leaderboard_premier_season', '');
         clampedRating = clampedRating < 1 ? 1 : clampedRating + 1;
         let itemDef = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('premier season coin s=' + nSeasonNumberNow + ' c=' + clampedRating + ' b=' + nBars);
@@ -63,6 +71,8 @@ var SeasonProgress;
         let nTime = MyPersonaAPI.GetPipRankExpiration("Premier");
         let nWins = MyPersonaAPI.GetPipRankWins("Premier");
         let elParent = $.GetContextPanel().FindChildInLayoutFile('id-premier-bar-container');
+        // If user has a rank, but zero expiration ==&gt; means the rank is good through end of season
+        // If you have not won 25 matches then you can't get the coin any way and have no rank to expire
         if (nWins < _m_nWinsForMedal || nTime >= 0) {
             elParent.SetHasClass('show-warning', false);
             let elImages = elParent.FindChildInLayoutFile('id-premier-bar-icons');
@@ -102,16 +112,22 @@ var SeasonProgress;
         });
     }
     function ReadyForDisplay() {
+        $.Msg("SeasonProgress-ReadyForDisplay");
         SetRating();
     }
     SeasonProgress.ReadyForDisplay = ReadyForDisplay;
     function UnReadyForDisplay() {
+        $.Msg("SeasonProgress-UnReadyForDisplay");
     }
     SeasonProgress.UnReadyForDisplay = UnReadyForDisplay;
     function PipRankUpdate() {
+        $.Msg("SeasonProgress-PipRankUpdate");
         SetRating();
     }
     SeasonProgress.PipRankUpdate = PipRankUpdate;
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), SeasonProgress.ReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), SeasonProgress.UnReadyForDisplay);

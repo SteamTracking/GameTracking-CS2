@@ -2,11 +2,11 @@
 
 var PickEmGroup = ( function()
 {
-	                                                    
-	                                                                                          
-	                                                                                   
-	                                                                                                     
-	                                                                    
+	// Groups stage layout is for tournaments 11 and up.
+	// Tournaments 13 and up also use the groups layout and structure to show the prelim stage
+	// The difference between the prelims and gourps is the dayIndex that is specified.
+	// This is hard coded in the mainmanu_watch_tournament when we call _PopulateTournamentNavBarButtons.
+	// When we call here we know that we are getting group/prelim stage.
 
 	var _Init = function ( elPanel )
 	{
@@ -17,13 +17,13 @@ var PickEmGroup = ( function()
 
 	var _UpdateGroupPicks = function( elPanel )
 	{
-		                                                                                               
+		// Group Pickem Games only have one active section index and one active group that has 9 picks.
 
 		if ( !elPanel._oPickemData.oTournamentData || !elPanel._oPickemData.oInitData )
 		{
-			                                                
-			                                                                                                 
-			                                                                                              
+			// The data ahas not been assigned to exit early
+			// This means you got here from an event that wants to update this but ther data is not there yet
+			// This the case because the matchlist updates but user has not downloaded the tournament data
 			return;
 		}
 		
@@ -45,7 +45,7 @@ var PickEmGroup = ( function()
 				oItemIdData,
 				elItemImage, 
 				oGroupData.picks[ i ].localid,
-				PickemCommon.GetTournamentIdNumFromString( elPanel._oPickemData.oTournamentData.tournamentid ) >= 15                
+				PickemCommon.GetTournamentIdNumFromString( elPanel._oPickemData.oTournamentData.tournamentid ) >= 15 // use svg icon
 			);
 
 			PickemCommon.UpdateCorrectPickState(
@@ -56,23 +56,23 @@ var PickEmGroup = ( function()
 				elPick.FindChildInLayoutFile( 'id-pickem-points-for-pick' )
 			);
 
-			                                                                                       
-			                                 
-			                                                           
-			   	                                                                           
-			   	           
-			   	            
-			   	                                                      
-			   	                            
-			     
-			     
+			// START For Katowice 2019 we are using a pass that lets you play without the stickers.
+			// Just going to set it to false.
+			// var notOwned = PickemCommon.ShowPickItemNotOwnedWarning(
+			// 	elPanel._oPickemData.oTournamentData.sections[ activeSectionIdx ].isactive,
+			// 	oGroupData,
+			// 	oItemIdData,
+			// 	elPick.FindChildInLayoutFile( 'id-pickem-not-owned' ),
+			// 	oGroupData.picks[i].localid 
+			// );
+			//END
 			var notOwned = false;
 			
 			oGroupData.picks[i].storedefindex = notOwned ? 
 				PickemCommon.GetTeamItemDefIndex( oGroupData.picks[i].localid ):
 				undefined;
 
-			                                                              
+			// we pass the panel object because we manipulate it on remove
 			var elRemoveBtn = elPick.FindChildInLayoutFile( 'id-pick-cancelbtn' );
 			var showRemoveBtn = PickemCommon.ShowHideRemoveBtn(
 				elPanel._oPickemData.oTournamentData.sections[ activeSectionIdx ].isactive,
@@ -99,7 +99,7 @@ var PickEmGroup = ( function()
 			_UpdateTeams( elPanel );
 		}
 
-		                                                                                                    
+		// Since each pickem game has differnt rules for applying we pass functions that specify those rules
 		PickemCommon.UpdateActionBarBtns( elPanel, _GetListOfPicksWithNoOwnedItems, _MakePicksParams, _EnableApply );
 	};
 
@@ -123,13 +123,13 @@ var PickEmGroup = ( function()
 		var idsForDisplayInConfimPopup = [];
 
 		for ( var i = 0; i < count; ++i )
-		{                                                                             
-			var pickInGroupIndex = i;           
+		{   // Add my prediction per each slot into the batch (3 params per each pick)
+			var pickInGroupIndex = i; // integer
 			var strStickerItemId = '';
 
 			if ( listPicks[ i ].localid )
 			{
-				                                                    
+				// empty string to clear, or ItemID string to assign
 				var oItemIdData = PickemCommon.GetYourPicksItemIdData( 
 					tournamentId, 
 					oGroupData.picks[i].localid
@@ -143,7 +143,7 @@ var PickEmGroup = ( function()
 				}
 			}
 
-			args.push( groupId, pickInGroupIndex, strStickerItemId );                              
+			args.push( groupId, pickInGroupIndex, strStickerItemId ); // Add 3 params for this pick
 		}
 
 		return {
@@ -176,19 +176,19 @@ var PickEmGroup = ( function()
 		for ( var i = 0; i < oGroupData.pickscount; i++ )
 		{
 			if ( !picks[i].storedefindex )
-			{	                                                                  
+			{	// Normalize null/undefined/zero as zeroes for comparison checking
 				var idLocal = picks[i].localid;
 				var idSaved = picks[i].savedid;
 				if ( !idLocal ) idLocal = 0;
 				if ( !idSaved ) idSaved = 0;
 				if ( !idLocal && !strErrorString )
 				{
-					                                                                                                              
+					$.Msg( '_EnableAppy returning error because #' + i + ' local ' + picks[i].localid + ' has not been placed!' );
 					strErrorString = '#pickem_apply_emptyslots';
 				}
 				if( !bFoundDifferenceToApply && idLocal !== idSaved )
 				{
-					                                                                                                                          
+					$.Msg( '_EnableAppy found difference to apply because #' + i + ' local ' + picks[i].localid + ' != ' + picks[i].savedid );
 					bFoundDifferenceToApply = true;
 				}
 			}
@@ -240,7 +240,7 @@ var PickEmGroup = ( function()
 
 			var isAlreadyPicked = _SetIsAlreadyPicked( elPanel, elTeam );
 
-			                                                                                                                     
+			$.Msg( 'isAlreadyPicked: ' + isAlreadyPicked + ', team: ' + PredictionsAPI.GetTeamName( elTeam._oteamData.teamid ) );
 
 			if( isSectionActive && groupCanPick && !isAlreadyPicked )
 			{
@@ -360,7 +360,7 @@ var PickEmGroup = ( function()
 		{
 			elDragTarget.AddClass( 'dragenter' );
 
-			                                                                                           
+			//Store the active drag target so when we drop the draggable we know what we dropped it on.
 			elPanel._odraggableData.dragtarget = elDragTarget.GetParent();
 		};
 
@@ -392,8 +392,8 @@ var PickEmGroup = ( function()
 				elDragTarget,
 				function( dispayId, elDisplay )
 				{
-					                                  
-					                                      
+					// $.Msg( 'dispayId' + dispayId );
+					// $.Msg( 'DragDrop' + elDisplay.id );
 					_PlaceTempPick( elPanel, elDisplay._oteamData.teamid );
 				}
 			);
@@ -406,7 +406,7 @@ var PickEmGroup = ( function()
 		var activeSectionIdx = elPanel._oPickemData.oInitData.sectionindex;
 		var oGroupData = elPanel._oPickemData.oTournamentData.sections[ activeSectionIdx ].groups[ 0 ];
 		
-		                                        
+		//elPanel._dragtarget._pickdex = teamid;
 		if ( elPanel._odraggableData.dragtarget && elPanel._odraggableData.dragtarget.IsValid() )
 		{
 			var pickIndex = elPanel._odraggableData.dragtarget.GetAttributeString( 'data-pick-index', '' );
@@ -426,7 +426,7 @@ var PickEmGroup = ( function()
 
 	var _UpdatePrediction = function( elPanel )
 	{
-		                                     
+		$.Msg( 'Groups Prediction Updated' );
 
 		var activeSectionIdx = elPanel._oPickemData.oInitData.sectionindex;
 
@@ -439,15 +439,15 @@ var PickEmGroup = ( function()
 
 		if ( !oGroupData )
 		{
-			                                                                      
-			                                               
+			// This can be called by events fired after the panel closes, no work 
+			// to be done but early out to avoid JS errors.
 			return;
 		}
 
 		if ( !oGroupData || !oGroupData.pickscount )
 			return;
 
-		                                                               
+		//Update the saved team ids with new ones then update the picks
 		for ( var i = 0; i < oGroupData.pickscount; i++ )
 		{
 			var elPick = elPanel.FindChildInLayoutFile( 'id-pickem-pick' + i );
@@ -476,28 +476,28 @@ var PickEmGroup = ( function()
 	};
 })();	
 
-                                     
-    
-	                                                         
-	                                                 
+// var Dragtest = function( elPanel )
+// {
+	// var elTest = elPanel.FindChildInLayoutFile( "test1" );
+	// $.Msg( 'isdraggable' + elTest.IsDraggable() );
 
-	                                                         
+	// var elTest = elPanel.FindChildInLayoutFile( "test1" );
 
-	                                                                          
-	    
-	                                                                   
-	                                            
-	       
+	// $.RegisterEventHandler( 'DragStart', elTest, function( targetId,  obj )
+	// {
+	//     obj.displayPanel = elPanel.FindChildInLayoutFile( "test2" );
+	//     obj.removePositionBeforeDrop = false;
+	// } );
 
-	                                                                        
-	    
-	                                                                     
-	                                              
-	       
+	// $.RegisterEventHandler( 'DragEnd', elTest, function( targetId,  obj )
+	// {
+	//     //obj.displayPanel = elPanel.FindChildInLayoutFile( "test2" );
+	//    // obj.removePositionBeforeDrop = false;
+	// } );
 
 
-	                                                                     
-	                                                                                                                            
-	                                                                                                                            
-	                                                                                                                                                      
-     
+	// var elTestTarget = elPanel.FindChildInLayoutFile( "test1target" );
+	// $.RegisterEventHandler( 'DragEnter', elTestTarget, function( dispayId, elDisplay ) { $.Msg( 'DragEnter' + dispayId ) } );
+	// $.RegisterEventHandler( 'DragLeave', elTestTarget, function( dispayId, elDisplay ) { $.Msg( 'DragLeave' + dispayId ) } );
+	// $.RegisterEventHandler( 'DragDrop', elTestTarget, function( dispayId, elDisplay ) { $.Msg( 'DragDrop' + dispayId ), elDisplay.DeleteAsync( .0 )} );
+// };

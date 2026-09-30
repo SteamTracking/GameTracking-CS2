@@ -36,10 +36,10 @@ var EventschedTeamContextMenu = ( function()
 		player_url[ 3 ] = $.GetContextPanel().GetAttributeString( "player_url3", "" );
 		player_url[ 4 ] = $.GetContextPanel().GetAttributeString( "player_url4", "" );
 
-		            
+		// TEAM NAME
 		$.GetContextPanel().SetDialogVariable( 'eventsched-tt-teamname', team_name );
 		
-		            
+		// TEAM LOGO
 		var elTeamLogo = $.GetContextPanel().FindChildTraverse( 'id-estt-header__team-logo' );
 		if ( elTeamLogo )
 		{
@@ -73,7 +73,7 @@ var EventschedTeamContextMenu = ( function()
 
 	function _Populate ()
 	{
-		          
+		// PLAYERS
 
 		var elPlayerContainer = $.GetContextPanel().FindChildTraverse( 'id-estt-lineup-container' );
 
@@ -85,10 +85,10 @@ var EventschedTeamContextMenu = ( function()
 			elPlayer.BLoadLayoutSnippet( 'snippet-estt-player' );
 
 			var playerName = player_name[ idx ] !== "" ? player_name[ idx ] : "?"; 
-			              
+			// PLAYER NAME
 			elPlayer.SetDialogVariable( 'esttplayer-name', playerName );
 
-			              
+			//PLAYER IMAGE
 			var elPlayerImage = elPlayer.FindChildTraverse( 'id-estt-player__photo' );
 			if ( elPlayerImage )
 			{

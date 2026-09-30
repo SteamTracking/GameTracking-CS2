@@ -25,6 +25,7 @@ var XpShop;
     function Init() {
         m_nTrack = MissionsAPI.GetSeasonalOperationXpShopIndex();
         if (!m_nTrack || m_nTrack === 0) {
+            // no shop
             return;
         }
         _MakeShowMainTilesNavBtn();
@@ -61,6 +62,7 @@ var XpShop;
         let elMorePassesBtn = $.GetContextPanel().FindChildInLayoutFile('id-xpshop-more-passes-btn');
         elTracks.SetDialogVariable('pass', InventoryAPI.GetItemName(m_passId));
         elTracks.SetDialogVariableInt('max-stars', StoreAPI.GetXpShopMaxTrackLevel());
+        // Accrued stars balance
         const bHasStarPointsBalance = (bHasPrime && oXpShopTrackProgress && oXpShopTrackProgress.redeemable_balance >= 0);
         const numStarPointsBalance = bHasStarPointsBalance ? oXpShopTrackProgress.redeemable_balance : 0;
         elBalance.SetDialogVariableInt('redeemable-points', numStarPointsBalance);
@@ -90,6 +92,7 @@ var XpShop;
                 m_activeTracks = 0;
                 let numPassesStillPossibleToBuy = 0;
                 const numXpShopMaxTracks = StoreAPI.GetXpShopMaxTracks();
+                // Pre-calculate the number of completed passes for the dialog string
                 let numPassesFullyCompleted = 0;
                 for (let i = 0; i < numXpShopMaxTracks; i++) {
                     if (oXpShopTrackProgress && oXpShopTrackProgress.xp_tracks[i]) {
@@ -100,11 +103,13 @@ var XpShop;
                 }
                 elActiveTracks.SetHasClass('hide', false);
                 for (let i = 0; i < numXpShopMaxTracks; i++) {
+                    //elBtn.SetHasClass( 'hidden', true );
                     let elTrack = CreateTrack(elActiveTracks, i);
                     elTrack.visible = false;
                     let elActivateBtn = elTrack.FindChildInLayoutFile('id-xpshop-pass-activate-btn');
                     elActivateBtn.SetHasClass('hidden', true);
                     let oSettings;
+                    // Show tracks
                     if (oXpShopTrackProgress && oXpShopTrackProgress.xp_tracks[i]) {
                         let bIsMax = oXpShopTrackProgress.xp_tracks[i] / StoreAPI.GetXpShopStarXp() >= StoreAPI.GetXpShopMaxTrackLevel();
                         let trackValue = parseInt(oXpShopTrackProgress.xp_tracks[i]);
@@ -142,6 +147,7 @@ var XpShop;
                             });
                         }
                     }
+                    // Show passes to activate
                     else if (m_nPass > 0 && passIndex < m_nPass) {
                         let passToActivate = InventoryAPI.GetInventoryItemIDByIndex(passIndex);
                         passIndex++;
@@ -170,11 +176,14 @@ var XpShop;
                         });
                     }
                     else {
+                        // This is a "vacant track" - user can buy a pass for it
                         ++numPassesStillPossibleToBuy;
                     }
                 }
+                //eTitle.visible = elActiveTracks.Children().filter( track => track.visible === true ).length > 0;
                 elUpsell.SetHasClass('hide', true);
                 elBalance.SetHasClass('hide', false);
+                // If all the tracks have been purchased, then we just hide the "Buy Another Pass" button
                 elMorePassesBtn.SetHasClass('hide', numPassesStillPossibleToBuy <= 0);
                 elMorePassesBtn.text = $.Localize('#xpshop_pass_extra_pass', elActiveTracks);
                 elMorePassesBtn.SetPanelEvent('onactivate', () => {
@@ -183,7 +192,8 @@ var XpShop;
                 });
                 $.GetContextPanel().FindChildInLayoutFile('id-xpshop-active-tracks-container').SetHasClass('five-tracks', numPassesStillPossibleToBuy === 0);
             }
-            else {
+            else // SELL PASS (new user, or you can get in this state if you close all your tracks and spend all stars)
+             {
                 elTracks.SetDialogVariable('upsell-text', $.Localize('#xpshop_upsell_desc', elTracks));
                 elTracks.SetDialogVariable('upsell-btn-text', $.Localize('#xpshop_upsell_btn', elTracks));
                 elUpsellInfo.FindChild('id-xpshop-info-btn')?.SetPanelEvent('onactivate', () => SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser('https://store.steampowered.com/sale/armory'));
@@ -260,6 +270,7 @@ var XpShop;
             }
             ShopEntry.shop_index = i;
             itemsInRows[ShopEntry.ui_order] = !itemsInRows[ShopEntry.ui_order] ? 1 : ++itemsInRows[ShopEntry.ui_order];
+            $.Msg('[p.armory] ShopEntry.item_name: ' + ShopEntry.item_name);
             if (ShopEntry.item_name.startsWith('lootlist:')) {
                 ShopEntry.entry_type = 'lootlist';
                 ShopEntry.lootlist = _GetLootListForReward(ShopEntry.item_name);
@@ -289,14 +300,15 @@ var XpShop;
             }
             if (ShopEntry.flags && ((ShopEntry.flags & 4) === 4)) {
                 const petItemId = InventoryAPI.GetPetItemID();
+                $.Msg('[p.armory] ShopEntry.pet (' + ShopEntry.item_name + ') pet_item_id=' + petItemId + ';');
                 if (petItemId)
-                    continue;
+                    continue; // user already has their pet, don't make the Armory tile
             }
             if (ShopEntry.bidding_cycle) {
-                ShopEntry.points = '';
+                ShopEntry.points = ''; // clear out the points value, since the user will have to make a bid
                 const numSecondsRemaining = StoreAPI.GetSecondsUntilTimestamp(parseInt(ShopEntry.bidding_close));
                 if (numSecondsRemaining <= 0)
-                    continue;
+                    continue; // don't bother making an Armory tile - everything's been auctioned off already
             }
             aShopItemsData.push(ShopEntry);
         }
@@ -305,6 +317,7 @@ var XpShop;
             _MakeShopTile(element);
             _MakeNavButton(element);
         });
+        // A little hack for moving the nav btn order to match the tile layout
         let elParent = $.GetContextPanel().FindChildInLayoutFile('id-xpshop-top-nav');
         let aNavButtons = elParent.Children();
         aNavButtons.forEach((element, idx) => {
@@ -342,6 +355,7 @@ var XpShop;
                     $.DispatchEvent("Activated", elBtn, "mouse");
                 }
             });
+            $.Msg('[p.armory] Making shop tile for ' + ShopEntry.item_name + ' ui_set_image=' + ShopEntry.ui_set_image);
             if (ShopEntry.ui_set_image) {
                 const elImage = elTile.FindChildInLayoutFile('id-xpshop-tile-icon');
                 IconUtil.SetupFallbackItemSetIcon(elImage, ShopEntry.ui_set_image);
@@ -376,12 +390,15 @@ var XpShop;
             else if (ShopEntry.lootlist && ShopEntry.lootlist.length > 1) {
                 let elCarousel = elTile.FindChildInLayoutFile('id-xpshop-tile-carousel');
                 let elPanel;
+                // we use the number of items in a row to also determine how many items to show in a tile.  When the row has more than 4 store entry items the multi- image tiles can be very crowded.
                 const numItemsPerTile = ((ShopEntry.lootlist_item_type === "keychain" || ShopEntry.lootlist_item_type === "sticker") && ShopEntry.items_in_row < 5) ? 4 : 1;
                 let numScrollingTilesToAdd = ((ShopEntry.lootlist_item_type === "keychain" || ShopEntry.lootlist_item_type === "sticker") && numItemsPerTile > 1) ? Math.floor((ShopEntry.lootlist.length + numItemsPerTile - 1) / numItemsPerTile) : 6;
                 let shuffledArray = [...ShopEntry.lootlist];
                 shuffledArray.sort((a, b) => 0.5 - Math.random());
+                $.Msg('[p.armory] ShopEntry.items_in_row: ' + ShopEntry.items_in_row);
                 for (let iScrollingTile = 0; iScrollingTile < numScrollingTilesToAdd; ++iScrollingTile) {
                     for (let iTileItem = 0; iTileItem < numItemsPerTile; ++iTileItem) {
+                        //  For carousels whose tiles have multiple images on them.
                         if ((ShopEntry.lootlist_item_type === "keychain" || ShopEntry.lootlist_item_type === "sticker") && ShopEntry.items_in_row < 5) {
                             let entry = shuffledArray[((iScrollingTile * numScrollingTilesToAdd) + iTileItem) % shuffledArray.length];
                             if (iTileItem === 0) {
@@ -405,10 +422,13 @@ var XpShop;
     }
     let jsTooltipDelayHandle = null;
     function _UpdateInspectGrid(ShopEntry) {
+        // Hide the main panels and show the appropriate inspect grid for items
+        $.Msg('[p.armory] _UpdateInspectGrid: ' + ShopEntry.item_name);
         m_elContentPanel.SetHasClass('xpshop-grids-visible', true);
         let elInspectContainer = m_elContentPanel.FindChildInLayoutFile('id-xpshop-inspect-container');
         let elGrid = elInspectContainer.FindChildInLayoutFile(ShopEntry.item_name + '-grid');
         if (!elGrid) {
+            // Make Grid
             elGrid = $.CreatePanel('Panel', elInspectContainer, ShopEntry.item_name + '-grid');
             elGrid.BLoadLayoutSnippet('shop-grid');
             elGrid.SetDialogVariable('name', ShopEntry.callout ? $.Localize(ShopEntry.callout) : ShopEntry.item_name);
@@ -422,6 +442,7 @@ var XpShop;
             _SetUpConfirmBar(elRedeemBar, elConfirmBar, ShopEntry);
             _SetWarningText(elGrid, ShopEntry);
             let elTilesContainer = elGrid.FindChildInLayoutFile('id-xpshop-grid-tiles');
+            // Make Tiles
             ShopEntry.lootlist?.forEach((itemId, idx) => {
                 let elShopTile = CreateShopTile(elTilesContainer, itemId, ShopEntry);
                 let elModel = elShopTile.FindChild('id-grid-item-model');
@@ -517,6 +538,7 @@ var XpShop;
         }
         else {
             $.Schedule(.1, () => PlaceTiles(elGrid.FindChildInLayoutFile('id-xpshop-grid-tiles'), ShopEntry));
+            // Update the bar for new data.  Balance can change and 
             _SetUpRedeemBar(elGrid.FindChildInLayoutFile('id-xpshop-item-redeem-bar'), elGrid.FindChildInLayoutFile('id-xpshop-item-confirm-bar'), ShopEntry);
             if (ShopEntry.lootlist && ShopEntry.lootlist_item_type === 'weapon' && ShopEntry.lootlist.length == 1) {
                 let elLimitedItem = elGrid.FindChildInLayoutFile(ShopEntry.lootlist[0]);
@@ -537,6 +559,7 @@ var XpShop;
     }
     function _DeleteInspectGrid() {
         if (!m_nTrack || m_nTrack === 0) {
+            // no shop
             return;
         }
         let nCount = MissionsAPI.GetSeasonalOperationRedeemableGoodsCount(m_nTrack);
@@ -618,21 +641,25 @@ var XpShop;
                         return;
                     }
                 }
+                // Bidding is ready to go, show the final confirmation:
                 elRedeemBar.SetHasClass('hidden', true);
                 elConfirmBar.SetHasClass('hidden', false);
                 elConfirmBar.FindChildInLayoutFile('id-xpshop-item-redeem-confirm').enabled = true;
                 elConfirmBar.FindChildInLayoutFile('id-xpshop-item-redeem-cancel').enabled = true;
-                ShopEntry.bidding_points_amount = 1;
+                ShopEntry.bidding_points_amount = 1; // TODO: have user-interface element to plus/minus the number of stars to bid
+                // Are we bidding? or retracting our bid?
                 let bMakingNewBid = true;
                 const numBids = InventoryAPI.GetCacheTypeElementsCount('XpShopBids');
                 for (let iBid = 0; iBid < numBids; ++iBid) {
                     const jsoBid = InventoryAPI.GetCacheTypeElementJSOByIndex('XpShopBids', iBid);
-                    if (jsoBid.campaign_id == m_nTrack) {
+                    if (jsoBid.campaign_id == m_nTrack) // && jsoBid.redeem_id == ... ) // TODO: support multiple bids - need redeem_id wired up here!
+                     {
                         ShopEntry.bidding_points_amount = jsoBid.expected_cost;
                         bMakingNewBid = false;
                         break;
                     }
                 }
+                // Localization for confirm bar:
                 let fnLocalizeConfirmBar = () => {
                     elConfirmBar.SetDialogVariable('cost_stars', '' + ShopEntry.bidding_points_amount);
                     elConfirmBar.SetDialogVariable('confirm-text', $.Localize((bMakingNewBid ? '#xpshop_redeem_use_confirm_item' : '#xpshop_redeem_use_cancel_item')
@@ -640,6 +667,7 @@ var XpShop;
                     elConfirmBar.FindChildInLayoutFile('id-xpshop-item-redeem-confirm').Children()[0].text
                         = $.Localize((bMakingNewBid ? '#xpshop_redeem_use_confirm_item_bid_btn' : '#xpshop_redeem_use_cancel_item_bid_btn'), elConfirmBar);
                 };
+                // Show the bid selector
                 let elBidAmount = elConfirmBar.GetParent().FindChildInLayoutFile("id-xpshop-item-bidamt-bar");
                 if (bMakingNewBid && elBalance.Data().balance > 1) {
                     elBidAmount.SetDialogVariable('cost_stars', "");
@@ -672,6 +700,7 @@ var XpShop;
                     elBidAmount.SetHasClass('hidden', true);
                 }
                 fnLocalizeConfirmBar();
+                // If we are retracting the bid, then we are paying "negative stars" to increase our stars wallet ballance
                 if (!bMakingNewBid)
                     ShopEntry.bidding_points_amount = -ShopEntry.bidding_points_amount;
             });
@@ -702,8 +731,10 @@ var XpShop;
                 $.DispatchEvent("Activated", elConfirmBar.FindChildInLayoutFile('id-xpshop-item-redeem-cancel'), "mouse");
                 $.GetContextPanel().SetHasClass('waiting-for-redeem', false);
                 _StopRedeemParticles();
+                // We did not get the item you unlocked so show the xpshop home page
                 let elBtn = $.GetContextPanel().FindChildInLayoutFile('id-nav-show-main-tiles-btn');
                 $.DispatchEvent("Activated", elBtn, "mouse");
+                // We did not get the item you unlocked so show an error dialog
                 UiToolkitAPI.ShowGenericPopupOk($.Localize('#SFUI_SteamConnectionErrorTitle'), $.Localize('#SFUI_InvError_Item_Not_Given'), '', () => { });
             });
         });
@@ -769,10 +800,12 @@ var XpShop;
         let sideOffset = 20;
         let contentPanelWidth = Math.floor(m_elContentPanel.actuallayoutwidth / m_elContentPanel.actualuiscale_x);
         let finalXTranslate = 0;
-        if (tilePosX - initialXTranslate < m_elContentPanel.actualxoffset / m_elContentPanel.actualuiscale_x) {
+        if (tilePosX - initialXTranslate < m_elContentPanel.actualxoffset / m_elContentPanel.actualuiscale_x) // over the left edge
+         {
             finalXTranslate = ((tilePosX) - sideOffset) * -1;
         }
-        else if (((tilePosX - initialXTranslate) + zoomWidth) > contentPanelWidth) {
+        else if (((tilePosX - initialXTranslate) + zoomWidth) > contentPanelWidth) //over the right edge
+         {
             finalXTranslate = (tilePosX - (contentPanelWidth - (zoomWidth + sideOffset))) * -1;
         }
         else {
@@ -782,9 +815,10 @@ var XpShop;
         let initialYTranslate = (baseHeight / 2);
         let finalYTranslate = 0;
         let contentPanelHeight = Math.floor(m_elContentPanel.actuallayoutheight / m_elContentPanel.actualuiscale_y);
-        let bottomOffset = 32 + 48;
-        let topOffset = 92;
-        if ((tilePosY + zoomHeight) > (contentPanelHeight - bottomOffset)) {
+        let bottomOffset = 32 + 48; //margin + bottom bar icon height;
+        let topOffset = 92; //height of nav bar
+        if ((tilePosY + zoomHeight) > (contentPanelHeight - bottomOffset)) // over the bottom edge
+         {
             finalYTranslate = (tilePosY - (contentPanelHeight - zoomHeight)) + bottomOffset;
         }
         else if ((tilePosY - baseHeight / 2) < topOffset) {
@@ -830,10 +864,13 @@ var XpShop;
     function StickerItemsPerRow(nPanelsCount, maxColumn) {
         const maxRows = 4;
         if (nPanelsCount >= 32) {
+            $.Msg('[p.armory] Too many Items for grid, Limit is 32');
             return { rows: maxRows, cols: maxColumn };
         }
+        // Try to get as close to a square as possible, within limits
         let cols = Math.min(maxColumn, Math.ceil(Math.sqrt(nPanelsCount)));
         let rows = Math.ceil(nPanelsCount / cols);
+        // If rows exceed maxRows, force rows down and increase cols
         if (rows > maxRows) {
             rows = maxRows;
             cols = Math.ceil(nPanelsCount / rows);
@@ -947,6 +984,7 @@ var XpShop;
         });
     }
     function _MakeShowMainTilesNavBtn() {
+        // Separating making this btn out of the nav since we need to make it first.
         let elParent = $.GetContextPanel().FindChildInLayoutFile('id-xpshop-top-nav');
         let elBtn = elParent.FindChildInLayoutFile('id-nav-show-main-tiles-btn');
         if (!elBtn) {

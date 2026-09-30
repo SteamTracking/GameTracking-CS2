@@ -1,5 +1,9 @@
 "use strict";
 /// <reference path="csgo.d.ts" />
+//--------------------------------------------------------------------------------------------------
+// Particle Controls
+//--------------------------------------------------------------------------------------------------
+// UTILITY FUNCTIONS
 var ParticleControls;
 (function (ParticleControls) {
     function GetAllChildren(panel) {
@@ -72,6 +76,11 @@ var ParticleControls;
     }
     ParticleControls.RestartStatusRank = RestartStatusRank;
     function UpdateMainMenuTopBar(elPanel, curTabID) {
+        // Trigger particle effect for these three tabs
+        // Cp 1 - Highlight Position (x, y, z), 
+        // Cp 2 ( Width, Alpha , desaturation (0-1) ), 
+        // Cp 16 Color ( 0-255, 0-255, 0-255 )-->
+        // Cp 17 Highlight Color ( 0-255, 0-255, 0-255 )-->
         let g_RadioButtonIdLookup = {
             JsInventory: "#MainMenuNavBarInventory",
             JsLoadout: "#MainMenuNavBarLoadout",
@@ -92,9 +101,11 @@ var ParticleControls;
         }
         const elContainer = $("#MainMenuNavBarCenterContainer");
         let curTabButton = $(g_RadioButtonIdLookup[curTabID]);
+        //Keep in Sync with particle systems X Dim Spacing/Count - Particle bounds must = Panel edges (fov to compensate) 
         const particleWidthInGameUnits = 32 * 35;
         if (curTabButton && elContainer) {
             const particlePanelScalar = particleWidthInGameUnits / elPanel.actuallayoutwidth;
+            //elContainer.actuallayoutwidth/elPanel.actuallayoutwidth
             curTabButton.checked = true;
             const curLabel = curTabButton.FindChildrenWithClassTraverse("mainmenu-top-navbar__radio-btn__label")[0];
             let center = ((elContainer.actuallayoutwidth * .5) - (curTabButton.actualxoffset + (curTabButton.actuallayoutwidth * .5)));
@@ -114,12 +125,20 @@ var ParticleControls;
     }
     ParticleControls.UpdateMainMenuTopBar = UpdateMainMenuTopBar;
     function InitMainMenuTopBar(elPanel) {
+        // Trigger particles and init cp
+        // Cp 16 Color ( 0-255, 0-255, 0-255 )-->
+        // Cp 17 Highlight Color ( 0-255, 0-255, 0-255 )-->
         const Color = [85, 212, 238];
         const HColor = [0, 255, 212];
         elPanel.SetControlPoint(16, Color[0], Color[1], Color[2]);
     }
     ParticleControls.InitMainMenuTopBar = InitMainMenuTopBar;
     function UpdateActionBar(elPanel, curTabID) {
+        // Trigger particle effect for these three tabs
+        // Cp 1 - Highlight Position (x, y, z), 
+        // Cp 2 ( Width Of Button, Hieght Of Button , Alpha ),
+        // Cp 5 ( Emission Scale, radius scale , Create Tension)
+        // Cp 16 Color ( 0-255, 0-255, 0-255 )-->
         const myParent = elPanel.GetParent();
         const marginx = 20;
         const ButtonBg = myParent.FindChildrenWithClassTraverse('play-menu__playbtn__bg')[0];
@@ -139,7 +158,7 @@ var ParticleControls;
             const Color = [15, 231, 15];
             elPanel.StartParticleSystem("particles/ui/ui_mainmenu_playaction_active.vpcf");
             elPanel.StartParticles();
-            const col = 17;
+            const col = 17; //Math.floor( ( buttonWidth * gametoWorldScalar ) / 32 ); //X Dimension Spacing on Particle System
             const row = Math.floor((buttonHeight * gametoWorldScalar) / 32);
             elPanel.SetControlPoint(1, (buttonWidth * .5 - marginx) * gametoWorldScalar + Math.random(), 0, lookat[2]);
             elPanel.SetControlPoint(2, col, row, .25);

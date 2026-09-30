@@ -22,6 +22,7 @@ var MainMenulicense;
     }
     MainMenulicense.ActionBuyLicense = ActionBuyLicense;
     function SetStyleOnRootPanel(restrictions) {
+        // Set Style on root panel for not having license
         let elMainMenuInput = _m_licensePanel;
         while (elMainMenuInput) {
             elMainMenuInput = elMainMenuInput.GetParent();
@@ -32,6 +33,9 @@ var MainMenulicense;
             elMainMenuInput.SetHasClass('steam-license-restricted', restrictions !== false);
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', Init);

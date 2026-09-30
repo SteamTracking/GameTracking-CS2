@@ -90,13 +90,9 @@ enum ECsgoGCMsg {
 	k_EMsgGCCStrike15_v2_ClientPerfReport = 9202;
 	k_EMsgGCCStrike15_v2_GetEventFavorites_Response = 9203;
 	k_EMsgGCCStrike15_v2_ClientRequestSouvenir = 9204;
-	k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode = 9206;
-	k_EMsgGCCStrike15_v2_GC2ClientRequestValidation = 9207;
 	k_EMsgGCCStrike15_v2_ClientRedeemMissionReward = 9209;
 	k_EMsgGCCStrike15_ClientDeepStats = 9210;
 	k_EMsgGCCStrike15_StartAgreementSessionInGame = 9211;
-	k_EMsgGCCStrike15_v2_GC2ClientInitSystem = 9212;
-	k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response = 9213;
 	k_EMsgGCCStrike15_v2_PrivateQueues = 9214;
 	k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt = 9215;
 	k_EMsgGCCStrike15_v2_BetaEnrollment = 9217;
@@ -129,18 +125,6 @@ enum EClientReportingVersion {
 	k_EClientReportingVersion_OldVersion = 0;
 	k_EClientReportingVersion_BetaVersion = 1;
 	k_EClientReportingVersion_SupportsTrustedMode = 2;
-}
-
-enum EInitSystemResult {
-	k_EInitSystemResult_Invalid = 0;
-	k_EInitSystemResult_Success = 1;
-	k_EInitSystemResult_None = 2;
-	k_EInitSystemResult_NotFound = 3;
-	k_EInitSystemResult_Existing = 4;
-	k_EInitSystemResult_FailedOpen = 5;
-	k_EInitSystemResult_Mismatch = 6;
-	k_EInitSystemResult_FailedInit = 7;
-	k_EInitSystemResult_Max = 8;
 }
 
 message GameServerPing {
@@ -1498,48 +1482,6 @@ message CVDiagnostic {
 	optional uint32 extended = 2;
 	optional uint64 value = 3;
 	optional string string_value = 4;
-}
-
-message CMsgGCCStrike15_v2_GC2ClientRefuseSecureMode {
-	optional string file_report = 1;
-	optional bool offer_insecure_mode = 2;
-	optional bool offer_secure_mode = 3;
-	optional bool show_unsigned_ui = 4;
-	optional bool kick_user = 5;
-	optional bool show_trusted_ui = 6;
-	optional bool show_warning_not_trusted = 7;
-	optional bool show_warning_not_trusted_2 = 8;
-	optional string files_prevented_trusted = 9;
-}
-
-message CMsgGCCStrike15_v2_GC2ClientRequestValidation {
-	optional bool full_report = 1;
-	optional string module = 2;
-}
-
-message CMsgGCCStrike15_v2_GC2ClientInitSystem {
-	optional bool load = 1;
-	optional string name = 2;
-	optional string outputname = 3;
-	optional bytes key_data = 4;
-	optional bytes sha_hash = 5;
-	optional int32 cookie = 6;
-	optional string manifest = 7;
-	optional bytes system_package = 8;
-	optional bool load_system = 9;
-}
-
-message CMsgGCCStrike15_v2_GC2ClientInitSystem_Response {
-	optional bool success = 1;
-	optional string diagnostic = 2;
-	optional bytes sha_hash = 3;
-	optional int32 response = 4;
-	optional int32 error_code1 = 5;
-	optional int32 error_code2 = 6;
-	optional int64 handle = 7;
-	optional .EInitSystemResult einit_result = 8 [default = k_EInitSystemResult_Invalid];
-	optional int32 aux_system1 = 9;
-	optional int32 aux_system2 = 10;
 }
 
 message CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName {

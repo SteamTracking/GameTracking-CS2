@@ -14,7 +14,7 @@
 .WatchMenu--Hide
 {
 	opacity: 0;
-	transition-property: opacity, blur ;
+	transition-property: opacity, blur/*, transform*/;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }

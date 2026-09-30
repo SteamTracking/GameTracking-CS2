@@ -55,6 +55,7 @@
 						<Frame id="PopUpInspectAsyncBar" class="hidden" src="s2r://panorama/layout/popups/popup_inspect_async-bar.vxml" />
 						<Frame id="PopUpInspectPurchaseBar" class="hidden" src="s2r://panorama/layout/popups/popup_inspect_purchase-bar.vxml" />
 						<Label id="InspectItemDesc" html="true" htmlescapednewlines="true" class="popup-inspect__desc" text="{s:item_description}" />
+						<Slider id="InspectItemSlider" class="HorizontalSlider horizontal-center hidden" direction="horizontal" />
 					</Panel>
 				</Panel>
 			</Panel>

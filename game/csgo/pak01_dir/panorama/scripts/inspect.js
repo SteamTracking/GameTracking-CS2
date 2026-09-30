@@ -9,6 +9,7 @@ var InspectModelImage;
     let m_elContainer = null;
     let m_isLaptopOpening = false;
     InspectModelImage.m_CameraSettingsPerWeapon = [
+        //rifles
         { type: 'weapon_awp', camera: '7', zoom_camera: 'weapon_awp_zoom,weapon_awp_front_zoom' },
         { type: 'weapon_aug', camera: '3', zoom_camera: 'weapon_aug_zoom' },
         { type: 'weapon_sg556', camera: '4', zoom_camera: 'weapon_ak47_zoom,weapon_ak47_front_zoom' },
@@ -20,6 +21,7 @@ var InspectModelImage;
         { type: 'weapon_galilar', camera: '3', zoom_camera: 'weapon_galilar_zoom' },
         { type: 'weapon_m4a1', camera: '4', zoom_camera: 'weapon_ak47_zoom,weapon_ak47_front_zoom' },
         { type: 'weapon_scar20', camera: '5', zoom_camera: 'weapon_g3sg1_zoom,weapon_g3sg1_front_zoom' },
+        //mid
         { type: 'weapon_mp5sd', camera: '3' },
         { type: 'weapon_xm1014', camera: '4', zoom_camera: 'weapon_xm1014_zoom' },
         { type: 'weapon_m249', camera: '6', zoom_camera: 'weapon_m249_zoom' },
@@ -29,14 +31,20 @@ var InspectModelImage;
         { type: 'weapon_nova', camera: '5', zoom_camera: 'weapon_g3sg1_zoom,weapon_g3sg1_front_zoom' },
         { type: 'weapon_sawedoff', camera: '3' },
         { type: 'weapon_negev', camera: '5', zoom_camera: 'weapon_negev_zoom' },
+        //pistols
         { type: 'weapon_usp_silencer', camera: '2', zoom_camera: '0' },
         { type: 'weapon_elite', camera: '2' },
         { type: 'weapon_tec9', camera: '2' },
         { type: 'weapon_revolver', camera: '2' },
+        //misc
         { type: 'weapon_c4', camera: '3' },
         { type: 'weapon_taser', camera: '0' },
+        //knife
+        // { type: 'weapon_knife', camera: '4' },
     ];
     function Init(elContainer, itemId) {
+        // Tournament journals are only inspected for the purposes of Graffiti
+        // ... but check for special hint: viewfunc=primary forces it to show as coin
         const strViewFunc = InspectShared.GetPopupSetting('force_inspect_view_type');
         m_isLaptopOpening = (elContainer.Data().isLapTopOpening === true) ? true : false;
         if (!InventoryAPI.IsValidItemID(itemId)) {
@@ -69,7 +77,7 @@ var InspectModelImage;
             m_elPanel = _InitDisplayScene(itemId);
         }
         else if (ItemInfo.IsKeychain(itemId)) {
-            m_elPanel = _InitKeyChainScene(itemId);
+            m_elPanel = _InitKeyChainScene(itemId); // TODO: inspect scene for keychains
         }
         else if (InventoryAPI.DoesItemMatchDefinitionByName(itemId, "sticker_display_case")) {
             const defKeychain = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('keychain');
@@ -85,7 +93,7 @@ var InspectModelImage;
             m_elPanel = _InitSprayScene(itemId);
         }
         else if (ItemInfo.IsCase(itemId)) {
-            m_elPanel = model ? _InitCaseScene(itemId) : _SetImage(itemId);
+            m_elPanel = model ? _InitCaseScene(itemId) : _SetImage(itemId); // eSports2013 cases for example don't have a model :(
         }
         else if (ItemInfo.IsNameTag(itemId)) {
             m_elPanel = _InitNametagScene(itemId);
@@ -105,8 +113,9 @@ var InspectModelImage;
         else if (ItemInfo.IsPet(itemId)) {
             m_elPanel = _InitPetScene(itemId);
         }
+        // Generic 3d inspect
         else if (model) {
-            if (InventoryAPI.GetLoadoutCategory(itemId) === 'clothing') {
+            if (InventoryAPI.GetLoadoutCategory(itemId) === 'clothing') { // these are my gloves
                 m_elPanel = _InitGlovesScene(itemId);
             }
             else if (ItemInfo.ItemHasCapability(itemId, 'decodable')) {
@@ -118,12 +127,14 @@ var InspectModelImage;
                 }
             }
         }
+        // 2d inspect fallback
         else if (!model) {
             m_elPanel = _SetImage(itemId);
         }
         return m_elPanel;
     }
     function _InitCharScene(itemId, bHide = false, weaponItemId = '', contextPanel = $.GetContextPanel()) {
+        $.Msg('_InitCharScene');
         let elPanel = GetExistingItemPanel('CharPreviewPanel');
         let active_item_idx = 5;
         let mapName = _GetBackGroundMap();
@@ -165,6 +176,7 @@ var InspectModelImage;
         }
         return elPanel;
     }
+    // Start the weapon look animation mode in the item preview panel.
     function StartWeaponLookat() {
         let elItemPanel = GetExistingItemPanel('ItemPreviewPanel');
         if (elItemPanel) {
@@ -172,6 +184,7 @@ var InspectModelImage;
         }
     }
     InspectModelImage.StartWeaponLookat = StartWeaponLookat;
+    // End the weapon look animation mode in the item preview panel.
     function EndWeaponLookat() {
         let elItemPanel = GetExistingItemPanel('ItemPreviewPanel');
         if (elItemPanel) {
@@ -187,6 +200,7 @@ var InspectModelImage;
         return false;
     }
     InspectModelImage.PanZoomEnabled = PanZoomEnabled;
+    // Start the pet look animation mode in the item preview panel.
     function StartPetLookAt() {
         let elInspectPanel = GetExistingItemPanel('ItemPreviewPanel');
         if (elInspectPanel) {
@@ -194,6 +208,10 @@ var InspectModelImage;
         }
     }
     InspectModelImage.StartPetLookAt = StartPetLookAt;
+    // Override the cascade 0 split plane distance so that it covers the character, ensuring highest resolution
+    // character shadows, even at lowest shadow quality settings.
+    // There's a similar setup in mainmenu.ts, where the values are
+    // different to here since the camera and character are placed differently
     function _SetCSMSplitPlane0DistanceOverrideMainCharacter(elPanel, backgroundMap) {
         let flSplitPlane0Distance = 0.0;
         if (backgroundMap === 'de_ancient_vanity') {
@@ -250,8 +268,16 @@ var InspectModelImage;
             elPanel.SetCSMSplitPlane0DistanceOverride(flSplitPlane0Distance);
         }
     }
+    // BarnlightShadowScaleOverride:
+    //
+    // Note, flBarnlightShadowScale value === 0.0 => final barnlight shadow scale = r_csgo_barnlight_shadow_scale_preview (cvar)
+    //       flBarnlightShadowScale value > 0.0 => final barnlight shadow scale = flBarnlightShadowScale 
+    //
+    // FYI, r_csgo_barnlight_shadow_scale_preview currently defaults to 4.0
+    // Set BarnlightShadowScaleOverride for general main menu and character inspect
     function _SetBarnlightShadowScaleOverrideMainCharacter(elPanel, backgroundMap) {
         let flBarnlightShadowScale = 0.0;
+        // we have a lot of shadow casting barnlights on these maps, usual scaling via r_csgo_barnlight_shadow_scale_preview is 4.0, this is a multiplier of that scale
         if (backgroundMap === 'ui/acknowledge_item') {
             flBarnlightShadowScale = 1.0;
         }
@@ -262,14 +288,17 @@ var InspectModelImage;
             flBarnlightShadowScale = 1.0;
         }
         if (flBarnlightShadowScale > 0.0) {
+            // scale barnlight shadows by flBarnlightShadowScale instead of r_csgo_barnlight_shadow_scale_preview cvar
             elPanel.SetBarnlightShadowScaleOverride(flBarnlightShadowScale);
         }
     }
+    // Set BarnlightShadowScaleOverride for item inspect panels
     function _SetBarnlightShadowScaleOverrideItemInspect(elPanel, backgroundMap, itemId) {
         let flBarnlightShadowScale = 0.0;
         const bIsKeyChain = ItemInfo.IsKeychain(itemId);
         const bIsWeaponOrKnife = ItemInfo.IsWeapon(itemId) || ItemInfo.IsMelee(itemId);
         const itemCategory = InventoryAPI.GetLoadoutCategory(itemId);
+        // override scale depending on map and item category
         if (backgroundMap === 'ui/acknowledge_item') {
             flBarnlightShadowScale = 1.0;
         }
@@ -291,8 +320,11 @@ var InspectModelImage;
             elPanel.SetBarnlightShadowScaleOverride(flBarnlightShadowScale);
         }
     }
+    // weapons have both an item scene and a preview on agent scene
     function _InitWeaponScene(itemId) {
+        $.Msg('_InitWeaponScene');
         const IsItemApplyRemove = InspectShared.GetPopupSetting('is_apply_remove_item');
+        // floating weapon panel
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 0,
@@ -317,6 +349,8 @@ var InspectModelImage;
         return panel;
     }
     function _InitMeleeScene(itemId) {
+        $.Msg('_InitMeleeScene');
+        // floating weapon panel
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 8,
@@ -338,6 +372,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitStickerScene(itemId) {
+        $.Msg('_InitStickerScenes');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 1,
@@ -359,6 +394,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitSprayScene(itemId) {
+        $.Msg('_InitSprayScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 2,
@@ -379,6 +415,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitDisplayScene(itemId, bDoNotAllowRotate = false) {
+        $.Msg('_InitDisplayScene');
         let bOverrideItem = InventoryAPI.GetItemDefinitionIndex(itemId) === 996;
         let rotationOverrideX = bOverrideItem ? "360" : "70";
         let autoRotateOverrideX = bDoNotAllowRotate ? "0" : bOverrideItem ? "180" : "45";
@@ -404,6 +441,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitChickenFeedScene(itemId, bDoNotAllowRotate = false) {
+        $.Msg('_InitChickenFeedScene');
         let bOverrideItem = InventoryAPI.GetItemDefinitionIndex(itemId) === 996;
         let rotationOverrideX = bOverrideItem ? "360" : "70";
         let autoRotateOverrideX = bDoNotAllowRotate ? "0" : bOverrideItem ? "180" : "45";
@@ -429,6 +467,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitMusicKitScene(itemId) {
+        $.Msg('_InitMusicKitScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 4,
@@ -450,6 +489,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitCaseScene(itemId) {
+        $.Msg('_InitCaseScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 6,
@@ -472,6 +512,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitLaptopScene(itemId) {
+        $.Msg('_InitLaptopScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 10,
@@ -506,6 +547,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitGlovesScene(itemId) {
+        $.Msg('_InitGlovesScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 7,
@@ -527,6 +569,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitNametagScene(itemId) {
+        $.Msg('_InitNametagScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 1,
@@ -548,6 +591,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitKeyChainScene(itemId) {
+        $.Msg('_InitKeyChainScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 1,
@@ -569,6 +613,7 @@ var InspectModelImage;
         return panel;
     }
     function _InitPetScene(itemId) {
+        $.Msg('_InitPetScene');
         let oSettings = {
             panel_type: "MapItemPreviewPanel",
             active_item_idx: 9,
@@ -602,6 +647,8 @@ var InspectModelImage;
     function _LoadInspectMap(itemId, oSettings, bUseMainMenuMap = false) {
         let mapName = oSettings.map_override ? oSettings.map_override : _GetBackGroundMap(bUseMainMenuMap);
         let elPanel = GetExistingItemPanel('ItemPreviewPanel');
+        $.Msg('mapName:' + mapName);
+        $.Msg('itemName:' + InventoryAPI.GetItemName(itemId));
         if (!elPanel) {
             let strAsyncWorkType = InspectShared.GetPopupSetting('work_type');
             elPanel = $.CreatePanel(oSettings.panel_type, m_elContainer, 'ItemPreviewPanel', {
@@ -640,6 +687,7 @@ var InspectModelImage;
         _AdditionalMapLoadSettings(elPanel, oSettings.active_item_idx, mapName);
         _SetParticlesBg(itemId, elPanel);
         if (elPanel.PanZoomEnabled()) {
+            // Panel requires focus for the use of arrow keys for panning
             elPanel.SetAcceptsFocus(true);
             elPanel.SetFocus();
         }
@@ -656,6 +704,11 @@ var InspectModelImage;
         return null;
     }
     function DeleteExistingItemPanel(itemId, panelType) {
+        // HACK
+        // If you are inspecting a graffiti, sticker, patch in a case lootlist
+        // the map panel does not load the new item when you update the SetActiveItem.
+        // So we delete the previous panel and make a new one.
+        // We should fix this.
         let elExistingItemPanel = GetExistingItemPanel(panelType);
         if (!elExistingItemPanel)
             return;
@@ -666,7 +719,8 @@ var InspectModelImage;
         }
     }
     function _AdditionalMapLoadSettings(elPanel, active_item_idx, mapName) {
-        if (elPanel.id === 'CharPreviewPanel') {
+        if (elPanel.id === 'CharPreviewPanel') //'ItemPreviewPanel', 'CharPreviewPanel', 'id-inspect-image-bg-map'
+         {
             DisableItemLighting(elPanel);
             _SetCSMSplitPlane0DistanceOverrideMainCharacter(elPanel, mapName);
             _SetBarnlightShadowScaleOverrideMainCharacter(elPanel, mapName);
@@ -690,6 +744,7 @@ var InspectModelImage;
     }
     function _SetWorkshopPreviewPanelProperties(elItemPanel) {
         if (InspectShared.GetPopupSetting('is_workshop_preview')) {
+            // further configure the panel for workshop previewing
             let sTransparentBackground = InventoryAPI.GetPreviewSceneStateAttribute("transparent_background");
             let sBackgroundColor = InventoryAPI.GetPreviewSceneStateAttribute("background_color");
             let sPreviewIdleAnimation = InventoryAPI.GetPreviewSceneStateAttribute("idle_animation");
@@ -697,6 +752,8 @@ var InspectModelImage;
                 elItemPanel.SetHideStaticGeometry(true);
                 elItemPanel.SetHideParticles(true);
                 elItemPanel.SetTransparentBackground(true);
+                // the default opaque nature prevents undesired prior painting artifacts
+                // except this workshop transparent mode wants to overlay
                 m_elContainer.SetHasClass('popup-inspect-background', false);
             }
             else if (sBackgroundColor) {
@@ -723,7 +780,8 @@ var InspectModelImage;
     function SetItemCameraByWeaponType(itemId, elItemPanel, bSkipIntro) {
         const category = InventoryAPI.GetLoadoutCategory(itemId);
         const defName = InventoryAPI.GetItemDefinitionName(itemId);
-        let strCamera = '3';
+        $.Msg('InventoryAPI.GetItemDefinitionName( itemId )' + InventoryAPI.GetItemDefinitionName(itemId));
+        let strCamera = '3'; //0 close cam, 6 far away, 3 is default
         let result = InspectModelImage.m_CameraSettingsPerWeapon.find(({ type }) => type === defName);
         if (result) {
             strCamera = result.camera;
@@ -745,6 +803,7 @@ var InspectModelImage;
     function _TransitionCamera(elPanel, strCamera, bSkipIntro = false, nDuration = 0) {
         elPanel.Data().camera = strCamera;
         if (InspectShared.GetPopupSetting('is_workshop_preview')) {
+            // workshop wants no transitions for rapid edit iterations
             elPanel.TransitionToCamera('cam_' + strCamera, 0);
             return;
         }
@@ -752,6 +811,7 @@ var InspectModelImage;
             elPanel.TransitionToCamera('cam_' + strCamera, nDuration);
             return;
         }
+        // Snap to intro camera then transition to desired camera position
         elPanel.TransitionToCamera('cam_' + strCamera + '_intro', 0);
         if (m_scheduleHandle === -1) {
             m_scheduleHandle = $.Schedule(.25, () => {
@@ -761,6 +821,7 @@ var InspectModelImage;
                 }
             });
         }
+        // $.Msg( 'm_scheduleHandle :'+ m_scheduleHandle );
     }
     function ZoomCamera(bZoom) {
         let elPanel = m_elPanel;
@@ -775,6 +836,7 @@ var InspectModelImage;
     }
     InspectModelImage.ZoomCamera = ZoomCamera;
     function _SetImage(itemId) {
+        $.Msg('_SetImage');
         let elPanel = GetExistingItemPanel('InspectItemImage');
         if (!elPanel) {
             _SetImageBackgroundMap();
@@ -819,6 +881,7 @@ var InspectModelImage;
             elItemPanel.SetReadyForDisplay(bshow);
             if (bshow) {
                 if (elItemPanel.PanZoomEnabled()) {
+                    // Ensure arrow keys work for panning;
                     elItemPanel.SetFocus();
                 }
                 $.DispatchEvent("CSGOPlaySoundEffect", "weapon_showSolo", "MOUSE");
@@ -876,6 +939,8 @@ var InspectModelImage;
     }
     InspectModelImage.DisableItemLighting = DisableItemLighting;
     function _SetLightingForItem(indexShow, elPanel) {
+        // Number of entities in the vanity map for different things like weapon, stickers, cases...
+        // Set up lighting for the one we are using.
         let numItemEntitiesInMap = 10;
         for (let i = 0; i <= numItemEntitiesInMap; i++) {
             let itemIndexMod = i === 0 ? '' : i.toString();
@@ -894,6 +959,7 @@ var InspectModelImage;
         }
         const oColor = _HexColorToRgb(InventoryAPI.GetItemRarityColor(itemId));
         const sColor = `${oColor.r} ${oColor.g} ${oColor.b}`;
+        $.Msg('oColor: ' + sColor);
         elPanel.FireEntityInput('acknowledge_particle', 'SetControlPoint', '16: ' + sColor);
     }
     function _SetRimLight(indexShow, elPanel) {
@@ -906,6 +972,7 @@ var InspectModelImage;
             const oColor = _HexColorToRgb(InventoryAPI.GetItemRarityColor(itemId));
             const sColor = `${oColor.r} ${oColor.g} ${oColor.b}`;
             let lightNameInMap = "light_item_new" + indexShow;
+            $.Msg('lightNameInMap: ' + lightNameInMap);
             elPanel.FireEntityInput(lightNameInMap, 'SetColor', sColor);
         }
         else {

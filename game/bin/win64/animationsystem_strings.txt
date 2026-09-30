@@ -2130,7 +2130,6 @@
 ?expf
 @08N8\v_
 @@CNmFloatCurveEvent
-@HPX`hv
 @HVP
 @const char *__cdecl Reflection::Internal::GetFuncName<class CPairedSequenceComponentInstance>(void)
 @fff>fff>fff>fff>

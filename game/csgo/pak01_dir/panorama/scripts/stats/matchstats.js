@@ -3,47 +3,47 @@
 var MatchStats = ( function()
 {
 
-	                               
-	                       
-	                          
-	                                                                                                                        
-	   				                                             			    
-	   				                                               			    
-	   				                                               			    
-	   				                                                  		    
-	   				                                                       	                               
-	   				                                                		    
-	   				                                                 		                              
-	   				                                                 		                              
-	   				                                             			                              
-	   				                                             			                            
-	                                
-	                                                        
-	                                                                                 
-	                                   
-	                                      
-	                                        
-	                      	                                                        
-	                  		                                                  
-	                          
-	                                                                                                                                   
-	                      
-	                      
-	                      
-	                             
-	                                                             
-	                                                          
-	                                                   
-	                                                
-	                                                   
-	                                                
-	                                                
-	                                                                     
-	                                                                   
-	                                        
-	                                                                        
-	                                                               
-	                                 
+	// DeepPlayerStatsEntry format:
+	// accountid: AccountID
+	// match_id: UniqueMatchID
+	// mm_game_mode: game mode of the match this progress happened in. Number is a EMsgGCCStrike15_v2_MatchmakingGame_t enum
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_ArmsRace			= 4,
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_Demolition			= 5,
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_Deathmatch			= 6,
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_ClassicCasual		= 7,
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_ClassicCompetitive	= 8, // Used since October 2012
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_Cooperative		= 9,
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_ScrimComp2v2		= 10, // Used since April 2017
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_ScrimComp5v5		= 11, // Used since April 2017
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_Skirmish			= 12, // Used since April 2017
+	// 				k_EMsgGCCStrike15_v2_MatchmakingGame_Survival			= 13, // Used since Nov 2017
+	// mapid: // map id of the match
+	// b_starting_ct: whether user is starting CT this match
+	// match_outcome: (0 = tie, 1 = MY team WIN, 2 = other team win, so my team LOST)
+	// rounds_won: number of round wins
+	// rounds_lost: number of round losses
+	// stat_score: total score points earned
+	// stat_deaths: Deaths	... add up all the kills/assists/deaths, then divide ...
+	// stat_mvps: MVPs		... the totals and you'll get AVG kills per round)
+	// enemy_kills: EnemyKills
+	// enemy_headshots: EnemyKillHeadshots (EnemyKillHeadshots divided by EnemyKills = HSP%, regular StatKills get reduced from TKs...)
+	// enemy_2ks: Enemy2Ks
+	// enemy_3ks: Enemy3Ks
+	// enemy_4ks: Enemy4Ks
+	// total_damage: Total Damage
+	// engagements_entry_count: Engagements count for entry frags
+	// engagements_entry_wins: Engagements won for entry frags
+	// engagements_1v1_count: Engagements count for 1v1
+	// engagements_1v1_wins: Engagements won for 1v1
+	// engagements_1v2_count: Engagements count for 1v2
+	// engagements_1v2_wins: Engagements won for 1v2
+	// utility_count: Number of Utility Nades Thrown
+	// utility_success: Number of utilities that resulted in enemy damage
+	// utility_enemies: Number of enemies damaged with utilities thrown
+	// flash_count: Number of Flashes Thrown
+	// flash_success: Number of flashes that resulted in enemy being blinded
+	// flash_enemies: Number of flashed enemies with flashes thrown
+	// mates: Teammates of the player
 
 
 	function _GetMatchId ( oMatch ) {return oMatch.match_id};
@@ -142,9 +142,9 @@ var MatchStats = ( function()
  };
 })();
 
-                                                                                                    
-                                           
-                                                                                                    
+//--------------------------------------------------------------------------------------------------
+// Entry point called when panel is created
+//--------------------------------------------------------------------------------------------------
 (function()
 {
 

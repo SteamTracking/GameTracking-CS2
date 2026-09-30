@@ -116,7 +116,9 @@ var InspectRentalBar;
             contextPanel.SetDialogVariable('time-remaining', sTimeRemainingString);
             contextPanel.SetDialogVariable('name', InventoryAPI.GetItemName(itemId));
             contextPanel.SetDialogVariable('expiration-time', $.Localize(sTimeRemainingString));
-            UiToolkitAPI.ShowGenericPopupOk('#popup_container_confirm_title_rent', $.Localize('#popup_container_confirm_already_rented', contextPanel), '', () => $.DispatchEvent('UIPopupButtonClicked', ''));
+            UiToolkitAPI.ShowGenericPopupOk('#popup_container_confirm_title_rent', $.Localize('#popup_container_confirm_already_rented', contextPanel), '', 
+            //	function () { OpenConfirmPopup( type ); },
+            () => $.DispatchEvent('UIPopupButtonClicked', ''));
         }
         else {
             OpenConfirmPopup(type, itemId, contextPanel);
@@ -128,6 +130,7 @@ var InspectRentalBar;
             + '&' + 'case=' + itemId
             + '&' + 'callback=' + contextPanel.Data().rentalBarPopupActionCallbackHandle);
     }
+    // function called from callback when the popup confirm button is pressed
     function _OnPopupActionPressed(actionType, contextPanel) {
         _OpenActions(contextPanel);
         contextPanel.Data().actionType = actionType;
@@ -136,11 +139,13 @@ var InspectRentalBar;
         if (actionType === 'open') {
             InventoryAPI.UseTool(toolId, itemId);
             $.DispatchEvent('StartDecodeableAnim');
+            $.Msg("I HAVE OPENED A CASE");
             return;
         }
-        InventoryAPI.UseToolWithIntArg(toolId, itemId, 5318008);
+        InventoryAPI.UseToolWithIntArg(toolId, itemId, 5318008); // magic cookie for "rental"
         $.DispatchEvent('StartRentalAnim');
         $.Schedule(2.75, () => ShowRentalInspect(contextPanel));
+        $.Msg("I HAVE RENTED ITEMS");
     }
     function _OpenActions(contextPanel) {
         if (contextPanel.Data().rentalBarPopupActionCallbackHandle) {
@@ -152,6 +157,7 @@ var InspectRentalBar;
         elRentalBar.FindChildInLayoutFile('RentBtn').enabled = false;
         _ResetTimeoutHandle(contextPanel);
         contextPanel.Data().rentalBarScheduleActionTimoutHandle = $.Schedule(6, () => _ShowActionTimeOutPopup(contextPanel));
+        $.Msg('scheduleActionTimoutHandle: ' + contextPanel.Data().rentalBarScheduleActionTimoutHandle);
     }
     function _HoverEvents(RentBtn, ActionBtn, contextPanel) {
         const elRentalBar = contextPanel.FindChildInLayoutFile('PopUpInspectRentalBar');
@@ -201,6 +207,7 @@ var InspectRentalBar;
     InspectRentalBar._ShowActionTimeOutPopup = _ShowActionTimeOutPopup;
     function _ResetTimeoutHandle(contextPanel) {
         if (contextPanel.Data().rentalBarScheduleActionTimoutHandle && typeof contextPanel.Data().rentalBarScheduleActionTimoutHandle === "number") {
+            $.Msg('m_scheduleActionTimoutHandle: ' + contextPanel.Data().rentalBarScheduleActionTimoutHandle);
             $.CancelScheduled(contextPanel.Data().rentalBarScheduleActionTimoutHandle);
             contextPanel.Data().rentalBarScheduleActionTimoutHandle = null;
         }
@@ -245,6 +252,7 @@ var InspectRentalBar;
             return;
         }
         else {
+            // didn't get new items
             _ShowActionTimeOutPopup(contextPanel);
         }
     }

@@ -21,6 +21,8 @@ var InspectHeader;
     }
     InspectHeader.Init = Init;
     function _SetName(elPanel, ItemId) {
+        // Tournament journals are only inspected for the purposes of Graffiti
+        // ... but check for special hint: force_inspect_view_type=primary forces it to show as coin
         const strViewFunc = InspectShared.GetPopupSetting('force_inspect_view_type');
         if (ItemInfo.ItemDefinitionNameSubstrMatch(ItemId, 'tournament_journal_'))
             ItemId = (strViewFunc === 'primary') ? ItemId : ItemInfo.GetFauxReplacementItemID(ItemId, 'graffiti');
@@ -44,6 +46,7 @@ var InspectHeader;
     function _SetOriginalOwner(elPanel, itemId) {
         const elOriginalOwner = elPanel.FindChildInLayoutFile('InspectOriginalOwner');
         elOriginalOwner.visible = (InventoryAPI.GetItemAttributeValue(itemId, '{uint32}purchaser account id') != undefined);
+        // If the collection is not visible then we need to center horizontal alignment
         const elImage = elPanel.FindChildInLayoutFile('InspectSetImage');
         elOriginalOwner.SetHasClass('horizontal-center', !elImage.visible);
     }
@@ -73,6 +76,10 @@ var InspectHeader;
         }
         elLabel.text = $.Localize('#CSGO_' + setName);
         elLabel.visible = true;
+        //DEVONLY{
+        if (setName === '')
+            throw "Show this to Ido.";
+        //}DEVONLY
         IconUtil.SetupFallbackItemSetIcon(elImage, setName);
         IconUtil.SetItemSetSVGImage(elImage, setName);
         elImage.visible = true;

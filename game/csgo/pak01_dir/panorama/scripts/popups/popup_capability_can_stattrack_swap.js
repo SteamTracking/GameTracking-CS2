@@ -10,7 +10,7 @@ var CapabilityCanStatTrackSwap;
             InspectShared.GetPopupSetting('stattrak_swap_second_item_id')
         ];
         const contextPanel = $.GetContextPanel();
-        contextPanel.Data().statNumbersOriginal = [0, 0];
+        contextPanel.Data().statNumbersOriginal = [0, 0]; // array of original StatTrak values on the counters
         contextPanel.Data().distanceLerped = 9999999;
         contextPanel.Data().flLerpProgress = 0.0;
         contextPanel.Data().scheduleHandle = null;
@@ -27,6 +27,7 @@ var CapabilityCanStatTrackSwap;
         let elPanel = $.GetContextPanel().FindChildInLayoutFile('StatTrackSwapItemModel' + idx);
         InspectModelImage.Init(elPanel, itemId);
         elPanel.AddClass('darken');
+        // HACK: We don't want this for stat trak swap, but this is the only splitscreen situation we have... just remove default classes here for now
         elPanel.RemoveClass('full-width');
         elPanel.RemoveClass('full-height');
     }
@@ -52,13 +53,14 @@ var CapabilityCanStatTrackSwap;
             contextPanel.Data().scheduleHandle = $.Schedule(0.04, () => _LerpTimer(contextPanel));
         }
         else {
+            // TODO: maybe play animation on the accept button here?
         }
     }
     function _OnAccept(contextPanel) {
         if (contextPanel.Data().scheduleHandle) {
             $.CancelScheduled(contextPanel.Data().scheduleHandle);
             contextPanel.Data().flLerpProgress = 1.0;
-            _LerpTimer(contextPanel);
+            _LerpTimer(contextPanel); // do the last lerp
         }
         contextPanel.FindChildInLayoutFile('NameableSpinner').RemoveClass('hidden');
         contextPanel.Data().scheduleHandle = $.Schedule(5, () => _CancelWaitforCallBack(contextPanel));

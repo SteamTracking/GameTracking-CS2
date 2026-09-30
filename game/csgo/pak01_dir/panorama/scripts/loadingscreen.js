@@ -21,6 +21,7 @@ var LoadingScreen;
         elSlideShow.RemoveAndDeleteChildren();
         m_numImageLoading = 0;
         if (m_slideShowJob) {
+            $.Msg('LoadingScreen.m_slideShowJob SET ' + m_slideShowJob);
             $.CancelScheduled(m_slideShowJob);
             m_slideShowJob = null;
         }
@@ -28,16 +29,20 @@ var LoadingScreen;
     }
     function _CreateSlide(n) {
         const suffix = n == 0 ? '' : '_' + n;
+        // for the first image, use an image name with no index e..g de_dust.png
         const imagePath = 'file://{images}/map_icons/screenshots/1080p/' + m_mapName + suffix + '.png';
         if (!$.BImageFileExists(imagePath)) {
+            //$.Msg( 'LoadingScreen: not found ' + imagePath );
             return false;
         }
+        //$.Msg( 'LoadingScreen: found ' + imagePath );
         const elSlideShow = $.GetContextPanel().FindChildTraverse('LoadingScreenSlideShow');
         const elSlide = $.CreatePanel('Image', elSlideShow, 'slide_' + n);
         elSlide.BLoadLayoutSnippet('snippet-loadingscreen-slide');
         elSlide.SetImage(imagePath);
         elSlide.Data().imagePath = imagePath;
         elSlide.SwitchClass('viz', 'hide');
+        // SET THE TITLE
         const titleToken = '#loadingscreen_title_' + m_mapName + suffix;
         let title = $.Localize(titleToken);
         if (title == titleToken)
@@ -45,11 +50,13 @@ var LoadingScreen;
         elSlide.SetDialogVariable('screenshot-title', title);
         m_numImageLoading++;
         $.RegisterEventHandler('ImageLoaded', elSlide, () => {
+            $.Msg('LoadingScreen loaded image ' + imagePath);
             m_numImageLoading--;
             if (m_numImageLoading <= 0)
                 _StartSlideShow();
         });
         $.RegisterEventHandler('ImageFailedLoad', elSlide, () => {
+            $.Msg('LoadingScreen failed loaded image ' + imagePath);
             elSlide.DeleteAsync(0.0);
             m_numImageLoading--;
             if (m_numImageLoading <= 0)
@@ -57,19 +64,28 @@ var LoadingScreen;
         });
         return true;
     }
+    // gets called as soon as we have map information
+    // Creates the slides, which start the slideshow when all have been found (or not)
     function _InitSlideShow() {
         if (m_slideShowJob)
             return;
+        $.Msg('LoadingScreen.InitSlideShow');
         for (let n = 0; n < MAX_SLIDES; n++) {
             _CreateSlide(n);
+            // Should we stop once we hit the first missing image?
         }
     }
+    // gets called when the last image has succeeded or failed to load
+    // in
     function _StartSlideShow() {
+        $.Msg('LoadingScreen.StartSlideShow');
         const elSlideShow = $.GetContextPanel().FindChildTraverse('LoadingScreenSlideShow');
         const arrSlides = elSlideShow.Children();
         const randomOffset = Math.floor(Math.random() * arrSlides.length);
+        // start with a random slide
         _NextSlide(randomOffset, true);
     }
+    // calls itself repeatedly until interrupted by EndSlideShow
     function _NextSlide(n, bFirst = false) {
         m_slideShowJob = null;
         const elSlideShow = $.GetContextPanel().FindChildTraverse('LoadingScreenSlideShow');
@@ -82,6 +98,7 @@ var LoadingScreen;
         if (m < 0)
             m = arrSlides.length - 1;
         if (arrSlides[n]) {
+            $.Msg('LoadingScreen.NextSlide ' + n + ', (' + arrSlides[n].Data().imagePath + ')');
             if (bFirst)
                 arrSlides[n].SwitchClass('viz', 'show-first');
             else
@@ -94,9 +111,11 @@ var LoadingScreen;
                     slide.SwitchClass('viz', 'hide');
             });
         m_slideShowJob = $.Schedule(SLIDE_DURATION, () => _NextSlide(n + 1));
+        $.Msg('LoadingScreen.m_slideShowJob SET ' + m_slideShowJob);
     }
     function _EndSlideShow() {
         if (m_slideShowJob) {
+            $.Msg('LoadingScreen.m_slideShowJob CLEAR ' + m_slideShowJob);
             $.CancelScheduled(m_slideShowJob);
             m_slideShowJob = null;
         }
@@ -105,12 +124,15 @@ var LoadingScreen;
         _EndSlideShow();
     }
     function _UpdateLoadingScreenInfo(mapName, prettyMapName, prettyGameModeName, gameType, gameMode, descriptionText = '') {
+        $.Msg('LoadingScreen.UpdateLoadingScreenInfo ' + mapName + ' ' + prettyMapName + ' ' + gameMode + ' ' + prettyGameModeName + ' ' + descriptionText);
+        // Resolve cvar values (and keep known good values in case they temporarily set to zero)
         for (let j = 0; j < cvars.length; ++j) {
             const val = GameInterfaceAPI.GetSettingString(cvars[j]);
             if (val !== '0') {
                 cvalues[j] = val;
             }
         }
+        // Do string replacements and dialog variables
         for (let j = 0; j < cvars.length; ++j) {
             const regex = new RegExp('\\${d:' + cvars[j] + '}', 'gi');
             descriptionText = descriptionText.replace(regex, cvalues[j]);
@@ -118,6 +140,7 @@ var LoadingScreen;
         }
         if (mapName) {
             m_mapName = mapName;
+            // ** map icon
             $('#LoadingScreenIcon').visible = true;
             $('#LoadingScreenMapName').RemoveClass("loading-screen-content__info__text-title-long");
             $('#LoadingScreenMapName').AddClass("loading-screen-content__info__text-title-short");
@@ -143,12 +166,15 @@ var LoadingScreen;
             if (descriptionText != "")
                 $('#LoadingScreenModeDesc').SetAlreadyLocalizedText(descriptionText);
             else
-                $('#LoadingScreenModeDesc').SetLocString("");
+                $('#LoadingScreenModeDesc').SetLocString(""); //$.Localize('#gamemode_' + gameMode + '_desc');
         }
         else
             elInfoBlock.AddClass('hidden');
         _InitSlideShow();
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('PopulateLoadingScreen', _UpdateLoadingScreenInfo);
         $.RegisterForUnhandledEvent('UnloadLoadingScreenAndReinit', _Init);

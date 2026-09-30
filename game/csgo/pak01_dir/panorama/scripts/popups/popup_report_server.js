@@ -9,6 +9,7 @@ var PopupReportServer;
     PopupReportServer.Init = Init;
     function Submit() {
         let categories = "";
+        // for each checked toggle button, add to categories
         $.GetContextPanel().FindChildInLayoutFile("id-report").Children().forEach(el => {
             if (el.checked)
                 categories += el.GetAttributeString("data-category", "") + ",";

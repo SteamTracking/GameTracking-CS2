@@ -23,12 +23,16 @@ var SettingsMenuSearch;
     }
     function OnTextEntryChanged() {
         m_ResultsContainer.RemoveAndDeleteChildren();
+        // skip if all whitespace
         let hasText = /.*\S.*/;
         if (!hasText.test(m_SettingsSearchTextEntry.text)) {
             PopulateWithPromotedSettings();
             return;
         }
+        // split based on whitespace but skip anything without word chars
         let arrStrings = m_SettingsSearchTextEntry.text.split(/\s/).filter(s => /^\w+$/.test(s));
+        // This searches everything in the page with is overkill, but alternative is to keep
+        // a list of setting containing IDs to search within which will go stale pretty fast...
         let searchableMenus = [
             'GameSettings',
             'AudioSettings',
@@ -41,6 +45,7 @@ var SettingsMenuSearch;
         let arrMatches = [];
         let elSettingsMenu = $.GetContextPanel().GetParent();
         let curMenuTab = null;
+        // Walk the whole dom looking for strings in the 'text' field
         searchableMenus.forEach(id => {
             curMenuTab = id;
             let elRootPanel = elSettingsMenu.FindChildTraverse(id);
@@ -54,12 +59,16 @@ var SettingsMenuSearch;
             }
             function SearchSettingText(setting) {
                 if (ShouldSearchPanelText(setting)) {
+                    // must contain every string in the search bar to pass
                     let bPass = arrStrings.every(s => {
                         let search = new RegExp(s, "giu");
                         return search.test(setting.text);
                     });
                     if (bPass) {
                         let curSubMenu = '';
+                        // HACK: Video is the only one with settings split into two buckets...
+                        // So far we reorganize settings pretty rarely, but if we churn there more regularly
+                        // this go-to-panel code is pretty fragile and might need to get reworked
                         if (curMenuTab.includes('video')) {
                             curSubMenu = curMenuTab.includes('advanced') ? 'AdvancedVideoSettingsRadio' : 'SimpleVideoSettingsRadio';
                             curMenuTab = 'VideoSettings';
@@ -72,7 +81,12 @@ var SettingsMenuSearch;
                         });
                     }
                 }
+                // Filter out a bunch of text on panel types we dont want to match...
+                // Tradeoff here is search everything and cull down (slower, more future proof)
+                // or curate a list of searchable lables (more work up front, breaks as people add settings and dont pay attention to search)
+                // Going with the former until perf becomres a problem or these rules get too cumbersome.
                 function ShouldSearchPanelText(setting) {
+                    // Must have a text field to search
                     if (!setting.hasOwnProperty('text'))
                         return false;
                     if (setting.paneltype === 'TextEntry')
@@ -87,6 +101,7 @@ var SettingsMenuSearch;
                 }
             }
         });
+        // Make panels from the results
         for (let searchResult of arrMatches) {
             CreateSearchResultPanel(searchResult.text, searchResult.menu, searchResult.submenu, searchResult.panel);
         }
@@ -113,6 +128,7 @@ var SettingsMenuSearch;
             }
         });
     }
+    // On creation
     {
         _Init();
     }

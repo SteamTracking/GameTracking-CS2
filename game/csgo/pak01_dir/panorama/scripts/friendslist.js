@@ -14,10 +14,12 @@ var FriendsList;
     let _m_schfnUpdateAntiAddiction = null;
     let _m_ClosedSectionHeight = Math.floor($.GetContextPanel().FindChildInLayoutFile('id-friendslist-section-recent').desiredlayoutheight / $.GetContextPanel().actualuiscale_x);
     function _Init() {
+        $.Msg('friends list init: ');
         let btnLobbiesTabListFilters = $('#JsFriendsList-lobbies-toolbar-button-' + _m_sLobbiesTabListFiltersString);
         AdvertisingToggle.OnFilterPressed(_m_sLobbiesTabListFiltersString);
-        if (btnLobbiesTabListFilters) {
+        if (btnLobbiesTabListFilters) { // set the correct filter checked by default when we initialize the panel
             btnLobbiesTabListFilters.checked = true;
+            // remove radio buttons for modes that don't support advertising
             let elParent = btnLobbiesTabListFilters.GetParent();
             for (let child of elParent.Children()) {
                 let gameMode = child.GetAttributeString('data-type', '');
@@ -42,14 +44,15 @@ var FriendsList;
         }
         elAAGroup.RemoveClass('hidden');
         let szSeverity = 'Green';
-        if (numSec <= 300)
+        if (numSec <= 300) // last 5 minutes
             szSeverity = 'Red';
-        else if (numSec <= 1800)
+        else if (numSec <= 1800) // last 30 minutes
             szSeverity = 'Yellow';
         let elAAIcon = elAAGroup.FindChildInLayoutFile('AntiAddictionIcon');
         elAAIcon.SetHasClass('anti-addiction-Green', 'Green' === szSeverity);
         elAAIcon.SetHasClass('anti-addiction-Yellow', 'Yellow' === szSeverity);
         elAAIcon.SetHasClass('anti-addiction-Red', 'Red' === szSeverity);
+        // elAAGroup.SetDialogVariable( 'aadesc', $.Localize( '#UI_AntiAddiction_Desc_' + szSeverity ) );
         let strTimeRemainingSentence = (numSec >= 60)
             ? FormatText.SecondsToSignificantTimeString(numSec)
             : $.Localize('#AntiAddiction_Label_TimeRemainingNone');
@@ -74,23 +77,26 @@ var FriendsList;
         let elInviteContainer = elInviteRoot.FindChildInLayoutFile('JsIncomingInviteContainer');
         elInviteContainer.RemoveAndDeleteChildren();
         let numInvites = PartyBrowserAPI.GetInvitesCount();
-        if (numInvites > 0) {
+        if (numInvites > 0) { // We have an incoming invite, set it up here
             let xuid = PartyBrowserAPI.GetInviteXuidByIndex(0);
             _AddTile(elInviteContainer, null, xuid, 0, 'friendlobby', null);
             elInviteRoot.RemoveClass('hidden');
         }
         UpdateHeightOpenSection();
     }
+    // -------------------------------------------------------------------------
+    // Updating / Selecting Panels
+    // -------------------------------------------------------------------------
     function OnSectionPressed(sectionId) {
         if (!sectionId) {
             return;
         }
         if (m_activeSection !== sectionId) {
             m_activeSection = sectionId;
-            if (sectionId === 'id-friendslist-section-recent') {
+            if (sectionId === 'id-friendslist-section-recent') { // only refresh the recent players if user explicitly clicks the section header, don't refresh for all
                 TeammatesAPI.Refresh();
             }
-            if (sectionId === 'id-friendslist-section-broadcast') {
+            if (sectionId === 'id-friendslist-section-broadcast') { // only refresh the looking to play from GC if user explicitly clicks the section header
                 RefreshLobbyListings();
             }
         }
@@ -101,8 +107,10 @@ var FriendsList;
         _UpdateSection('', true);
     }
     function _UpdateSection(sectionId, bUpdateAll) {
+        // Get the height for a closed panel
         if (_m_ClosedSectionHeight === 0 || _m_ClosedSectionHeight === undefined) {
             _m_ClosedSectionHeight = Math.floor($.GetContextPanel().FindChildInLayoutFile('id-friendslist-section-recent').desiredlayoutheight / $.GetContextPanel().actualuiscale_x);
+            $.Msg('_m_ClosedSectionHeight' + _m_ClosedSectionHeight);
         }
         let funcGetXuid;
         if (sectionId === 'id-friendslist-section-friends' || bUpdateAll) {
@@ -128,6 +136,8 @@ var FriendsList;
                 loading_bar_id: 'JsFriendsListRecentsLoadingBar'
             });
         }
+        // if invites is active then refresh it.
+        // Because we only have one event for rebuilding the list and if we are on this tab we may have ignored or accepted a friend request.
         if (sectionId === 'id-friendslist-section-invite' || m_activeSection === 'id-friendslist-section-invite' || bUpdateAll) {
             funcGetXuid = _GetRequestsXuidByIndex;
             _UpdateSectionContent({
@@ -164,6 +174,7 @@ var FriendsList;
         if (oSettings.hasOwnProperty('show_loading_bar_only') && oSettings.show_loading_bar_only) {
             return;
         }
+        // Only up date the tiles and the height of the selected tiles
         if (m_activeSection === oSettings.id) {
             let elNodata = elSection.FindChildInLayoutFile('id-friendslist-nodata');
             let elList = elSection.FindChildInLayoutFile('id-friendslist-section-list-contents');
@@ -209,6 +220,7 @@ var FriendsList;
         elList.SetLoadListItemFunction((parent, nPanelIdx, reusePanel) => {
             let xuid = oSettings.xuid_func(nPanelIdx);
             if (!reusePanel || !reusePanel.IsValid()) {
+                // create panel
                 reusePanel = _AddTile(elList, null, xuid, nPanelIdx, oSettings.xml, oSettings.type);
             }
             else {
@@ -257,14 +269,19 @@ var FriendsList;
     function _AddTransitionEndEventHandler(elTile) {
         $.RegisterEventHandler('PropertyTransitionEnd', elTile, (panel, propertyName) => {
             if (elTile === panel && propertyName === 'opacity') {
+                // Panel is visible and fully transparent
                 if (elTile.visible === true && elTile.BIsTransparent()) {
                     elTile.DeleteAsync(.0);
+                    $.Msg('Removed Friend: ' + FriendsListAPI.GetFriendName(elTile.id));
                     return true;
                 }
             }
             return false;
         });
     }
+    // -------------------------------------------------------------------------
+    // loading bar
+    // -------------------------------------------------------------------------
     function _ShowRecentsLoadingBar() {
         let elBarOuter = $('#JsFriendsListRecentsLoadingBar');
         let elBarInner = $('#JsFriendsListRecentsLoadingBarInner');
@@ -299,6 +316,9 @@ var FriendsList;
         _UpdateSection(m_activeSection, false);
     }
     FriendsList.UpdateHeightOpenSection = UpdateHeightOpenSection;
+    // -------------------------------------------------------------------------
+    // from lobbies list
+    // -------------------------------------------------------------------------
     function SetLobbiesTabListFilters(sFilterString) {
         _m_sLobbiesTabListFiltersString = sFilterString;
         AdvertisingToggle.OnFilterPressed(sFilterString);
@@ -320,6 +340,9 @@ var FriendsList;
         PartyBrowserAPI.Refresh();
     }
     FriendsList.RefreshLobbyListings = RefreshLobbyListings;
+    // -------------------------------------------------------------------------
+    // from Events
+    // -------------------------------------------------------------------------
     function _OnGcHello() {
         _UpdateAllSections();
         UpdateHeightOpenSection();
@@ -340,6 +363,9 @@ var FriendsList;
         UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_add_friend.xml');
     }
     FriendsList.OnAddFriend = OnAddFriend;
+    // -------------------------------------------------------------------------
+    // Getters
+    // -------------------------------------------------------------------------
     function _GetFriendsCount() {
         return FriendsListAPI.GetCount();
     }
@@ -352,6 +378,7 @@ var FriendsList;
             return count;
     }
     function _GetLobbiesCount() {
+        $.Msg('_GetLobbiesCount: ' + PartyBrowserAPI.GetResultsCount());
         let count = PartyBrowserAPI.GetResultsCount();
         if (count)
             return count;
@@ -374,6 +401,9 @@ var FriendsList;
     function _ShowMatchAcceptPopUp(map, location, ping) {
         UiToolkitAPI.ShowGlobalCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_accept_match.xml', 'map_and_isreconnect=' + map + ',false' + ((location && ping) ? '&ping=' + ping + '&location=' + location : ''));
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_GC_Hello', _OnGcHello);

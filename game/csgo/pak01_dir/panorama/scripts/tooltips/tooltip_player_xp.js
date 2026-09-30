@@ -17,6 +17,8 @@ var TooltipPlayerXp;
         $("#JsTooltip_Xp_Current").text = isDueServiceMedal ? "#tooltip_xp_have_max_current" : "#tooltip_xp_current";
         $("#JsTooltip_Xp_Needed").text = isDueServiceMedal ? "#tooltip_xp_have_max_rank" : "#tooltip_xp_for_next_rank";
         if (bonusesArray.length > 0) {
+            // Remove the bonus for drops if you are due a service medal.
+            // We don't give you your next drop till you redeem the medal.
             if (isDueServiceMedal) {
                 for (let i = 0; i < bonusesArray.length; i++) {
                     if (bonusesArray[i] === '2')
@@ -26,12 +28,15 @@ var TooltipPlayerXp;
         }
         let numBonusesAdded = 0;
         if (bonusesArray.length > 0) {
+            // Remove the bonus for drops if you are due a service medal.
+            // We don't give you your next drop till you redeem the medal.
             $('#JsTooltipXpSection').RemoveClass('hidden');
             $("#JsTooltipXpBonuses").RemoveAndDeleteChildren();
             for (let i = 0; i < bonusesArray.length; i++) {
                 if (!bonusesArray[i])
                     continue;
                 ++numBonusesAdded;
+                $.Msg('bonusesArray: ' + i + ': ' + bonusesArray[i]);
                 let newTile = $.CreatePanel("Label", $("#JsTooltipXpBonuses"), 'JsTooltipBonus' + i, { html: true });
                 let secRemaining = StoreAPI.GetSecondsUntilXpRollover();
                 newTile.SetDialogVariable('time-to-week-rollover', (secRemaining > 0) ? FormatText.SecondsToSignificantTimeString(secRemaining) : '');
@@ -51,6 +56,7 @@ var TooltipPlayerXp;
                     }
                 }
             }
+            // xp trail
             let xpTrailTimeRemaining = MyPersonaAPI.GetXpTrailTimeRemaining();
             if (xpTrailTimeRemaining > 0) {
                 ++numBonusesAdded;

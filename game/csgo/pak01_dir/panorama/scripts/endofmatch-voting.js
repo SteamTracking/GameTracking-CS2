@@ -14,18 +14,23 @@ var EOM_Voting;
             return;
         if (GameStateAPI.IsDemoOrHltv())
             return false;
+        // time
         const oTime = MockAdapter.GetTimeDataJSO();
         if (!oTime)
             return false;
         $.RegisterForUnhandledEvent('EndOfMatch_Shutdown', _CancelUpdateJob);
+        // populate vote options
         const oMatchEndVoteData = MockAdapter.NextMatchVotingData(_m_cP);
         $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.submenu_leveloptions_slidein', 'MOUSE');
         if (!oMatchEndVoteData || !oMatchEndVoteData.voting_options)
             return false;
         const elMapSelectionList = _m_cP.FindChildInLayoutFile('id-map-selection-list');
+        // create buttons for the different options
         Object.keys(oMatchEndVoteData.voting_options).forEach((key, index) => {
             const type = oMatchEndVoteData.voting_options[key].type;
+            // separator
             if (type == "separator") {
+                // $$$REI we have 2 separator types, 'blank' and 'switch mode', do you want to do anything different for those?
                 const elVoteItem = $.CreatePanel("Panel", elMapSelectionList, "");
                 elVoteItem.AddClass("vote-item--separator");
             }
@@ -77,10 +82,13 @@ var EOM_Voting;
                 }
                 elVoteItem.FindChildTraverse("MapGroupName").text = text;
                 elVoteItem.Data().m_name = text;
+                // user vote event
                 elVoteItem.SetPanelEvent('onactivate', () => {
                     GameInterfaceAPI.ConsoleCommand("endmatch_votenextmap" + " " + elVoteItem.Data().m_key);
+                    // disable vote buttons
                     elMapSelectionList.FindChildrenWithClassTraverse("map-selection-btn").forEach(btn => btn.enabled = false);
                     $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.submenu_leveloptions_select', 'MOUSE');
+                    $.Msg("VOTED FOR MAP " + elVoteItem.Data().m_key + ":" + elVoteItem.Data().m_name);
                 });
                 _m_elVoteItemPanels[index] = elVoteItem;
             }
@@ -90,6 +98,7 @@ var EOM_Voting;
     }
     function _UpdateVotes() {
         _m_updateJob = undefined;
+        // Count
         if (!_m_cP || !_m_cP.IsValid())
             return;
         const oMatchEndVoteData = MockAdapter.NextMatchVotingData(_m_cP);
@@ -97,13 +106,16 @@ var EOM_Voting;
             return;
         }
         function _GetWinningMaps() {
+            // find the highest tally
             let arrVoteWinnersKeys = [];
             let highestVote = 0;
+            // find the highest vote count
             for (let key of Object.keys(oMatchEndVoteData.voting_options)) {
                 const nVotes = oMatchEndVoteData.voting_options[key].votes;
                 if (nVotes > highestVote)
                     highestVote = nVotes;
             }
+            // identify all of the ties
             for (let key of Object.keys(oMatchEndVoteData.voting_options)) {
                 const nVotes = oMatchEndVoteData.voting_options[key].votes;
                 if ((nVotes === highestVote) &&
@@ -113,10 +125,13 @@ var EOM_Voting;
             return arrVoteWinnersKeys;
         }
         if (oMatchEndVoteData) {
+            // we're done. lock the results
             if (oMatchEndVoteData.voting_done) {
                 const elMapSelectionList = _m_cP.FindChildInLayoutFile('id-map-selection-list');
+                // disable the buttons
                 elMapSelectionList.FindChildrenWithClassTraverse("map-selection-btn").forEach(btn => btn.enabled = false);
                 const winner = oMatchEndVoteData["voting_winner"];
+                $.Msg("winning map index " + winner);
                 if (winner !== -1) {
                     let winningKey = '';
                     for (let key of Object.keys(_m_elVoteItemPanels)) {
@@ -124,6 +139,7 @@ var EOM_Voting;
                             winningKey = key;
                     }
                     if (winningKey != '' && _m_elVoteItemPanels[winningKey]) {
+                        // add the checkmark panel
                         const elCheckmark = _m_elVoteItemPanels[winningKey].FindChildTraverse('id-map-selection-btn__winner');
                         if (!elCheckmark.BHasClass('appear')) {
                             elCheckmark.AddClass("appear");
@@ -135,15 +151,22 @@ var EOM_Voting;
                     const arrWinners = _GetWinningMaps();
                     if (arrWinners.length == 0)
                         return;
+                    // it should not be possible that  1 map has the most votes _and_ we have no voting_winner
                     if (arrWinners.length == 1) {
+                        $.Msg("voting: no winner but one map has more votes than the others?\n");
+                        $.Msg(JSON.stringify(oMatchEndVoteData));
                         return;
                     }
+                    // random shuffle
+                    // pick a random value but avoid picking the previous result.
                     let randIdx = 0;
                     if (arrWinners.length > 2) {
                         randIdx = Math.floor(Math.random() * arrWinners.length);
                     }
+                    // if we have selected the same value, pick the next one
                     if (randIdx == m_randIdx) {
                         m_randIdx++;
+                        // wrap around index
                         if (m_randIdx >= arrWinners.length) {
                             m_randIdx = 0;
                         }
@@ -167,6 +190,7 @@ var EOM_Voting;
                 for (let key of Object.keys(_m_elVoteItemPanels)) {
                     const elVoteItem = _m_elVoteItemPanels[key];
                     const oVoteOptions = oMatchEndVoteData.voting_options[_m_elVoteItemPanels[key].Data().m_key];
+                    // display the Count
                     const elVoteCountLabel = elVoteItem.FindChildTraverse("id-map-selection-btn__count");
                     const votes = oVoteOptions.votes;
                     const votesNeeded = oMatchEndVoteData["votes_to_succeed"];
@@ -204,6 +228,9 @@ var EOM_Voting;
     }
     function Shutdown() {
     }
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         EndOfMatch.RegisterPanelObject({
             name: 'eom-voting',

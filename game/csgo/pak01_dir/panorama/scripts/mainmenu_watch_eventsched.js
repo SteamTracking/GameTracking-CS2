@@ -6,8 +6,8 @@ var mainmenu_watch_eventsched = ( function()
 
 	var _m_cP = $.GetContextPanel();
 	var _m_ElEventLister = $( "#id-eventsched-master" );
-	var _m_arrEvents = undefined;                         
-	var _m_arrFavorites = undefined;                                             
+	var _m_arrEvents = undefined; // store eventsched here
+	var _m_arrFavorites = undefined; // store received favorites here. READ ONLY.
 	var _m_prevSchedeventsString = "";
 	var _m_IsPrime = false;
 	var _m_isPerfectWorld = MyPersonaAPI.GetLauncherType() === "perfectworld";
@@ -19,15 +19,15 @@ var mainmenu_watch_eventsched = ( function()
 		if ( _m_isPerfectWorld )
 			return;
 		
-		                                                                      
+		// These events are always listening, even if the panel is not drawing
 		$.RegisterForUnhandledEvent( 'Tournaments_EventsReceived', _EventsReceived );
 		$.RegisterForUnhandledEvent( 'Tournaments_FavoritesReceived', _FavoritesReceived );
 		$.RegisterForUnhandledEvent( 'Tournaments_RequestMatch', _RequestMatchString );
 		_m_InventoryUpdatedHandle = $.RegisterForUnhandledEvent( 'PanoramaComponent_MyPersona_InventoryUpdated', _PopulateLister );
 
-		                            
+		// Register for ready events
 		_m_cP.RegisterForReadyEvents( true );
-		                                                                             
+		// Only listen for inventory change when the panel is drawn to avoid perf hit
 		$.RegisterEventHandler( 'ReadyForDisplay', _m_cP, function()
 		{
 			if ( !_m_InventoryUpdatedHandle )
@@ -49,8 +49,8 @@ var mainmenu_watch_eventsched = ( function()
 		TournamentsAPI.RequestTournaments();
 	};
 
-	                               
-	  
+	// CUSTOM LAYOUT TOOLTIP EVENTS
+	//
 	function _OnMouseOverCustomLayoutTooltip ( _panel, _tooltipId, _xmlsrc, _parms )
 	{
 		UiToolkitAPI.ShowCustomLayoutParametersTooltip(
@@ -70,8 +70,8 @@ var mainmenu_watch_eventsched = ( function()
 		UiToolkitAPI.HideCustomLayoutTooltip( _tooltipId );
 	}
 
-	                              
-	  
+	// MINIMAL TEXT TOOLTIP EVENTS
+	//
 	function _OnMouseOverTextTooltip ( _panel, _text )
 	{
 		UiToolkitAPI.ShowTextTooltip(
@@ -107,21 +107,21 @@ var mainmenu_watch_eventsched = ( function()
 		return a[ 'start_date_time' ][ 'seconds' ] - b[ 'start_date_time' ][ 'seconds' ];
 	}
 
-	  
-	                                   
-	 
-		                                                                                           
+	/*
+	function _ToggleShowOnlineEvents ()
+	{
+		_m_ElEventLister.SetHasClass( 'eventsched_show_online_events', _ShouldShowOnlineEvents() );
 
-		                                 
-			                       
-	 
+		if ( !_ShouldShowOnlineEvents() )
+			_ClearAllEmptyMonths();
+	}
 
-	                                   
-	 
-		                                                                        
-		              
-	 
-	  
+	function _ShouldShowOnlineEvents ()
+	{
+		var result = $( '#id-eventsched-controls__show-online-events' ).checked;
+		return result;
+	}
+	*/
 
 	function _EventsReceived ( eventsAsString )
 	{
@@ -148,23 +148,23 @@ var mainmenu_watch_eventsched = ( function()
 
 		_AddToFavoriteCountAndDisplay( element, stateToSet ? +1 : -1 );
 
-		                                                                       
+		// make sure the month container is visible if there's a favorite in it
 		if ( stateToSet )
 		{
 			element.m_elMonthContainer.AddClass( 'eventsched-month-show' );
 		}
 		else
 		{
-			                                                                            
+			// if we turn off the last visible event, turn off the whole month container
 			_ClearEmptyMonth( element.m_elMonthContainer );
 		}
 	}
 
 	function _ClearEmptyMonth ( elMonth )
 	{
-		  
-		                                 
-		  
+		/*
+		if ( !_ShouldShowOnlineEvents() )
+		*/
 		{
 			var bAnyVisible = false;
 
@@ -233,11 +233,11 @@ var mainmenu_watch_eventsched = ( function()
 			}
 
 			var monthPaddedNumber = ( '0' + ( startDate.getMonth() + 1 ) ).slice( -2 );
-			return $.Localize( '#MonthName' + monthPaddedNumber + '_long' );                      
+			return $.Localize( '#MonthName' + monthPaddedNumber + '_long' ); // "MonthName01_Long"
 		}
 	}
 
-	                          
+	// ingest the inbound data
 	function _IngestEvents ( eventsAsString )
 	{
 		if ( eventsAsString != undefined && eventsAsString != "" )
@@ -279,7 +279,7 @@ var mainmenu_watch_eventsched = ( function()
 	}
 
 
-	                   
+	// present the data
 	function _PopulateLister ()
 	{
 		if ( !_m_cP || !_m_cP.IsValid() )
@@ -326,10 +326,10 @@ var mainmenu_watch_eventsched = ( function()
 			}
 			else
 			{
-				                                
+				// skip eventsched that are over
 				if ( endTimeUTCSeconds > -1 && curDateUTCSeconds > endTimeUTCSeconds )
 				{
-					                          
+					// we're past the end date
 					continue;
 				}
 				else if ( startTimeUTCSeconds > -1 &&
@@ -337,12 +337,12 @@ var mainmenu_watch_eventsched = ( function()
 					curDateUTCSeconds > startTimeUTCSeconds &&
 					curDateUTCSeconds < endTimeUTCSeconds )
 				{
-					                                       
+					// we're between the start and end date
 					isOngoing = true;
 				}
 				else if ( endTimeUTCSeconds == -1 && curDateUTCSeconds > startTimeUTCSeconds )
 				{
-					                                                     
+					// there is no end date and we're past the start date
 					continue;
 				}
 			}
@@ -371,7 +371,7 @@ var mainmenu_watch_eventsched = ( function()
 			}
 			else
 			{
-				                
+				// Group by Year
 				const ID_YEAR_PREFIX = 'eventsched__year__';
 				var idYear = ID_YEAR_PREFIX + startDate.getFullYear();
 
@@ -385,7 +385,7 @@ var mainmenu_watch_eventsched = ( function()
 					{
 						elYearHeader.text = startDate.getFullYear();
 
-						                           
+						// hide current year header
 						if ( new Date().getFullYear() == startDate.getFullYear() )
 						{
 							elYearHeader.visible = false;
@@ -393,7 +393,7 @@ var mainmenu_watch_eventsched = ( function()
 					}
 				}				
 
-				                      
+				// then group by MONTH
 				const ID_MONTH_PREFIX = 'eventsched__month__';
 				var idMonth = ID_MONTH_PREFIX + ( startDate.getMonth() + 1 );
 
@@ -406,29 +406,29 @@ var mainmenu_watch_eventsched = ( function()
 					if ( elMonthHeader )
 					{
 						var monthPaddedNumber = ( '0' + ( startDate.getMonth() + 1 ) ).slice( -2 );
-						elMonthHeader.text = $.Localize( '#MonthName' + monthPaddedNumber + '_long' );                      
+						elMonthHeader.text = $.Localize( '#MonthName' + monthPaddedNumber + '_long' ); // "MonthName01_Long"
 					}
 
 					isOddEvent = true;
 				}
 			}
 
-			                 
-			  
+			// Create the row
+			//
 			var elEvent = $.CreatePanel( 'Panel', elMonthContainer, oEvent[ 'event_id' ] );
 			elEvent.BLoadLayoutSnippet( 'snippet_eventsched__capsule' );
 			elEvent.SetHasClass( "eventsched__capsule--odd", isOddEvent );
 			elEvent.SetHasClass( "eventsched__capsule--ongoing", isOngoing );
 			elEvent.m_elMonthContainer = elMonthContainer;
 
-			                 
+			// store event id
 			elEvent.m_event_id = oEvent[ 'event_id' ];
 
-			             
+			// FAVE COUNT
 			elEvent.m_favoriteCount = ( 'favorites' in oEvent ) ? Number( oEvent[ 'favorites' ] ) : 0;
-			_AddToFavoriteCountAndDisplay( elEvent, 0 );                                  
+			_AddToFavoriteCountAndDisplay( elEvent, 0 ); // just force it update the count
 
-			           
+			// FEATURED
 
 			
 			if ( oEvent[ 'is_official'] )
@@ -453,7 +453,7 @@ var mainmenu_watch_eventsched = ( function()
 				elEventBtn.SetPanelEvent( 'onmouseout', _OnMouseOutTextTooltip );
 			}
 
-			       
+			// LOGO
 
 			var elLogo = elEvent.FindChildTraverse( "id-eventsched__logo" );
 
@@ -466,37 +466,37 @@ var mainmenu_watch_eventsched = ( function()
 				elLogo.SetImage( "file://{images}/icons/ui/pro_event.svg" );
 			}
 
-			       
+			// NAME
 			elEvent.SetDialogVariable( 'eventsched_name', oEvent[ 'name' ] );
 
 
-			           
+			// LOCATION
 			if ( 'flag_url' in oEvent )
 			{
 				CommonUtil.SetRegionOnLabel( oEvent[ 'country_iso' ], elEvent, false );
-				                                                                   
+				// var elFlag = elEvent.FindChildTraverse( "id-eventsched__flag" );
 
-				                                           
-				  			                                                                       
+				// elFlag.SetImage( oEvent[ 'flag_url' ] );
+				//			elEvent.SetDialogVariable( 'eventsched_location', oEvent['location'] );
 
-				                                                                                                                           
+				//_Helper_WrapPanelInATooltip( elFlag, oEvent[ 'country_iso' ], $.Localize( '#SFUI_Country_' + oEvent[ 'country_iso' ] ) );
 
-				                                                                                                                                      
+				// Note: we use $.LocalizeSafe because the token is concatenated from external sources and may not exist in our localization resources
 				var cc = $.Localize( '#SFUI_Country_' + oEvent[ 'country_iso' ]);
 
-				                                     
-				          
-				          
-				 
-					                                   
-					                                                
-				 
-				          
+				// in trunk we want to see the string
+				//DEVONLY{
+				if ( !cc )
+				{
+					elEvent.style.washColor = "yellow";
+					cc = '#SFUI_Country_' + oEvent[ 'country_iso' ];
+				}
+				//}DEVONLY
 
 				elEvent.SetDialogVariable( 'eventsched_country', cc );
 			}
 
-			       
+			// DATE
 
 			var elStartDateLabel = elEvent.FindChildTraverse( 'id-eventsched__dates__start' );
 			var elEndDateLabel = elEvent.FindChildTraverse( 'id-eventsched__dates__end' );
@@ -528,7 +528,7 @@ var mainmenu_watch_eventsched = ( function()
 				endDatePaddedDayNumber = ( '0' + ( endDate.getDate() ) ).slice( -2 );
 				endDayString = $.Localize( '#SFUI_Date_Format_DayOfMonth' + endDatePaddedDayNumber );
 
-				                
+				// one day event
 				if ( endDayString == startDayString )
 				{
 					elEndDateLabel.visible = false;
@@ -541,18 +541,18 @@ var mainmenu_watch_eventsched = ( function()
 			}
 			else
 			{
-				                    
+				// open ended events
 				elEndDateLabel.visible = false;
 			}
 
-			                          
+			// long form for debugging
 
-			                                                                     
-			                                                                                      
-			                                                                                  
+			// var elDates = elEvent.FindChildTraverse( 'id-eventsched__dates' );
+			// elDates.SetDialogVariableTime( 'eventsched_date_start', startDate.getTime()/1000 );
+			// elDates.SetDialogVariableTime( 'eventsched_date_end', endDate.getTime()/1000 );
 
 
-			        
+			// TEAMS
 
 			var arrTeams = oEvent[ 'teams' ];
 
@@ -572,7 +572,7 @@ var mainmenu_watch_eventsched = ( function()
 					
 					var nRow = Math.floor( idx / TEAMS_PER_ROW );
 
-					                                         
+					// find the row, or create one if needed.
 					var elTeamSubContainer = elEvent.FindChildTraverse( 'id-eventsched__teams__' + nRow );
 					if ( !elTeamSubContainer || !elTeamSubContainer.IsValid() )
 					{
@@ -582,9 +582,9 @@ var mainmenu_watch_eventsched = ( function()
 
 					var oTeam = arrTeams[ idx ];
 
-	  				                                                
+	//				$.Msg( oEvent[ 'name' ], " ", oTeam[ 'name' ] );
 
-					                                  
+					// create the button with the link
 					var elTeamButton = $.CreatePanel( "Button", elTeamSubContainer, 'button-' + oEvent[ 'event_id' ] + "_" + oTeam[ 'name' ] );
 					elTeamButton.AddClass( 'eventsched__teams__team__button' );
 
@@ -594,11 +594,11 @@ var mainmenu_watch_eventsched = ( function()
 
 					elTeamLogo.SetImage( oTeam[ 'logo_url' ] );
 					elTeamLogo.AddClass( 'eventsched__teams__teamlogo' );
-					  	                                    
+					//	elTeamLogo.AddClass( 'img-shadow' );
 
-					               
-					  
-					  
+					// Team Tooltip
+					//
+					//
 
 					var parms = "team_id=" + oTeam[ 'name' ] +
 						"&team_name=" + oTeam[ 'name' ] +
@@ -650,15 +650,15 @@ var mainmenu_watch_eventsched = ( function()
 							elTeamButton.AddClass( 'has_data' );
 						}
 
-                                                                                  
+            // this used to be an 'else' but we want a roster tooltip regardless. 
 						{
-							                                    
-							    
-							   	                                                          
-							   	                                                                                
-							    
+							// var onActivate = function ( url )
+							// {
+							// 	SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser( url ); 
+							// 	$.DispatchEvent( 'CSGOPlaySoundEffect', 'UIPanorama.sidemenu_select', 'MOUSE' );
+							// }
 
-							                                                                    
+							// onTeamActivate_f = onActivate.bind( undefined, oTeam[ 'link' ] );
 
 							function OnSimpleContextMenu ( url )
 							{
@@ -696,13 +696,13 @@ var mainmenu_watch_eventsched = ( function()
 						onTeamHoverOn_f = textTooltipOn.bind( undefined, elTeamButton.id, oTeam[ 'name' ] );
 						onTeamHoverOff_f = function() {UiToolkitAPI.HideTextTooltip()};
 
-						                                    
-						    
-						   	                                                          
-						   	                                                                                
-						    
+						// var onActivate = function ( url )
+						// {
+						// 	SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser( url ); 
+						// 	$.DispatchEvent( 'CSGOPlaySoundEffect', 'UIPanorama.sidemenu_select', 'MOUSE' );
+						// }
 
-						                                                                    
+						// onTeamActivate_f = onActivate.bind( undefined, oTeam[ 'link' ] );
 
 						function OnSimpleContextMenu ( url )
 						{
@@ -735,7 +735,7 @@ var mainmenu_watch_eventsched = ( function()
 				}
 			}
 
-			                                       
+			// create empty spots for unknown teams
 			if ( 'number_of_teams' in oEvent )
 			{
 				var numOfTeams = Number( oEvent[ 'number_of_teams' ] );
@@ -763,30 +763,30 @@ var mainmenu_watch_eventsched = ( function()
 			}
 
 			elMonthContainer.AddClass( "eventsched-month-show" );
-			  
-			                                   
-			                                 
-			 
-				                                                                     
-				                                                                           
+			/*
+			// MATCH LOCATION ( Online or LAN )
+			if ( 'match_location' in oEvent )
+			{
+				var elLANTTP = elEvent.FindChildTraverse( "id-eventsched__lan-ttp" );
+				var elOnlineTTP = elEvent.FindChildTraverse( "id-eventsched__online-ttp" );
 
-				                                                                                     
-				                                                                                           
+				elLANTTP.SetHasClass( "hidden", oEvent[ 'match_location' ].toUpperCase() !== 'LAN' );
+				elOnlineTTP.SetHasClass( "hidden", oEvent[ 'match_location' ].toUpperCase() !== 'ONLINE' );
 
-				                                                 
-				 
-					           
-						                                                     
-						      
+				switch ( oEvent['match_location'].toUpperCase() )
+				{
+					case 'LAN':
+						elMonthContainer.AddClass( "eventsched-month-show" );
+						break;
 					
-					              
-						                                                  
-						      
-				 
-			 
-			  
+					case 'ONLINE':
+						elEvent.AddClass( "eventsched__capsule--online" );
+						break;
+				}
+			}
+			*/
 
-			      
+			// URL
 			if ( 'event_page_url' in oEvent )
 			{
 
@@ -810,7 +810,7 @@ var mainmenu_watch_eventsched = ( function()
 				elLinkBtn.SetPanelEvent( 'onactivate', OnSimpleContextMenu.bind( undefined, url ) );
 			}
 
-			                  
+			// FAVORITE BUTTON
 			var elFavoriteBtn = elEvent.FindChildTraverse( 'id-capsule__main__favorite' );
 			if ( elFavoriteBtn && elFavoriteBtn.IsValid() )
 			{
@@ -850,7 +850,7 @@ var mainmenu_watch_eventsched = ( function()
 				}
 			}
 
-			          	
+			// Matches	
 			if ( 'live_matches' in oEvent && oEvent[ 'live_matches' ].length > 0 )
 			{
 				var elMatchContainer = elEvent.FindChildTraverse( 'id-eventsched__capsule-container__matches' );
@@ -886,8 +886,8 @@ var mainmenu_watch_eventsched = ( function()
 						return undefined;
 					}
 
-					                                    
-					                                                                       
+					// FIX ME WHEN YOU NEED THIS TO WORK
+					//watchMatchTile.Init( elMatch, oMatch, _GetTeam( 1 ), _GetTeam( 2 ) );
 				}
 			}
 			else if ( isOngoing )
@@ -910,9 +910,9 @@ var mainmenu_watch_eventsched = ( function()
 		Init: _Init,
 		Refresh: _EventsReceived,
 
-		  
-		                                                
-		  
+		/*
+		ToggleShowOnlineEvents: _ToggleShowOnlineEvents,
+		*/
 	};
 
 } )();

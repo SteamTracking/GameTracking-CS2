@@ -39,6 +39,7 @@ var SegmentedProgressBar;
             elPip.style.height = PROGRESS_PIP_WIDTH + 'px';
             this.elPip = elPip;
             goalLabel.SetDialogVariableInt('goal-checkpoint', this.max);
+            $.Msg('[p.progressbar] ' + $.GetContextPanel().id + ': ' + name + ' ' + min + ' ' + max + ' ' + totalMax + ' ' + totalWidth);
         }
         setValue(value) {
             this.elProg.value = value;

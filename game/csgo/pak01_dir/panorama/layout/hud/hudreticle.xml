@@ -63,9 +63,6 @@
 		</snippet>
 	</snippets>
 	<CSGOHudReticle class="reticle" hittest="false">
-		<Image id="FriendCrosshair" class="crosshair__friend" src="s2r://panorama/images/hud/reticle/reticlefriend.vsvg" />
-		<CSGOCrosshair id="Crosshair" hittest="false" />
-		<Image id="CrosshairObserver" class="crosshair__observer" src="s2r://panorama/images/hud/reticle/reticleobserver.vsvg" textureheight="25" />
 		<Label id="TargetID" class="targetid" html="true" />
 		<Panel id="VisiblePlayerIDs" clampfractionalpixelpositions="true" hittest="false" />
 		<Panel id="UnusedPlayerIDs" />

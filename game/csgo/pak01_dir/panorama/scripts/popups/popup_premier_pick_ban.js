@@ -10,6 +10,8 @@
 var PremierPickBan;
 (function (PremierPickBan) {
     let _m_nPhase = 0;
+    // Handles for the global unhandled-event registrations so we register them at most once
+    // and can unregister them when this popup is torn down (see _OnUnreadyForDisplay).
     let _m_draftUpdateHandler = null;
     let _m_playerActivityVoiceHandler = null;
     const k_EMapVetoPickPhase_BeginDraftType1 = 0;
@@ -62,11 +64,12 @@ var PremierPickBan;
         let mapIdsList = MatchDraftAPI.GetPregameMapIdsList().split(',');
         let mapName2Id = new Map();
         mapIdsList.forEach(x => mapName2Id.set(DeepStatsAPI.MapIDToString(parseInt(x)), x));
-        let mapNames = Object.keys(FriendsListAPI.GetFriendCompetitivePremierWindowStatsObject("0"));
+        let mapNames = Object.keys(FriendsListAPI.GetFriendCompetitivePremierWindowStatsObject("0")); // string[] = [ "de_cache", "de_anubis", ... ]
         let mapIds = [];
         mapNames.forEach(x => mapIds.push(mapName2Id.get(x)));
         if (mapIds.filter(x => !x).length > 0) {
-            mapIds = mapIdsList;
+            $.Msg("WARNING: falling back to server map list, failed to resolve Premier maps client-side");
+            mapIds = mapIdsList; // fall back to server-supplied list if we failed to resolve all premier maps client-side to IDs
         }
         _m_elPickBanPanel.SwitchClass('pick-ban-phase', 'premier-pickban-phase-' + _m_nPhase);
         let btnMapSettings = {
@@ -126,7 +129,8 @@ var PremierPickBan;
         }
     }
     function IsBanPhase() {
-        return false;
+        return false; // post-2026 : we always "pick maps", and "pick side"
+        // return _m_nPhase > 1 && _m_nPhase < 5;
     }
     function UpdateActivePhaseTimerAndBar() {
         let nPlaySound = 0;
@@ -200,7 +204,7 @@ var PremierPickBan;
         if (aVoteIds.length > 1) {
             const nYourTeam = MatchDraftAPI.GetPregameMyTeam();
             const sYourTeamPick = 'veto' + nYourTeam;
-            let rndStyles = [1, 2, 3];
+            let rndStyles = [1, 2, 3]; // shuffled animation sequence for the tiles (index 0 is pre-reserved for the "winner")
             for (let i = rndStyles.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [rndStyles[i], rndStyles[j]] = [rndStyles[j], rndStyles[i]];
@@ -209,11 +213,15 @@ var PremierPickBan;
                 const elMapBtnParent = _m_elPickBanPanel.FindChildInLayoutFile(btnId + i);
                 const elMapBtn = elMapBtnParent.FindChild('id-pickban-btn');
                 if (!elMapBtn.Data().voteId) {
+                    //
+                    // This is one-time configuration for each of the buttons
+                    //
                     let imageName = '';
                     let imagePath = '';
                     let backgroundColor = 'none;';
                     elMapBtn.SetDialogVariable('btm-line', '');
-                    if (btnSettings.isTeam) {
+                    if (btnSettings.isTeam) // team pick
+                     {
                         let team = aVoteIds[i] === '3' ? "ct" : "t";
                         let charId = LoadoutAPI.GetItemID(team, 'customplayer');
                         imageName = InventoryAPI.GetItemInventoryImage(charId);
@@ -231,7 +239,7 @@ var PremierPickBan;
                         elMapBtn.Data().isTeamBtn = false;
                         let elReflection = _m_elPickBanPanel.FindChildInLayoutFile(btnId + 'ref-' + i);
                         elReflection.SetImageFromPanel(elMapBtnParent, false);
-                        elMapBtn.AddClass('premier-pickban-canblur');
+                        elMapBtn.AddClass('premier-pickban-canblur'); // maps can blur, but T/CT buttons don't blur
                     }
                     let elBtnMapImage = elMapBtn.FindChildInLayoutFile('id-pickban-map-btn-bg');
                     elBtnMapImage.style.backgroundImage = imagePath;
@@ -241,21 +249,27 @@ var PremierPickBan;
                     elMapBtn.Data().voteId = aVoteIds[i];
                     elMapBtn.SetPanelEvent('onactivate', () => onActivateCastVote(elMapBtn));
                 }
+                // New phase so no icon for voting should be set
                 if (bNewPhase) {
                     elMapBtn.SetHasClass('is-ban-phase', false);
                     elMapBtn.SetHasClass('is-vote-phase', false);
+                    // Always uncheck the button before new phase begins to avoid inconsistent checkbox state
                     elMapBtn.checked = false;
+                    // Unset veto/pick styles and only set correct ones from the MatchDraftAPI
                     elMapBtn.SetHasClass('premier-pickban-veto', false);
                     elMapBtn.SetHasClass('premier-pickban-pick', false);
+                    // see: MatchDraftAPI.GetPregameMapIdState call below that sets the correct class
                 }
                 let isMyTurn = MatchDraftAPI.GetPregameTeamToActNow() === MatchDraftAPI.GetPregameMyTeam();
-                if (btnSettings.isTeam) {
+                if (btnSettings.isTeam) // team pick
+                 {
                     elMapBtn.enabled = isMyTurn;
                     if (_m_nPhase === k_EMapVetoPickPhase_EndDraftType1) {
                         elMapBtn.SetHasClass('premier-pickban-pick', parseInt(aVoteIds[i]) === GetStartingTeam());
                     }
                 }
-                else {
+                else // map pick
+                 {
                     let mapState = MatchDraftAPI.GetPregameMapIdState(parseInt(elMapBtn.Data().voteId));
                     if (_m_nPhase >= k_EMapVetoPickPhase_PickStartingSide) {
                         if (mapState !== 'pick')
@@ -263,6 +277,7 @@ var PremierPickBan;
                     }
                     else {
                         if (mapState.startsWith('veto')) {
+                            // We set the dialog variable once we know it's your pick or their pick, and we let it persist all the way till the end of the draft
                             elMapBtn.SetDialogVariable('btm-line', $.Localize((mapState === sYourTeamPick) ? '#matchdraft_pick_your' : '#matchdraft_pick_their'));
                             if ((_m_nPhase >= k_EMapVetoPickPhase_SelectingMap)
                                 && ("pick" === MatchDraftAPI.GetPregameMapIdState(-parseInt(elMapBtn.Data().voteId)))) {
@@ -272,7 +287,7 @@ var PremierPickBan;
                                 const nAnimSequence = (rndStyles.length > 0) ? rndStyles.pop() : 0;
                                 elMapBtn.SwitchClass('premier-pickban-pick-seq', 'premier-pickban-pick-seq' + nAnimSequence);
                             }
-                            mapState = 'pick';
+                            mapState = 'pick'; // post-2026 all map selections are "pick"
                         }
                     }
                     elMapBtn.SetHasClass('premier-pickban-' + mapState, mapState !== '');
@@ -297,37 +312,48 @@ var PremierPickBan;
     function onActivateCastVote(elMapBtn) {
         let aCurrentVotes = GetCurrentVotes();
         let matchingVoteSlot = aCurrentVotes.indexOf(parseInt(elMapBtn.Data().voteId));
+        // You are trying to unselect an already selected btn and you already selected.
         if (matchingVoteSlot !== -1) {
+            $.Msg("Vote Remove, Phase: " + _m_nPhase + " slot: " + matchingVoteSlot + "voteid" + 0);
             MatchDraftAPI.ActionPregameCastMyVote(_m_nPhase, matchingVoteSlot, 0);
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.Premier.MapDeselect', 'MOUSE');
             return;
         }
-        if (elMapBtn.Data().isTeamBtn) {
+        // If you are on phase that only has 2 options. Unselect the selected option and set pressed one.
+        if (elMapBtn.Data().isTeamBtn) // team vote
+         {
             for (let i = 0; i < 2; i++) {
                 let elBtn = _m_elPickBanPanel.FindChildInLayoutFile('id-team-vote-btn-' + i).FindChild('id-pickban-btn');
                 elBtn.checked = false;
                 elBtn.SetHasClass('is-vote-phase', false);
             }
             MatchDraftAPI.ActionPregameCastMyVote(_m_nPhase, 0, parseInt(elMapBtn.Data().voteId));
+            $.Msg("Vote Add, Phase: " + _m_nPhase + " slot: 0" + "voteid" + elMapBtn.Data().voteId);
             elMapBtn.checked = true;
             elMapBtn.SetHasClass('is-vote-phase', true);
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.Premier.TeamSelect', 'MOUSE');
             return;
         }
+        // Let you vote if you are allowed.
         let freeSlot = GetFirstFreeVoteSlot(aCurrentVotes);
-        if (freeSlot !== null) {
+        if (freeSlot !== null) // all map veto btns
+         {
+            $.Msg("Vote Add, Phase: " + _m_nPhase + " slot: " + freeSlot + "voteid" + elMapBtn.Data().voteId);
             MatchDraftAPI.ActionPregameCastMyVote(_m_nPhase, freeSlot, parseInt(elMapBtn.Data().voteId));
             elMapBtn.SetHasClass('is-ban-phase', IsBanPhase());
             elMapBtn.SetHasClass('is-vote-phase', !IsBanPhase());
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.Premier.MapSelect', 'MOUSE');
         }
         else {
+            // Show already selected btns
             elMapBtn.checked = false;
             let aBtns = _m_elPickBanPanel.FindChildInLayoutFile('id-team-vote-btns-container').Children();
             for (let btn of aBtns) {
                 if (btn.id.indexOf('ref') === -1) {
+                    $.Msg("Vote, btn.IsSelected() : " + btn.IsSelected());
                     let childBtn = btn.FindChild('id-pickban-btn');
                     if (childBtn.IsSelected() && childBtn.enabled) {
+                        $.Msg("Vote, PLAYANIM: ");
                         btn.TriggerClass('map-draft-phase-button--pulse');
                     }
                 }
@@ -368,6 +394,7 @@ var PremierPickBan;
         return 0;
     }
     function UpdateWinningVote(elButton, voteId, isMyTurn) {
+        // Is this tile winning the vote? It must be our turn and maps stages should not be confused with team stages (they can share numeric IDs)
         let bTileWinningThisVote = false;
         if (isMyTurn && ((elButton.Data().isTeamBtn && _m_nPhase == k_EMapVetoPickPhase_PickStartingSide)
             ||
@@ -375,7 +402,7 @@ var PremierPickBan;
             bTileWinningThisVote = !!MatchDraftAPI.GetPregameXuidsForVote(parseInt(voteId));
         }
         if (bTileWinningThisVote) {
-            let statusText = elButton.Data().isTeamBtn ? $.Localize('#matchdraft_vote_status_pick') : $.Localize('#matchdraft_vote_status_pick');
+            let statusText = elButton.Data().isTeamBtn ? $.Localize('#matchdraft_vote_status_pick') : $.Localize('#matchdraft_vote_status_pick'); // '#matchdraft_vote_status_ban'
             elButton.SetDialogVariable('status', statusText);
             let aVoteIds = MatchDraftAPI.GetPregameWinningVotes().split(',');
             elButton.SetHasClass('premier-pickban__map-btn__show-status', aVoteIds.indexOf(voteId) !== -1);
@@ -393,9 +420,11 @@ var PremierPickBan;
     function GetStartingTeam() {
         let nYourTeam = MatchDraftAPI.GetPregameMyTeam();
         let nOtherTeam = nYourTeam === 2 ? 3 : 2;
+        // If terrorist-team picked to start CT then we switch sides
         let nStartingTeam = nYourTeam;
         if (2 === MatchDraftAPI.GetPregameTeamStartingCT())
             nStartingTeam = nOtherTeam;
+        $.Msg("nStartingTeam " + nStartingTeam);
         return nStartingTeam;
     }
     function UpdateBtnAvatars(elBtn, voteId, isMyTurn) {
@@ -444,6 +473,7 @@ var PremierPickBan;
         RatingEmblem.SetXuid(options);
     }
     function MakeOpponentAvatar(elTeammates, indexOpponent) {
+        // Since these images start with 00 we add a 0 to images under 10
         let imgIndex = (indexOpponent < 9) ? ('0' + (indexOpponent + 1).toString()) : (indexOpponent + 1);
         let elAvatar = $.CreatePanel('Panel', elTeammates, indexOpponent.toString());
         elAvatar.BLoadLayoutSnippet('small-avatar-opponent');
@@ -518,6 +548,7 @@ var PremierPickBan;
         let maxWinsInASingleMap = (Math.max(...rankWindowShape_T, ...rankWindowShape_CT, 3));
         const spiderGraph = _m_elPickBanPanel.FindChildInLayoutFile('id-team-vote-spider-graph');
         DrawBackground(spiderGraph, maxWinsInASingleMap);
+        //Draw the other team last.
         if (MatchDraftAPI.GetPregameMyTeam() === TEAM_CT) {
             DrawTeamPlot(spiderGraph, rankWindowShape_CT, true, maxWinsInASingleMap);
             DrawTeamPlot(spiderGraph, rankWindowShape_T, false, maxWinsInASingleMap);
@@ -606,6 +637,8 @@ var PremierPickBan;
                         idx: i,
                         isClient: aTestids[i] === clientXuid
                     };
+                    $.Msg('MatchDraftAPI.GetPregamePlayerXuid(): ' + aTestids[i]);
+                    $.Msg('MatchDraftAPI.GetPregamePlayerParty(): ' + aTestGroups[i]);
                     aPlayers.push(player);
                 }
             }
@@ -625,6 +658,7 @@ var PremierPickBan;
             return;
         }
         let indexClient = aPlayers.findIndex(object => object.isClient);
+        $.Msg('MatchDraftAPI.indexClient: ' + indexClient);
         for (let i = 0; i < aPlayers.length; i++) {
             AddPlayerToGroup(aPlayers[i], indexClient);
         }
@@ -632,6 +666,7 @@ var PremierPickBan;
         AddPartyBoundryLines(_m_elPickBanPanel.FindChildInLayoutFile('id-team-vote-team-opponent'));
     }
     function AddPlayerToGroup(player, indexClient) {
+        $.Msg('MatchDraftAPI.player.idx: ' + player.idx + ', player.xuid: ' + player.xuid);
         let isTeammate = (indexClient < 5 && player.idx < 5) || (indexClient >= 5 && player.idx >= 5);
         let elParent = isTeammate ?
             _m_elPickBanPanel.FindChildInLayoutFile('id-team-vote-team-teammates') :
@@ -679,3 +714,28 @@ var PremierPickBan;
         }
     }
 })(PremierPickBan || (PremierPickBan = {}));
+// 3 == ct
+// GetPregamePlayerCount (): number;
+// GetPregameMyTeam()
+// GetPregamePlayerXuid ( idx: number ): string;
+// GetPregamePlayerParty ( idx: number ): number;
+// GetPregamePhase(): number;
+// GetPregamePhaseSecondsRemaining(): number;
+// GetPregameTeamWinningCoinToss(): number;
+// GetPregameTeamWithFirstChoice(): number;
+// GetPregameTeamToActNow(): number;
+// GetPregameMapIdsList(): string;
+// GetPregameMapIdState(nMapID: number): "pick" | "veto" | "";
+// GetPregameTeamStartingCT(): number;
+// GetPregameXuidsForVote(nMapID: number): string;
+// GetPregameWinningVotes(): string;
+// GetPregameMyVoteInSlot(nSlot: number): number;
+// ActionPregameCastMyVote(phase: number, slot: number, vote: number): void;
+// New events --
+// this event means that we are heading into POST-ACCEPT pre-match UI (but we don't yet have all the match data, about who is participating and stuff, but it basically tells the ACCEPT UI that everybody accepted, but we will not be loading the map just yet) --
+// $.RegisterForUnhandledEvent('PanoramaComponent_Lobby_ShowPreMatchInterface', PopupAcceptMatch.ShowPreMatchInterface);
+// this event fires every time something about the draft state changes (somebody voted on something, or stage auto-advanced or whatever) --
+// $.RegisterForUnhandledEvent('PanoramaComponent_PregameDraft_DraftUpdate', PopupAcceptMatch.PregameDraftUpdate);
+// I shortened all the timers a bunch, probably can shorten some more. There's current a problem with the hosting map where the entity I need doesn't spawn, but once it's resolved all the flow should be fully functional and then it will be just about adding more data that we need exposed to the component methods (e.g. spidergraph points).
+// This is a reference shelf for hooking up the events:
+// https://swarm.valve.org/changes/7933647

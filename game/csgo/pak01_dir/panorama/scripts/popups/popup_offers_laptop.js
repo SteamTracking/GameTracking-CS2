@@ -8,6 +8,9 @@
 /// <reference path="popup_inspect_header.ts" />
 /// <reference path="popup_acknowledge_item.ts" />
 /// <reference path="popup_offers_laptop_interface.ts" />
+// - countdown
+// - event for end ans to drive new item display
+// - warnings
 var OffersLaptop;
 (function (OffersLaptop) {
     let m_aItemsInLootlist = [];
@@ -18,8 +21,11 @@ var OffersLaptop;
     let m_showInspectScheduleHandle = null;
     let m_specialItemId = 'id-special-item';
     let m_elCaseModelImagePanel = null;
+    //
+    // Looping sounds controller
+    //
     let m_bReadyForDisplay = false;
-    let m_LoopingSounds = {};
+    let m_LoopingSounds = {}; // sound handles
     function LaptopSoundPlayOnce(s) {
         if (!m_bReadyForDisplay)
             return;
@@ -46,6 +52,7 @@ var OffersLaptop;
     }
     OffersLaptop.LaptopSoundStopLooping = LaptopSoundStopLooping;
     function _OnHandleReadyForDisplay(b) {
+        $.Msg('Laptop:ReadyForDisplay = ' + b);
         m_bReadyForDisplay = b;
         if (!m_bReadyForDisplay) {
             for (const s in m_LoopingSounds)
@@ -55,7 +62,9 @@ var OffersLaptop;
     function Init() {
         m_itemid = InspectShared.GetPopupSetting('item_id');
         m_InspectPanel.RegisterForReadyEvents(true);
+        // Ready for display tracking -
         m_bReadyForDisplay = m_InspectPanel.BReadyForDisplay();
+        $.Msg('Laptop:ReadyForDisplay = ' + m_bReadyForDisplay + ' (init)');
         $.RegisterEventHandler('ReadyForDisplay', m_InspectPanel, _OnHandleReadyForDisplay.bind(undefined, true));
         $.RegisterEventHandler('UnreadyForDisplay', m_InspectPanel, _OnHandleReadyForDisplay.bind(undefined, false));
         m_InspectPanel.SetReadyForDisplay(true);
@@ -66,7 +75,8 @@ var OffersLaptop;
         if (m_itemid && ItemInfo.ItemHasCapability(m_itemid, 'decodable') &&
             !!InventoryAPI.GetItemAttributeValue(m_itemid, '{uint32}volatile container') &&
             InventoryAPI.IsRental(m_itemid) &&
-            (InventoryAPI.GetItemQuality(m_itemid) === 14)) {
+            (InventoryAPI.GetItemQuality(m_itemid) === 14)) // AE_VOLATILE (quality#14))
+         {
             _SetUpOpenLaptop(m_itemid);
         }
         else {
@@ -83,12 +93,18 @@ var OffersLaptop;
         _SetCaseModelImage(m_itemid, 'PopUpInspectModelOrImage');
         _SetLootListItems(m_itemid);
     }
+    //--------------------------------------------------------------------------------------------------
+    // Set key and case model and images and animations
+    //--------------------------------------------------------------------------------------------------
     function _SetCaseModelImage(caseId, PanelId) {
         let elItemModelImagePanel = $.GetContextPanel().FindChildInLayoutFile(PanelId);
         elItemModelImagePanel.Data().isLapTopOpening = m_isOpen;
         InspectModelImage.Init(elItemModelImagePanel, caseId);
         m_elCaseModelImagePanel = InspectModelImage.GetModelPanel();
     }
+    //--------------------------------------------------------------------------------------------------
+    // Items In case
+    //--------------------------------------------------------------------------------------------------
     function _SetLootListItems(itemId) {
         let count = InventoryAPI.GetLootListItemsCount(itemId);
         let elLootList = $.GetContextPanel().FindChildInLayoutFile('DecodableLootlist');
@@ -147,11 +163,13 @@ var OffersLaptop;
     }
     function _GetDisplayWeightForScroll(itemid) {
         let rarityVal = InventoryAPI.GetItemRarity(itemid);
+        //position in array is the weight of corresponding rarity
         let displayItemWeight = [150000, 30000, 6000, 1250, 250, 50, 10];
         return displayItemWeight[rarityVal];
     }
     function _UpdateLootListItemInfo(elItem, itemid, caseId) {
         if (itemid == m_specialItemId) {
+            // This is an unsual item in the loot list so treat it differently
             m_unusualItemImagePath = InventoryAPI.GetLootListUnusualItemImage(caseId) + ".png";
             _UpdateUnusualItemInfo(elItem, caseId, m_unusualItemImagePath, true);
         }
@@ -182,6 +200,7 @@ var OffersLaptop;
             elName.text = InventoryAPI.GetLootListUnusualItemName(caseId);
         }
         else {
+            // color @define color-rarity-unusual: #ffd700 in csgo styles
             elItem.FindChildInLayoutFile('JsRarity').style.washColor = '#ffd700';
             elItem.FindChildInLayoutFile('JItemTint').style.washColor = '#ffd700';
         }
@@ -225,6 +244,7 @@ var OffersLaptop;
                 });
             }
         }
+        $.Msg('Laptop:ClosePopup');
         _OnHandleReadyForDisplay(false);
     }
     OffersLaptop.ClosePopUp = ClosePopUp;
@@ -236,6 +256,7 @@ var OffersLaptop;
         Init();
     }
     function ItemUnlocked(numericType, type, itemId) {
+        $.Msg("ItemUnlocked");
         if (itemId && InventoryAPI.IsValidItemID(itemId) && type === 'crate_unlock') {
             InspectShared.SetPopupSetting('item_id', itemId);
             InventoryAPI.SetItemSessionPropertyValue(itemId, 'recent', '1');
@@ -246,6 +267,7 @@ var OffersLaptop;
             CollectionOffers.OnItemCustomizationNotification(numericType, type, itemId);
         }
         else {
+            $.Msg("Unexpected ItemCustomizationNotification from C++, closing the laptop!");
             ClosePopUp();
         }
     }

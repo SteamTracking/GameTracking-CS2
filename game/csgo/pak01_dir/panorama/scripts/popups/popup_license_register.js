@@ -4,6 +4,7 @@ var PopupLicenseRegister;
 (function (PopupLicenseRegister) {
     let m_LicenseRegisterTimer = null;
     function SetupPopup() {
+        // Set spinner visibility
         let spinnerVisible = $.GetContextPanel().GetAttributeInt("spinner", 0);
         $("#Spinner").SetHasClass("SpinnerVisible", !!spinnerVisible);
         m_LicenseRegisterTimer = $.Schedule(11, PanelTimedOut);
@@ -12,6 +13,7 @@ var PopupLicenseRegister;
     }
     PopupLicenseRegister.SetupPopup = SetupPopup;
     function PanelTimedOut() {
+        // We did not hearback from the GC
         m_LicenseRegisterTimer = null;
         $.DispatchEvent('UIPopupButtonClicked', '');
         UiToolkitAPI.ShowGenericPopupOk($.Localize('#SFUI_SteamConnectionErrorTitle'), $.Localize('#SFUI_Steam_Error_LinkUnexpected'), '', () => { });
@@ -25,6 +27,6 @@ var PopupLicenseRegister;
     function StartAgreementSessionInGame(url) {
         _CancelLicenseRegisterTimer();
         $.DispatchEvent('UIPopupButtonClicked', '');
-        SteamOverlayAPI.OpenURL('!' + url);
+        SteamOverlayAPI.OpenURL('!' + url); // Modal URL in overlay
     }
 })(PopupLicenseRegister || (PopupLicenseRegister = {}));

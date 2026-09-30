@@ -103,7 +103,9 @@
  %s%lu (%s0x%lx)\n
  ' ) - 3 G M Q _ c e i w } 
  (%ld unused bits)\n
- (08@HPXb {
+ (08@HPXb
+ (08@HR
+ (0X`hpz
  (Dirty Animation)
  (Disabled on Server)
  (INVALID PSS PARAMETERS)\n
@@ -340,7 +342,6 @@
 "K\n\fMLRoundState
 "Limit Count: " + m_nLimitCount
 "P\n#CMsgGCCStrike15_v2_GC2ClientTextMsg
-"P\n/CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
 "Wlw
 "X\n\nCMsgTEFizz
 "YEu
@@ -1714,7 +1715,6 @@ $tH@T\tI
 (\n$k_ECommunityItemAttribute_ExpiryTime
 (\n$k_EGCMsgGetAccountDetails_DEPRECATED
 (\n$k_EGCMsgWebAPIJobRequestHttpResponse
-(\n\feinit_result
 (\n\rsubtick_moves
 (\n\tattribute
 (\r""\n\rCMsgSortItems
@@ -1759,8 +1759,8 @@ $tH@T\tI
 (\t"E\n!CMsgGCCStrike15_v2_GCToClientChat
 (\t"E\n$CMsgGCCStrike15_v2_ClientAuthKeyCode
 (\t"O\n CVacNet_GetReviewerInfo_Response
+(\t"P\n/CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
 (\t"S\n"CMsgGCCStrike15_v2_ClientPollState
-(\t"T\n-CMsgGCCStrike15_v2_GC2ClientRequestValidation
 (\t"U\n3CCommunity_TerminateGamePersonalDataEntries_Request
 (\t"U\n<CChinaAgreementSessions_StartAgreementSessionInGame_Response
 (\t"u\n-CCommunity_GetGamePersonalDataEntries_Request
@@ -2016,6 +2016,7 @@ $tH@T\tI
 )\n%k_ECommunityItemAttribute_IssueNumber
 )\n%k_ECommunityItemClass_ProfileModifier
 )\n%k_UnlockStyle_Failed_CantAffordAttrib
+)\n\nECsgoGCMsg
 )binary_zstd
 )fuG
 )haI
@@ -2069,7 +2070,6 @@ $tH@T\tI
 *\n&k_ECommunityItemAttribute_TradableTime
 *\n&k_EGCMsgGetUserGameStatsSchemaResponse
 *\n\fitem_updates
-*\n\nECsgoGCMsg
 *gFBk
 *hbJ1
 *it%2
@@ -2195,7 +2195,6 @@ $tH@T\tI
 -\n(k_EMsgGCCStrike15_v2_ClientCommendPlayer
 -\n(k_EMsgGCCStrike15_v2_ClientNetworkConfig
 -\n(k_EMsgGCCStrike15_v2_ClientRequestOffers
--\n(k_EMsgGCCStrike15_v2_GC2ClientInitSystem
 -\n(k_EMsgGCUserTrackTimePlayedConsecutively
 -\n)GAME_PARTICLE_MANAGER_EVENT_DESTROY_NAMED
 -\n)GAME_PARTICLE_MANAGER_EVENT_UPDATE_OFFSET
@@ -4571,6 +4570,7 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_fThrowTime@CBaseCSGrenade@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_fWarmupPeriodEnd@CCSGameRules@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_fWarmupPeriodStart@CCSGameRules@@@@
+.?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flAttackHoldStartTime@CCSWeaponBase@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flC4Blow@CPlantedC4@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flCMMItemDropRevealEndTime@CCSGameRules@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flCMMItemDropRevealStartTime@CCSGameRules@@@@
@@ -6827,11 +6827,7 @@ $tH@T\tI
 .?AVCMsgGCCStrike15_v2_Fantasy@@
 .?AVCMsgGCCStrike15_v2_Fantasy_FantasySlot@@
 .?AVCMsgGCCStrike15_v2_Fantasy_FantasyTeam@@
-.?AVCMsgGCCStrike15_v2_GC2ClientInitSystem@@
-.?AVCMsgGCCStrike15_v2_GC2ClientInitSystem_Response@@
 .?AVCMsgGCCStrike15_v2_GC2ClientNotifyXPShop@@
-.?AVCMsgGCCStrike15_v2_GC2ClientRefuseSecureMode@@
-.?AVCMsgGCCStrike15_v2_GC2ClientRequestValidation@@
 .?AVCMsgGCCStrike15_v2_GC2ClientTextMsg@@
 .?AVCMsgGCCStrike15_v2_GC2ClientTournamentInfo@@
 .?AVCMsgGCCStrike15_v2_GC2ServerReservationUpdate@@
@@ -8618,7 +8614,6 @@ $tH@T\tI
 .DeepPlayerStatsEntry
 .DetailedSearchStatistic
 .EClientUIEvent
-.EInitSystemResult
 .ETeam
 .GCConnectionStatus
 .GCProtoBufMsgSrc
@@ -8636,7 +8631,6 @@ $tH@T\tI
 .OperationalVarValue
 .P6AXAEBUSoundOpvarManagerSettableData_t@@PEAVCSoundOpvarSetPointStackCollection@@@Z
 .P6A_NAEBUCharacterDefn_t@CCStrike15ItemSchema@@@Z
-.P6q
 .PARTICLE_MESSAGE
 .PEAVCBodyComponent@@
 .PEAVCCSGameModeRules@@
@@ -8679,6 +8673,7 @@ $tH@T\tI
 .ScoreLeaderboardData.Entry"
 .ServerHltvInfo
 .Step
+.TZk
 .TournamentEvent
 .TournamentMatchSetup
 .TournamentPlayer"
@@ -8976,7 +8971,6 @@ $tH@T\tI
 /5dJ
 /CTc\t
 /CVc
-/Etotal_kills_sawedoff
 /RIv
 /\*<>{}[]() 
 /\n*k_EGCMsgGetGamePersonalDataEntriesResponse
@@ -9003,17 +8997,15 @@ $tH@T\tI
 0123456789
 02V8[
 05=k
+08@J
 08bX
 09,h
 0;Q5[
 0<cz
 0@NX^b!/@P\b
 0AOY_c"2CQ[c
-0LUk
-0Lvk
 0M2~@p
 0Mc\t\n
-0T|k
 0W/5
 0Z@q
 0\n+k_EGCItemCustomizationNotification_NameItem
@@ -9037,7 +9029,10 @@ $tH@T\tI
 0e\r8
 0pp@5tqE?|sO541
 0tU+xc:
+0tVk
+0vTZk
 0x%s
+0x6k
 0|2;#GameUI_Retake_Card_BackInAFlash,1,1,weapon_ump45,grenade0|2;#GameUI_Retake_Card_AllIn,1,1,weapon_galilar|1;#GameUI_Retake_Card_BoomBox,1,1,weapon_mac10,grenade2,grenade1|1;#GameUI_Retake_Card_SetThemFree,1,1,weapon_ssg08,grenade0
 0|2;#GameUI_Retake_Card_BlindFire,1,0,weapon_elite,grenade0|2;#GameUI_Retake_Card_QueOta,0,0,weapon_deagle|1;#GameUI_Retake_Card_SmokeScreen,0,0,weapon_p250,grenade1|1;#GameUI_Retake_Card_TecTecBoom,0,0,weapon_tec9,grenade2
 0|2;#GameUI_Retake_Card_OlReliable,1,1,rifle1,grenade0|1;#GameUI_Retake_Card_SmokeShow,1,1,rifle1,grenade1|1;#GameUI_Retake_Card_HotShot,1,1,rifle1,grenade3|1;#GameUI_Retake_Card_EyeSpy,1,1,weapon_sg556,grenade2
@@ -9122,8 +9117,6 @@ $tH@T\tI
 2\n.eRollType
 2\n\nline_items
 2\rlhp
-2\vpLvk
-2\vpT|k
 2^pV
 2a"l
 2bT~
@@ -9161,7 +9154,6 @@ $tH@T\tI
 3\n.k_EGCItemCustomizationNotification_RemovePatch
 3\n.k_EGCItemCustomizationNotification_UnlockCrate
 3\n.k_EMsgGCCStrike15_v2_ClientRedeemMissionReward
-3\n.k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
 3\n.k_EMsgGCCStrike15_v2_GetEventFavorites_Request
 3\n.k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello
 3\n.k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello
@@ -9186,7 +9178,6 @@ $tH@T\tI
 4@AA
 4Ch;
 4F0I
-4F\v0
 4Mv8
 4Zis
 4\fPl
@@ -9194,7 +9185,6 @@ $tH@T\tI
 4\n/k_EGCItemCustomizationNotification_NameBaseItem
 4\n/k_EGCItemCustomizationNotification_StatTrakSwap
 4\n/k_EGCMsgTerminateGamePersonalDataEntriesRequest
-4\n/k_EMsgGCCStrike15_v2_GC2ClientRequestValidation
 4\n/k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
 4\n/k_EMsgGCCStrike15_v2_GetEventFavorites_Response
 4\n/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
@@ -9253,17 +9243,13 @@ $tH@T\tI
 6%vi
 6,2K
 6-zeZ
-60'q
-601q
-605q
 62$|S)6f
 64CK\vH
 666666666666666666666666666666666666666666666666\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.\ssl\s3_enc.c
-6666666666666666IEconItemInterface
+6666666666666666unusual
 67-s
 6H,N
 6O|T%
-6P#q
 6Qd=
 6\n1k_EGCItemCustomizationNotification_CasketContents
 6\n1k_EGCItemCustomizationNotification_ExtractSticker
@@ -9272,7 +9258,6 @@ $tH@T\tI
 6\n1k_EGCItemCustomizationNotification_RemoveKeychain
 6\n1k_EGCItemCustomizationNotification_XRayItemReveal
 6\n1k_EMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin
-6\n1k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response
 6\n1k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo
 6\n1k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing
 6\n1k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
@@ -9287,7 +9272,6 @@ $tH@T\tI
 6l13
 6lkc
 6myY;
-6p\nq
 6qo~
 6r-m_v
 6r1ij
@@ -9336,6 +9320,7 @@ $tH@T\tI
 8??SetInternalFieldCount@ObjectTemplate@v8@@QEAAXH@Z
 8?PerformMicrotaskCheckpoint@Isolate@v8@@QEAAXXZ
 8A6j
+8BPY
 8GZS
 8SIffK5W
 8TZvrv<
@@ -9417,7 +9402,7 @@ $tH@T\tI
 :eaI
 :gN(dq
 :mIR
-:m_force
+:m_vecRenderAttributes
 :parsed on tick %d of %d got %d new commands through command number %d [%s]\n
 :w4v
 ;!;#;-;9;E;S;Y;_;q;{;
@@ -9556,7 +9541,6 @@ $tH@T\tI
 ?DisposeGlobal@api_internal@v8@@YAXPEA_K@Z
 ?Enter@Context@v8@@QEAAXXZ
 ?Enter@Isolate@v8@@QEAAXXZ
-?EntityPairs
 ?Evaluate@Module@v8@@QEAA?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@@Z
 ?Exception@TryCatch@v8@@QEBA?AV?$Local@VValue@v8@@@2@XZ
 ?Exit@Context@v8@@QEAAXXZ
@@ -9594,30 +9578,28 @@ $tH@T\tI
 ?d86L
 ?dt]X
 ?expf
+?fSpinUpTime
 ?fff?
 ?ffffff
 ?gwL
 ?jOb
 ?m_Stops
-?particle_cluster_use_collision_hulls
 ?srJO
 ?tya
 ?uWS
 ?x29
 @!@%@+@1@?@C@E@]@a@g@m@
+@08NTZk
 @0pp
 @333
 @333?
 @33s@
-@60)q
-@6p(q
 @?SlowGetAlignedPointerFromInternalField@Object@v8@@AEAAPEAXH@Z
 @@CNmFloatCurveEvent
 @Aff
 @BH]f
 @BoneSetup
-@CCitadelSoundOpvarSetOBB_API
-@HPX`hv`
+@CSceneEntity_API::ScriptPlayerDeath
 @MfKZ
 @Pgl
 @Pu\rm
@@ -9631,10 +9613,13 @@ $tH@T\tI
 @\n\tPlacement
 @\n\vserver_type
 @dKb]
-@de_anubis
+@de_mirage
+@fTZk
 @fff>fff>fff>fff>
 @i1V
 @n2w
+@nTZk
+@noteam
 @player_start_teleport_destination
 @workshop
 A CT bot doesn't know what to do while the bomb is planted!\n
@@ -9654,7 +9639,7 @@ A<fP
 A>x8
 A@d0I
 AA Compromise
-AA:p
+AA: a
 AABB
 AACompromise
 AC2,h
@@ -9663,6 +9648,7 @@ ACCOLADE, FINAL: {%s},\t%s<%i>,\tVALUE: %f,\tPOS: %i,\tSCORE: %f\n
 ACHIEVEMENT_EVENT_
 ACID
 ACPT_STATE
+ACTION_COMPLETED
 ACTIVATE_TYPE_DATAUPDATE_CREATION
 ACTIVATE_TYPE_INITIAL_CREATION
 ACTIVATE_TYPE_ONRESTORE
@@ -9774,7 +9760,6 @@ AMMO_TYPE_HEGRENADE
 AMMO_TYPE_MOLOTOV
 AMMO_TYPE_SMOKEGRENADE
 AMMO_TYPE_TASERCHARGE
-AMoveMountingAmount_t
 ANSI X9.62
 ANY PRIVATE KEY
 APPEND_EXP
@@ -10193,7 +10178,6 @@ B64_WRITE_PKCS7
 B8Z"h
 B>J7I
 BACK
-BACTION_COMPLETED
 BAD ENUMERATED
 BAD INTEGER
 BAD RECURSION DEPTH\n
@@ -10207,7 +10191,7 @@ BAsyncSend
 BAsyncSendProto
 BC (default)
 BCBtActionMoveTo
-BCPulseCell_ApplyEntityFlags::CursorState_t
+BCPulseCell_Outflow_PlayDynamicVCD::Run
 BEOS_BIND_FUNC
 BEOS_BIND_VAR
 BEOS_LOAD
@@ -10320,6 +10304,7 @@ BOOSTS
 BOUNDARY
 BREAKABLE
 BRouteMsgToJob
+BScalar for first person view punch when getting hit.
 BT5f
 BT_ACTION_MOVETO_FASTEST_ROUTE
 BT_ACTION_MOVETO_RUN
@@ -10329,7 +10314,6 @@ BT_DECORATOR_TAG_ENTITY_CLEAR
 BT_DECORATOR_TAG_ENTITY_SET
 BT_DECORATOR_TAG_THRESHOLD_AT_LEAST
 BT_DECORATOR_TAG_THRESHOLD_AT_MOST
-BTests bullet cast
 BUCKSHOT
 BUF lib
 BUFFER_CTRL
@@ -10414,7 +10398,6 @@ BaseTextureOverride
 Basic OCSP Response
 Basis Type: %s\n
 BcT`
-Bcash_stack
 Bd]U
 BeforeGraphStart
 Begin Async Server Work
@@ -11378,6 +11361,7 @@ CChoreoEvent_SPEAK
 CChoreoEvent_STOPPOINT
 CChoreoObjectBase
 CChoreoScene
+CCitadelSoundOpvarSetOBB_API
 CClientHeaderOverwatchEvidence
 CClientMsg_ClientUIEvent
 CClientMsg_ClientUIEvent_t
@@ -13186,7 +13170,6 @@ CPulseCell_LimitCount::CommitStep
 CPulseCell_Outflow_ListenForAnimgraphTag::Run
 CPulseCell_Outflow_ListenForEntityOutput::OnFired
 CPulseCell_Outflow_ListenForEntityOutput::Run
-CPulseCell_Outflow_PlayDynamicVCD::Run
 CPulseCell_Outflow_PlaySequence::Run
 CPulseCell_Outflow_PlayVCD::ResumePlayback
 CPulseCell_Outflow_PlayVCD::Run
@@ -13568,7 +13551,6 @@ CSceneEntity_API::Pause
 CSceneEntity_API::PauseAtNextInterrupt
 CSceneEntity_API::PitchShift
 CSceneEntity_API::Resume
-CSceneEntity_API::ScriptPlayerDeath
 CSceneEntity_API::SetTarget1
 CSceneEntity_API::SetTarget2
 CSceneEntity_API::Start
@@ -14445,7 +14427,7 @@ Close the group automatically when the associated parent process exits (good for
 CloseCaptionNoAttenuate
 CloseToolhelp32Snapshot
 ClosestPointInternal
-Cnav_smooth_draw_speed
+Cnav_obstruction_draw_change
 Co-dependent physics tasks detected!
 Coaches/%u
 Code Signing
@@ -15772,6 +15754,7 @@ EntityKey
 EntityName
 EntityNames
 EntityOutput{ entity_key='hEntity' }
+EntityPairs
 EntitySkeleton
 EntitySpawnKeyWarning( entity "%s" class "%s" field "%s" ): %s\n
 EntitySubclassGameSystem
@@ -16851,6 +16834,7 @@ HAC K  Unused Binding
 HARD
 HAS_LADDERS
 HB@T\tJ
+HBCNavPathCostForTests
 HBJ\nTRF
 HDR Color Scale: %0.3f
 HEAD
@@ -18679,11 +18663,11 @@ P-224
 P-256
 P-384
 P-521
-P08@J {
+P08@J
 P08J
+P08NTZk
 P1\t98"
 P5[1
-P6 1q
 PAGN_4
 PANIC
 PARALYZE
@@ -18874,8 +18858,6 @@ PLUG_TYPE_RELAY_PREFAB_INBOUND
 PLUG_TYPE_RELAY_PREFAB_LOCAL
 PLUG_TYPE_RELAY_PREFAB_OUTBOUND
 PLUG_TYPE_UNKNOWN
-PLUk
-PLvk
 POISON
 POISONED 
 POLICYINFO
@@ -19149,6 +19131,7 @@ Please specify 0 or 1 with the -stream Parameter\n
 Please wait for broadcast to start ...
 Pm8A?
 PmR"H?
+PnTZk
 Point entity.
 PointTemplate
 Policy Qualifier CPS
@@ -19242,6 +19225,7 @@ PropData
 PropWorldOrigin
 PropaneTank.Burst
 Proxy Certificate Information
+PtVk
 Public Key
 Public-Key
 Public-Key: (%d bit)\n
@@ -19278,6 +19262,7 @@ Pushing linear hard!\n
 Pushing rotation hard!\n
 PutClientInServer: no info_player_logo on level\n
 PutClientInServer: no info_player_start on level\n
+Px6k
 P|iC\r
 Q*hd
 Q/xtJ2
@@ -19484,10 +19469,8 @@ RSA_verify_ASN1_OCTET_STRING
 RSA_verify_PKCS1_PSS
 RSA_verify_PKCS1_PSS_mgf1
 RTime32
-R\fpT|k
 R\r1>Vp
 R\vp!y
-R\vpLvk
 R]Di
 Rad2 Deg
 Radial using: %s\n
@@ -21949,6 +21932,7 @@ VNotify Sent\n
 VNotify StartProcess failed!\n
 VNotify: %s\n
 VPHYSICS
+VP\fq
 VSCRIPT: Started VScript virtual machine using script language '%s'\n
 VScript error: A script attempted to create a scene entity mid-game. Entity creation from scripts is only allowed during map init.\n
 VScript error: DoEntFireByInstanceHandle was passed an invalid entity instance.\n
@@ -22770,9 +22754,8 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
-\fpLvk
-\fp\v`LUk
-\fp\v`Lvk
+\fp\vPx6k
+\fp\v`x6k
 \ful2
 \fy&3Gl
 \l:ArR
@@ -22816,7 +22799,6 @@ Z~wl
 \n&CCSUsrMsg_SendLastKillerDamageToClient
 \n&CGameServers_AggregationQuery_Response
 \n&CMsgGCCStrike15_v2_ClientCommendPlayer
-\n&CMsgGCCStrike15_v2_GC2ClientInitSystem
 \n&CMsgGCCStrike15_v2_Party_SearchResults
 \n'CMsgGCCStrike15_v2_ClientReportResponse
 \n'CMsgGCCStrike15_v2_PremierSeasonSummary
@@ -22828,7 +22810,6 @@ Z~wl
 \n*CMsgGCCStrike15_v2_ClientToGCRequestTicket
 \n*CWorkshop_PopulateItemDescriptions_Request
 \n+CMsgGCCStrike15_v2_GiftsLeaderboardResponse
-\n,CMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
 \n,CMsgGCCStrike15_v2_MatchmakingGC2ClientHello
 \n,CMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
 \n,CMsgGCCstrike15_v2_ClientRedeemMissionReward
@@ -22843,7 +22824,6 @@ Z~wl
 \n.CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
 \n.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
 \n.CMsgGCCStrike15_v2_MatchmakingServerRoundStats
-\n/CMsgGCCStrike15_v2_GC2ClientInitSystem_Response
 \n/CMsgGCCStrike15_v2_MatchmakingClient2ServerPing
 \n0CMsgGCCStrike15_v2_ClientRequestWatchInfoFriends
 \n0CMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment
@@ -22861,6 +22841,7 @@ Z~wl
 \n========================================\n
 \nDictionary: %s\n
 \nGameTick_t
+\nPtVk
 \nSimulating Entities:\n\n
 \nVisMon: Polling now. (Frequency: %f)\n
 \n\fBPE_Teleport
@@ -22994,7 +22975,6 @@ Z~wl
 \n\ncyber_cafe
 \n\ndamagetype
 \n\ndefuse_kit
-\n\ndiagnostic
 \n\ndll_action
 \n\ndropreason
 \n\neffectname
@@ -23036,7 +23016,6 @@ Z~wl
 \n\nnew_update
 \n\nnote_level
 \n\nother_xuid
-\n\noutputname
 \n\npaintindex
 \n\npellet_idx
 \n\nplayer_dob
@@ -23229,7 +23208,6 @@ Z~wl
 \n\tinventory
 \n\titemgroup
 \n\titemindex
-\n\tkick_user
 \n\tleague_id
 \n\tlongitude
 \n\tmagnitude
@@ -23317,8 +23295,6 @@ Z~wl
 \n\vattach_type
 \n\vattack_type
 \n\vattr_defidx
-\n\vaux_system1
-\n\vaux_system2
 \n\vbalance_url
 \n\vbase_detail
 \n\vbid_control
@@ -23346,8 +23322,6 @@ Z~wl
 \n\vendcap_time
 \n\venemy_kills
 \n\vent_ehandle
-\n\verror_code1
-\n\verror_code2
 \n\vfaux_itemid
 \n\vfile_report
 \n\vfinal_batch
@@ -23361,7 +23335,6 @@ Z~wl
 \n\vitem_count2
 \n\vitem_def_id
 \n\vitem_rarity
-\n\vload_system
 \n\vlogo_length
 \n\vmatchmaking
 \n\vmaterial_id
@@ -23451,8 +23424,6 @@ Z~wl
 \ri1I
 \rjwB\t
 \roKK
-\rp\f`\v0Lvk
-\rp\f`\vPLvk
 \rrCj
 \rusercmd.proto"\\n
 \sG7tPD
@@ -23478,7 +23449,6 @@ Z~wl
 \tJm_9
 \tLa0+
 \tNone\n
-\tPLUk
 \tPrivate script scope:
 \tPublic script scope:
 \tRead %s\t%s%s%s,\tOffs 0x%04x\n
@@ -23516,15 +23486,12 @@ Z~wl
 \vGt5
 \vHCK/
 \vNCE\v
-\vPLUk
 \vUY6[E
 \v\n\tRemoveFan
 \v\vTSG
-\v`LUk
 \vj0k
 \vjC7
-\vpLvk
-\vpT|k
+\vpx6k
 ] Done (%.2f seconds)
 ]1h=bfz
 ]FhSD}
@@ -23594,21 +23561,21 @@ _xU`u
 _}eOk
 `28)fk
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
-`60*q
-`6P,q
 `:zQF
 `D$daM-l
 `DZG
 `F?ToLocalEmpty@api_internal@v8@@YAXXZ
 `H(hqA1p
 `ITS
-`LUk
-`Lvk
 `VX:H
 `\n\rvector_values
 `fPw.\vM
+`fTZk
 `h9T~
+`nTZk
 `o_je
+`tVk
+`x6k
 `yNT
 a null shared library handle was used
 a trigger_changelevel doesn't have a map
@@ -23626,6 +23593,7 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
+aBvTZk
 aD/x
 aDSS
 aECDH
@@ -25299,6 +25267,7 @@ de_abbey
 de_ali
 de_ancient
 de_ancient_night
+de_anubis
 de_assembly
 de_austria
 de_aztec
@@ -25356,7 +25325,6 @@ de_marquis
 de_memento
 de_mikla
 de_mills
-de_mirage
 de_mirage_scrimmagemap
 de_mist
 de_mocha
@@ -26156,7 +26124,7 @@ fP;y
 fPitch
 fRoll
 fSpinDownTime
-fSpinUpTime
+fTZk
 fUnh\
 fValue
 fYaw
@@ -26198,7 +26166,6 @@ field_name
 file:
 file://{resources}/layout/world_hint.xml
 filename too big
-files_prevented_trusted
 fill
 fill_with_minimum
 filter
@@ -26701,7 +26668,6 @@ hammer_preview_lighting
 hand_L
 hand_R
 hand_id
-handle
 handshake_enum
 hard
 hardstopspeakevent
@@ -26843,7 +26809,6 @@ hostage_stops_following
 hostname_changed
 hours
 houseIdentifier
-hpz {
 hr_H
 http request
 http$
@@ -27675,7 +27640,6 @@ keyEncryptionAlgorithm
 keyIdentifier
 keyInfo
 keyUsage
-key_data
 key_enc_algor
 key_name
 keyblob header parse error
@@ -28370,7 +28334,6 @@ models/weapons/w_bullet.vmdl
 models/weapons/w_muzzlefireshape.vmdl
 modelstatechoices
 modifiers
-module
 module initialization error
 module=
 modules
@@ -28515,6 +28478,7 @@ nSoundEventGuid
 nSourceMaskBufferIdx != nTargetMaskBufferIdx
 nStf,a
 nSw}Z\tu
+nTZk
 nTextOffset
 nTraceContents
 nValue
@@ -28769,7 +28733,6 @@ not_for_rentals
 notarget OFF\n
 notarget ON\n
 note
-noteam
 noticeNumbers
 noticenos
 noticeref
@@ -28860,8 +28823,6 @@ odMsh
 odd number of chars
 odd number of digits
 oeap
-offer_insecure_mode
-offer_secure_mode
 offset local: %.1f %.1f %.1f\noffset world: %.1f %.1f %.1f (len %.1f)
 offset_angles
 offset_origin
@@ -29000,17 +28961,20 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
+p08@H^TZk
+p0j@v
 p250
+p2PY
 p2{l
 p4Z3
 p5Z3
 p5\nL,
 p618
 p>?Set@Template@v8@@QEAAXV?$Local@VName@v8@@@2@V?$Local@VData@v8@@@2@W4PropertyAttribute@2@@Z
+p>TZk
 p@0pqE5tsO?|1
 pActivator
 pAnimgraphEntity
-pApproachAreaCost
 pAttachment
 pAttachmentName
 pAttachmentName1
@@ -29036,9 +29000,7 @@ pFilter
 pG_*h
 pIp 
 pJointName
-pLUk
 pLocationEntity
-pLvk
 pMaterialGroup
 pMeshGroupName
 pModelName
@@ -29074,12 +29036,11 @@ pTarget2
 pTargetAttachmentName
 pTaskSystem->IsValidCachedPose( pExternalPoseNode->m_externalPoseBufferID )
 pText
-pT|k
 pU>\AL
 pUpdateData->m_updateType == updateType
 pValue
+pX7|
 p\rP\f0!h
-p\r`\fPLvk
 p^i9
 pa end %f
 pa start %f
@@ -29443,6 +29404,7 @@ playerweapon
 playing_commentary
 playoverscript
 playresponse
+pnTZk
 point
 point arithmetic failure
 point at infinity
@@ -29672,6 +29634,7 @@ purchases
 pvk data too short
 pvk too short
 pvsplayer
+px6k
 pzKD)
 q not prime
 q&A\nn
@@ -29731,7 +29694,6 @@ rX&O0
 rZ1VwGf5
 rZPM
 r\vDi
-r\vpT|k
 rad2deg
 radio.go
 radio.letsgo
@@ -30525,7 +30487,6 @@ sha384WithRSAEncryption
 sha512
 sha512WithRSAEncryption
 shaWithRSAEncryption
-sha_hash
 shadow_control
 shadowcascadedistance0
 shadowcascadedistance1
@@ -30566,11 +30527,7 @@ should_teleport
 show
 show_in_armory
 show_lpv_sample_grid
-show_trusted_ui
-show_unsigned_ui
 show_vpulse_file
-show_warning_not_trusted
-show_warning_not_trusted_2
 shutdown while in init
 side
 sidelist
@@ -31132,7 +31089,6 @@ system
 system lib
 system library
 system/access
-system_package
 system_state
 szAttributeValue
 s{5F
@@ -31423,6 +31379,7 @@ total_kills_nova
 total_kills_p228
 total_kills_p250
 total_kills_p90
+total_kills_sawedoff
 total_kills_scar17
 total_kills_scar20
 total_kills_scout
@@ -31836,7 +31793,6 @@ unused (weapon_smg2) 22
 unused 15
 unused 19
 unused_breakmodelsnottomake
-unusual
 unusuals
 unweighted
 unwrap error
@@ -31942,6 +31898,7 @@ vPosition
 vStartPos
 vStartPos[%s] pStartArea[%d]
 vStartPos[%s] vGoalPos[%s]
+vTZk
 vTarget
 vTargetPosition
 vValue
@@ -32442,7 +32399,7 @@ z(ov
 z/B,9d
 z<d2
 z>Hz
-z>pJ
+zCsv_force_team_intro_variant
 zF):O4
 zG2m8
 zRXU 

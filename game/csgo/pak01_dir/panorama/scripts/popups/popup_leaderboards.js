@@ -25,6 +25,7 @@ var PopupLeaderboards;
         var titleOverride = $.GetContextPanel().GetAttributeString('titleoverride', '');
         var title = titleOverride;
         if (!title) {
+            // Leaderboard type can have .friends designation, strip it off when building the title
             title = '#CSGO_' + (type.split('.')[0]);
         }
         $.GetContextPanel().FindChildInLayoutFile('id-popup-leaderboard-title').text = $.Localize(title);
@@ -73,9 +74,11 @@ var PopupLeaderboards;
     }
     ;
     function _UpdateLeaderboard(type) {
+        $.Msg('Leaderboard: ' + type);
         m_type = type;
         var count = 0;
         var status = LeaderboardsAPI.GetState(type);
+        $.Msg('Leaderboard Status: ' + status);
         var elStatus = $.GetContextPanel().FindChildInLayoutFile('id-popup-leaderboard-loading');
         var elData = $.GetContextPanel().FindChildInLayoutFile('id-popup-leaderboard-nodata');
         var elLeaderboardList = $.GetContextPanel().FindChildInLayoutFile('id-popup-leaderboard-list');
@@ -93,7 +96,7 @@ var PopupLeaderboards;
         if ("ready" == status) {
             count = LeaderboardsAPI.GetCount(type);
             let limitRows = $.GetContextPanel().GetAttributeInt('limitrows', 0);
-            if (limitRows > 0 && limitRows < count) {
+            if (limitRows > 0 && limitRows < count) { // Limit display to only requested number of rows
                 count = limitRows;
             }
             if (count === 0) {
@@ -125,6 +128,7 @@ var PopupLeaderboards;
         elParent.RemoveAndDeleteChildren();
         function _AddOpenPlayerCardAction(elAvatar, xuid) {
             var openCard = function (xuid) {
+                // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
                 $.DispatchEvent('SidebarContextMenuActive', true);
                 if (xuid !== '0' && xuid) {
                     var contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, function () {
@@ -136,10 +140,12 @@ var PopupLeaderboards;
             elAvatar.SetPanelEvent("onactivate", openCard.bind(undefined, xuid));
             elAvatar.SetPanelEvent("oncontextmenu", openCard.bind(undefined, xuid));
         }
+        // var strThousandsSeparator = $.Localize( '#csgo_thousands_separator' );
         for (var i = 0; i < count; i++) {
             var lbData = LeaderboardsAPI.GetEntryDetailsObjectByIndex(type, i);
             var xuid = lbData.XUID;
             var score = lbData.score;
+            // var rankpct = lbData.pct;
             var elEntry = $.CreatePanel("Panel", elParent, xuid);
             elEntry.BLoadLayoutSnippet("leaderboard-entry");
             elEntry.FindChildInLayoutFile('popup-leaderboard-entry-avatar').PopulateFromSteamID(xuid);
@@ -147,6 +153,13 @@ var PopupLeaderboards;
             elEntry.SetDialogVariable('player-rank', (i + 1).toString());
             elEntry.SetDialogVariable('player-score', score?.toString());
             elEntry.SetDialogVariable('player-name', FriendsListAPI.GetFriendName(xuid));
+            // let elItemImage = elEntry.FindChildInLayoutFile( 'id-itemimage' );
+            // let itemid = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( lbData.defidx, 0 );
+            // if ( $.GetContextPanel().BHasClass( 'leaderboard_embedded' ) )
+            // {
+            // 	elItemImage.small = true;
+            // }
+            // elItemImage.itemid = itemid;
             var children = elEntry.FindChildrenWithClassTraverse('popup-leaderboard__list__column');
             if (i % 2 === 0) {
                 children.forEach(element => {
@@ -184,6 +197,7 @@ var PopupLeaderboards;
     PopupLeaderboards.UpdateName = UpdateName;
     ;
     function Close() {
+        //_CancelTimeout();
         $.DispatchEvent('UIPopupButtonClicked', '');
     }
     PopupLeaderboards.Close = Close;
@@ -192,5 +206,6 @@ var PopupLeaderboards;
 (function () {
     $.RegisterForUnhandledEvent('PanoramaComponent_Leaderboards_StateChange', PopupLeaderboards.RefreshLeaderBoard);
     $.RegisterForUnhandledEvent('PanoramaComponent_FriendsList_NameChanged', PopupLeaderboards.UpdateName);
+    // _global.MainMenuAPI.GetScaleformComponentEventParamString( "ScaleformComponent_Leaderboards_StateChange", "leaderboard" );
     PopupLeaderboards.Init();
 })();

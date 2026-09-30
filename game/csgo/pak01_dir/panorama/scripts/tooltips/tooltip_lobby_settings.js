@@ -37,13 +37,26 @@ var TooltipLobby;
         let elMatchStats = $.GetContextPanel().FindChildInLayoutFile('LobbyTooltipStats');
         let isSearching = searchingStatus !== '' && searchingStatus !== undefined ? true : false;
         elMatchStats.SetHasClass('hidden', !isSearching);
+        // Not searching so hide the panel
         if (!isSearching)
             return;
+        // Set Status Text
         let elMatchStatsLabel = elMatchStats.FindChildInLayoutFile('LobbyTooltipStatsTitle');
         elMatchStatsLabel.text = $.Localize(searchingStatus);
+        // Get stats and make the rows
         let matchmakeingStats = LobbyAPI.GetMatchmakingStatistics();
         let elStats = elMatchStats.FindChildInLayoutFile('LobbyTooltipStatsList');
         elStats.RemoveAndDeleteChildren();
+        /*
+            matchmakeingStats object
+            "avgSearchTimeSeconds"
+            "ongoingMatches"
+            "playersOnline"
+            "playersSearching"
+            "serversAvailable"
+            "serversOnline"
+            "serversReachable"
+        */
         function MakeStatsRow(statType, iconName) {
             let p = $.CreatePanel('Panel', elStats, '');
             p.BLoadLayoutSnippet("SettingsEntry");
@@ -67,6 +80,10 @@ var TooltipLobby;
         MakeStatsRow('playersOnline', 'lobby');
         if (matchmakeingStats.hasOwnProperty('playersLockedIn') && matchmakeingStats.playersLockedIn
             && !["cooperative", "coopmission"].includes(m_GameSettings.mode)) {
+            // let icon_name = 'five_stack';
+            // if ( matchmakeingStats.playersLockedIn <= 2 ) icon_name = 'two_stack';
+            // else if ( matchmakeingStats.playersLockedIn <= 3 ) icon_name = 'three_stack';
+            // else if ( matchmakeingStats.playersLockedIn <= 4 ) icon_name = 'four_stack';
             MakeStatsRow('playersLockedIn', 'find');
         }
         else {
@@ -168,6 +185,7 @@ var TooltipLobby;
                 strMapText = $.Localize(GameTypesAPI.GetMapGroupAttribute(element, 'nameID'));
             }
             p.FindChildInLayoutFile('SettingText').text = strMapText;
+            //icon
             let iconName;
             if (m_GameSettings.mode === "skirmish") {
                 iconName = m_GameSettings.map;

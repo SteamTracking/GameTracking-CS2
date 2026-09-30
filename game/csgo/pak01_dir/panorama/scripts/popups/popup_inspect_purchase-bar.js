@@ -13,18 +13,26 @@ var InspectPurchaseBar;
             return;
         }
         const storeItemId = InspectShared.GetPopupSetting("store_item_id");
+        // If you have a store id that overrides the purchase id.
+        // We specifically want to buy the store id.
+        // we store it on the bar since its only used here
         const purchaseItemId = (!storeItemId ? InspectShared.GetPopupSetting('purchase_item_id') : storeItemId);
         if (!InventoryAPI.IsValidItemID(purchaseItemId)) {
             elPurchaseBar.AddClass('hidden');
             return;
         }
         InspectShared.SetPopupSetting('purchase_item_id', purchaseItemId);
+        // Can this item be purchased?
         const bFauxItemIdForPurchase = InventoryAPI.IsFauxItemID(purchaseItemId);
         const priceOriginal = bFauxItemIdForPurchase ? ItemInfo.GetStoreOriginalPrice(purchaseItemId, 1) : '';
         const sRestriction = InspectShared.GetPopupSetting('store_item_id') ? '' :
             InventoryAPI.GetDecodeableRestriction(InspectShared.GetPopupSetting('item_id'));
+        $.Msg("Purchase Bar: Store item id = " + storeItemId);
+        $.Msg("Purchase Bar: Show item id = " + purchaseItemId + (bFauxItemIdForPurchase ? " (faux itemid for purchase)" : ""));
+        $.Msg("Purchase Bar: Original price = " + priceOriginal);
+        $.Msg("Purchase Bar: Purchase item id = " + InventoryAPI.IsValidItemID(purchaseItemId));
         const showXrayMachineUi = InspectShared.GetPopupSetting("is_xray_machine");
-        if ((InspectShared.GetPopupSetting("work_type") === 'delete') ||
+        if ((InspectShared.GetPopupSetting("work_type") === 'delete') || // never show purchase bar for DELETE action
             (InspectShared.GetPopupSetting('inspect_only') === true) ||
             !InventoryAPI.IsValidItemID(purchaseItemId) ||
             !priceOriginal ||
@@ -88,15 +96,15 @@ var InspectPurchaseBar;
             return (OverridePurchaseMultiple);
         const attValue = InventoryAPI.GetItemAttributeValue(purchaseItemId, 'season access');
         if (attValue)
-            return false;
+            return false; // this is a season pass or operation ticket, user only needs one
         const strToolType = InventoryAPI.GetToolType(purchaseItemId);
         if (strToolType === 'fantoken')
-            return false;
+            return false; // this is a tournament viewer pass/coin
         const defName = InventoryAPI.GetItemDefinitionName(purchaseItemId);
         if (defName === 'casket')
-            return false;
+            return false; // surplus vaults are large containers of items, users need just one at a time
         if (defName && defName.startsWith('XpShopTicket'))
-            return false;
+            return false; // Xp Shop tickets are purchased and activated one-by-one
         return true;
     }
     function _SetUpPurchaseBtn(elPurchaseBar) {
@@ -109,12 +117,13 @@ var InspectPurchaseBar;
             const qty = Number(elDropdown.GetSelected().id);
             const itemDefitionNameString = InventoryAPI.GetItemDefinitionName(purchaseItemId);
             const purchaseList = [];
+            $.Msg('Purchase activate for ItemID=' + purchaseItemId + " , name=" + itemDefitionNameString);
             for (let i = 0; i < qty; i++) {
                 purchaseList.push(purchaseItemId);
             }
             const purchaseString = purchaseList.join(',');
             if (itemDefitionNameString && itemDefitionNameString.startsWith('coupon - crate_patch_') &&
-                !ItemInfo.FindAnyUserOwnedCharacterItemID()) {
+                !ItemInfo.FindAnyUserOwnedCharacterItemID()) { // Warn about purchasing coupons for crates containing patches if user doesn't own an agent
                 UiToolkitAPI.ShowGenericPopupYesNo($.Localize('#CSGO_Patch_NoAgent_Title'), $.Localize('#CSGO_Patch_NoAgent_Message'), '', () => StoreAPI.StoreItemPurchase(purchaseString), () => { });
             }
             else {

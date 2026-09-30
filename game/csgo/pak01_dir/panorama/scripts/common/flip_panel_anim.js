@@ -35,6 +35,7 @@ var FlipPanelAnimation = class {
     DetermineVisiblePanel(animPanelA, animPanelB) {
         return animPanelA.BHasClass('flip-panel-anim-down-show') || animPanelA.BHasClass('flip-panel-anim-up-show') ? animPanelA : animPanelB;
     }
+    // The anim functions take args so we can use it with some other panels
     BtnPressNextAnim(panelA, panelB) {
         const visiblePanel = this.DetermineVisiblePanel(panelA, panelB);
         const hiddenPanel = visiblePanel === panelA ? panelB : panelA;
@@ -51,6 +52,7 @@ var FlipPanelAnimation = class {
         hiddenPanel.AddClass('flip-panel-anim-transition');
         hiddenPanel.AddClass('flip-panel-anim-down-show');
     }
+    // The anim functions take args so we can use it with some other panels
     BtnPressPrevAnim(panelA, panelB) {
         const visiblePanel = this.DetermineVisiblePanel(panelA, panelB);
         const hiddenPanel = visiblePanel === panelA ? panelB : panelA;

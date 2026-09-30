@@ -10,7 +10,7 @@ var playerstats = ( function()
 	var _m_visible;
 	var _m_timedOutWhileAway;
 
-	var _m_elSingleMatch;                           
+	var _m_elSingleMatch; // our match details panel
 
 	var _m_LineGraph = $.GetContextPanel().FindChildTraverse( 'id-playerstats__linegraph' );
 	var _m_MapGraph = $.GetContextPanel().FindChildTraverse( 'id-playerstats__web-maps' );
@@ -73,19 +73,19 @@ var playerstats = ( function()
 	var _m_InventoryUpdatedHandler = null;
 	var _m_SubscriptionStatusChangeUpdatedHandler = null;
 	
-	var _m_mode = _InitializeModeFilterFromSettings();                                                        
-	var _m_days = _InitializeTimeRangeFilter();                                                
+	var _m_mode = _InitializeModeFilterFromSettings(); // runs the bulk of settings plumbing into the controls
+	var _m_days = _InitializeTimeRangeFilter(); // runs after _InitializeModeFilterFromSettings
 
-	                                        
-	    
-	   	                                                                                               
-	   	                                                                                                   
-	       
+	// _m_arrLinegraphStats.forEach( stat =>
+	// {
+	// 	$.Msg( '"' + strStatTotalPrefix + stat + '"' + '\t\t' + '"' + strStatTotalPrefix + stat + '"');
+	// 	$.Msg( '"' + strStatAveragePrefix + stat + '"' + '\t\t' + '"' + strStatAveragePrefix + stat + '"');
+	// } );
 
 	function _InitializeTimeRangeFilter()
 	{
 		var ival = parseInt( $.GetContextPanel().FindChildTraverse( 'id-playerstats__range' ).GetSelected().GetAttributeString( "value", "" ));
-		                                                    
+		$.Msg( 'Time range filter initialized as ' + ival );
 
 		var nDays = parseInt( ival );
 		_m_MapGraph.timerangeindays = nDays;
@@ -102,7 +102,7 @@ var playerstats = ( function()
 		var val = GameInterfaceAPI.GetSettingString( 'ui_deepstats_toplevel_mode' );
 		var valID = null;
 
-		                                                       
+		// Determine the setting based on the last match played
 		var lastMatch = DeepStatsAPI.GetLastCachedMatchJS();
 		if ( lastMatch && lastMatch.matches.length > 0 )
 		{
@@ -111,29 +111,29 @@ var playerstats = ( function()
 			switch ( mode )
 			{
 				default:
-					                                                                        
+					$.Msg( 'Last match mode "' + mode + '" failed to auto-detect, ERROR!' );
 
 				case "Competitive":
 				case "CompetitiveCaptains":
 				case "CompetitiveScrimmage":
-					                                                                         
+					$.Msg( 'Last match mode "' + mode + '" auto-determined as competitive' );
 					val = 240;
 					valID = "mode_id_11";
 					break;
 				
 				case "Wingman":
-					                                                                     
+					$.Msg( 'Last match mode "' + mode + '" auto-determined as wingman' );
 					val = 12288;
 					valID = "mode_id_16";
 					break;
 			}
 
-			                                                                     
+			// See if we should adjust the filter from 14 days to a longer period
 			var timestamp = DeepStatsAPI.MatchIDToLocalTime( oMatch.match_id );
-			                                                                                
-			                                                                          
+			$.Msg( 'Last match ID = ' + oMatch.match_id + ' -> local time = ' + timestamp );
+			// 1606723200 -> <<31 = 3450411798862233600 + random = 3450411799665595200
 			timestamp += 1606723200 - DeepStatsAPI.MatchIDToLocalTime( "3450411799665595200" );
-			                               
+			// see if this was 14 days ago?
 			var ndaysago = NewsAPI.GetNumSecondsTillGcTimestamp( timestamp );
 			if ( ndaysago && ( ndaysago < 0 ) )
 			{
@@ -145,7 +145,7 @@ var playerstats = ( function()
 				else { nSelectID = "alltime"; }
 				if ( nSelectID )
 				{
-					                                                                                          
+					$.Msg( 'Last match timestamp "' + timestamp + '" auto-determined range as ' + nSelectID );
 					$.GetContextPanel().FindChildTraverse( 'id-playerstats__range' ).SetSelected( nSelectID );
 				}
 			}
@@ -160,14 +160,14 @@ var playerstats = ( function()
 		} );
 		if ( valID )
 		{
-			                                                                                                   
+			$.Msg( 'playerstats.js : _InitializeModeFilterFromSettings setting = ' + val + ', id = ' + valID );
 			elDropdown.SetSelected( valID );
 		}
 		else
 		{
 			elDropdown.SetSelectedIndex( 0 );
 			val = elDropdown.GetSelected().GetAttributeString( "value", "" );
-			                                                                                             
+			$.Msg( 'playerstats.js : _InitializeModeFilterFromSettings default write setting = ' + val );
 			GameInterfaceAPI.SetSettingString( 'ui_deepstats_toplevel_mode', val );
 		}
 		
@@ -199,79 +199,79 @@ var playerstats = ( function()
 
 	function _OnStatsReceived () 
 	{
-		                            
-		  
-			                        
-			                                 
-			                                 
-			                                                    
-			               
-			                                              
-			                             
-			                                                                                               
+		$.Msg( '_OnStatsReceived' );
+		/*
+			Deep Stats Chunk format:
+			account_id: local user account id
+			range: DeepStatsRange (see below)
+			matches: array of DeepStatsMatch objects (see below)
+			DeepStatsRange:
+			begin: begin timestamp of this chunk in gctime
+			end: end timestamp in gc time
+			frozen: true if this chunk will not be updated and we can ingore in future stats received calls
 
-			                      
-			                                               
-			                                               
+			DeepStatsMatch format:
+			player: DeepPlayerStatsEntry object (see below)
+			events: DeepPlayerMatchEvent object (see below)
 
-			                            
-			                    
-			                       
-			                                                                                                                     
-							                                             			    
-							                                               			    
-							                                               			    
-							                                                  		    
-							                                                       	                               
-							                                                		    
-							                                                 		                              
-							                                                 		                              
-							                                             			                              
-							                                             			                            
-			                             
-			                                                     
-			               
-					                                                                                 
-					                                                                    
-			                                
-			                                   
-			                                     
-			                   	                                                        
-			               		                                                  
-			                       
-			                                                                                                                                
-			                   
-			                   
-			                   
-			                          
-			                                                          
-			                                                       
-			                                                
-			                                             
-			                                                
-			                                             
-			                                             
-			                                                                  
-			                                                                
-			                                     
-			                                                                     
-			                                                            
-			                              
+			DeepPlayerStatsEntry format:
+			accountid: AccountID
+			match_id: UniqueMatchID
+			mm_game_mode: game mode of the match this progress happened in. Number is a EMsgGCCStrike15_v2_MatchmakingGame_t enum
+							k_EMsgGCCStrike15_v2_MatchmakingGame_ArmsRace			= 4,
+							k_EMsgGCCStrike15_v2_MatchmakingGame_Demolition			= 5,
+							k_EMsgGCCStrike15_v2_MatchmakingGame_Deathmatch			= 6,
+							k_EMsgGCCStrike15_v2_MatchmakingGame_ClassicCasual		= 7,
+							k_EMsgGCCStrike15_v2_MatchmakingGame_ClassicCompetitive	= 8, // Used since October 2012
+							k_EMsgGCCStrike15_v2_MatchmakingGame_Cooperative		= 9,
+							k_EMsgGCCStrike15_v2_MatchmakingGame_ScrimComp2v2		= 10, // Used since April 2017
+							k_EMsgGCCStrike15_v2_MatchmakingGame_ScrimComp5v5		= 11, // Used since April 2017
+							k_EMsgGCCStrike15_v2_MatchmakingGame_Skirmish			= 12, // Used since April 2017
+							k_EMsgGCCStrike15_v2_MatchmakingGame_Survival			= 13, // Used since Nov 2017
+			mapid: // map id of the match
+			b_starting_ct: whether user is starting CT this match
+			match_outcome: 
+					& 0x3 for outcome (0 = tie, 1 = MY team WIN, 2 = other team win, so my team LOST)
+					& 0x4 for Did Not Finish ( player left early due to abandon or kick)
+			rounds_won: number of round wins
+			rounds_lost: number of round losses
+			stat_score: total score points earned
+			stat_deaths: Deaths	... add up all the kills/assists/deaths, then divide ...
+			stat_mvps: MVPs		... the totals and you'll get AVG kills per round)
+			enemy_kills: EnemyKills
+			enemy_headshots: EnemyKillHeadshots (EnemyKillHeadshots divided by EnemyKills = HSP%, regular StatKills get reduced from TKs...)
+			enemy_2ks: Enemy2Ks
+			enemy_3ks: Enemy3Ks
+			enemy_4ks: Enemy4Ks
+			total_damage: Total Damage
+			engagements_entry_count: Engagements count for entry frags
+			engagements_entry_wins: Engagements won for entry frags
+			engagements_1v1_count: Engagements count for 1v1
+			engagements_1v1_wins: Engagements won for 1v1
+			engagements_1v2_count: Engagements count for 1v2
+			engagements_1v2_wins: Engagements won for 1v2
+			utility_count: Number of Utility Nades Thrown
+			utility_success: Number of utilities that resulted in enemy damage
+			utility_enemies: Number of enemies damaged with utilities thrown
+			flash_count: Number of Flashes Thrown
+			flash_success: Number of flashes that resulted in enemy being blinded
+			flash_enemies: Number of flashed enemies with flashes thrown
+			mates: Teammates of the player
 
-			                            
-			                                                                          
-		  
+			DeepPlayerMatchEvent format:
+			We dont need this in JS afaik, check the proto if you really need to know.
+		*/
 	}
 
 	function _InitMatchDetailsPanel ()
 	{
-		                                                
+		// move match panel up in the heirarchy for blur
 		if ( !_m_elSingleMatch )
 		{
 			_m_elSingleMatch = $.GetContextPanel().FindChildTraverse( 'PlayerStats_SingleMatch' );
 			if ( _m_elSingleMatch )
 			{
-				                                                                    
+				// Create a panel outside mainmenucore so we can blur the stats page
 				var elMainMenuInput = $.GetContextPanel();
 				while ( elMainMenuInput ) 
 				{
@@ -282,8 +282,8 @@ var playerstats = ( function()
 
 				if ( elMainMenuInput )
 				{
-					                                                                                                 
-					   	                                                                            
+					// var elSingleMatchPanel = $.CreatePanel( 'Panel', elMainMenuInput, 'PlayerStats_SingleMatch' );
+					// 	elSingleMatchPanel.BLoadLayoutSnippet( "snippet_playerstats_single_match" );
 
 					_m_elSingleMatch.SetParent( elMainMenuInput );
 				}
@@ -293,13 +293,13 @@ var playerstats = ( function()
 
 	function _InitMatchLister ( panel )
 	{
-		                            
+		$.Msg( '_InitMatchLister' );
 		MatchLister.Init( panel );
 	}
 
 	function _InitAnims()
 	{
-		                                       
+		// animate the panels in the first time
 		var arrPanelsToAnimateIn = $.GetContextPanel().FindChildrenWithClassTraverse('rotatein');
 		arrPanelsToAnimateIn.sort(function (a, b) {
 
@@ -325,14 +325,14 @@ var playerstats = ( function()
 	{
 		_InitMatchDetailsPanel();
 
-		                        
-		                         
+		// _ResetMatchHistory();
+		// _UpdateMatchHistory();
 
 		_ResetYourRecord();
-		  		                    
+		//		_UpdateYourRecord();
 
 		_ResetLinegraph();
-		  		                          
+		//		_UpdateGraphStatButtons();
 
 		_InitMatchLister( _m_elMatchHistory );
 		MatchLister.Populate( _m_elMatchHistory, _m_days, _m_mode, '' );
@@ -352,7 +352,7 @@ var playerstats = ( function()
 		$.RegisterEventHandler( 'UnreadyForDisplay', $.GetContextPanel(), _OnUnreadyForDisplay );
 		$.RegisterForUnhandledEvent( 'DeepStatsTimeoutGiveUp', _OnDeepStatsTimeOut );
 
-		                                                                                                              
+		// we listen to different little panels for changes in their stats because they are reflected in our big panel
 		$.RegisterEventHandler( 'DeepStatsPanel_OnStatDownloadProgress', _m_LineGraph, function() {$.Schedule( 0.01, _OnStatDownloadProgress_LineGraph )} );
 		$.RegisterEventHandler( 'DeepStatsPanel_OnStatDownloadProgress', _m_MapGraph, function() {$.Schedule( 0.01, _OnStatDownloadProgress_MapGraph )} );
 		$.RegisterEventHandler( 'DeepStatsPanel_OnStatDownloadProgress', _m_WeaponGraph, function() {$.Schedule( 0.01, _OnStatDownloadProgress_WeaponGraph )} );
@@ -433,18 +433,18 @@ var playerstats = ( function()
 	{
 		var oMatesData = {};
 		var oMates = {
-			w3: [],                  
-			w2: [],                  
-			w1: [],                  
-			all: [],            
+			w3: [], // 3+ shared wins
+			w2: [], // 2+ shared wins
+			w1: [], // 1+ shared wins
+			all: [], // everyone
 		}
 
 		arrMatches.forEach( function( oMatch, index ) 
 		{
 			oMatch.mates.forEach( function(mate,index)
 			{
-				                                                                      
-				   	       
+				// if( (oMatch.match_outcome & 0x4) != 0 ) // skip if we didn't finish
+				// 	return;
 
 				if( !oMatesData.hasOwnProperty(mate) )
 				{
@@ -458,7 +458,7 @@ var playerstats = ( function()
 				oMatesData[ mate ].rounds_won += oMatch.rounds_won;
 				oMatesData[ mate ].rounds_lost += oMatch.rounds_lost;
 
-				                                                                                                                           
+				// count the wins. this is the most important stat. fallback to round win/loss if there are no shared wins with any player.
 				if ( ( oMatch.match_outcome & 0x3 ) == 1 )
 				{
 					oMatesData[ mate ].sharedWins++;
@@ -477,21 +477,21 @@ var playerstats = ( function()
 					oMates.w1.push(mate);
 				}
 
-				                        
+				// everyone goes in here
 				oMates.all.push( mate );
 				
 			});
 
 		});		
 
-	  	                                                                                   
+	//	select from the min 3 shared wins, else 2, else 1, else compare rounds won to lost.
 		var arrFilteredMates = Object.values( oMates.w3 ).length > 0 ? oMates.w3 :
 			Object.keys( oMates.w2 ).length > 0 ? oMates.w2 :
 				Object.keys( oMates.w1 ).length > 0 ? oMates.w1 :
 					oMates.all;
 		
 		var bestMate = -1;
-		var bestRatio = -1;                                                                  
+		var bestRatio = -1; // worst case, pick the first mate, even if no rounds won or lost
 
 		if ( arrFilteredMates.length == 0 )
 			return [0,0];
@@ -511,19 +511,19 @@ var playerstats = ( function()
 
 	function _UpdateSubscriptionStatus()
 	{
-		var strGetSubscriptionGreenButton = '';                                              
+		var strGetSubscriptionGreenButton = ''; // string to use for showing the green button
 
 		var labelDesc = $.GetContextPanel().FindChildInLayoutFile( 'id-subscription-status-desc' );
 		var rtRecurringSubscriptionNextBillingCycle = InventoryAPI.GetCacheTypeElementFieldByIndex( 'RecurringSubscription', 0, 'time_next_cycle' );
 		if ( rtRecurringSubscriptionNextBillingCycle )
 		{
-			                                                          
-			                                                                                     
+			// ENROLLED at some point, could be operation and has data
+			$.Msg( 'Recurring subscription cycle = ' + rtRecurringSubscriptionNextBillingCycle );
 			var numSecondsTillNextBillingCycle = NewsAPI.GetNumSecondsTillGcTimestamp( rtRecurringSubscriptionNextBillingCycle );
 			if ( numSecondsTillNextBillingCycle < 60 )
 			{
-				                                                                                                
-				          
+				$.Msg( 'Recurring subscription expired! (' + numSecondsTillNextBillingCycle + ' seconds ago)' );
+				// EXPIRED
 				labelDesc.text = $.Localize( '#playerstats_subscription_expired', labelDesc );
 				labelDesc.SetHasClass( 'subscription-status__label--yellow', true );
 				labelDesc.SetHasClass( 'subscription-status__label--green', false );
@@ -532,9 +532,9 @@ var playerstats = ( function()
 			else
 			{
 				var status = MyPersonaAPI.GetMyRecurringSubscriptionStatus();
-				                                                  
+				$.Msg( 'Recurring subscription status '+ status );
 
-				                         
+				// IS RECURRING OR MANUAL
 				var decString = status ? '#playerstats_subscription_' + status
 					: '#playerstats_subscription_renew_unknown';
 					
@@ -543,16 +543,16 @@ var playerstats = ( function()
 				
 				if ( numSecondsTillNextBillingCycle <= 24*3600 && status === 'renew_manually' )
 				{
-					                          
-					                                                                      
+					// RENEW MANUALLY LAST DAY
+					$.Msg( 'Recurring subscription is in last day of its active cycle.' );
 					labelDesc.text = $.Localize( '#playerstats_subscription_expire_warning' );
 				}
 				else
 				{
-					                                       
+					// ACTIVE - DAYS LEFT TILL NEXT BILLING
 					var daysLeft = Math.floor( numSecondsTillNextBillingCycle / (( 24*3600 ) + 1 ));
 	
-					                                                                                                                                   
+					$.Msg( 'Recurring subscription cycle has ' + Math.floor( numSecondsTillNextBillingCycle / ( 24*3600 ) + 1 ) + ' days remaining.' );
 					labelDesc.SetDialogVariableInt( "days", daysLeft );
 					var daysString = $.ConstructString( '#SFUI_Store_Timer_Day:f', { value: daysLeft } );
 					labelDesc.SetDialogVariable( "daystext", daysString );
@@ -562,15 +562,15 @@ var playerstats = ( function()
 		}
 		else
 		{
-			                                                                               
-			                                                                   
+			$.Msg( 'Recurring subscription never had billing established, but has stats' );
+			// NO SUBSCRIPTION (users coming from operation with previous data)
 			labelDesc.text = $.Localize( '#playerstats_subscription_not_enrolled', labelDesc );
 			labelDesc.SetHasClass( 'subscription-status__label--yellow', false );
 			labelDesc.SetHasClass( 'subscription-status__label--green', false );
 			strGetSubscriptionGreenButton = "#playerstats_link_get";
 		}
 
-		                                                                                                        
+		// Big green button? Or 'manage subscription' external link? One of them should be visible at all times.
 		var btnGetSubscription = $.GetContextPanel().FindChildInLayoutFile( 'id-get-subscription' );
 		var btnManageSubscription = $.GetContextPanel().FindChildInLayoutFile( 'id-manage-subscription' );
 		if ( strGetSubscriptionGreenButton )
@@ -600,7 +600,7 @@ var playerstats = ( function()
 
 	function _ResetYourRecord ()
 	{
-		                            
+		$.Msg( '_ResetYourRecord' );
 
 		var elRecordFrame = $.GetContextPanel().FindChildTraverse( 'PlayerStatsRecordFrame' );
 
@@ -612,7 +612,7 @@ var playerstats = ( function()
 
 	function _UpdateYourRecordAsycDeepstats ()
 	{
-		                                          
+		$.Msg( '_UpdateYourRecordAsycDeepstats' );
 		Scheduler.Cancel( 'RECORD' );			
 
 		var elRecordFrame = $.GetContextPanel().FindChildTraverse( 'PlayerStatsRecordFrame' );
@@ -641,7 +641,7 @@ var playerstats = ( function()
 			return;
 		}
 
-		                    
+		////////////////////
 
 		var bValid = false;
 
@@ -651,7 +651,7 @@ var playerstats = ( function()
 			var xuid = _GetBestMateForPeriod( arrMatches )[0];
 
 			bValid = xuid != '';
-		  	                       
+		//	bValid = _m_days >= 90;
 
 			elBestMate.SetHasClass( 'no-data', !bValid );
 
@@ -688,7 +688,7 @@ var playerstats = ( function()
 
 	function _OnStatDownloadProgress_LineGraph()
 	{
-		                                             
+		$.Msg( '_OnStatDownloadProgress_LineGraph' );
 
 		var elRecordFrame = $.GetContextPanel().FindChildTraverse( 'PlayerStatsRecordFrame' );
 
@@ -697,7 +697,7 @@ var playerstats = ( function()
 			var total = _m_LineGraph.GetAttributeInt( strStatTotalPrefix + stat, 0 );
 			var avg = _m_LineGraph.GetAttributeInt( strStatAveragePrefix + stat, 0 );
 
-			                                                                                    
+			// if the number is only 5 digits, display it with commas. Otherwise, abbreviate it.
 			var prettyTotal = total < 100000 ? total.toString().replace( /\B(?=(\d{3})+(?!\d))/g, ',' ) :
 				FormatText.AbbreviateNumber( total );
 
@@ -711,7 +711,7 @@ var playerstats = ( function()
 		$.GetContextPanel().SetDialogVariable( 'stat_total_losses', _m_LineGraph.GetAttributeInt( 'losses', 0 ) );
 		$.GetContextPanel().SetDialogVariable( 'stat_total_ties', _m_LineGraph.GetAttributeInt( 'ties', 0 ) );
 
-		                
+		/// digit panels
 		var elMatches = elRecordFrame.FindChildTraverse( 'matches' );
 		if ( elMatches )
 		{
@@ -766,7 +766,7 @@ var playerstats = ( function()
 
 	function _OnStatDownloadProgress_MapGraph()
 	{
-		                                            
+		$.Msg( '_OnStatDownloadProgress_MapGraph' );
 
 		var elRecordFrame = $.GetContextPanel().FindChildTraverse( 'PlayerStatsRecordFrame' );
 
@@ -774,10 +774,10 @@ var playerstats = ( function()
 		if ( elBestMap )
 		{
 			var mapString = DeepStatsAPI.MapIDToString( _m_MapGraph.best_map );
-			                                                                                                  
+			$.Msg( 'Setting best map from property = "' + _m_MapGraph.best_map + '" -> "' + mapString + '"' );
 
 			var bValid = mapString != '';
-			                        
+			//bValid = _m_days > 15;
 
 			if ( bValid )
 			{
@@ -795,7 +795,7 @@ var playerstats = ( function()
 
 	function _OnStatDownloadProgress_WeaponGraph()
 	{
-		                                               
+		$.Msg( '_OnStatDownloadProgress_WeaponGraph' );
 
 		var elRecordFrame = $.GetContextPanel().FindChildTraverse( 'PlayerStatsRecordFrame' );
 
@@ -821,19 +821,19 @@ var playerstats = ( function()
 	}
 
 
-                                         
-              
-                                        
+/////////////////////////////////////////
+/// LINE GRAPH
+////////////////////////////////////////
 	
 
 	function _ResetLinegraph ()
 	{
 		
-		                                          
+		// center the today label on the final bar
 		var elToday = $.GetContextPanel().FindChildTraverse( 'LinegraphTodayLabel' );
 		if ( elToday )
 		{
-				  
+				//
 		}
 		
 		var elStart = $.GetContextPanel().FindChildTraverse( 'LinegraphStartLabel' );
@@ -858,7 +858,7 @@ var playerstats = ( function()
 	function _UpdateLineGraph ()
 	{
 
-		                            
+		$.Msg( "_UpdateLineGraph" );
 
 		_UpdateGraphStatButtons();
 
@@ -870,7 +870,7 @@ var playerstats = ( function()
 
 			var timestamp = elPoint.GetAttributeInt( 'timestamp', 0 );
 
-			                                                   
+			// make it a button that populates the match lister
 			var onActivate_f = function( strDateKey )
 			{
 				MatchLister.Highlight( _m_elMatchHistory, strDateKey );
@@ -887,35 +887,35 @@ var playerstats = ( function()
 			}.bind( this, elPoint), GRAPH_JOBS );
 		} );
 
-		                  
-		                                                                                                               
-		                                                                                                          
-		                                                                                             
+		// set the Y axis 
+		/* UNDONE: Positioning in C now since width can vary and a fixed transform offset doesn't cover every situation
+		var elStatButtons = $.GetContextPanel().FindChildTraverse( 'StatSelectionButtonContainer' ).GetChild( 0 );
+		var index = parseInt( elStatButtons.GetSelectedButton().GetAttributeString( 'statidx', 0 ) );
 
 		
-		                                          
-	      	                                                               
-    	  	                                     
-     		                                   
-      		                                                 
-    	 
+		function formatLabel(elLabel, statValue) {
+	      	statValue = _isPercentage(index) ? 100 * statValue : statValue;
+    	  	statValue = statValue.toPrecision(2);
+     		statValue += _GetUnitSuffix(index);
+      		elLabel.SetDialogVariable("statval", statValue );
+    	}
 		
-		                                                                                  
-		                                                                                                  
-		                                         
-			                                                              
-			                                  
-		   
+		var vecGraphContainer = $.GetContextPanel().FindChildTraverse( "LineGraphOuter" );
+		var vecLabels = vecGraphContainer.FindChildrenWithClassTraverse( "linegraph__yaxis-range_label" );
+		vecLabels.forEach( function ( elLabel ) {
+			var statValue = elLabel.GetAttributeInt("statval", -1) / 1000;
+			formatLabel( elLabel, statValue );
+		});
 		
-		                                                                  
-		                                                                      
-		                                                                  
-		                                                                      
-		                                                                    
-		                                                                        
-		                                                                          
-		                                                                              
-		  
+		var elYMin = $.GetContextPanel().FindChildTraverse( 'YMinLabel' );
+		formatLabel( elYMin, elYMin.GetAttributeInt( "statval", -1 ) / 1000 );
+		var elYMax = $.GetContextPanel().FindChildTraverse( 'YMaxLabel' );
+		formatLabel( elYMax, elYMax.GetAttributeInt( "statval", -1 ) / 1000 );
+		var elThird = $.GetContextPanel().FindChildTraverse( 'ThirdLabel' );
+		formatLabel( elThird, elThird.GetAttributeInt( "statval", -1 ) / 1000 );
+		var elTwoThird = $.GetContextPanel().FindChildTraverse( 'TwoThirdLabel' );
+		formatLabel( elTwoThird, elTwoThird.GetAttributeInt( "statval", -1 ) / 1000 );
+		*/
 
 	}
 	
@@ -947,7 +947,7 @@ var playerstats = ( function()
 
 	function _AddAUniqueTooltipTarget ( elPanel, id, classname )
 	{
-		                        
+		// make a tooltip target
 		var strTooltipTargetId = 'JSTTTarget-' + id;
 		var elTooltipTarget = elPanel.FindChildTraverse( strTooltipTargetId );
 		if ( !elTooltipTarget )
@@ -961,27 +961,27 @@ var playerstats = ( function()
 
 	function _GetUnitSuffix ( index )
 	{
-		                              
-		   	                                                    
-		                                      
-		   	                                                  
+		// if ( _IsPerRound( index ) )
+		// 	return $.Localize( 'playerstats_suffix_per_round' );
+		// // else if ( _isPerDeath( index ) )
+		// 	return $.Localize('playerstats_suffix_per_death');
 		if ( _isPercentage( index ) )
 			return $.Localize( '#playerstats_suffix_per_cent' );
 		else
 			return '';
 	}
 
-	                  
+	// we've switched 
 	function _UpdateGraphStatButtons ()
 	{
 
-		                                     
-		                                          
+		/////////////////////////////////////
+		// set up digit panels in the stat buttons
 		_m_LineGraph.FindChildrenWithClassTraverse( 'stats-panel--graphbtn' ).forEach( function( elBtn, index )
 		{
 
-			                
-			                                                                                
+			// NORMAL VALUE 
+			////////////////////////////////////////////////////////////////////////////////
 			var valueNormal = parseInt( elBtn.GetAttributeInt( "stat_average", 0 ) );
 			var valueNormal = valueNormal == 0 ? 0 : ( valueNormal / ( _isPercentage( index ) ? 10.0 : 1000.0 )).toPrecision( 3 );
 
@@ -998,8 +998,8 @@ var playerstats = ( function()
 					elStatStatNormalLabel.text = $.Localize( '#playerstats_no_units', elStatStatNormalLabel );
 				}
 			}
-			             
-			                                                                                
+			// RANK VALUE
+			////////////////////////////////////////////////////////////////////////////////
 			var rank = elBtn.GetAttributeInt( "stat_ranking", 0 );
 			rank = _HasHistogram( index ) ? rank : -1;
 
@@ -1037,7 +1037,7 @@ var playerstats = ( function()
 
 		if ( GameInterfaceAPI.GetSettingString( 'ui_deepstats_toplevel_mode' ) !== _m_mode )
 		{
-			                                                                
+			$.Msg( 'playerstats.js : _OnModeChanged setting = ' + _m_mode );
 			GameInterfaceAPI.SetSettingString( 'ui_deepstats_toplevel_mode', _m_mode );
 		}
 
@@ -1045,7 +1045,7 @@ var playerstats = ( function()
 
 		Scheduler.Cancel();
 
-	  	                   
+	//	_ResetYourRecord();
 
 		_ResetLinegraph();
 
@@ -1056,18 +1056,18 @@ var playerstats = ( function()
 	function _OnTimeRangeChanged ()
 	{
 
-		                     
+		// set the time range
 		_m_days = _InitializeTimeRangeFilter();
 
 		Scheduler.Cancel();`	`
-  		                               
+//		Scheduler.Cancel( GRAPH_JOBS );
 
-  		                   
+//		_ResetYourRecord();
 		_ResetLinegraph();
 
 		MatchLister.Populate( _m_elMatchHistory, _m_days, _m_mode, '' );
 
-	  	             	
+	//	_UpdateAll();	
 	}
 
 
@@ -1096,7 +1096,7 @@ var playerstats = ( function()
 		return ( String(y) +String(m) + String(d) );
 	}
 	
-	                      
+	/* Public interface */
 	return {
 		Init:							_Init,
 		OnModeChanged: 					_OnModeChanged,
@@ -1105,9 +1105,9 @@ var playerstats = ( function()
 
 } )();
 
-                                                                                                    
-                                           
-                                                                                                    
+//--------------------------------------------------------------------------------------------------
+// Entry point called when panel is created
+//--------------------------------------------------------------------------------------------------
 ( function()
 {
 	playerstats.Init();

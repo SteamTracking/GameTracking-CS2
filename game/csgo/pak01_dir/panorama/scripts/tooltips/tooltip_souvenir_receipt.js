@@ -15,6 +15,8 @@ var TooltipSouvenirReceipt;
         const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
         let slots = [];
         const slotCount = InventoryAPI.GetItemStickerSlotCount(itemId);
+        // Delete unnecessary elements.  
+        // Tooltips do not get recreated every time they are shown so we may have to clean up from the last time
         elParent.Children().forEach((sticker, idx) => { if (idx > slotCount) {
             sticker.DeleteAsync(0);
         } });
@@ -44,7 +46,7 @@ var TooltipSouvenirReceipt;
         }
         const totalSum = slots.reduce((acc, curr) => { return acc + (curr.cost ?? 0); }, 0);
         const discountAmount = InventoryAPI.GetItemSouvenirDiscountPercent(itemId);
-        const discountCredits = Math.trunc(totalSum * discountAmount / 100);
+        const discountCredits = Math.trunc(totalSum * discountAmount / 100); // this is the "70% off" portion
         let discountPrice = totalSum;
         if (discountCredits < totalSum)
             discountPrice -= discountCredits;
@@ -52,6 +54,7 @@ var TooltipSouvenirReceipt;
         $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-price-row').SetDialogVariableInt('price', discountPrice);
         $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-price-row').SetDialogVariable('currency', StoreAPI.GetStoreItemTokensBundlePrice('' + g_ActiveTournamentInfo.itemid_charge, discountPrice, ''));
         $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-row').SetDialogVariableInt('discount', InventoryAPI.GetItemSouvenirDiscountPercent(itemId));
+        //StoreAPI.GetStoreItemTokensBundlePrice( ''+g_ActiveTournamentInfo.itemid_charge, oSettings.nPurchaseTokens, '' ));
     }
     TooltipSouvenirReceipt.Init = Init;
 })(TooltipSouvenirReceipt || (TooltipSouvenirReceipt = {}));

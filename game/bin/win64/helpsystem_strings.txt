@@ -333,7 +333,7 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 2\n?doItemsLayout@QListView@@UEAAXXZ
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vpTb
+2\vptb
 2aboutToShow()
 2anchorClicked(QUrl)
 2changed()
@@ -1466,6 +1466,7 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 ?userType@QVariant@@QEBAHXZ
 ?valueToKeys@QMetaEnum@@QEBA?AVQByteArray@@H@Z
 @#?write@QTableWidgetItem@@UEBAXAEAVQDataStream@@@Z
+@InputBindSystem
 @\v?event@QFrame@@MEAA_NPEAVQEvent@@@Z
 A#?write@QTreeWidgetItem@@UEBAXAEAVQDataStream@@@Z
 A\n?document@QTextEdit@@QEBAPEAVQTextDocument@@XZ

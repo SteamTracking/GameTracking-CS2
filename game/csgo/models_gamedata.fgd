@@ -1,0 +1,128 @@
+//===================== Copyright (c) Valve Corporation. All Rights Reserved. ======================
+//
+//==================================================================================================
+
+@include "models_base.fgd"
+@include "models_base_breakables.fgd"
+
+
+@ModelAnimEvent = AE_CL_SET_STATTRAK_GLOW 
+[
+	amount(float) : "Amount" : 0
+]
+
+@ModelAnimEvent = AE_BEGIN_TAUNT_LOOP 
+[
+	cycle(float) : "Cycle" : 0
+]
+
+@ModelAnimEvent = AE_CLIENT_EJECT_BRASS 
+[
+	attachment(model_attachment) : "Attachment"
+]
+
+@ModelAnimEvent = AE_WPN_CLIP_TO_POSEPARAM
+[
+	name(string) : "Pose Parameter"
+]
+
+@ModelAnimEvent = AE_WPN_NEXTCLIP_TO_POSEPARAM
+[
+	name(string) : "Pose Parameter"
+]
+
+@ModelAnimEvent = AE_WPN_EMPTYSHOTS_TO_POSEPARAM
+[
+	name(string) : "Pose Parameter"
+]
+
+@ModelAnimEvent = AE_CL_WEAPON_TRANSITION_INTO_HAND
+[
+	duration(float) : "Duration" : 0
+]
+
+@ModelGameData game_data_list( snapshot_weights_all_list ) = snapshot_weights_all
+[
+	bonename(model_bone) : "Bone"
+	weight(float) : "Weight" : 1
+]
+
+@ModelGameData game_data_list( snapshot_weights_upperbody_list ) = snapshot_weights_upperbody
+[
+	bonename(model_bone) : "Bone"
+	weight(float) : "Weight" : 1
+]
+
+@ModelGameData = weapon_metadata
+[
+	holster_attachment_preferred(string) : "Preferred Holster Attachment" : "primary"
+	holster_attachment_fallback(string) : "Fallback Holster Attachment" : "primary"
+	magazine_model(resource:vmdl) : "Magazine Model" : ""
+]
+
+@Struct = chicken_metadata_material_group
+[
+	freq(int) : "Frequency" : 1
+	matgrp(int) : "MatGrp"
+]
+
+@Struct = chicken_metadata_material_param
+[
+	name(string) : "Material Param Name"
+	value(int) : "Seed Generation Value"
+]
+
+@Struct = chicken_metadata_procgeo_characteristic
+[
+	name(string) : "Name" : "" : "Name of the procedural shape"
+	sequence_min(string) : "Min Sequence" : "" : "Single frame sequence blended in at value 0"
+	sequence_max(string) : "Max Sequence" : "" : "Single frame sequence blended in at value 1"
+]
+
+@Struct = chicken_metadata_procgeo_preset_value
+[
+	name(string) : "Characteristic Name"
+	min(float) : "Min" : "0"
+	max(float) : "Max" : "1"
+]
+
+@Struct = chicken_metadata_procgeo_presets
+[
+	adolescent(array:struct:chicken_metadata_procgeo_preset_value) { autoexpand_self = true } : "Adolescent"
+	adult(array:struct:chicken_metadata_procgeo_preset_value) { autoexpand_self = true } : "Adult"
+]
+
+@Struct = chicken_metadata_procgeo
+[
+	characteristics(array:struct:chicken_metadata_procgeo_characteristic) { autoexpand_self = true } : "Characteristics"
+	presets(struct:chicken_metadata_procgeo_presets) { autoexpand_self = true } : "Presets"
+]
+
+@ModelGameData = chicken_metadata
+[
+	matgrps(array:struct:chicken_metadata_material_group) : "Material Groups"
+	matparams(array:struct:chicken_metadata_material_param) : "Material Params"
+	procedural_geometry_poses(struct:chicken_metadata_procgeo) { autoexpand_self = true } : "Procedural Geometry Poses"
+]
+
+@ModelGameData = patch_camera_preset_list : "Camera preset position names for patch slots on this character."
+[
+	camera_preset_0(string) : "Slot0" : "chest"
+	camera_preset_1(string) : "Slot1" : "chest"
+	camera_preset_2(string) : "Slot2" : "chest"
+]
+
+@ModelGameData = composite_material_order : "Explicit order for composite material evaluation."
+[
+	material_0(resource:vmat) : "Material 0" : ""
+	material_1(resource:vmat) : "Material 1" : ""
+	material_2(resource:vmat) : "Material 2" : ""
+	material_3(resource:vmat) : "Material 3" : ""
+	material_4(resource:vmat) : "Material 4" : ""
+	// see CompositeMaterialGenerationJob_t::SortTargetMaterialProcessingOrder
+]
+
+@ModelGameData = keychain_inspect : "Override inspect model for keychains"
+[
+	keychain_inspect_model(resource:vmdl) : "Inspect Model" : ""
+]

@@ -6,6 +6,18 @@ var XpShopTrack;
 (function (XpShopTrack) {
     let pieAnimDuration = 1;
     const nXPperStar = StoreAPI.GetXpShopStarXp();
+    // a way to call setOptions from C++
+    // function SetOptionsEventHandler ( elPanel: Panel_t, do_fx: boolean, xptrack_value: number, xptrack_final_value: number )
+    // {
+    // 	const settings =
+    // 		{
+    // 			xpshop_track_frame_panel: elPanel,
+    // 			xpshop_track_value: xptrack_value,
+    // 		} as XpShopTrackSettings_t;
+    // 	$.Msg( elPanel.GetParent().id );
+    // 	XpShopInit( settings );
+    // }
+    //$.RegisterEventHandler( "XpShopTrack_SetSettings", $.GetContextPanel(), SetOptionsEventHandler );
     function XpShopInit(settings) {
         const elRootPanel = settings.xpshop_track_frame_panel;
         if (!elRootPanel || !elRootPanel.IsValid())
@@ -27,6 +39,7 @@ var XpShopTrack;
         elRootPanel.SetDialogVariableInt('max-stars', StoreAPI.GetXpShopMaxTrackLevel());
         elTrack.style.clip = 'radial(50% 50%, 0deg, ' + Math.floor(nPercentProgressTowardsNextStar / 100 * 360) + 'deg)';
         elTrack.style.transitionDuration = '0s';
+        // cache value
         elRootPanel.Data().prev_xpshop_track_value = settings.xpshop_track_value;
         SetComplete(elRootPanel, nStarsEarned >= StoreAPI.GetXpShopMaxTrackLevel());
     }
@@ -65,8 +78,14 @@ var XpShopTrack;
             return;
         const prevTrackXp = elRootPanel.Data().prev_xpshop_track_value;
         if (prevTrackXp === undefined) {
+            $.Msg('XpShopUpdate was called but there is no prev_xpshop_track_value. Did you forget to call XpShopInit?');
             return;
         }
+        $.Msg("\n XpShopUpdate");
+        $.Msg("panel: " + settings.xpshop_track_frame_panel.id);
+        $.Msg("prevXp: " + prevTrackXp);
+        $.Msg("NewXp: " + settings.xpshop_track_value);
+        $.Msg("\n");
         const oldStars = Math.floor(prevTrackXp / nXPperStar);
         const newStars = Math.floor(settings.xpshop_track_value / nXPperStar);
         const starsEarned = newStars - oldStars;
@@ -83,17 +102,28 @@ var XpShopTrack;
             elTrackFx.SetControlPoint(5, 0, 1, 1);
             elTrackFx.SetControlPoint(5, 1, 1, 1);
         }
+        // A. cycle through stars earned
         for (let i = 0; i < starsEarned; i++) {
             if (haveFx) {
                 elTrackFx.SetControlPoint(6, 0, 1, 1);
                 elTrackBGFx.SetControlPoint(6, 0, 1, 1);
             }
+            // progress bar should glow up
             elRootPanel.AddClass("in-motion");
+            // 1. animate to full circle
             elTrack.style.transitionDuration = pieAnimDuration + 's';
             elTrack.style.clip = 'radial(50% 50%, 0deg, 360deg)';
             elRootPanel.SetDialogVariableInt('progress-to-next-star', 100);
             UiToolkitAPI.PlaySoundEvent("UI.XP.Star.Filling");
+            $.Msg("A1-------");
+            $.Msg("stars-earned: " + (oldStars + i));
+            $.Msg("circle: 360");
+            $.Msg("%: 100");
+            // hold full circle before fanfair
             await Async.Delay(pieAnimDuration);
+            // 2. do some fanfair and update counter
+            $.Msg("A2-------");
+            $.Msg("stars-earned: " + (oldStars + i + 1));
             elRootPanel.SetDialogVariableInt('stars-earned', oldStars + i + 1);
             elRootPanel.AddClass("earned-star");
             elTrack.style.transitionDuration = '0s';
@@ -110,8 +140,12 @@ var XpShopTrack;
             await Async.Delay(0.2);
             elRootPanel.style.brightness = '1';
             await Async.Delay(0.2);
+            // 3. reset track
             elTrack.style.clip = 'radial(50% 50%, 0deg, 0deg)';
             elRootPanel.SetDialogVariableInt('progress-to-next-star', 0);
+            $.Msg("A3-------");
+            $.Msg("circle: 0");
+            $.Msg("%: 0");
             elTrack.style.transitionDuration = pieAnimDuration + 's';
         }
         const deltaXp = settings.xpshop_track_value % nXPperStar;
@@ -119,7 +153,10 @@ var XpShopTrack;
             SetComplete(elRootPanel);
             return;
         }
+        $.Msg("delta remainder: " + deltaXp);
+        // B. remaining partial star
         if (deltaXp > 0) {
+            // progress bar should glow up
             elRootPanel.AddClass("in-motion");
             const nPercentProgressTowardsNextStar = deltaXp / nXPperStar * 100;
             const nDegrees = Math.floor(nPercentProgressTowardsNextStar / 100 * 360);
@@ -127,10 +164,17 @@ var XpShopTrack;
             elRootPanel.SetDialogVariableInt('stars-earned', newStars);
             elTrack.style.clip = 'radial(50% 50%, 0deg, ' + nDegrees + 'deg)';
             UiToolkitAPI.PlaySoundEvent("UI.XP.Star.Filling");
+            $.Msg("B1-------");
+            $.Msg("prevXp: " + prevTrackXp);
+            $.Msg("stars-earned: " + (newStars));
+            $.Msg("circle: " + nDegrees);
+            $.Msg("%: " + nPercentProgressTowardsNextStar);
+            // cache value
             elRootPanel.Data().prev_xpshop_track_value = settings.xpshop_track_value;
         }
         if (haveFx) {
             elTrackFx.SetControlPoint(6, 0, 1, 1);
+            //elTrackBGFx.SetControlPoint ( 6, 0, 1, 1 );
         }
         await Async.Delay(0.5);
         elRootPanel.RemoveClass("in-motion");

@@ -46,6 +46,7 @@ var PopupCommendPlayer;
                 m_elCommend.visible = true;
             }
             if (m_elCommend.visible) {
+                // if we have a record then we know we got a response from the query. let user modify the commends and submit.
                 let oCommends = GameStateAPI.GetMyCommendationsJSOForUser(xuid);
                 if (oCommends['valid']) {
                     let bHasPrevCommendations = false;
@@ -63,12 +64,14 @@ var PopupCommendPlayer;
             }
         }
         else {
+            // give sometime before cancel loading
             m_loadingJob = $.Schedule(10, _CancelLoading);
             if (m_elStatus && m_elStatus.IsValid()) {
                 m_elStatus.text = $.Localize("#SFUI_PlayerDetails_Loading");
             }
             m_elCommend.visible = false;
         }
+        // update submit button
         $("#id-commend-submit").visible = m_elCommend.visible;
     }
     function Submit() {
@@ -84,6 +87,9 @@ var PopupCommendPlayer;
         $.DispatchEvent('UIPopupButtonClicked', '');
     }
     PopupCommendPlayer.Submit = Submit;
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent("GameState_CommendPlayerQueryResponse", _ReceivedCommendationFromServer);
     }

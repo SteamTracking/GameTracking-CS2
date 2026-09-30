@@ -18,6 +18,7 @@ var InspectAsyncActionBar;
         const elAsyncActionBarPanel = $.GetContextPanel().FindChildInLayoutFile('PopUpInspectAsyncBar');
         $.GetContextPanel().AddClass('PopupPanelCapability_' + worktype);
         const purchaseItemId = InspectShared.GetPopupSetting('purchase_item_id');
+        $.Msg('asyncworktype:  ' + worktype + ', itemid ' + InspectShared.GetPopupSetting('item_id') + ', toolid ' + InspectShared.GetPopupSetting('tool_id'));
         if (InspectShared.GetPopupSetting('force_hide_async_bar') ||
             !worktype ||
             (allowRental && !showXrayMachineUi) ||
@@ -30,6 +31,7 @@ var InspectAsyncActionBar;
         elAsyncActionBarPanel.RemoveClass('hidden');
         _SetUpDescription(elAsyncActionBarPanel);
         _SetUpButtonStates(elAsyncActionBarPanel);
+        // Default weapon view icon btn to be selected since thats the view we start on.
         elAsyncActionBarPanel.FindChildInLayoutFile('InspectWeaponBtn').checked = true;
         _ShowHideInspectViewButtons(elAsyncActionBarPanel);
         _ChangeSceneryBtn(elAsyncActionBarPanel);
@@ -38,7 +40,7 @@ var InspectAsyncActionBar;
             if (_DefaultZoomView(worktype, elAsyncActionBarPanel) === false)
                 _ClosePopup();
         });
-        if (worktype === 'prestigecheck') {
+        if (worktype === 'prestigecheck') { // go ahead and check for service medal immediately...
             _OnAccept($.GetContextPanel().Data().oSettings, elAsyncActionBarPanel);
         }
         const cp = $.GetContextPanel();
@@ -68,6 +70,7 @@ var InspectAsyncActionBar;
         cp.Data().refreshSubscriptionHandle = $.Schedule(150, () => _EnsureVolatileShopSubscribed(cp));
     }
     function _DoesNotMeetDecodalbeRequirements() {
+        // decodeable is also used for xray so we have to check id we are actually in the decode screen or xray
         if (InspectShared.GetPopupSetting('work_type') === 'decodeable') {
             const sRestriction = InventoryAPI.GetDecodeableRestriction(InspectShared.GetPopupSetting('item_id'));
             const showXrayMachineUi = InspectShared.GetPopupSetting('is_xray_machine');
@@ -83,6 +86,7 @@ var InspectAsyncActionBar;
         const toolId = oSettings.tool_id;
         const bAllowXray = oSettings.allow_xray_claim;
         const selectedSlot = parseInt($.GetContextPanel().GetAttributeString('selectedItemToApplySlot', ''));
+        // Different action implementations go here
         if (worktype === 'useitem' || worktype === 'usegift') {
             InventoryAPI.UseTool(itemId, '');
         }
@@ -104,15 +108,19 @@ var InspectAsyncActionBar;
             }
         }
         else if (worktype === 'remove_patch') {
+            $.Msg("RemoveKeRemovePatch from " + itemId + " (slot: " + selectedSlot + ", ignored)");
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.StickerScratch', 'MOUSE');
-            InventoryAPI.WearItemSticker(itemId, selectedSlot, 0);
+            InventoryAPI.WearItemSticker(itemId, selectedSlot, 0); // Patch will auto-remove, no scraping
         }
         else if (worktype === 'remove_keychain') {
+            $.Msg("RemoveKeychain from " + itemId + " (slot: " + selectedSlot + ", ignored)");
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.StickerScratch', 'MOUSE');
             InventoryAPI.RemoveKeychain(itemId, 0);
         }
         else if (worktype === 'remove_sticker') {
             if (oSettings.remove_sticker_all_at_once) {
+                // We are removing all stickers to convert this weapon into a souvenir, so just pass-through into the souvenir UI
+                $.Msg("RemoveAllStickers from " + itemId + " -- ready to convert into a souvenir");
                 $.DispatchEvent('CSGOPlaySoundEffect', 'UI.StickerScratch', 'MOUSE');
                 _ClosePopup();
                 const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('popup-inspect-' + itemId, 'file://{resources}/layout/popups/popup_capability_can_keychain.xml');
@@ -125,9 +133,11 @@ var InspectAsyncActionBar;
                 elPanel.Data().oSettings = oSouvenirSettings;
                 return;
             }
+            $.Msg("RemoveSticker from " + itemId + " (slot: " + selectedSlot + ", ignored)");
             CapabilityCanSticker.OnScratchSticker(itemId, selectedSlot, bForceRemoveSticker, oSettings.popup_panel);
         }
         else if (worktype === 'can_wrap_sticker' && !oSettings.tool_id) {
+            $.Msg("Extract sticker from " + itemId + " display sleeve");
             $.DispatchEvent('CSGOPlaySoundEffect', 'sticker_applyConfirm', 'MOUSE');
             InventoryAPI.RemoveKeychain(itemId, 0);
         }
@@ -149,12 +159,17 @@ var InspectAsyncActionBar;
             };
             m_SouvenirCheckoutCart.clearCart();
             m_SouvenirCheckoutCart.addItem(shopItem);
+            $.Msg("Crafting souvenir for " + itemId + " UMID " + oSettings.umid_souvenir + " (" + nPurchaseCost + ", " + oSettings.credits_owned_souvenir + ")");
             $.DispatchEvent('CSGOPlaySoundEffect', 'sticker_applyConfirm', 'MOUSE');
+            // $.GetContextPanel().FindChildInLayoutFile( 'MakeSouvenirPlayerSelect' ).enabled = false;
+            // _ClosePopup();
             const popupPanel = UiToolkitAPI.ShowCustomLayoutPopupParameters('id-popup-shopping-cart-checkout', 'file://{resources}/layout/popups/popup_shopping_cart_checkout.xml', 'cartid=' + itemId +
                 '&checkoutsuffix=_souvenir');
+            $.Msg("Established cart popup to use one-off cart '" + itemId + "': " + m_SouvenirCheckoutCart.getTotalItems() + " (cost: " + m_SouvenirCheckoutCart.getTotalPrice() + ")");
             popupPanel.Data().eventId = g_ActiveTournamentInfo.eventid;
         }
         else if (worktype === 'decodeable') {
+            // Sprays are not cases but do act as that for display in this ui
             if (ItemInfo.IsSpraySealed(itemId) || ItemInfo.ItemDefinitionNameSubstrMatch(itemId, 'tournament_pass_')) {
                 InventoryAPI.UseTool(itemId, '');
             }
@@ -226,6 +241,8 @@ var InspectAsyncActionBar;
                 loopingSound: 'UI.Laptop.ButtonFillLoop',
                 timerCompleteAction: () => {
                     _OnAccept(oSettings, elPanel);
+                    // this popup stays around until the user completes the cart-checkout process
+                    // btnHoldAction.enabled = false;
                 }
             };
             const tempCreatedItem = InspectShared.GetPopupSetting('temp_display_item_id');
@@ -236,7 +253,10 @@ var InspectAsyncActionBar;
                 UiToolkitAPI.HideCustomLayoutTooltip('tooltip-souvenir-receipt');
             });
             HoldButton.SetupButton(btnSettings);
-            btnHoldAction.enabled = true;
+            // const balanceCredits = InspectShared.GetPopupSetting( 'credits_owned_souvenir' ) as number;
+            // const bEnabled = ( costSouvenir && !( costSouvenir > balanceCredits ) ) ? true : false;
+            // btnHoldAction.enabled = bEnabled;
+            btnHoldAction.enabled = true; // let the user always go to checkout and activate/buy more tokens in the cart
             _DiscountPanel(oSettings.popup_panel, elPanel);
             const umidSouvenir = InspectShared.GetPopupSetting('umid_souvenir');
             const elButtonChangeSouvenirItem = elPanel.FindChildInLayoutFile('ChangeSouvenirItem');
@@ -249,12 +269,14 @@ var InspectAsyncActionBar;
             const elMakeSouvenirPlayerSelect = elPanel.FindChildInLayoutFile('MakeSouvenirPlayerSelect');
             elMakeSouvenirPlayerSelect.RemoveClass('hidden');
             const goldenItemId = InspectShared.GetPopupSetting('temp_display_item_id');
+            // const unEventID = InventoryAPI.GetItemAttributeValue( goldenItemId, '{uint32}tournament event id' );
             const unTeamIDs = [InventoryAPI.GetItemAttributeValue(goldenItemId, '{uint32}tournament event team0 id'),
                 InventoryAPI.GetItemAttributeValue(goldenItemId, '{uint32}tournament event team1 id')];
             const unPlayerID = InventoryAPI.GetItemAttributeValue(goldenItemId, '{uint32}tournament mvp account id');
             let arrSelections = [];
             const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
             g_ActiveTournamentTeams.filter((tt) => unTeamIDs.includes(tt.teamid)).forEach((tt) => {
+                // let sTeamTag = PredictionsAPI.GetTeamTag( tt.team );
                 tt.players.forEach((tp) => {
                     let sPlayerName = $.Localize('#SFUI_ProPlayer_' + tp.code, elPanel).split(" ");
                     sPlayerName.splice(1, 0, ...["'" + tp.nick + "'"]);
@@ -282,6 +304,7 @@ var InspectAsyncActionBar;
                 elOption.SetAttributeUInt32('playerid', sel.unPlayerID);
                 if (sel.unPlayerID != unPlayerID) {
                     elNamePanel.SetPanelEvent('onactivate', () => {
+                        $.Msg("Update player autograph to: " + sel.unPlayerID + ": " + sel.sPlayerName);
                         $.DispatchEvent("Activated", elNamePanel.GetParent(), "mouse");
                     });
                 }
@@ -300,7 +323,11 @@ var InspectAsyncActionBar;
                         umid_souvenir: 'pid_' + nNewPlayerID + ':' + (umidSouvenir.split(':').pop()),
                         work_type: 'craft_souvenir'
                     };
+                    $.Msg("Closing to update player autograph to: " + nNewPlayerID + " UMID( " + umidSouvenir + " ) -> " + oNewSettings.umid_souvenir);
                     _ClosePopup();
+                    //
+                    // Re-issue the popup with a different layout (new sticker, new prices, new description)
+                    //
                     const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('popup-inspect-' + itemId, 'file://{resources}/layout/popups/popup_capability_can_keychain.xml');
                     elPanel.AddClass('PopupPanelCapability_' + oNewSettings.work_type);
                     elPanel.Data().oSettings = oNewSettings;
@@ -349,6 +376,7 @@ var InspectAsyncActionBar;
             const bRemovingAllStickersForSouvenir = !!InspectShared.GetPopupSetting('remove_sticker_all_at_once');
             if (bRemovingAllStickersForSouvenir)
                 elOK.visible = false;
+            // adds remove sticker button
             elNegative.visible = false;
             const btnHoldAction = elPanel.FindChildInLayoutFile('AsyncItemWorkAcceptNegativeHold');
             btnHoldAction.RemoveClass('AsyncItemWorkAcceptNegativeHidden');
@@ -365,6 +393,7 @@ var InspectAsyncActionBar;
             HoldButton.SetupButton(btnSettings);
         }
         if (worktype === 'delete') {
+            // adds remove sticker button
             elNegative.visible = false;
             elOK.visible = false;
             const btnHoldAction = elPanel.FindChildInLayoutFile('AsyncItemWorkAcceptNegativeHold');
@@ -387,12 +416,15 @@ var InspectAsyncActionBar;
         const btnStyle = InspectShared.GetPopupSetting('override_async_btn_style') === false ?
             'Positive' :
             InspectShared.GetPopupSetting('override_async_btn_style');
-        if (worktype === 'decodeable') {
+        if (worktype === 'decodeable') // These are overrides for the button states and other desc
+         {
             const sRestriction = InventoryAPI.GetDecodeableRestriction(itemId);
             const elDescLabel = elPanel.FindChildInLayoutFile('AsyncItemWorkDesc');
             const elDescImage = elPanel.FindChildInLayoutFile('AsyncItemWorkDescImage');
             const inspectOnly = InspectShared.GetPopupSetting('inspect_only');
+            // sRestriction = 'restricted';
             if (inspectOnly || sRestriction === 'restricted' && !$.GetContextPanel().Data().existingRewardFromXrayId) {
+                // Decodeable container cannot be opened
                 elOK.visible = false;
                 elDescLabel.visible = false;
                 elDescImage.visible = false;
@@ -407,13 +439,16 @@ var InspectAsyncActionBar;
                 return;
             }
             if (sRestriction === 'xray' && !inspectOnly) {
+                // Use is in territory that requires xray
                 elOK.visible = true;
                 elOK.text = '#popup_xray_button_goto';
                 elOK.AddClass(btnStyle);
                 elOK.SetPanelEvent('onactivate', () => {
+                    // since we are passing toolId as string here use '' so that it is false in logic checks.  
                     $.DispatchEvent("ShowXrayCasePopup", !toolId ? '' : toolId, itemId, true);
                     _ClosePopup();
                 });
+                // this is an override to override_async_bar_desc
                 elDescLabel.visible = true;
                 elDescLabel.text = '#popup_decodeable_async_xray_desc';
                 elDescImage.visible = false;
@@ -584,14 +619,19 @@ var InspectAsyncActionBar;
             }
         }
         _PerformAsyncAction(oSettings, bForceRemoveSticker);
+        // Converting to souvenir happens through cart-checkout
+        // once the user completes the purchase, this popup will self-close
+        // if the user backs out of the cart-checkout then they get back into this popup
         if (worktype === 'craft_souvenir')
             return;
+        // Hide negative buttons 
         let elNegative = elAsyncActionBarPanel.FindChildInLayoutFile('AsyncItemWorkAcceptNegative');
         if (elNegative)
             elNegative.AddClass('hidden');
         elNegative = elAsyncActionBarPanel.FindChildInLayoutFile('AsyncItemWorkAcceptNegativeHold');
         if (elNegative)
             elNegative.AddClass('hidden');
+        // Show timeout spinner
         elAsyncActionBarPanel.FindChildInLayoutFile('NameableSpinner').RemoveClass('hidden');
         elAsyncActionBarPanel.FindChildInLayoutFile('AsyncItemWorkAcceptConfirm').AddClass('hidden');
     }
@@ -640,6 +680,7 @@ var InspectAsyncActionBar;
     }
     InspectAsyncActionBar.EnableDisableChangeSceneryBtn = EnableDisableChangeSceneryBtn;
     function _ShowZoomBtn(elAsyncActionBarPanel) {
+        // Early out if using new pan/zoom functionality
         if (InspectModelImage.PanZoomEnabled() || InspectShared.GetPopupSetting('work_type') === 'nameable')
             return;
         const defName = InventoryAPI.GetItemDefinitionName(InspectShared.GetPopupSetting('item_id'));
@@ -725,19 +766,23 @@ var InspectAsyncActionBar;
     InspectAsyncActionBar.ResetTimeouthandle = ResetTimeouthandle;
     function _OnItemCustomization(numericType, type, itemid, cp = $.GetContextPanel()) {
         const worktype = InspectShared.GetPopupSetting('work_type');
+        $.Msg(`popup_inspect_async-bar.ts _OnItemCustomization ${numericType} type="${type}" itemid="${itemid}" worktype=${worktype}`);
         if (_IgnoreClose()) {
             ResetTimeouthandle();
             return;
         }
         if (worktype === 'craft_souvenir' && type === 'reward_redeemed') {
+            // Once user completed "convert to souvenir" action from the checkout cart, this popup can close
             _ClosePopup();
             return;
         }
         if (type === 'xp_shop_use_ticket' || type === 'xp_shop_ack_tracks') {
+            // Take the user to XP Shop UI
         }
         else if (type === 'keychain_tool_charges' && worktype === 'useitem') {
             const defidxContract = InventoryAPI.GetItemDefinitionIndexFromDefinitionName("Remove Keychain Tool");
             const fauxItemID = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxContract, 0);
+            // User has activated additional keychain tool charges - show them the final count of charges
             $.DispatchEvent("ShowCustomLayoutPopupParametersAsEvent", '', 'file://{resources}/layout/popups/popup_inventory_inspect.xml', 'item_id=' + fauxItemID +
                 ',' + 'inspect_only=true');
         }
@@ -760,6 +805,8 @@ var InspectAsyncActionBar;
     }
     function _ComputeTotalSouvenirCost(cp, itemIdSouvenir) {
         const tempCreatedItem = itemIdSouvenir ?? InspectShared.GetPopupSetting('temp_display_item_id');
+        $.Msg('_ComputeTotalSouvenirCost( ' + (cp ? cp.id : 'null') + ' itemid = ' + tempCreatedItem + '(' + itemIdSouvenir + ')');
+        // Find the total cost of all gold stickers on this weapon
         let nTotalCostInCredits = 0;
         {
             const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
@@ -776,7 +823,7 @@ var InspectAsyncActionBar;
             }
         }
         const discountAmount = InventoryAPI.GetItemSouvenirDiscountPercent(tempCreatedItem);
-        const discountCredits = Math.trunc(nTotalCostInCredits * discountAmount / 100);
+        const discountCredits = Math.trunc(nTotalCostInCredits * discountAmount / 100); // this is the "70% off" portion
         let discountPrice = nTotalCostInCredits;
         if (discountCredits < nTotalCostInCredits)
             discountPrice -= discountCredits;
@@ -784,14 +831,17 @@ var InspectAsyncActionBar;
     }
     let m_SouvenirCheckoutCart = ShoppingCart.cart;
     function _OnVolatileShopSubscribe(nContainerDef, bNewPricesParsed, cp) {
+        // This panel is for crafting souvenirs, and only has access to standalone cart, so it cares only about the stickers
         if (nContainerDef != g_ActiveTournamentInfo.itemid_dynamic_stickers)
             return;
         const nTotalCostInCredits = _ComputeTotalSouvenirCost(cp).discountPrice;
         if (m_SouvenirCheckoutCart !== ShoppingCart.cart) {
+            // Sync Shopping car prices
             m_SouvenirCheckoutCart.syncPrices((itemId) => {
                 return nTotalCostInCredits;
             });
         }
+        // re-init pricing for the displayed stickers
         let oApplySettings = {
             headerPanel: $.GetContextPanel().FindChildInLayoutFile('PopUpCanApplyHeader'),
             infoPanel: $.GetContextPanel().FindChildInLayoutFile('PopUpCanApplyPickSlot'),
@@ -814,6 +864,7 @@ var InspectAsyncActionBar;
             return;
         }
         const worktype = InspectShared.GetPopupSetting('work_type');
+        // don't interrupt user in the middle of these tasks
         if (worktype === "remove_sticker" ||
             worktype === "remove_patch" ||
             worktype === "remove_keychain" ||
@@ -826,6 +877,7 @@ var InspectAsyncActionBar;
             worktype === "nameable") {
             return;
         }
+        $.Msg("WARNING: ASYNC BAR CLOSING POPUP -- OnMyPersonaInventoryUpdated -- worktype=" + worktype + " ( if this is not expected, add an exclude above here )");
         OnEventToClose();
     }
     function _OnInventoryPrestigeCoinResponse(defidx, upgradeid, hours, prestigetime) {

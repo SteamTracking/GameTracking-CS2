@@ -106,7 +106,7 @@ var matchList;
         if (elMatchList && !(elMatchList.Data().activeButton) && (elMatchList.GetChildCount() > 0)) {
             let tileIsVisible = false;
             let elFirstTile = null;
-            let n = 0;
+            let n = 0; // ( matchListDescriptor === 'live' ? 1 : 0 );
             do {
                 elFirstTile = elMatchList.GetChild(n);
                 tileIsVisible = (elFirstTile && !elFirstTile.BHasClass('MatchTile--Collapse'));
@@ -138,6 +138,7 @@ var matchList;
         _SelectFirstTile(elParentPanel, elMatchList, matchListDescriptor);
     };
     let _OnTournamentSectionSelected = function (elParentPanel, elMatchList, matchListDescriptor) {
+        // changed section so update the teams dropdown
         _PopulateMatchTeamsDropdown(elParentPanel, elParentPanel.Data().tournament_id);
         elParentPanel.Data().matchListIsPopulated = false;
         UpdateMatchList(elParentPanel, elParentPanel.Data().tournament_id);
@@ -212,7 +213,12 @@ var matchList;
             listState = _RequestMatchListUpdate(elTab, matchListDescriptor);
         }
         else if (listState === 'ready' && !optbFromMatchListChangeEvent) {
+            // Not sure how frequently UpdateMatchList runs, but code will throttle refresh calls if needed
             listState = _RequestMatchListUpdate(elTab, matchListDescriptor);
+            // optbFromMatchListChangeEvent is required to prevent re-entry in this function when refreshing
+            // the list of "downloaded" matches.
+            // This code is flawed because it cannot tell a proactive refresh vs reacting to a match list
+            // event state change vs a tab click
         }
         if (elTab && (listState !== "loading")) {
             _PopulateMatchList(elTab, matchListDescriptor);
@@ -275,9 +281,16 @@ var matchList;
             MatchListAPI.Refresh(matchListDescriptor);
             let newState = MatchListAPI.GetState(matchListDescriptor);
             if (newState === "loading") {
+                //
+                // WARNING: THIS CODE IS FLAWED
+                // correct design is to rely on event notifications when match list state change occurs
+                // then Javascript can call "Refresh", get a notification that state transitioned to "loading"
+                // and put up spinners correctly.
+                // Keeping it here for the smallest amount of refactoring before shipping all London Major pickems
                 ShowListSpinner(true, elTab);
                 SetListMessage("", false, elTab);
                 elTab.Data().matchListIsPopulated = false;
+                // Prevent re-entry double-scheduling the error handling function
                 if (elTab.Data().downloadFailedHandler) {
                     $.CancelScheduled(elTab.Data().downloadFailedHandler);
                     elTab.Data().downloadFailedHandler = undefined;
@@ -325,6 +338,7 @@ var matchList;
                     matchId = PredictionsAPI.GetSectionMatchByIndex(matchListDescriptor, sectionDesc, i);
                 }
                 else if (tournamentIndex <= 3 || !tournamentIndex) {
+                    // Used for old tournaments and 'live', 'downloaded', 'mymatches'.
                     matchId = MatchListAPI.GetMatchByIndex(matchListDescriptor, i).toString();
                 }
                 if (tournamentIndex && teamId && teamId != 0) {
@@ -348,6 +362,7 @@ var matchList;
         }
         let unfilteredCount = MatchListAPI.GetCount(matchListDescriptor);
         let nCount = 0;
+        $.Msg("JS match lister setting " + nCount + " matches for " + matchListDescriptor + " tab");
         let sectionDesc = 0;
         let tournamentIndex = 0;
         let MatchIdsFiltered = [];
@@ -374,11 +389,11 @@ var matchList;
             }
             else if (tournamentIndex == 1) {
                 MatchIdsFiltered = GetListOfMatchIds(parentPanel.Data().tournament_id, tournamentIndex, unfilteredCount, sectionDesc, null);
-                nCount = MatchIdsFiltered.length - 3;
+                nCount = MatchIdsFiltered.length - 3; // hide bad match data and test matches
             }
             else if (tournamentIndex == 3) {
                 MatchIdsFiltered = GetListOfMatchIds(parentPanel.Data().tournament_id, tournamentIndex, unfilteredCount, sectionDesc, null);
-                nCount = MatchIdsFiltered.length - 1;
+                nCount = MatchIdsFiltered.length - 1; // hide test match
             }
         }
         else {
@@ -386,6 +401,7 @@ var matchList;
             nCount = unfilteredCount;
         }
         ShowListSpinner(false, parentPanel);
+        // No matches returned, display error message
         if (nCount <= 0) {
             ShowInfoPanel(false, parentPanel);
             _ShowListPanel(false, parentPanel);
@@ -418,6 +434,7 @@ var matchList;
         function _CreateOrValidateMatchTile(matchId) {
             let elMatchButton = elMatchList.FindChildInLayoutFile(matchListDescriptor + "_" + matchId);
             if (!elMatchButton || matchListDescriptor === 'live') {
+                // Recreate all the live match tiles since the order updates and matters.
                 if (matchListDescriptor === 'live') {
                     if (elMatchButton) {
                         elMatchButton.DeleteAsync(0.0);
@@ -460,6 +477,7 @@ var matchList;
             if ((elMatchButton.Data().downloadStateHandler == undefined) && elMatchButton.FindChildInLayoutFile('id-download-state')) {
                 elMatchButton.Data().downloadStateHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MatchInfo_StateChange', _UpdateDownloadState.bind(undefined, elMatchButton));
             }
+            // Since 7671791 we are doing a relayout of child panels when refreshed, so also update the download state to show the correct icon 
             _UpdateDownloadState(elMatchButton);
             elMatchButton.RemoveClass('MatchTile--Collapse');
         }
@@ -469,6 +487,7 @@ var matchList;
             }
             else {
                 let matchbyindex = MatchListAPI.GetMatchByIndex(matchListDescriptor, i);
+                $.Msg("JS match lister idx=" + i + " / " + nCount + " = " + MatchIdsFiltered[i]);
                 _CreateOrValidateMatchTile(MatchIdsFiltered[i]);
             }
         }
@@ -482,6 +501,7 @@ var matchList;
             ShowInfoPanel(true, parentPanel);
             SetListMessage("", false, parentPanel);
         }
+        // last tile of live match list is gotv theatre
         if ((matchListDescriptor === 'live') && (nCount > 0)) {
             _CreateOrValidateMatchTile('gotv');
         }

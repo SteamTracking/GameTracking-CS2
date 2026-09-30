@@ -6,6 +6,7 @@ var StoreLinkedItems;
         const itemId = $.GetContextPanel().GetAttributeString("itemids", "");
         const isNotReleased = $.GetContextPanel().GetAttributeString("is-not-released", "") === "true";
         const aItemIds = itemId.split(',');
+        $.Msg('itemids: ' + itemId);
         let elItem = null;
         for (let i = 0; i < aItemIds.length; i++) {
             elItem = $.CreatePanel("Button", $.GetContextPanel().FindChildInLayoutFile('id-store-linked-items-images'), aItemIds[i]);

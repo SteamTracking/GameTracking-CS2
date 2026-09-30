@@ -1,6 +1,7 @@
 "use strict";
 /// <reference path="../csgo.d.ts" />
 /// <reference path="iteminfo.ts" />
+//This file contains functions that helps setting up map icon
 var TintSprayIcon;
 (function (TintSprayIcon) {
     function CheckIsSprayAndTint(itemId, elImage) {

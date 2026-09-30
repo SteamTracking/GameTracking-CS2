@@ -11,6 +11,7 @@ var ContextMenuLobbies;
         $.GetContextPanel().SetDialogVariableInt('lobby_count', numInvites);
         let elInviteContainer = $.GetContextPanel().FindChildInLayoutFile('id-context-menu-lobbies');
         if (numInvites < 1) {
+            // responsible for closing the context menu
             $.DispatchEvent('ContextMenuEvent', '');
             return;
         }
@@ -47,6 +48,8 @@ var ContextMenuLobbies;
     function DeleteTilesNotInUpdate(elList, xuidsFromUpdate) {
         let children = elList.Children();
         let sectionChildrenCount = children.length;
+        // Remove any tiles that are not in the latest updated list of xuids
+        // Those xuids have gone offline.
         for (let i = 0; i < sectionChildrenCount; i++) {
             let panelId = children[i].id;
             if (xuidsFromUpdate.indexOf(panelId) < 0)
@@ -74,6 +77,7 @@ var ContextMenuLobbies;
             else if (!m_elNewestLobby.BCanSeeInParentScroll() && !m_bSeenNewestLobby) {
                 m_btnGoToNew.SetHasClass('hide', false);
             }
+            $.Msg('elTile.BCanSeeInParentScroll(): ' + m_elNewestLobby.BCanSeeInParentScroll());
         });
     }
     ContextMenuLobbies.ShowHideNewLobbiesBtn = ShowHideNewLobbiesBtn;
@@ -85,16 +89,19 @@ var ContextMenuLobbies;
         elTile.SetAttributeString('showinpopup', 'true');
         friendLobby.Init(elTile);
         elTile.RemoveClass('hidden');
-        $.RegisterEventHandler('ScrolledIntoView', elTile, () => { });
-        $.Schedule(1, () => { });
+        $.RegisterEventHandler('ScrolledIntoView', elTile, () => { $.Msg('ScrolledIntoView'); });
+        $.Schedule(1, () => { $.Msg(index + ': elTile.BCanSeeInParentScroll(): ' + elTile.BCanSeeInParentScroll()); });
     }
     ;
     function AddTransitionEndEventHandler(elTile) {
+        // Handler that catches OnPropertyTransitionEndEvent event for this panel.
         $.RegisterEventHandler('PropertyTransitionEnd', elTile, fnOnPropertyTransitionEndEvent);
         function fnOnPropertyTransitionEndEvent(panel, propertyName) {
             if (elTile === panel && propertyName === 'opacity') {
+                // Panel is visible and fully transparent
                 if (elTile.visible === true && elTile.BIsTransparent()) {
                     elTile.DeleteAsync(0.0);
+                    $.Msg('Removed Lobby: ' + FriendsListAPI.GetFriendName(elTile.id));
                     return true;
                 }
             }
@@ -108,6 +115,9 @@ var ContextMenuLobbies;
         elPanel.ScrollToBottom();
     }
     ContextMenuLobbies.OnPressGotoNew = OnPressGotoNew;
+    //--------------------------------------------------------------------------------------------------
+    // Entry point called when panel is created
+    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('PanoramaComponent_PartyBrowser_InviteConsumed', Init);
         $.RegisterForUnhandledEvent('PanoramaComponent_PartyBrowser_InviteReceived', Init);

@@ -7,6 +7,7 @@
 var InventoryPanel;
 (function (InventoryPanel) {
     let _m_activeCategory;
+    // This panel contains the main inventory browseing elements
     let _m_elInventoryMain = $.GetContextPanel().FindChildInLayoutFile('InventoryMain');
     let _m_elInventorySearch = $.GetContextPanel().FindChildInLayoutFile('InvSearchPanel');
     let _m_isCapabliltyPopupOpen = false;
@@ -25,15 +26,25 @@ var InventoryPanel;
         _ShowHideRentalTab();
     }
     function _RunEveryTimeInventoryIsShown() {
+        // When the inventory is created for the first time we don't have a way to trigger ReadyForDisplay,
+        // but on all subsequent clicks to show inventory panel we don't run Init and run ReadyForDisplay
+        // Put all the shared code here
         _OnShowAcknowledgePanel();
         if (!MyPersonaAPI.IsInventoryValid() || !MyPersonaAPI.IsConnectedToGC()) {
+            //No connection to GC so show a message
             UiToolkitAPI.ShowGenericPopupOk($.Localize('#SFUI_SteamConnectionErrorTitle'), $.Localize('#SFUI_Steam_Error_LinkUnexpected'), '', () => $.DispatchEvent('HideContentPanel'));
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Populate Categories and Subcategories
+    //--------------------------------------------------------------------------------------------------
     function _CreateCategoriesNavBar() {
         let aCategories = StripEmptyStringsFromArray(InventoryAPI.GetCategories().split(','));
+        // Create category btns
         let elCategoryBtns = _CreateCatagoryBtns(aCategories);
+        // Creates a new panel for each category that contains its sub category nav and items list
         _CreateSubmenusAndListerPanelsForEachCategory(aCategories, _CreateInventoryContentPanel());
+        //set default tab adn active panel
         $.DispatchEvent("Activated", elCategoryBtns.FindChildInLayoutFile(aCategories[0]), "mouse");
         elCategoryBtns.Children()[0].checked = true;
     }
@@ -67,10 +78,13 @@ var InventoryPanel;
         for (let tag of aCategories) {
             if (tag) {
                 let subCategories = StripEmptyStringsFromArray(InventoryAPI.GetSubCategories(tag).split(','));
+                // Create containing panel for subcategories nav and list
                 let elCategory = $.CreatePanel('Panel', elParent, tag, {
                     class: 'inv-category'
                 });
                 _AddTransitionEventToPanel(elCategory);
+                // Create nav for subcategory if you have more that a two categories to display.
+                // This catches the case for the 'any' category submenu
                 let elNavBar = _CreateNavBar(tag, elCategory);
                 if (subCategories.length > 1) {
                     _MakeNavBarButtons(elNavBar, subCategories, (subCategory) => {
@@ -78,10 +92,13 @@ var InventoryPanel;
                         _UpdateActiveInventoryList();
                     });
                 }
+                // Add Sort
                 _AddSortDropdownToNavBar(elNavBar.GetParent(), false);
+                // Add rental items filter to correct tabs
                 if (tag === 'any' || tag === 'inv_group_equipment') {
                     _AddFilterToNavBar(elNavBar.GetParent());
                 }
+                // Create list
                 $.CreatePanel('InventoryItemList', elCategory, tag + '-List');
             }
         }
@@ -89,7 +106,9 @@ var InventoryPanel;
     function _AddTransitionEventToPanel(newPanel) {
         $.RegisterEventHandler('PropertyTransitionEnd', newPanel, (panelName, propertyName) => {
             if (propertyName === 'opacity') {
+                // Panel is visible and fully transparent
                 if (newPanel.visible === true && newPanel.BIsTransparent()) {
+                    // Set visibility to false and unload resources
                     newPanel.visible = false;
                     return true;
                 }
@@ -132,6 +151,7 @@ var InventoryPanel;
                 });
             }
             else {
+                // touraments tab so use the icons fro the tournaments
                 let icon = _GetValueForKeyFromMetadata('usetournamenticons', metaData);
                 if (icon) {
                     let imageIndex = tag.replace(/^\D+/g, '');
@@ -159,7 +179,11 @@ var InventoryPanel;
         let activePanel = _m_elInventoryMain.FindChildInLayoutFile(_m_activeCategory);
         _UpdateActiveItemList(_GetActiveCategoryLister(activePanel), _m_activeCategory, _GetSelectedSubCategory(activePanel), _GetSelectedSort(activePanel), _GetFilterRentedItemsSetting(activePanel));
     }
+    //--------------------------------------------------------------------------------------------------
+    // Show HideTabs
+    //--------------------------------------------------------------------------------------------------
     function NavigateToTab(category) {
+        $.Msg('Inventory Active Tab Id--> ' + category);
         if (_m_activeCategory !== category) {
             if (_m_activeCategory) {
                 if (_m_activeCategory === 'tradeup') {
@@ -171,9 +195,11 @@ var InventoryPanel;
                 else {
                     let panelToHide = _m_elInventoryMain.FindChildInLayoutFile(_m_activeCategory);
                     panelToHide.RemoveClass('Active');
+                    $.Msg('HidePanel: ' + _m_activeCategory);
                 }
             }
             _m_activeCategory = category;
+            //Show selected tab
             if (category === "tradeup") {
                 _UpdateCraftingPanelVisibility(true);
                 $.GetContextPanel().FindChildInLayoutFile('InvCraftingBtn').checked = true;
@@ -185,8 +211,10 @@ var InventoryPanel;
             else {
                 let activePanel = _m_elInventoryMain.FindChildInLayoutFile(category);
                 activePanel.AddClass('Active');
+                // Force a reload of any resources since we're about to display the panel
                 activePanel.visible = true;
                 activePanel.SetReadyForDisplay(true);
+                $.Msg('ShowPanel: ' + category);
                 _m_activeCategory = category;
                 _UpdateFilterRentalBtnInCategoryVisibility(category);
                 _UpdateActiveItemList(_GetActiveCategoryLister(activePanel), category, _GetSelectedSubCategory(activePanel), _GetSelectedSort(activePanel), _GetFilterRentedItemsSetting(activePanel));
@@ -194,6 +222,9 @@ var InventoryPanel;
         }
     }
     InventoryPanel.NavigateToTab = NavigateToTab;
+    //--------------------------------------------------------------------------------------------------
+    // Add Sort Dropdown to a panel
+    //--------------------------------------------------------------------------------------------------
     function _AddSortDropdownToNavBar(elNavBar, bIsCapabliltyPopup) {
         let elDropdown = elNavBar.FindChildInLayoutFile('InvSortDropdown');
         if (!elDropdown) {
@@ -212,6 +243,7 @@ var InventoryPanel;
             if (!bIsCapabliltyPopup) {
                 elDropdown.SetPanelEvent('oninputsubmit', () => _UpdateSort(elDropdown));
             }
+            // Set initial selection
             elDropdown.SetSelected(GameInterfaceAPI.GetSettingString("cl_inventory_saved_sort2"));
         }
     }
@@ -292,6 +324,7 @@ var InventoryPanel;
     }
     function _InitXrayBtn() {
         _ShowHideXrayBtn();
+        // x-ray badge is the shared btn_alert frame; it always reads "1"
         $.GetContextPanel().FindChildrenWithClassTraverse('inv-nav-solid-btn-notification').forEach(el => el.SetDialogVariable('alert_value', '1'));
         let elXrayBtn = $.GetContextPanel().FindChildInLayoutFile("InvXrayBtnContainer");
         elXrayBtn.SetPanelEvent('onactivate', () => {
@@ -300,6 +333,9 @@ var InventoryPanel;
             $.DispatchEvent("ShowXrayCasePopup", keyId, oData.case, false);
         });
     }
+    //--------------------------------------------------------------------------------------------------
+    // Show Hide Panels
+    //--------------------------------------------------------------------------------------------------
     function _GotoTradeUpPanel() {
         NavigateToTab('tradeup');
     }
@@ -327,12 +363,14 @@ var InventoryPanel;
     }
     function _UpdateCraftingPanelVisibility(bShow) {
         let elCrafting = $('#InvCraftingPanel');
+        // show panel if it's not visible
         if (bShow) {
             if (elCrafting.BHasClass(_m_HiddenContentClassname)) {
                 elCrafting.RemoveClass(_m_HiddenContentClassname);
                 elCrafting.SetFocus();
                 $.GetContextPanel().FindChildTraverse('Crafting-Items').SetReadyForDisplay(true);
                 $.GetContextPanel().FindChildTraverse('Crafting-Ingredients').SetReadyForDisplay(true);
+                // init recipe
                 let RecipeId = InventoryAPI.GetTradeUpContractItemID();
                 let strCraftingFilter = InventoryAPI.GetItemAttributeValue(RecipeId, "recipe filter");
                 InventoryAPI.SetInventorySortAndFilters('inv_sort_age', false, 'ingredient', '', '');
@@ -348,6 +386,7 @@ var InventoryPanel;
             _m_elInventoryMain.SetFocus();
             $.GetContextPanel().FindChildTraverse('Crafting-Items').SetReadyForDisplay(false);
             $.GetContextPanel().FindChildTraverse('Crafting-Ingredients').SetReadyForDisplay(false);
+            // make sure we clear current ingredients
             InventoryAPI.ClearCraftIngredients();
             return true;
         }
@@ -360,6 +399,7 @@ var InventoryPanel;
     }
     function _UpdateSearchPanelVisibility(bShow) {
         let elSearch = $('#InvSearchPanel');
+        // show panel if it's not visible
         if (bShow) {
             if (elSearch.BHasClass(_m_HiddenContentClassname)) {
                 elSearch.RemoveClass(_m_HiddenContentClassname);
@@ -383,6 +423,9 @@ var InventoryPanel;
         }
         return false;
     }
+    //--------------------------------------------------------------------------------------------------
+    // Helpers
+    //--------------------------------------------------------------------------------------------------
     function _GetActiveCategoryLister(activePanel) {
         if (activePanel) {
             let elList = activePanel.FindChildInLayoutFile(_m_activeCategory + '-List');
@@ -427,6 +470,7 @@ var InventoryPanel;
     function _IsSearchActivePanel(category) {
         return category === 'InvSearchPanel';
     }
+    //--------------------------------------------------------------------------------------------------
     function _UpdateActiveItemList(elListerToUpdate, category, subCategory, sortString, capabilityFilter) {
         if (!elListerToUpdate || !subCategory || !category) {
             return;
@@ -435,7 +479,9 @@ var InventoryPanel;
             InventorySearch.UpdateItemList();
             return;
         }
-        $.DispatchEvent('SetInventoryFilter', elListerToUpdate, category, subCategory, 'any', sortString, capabilityFilter, '');
+        $.Msg('Updating Inventory List - ' + elListerToUpdate.id + ', Category: ' + category + ', SubCategory:' + subCategory + ', capabilityFilter:' + capabilityFilter);
+        $.DispatchEvent('SetInventoryFilter', elListerToUpdate, category, subCategory, 'any', sortString, capabilityFilter, '' // text filter
+        );
         _ShowHideNoItemsMessage(elListerToUpdate);
     }
     function _ShowHideNoItemsMessage(elLister) {
@@ -461,10 +507,12 @@ var InventoryPanel;
         elLabel.SetDialogVariable('type', str);
         elLabel.text = $.Localize('#inv_empty_lister', elLabel);
     }
+    //--------------------------------------------------------------------------------------------------
     function _OnReadyForDisplay() {
         _RunEveryTimeInventoryIsShown();
         _UpdateActiveInventoryList();
         _ShowHideRentalTab();
+        // if we are crafting, make sure the items list is up-to-date
         _UpdateCraftingPanelContentsIfCrafting();
         if (!_m_elInventoryMain.updatePlayerEquipSlotChangedHandler) {
             _m_elInventoryMain.updatePlayerEquipSlotChangedHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Loadout_EquipSlotChanged', _ShowNotification);
@@ -477,7 +525,9 @@ var InventoryPanel;
         _ShowHideXrayBtn();
         _ShowHideRentalTab();
         _UpdateFilterRentalBtnInCategoryVisibility(_m_activeCategory);
+        // if we are crafting, make sure the items list is up-to-date
         _UpdateCraftingPanelContentsIfCrafting();
+        // Add any on inventory updated events here
         if ($.GetContextPanel().BHasClass(_m_HiddenContentClassname) || _m_isCapabliltyPopupOpen)
             return;
         _OnShowAcknowledgePanel();
@@ -495,11 +545,18 @@ var InventoryPanel;
         }
     }
     function _SetIsCapabilityPopUpOpen(isOpen) {
+        // We keep this state so that we don't keep updating the inventory when a capablilty popup is activated.
+        // Things like scratching a sticker fire the InventoryUpdated event for each scratch and we don't want
+        // update the list of items every time.
         _m_isCapabliltyPopupOpen = isOpen;
         if (isOpen === false) {
             _InventoryUpdated();
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Events from item context menu that create popups. Context menu closes so we can't call popups from
+    // there. popups won't open when the caller panel is no longer there.
+    //--------------------------------------------------------------------------------------------------
     function _ShowDeleteItemConfirmation(id) {
         UiToolkitAPI.ShowGenericPopupYesNo('#inv_context_delete', '#inv_confirm_delete_desc', "", () => _DeleteItemAnim(id), () => { });
     }
@@ -514,12 +571,16 @@ var InventoryPanel;
         }
         $.Schedule(.3, () => InventoryAPI.DeleteItem(id));
     }
+    // Use Item Once confirmation
     function _ShowUseItemOnceConfirmationPopup(id) {
         let pPopup = UiToolkitAPI.ShowGenericPopupYesNo('#inv_context_useitem', '#inv_confirm_useitem_desc', "", () => InventoryAPI.UseTool(id, ''), () => { });
         if (pPopup != null) {
             pPopup.SetDialogVariable('type', InventoryAPI.GetItemName(id));
         }
     }
+    //--------------------------------------------------------------------------------------------------
+    // Notification for when you equip an item.
+    //--------------------------------------------------------------------------------------------------
     function _LoadEquipNotification() {
         let elParent = $.GetContextPanel().FindChildInLayoutFile('InventoryMainContainer');
         let elNotification = $.CreatePanel('Panel', elParent, 'InvNotificationEquip');
@@ -538,6 +599,7 @@ var InventoryPanel;
             let elNavBarRentalsBtn = elNavBarBtnsContainer.FindChild('rentals');
             if (elNavBarRentalsBtn) {
                 let bInventoryContainsRentals = InventoryAPI.CategoryContainsItems('rentals');
+                // If we're on the rentals tab and run out of rentals, switch to the "Everything" tab.
                 if (!bInventoryContainsRentals && _m_activeCategory === 'rentals') {
                     let elNavBarEverythingBtn = elNavBarBtnsContainer.FindChild('any');
                     if (elNavBarEverythingBtn) {
@@ -549,6 +611,7 @@ var InventoryPanel;
             }
         }
     }
+    // on creation
     {
         _Init();
         let elJsInventory = $('#JsInventory');

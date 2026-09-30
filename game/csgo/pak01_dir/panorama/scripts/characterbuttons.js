@@ -29,9 +29,12 @@ var CharacterButtons;
         elDropdown.SetSelected(modelPanelSettings.weaponItemId);
     }
     function _OnUpdateWeaponSelection(elDropdown, modelPanelSettings) {
+        // reset activity and assign the selected weapon
         modelPanelSettings.weaponItemId = elDropdown.GetSelected() ? elDropdown.GetSelected().id : "";
+        // character inspect uses 'vanity_character5' entity in the map, so set the active Character to 5
         modelPanelSettings.panel.SetActiveCharacter(5);
         CharacterAnims.PlayAnimsOnPanel(modelPanelSettings);
+        $.Msg("OnUpdateWeaponSelection switched to " + ItemInfo.GetModelPlayer(modelPanelSettings.charItemId));
     }
     ;
     function ZoomCamera() {
@@ -46,22 +49,28 @@ var CharacterButtons;
     }
     CharacterButtons.ZoomCamera = ZoomCamera;
     function PlayCheer() {
+        // Unzoom for cheer
         const elZoomButton = $.GetContextPanel().FindChildInLayoutFile('LoadoutSingleItemModelZoom');
         if (elZoomButton.checked)
             elZoomButton.checked = false;
         const data = $.GetContextPanel().Data();
         data.m_modelPanelSettings.cameraPreset = data.m_characterToolbarButtonSettings.cameraPresetUnzoomed;
+        // We need to copy render settings so that cheer configuration didn't persist into other
+        // changes like weapon drop down or zoom or etc.
         const modelRenderSettingsOneOffTempCopy = ItemInfo.DeepCopyVanityCharacterSettings(data.m_modelPanelSettings);
         modelRenderSettingsOneOffTempCopy.cheer = InventoryAPI.GetCharacterDefaultCheerByItemId(modelRenderSettingsOneOffTempCopy.charItemId);
         CharacterAnims.PlayAnimsOnPanel(modelRenderSettingsOneOffTempCopy);
     }
     CharacterButtons.PlayCheer = PlayCheer;
     function PlayDefeat() {
+        // Unzoom for defeat
         const elZoomButton = $.GetContextPanel().FindChildInLayoutFile('LoadoutSingleItemModelZoom');
         if (elZoomButton.checked)
             elZoomButton.checked = false;
         const data = $.GetContextPanel().Data();
         data.m_modelPanelSettings.cameraPreset = data.m_characterToolbarButtonSettings.cameraPresetUnzoomed;
+        // We need to copy render settings so that cheer configuration didn't persist into other
+        // changes like weapon drop down or zoom or etc.
         const modelRenderSettingsOneOffTempCopy = ItemInfo.DeepCopyVanityCharacterSettings(data.m_modelPanelSettings);
         modelRenderSettingsOneOffTempCopy.cheer = InventoryAPI.GetCharacterDefaultDefeatByItemId(modelRenderSettingsOneOffTempCopy.charItemId);
         CharacterAnims.PlayAnimsOnPanel(modelRenderSettingsOneOffTempCopy);
@@ -78,6 +87,7 @@ var CharacterButtons;
     }
     CharacterButtons.PreviewModelVoice = PreviewModelVoice;
     function InitCharacterButtons(elButtons, elPreviewpanel, characterButtonSettings) {
+        // Enable all buttons
         if (!elButtons)
             return;
         elButtons.Children().forEach(el => el.enabled = true);
@@ -95,6 +105,7 @@ var CharacterButtons;
         const defeat = ItemInfo.GetDefaultDefeat(modelPanelSettings.charItemId);
         const elDefeat = elButtons.FindChildInLayoutFile('PlayDefeat');
         elDefeat.enabled = defeat != undefined && defeat != "";
+        // Store both the source and computed render settings on the Data object
         elButtons.Data().m_characterToolbarButtonSettings = characterButtonSettings;
         elButtons.Data().m_modelPanelSettings = modelPanelSettings;
     }
