@@ -1,6 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CRenderComponent"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CRenderComponent : public CEntityComponent
 {

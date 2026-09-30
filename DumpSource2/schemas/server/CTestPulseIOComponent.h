@@ -1,14 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CTestPulseIOComponent",
-//	"m_ComponentData": "DefaultComponentString",
-//	"m_OnComponentTestFunc":
-//	{
-//		"m_Value": ""
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CTestPulseIOComponent
 {
-	CUtlString m_ComponentData;
+	CUtlString m_ComponentData; // = "DefaultComponentString"
 	CEntityOutputTemplate< CUtlSymbolLarge > m_OnComponentTestFunc;
 };

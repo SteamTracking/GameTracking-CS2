@@ -1,25 +1,11 @@
-// MGetKV3ClassDefaults = {
-//	"m_PortName": "",
-//	"m_nEditorNodeID": -1,
-//	"m_RegisterMap":
-//	{
-//		"m_Inparams": null,
-//		"m_Outparams": null
-//	},
-//	"m_CallMethodID": -1,
-//	"m_nSrcChunk": -1,
-//	"m_nSrcInstruction": -1,
-//	"m_nBreakDestChunk": -1,
-//	"m_nBreakDestInstruction": -1
-//}
 class CPulse_CallInfo
 {
 	PulseSymbol_t m_PortName;
-	PulseDocNodeID_t m_nEditorNodeID;
+	PulseDocNodeID_t m_nEditorNodeID; // = -1
 	PulseRegisterMap_t m_RegisterMap;
-	PulseDocNodeID_t m_CallMethodID;
-	PulseRuntimeChunkIndex_t m_nSrcChunk;
-	int32 m_nSrcInstruction;
-	PulseRuntimeChunkIndex_t m_nBreakDestChunk;
-	int32 m_nBreakDestInstruction;
+	PulseDocNodeID_t m_CallMethodID; // = -1
+	PulseRuntimeChunkIndex_t m_nSrcChunk; // = -1
+	int32 m_nSrcInstruction; // = -1
+	PulseRuntimeChunkIndex_t m_nBreakDestChunk; // = -1
+	int32 m_nBreakDestInstruction; // = -1
 };

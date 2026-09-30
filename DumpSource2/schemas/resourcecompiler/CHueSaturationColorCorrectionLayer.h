@@ -1,31 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CHueSaturationColorCorrectionLayer",
-//	"m_name": "Hue/Saturation 1",
-//	"m_nOpacityPercent": 100,
-//	"m_bVisible": true,
-//	"m_pLayerMask": null,
-//	"m_nHueMaster": 0,
-//	"m_nHueRed": 0,
-//	"m_nHueYellow": 0,
-//	"m_nHueGreen": 0,
-//	"m_nHueCyan": 0,
-//	"m_nHueBlue": 0,
-//	"m_nHueMagenta": 0,
-//	"m_nSaturationMaster": 0,
-//	"m_nSaturationRed": 0,
-//	"m_nSaturationYellow": 0,
-//	"m_nSaturationGreen": 0,
-//	"m_nSaturationCyan": 0,
-//	"m_nSaturationBlue": 0,
-//	"m_nSaturationMagenta": 0,
-//	"m_nBrightnessMaster": 0,
-//	"m_nBrightnessRed": 0,
-//	"m_nBrightnessYellow": 0,
-//	"m_nBrightnessGreen": 0,
-//	"m_nBrightnessCyan": 0,
-//	"m_nBrightnessBlue": 0,
-//	"m_nBrightnessMagenta": 0
-//}
 // MHasKV3TransferPolymorphicClassname
 class CHueSaturationColorCorrectionLayer : public CColorCorrectionLayer
 {

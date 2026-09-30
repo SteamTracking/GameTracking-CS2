@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_graphIDs":
-//	[
-//	]
-//}
 // MPropertyAutoExpandSelf
 class CNmGraphDocDataDictionary::IDSet_t
 {

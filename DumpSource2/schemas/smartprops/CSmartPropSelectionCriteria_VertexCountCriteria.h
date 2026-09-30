@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropSelectionCriteria_VertexCountCriteria",
-//	"m_bEnabled": true,
-//	"m_nTargetVertexCount": 0
-//}
 // MVDataComponentValidGrandParents = "CSmartPropElement_PlaceOnMesh"
 // MPropertyFriendlyName = "Filter Faces By Vertex Count"
 // MPropertyDescription = ""

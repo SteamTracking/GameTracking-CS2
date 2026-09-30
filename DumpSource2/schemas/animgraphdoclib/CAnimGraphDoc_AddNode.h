@@ -1,49 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_AddNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_baseInput":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_additiveInput":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_timingBehavior": "UseChild2",
-//	"m_flTimingBlend": 0.500000,
-//	"m_footMotionTiming": "Child1",
-//	"m_bApplyToFootMotion": true,
-//	"m_bResetBase": true,
-//	"m_bResetAdditive": true,
-//	"m_bApplyChannelsSeparately": true,
-//	"m_bUseModelSpace": false,
-//	"m_bApplyScale": false
-//}
 // MPropertyFriendlyName = "Add"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_AddNode : public CAnimGraphDoc_Node
@@ -54,21 +8,21 @@ class CAnimGraphDoc_AddNode : public CAnimGraphDoc_Node
 	CAnimGraphDoc_NodeConnection m_additiveInput;
 	// MPropertyFriendlyName = "Timing Control"
 	// MPropertyAutoRebuildOnChange
-	BinaryNodeTiming m_timingBehavior;
+	BinaryNodeTiming m_timingBehavior; // = "UseChild2"
 	// MPropertyFriendlyName = "Timing Blend"
 	// MPropertyAttributeRange = "0 1"
 	// MPropertyAttrStateCallback
-	float32 m_flTimingBlend;
+	float32 m_flTimingBlend; // = 0.5
 	// MPropertyFriendlyName = "Foot Motion Timing"
-	BinaryNodeChildOption m_footMotionTiming;
+	BinaryNodeChildOption m_footMotionTiming; // = "Child1"
 	// MPropertyFriendlyName = "Add Foot Motion"
-	bool m_bApplyToFootMotion;
+	bool m_bApplyToFootMotion; // = true
 	// MPropertyFriendlyName = "Reset Base Child"
-	bool m_bResetBase;
+	bool m_bResetBase; // = true
 	// MPropertyFriendlyName = "Reset Additive Child"
-	bool m_bResetAdditive;
+	bool m_bResetAdditive; // = true
 	// MPropertyFriendlyName = "Treat Translation Separately"
-	bool m_bApplyChannelsSeparately;
+	bool m_bApplyChannelsSeparately; // = true
 	// MPropertyFriendlyName = "Use Model Space"
 	bool m_bUseModelSpace;
 	// MPropertyFriendlyName = "Apply Scale"

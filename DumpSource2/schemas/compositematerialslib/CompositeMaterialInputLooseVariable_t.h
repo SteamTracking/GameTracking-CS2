@@ -1,48 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_strName": "",
-//	"m_bExposeExternally": false,
-//	"m_strExposedFriendlyName": "",
-//	"m_strExposedFriendlyGroupName": "",
-//	"m_bExposedVariableIsFixedRange": false,
-//	"m_strExposedVisibleWhenTrue": "",
-//	"m_strExposedHiddenWhenTrue": "",
-//	"m_strExposedValueList": "",
-//	"m_nVariableType": "LOOSE_VARIABLE_TYPE_FLOAT1",
-//	"m_bValueBoolean": false,
-//	"m_nValueIntX": 0,
-//	"m_nValueIntY": 0,
-//	"m_nValueIntZ": 0,
-//	"m_nValueIntW": 0,
-//	"m_bHasFloatBounds": false,
-//	"m_flValueFloatX": 0.000000,
-//	"m_flValueFloatX_Min": 0.000000,
-//	"m_flValueFloatX_Max": 1.000000,
-//	"m_flValueFloatY": 0.000000,
-//	"m_flValueFloatY_Min": 0.000000,
-//	"m_flValueFloatY_Max": 1.000000,
-//	"m_flValueFloatZ": 0.000000,
-//	"m_flValueFloatZ_Min": 0.000000,
-//	"m_flValueFloatZ_Max": 1.000000,
-//	"m_flValueFloatW": 0.000000,
-//	"m_flValueFloatW_Min": 0.000000,
-//	"m_flValueFloatW_Max": 1.000000,
-//	"m_cValueColor4":
-//	[
-//		0,
-//		0,
-//		0,
-//		0
-//	],
-//	"m_nValueSystemVar": "COMPMATSYSVAR_COMPOSITETIME",
-//	"m_strResourceMaterial": "",
-//	"m_strTextureContentAssetPath": "",
-//	"m_strTextureRuntimeResourcePath": "",
-//	"m_strTextureCompilationVtexTemplate": "",
-//	"m_nTextureType": "INPUT_TEXTURE_TYPE_DEFAULT",
-//	"m_strString": "",
-//	"m_strPanoramaPanelPath": "",
-//	"m_nPanoramaRenderRes": 512
-//}
 // MPropertyElementNameFn
 class CompositeMaterialInputLooseVariable_t
 {
@@ -72,7 +27,7 @@ class CompositeMaterialInputLooseVariable_t
 	CUtlString m_strExposedValueList;
 	// MPropertyAutoRebuildOnChange
 	// MPropertyFriendlyName = "Type"
-	CompositeMaterialInputLooseVariableType_t m_nVariableType;
+	CompositeMaterialInputLooseVariableType_t m_nVariableType; // = "LOOSE_VARIABLE_TYPE_FLOAT1"
 	// MPropertyFriendlyName = "Value"
 	// MPropertyAttrStateCallback
 	bool m_bValueBoolean;
@@ -104,7 +59,7 @@ class CompositeMaterialInputLooseVariable_t
 	float32 m_flValueFloatX_Min;
 	// MPropertyFriendlyName = "X Max"
 	// MPropertyAttrStateCallback
-	float32 m_flValueFloatX_Max;
+	float32 m_flValueFloatX_Max; // = 1
 	// MPropertyFriendlyName = "Y Value"
 	// MPropertyAttrStateCallback
 	// MPropertyAttributeRange = "0.0 1.0"
@@ -114,7 +69,7 @@ class CompositeMaterialInputLooseVariable_t
 	float32 m_flValueFloatY_Min;
 	// MPropertyFriendlyName = "Y Max"
 	// MPropertyAttrStateCallback
-	float32 m_flValueFloatY_Max;
+	float32 m_flValueFloatY_Max; // = 1
 	// MPropertyFriendlyName = "Z Value"
 	// MPropertyAttrStateCallback
 	// MPropertyAttributeRange = "0.0 1.0"
@@ -124,7 +79,7 @@ class CompositeMaterialInputLooseVariable_t
 	float32 m_flValueFloatZ_Min;
 	// MPropertyFriendlyName = "Z Max"
 	// MPropertyAttrStateCallback
-	float32 m_flValueFloatZ_Max;
+	float32 m_flValueFloatZ_Max; // = 1
 	// MPropertyFriendlyName = "W Value"
 	// MPropertyAttrStateCallback
 	// MPropertyAttributeRange = "0.0 1.0"
@@ -134,13 +89,13 @@ class CompositeMaterialInputLooseVariable_t
 	float32 m_flValueFloatW_Min;
 	// MPropertyFriendlyName = "W Max"
 	// MPropertyAttrStateCallback
-	float32 m_flValueFloatW_Max;
+	float32 m_flValueFloatW_Max; // = 1
 	// MPropertyFriendlyName = "Value"
 	// MPropertyAttrStateCallback
 	Color m_cValueColor4;
 	// MPropertyFriendlyName = "Value"
 	// MPropertyAttrStateCallback
-	CompositeMaterialVarSystemVar_t m_nValueSystemVar;
+	CompositeMaterialVarSystemVar_t m_nValueSystemVar; // = "COMPMATSYSVAR_COMPOSITETIME"
 	// MPropertyFriendlyName = "Material"
 	// MPropertyAttrStateCallback
 	CResourceNameTyped< CWeakHandle< InfoForResourceTypeIMaterial2 > > m_strResourceMaterial;
@@ -154,7 +109,7 @@ class CompositeMaterialInputLooseVariable_t
 	CUtlString m_strTextureCompilationVtexTemplate;
 	// MPropertyFriendlyName = "Texture Type"
 	// MPropertyAttrStateCallback
-	CompositeMaterialInputTextureType_t m_nTextureType;
+	CompositeMaterialInputTextureType_t m_nTextureType; // = "INPUT_TEXTURE_TYPE_DEFAULT"
 	// MPropertyFriendlyName = "String"
 	// MPropertyAttrStateCallback
 	CUtlString m_strString;
@@ -163,5 +118,5 @@ class CompositeMaterialInputLooseVariable_t
 	CUtlString m_strPanoramaPanelPath;
 	// MPropertyFriendlyName = "Render Resolution"
 	// MPropertyAttrStateCallback
-	int32 m_nPanoramaRenderRes;
+	int32 m_nPanoramaRenderRes; // = 512
 };

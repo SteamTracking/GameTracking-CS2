@@ -1,39 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CTakeDamageInfo",
-//	"m_vecDamageForce":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vecDamagePosition": null,
-//	"m_vecReportedPosition": null,
-//	"m_vecDamageDirection":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_hInflictor": null,
-//	"m_hAttacker": null,
-//	"m_hAbility": null,
-//	"m_flDamage": 0.000000,
-//	"m_flTotalledDamage": 0.000000,
-//	"m_bitsDamageType": "",
-//	"m_iDamageCustom": 0,
-//	"m_iAmmoType": "",
-//	"m_flOriginalDamage": 0.000000,
-//	"m_bShouldBleed": false,
-//	"m_bShouldSpark": false,
-//	"m_nDamageFlags": "",
-//	"m_iHitGroupId": "HITGROUP_INVALID",
-//	"m_nNumObjectsPenetrated": 0,
-//	"m_flFriendlyFireDamageReductionRatio": 1.000000,
-//	"m_bStoppedBullet": false,
-//	"m_DestructibleHitGroupRequests":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CTakeDamageInfo
 {
@@ -53,9 +17,9 @@ class CTakeDamageInfo
 	bool m_bShouldBleed;
 	bool m_bShouldSpark;
 	TakeDamageFlags_t m_nDamageFlags;
-	HitGroup_t m_iHitGroupId;
+	HitGroup_t m_iHitGroupId; // = "HITGROUP_INVALID"
 	int32 m_nNumObjectsPenetrated;
-	float32 m_flFriendlyFireDamageReductionRatio;
+	float32 m_flFriendlyFireDamageReductionRatio; // = 1
 	bool m_bStoppedBullet;
 	CUtlLeanVector< DestructiblePartDamageRequest_t > m_DestructibleHitGroupRequests;
 	// MNotSaved

@@ -1,24 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_settings":
-//	{
-//		"m_bEnablePathing": false,
-//		"m_bEnableReflections": false,
-//		"m_nReflectionRays": 0,
-//		"m_nReflectionBounces": 0
-//	},
-//	"m_probes":
-//	{
-//	},
-//	"m_vecPathingRatio":
-//	[
-//	],
-//	"m_vecPathingDeviation":
-//	[
-//	],
-//	"m_vecReflectionEnergy":
-//	[
-//	]
-//}
 class CSteamAudioBakedOcclusionData
 {
 	SteamAudioCustomDataOcclusionSettings_t m_settings;

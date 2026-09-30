@@ -1,12 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"nHitGroup": "HITGROUP_GENERIC",
-//	"nDamageLevel": 0,
-//	"nDamageLevelsRemaining": 0,
-//	"nPrevDamageLevel": 0
-//}
 class CBaseModelEntity::OnDamageLevelChangedArgs_t
 {
-	HitGroup_t nHitGroup;
+	HitGroup_t nHitGroup; // = "HITGROUP_GENERIC"
 	int32 nDamageLevel;
 	int32 nDamageLevelsRemaining;
 	int32 nPrevDamageLevel;

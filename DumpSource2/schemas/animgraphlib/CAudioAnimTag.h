@@ -1,21 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAudioAnimTag",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false,
-//	"m_clipName": "",
-//	"m_attachmentName": "",
-//	"m_flVolume": 1.000000,
-//	"m_bStopWhenTagEnds": false,
-//	"m_bStopWhenGraphEnds": true,
-//	"m_bPlayOnServer": true,
-//	"m_bPlayOnClient": true
-//}
 // MPropertyFriendlyName = "Audio Tag"
 // MHasKV3TransferPolymorphicClassname
 class CAudioAnimTag : public CAnimTagBase
@@ -28,13 +10,13 @@ class CAudioAnimTag : public CAnimTagBase
 	CUtlString m_attachmentName;
 	// MPropertyFriendlyName = "Volume"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flVolume;
+	float32 m_flVolume; // = 1
 	// MPropertyFriendlyName = "Stop on Tag End"
 	bool m_bStopWhenTagEnds;
 	// MPropertyFriendlyName = "Stop When Graph Destroyed"
-	bool m_bStopWhenGraphEnds;
+	bool m_bStopWhenGraphEnds; // = true
 	// MPropertyFriendlyName = "Play on Server"
-	bool m_bPlayOnServer;
+	bool m_bPlayOnServer; // = true
 	// MPropertyFriendlyName = "Play on Client"
-	bool m_bPlayOnClient;
+	bool m_bPlayOnClient; // = true
 };

@@ -1,18 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropElement_Group",
-//	"m_nElementID": -1,
-//	"m_bEnabled": true,
-//	"m_sLabel": "",
-//	"m_SelectionCriteria":
-//	[
-//	],
-//	"m_Modifiers":
-//	[
-//	],
-//	"m_Children":
-//	[
-//	]
-//}
 // MPropertyFriendlyName = "Group"
 // MPropertyDescription = "A group of elements that will all be evaulated."
 // MHasKV3TransferPolymorphicClassname

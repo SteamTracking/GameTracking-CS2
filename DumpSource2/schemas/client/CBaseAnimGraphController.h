@@ -1,56 +1,18 @@
-// MGetKV3ClassDefaults = {
-//	"m_nAnimationAlgorithm": "eInvalid",
-//	"m_nNextExternalGraphHandle": 0,
-//	"m_vecSecondarySkeletonSlotIDs":
-//	[
-//	],
-//	"m_vecSecondarySkeletons":
-//	[
-//	],
-//	"m_nSecondarySkeletonMasterCount": 0,
-//	"m_flSoundSyncTime": 0.000000,
-//	"m_nActiveIKChainMask": 0,
-//	"m_hSequence": -1,
-//	"m_flSeqStartTime": null,
-//	"m_flSeqFixedCycle": 0.000000,
-//	"m_nAnimLoopMode": "ANIM_LOOP_MODE_USE_SEQUENCE_SETTINGS",
-//	"m_flPlaybackRate": 1.000000,
-//	"m_nNotifyState": "eDoNotNotify",
-//	"m_bNetworkedAnimationInputsChanged": false,
-//	"m_bNetworkedSequenceChanged": false,
-//	"m_bLastUpdateSkipped": false,
-//	"m_bSequenceFinished": false,
-//	"m_nPrevAnimUpdateTick": null,
-//	"m_hGraphDefinitionAG2": "",
-//	"m_nServerGraphInstanceIteration": 0,
-//	"m_nServerSerializationContextIteration": 0,
-//	"m_primaryGraphId": 0,
-//	"m_vecExternalGraphIds":
-//	[
-//	],
-//	"m_vecExternalClipIds":
-//	[
-//	],
-//	"m_sAnimGraph2Identifier": "",
-//	"m_pGraphInstanceAG2": null,
-//	"m_vecExternalGraphs": null,
-//	"m_nPrevAnimationAlgorithm": "eNone"
-//}
 class CBaseAnimGraphController : public CSkeletonAnimationController
 {
-	AnimationAlgorithm_t m_nAnimationAlgorithm;
+	AnimationAlgorithm_t m_nAnimationAlgorithm; // = "eInvalid"
 	ExternalAnimGraphHandle_t m_nNextExternalGraphHandle;
 	C_NetworkUtlVectorBase< CGlobalSymbol > m_vecSecondarySkeletonSlotIDs;
 	C_NetworkUtlVectorBase< CHandle< CBaseAnimGraph > > m_vecSecondarySkeletons;
 	int32 m_nSecondarySkeletonMasterCount;
 	float32 m_flSoundSyncTime;
 	uint32 m_nActiveIKChainMask;
-	HSequence m_hSequence;
+	HSequence m_hSequence; // = -1
 	GameTime_t m_flSeqStartTime;
 	float32 m_flSeqFixedCycle;
-	AnimLoopMode_t m_nAnimLoopMode;
-	CNetworkedQuantizedFloat m_flPlaybackRate;
-	SequenceFinishNotifyState_t m_nNotifyState;
+	AnimLoopMode_t m_nAnimLoopMode; // = "ANIM_LOOP_MODE_USE_SEQUENCE_SETTINGS"
+	CNetworkedQuantizedFloat m_flPlaybackRate; // = 1
+	SequenceFinishNotifyState_t m_nNotifyState; // = "eDoNotNotify"
 	bool m_bNetworkedAnimationInputsChanged;
 	bool m_bNetworkedSequenceChanged;
 	bool m_bLastUpdateSkipped;
@@ -73,5 +35,5 @@ class CBaseAnimGraphController : public CSkeletonAnimationController
 	CGlobalSymbol m_sAnimGraph2Identifier;
 	CAnimGraph2InstancePtr m_pGraphInstanceAG2;
 	CExternalAnimGraphList m_vecExternalGraphs;
-	AnimationAlgorithm_t m_nPrevAnimationAlgorithm;
+	AnimationAlgorithm_t m_nPrevAnimationAlgorithm; // = "eNone"
 };

@@ -1,20 +1,8 @@
-// MGetKV3ClassDefaults = {
-//	"Name": "",
-//	"m_nGraphOutputChannels": -1,
-//	"m_bIsMainGraph": false,
-//	"m_nPreviewNode": 0,
-//	"m_EditorNodes":
-//	[
-//	],
-//	"m_EditorEdges":
-//	[
-//	]
-//}
 class CVMixToolGraph
 {
 	// MKV3TransferName = "Name"
 	CUtlString m_name;
-	int32 m_nGraphOutputChannels;
+	int32 m_nGraphOutputChannels; // = -1
 	bool m_bIsMainGraph;
 	int32 m_nPreviewNode;
 	// MKV3TransferName = "m_EditorNodes"

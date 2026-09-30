@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sActorName": "",
-//	"m_hEntity": null
-//}
 class ActorMapping_t
 {
 	CUtlString m_sActorName;

@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_SourceFile": "",
-//	"m_AssetKey": "",
-//	"m_AlternateAssetKey": "",
-//	"m_Expression": ""
-//}
 class AutoTagVDataCondition_t
 {
 	// MPropertyDescription = "The VData file to read"

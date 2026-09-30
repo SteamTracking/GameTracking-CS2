@@ -1,37 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nFlags": 0,
-//	"m_name": "",
-//	"m_localHAnimArray":
-//	[
-//	],
-//	"m_includedGroupArray":
-//	[
-//	],
-//	"m_directHSeqGroup": "",
-//	"m_decodeKey":
-//	{
-//		"m_name": "",
-//		"m_boneArray":
-//		[
-//		],
-//		"m_userArray":
-//		[
-//		],
-//		"m_morphArray":
-//		[
-//		],
-//		"m_nChannelElements": 0,
-//		"m_dataChannelArray":
-//		[
-//		]
-//	},
-//	"m_szScripts":
-//	[
-//	],
-//	"m_AdditionalExtRefs":
-//	[
-//	]
-//}
 class CAnimationGroup
 {
 	uint32 m_nFlags;

@@ -1,15 +1,8 @@
-// MGetKV3ClassDefaults = {
-//	"m_boneIndex": -1,
-//	"m_bBoneTarget": true,
-//	"m_boneTargetIndex": -1,
-//	"m_bWorldCoodinateTarget": true,
-//	"m_bMatchTargetOrientation": false
-//}
 class FollowTargetOpFixedSettings_t
 {
-	int32 m_boneIndex;
-	bool m_bBoneTarget;
-	int32 m_boneTargetIndex;
-	bool m_bWorldCoodinateTarget;
+	int32 m_boneIndex; // = -1
+	bool m_bBoneTarget; // = true
+	int32 m_boneTargetIndex; // = -1
+	bool m_bWorldCoodinateTarget; // = true
 	bool m_bMatchTargetOrientation;
 };

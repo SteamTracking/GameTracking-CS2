@@ -1,20 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_ComputeCrossProduct3D",
-//	"m_bEnabled": true,
-//	"m_OutputVariableName": "",
-//	"m_InputVectorA":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_InputVectorB":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 // MPropertyFriendlyName = "Cross Product"
 // MPropertyDescription = "Compute a dot or cross product between two 3D vectors"
 // MVDataClassGroup = "Compute"

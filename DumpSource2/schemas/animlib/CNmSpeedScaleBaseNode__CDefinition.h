@@ -1,13 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmSpeedScaleBaseNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_nChildNodeIdx": -1,
-//	"m_nInputValueNodeIdx": -1,
-//	"m_flDefaultInputValue": 0.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmSpeedScaleBaseNode::CDefinition : public CNmPassthroughNode::CDefinition
 {
-	int16 m_nInputValueNodeIdx;
+	int16 m_nInputValueNodeIdx; // = -1
 	float32 m_flDefaultInputValue;
 };

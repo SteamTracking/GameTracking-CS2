@@ -1,11 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"nNumerator": 4,
-//	"nDenominator": 4
-//}
 class SndBeatTimeSignature_t
 {
 	// MPropertyFriendlyName = "Numerator"
-	uint8 nNumerator;
+	uint8 nNumerator; // = 4
 	// MPropertyFriendlyName = "Denominator"
-	uint8 nDenominator;
+	uint8 nDenominator; // = 4
 };

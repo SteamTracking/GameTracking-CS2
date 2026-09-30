@@ -1,22 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nWeightListIndex": 0,
-//	"m_nEffectedBoneCount": 0,
-//	"m_flMaxImpactForce": 0.000000,
-//	"m_flMinImpactForce": 0.000000,
-//	"m_flWhipImpactScale": 0.000000,
-//	"m_flCounterRotationScale": 0.000000,
-//	"m_flDistanceFadeScale": 0.000000,
-//	"m_flPropagationScale": 0.000000,
-//	"m_flWhipDelay": 0.000000,
-//	"m_flSpringStrength": 0.000000,
-//	"m_flWhipSpringStrength": 0.000000,
-//	"m_flMaxAngleRadians": 0.000000,
-//	"m_nHipBoneIndex": 0,
-//	"m_flHipBoneTranslationScale": 0.000000,
-//	"m_flHipDipSpringStrength": 0.000000,
-//	"m_flHipDipImpactScale": 0.000000,
-//	"m_flHipDipDelay": 0.000000
-//}
 class HitReactFixedSettings_t
 {
 	int32 m_nWeightListIndex;

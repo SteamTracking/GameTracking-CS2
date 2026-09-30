@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"IsAutomaticDSP": false,
-//	"presets":
-//	[
-//	]
-//}
 class CVMixToolEffectsList
 {
 	// MKV3TransferName = "IsAutomaticDSP"

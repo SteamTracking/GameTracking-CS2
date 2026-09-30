@@ -1,91 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMotionMatchingUpdateNode",
-//	"m_nodePath":
-//	{
-//		"m_path":
-//		[
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			}
-//		],
-//		"m_nCount": 0
-//	},
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_name": "",
-//	"m_dataSet":
-//	{
-//		"m_groups":
-//		[
-//		],
-//		"m_nDimensionCount": 0
-//	},
-//	"m_metrics":
-//	[
-//	],
-//	"m_weights":
-//	[
-//	],
-//	"m_bSearchEveryTick": false,
-//	"m_flSearchInterval": 0.100000,
-//	"m_bSearchWhenClipEnds": true,
-//	"m_bSearchWhenGoalChanges": true,
-//	"m_blendCurve":
-//	{
-//		"m_flControlPoint1": 0.000000,
-//		"m_flControlPoint2": 1.000000
-//	},
-//	"m_flSampleRate": 0.100000,
-//	"m_flBlendTime": 0.300000,
-//	"m_bLockClipWhenWaning": false,
-//	"m_flSelectionThreshold": 0.000000,
-//	"m_flReselectionTimeWindow": 0.300000,
-//	"m_bEnableRotationCorrection": true,
-//	"m_bGoalAssist": false,
-//	"m_flGoalAssistDistance": 0.000000,
-//	"m_flGoalAssistTolerance": 0.000000,
-//	"m_distanceScale_Damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	},
-//	"m_flDistanceScale_OuterRadius": 0.000000,
-//	"m_flDistanceScale_InnerRadius": 0.000000,
-//	"m_flDistanceScale_MaxScale": 0.000000,
-//	"m_flDistanceScale_MinScale": 0.000000,
-//	"m_bEnableDistanceScaling": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CMotionMatchingUpdateNode : public CLeafUpdateNode
 {
@@ -93,20 +5,20 @@ class CMotionMatchingUpdateNode : public CLeafUpdateNode
 	CUtlVector< CSmartPtr< CMotionMetricEvaluator > > m_metrics;
 	CUtlVector< float32 > m_weights;
 	bool m_bSearchEveryTick;
-	float32 m_flSearchInterval;
-	bool m_bSearchWhenClipEnds;
-	bool m_bSearchWhenGoalChanges;
-	CBlendCurve m_blendCurve;
-	float32 m_flSampleRate;
-	float32 m_flBlendTime;
+	float32 m_flSearchInterval; // = 0.1
+	bool m_bSearchWhenClipEnds; // = true
+	bool m_bSearchWhenGoalChanges; // = true
+	CBlendCurve m_blendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
+	float32 m_flSampleRate; // = 0.1
+	float32 m_flBlendTime; // = 0.3
 	bool m_bLockClipWhenWaning;
 	float32 m_flSelectionThreshold;
-	float32 m_flReselectionTimeWindow;
-	bool m_bEnableRotationCorrection;
+	float32 m_flReselectionTimeWindow; // = 0.3
+	bool m_bEnableRotationCorrection; // = true
 	bool m_bGoalAssist;
 	float32 m_flGoalAssistDistance;
 	float32 m_flGoalAssistTolerance;
-	CAnimInputDamping m_distanceScale_Damping;
+	CAnimInputDamping m_distanceScale_Damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 	float32 m_flDistanceScale_OuterRadius;
 	float32 m_flDistanceScale_InnerRadius;
 	float32 m_flDistanceScale_MaxScale;

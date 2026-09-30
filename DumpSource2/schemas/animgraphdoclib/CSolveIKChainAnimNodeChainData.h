@@ -1,40 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSolveIKChainAnimNodeChainData",
-//	"m_IkChain": "",
-//	"m_SolverSettingSource": "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default",
-//	"m_OverrideSolverSettings":
-//	{
-//		"m_SolverType": "IKSOLVER_TwoBone",
-//		"m_nNumIterations": 6,
-//		"m_EndEffectorRotationFixUpMode": "MatchTargetOrientation"
-//	},
-//	"m_TargetSettingSource": "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default",
-//	"m_OverrideTargetSettings":
-//	{
-//		"m_TargetSource": "Bone",
-//		"m_Bone":
-//		{
-//			"m_Name": ""
-//		},
-//		"m_AnimgraphParameterNamePosition":
-//		{
-//			"m_id": 0
-//		},
-//		"m_AnimgraphParameterNameOrientation":
-//		{
-//			"m_id": 0
-//		},
-//		"m_TargetCoordSystem": "World Space"
-//	},
-//	"m_DebugSetting": "SOLVEIKCHAINANIMNODEDEBUGSETTING_None",
-//	"m_flDebugNormalizedLength": 1.000000,
-//	"m_vDebugOffset":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 // MPropertyElementNameFn
 // MHasKV3TransferPolymorphicClassname
 class CSolveIKChainAnimNodeChainData
@@ -44,24 +7,24 @@ class CSolveIKChainAnimNodeChainData
 	CUtlString m_IkChain;
 	// MPropertyFriendlyName = "Solver Setting Source"
 	// MPropertyAutoRebuildOnChange
-	SolveIKChainAnimNodeSettingSource m_SolverSettingSource;
+	SolveIKChainAnimNodeSettingSource m_SolverSettingSource; // = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
 	// MPropertyFriendlyName = "Override Solver Settings"
 	// MPropertyAutoExpandSelf
 	// MPropertyAttrStateCallback
-	IKSolverSettings_t m_OverrideSolverSettings;
+	IKSolverSettings_t m_OverrideSolverSettings; // = { "m_EndEffectorRotationFixUpMode": "MatchTargetOrientation", "m_SolverType": "IKSOLVER_TwoBone", "m_nNumIterations": 6 }
 	// MPropertyFriendlyName = "Target Setting Source"
 	// MPropertyAutoRebuildOnChange
-	SolveIKChainAnimNodeSettingSource m_TargetSettingSource;
+	SolveIKChainAnimNodeSettingSource m_TargetSettingSource; // = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
 	// MPropertyFriendlyName = "Override Target Settings"
 	// MPropertyAutoExpandSelf
 	// MPropertyAttrStateCallback
-	IKTargetSettings_t m_OverrideTargetSettings;
+	IKTargetSettings_t m_OverrideTargetSettings; // = { "m_AnimgraphParameterNameOrientation": { "m_id": 0 }, "m_AnimgraphParameterNamePosition": { "m_id": 0 }, "m_Bone": { "m_Name": "" }, "m_TargetCoordSystem": "World Space", "m_TargetSource": "Bone" }
 	// MPropertyFriendlyName = "Debug Setting"
 	// MPropertyGroupName = "Debug"
-	SolveIKChainAnimNodeDebugSetting m_DebugSetting;
+	SolveIKChainAnimNodeDebugSetting m_DebugSetting; // = "SOLVEIKCHAINANIMNODEDEBUGSETTING_None"
 	// MPropertyFriendlyName = "Debug Normalized Length"
 	// MPropertyGroupName = "Debug"
-	float32 m_flDebugNormalizedLength;
+	float32 m_flDebugNormalizedLength; // = 1
 	// MPropertyFriendlyName = "Debug Offset"
 	// MPropertyGroupName = "Debug"
 	Vector m_vDebugOffset;

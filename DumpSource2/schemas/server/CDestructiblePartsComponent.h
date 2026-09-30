@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_vecDamageTakenByHitGroup":
-//	[
-//	],
-//	"m_hOwner": null,
-//	"m_pAnimGraphDestructibleGraphController": null
-//}
 class CDestructiblePartsComponent
 {
 	// MNotSaved

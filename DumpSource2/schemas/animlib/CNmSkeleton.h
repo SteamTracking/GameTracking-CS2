@@ -1,36 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ID": "",
-//	"m_boneIDs":
-//	[
-//	],
-//	"m_parentIndices":
-//	[
-//	],
-//	"m_parentSpaceReferencePose":
-//	[
-//	],
-//	"m_modelSpaceReferencePose":
-//	[
-//	],
-//	"m_numBonesToSampleAtLowLOD": 0,
-//	"m_bIsPropSkeleton": false,
-//	"m_maskDefinitions":
-//	[
-//	],
-//	"m_secondarySkeletons":
-//	[
-//	],
-//	"m_floatChannelSets":
-//	[
-//	],
-//	"m_contactConfigs":
-//	[
-//	],
-//	"m_gameplayRelevantBoneIndices":
-//	[
-//	],
-//	"m_nSpecialDependencyHash": 0
-//}
 class CNmSkeleton
 {
 	CGlobalSymbol m_ID;

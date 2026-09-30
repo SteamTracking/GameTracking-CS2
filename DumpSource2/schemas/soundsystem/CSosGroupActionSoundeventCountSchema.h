@@ -1,14 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSosGroupActionSoundeventCountSchema",
-//	"m_bExcludeStoppedSounds": true,
-//	"m_strCountKeyName": "current_count"
-//}
 // MPropertyFriendlyName = "Soundevent Count"
 // MHasKV3TransferPolymorphicClassname
 class CSosGroupActionSoundeventCountSchema : public CSosGroupActionSchema
 {
 	// MPropertyFriendlyName = "Exclude Stopped Sounds from Count"
-	bool m_bExcludeStoppedSounds;
+	bool m_bExcludeStoppedSounds; // = true
 	// MPropertyFriendlyName = "Result Current Count"
-	CUtlString m_strCountKeyName;
+	CUtlString m_strCountKeyName; // = "current_count"
 };

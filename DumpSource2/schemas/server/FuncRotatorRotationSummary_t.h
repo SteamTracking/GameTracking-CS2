@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = null
 class FuncRotatorRotationSummary_t
 {
 	GameTick_t nTick;

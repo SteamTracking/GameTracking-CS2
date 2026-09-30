@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sModelName": "",
-//	"m_nMoodType": "eMoodType_Head",
-//	"m_animationLayers":
-//	[
-//	]
-//}
 // MVDataRoot
 // MVDataOverlayType = 1
 class CMoodVData
@@ -13,7 +6,7 @@ class CMoodVData
 	// MPropertyProvidesEditContextString = "ToolEditContext_ID_VMDL"
 	CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > > m_sModelName;
 	// MPropertyDescription = "Type of mood"
-	MoodType_t m_nMoodType;
+	MoodType_t m_nMoodType; // = "eMoodType_Head"
 	// MPropertyDescription = "Layers for this mood"
 	CUtlVector< MoodAnimationLayer_t > m_animationLayers;
 };

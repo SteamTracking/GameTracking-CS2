@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CChoreoComponent",
-//	"m_hOwner": null,
-//	"m_nExernalChoreoGraphCount": 0,
-//	"m_sActiveExternalChoreoGraphSlotID": "",
-//	"m_nNextSceneEventId": 0,
-//	"m_flAllowResponsesEndTime": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class CChoreoComponent
 {

@@ -1,20 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_footName": "",
-//	"m_targetBoneName": "",
-//	"m_ikChainName": "",
-//	"m_disableTagName": "",
-//	"m_disableTagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_flMaxRotationLeft": 90.000000,
-//	"m_flMaxRotationRight": 90.000000,
-//	"m_footstepLandedTagName": "",
-//	"m_footstepLandedTag":
-//	{
-//		"m_id": 0
-//	}
-//}
 // MPropertyFriendlyName = "Item"
 // MPropertyElementNameFn
 class CFootLockItem
@@ -35,10 +18,10 @@ class CFootLockItem
 	AnimTagID m_disableTagID;
 	// MPropertyFriendlyName = "Max Left Rotation"
 	// MPropertyAttributeRange = "0 180"
-	float32 m_flMaxRotationLeft;
+	float32 m_flMaxRotationLeft; // = 90
 	// MPropertyFriendlyName = "Max Right Rotation"
 	// MPropertyAttributeRange = "0 180"
-	float32 m_flMaxRotationRight;
+	float32 m_flMaxRotationRight; // = 90
 	// MPropertySuppressField
 	CGlobalSymbol m_footstepLandedTagName;
 	// MPropertyFriendlyName = "Footstep Landed Tag"

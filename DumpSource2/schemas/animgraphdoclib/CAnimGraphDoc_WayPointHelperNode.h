@@ -1,34 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_WayPointHelperNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_flStartCycle": 0.000000,
-//	"m_flEndCycle": 0.000000,
-//	"m_bOnlyGoals": true,
-//	"m_bPreventOvershoot": true,
-//	"m_bPreventUndershoot": false
-//}
 // MPropertyFriendlyName = "WayPoint Helper"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_WayPointHelperNode : public CAnimGraphDoc_Node
@@ -42,9 +11,9 @@ class CAnimGraphDoc_WayPointHelperNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeRange = "0 1"
 	float32 m_flEndCycle;
 	// MPropertyFriendlyName = "Only align to Goals"
-	bool m_bOnlyGoals;
+	bool m_bOnlyGoals; // = true
 	// MPropertyFriendlyName = "Prevent Overshoot"
-	bool m_bPreventOvershoot;
+	bool m_bPreventOvershoot; // = true
 	// MPropertyFriendlyName = "Prevent Undershoot"
 	bool m_bPreventUndershoot;
 };

@@ -1,16 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CDampedValueComponentUpdater",
-//	"m_name": "",
-//	"m_id":
-//	{
-//		"m_id": 0
-//	},
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_bStartEnabled": false,
-//	"m_items":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CDampedValueComponentUpdater : public CAnimComponentUpdater
 {

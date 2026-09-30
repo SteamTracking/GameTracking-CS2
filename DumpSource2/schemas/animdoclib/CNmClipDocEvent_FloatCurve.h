@@ -1,51 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmClipDocEvent_FloatCurve",
-//	"m_flStartTime": 0.000000,
-//	"m_flDuration": 0.000000,
-//	"m_ID": "",
-//	"m_curve":
-//	{
-//		"m_spline":
-//		[
-//			{
-//				"x": 0.000000,
-//				"y": 0.000000,
-//				"m_flSlopeIncoming": 1.000000,
-//				"m_flSlopeOutgoing": 1.000000
-//			},
-//			{
-//				"x": 1.000000,
-//				"y": 1.000000,
-//				"m_flSlopeIncoming": 1.000000,
-//				"m_flSlopeOutgoing": 1.000000
-//			}
-//		],
-//		"m_tangents":
-//		[
-//			{
-//				"m_nIncomingTangent": "CURVE_TANGENT_SPLINE",
-//				"m_nOutgoingTangent": "CURVE_TANGENT_SPLINE"
-//			},
-//			{
-//				"m_nIncomingTangent": "CURVE_TANGENT_SPLINE",
-//				"m_nOutgoingTangent": "CURVE_TANGENT_SPLINE"
-//			}
-//		],
-//		"m_vDomainMins":
-//		[
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vDomainMaxs":
-//		[
-//			1.000000,
-//			1.000000
-//		]
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmClipDocEvent_FloatCurve : public CNmClipDocEvent
 {
 	CUtlString m_ID;
-	CPiecewiseCurve m_curve;
+	CPiecewiseCurve m_curve; // = { "m_spline": [ { "m_flSlopeIncoming": 1, "m_flSlopeOutgoing": 1, "x": 0, "y": 0 }, { "m_flSlopeIncoming": 1, "m_flSlopeOutgoing": 1, "x": 1, "y": 1 } ], "m_tangents": [ { "m_nIncomingTangent": "CURVE_TANGENT_SPLINE", "m_nOutgoingTangent": "CURVE_TANGENT_SPLINE" }, { "m_nIncomingTangent": "CURVE_TANGENT_SPLINE", "m_nOutgoingTangent": "CURVE_TANGENT_SPLINE" } ], "m_vDomainMaxs": [ 1, 1 ], "m_vDomainMins": [ 0, 0 ] }
 };

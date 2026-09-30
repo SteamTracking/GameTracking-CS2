@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "PhysicsRagdollPose_t",
-//	"m_RelativeTransforms":
-//	[
-//	],
-//	"m_hOwner": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class PhysicsRagdollPose_t
 {

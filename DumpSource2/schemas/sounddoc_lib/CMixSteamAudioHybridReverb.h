@@ -1,18 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixSteamAudioHybridReverb",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0,
-//	"m_flReverbTimeLow": 0.100000,
-//	"m_flReverbTimeMid": 0.100000,
-//	"m_flReverbTimeHigh": 0.100000,
-//	"m_vecReverbTime":
-//	[
-//	]
-//}
 // MPropertyFriendlyName = "VMix Steam Audio Hybrid Reverb Node"
 // MPropertyDescription = "Applies Steam Audio Hybrid Reverb."
 // MHasKV3TransferPolymorphicClassname
@@ -20,13 +5,13 @@ class CMixSteamAudioHybridReverb : public CMixPropertyBase
 {
 	// MPropertyFriendlyName = "Reverb Time (RT60), Low Frequency"
 	// MPropertyAttributeRange = "0.1 10.0"
-	float32 m_flReverbTimeLow;
+	float32 m_flReverbTimeLow; // = 0.1
 	// MPropertyFriendlyName = "Reverb Time (RT60), Mid Frequency"
 	// MPropertyAttributeRange = "0.1 10.0"
-	float32 m_flReverbTimeMid;
+	float32 m_flReverbTimeMid; // = 0.1
 	// MPropertyFriendlyName = "Reverb Time (RT60), High Frequency"
 	// MPropertyAttributeRange = "0.1 10.0"
-	float32 m_flReverbTimeHigh;
+	float32 m_flReverbTimeHigh; // = 0.1
 	// MPropertyFriendlyName = "Reverb Time"
 	// MPropertyAttributeRange = "0.1 10.0"
 	CUtlVector< float32 > m_vecReverbTime;

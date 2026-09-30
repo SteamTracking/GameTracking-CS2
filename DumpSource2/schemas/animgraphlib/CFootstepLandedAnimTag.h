@@ -1,25 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CFootstepLandedAnimTag",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false,
-//	"m_FootstepType": "FOOTSOUND_Left",
-//	"m_OverrideSoundName": "",
-//	"m_DebugAnimSourceString": "",
-//	"m_BoneName": "",
-//	"m_footstepJumpPhase": "Unknown"
-//}
 // MPropertyFriendlyName = "FootstepLanded Tag"
 // MHasKV3TransferPolymorphicClassname
 class CFootstepLandedAnimTag : public CAnimTagBase
 {
 	// MPropertyFriendlyName = "Footstep Type"
-	FootstepLandedFootSoundType_t m_FootstepType;
+	FootstepLandedFootSoundType_t m_FootstepType; // = "FOOTSOUND_Left"
 	// MPropertyFriendlyName = "Override Sound"
 	// MPropertyAttributeChoiceName = "Sound"
 	CUtlString m_OverrideSoundName;
@@ -29,5 +13,5 @@ class CFootstepLandedAnimTag : public CAnimTagBase
 	// MPropertyAttributeChoiceName = "Bone"
 	CUtlString m_BoneName;
 	// MPropertyFriendlyName = "Jump Phase"
-	FootstepJumpPhase_t m_footstepJumpPhase;
+	FootstepJumpPhase_t m_footstepJumpPhase; // = "Unknown"
 };

@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"strArg1": "",
-//	"strArg2": "",
-//	"strArg3": ""
-//}
 class CTestPulseIO::ThreeStringArgs_t
 {
 	CUtlString strArg1;

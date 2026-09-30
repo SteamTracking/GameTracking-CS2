@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropSelectionCriteria_IsValid",
-//	"m_bEnabled": true,
-//	"m_Expression": ""
-//}
 // MVDataComponentValidGrandParents = "CSmartPropElement_PickOne"
 // MPropertyFriendlyName = "Is Valid"
 // MPropertyDescription = "Specifies if this element is currently valid choice."

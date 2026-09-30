@@ -1,27 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"m_transform":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000,
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000
-//	],
-//	"m_boneID": "",
-//	"m_bIsBoneTarget": false,
-//	"m_bIsUsingBoneSpaceOffsets": true,
-//	"m_bHasOffsets": false,
-//	"m_bIsSet": false
-//}
 class CNmTarget
 {
-	CTransform m_transform;
+	CTransform m_transform; // = [ 0, 0, 0, 1, 0, 0, 0, 1 ]
 	CGlobalSymbol m_boneID;
 	bool m_bIsBoneTarget;
-	bool m_bIsUsingBoneSpaceOffsets;
+	bool m_bIsUsingBoneSpaceOffsets; // = true
 	bool m_bHasOffsets;
 	bool m_bIsSet;
 };

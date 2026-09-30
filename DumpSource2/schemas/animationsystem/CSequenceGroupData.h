@@ -1,39 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sName": "",
-//	"m_nFlags": 0,
-//	"m_localSequenceNameArray":
-//	[
-//	],
-//	"m_localS1SeqDescArray":
-//	[
-//	],
-//	"m_localMultiSeqDescArray":
-//	[
-//	],
-//	"m_localSynthAnimDescArray":
-//	[
-//	],
-//	"m_localCmdSeqDescArray":
-//	[
-//	],
-//	"m_localBoneMaskArray":
-//	[
-//	],
-//	"m_localScaleSetArray":
-//	[
-//	],
-//	"m_localBoneNameArray":
-//	[
-//	],
-//	"m_localNodeName": "",
-//	"m_localPoseParamArray":
-//	[
-//	],
-//	"m_keyValues": null,
-//	"m_localIKAutoplayLockArray":
-//	[
-//	]
-//}
 class CSequenceGroupData
 {
 	CBufferString m_sName;

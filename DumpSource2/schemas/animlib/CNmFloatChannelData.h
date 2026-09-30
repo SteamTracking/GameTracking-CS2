@@ -1,16 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_skeleton": "",
-//	"m_setID": "",
-//	"m_channelSettings":
-//	[
-//	],
-//	"m_compressedData":
-//	[
-//	],
-//	"m_compressedOffsets":
-//	[
-//	]
-//}
 class CNmFloatChannelData
 {
 	CStrongHandle< InfoForResourceTypeCNmSkeleton > m_skeleton;

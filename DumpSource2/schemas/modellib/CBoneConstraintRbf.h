@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CBoneConstraintRbf",
-//	"m_inputBones":
-//	[
-//	],
-//	"m_outputBones":
-//	[
-//	],
-//	"m_rbfParameters": "[BINARY BLOB]"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CBoneConstraintRbf : public CBoneConstraintBase
 {

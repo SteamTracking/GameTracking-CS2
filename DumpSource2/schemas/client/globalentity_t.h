@@ -1,13 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"state": "GLOBAL_OFF",
-//	"counter": 0
-//}
 class globalentity_t
 {
 	// MKV3TransferSaveOpsForField = "GetGlobalSymbolDataOps"
 	CUtlSymbol name;
 	// MKV3TransferSaveOpsForField = "GetGlobalSymbolDataOps"
 	CUtlSymbol levelName;
-	GLOBALESTATE state;
+	GLOBALESTATE state; // = "GLOBAL_OFF"
 	int32 counter;
 };

@@ -1,45 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_LeanMatrixNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_sequenceName": "",
-//	"m_flMaxValue": 1.000000,
-//	"m_blendSource": "MoveDirection",
-//	"m_paramName": "",
-//	"m_param":
-//	{
-//		"m_id": 0
-//	},
-//	"m_verticalAxisDirection":
-//	[
-//		1.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_horizontalAxisDirection":
-//	[
-//		0.000000,
-//		1.000000,
-//		0.000000
-//	],
-//	"m_damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	}
-//}
 // MPropertyFriendlyName = "Lean Matrix"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_LeanMatrixNode : public CAnimGraphDoc_Node
@@ -48,18 +6,18 @@ class CAnimGraphDoc_LeanMatrixNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "Sequence"
 	CUtlString m_sequenceName;
 	// MPropertyFriendlyName = "Max Value"
-	float32 m_flMaxValue;
+	float32 m_flMaxValue; // = 1
 	// MPropertyFriendlyName = "Blend Source"
-	AnimVectorSource m_blendSource;
+	AnimVectorSource m_blendSource; // = "MoveDirection"
 	// MPropertySuppressField
 	CUtlString m_paramName;
 	// MPropertyFriendlyName = "Parameter"
 	// MPropertyAttributeChoiceName = "VectorParameter"
 	AnimParamID m_param;
 	// MPropertyFriendlyName = "Vertical Axis"
-	Vector m_verticalAxisDirection;
+	Vector m_verticalAxisDirection; // = [ 1, 0, 0 ]
 	// MPropertyFriendlyName = "Horizontal Axis"
-	Vector m_horizontalAxisDirection;
+	Vector m_horizontalAxisDirection; // = [ 0, 1, 0 ]
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping;
+	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 };

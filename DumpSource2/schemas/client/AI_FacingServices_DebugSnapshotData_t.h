@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"npc_position": null,
-//	"facing_target_source": "",
-//	"facing_target": null,
-//	"schedule_facing_priority": "",
-//	"strafing_source": "",
-//	"strafing_enabled": false,
-//	"movement_id": ""
-//}
 // MPropertyFriendlyName = "Facing Services"
 // MDebugSnapshotDataRenderFn
 class AI_FacingServices_DebugSnapshotData_t

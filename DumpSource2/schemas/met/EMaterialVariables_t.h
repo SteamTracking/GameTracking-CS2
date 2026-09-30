@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_bIsLayeredShader": false,
-//	"m_Variables":
-//	[
-//	],
-//	"m_Layers":
-//	[
-//	]
-//}
 class EMaterialVariables_t
 {
 	bool m_bIsLayeredShader;

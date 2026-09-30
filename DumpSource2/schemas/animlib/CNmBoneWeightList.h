@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_skeletonName": "",
-//	"m_boneIDs":
-//	[
-//	],
-//	"m_weights":
-//	[
-//	]
-//}
 class CNmBoneWeightList
 {
 	CResourceName m_skeletonName;

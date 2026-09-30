@@ -1,21 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "audioparams_t",
-//	"localSound":
-//	[
-//		null,
-//		null,
-//		null,
-//		null,
-//		null,
-//		null,
-//		null,
-//		null
-//	],
-//	"soundscapeIndex": 0,
-//	"localBits": 0,
-//	"soundscapeEntityListIndex": 0,
-//	"soundEventHash": 0
-//}
 // MHasKV3TransferPolymorphicClassname
 class audioparams_t
 {

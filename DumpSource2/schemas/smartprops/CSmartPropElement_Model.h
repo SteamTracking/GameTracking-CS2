@@ -1,31 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropElement_Model",
-//	"m_nElementID": -1,
-//	"m_bEnabled": true,
-//	"m_sLabel": "",
-//	"m_SelectionCriteria":
-//	[
-//	],
-//	"m_Modifiers":
-//	[
-//	],
-//	"m_sModelName": "",
-//	"m_MaterialGroupName": "",
-//	"m_bDetailObject": false,
-//	"m_vModelScale":
-//	[
-//		1.000000,
-//		1.000000,
-//		1.000000
-//	],
-//	"m_flUniformModelScale": 1.000000,
-//	"m_nLodLevel": -1,
-//	"m_SurfacePropertyOverride": "",
-//	"m_nDetailObjectFadeLevel": "NORMAL",
-//	"m_bCastShadows": true,
-//	"m_bRigidDeformation": false,
-//	"m_bDisableDynamicDeformable": false
-//}
 // MPropertyFriendlyName = "Model"
 // MPropertyDescription = "Places a model as the child of an element."
 // MVDataOutlinerAssetNameExpr = "m_sModelName"
@@ -42,15 +14,15 @@ class CSmartPropElement_Model : public CSmartPropElement
 	CSmartPropAttributeBool m_bDetailObject;
 	// MPropertySuppressExpr = "m_bDetailObject == true"
 	// MPropertyDescription = "Scale factor (may be non-uniform) to be applied directly to the model (in the model's local space)."
-	CSmartPropAttributeVector m_vModelScale;
+	CSmartPropAttributeVector m_vModelScale; // = [ 1, 1, 1 ]
 	// MPropertyFriendlyName = "Model Scale"
 	// MPropertySuppressExpr = "m_bDetailObject == false"
 	// MPropertyDescription = "Uniform scale to be applied to the model, certain properties like detail object mean only uniform scale may be applied to the model."
-	CSmartPropAttributeFloat m_flUniformModelScale;
+	CSmartPropAttributeFloat m_flUniformModelScale; // = 1
 	// MPropertyAttributeEditor = "SmartPropAttributeEditor( LODLevel )"
 	// MPropertySuppressExpr = "m_bDetailObject == true"
 	// MPropertyDescription = "Select model LOD level. The default Auto LOD means the lod will be picked based on the size of the model on screen. If a specific level is selected, then that lod level will always be used regardless of the size of the model on screen."
-	CSmartPropAttributeInt m_nLodLevel;
+	CSmartPropAttributeInt m_nLodLevel; // = -1
 	// MPropertyFriendlyName = "Override Surface Property"
 	// MPropertySuppressExpr = "m_bDetailObject == true"
 	// MPropertyDescription = "If non-empty, specifies the name of a surface property to use for all physics shapes of the specified model, overriding any surface properties specified within the model."
@@ -58,10 +30,10 @@ class CSmartPropElement_Model : public CSmartPropElement
 	// MPropertyFriendlyName = "Fade Level"
 	// MPropertySuppressExpr = "m_bDetailObject == false"
 	// MPropertyDescription = "Controls the size at which a model marked as a detail object will fade out."
-	SmartPropDetailFadeLevel_t m_nDetailObjectFadeLevel;
+	SmartPropDetailFadeLevel_t m_nDetailObjectFadeLevel; // = "NORMAL"
 	// MPropertyFriendlyName = "Cast Shadows"
 	// MPropertyDescription = "Should the model cast shadows."
-	CSmartPropAttributeBool m_bCastShadows;
+	CSmartPropAttributeBool m_bCastShadows; // = true
 	// MPropertyFriendlyName = "Rigid Deformation Only"
 	// MPropertySuppressExpr = "m_bDetailObject == true"
 	// MPropertyDescription = "If enabled, only the transform of the model will be modified by any active deformer, the vertices of the model will not be changed by the deformer."

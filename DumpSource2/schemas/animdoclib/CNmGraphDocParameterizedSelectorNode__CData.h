@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocParameterizedSelectorNode::CData",
-//	"m_optionWeights":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocParameterizedSelectorNode::CData : public CNmGraphDocVariationDataNode::CData
 {

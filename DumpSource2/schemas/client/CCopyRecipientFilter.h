@@ -1,15 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCopyRecipientFilter",
-//	"m_Flags": 0,
-//	"m_Recipients":
-//	[
-//	],
-//	"m_slotPlayerExcludedDueToPrediction": -1
-//}
 // MHasKV3TransferPolymorphicClassname
 class CCopyRecipientFilter
 {
 	int32 m_Flags;
 	CUtlVector< CPlayerSlot > m_Recipients;
-	CPlayerSlot m_slotPlayerExcludedDueToPrediction;
+	CPlayerSlot m_slotPlayerExcludedDueToPrediction; // = -1
 };

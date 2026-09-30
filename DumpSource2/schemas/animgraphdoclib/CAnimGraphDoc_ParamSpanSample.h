@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_value":
-//	{
-//		"m_nType": 0
-//	},
-//	"m_flCycle": 0.000000
-//}
 class CAnimGraphDoc_ParamSpanSample
 {
 	CAnimVariant m_value;

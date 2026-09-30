@@ -1,41 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CBasePlayerWeaponVData",
-//	"m_szWorldModel": "",
-//	"m_szWorldModelAg2Override": "",
-//	"m_sToolsOnlyOwnerModelName": "",
-//	"m_bBuiltRightHanded": true,
-//	"m_bAllowFlipping": true,
-//	"m_sMuzzleAttachment": "muzzle",
-//	"m_szMuzzleFlashParticle": "",
-//	"m_szMuzzleFlashParticleConfig": "",
-//	"m_szBarrelSmokeParticle": "",
-//	"m_nMuzzleSmokeShotThreshold": 4,
-//	"m_flMuzzleSmokeTimeout": 0.250000,
-//	"m_flMuzzleSmokeDecrementRate": 1.000000,
-//	"m_bGenerateMuzzleLight": true,
-//	"m_bShouldAnimateInWorld": false,
-//	"m_bLinkedCooldowns": false,
-//	"m_iFlags": "",
-//	"m_iWeight": 0,
-//	"m_bAutoSwitchTo": true,
-//	"m_bAutoSwitchFrom": true,
-//	"m_nPrimaryAmmoType": "",
-//	"m_nSecondaryAmmoType": "",
-//	"m_iMaxClip1": 0,
-//	"m_iMaxClip2": 0,
-//	"m_iDefaultClip1": -1,
-//	"m_iDefaultClip2": -1,
-//	"m_bReserveAmmoAsClips": false,
-//	"m_bTreatAsSingleClip": false,
-//	"m_bKeepLoadedAmmo": false,
-//	"m_iRumbleEffect": "RUMBLE_INVALID",
-//	"m_flDropSpeed": 300.000000,
-//	"m_iSlot": 0,
-//	"m_iPosition": 0,
-//	"m_aShootSounds":
-//	{
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 {
@@ -49,11 +11,11 @@ class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 	// MPropertyDescription = "Model used by the tools only to populate comboboxes for things like animgraph parameter pickers"
 	CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > > m_sToolsOnlyOwnerModelName;
 	// MPropertyDescription = "Was the weapon was built right-handed?"
-	bool m_bBuiltRightHanded;
+	bool m_bBuiltRightHanded; // = true
 	// MPropertyDescription = "Allows flipping the model, regardless of whether it is built left or right handed"
-	bool m_bAllowFlipping;
+	bool m_bAllowFlipping; // = true
 	// MPropertyDescription = "Attachment to fire bullets from"
-	CAttachmentNameSymbolWithStorage m_sMuzzleAttachment;
+	CAttachmentNameSymbolWithStorage m_sMuzzleAttachment; // = "muzzle"
 	// MPropertyDescription = "Effect when firing this weapon"
 	CResourceNameTyped< CWeakHandle< InfoForResourceTypeIParticleSystemDefinition > > m_szMuzzleFlashParticle;
 	// MPropertyDescription = "Effect Config for Muzzle Flash - if set, will use this config specified in the particle effect, using whatever CP configuration is specified there, vdata muzzleflash attachment will be ignored"
@@ -63,12 +25,12 @@ class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 	// MPropertyDescription = "Barrel smoke after firing this weapon"
 	CResourceNameTyped< CWeakHandle< InfoForResourceTypeIParticleSystemDefinition > > m_szBarrelSmokeParticle;
 	// MPropertyDescription = "Barrel smoke shot threshold to create smoke"
-	uint8 m_nMuzzleSmokeShotThreshold;
+	uint8 m_nMuzzleSmokeShotThreshold; // = 4
 	// MPropertyDescription = "Barrel smoke shot timeout"
-	float32 m_flMuzzleSmokeTimeout;
+	float32 m_flMuzzleSmokeTimeout; // = 0.25
 	// MPropertyDescription = "Barrel smoke decrement rate when not firing"
-	float32 m_flMuzzleSmokeDecrementRate;
-	bool m_bGenerateMuzzleLight;
+	float32 m_flMuzzleSmokeDecrementRate; // = 1
+	bool m_bGenerateMuzzleLight; // = true
 	// MPropertyDescription = "Was the weapon was built right-handed?"
 	bool m_bShouldAnimateInWorld;
 	// MPropertyStartGroup = "Behavior"
@@ -79,9 +41,9 @@ class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 	int32 m_iWeight;
 	// MPropertyFriendlyName = "Safe To Auto-Switch To"
 	// MPropertyDescription = "Whether this weapon is safe to automatically switch to (should be false for eg. explosives that can the player may accidentally hurt themselves with)"
-	bool m_bAutoSwitchTo;
+	bool m_bAutoSwitchTo; // = true
 	// MPropertyFriendlyName = "Safe To Auto-Switch Away From"
-	bool m_bAutoSwitchFrom;
+	bool m_bAutoSwitchFrom; // = true
 	// MPropertyStartGroup = "Ammo"
 	// MPropertyAttributeEditor = "VDataChoice( scripts/ammo.vdata )"
 	// MPropertyCustomFGDType = "string"
@@ -99,10 +61,10 @@ class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 	int32 m_iMaxClip2;
 	// MPropertyDescription = "Primary Initial Clip (-1 means use clip size)"
 	// MPropertyAttributeRange = "-1 255"
-	int32 m_iDefaultClip1;
+	int32 m_iDefaultClip1; // = -1
 	// MPropertyDescription = "Secondary Initial Clip (-1 means use clip size)"
 	// MPropertyAttributeRange = "-1 255"
-	int32 m_iDefaultClip2;
+	int32 m_iDefaultClip2; // = -1
 	// MPropertyDescription = "Indicates whether to treat reserve ammo as clips (reloads) instead of raw bullets"
 	bool m_bReserveAmmoAsClips;
 	// MPropertyDescription = "Regardless of ammo position, we'll always use clip1 as where our bullets come from"
@@ -110,8 +72,8 @@ class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 	// MPropertyDescription = "Indicates whether to keep any loaded ammo in the weapon on reload"
 	bool m_bKeepLoadedAmmo;
 	// MPropertyStartGroup = "UI"
-	RumbleEffect_t m_iRumbleEffect;
-	float32 m_flDropSpeed;
+	RumbleEffect_t m_iRumbleEffect; // = "RUMBLE_INVALID"
+	float32 m_flDropSpeed; // = 300
 	// MPropertyFriendlyName = "HUD Bucket"
 	// MPropertyDescription = "Which 'column' to display this weapon in the HUD"
 	int32 m_iSlot;

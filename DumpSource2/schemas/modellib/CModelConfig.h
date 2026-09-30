@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ConfigName": "",
-//	"m_Elements":
-//	[
-//	],
-//	"m_bTopLevel": false,
-//	"m_bActiveInEditorByDefault": false
-//}
 class CModelConfig
 {
 	CUtlString m_ConfigName;

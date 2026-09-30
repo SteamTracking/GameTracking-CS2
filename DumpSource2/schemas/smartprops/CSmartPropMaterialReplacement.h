@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_OriginalMaterial": "",
-//	"m_ReplacementMaterial": ""
-//}
 class CSmartPropMaterialReplacement
 {
 	// MPropertyAttributeEditor = "SmartPropAttributeEditor(MaterialInSmartProp)"

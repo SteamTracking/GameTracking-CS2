@@ -1,5 +1,3 @@
-// MGetKV3ClassDefaults = {
-//}
 class CBodyComponent : public CEntityComponent
 {
 	// MNotSaved

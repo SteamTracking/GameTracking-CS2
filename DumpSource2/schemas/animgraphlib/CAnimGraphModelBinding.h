@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphModelBinding",
-//	"m_modelName": "",
-//	"m_pSharedData": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphModelBinding
 {

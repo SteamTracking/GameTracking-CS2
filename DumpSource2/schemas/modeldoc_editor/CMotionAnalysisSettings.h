@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_Description": "",
-//	"m_flLinearThresholdSlow": 60.000000,
-//	"m_flLinearThresholdStopped": 25.000000,
-//	"m_flAngularThresholdSlow": 90.000000,
-//	"m_flAngularThresholdStopped": 15.000000,
-//	"m_Feet":
-//	{
-//	}
-//}
 // MVDataRoot
 class CMotionAnalysisSettings
 {
@@ -15,16 +5,16 @@ class CMotionAnalysisSettings
 	CUtlString m_Description;
 	// MPropertyDescription = "Threshold for 'nearly stopped' linear velocity (inches/second)"
 	// MPropertyAttributeRange = "0 100"
-	float32 m_flLinearThresholdSlow;
+	float32 m_flLinearThresholdSlow; // = 60
 	// MPropertyDescription = "Threshold for 'fully stopped' linear velocity (inches/second)"
 	// MPropertyAttributeRange = "0 100"
-	float32 m_flLinearThresholdStopped;
+	float32 m_flLinearThresholdStopped; // = 25
 	// MPropertyDescription = "Threshold for 'nearly stopped' angular velocity (degrees/second)"
 	// MPropertyAttributeRange = "0 180"
-	float32 m_flAngularThresholdSlow;
+	float32 m_flAngularThresholdSlow; // = 90
 	// MPropertyDescription = "Threshold for 'fully stopped' angular velocity (degrees/second)"
 	// MPropertyAttributeRange = "0 180"
-	float32 m_flAngularThresholdStopped;
+	float32 m_flAngularThresholdStopped; // = 15
 	// MPropertyAutoExpandSelf
 	CUtlStringMap< CMotionAnalysisSettings_Foot > m_Feet;
 };

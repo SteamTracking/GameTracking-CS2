@@ -1,86 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_FootLockNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_items":
-//	[
-//	],
-//	"m_hipBoneName": "",
-//	"m_flBlendTime": 0.200000,
-//	"m_bApplyFootRotationLimits": true,
-//	"m_bResetChild": true,
-//	"m_ikSolverType": "IKSOLVER_TwoBone",
-//	"m_bAlwaysUseFallbackHinge": true,
-//	"m_bApplyLegTwistLimits": false,
-//	"m_flMaxLegTwist": 45.000000,
-//	"m_flStrideCurveScale": 1.000000,
-//	"m_flStrideCurveLimitScale": 0.250000,
-//	"m_bEnableVerticalCurvedPaths": false,
-//	"m_bModulateStepHeight": true,
-//	"m_flStepHeightIncreaseScale": 0.000000,
-//	"m_flStepHeightDecreaseScale": 1.000000,
-//	"m_bEnableHipShift": false,
-//	"m_flHipShiftScale": 0.500000,
-//	"m_hipShiftDamping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	},
-//	"m_bApplyTilt": false,
-//	"m_flTiltPlanePitchSpringStrength": 5.000000,
-//	"m_flTiltPlaneRollSpringStrength": 5.000000,
-//	"m_bEnableLockBreaking": true,
-//	"m_flLockBreakTolerance": 0.200000,
-//	"m_flLockBreakBlendTime": 0.200000,
-//	"m_bEnableStretching": false,
-//	"m_flMaxStretchAmount": 2.000000,
-//	"m_flStretchExtensionScale": 0.998000,
-//	"m_bEnableGroundTracing": false,
-//	"m_flTraceAngleBlend": 0.000000,
-//	"m_bApplyHipDrop": false,
-//	"m_flMaxFootHeight": -12.000000,
-//	"m_flExtensionScale": 0.700000,
-//	"m_hipDampingSettings":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	},
-//	"m_bEnableRootHeightDamping": false,
-//	"m_rootHeightDamping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "Spring",
-//		"m_fSpeedScale": 12.000000,
-//		"m_fFallingSpeedScale": 12.000000
-//	},
-//	"m_flMaxRootHeightOffset": 100.000000,
-//	"m_flMinRootHeightOffset": -100.000000
-//}
 // MPropertyFriendlyName = "Stride Retargeting"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
@@ -94,19 +11,19 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "Bone"
 	CUtlString m_hipBoneName;
 	// MPropertyFriendlyName = "Blend Time"
-	float32 m_flBlendTime;
+	float32 m_flBlendTime; // = 0.2
 	// MPropertyFriendlyName = "Apply Foot Rotation Limits"
-	bool m_bApplyFootRotationLimits;
+	bool m_bApplyFootRotationLimits; // = true
 	// MPropertyFriendlyName = "Reset Child"
-	bool m_bResetChild;
+	bool m_bResetChild; // = true
 	// MPropertyFriendlyName = "IK Solver Type"
 	// MPropertyGroupName = "IK"
 	// MPropertyAutoRebuildOnChange
-	IKSolverType m_ikSolverType;
+	IKSolverType m_ikSolverType; // = "IKSOLVER_TwoBone"
 	// MPropertyFriendlyName = "Always use fallback hinge"
 	// MPropertyGroupName = "IK"
 	// MPropertyAttrStateCallback
-	bool m_bAlwaysUseFallbackHinge;
+	bool m_bAlwaysUseFallbackHinge; // = true
 	// MPropertyFriendlyName = "Limit Leg Twist"
 	// MPropertyGroupName = "IK"
 	// MPropertyAttrStateCallback
@@ -114,22 +31,22 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Max Leg Twist Angle"
 	// MPropertyGroupName = "IK"
 	// MPropertyAttrStateCallback
-	float32 m_flMaxLegTwist;
+	float32 m_flMaxLegTwist; // = 45
 	// MPropertyFriendlyName = "Curve Foot Paths"
 	// MPropertyGroupName = "Curve Paths"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flStrideCurveScale;
+	float32 m_flStrideCurveScale; // = 1
 	// MPropertyFriendlyName = "Curve Paths Limit"
 	// MPropertyGroupName = "Curve Paths"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flStrideCurveLimitScale;
+	float32 m_flStrideCurveLimitScale; // = 0.25
 	// MPropertyFriendlyName = "Enable Vertical Curved Paths"
 	// MPropertyGroupName = "Curve Paths"
 	bool m_bEnableVerticalCurvedPaths;
 	// MPropertyFriendlyName = "Modulate Step Height"
 	// MPropertyGroupName = "Step Height"
 	// MPropertyAutoRebuildOnChange
-	bool m_bModulateStepHeight;
+	bool m_bModulateStepHeight; // = true
 	// MPropertyFriendlyName = "Height Increase Scale"
 	// MPropertyGroupName = "Step Height"
 	// MPropertyAttrStateCallback
@@ -137,45 +54,45 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Height Decrease Scale"
 	// MPropertyGroupName = "Step Height"
 	// MPropertyAttrStateCallback
-	float32 m_flStepHeightDecreaseScale;
+	float32 m_flStepHeightDecreaseScale; // = 1
 	// MPropertyFriendlyName = "Enable Hip Shift"
 	// MPropertyGroupName = "Hip Shift"
 	bool m_bEnableHipShift;
 	// MPropertyFriendlyName = "Hip Shift Scale"
 	// MPropertyGroupName = "Hip Shift"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flHipShiftScale;
+	float32 m_flHipShiftScale; // = 0.5
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyGroupName = "Hip Shift"
-	CAnimInputDamping m_hipShiftDamping;
+	CAnimInputDamping m_hipShiftDamping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 	// MPropertyFriendlyName = "Apply Tilt"
 	// MPropertyGroupName = "Tilt"
 	bool m_bApplyTilt;
 	// MPropertyFriendlyName = "Tilt Plane Pitch Spring Strength"
 	// MPropertyGroupName = "Tilt"
-	float32 m_flTiltPlanePitchSpringStrength;
+	float32 m_flTiltPlanePitchSpringStrength; // = 5
 	// MPropertyFriendlyName = "Tilt Plane Roll Spring Strength"
 	// MPropertyGroupName = "Tilt"
-	float32 m_flTiltPlaneRollSpringStrength;
+	float32 m_flTiltPlaneRollSpringStrength; // = 5
 	// MPropertyFriendlyName = "Enable Lock Breaking"
 	// MPropertyGroupName = "Lock Breaking"
-	bool m_bEnableLockBreaking;
+	bool m_bEnableLockBreaking; // = true
 	// MPropertyFriendlyName = "Tolerance"
 	// MPropertyGroupName = "Lock Breaking"
-	float32 m_flLockBreakTolerance;
+	float32 m_flLockBreakTolerance; // = 0.2
 	// MPropertyFriendlyName = "Blend Time"
 	// MPropertyGroupName = "Lock Breaking"
-	float32 m_flLockBreakBlendTime;
+	float32 m_flLockBreakBlendTime; // = 0.2
 	// MPropertyFriendlyName = "Enable Stretching"
 	// MPropertyGroupName = "Stretch"
 	bool m_bEnableStretching;
 	// MPropertyFriendlyName = "Max Stretch Amount"
 	// MPropertyGroupName = "Stretch"
-	float32 m_flMaxStretchAmount;
+	float32 m_flMaxStretchAmount; // = 2
 	// MPropertyFriendlyName = "Extension Scale"
 	// MPropertyGroupName = "Stretch"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flStretchExtensionScale;
+	float32 m_flStretchExtensionScale; // = 0.998
 	// MPropertyFriendlyName = "Enable Ground Tracing"
 	// MPropertyGroupName = "Ground IK"
 	// MPropertyAutoRebuildOnChange
@@ -193,15 +110,15 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Max Foot Lift"
 	// MPropertyGroupName = "Ground IK"
 	// MPropertyAttrStateCallback
-	float32 m_flMaxFootHeight;
+	float32 m_flMaxFootHeight; // = -12
 	// MPropertyFriendlyName = "Leg Extension Scale"
 	// MPropertyGroupName = "Ground IK"
 	// MPropertyAttrStateCallback
-	float32 m_flExtensionScale;
+	float32 m_flExtensionScale; // = 0.7
 	// MPropertyFriendlyName = "Hip Damping"
 	// MPropertyGroupName = "Ground IK"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_hipDampingSettings;
+	CAnimInputDamping m_hipDampingSettings; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 	// MPropertyFriendlyName = "Enable Root Height Damping"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAutoRebuildOnChange
@@ -209,13 +126,13 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Damping Settings"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_rootHeightDamping;
+	CAnimInputDamping m_rootHeightDamping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 12, "m_fSpeedScale": 12, "m_speedFunction": "Spring" }
 	// MPropertyFriendlyName = "Max Offset"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAttrStateCallback
-	float32 m_flMaxRootHeightOffset;
+	float32 m_flMaxRootHeightOffset; // = 100
 	// MPropertyFriendlyName = "Min Offset"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAttrStateCallback
-	float32 m_flMinRootHeightOffset;
+	float32 m_flMinRootHeightOffset; // = -100
 };

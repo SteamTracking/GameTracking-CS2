@@ -1,72 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_HitReactNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_flMinDelayBetweenHits": 0.000000,
-//	"m_triggerParamName": "",
-//	"m_hitBoneParamName": "",
-//	"m_hitOffsetParamName": "",
-//	"m_hitDirectionParamName": "",
-//	"m_hitStrengthParamName": "",
-//	"m_triggerParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_hitBoneParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_hitOffsetParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_hitDirectionParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_hitStrengthParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_weightListName": "",
-//	"m_hipBoneName": "",
-//	"m_flHipBoneTranslationScale": 1.000000,
-//	"m_nEffectedBoneCount": 4,
-//	"m_flMaxImpactForce": 100.000000,
-//	"m_flMinImpactForce": 50.000000,
-//	"m_flWhipImpactScale": 1.000000,
-//	"m_flCounterRotationScale": 0.500000,
-//	"m_flDistanceFadeScale": 1.000000,
-//	"m_flPropagationScale": 1.000000,
-//	"m_flWhipDelay": 0.050000,
-//	"m_flSpringStrength": 15.000000,
-//	"m_flWhipSpringStrength": 10.000000,
-//	"m_flHipDipSpringStrength": 10.000000,
-//	"m_flHipDipImpactScale": 1.000000,
-//	"m_flHipDipDelay": 0.050000,
-//	"m_bResetBase": true
-//}
 // MPropertyFriendlyName = "Procedural Hit Reacts"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_HitReactNode : public CAnimGraphDoc_Node
@@ -107,33 +38,33 @@ class CAnimGraphDoc_HitReactNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "Bone"
 	CUtlString m_hipBoneName;
 	// MPropertyFriendlyName = "Hip Translation Scale"
-	float32 m_flHipBoneTranslationScale;
+	float32 m_flHipBoneTranslationScale; // = 1
 	// MPropertyFriendlyName = "Number of bone effected"
-	int32 m_nEffectedBoneCount;
+	int32 m_nEffectedBoneCount; // = 4
 	// MPropertyFriendlyName = "Max Impact Force"
-	float32 m_flMaxImpactForce;
+	float32 m_flMaxImpactForce; // = 100
 	// MPropertyFriendlyName = "Min Impact Force"
-	float32 m_flMinImpactForce;
+	float32 m_flMinImpactForce; // = 50
 	// MPropertyFriendlyName = "Whip Impact Scale"
-	float32 m_flWhipImpactScale;
+	float32 m_flWhipImpactScale; // = 1
 	// MPropertyFriendlyName = "Counter Rotation Scale"
-	float32 m_flCounterRotationScale;
+	float32 m_flCounterRotationScale; // = 0.5
 	// MPropertyFriendlyName = "Distance Fade Scale"
-	float32 m_flDistanceFadeScale;
+	float32 m_flDistanceFadeScale; // = 1
 	// MPropertyFriendlyName = "Propagation Scale"
-	float32 m_flPropagationScale;
+	float32 m_flPropagationScale; // = 1
 	// MPropertyFriendlyName = "Whip Delay Time"
-	float32 m_flWhipDelay;
+	float32 m_flWhipDelay; // = 0.05
 	// MPropertyFriendlyName = "Spring Strength"
-	float32 m_flSpringStrength;
+	float32 m_flSpringStrength; // = 15
 	// MPropertyFriendlyName = "Whip Spring Strength"
-	float32 m_flWhipSpringStrength;
+	float32 m_flWhipSpringStrength; // = 10
 	// MPropertyFriendlyName = "Hip Dip Spring Strength"
-	float32 m_flHipDipSpringStrength;
+	float32 m_flHipDipSpringStrength; // = 10
 	// MPropertyFriendlyName = "Hip Dip Scale"
-	float32 m_flHipDipImpactScale;
+	float32 m_flHipDipImpactScale; // = 1
 	// MPropertyFriendlyName = "Hip Dip Delay Time"
-	float32 m_flHipDipDelay;
+	float32 m_flHipDipDelay; // = 0.05
 	// MPropertyFriendlyName = "Reset Child"
-	bool m_bResetBase;
+	bool m_bResetBase; // = true
 };

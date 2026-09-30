@@ -1,24 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixModDelay",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0,
-//	"m_bPhaseInvert": false,
-//	"m_flGlideTime": 150.000000,
-//	"m_flDelay": 500.000000,
-//	"m_flFeedback": -40.000000,
-//	"m_flGain": 0.000000,
-//	"m_flModRate": 0.000000,
-//	"m_flModDepth": 0.000000,
-//	"m_filterType": "FILTER_PASSTHROUGH",
-//	"m_flFrequency": 400.000000,
-//	"m_flQ": 0.700000,
-//	"m_flFilterGain": 0.000000,
-//	"m_bAntialiasing": true
-//}
 // MPropertyFriendlyName = "VMix Modulating Delay Audio Node"
 // MPropertyDescription = "A delay with a modulated delay time."
 // MHasKV3TransferPolymorphicClassname
@@ -28,14 +7,14 @@ class CMixModDelay : public CMixPropertyBase
 	bool m_bPhaseInvert;
 	// MPropertyFriendlyName = "Glide Time (ms)"
 	// MPropertyAttributeRange = "0 2000"
-	float32 m_flGlideTime;
+	float32 m_flGlideTime; // = 150
 	// MPropertyFriendlyName = "Delay Time (ms)"
 	// MPropertyGroupName = "Delay"
 	// MPropertyAttributeRange = "10 2000"
-	float32 m_flDelay;
+	float32 m_flDelay; // = 500
 	// MPropertyFriendlyName = "Feedback Gain (dB)"
 	// MPropertyAttributeRange = "-24 -0.6"
-	float32 m_flFeedback;
+	float32 m_flFeedback; // = -40
 	// MPropertyFriendlyName = "Output Gain (dB)"
 	// MPropertyAttributeRange = "-24 24"
 	float32 m_flGain;
@@ -47,19 +26,19 @@ class CMixModDelay : public CMixPropertyBase
 	float32 m_flModDepth;
 	// MPropertyFriendlyName = "Filter Type"
 	// MPropertyGroupName = "Filter"
-	VMixFilterType_t m_filterType;
+	VMixFilterType_t m_filterType; // = "FILTER_PASSTHROUGH"
 	// MPropertyFriendlyName = "Center Frequency (Hz)"
 	// MPropertyGroupName = "Filter"
 	// MPropertyAttributeRange = "biased 20 22000"
-	float32 m_flFrequency;
+	float32 m_flFrequency; // = 400
 	// MPropertyFriendlyName = "Q"
 	// MPropertyGroupName = "Filter"
 	// MPropertyAttributeRange = "0.1 12"
-	float32 m_flQ;
+	float32 m_flQ; // = 0.7
 	// MPropertyFriendlyName = "Filter Gain (dB)"
 	// MPropertyGroupName = "Filter"
 	// MPropertyAttributeRange = "-24 24"
 	float32 m_flFilterGain;
 	// MPropertyFriendlyName = "Apply Antialiasing"
-	bool m_bAntialiasing;
+	bool m_bAntialiasing; // = true
 };

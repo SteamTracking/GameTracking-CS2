@@ -1,18 +1,5 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmFrameSnapEvent",
-//	"m_flStartTime":
-//	{
-//		"m_flValue": 0.000000
-//	},
-//	"m_flDuration":
-//	{
-//		"m_flValue": 0.000000
-//	},
-//	"m_syncID": "",
-//	"m_frameSnapMode": "Floor"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmFrameSnapEvent : public CNmEvent
 {
-	NmFrameSnapEventMode_t m_frameSnapMode;
+	NmFrameSnapEventMode_t m_frameSnapMode; // = "Floor"
 };

@@ -1,52 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_Blend2DNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_items":
-//	[
-//	],
-//	"m_tagSpans":
-//	[
-//	],
-//	"m_paramSpans":
-//	[
-//	],
-//	"m_blendSourceX": "Parameter",
-//	"m_paramNameX": "",
-//	"m_paramX":
-//	{
-//		"m_id": 0
-//	},
-//	"m_blendSourceY": "Parameter",
-//	"m_paramNameY": "",
-//	"m_paramY":
-//	{
-//		"m_id": 0
-//	},
-//	"m_eBlendMode": "Blend2DMode_General",
-//	"m_bLoop": true,
-//	"m_bLockBlendOnReset": false,
-//	"m_bLockWhenWaning": true,
-//	"m_playbackSpeed": 1.000000,
-//	"m_damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	},
-//	"m_bAnimEventsAndTagsOnMostWeightedOnly": false
-//}
 // MPropertyFriendlyName = "Blend 2D"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_Blend2DNode : public CAnimGraphDoc_Node
@@ -60,7 +11,7 @@ class CAnimGraphDoc_Blend2DNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Horizontal Axis"
 	// MPropertyAutoRebuildOnChange
 	// MPropertyAttrStateCallback
-	AnimValueSource m_blendSourceX;
+	AnimValueSource m_blendSourceX; // = "Parameter"
 	// MPropertySuppressField
 	CUtlString m_paramNameX;
 	// MPropertyFriendlyName = "Horizontal Parameter"
@@ -69,24 +20,24 @@ class CAnimGraphDoc_Blend2DNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Vertical Axis"
 	// MPropertyAutoRebuildOnChange
 	// MPropertyAttrStateCallback
-	AnimValueSource m_blendSourceY;
+	AnimValueSource m_blendSourceY; // = "Parameter"
 	// MPropertySuppressField
 	CUtlString m_paramNameY;
 	// MPropertyFriendlyName = "Vertical Parameter"
 	// MPropertyAttributeChoiceName = "FloatParameter"
 	AnimParamID m_paramY;
 	// MPropertyFriendlyName = "Blend Mode"
-	Blend2DMode m_eBlendMode;
+	Blend2DMode m_eBlendMode; // = "Blend2DMode_General"
 	// MPropertyFriendlyName = "Loop"
-	bool m_bLoop;
+	bool m_bLoop; // = true
 	// MPropertyFriendlyName = "Lock Blend on Reset"
 	bool m_bLockBlendOnReset;
 	// MPropertyFriendlyName = "Lock Blend When Waning"
-	bool m_bLockWhenWaning;
+	bool m_bLockWhenWaning; // = true
 	// MPropertyFriendlyName = "Playback Speed"
-	float32 m_playbackSpeed;
+	float32 m_playbackSpeed; // = 1
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping;
+	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 	// MPropertyFriendlyName = "AnimEvents and Tags Exclusive To Most Weighted"
 	bool m_bAnimEventsAndTagsOnMostWeightedOnly;
 };

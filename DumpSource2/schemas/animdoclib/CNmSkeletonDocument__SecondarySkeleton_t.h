@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_skeleton": "",
-//	"m_attachToBoneID": ""
-//}
 // MPropertyAutoExpandSelf
 class CNmSkeletonDocument::SecondarySkeleton_t
 {

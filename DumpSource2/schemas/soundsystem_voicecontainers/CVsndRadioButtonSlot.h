@@ -1,59 +1,29 @@
-// MGetKV3ClassDefaults = {
-//	"m_bEnableVsnd": true,
-//	"m_vsnd":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_bEnableEndcap": false,
-//	"m_endcapVsnd":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_bEnableLoopcap": false,
-//	"m_loopcapVsnd":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_group": 1,
-//	"m_volume": 1.000000,
-//	"m_fadeOut": 0.000000,
-//	"m_mode": "Trigger"
-//}
 class CVsndRadioButtonSlot
 {
 	// MPropertyGroupName = "Vsnd"
 	// MPropertyFriendlyName = "Enable Vsnd"
-	bool m_bEnableVsnd;
+	bool m_bEnableVsnd; // = true
 	// MPropertyGroupName = "Vsnd"
 	// MPropertyFriendlyName = "Vsnd File"
-	CSoundContainerReference m_vsnd;
+	CSoundContainerReference m_vsnd; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	// MPropertyGroupName = "Endcap"
 	// MPropertyFriendlyName = "Enable Endcap"
 	bool m_bEnableEndcap;
 	// MPropertyGroupName = "Endcap"
 	// MPropertyFriendlyName = "Endcap Vsnd (Stop)"
-	CSoundContainerReference m_endcapVsnd;
+	CSoundContainerReference m_endcapVsnd; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	// MPropertyGroupName = "Loopcap"
 	// MPropertyFriendlyName = "Enable Loopcap"
 	bool m_bEnableLoopcap;
 	// MPropertyGroupName = "Loopcap"
 	// MPropertyFriendlyName = "Loopcap Vsnd (Loop)"
-	CSoundContainerReference m_loopcapVsnd;
+	CSoundContainerReference m_loopcapVsnd; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	// MPropertyFriendlyName = "Group"
-	int32 m_group;
+	int32 m_group; // = 1
 	// MPropertyFriendlyName = "Volume"
-	float32 m_volume;
+	float32 m_volume; // = 1
 	// MPropertyFriendlyName = "Fade Out (sec)"
 	float32 m_fadeOut;
 	// MPropertyFriendlyName = "Mode"
-	EVsndPlaybackMode m_mode;
+	EVsndPlaybackMode m_mode; // = "Trigger"
 };

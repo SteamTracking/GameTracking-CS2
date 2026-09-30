@@ -1,23 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"flMaxAngle": 0.000000,
-//	"flStrength": 1.000000,
-//	"flMotionBias":
-//	[
-//		1.000000,
-//		1.000000,
-//		1.000000
-//	],
-//	"nNode":
-//	[
-//		0,
-//		0,
-//		0
-//	]
-//}
 class FeStiffHingeBuild_t
 {
 	float32 flMaxAngle;
-	float32 flStrength;
-	float32[3] flMotionBias;
+	float32 flStrength; // = 1
+	float32[3] flMotionBias; // = [ 1, 1, 1 ]
 	uint16[3] nNode;
 };

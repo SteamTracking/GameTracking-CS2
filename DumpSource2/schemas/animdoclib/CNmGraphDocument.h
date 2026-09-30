@@ -1,29 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocument",
-//	"m_nVersion": 0,
-//	"m_pRootGraph": null,
-//	"m_variationHierarchy":
-//	{
-//		"m_variations":
-//		[
-//			{
-//				"m_ID": "",
-//				"m_parentID": "",
-//				"m_skeleton": "",
-//				"m_pUserData": null
-//			}
-//		]
-//	},
-//	"m_debugParameterSets":
-//	[
-//	],
-//	"m_debugBoneFilterSets":
-//	[
-//	],
-//	"m_dictionaryIDSetIDs":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocument : public CNmAnimDocument
 {

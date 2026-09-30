@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = null
 class CDebugSnapshotData_t
 {
 	CUtlString m_text;

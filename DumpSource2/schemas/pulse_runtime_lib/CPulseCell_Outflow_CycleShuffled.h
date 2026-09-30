@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CPulseCell_Outflow_CycleShuffled",
-//	"m_nEditorNodeID": -1,
-//	"m_Outputs":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CPulseCell_Outflow_CycleShuffled : public CPulseCell_BaseFlow
 {

@@ -1,106 +1,13 @@
-// MGetKV3ClassDefaults = {
-//	"m_bEnabled": true,
-//	"m_nMutatorCommandType": "COMP_MAT_PROPERTY_MUTATOR_SET_VALUE",
-//	"m_strInitWith_Container": "",
-//	"m_strCopyProperty_InputContainerSrc": "",
-//	"m_strCopyProperty_InputContainerProperty": "",
-//	"m_strCopyProperty_TargetProperty": "",
-//	"m_strRandomRollInputVars_SeedInputVar": "",
-//	"m_vecRandomRollInputVars_InputVarsToRoll":
-//	[
-//	],
-//	"m_strCopyMatchingKeys_InputContainerSrc": "",
-//	"m_strCopyKeysWithSuffix_InputContainerSrc": "",
-//	"m_strCopyKeysWithSuffix_FindSuffix": "",
-//	"m_strCopyKeysWithSuffix_ReplaceSuffix": "",
-//	"m_nSetValue_Value":
-//	{
-//		"m_strName": "",
-//		"m_bExposeExternally": false,
-//		"m_strExposedFriendlyName": "",
-//		"m_strExposedFriendlyGroupName": "",
-//		"m_bExposedVariableIsFixedRange": false,
-//		"m_strExposedVisibleWhenTrue": "",
-//		"m_strExposedHiddenWhenTrue": "",
-//		"m_strExposedValueList": "",
-//		"m_nVariableType": "LOOSE_VARIABLE_TYPE_FLOAT1",
-//		"m_bValueBoolean": false,
-//		"m_nValueIntX": 0,
-//		"m_nValueIntY": 0,
-//		"m_nValueIntZ": 0,
-//		"m_nValueIntW": 0,
-//		"m_bHasFloatBounds": false,
-//		"m_flValueFloatX": 0.000000,
-//		"m_flValueFloatX_Min": 0.000000,
-//		"m_flValueFloatX_Max": 1.000000,
-//		"m_flValueFloatY": 0.000000,
-//		"m_flValueFloatY_Min": 0.000000,
-//		"m_flValueFloatY_Max": 1.000000,
-//		"m_flValueFloatZ": 0.000000,
-//		"m_flValueFloatZ_Min": 0.000000,
-//		"m_flValueFloatZ_Max": 1.000000,
-//		"m_flValueFloatW": 0.000000,
-//		"m_flValueFloatW_Min": 0.000000,
-//		"m_flValueFloatW_Max": 1.000000,
-//		"m_cValueColor4":
-//		[
-//			0,
-//			0,
-//			0,
-//			0
-//		],
-//		"m_nValueSystemVar": "COMPMATSYSVAR_COMPOSITETIME",
-//		"m_strResourceMaterial": "",
-//		"m_strTextureContentAssetPath": "",
-//		"m_strTextureRuntimeResourcePath": "",
-//		"m_strTextureCompilationVtexTemplate": "",
-//		"m_nTextureType": "INPUT_TEXTURE_TYPE_DEFAULT",
-//		"m_strString": "",
-//		"m_strPanoramaPanelPath": "",
-//		"m_nPanoramaRenderRes": 512
-//	},
-//	"m_strGenerateTexture_TargetParam": "",
-//	"m_strGenerateTexture_InitialContainer": "",
-//	"m_nResolution": 256,
-//	"m_bIsScratchTarget": false,
-//	"m_strCompressionFormat": "",
-//	"m_bSplatDebugInfo": false,
-//	"m_bCaptureInRenderDoc": false,
-//	"m_vecTexGenInstructions":
-//	[
-//	],
-//	"m_vecConditionalMutators":
-//	[
-//	],
-//	"m_strPopInputQueue_Container": "",
-//	"m_strDrawText_InputContainerSrc": "",
-//	"m_strDrawText_InputContainerProperty": "",
-//	"m_vecDrawText_Position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_colDrawText_Color":
-//	[
-//		255,
-//		255,
-//		255
-//	],
-//	"m_strDrawText_Font": "Times New Roman",
-//	"m_vecConditions":
-//	[
-//	]
-//}
 // MPropertyElementNameFn
 class CompMatPropertyMutator_t
 {
 	// MPropertyAutoRebuildOnChange
 	// MPropertyFriendlyName = "Enabled"
-	bool m_bEnabled;
+	bool m_bEnabled; // = true
 	// MPropertyAutoRebuildOnChange
 	// MPropertyFriendlyName = "Mutator Command"
 	// MPropertyAttrStateCallback
-	CompMatPropertyMutatorType_t m_nMutatorCommandType;
+	CompMatPropertyMutatorType_t m_nMutatorCommandType; // = "COMP_MAT_PROPERTY_MUTATOR_SET_VALUE"
 	// MPropertyFriendlyName = "Container to Init With"
 	// MPropertyAttrStateCallback
 	CUtlString m_strInitWith_Container;
@@ -133,7 +40,7 @@ class CompMatPropertyMutator_t
 	CUtlString m_strCopyKeysWithSuffix_ReplaceSuffix;
 	// MPropertyFriendlyName = "Value"
 	// MPropertyAttrStateCallback
-	CompositeMaterialInputLooseVariable_t m_nSetValue_Value;
+	CompositeMaterialInputLooseVariable_t m_nSetValue_Value; // = { "m_bExposeExternally": false, "m_bExposedVariableIsFixedRange": false, "m_bHasFloatBounds": false, "m_bValueBoolean": false, "m_cValueColor4": [ 0, 0, 0, 0 ], "m_flValueFloatW": 0, "m_flValueFloatW_Max": 1, "m_flValueFloatW_Min": 0, "m_flValueFloatX": 0, "m_flValueFloatX_Max": 1, "m_flValueFloatX_Min": 0, "m_flValueFloatY": 0, "m_flValueFloatY_Max": 1, "m_flValueFloatY_Min": 0, "m_flValueFloatZ": 0, "m_flValueFloatZ_Max": 1, "m_flValueFloatZ_Min": 0, "m_nPanoramaRenderRes": 512, "m_nTextureType": "INPUT_TEXTURE_TYPE_DEFAULT", "m_nValueIntW": 0, "m_nValueIntX": 0, "m_nValueIntY": 0, "m_nValueIntZ": 0, "m_nValueSystemVar": "COMPMATSYSVAR_COMPOSITETIME", "m_nVariableType": "LOOSE_VARIABLE_TYPE_FLOAT1", "m_strExposedFriendlyGroupName": "", "m_strExposedFriendlyName": "", "m_strExposedHiddenWhenTrue": "", "m_strExposedValueList": "", "m_strExposedVisibleWhenTrue": "", "m_strName": "", "m_strPanoramaPanelPath": "", "m_strResourceMaterial": "", "m_strString": "", "m_strTextureCompilationVtexTemplate": "", "m_strTextureContentAssetPath": "", "m_strTextureRuntimeResourcePath": "" }
 	// MPropertyFriendlyName = "Target Texture Param"
 	// MPropertyAttrStateCallback
 	CUtlString m_strGenerateTexture_TargetParam;
@@ -142,7 +49,7 @@ class CompMatPropertyMutator_t
 	CUtlString m_strGenerateTexture_InitialContainer;
 	// MPropertyFriendlyName = "Resolution"
 	// MPropertyAttrStateCallback
-	int32 m_nResolution;
+	int32 m_nResolution; // = 256
 	// MPropertyAutoRebuildOnChange
 	// MPropertyFriendlyName = "Scratch Target"
 	// MPropertyAttrStateCallback
@@ -178,10 +85,10 @@ class CompMatPropertyMutator_t
 	Vector2D m_vecDrawText_Position;
 	// MPropertyFriendlyName = "Text Color"
 	// MPropertyAttrStateCallback
-	Color m_colDrawText_Color;
+	Color m_colDrawText_Color; // = [ 255, 255, 255 ]
 	// MPropertyFriendlyName = "Font"
 	// MPropertyAttrStateCallback
-	CUtlString m_strDrawText_Font;
+	CUtlString m_strDrawText_Font; // = "Times New Roman"
 	// MPropertyFriendlyName = "Conditions"
 	// MPropertyAttrStateCallback
 	CUtlVector< CompMatMutatorCondition_t > m_vecConditions;

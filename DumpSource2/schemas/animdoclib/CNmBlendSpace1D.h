@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_points":
-//	[
-//	]
-//}
 class CNmBlendSpace1D
 {
 	// MPropertyAutoExpandSelf

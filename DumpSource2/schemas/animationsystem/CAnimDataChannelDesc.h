@@ -1,20 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_szChannelClass": "",
-//	"m_szVariableName": "",
-//	"m_nFlags": 0,
-//	"m_nType": 0,
-//	"m_szGrouping": "",
-//	"m_szDescription": "",
-//	"m_szElementNameArray":
-//	[
-//	],
-//	"m_nElementIndexArray":
-//	[
-//	],
-//	"m_nElementMaskArray":
-//	[
-//	]
-//}
 class CAnimDataChannelDesc
 {
 	CBufferString m_szChannelClass;

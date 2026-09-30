@@ -1,17 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CBoneConstraintPoseSpaceMorph",
-//	"m_sBoneName": "",
-//	"m_sAttachmentName": "",
-//	"m_outputMorph":
-//	[
-//	],
-//	"m_inputList":
-//	[
-//	],
-//	"m_bClamp": false,
-//	"m_eRbfType": 0,
-//	"m_flFalloff": 1.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CBoneConstraintPoseSpaceMorph : public CBoneConstraintBase
 {

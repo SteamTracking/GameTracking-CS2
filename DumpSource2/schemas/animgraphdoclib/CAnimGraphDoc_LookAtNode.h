@@ -1,59 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_LookAtNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_target": "VectorParameter",
-//	"m_paramName": "",
-//	"m_param":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsPosition": false,
-//	"m_weightParamName": "",
-//	"m_weightParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_lookatChainName": "",
-//	"m_attachmentName": "",
-//	"m_bRotateYawForward": true,
-//	"m_flYawLimit": 45.000000,
-//	"m_flPitchLimit": 45.000000,
-//	"m_bMaintainUpDirection": false,
-//	"m_bResetBase": true,
-//	"m_bLockWhenWaning": true,
-//	"m_bUseHysteresis": false,
-//	"m_flHysteresisInnerAngle": 1.000000,
-//	"m_flHysteresisOuterAngle": 20.000000,
-//	"m_damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	}
-//}
 // MPropertyFriendlyName = "Look At"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_LookAtNode : public CAnimGraphDoc_Node
@@ -62,7 +6,7 @@ class CAnimGraphDoc_LookAtNode : public CAnimGraphDoc_Node
 	CAnimGraphDoc_NodeConnection m_inputConnection;
 	// MPropertyFriendlyName = "Target"
 	// MPropertyAutoRebuildOnChange
-	AnimVectorSource m_target;
+	AnimVectorSource m_target; // = "VectorParameter"
 	// MPropertySuppressField
 	CUtlString m_paramName;
 	// MPropertyFriendlyName = "Target Parameter"
@@ -86,31 +30,31 @@ class CAnimGraphDoc_LookAtNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Rotate Through Forward"
 	// MPropertyGroupName = "Rotation Limits"
 	// MPropertyAutoRebuildOnChange
-	bool m_bRotateYawForward;
+	bool m_bRotateYawForward; // = true
 	// MPropertyFriendlyName = "Yaw Limit"
 	// MPropertyAttributeRange = "0 180"
 	// MPropertyGroupName = "Rotation Limits"
 	// MPropertyAttrStateCallback
-	float32 m_flYawLimit;
+	float32 m_flYawLimit; // = 45
 	// MPropertyFriendlyName = "Pitch Limit"
 	// MPropertyAttributeRange = "0 90"
 	// MPropertyGroupName = "Rotation Limits"
-	float32 m_flPitchLimit;
+	float32 m_flPitchLimit; // = 45
 	// MPropertyFriendlyName = "Maintain Up Direction"
 	bool m_bMaintainUpDirection;
 	// MPropertyFriendlyName = "Reset Child"
-	bool m_bResetBase;
+	bool m_bResetBase; // = true
 	// MPropertyFriendlyName = "Lock Blend When Waning"
-	bool m_bLockWhenWaning;
+	bool m_bLockWhenWaning; // = true
 	// MPropertyFriendlyName = "Use Hysteresis"
 	// MPropertyGroupName = "Hysteresis"
 	bool m_bUseHysteresis;
 	// MPropertyFriendlyName = "Inner Angle"
 	// MPropertyGroupName = "Hysteresis"
-	float32 m_flHysteresisInnerAngle;
+	float32 m_flHysteresisInnerAngle; // = 1
 	// MPropertyFriendlyName = "Outer Angle"
 	// MPropertyGroupName = "Hysteresis"
-	float32 m_flHysteresisOuterAngle;
+	float32 m_flHysteresisOuterAngle; // = 20
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping;
+	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 };

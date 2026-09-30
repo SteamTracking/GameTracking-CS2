@@ -1,16 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmFloatClampNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_nInputValueNodeIdx": -1,
-//	"m_clampRange":
-//	{
-//		"m_flMin": 0.000000,
-//		"m_flMax": 0.000000
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmFloatClampNode::CDefinition : public CNmFloatValueNode::CDefinition
 {
-	int16 m_nInputValueNodeIdx;
+	int16 m_nInputValueNodeIdx; // = -1
 	Range_t m_clampRange;
 };

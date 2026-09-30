@@ -1,23 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_constants":
-//	[
-//	],
-//	"m_variables":
-//	[
-//	],
-//	"m_functions":
-//	[
-//	],
-//	"m_constantMap":
-//	{
-//	},
-//	"m_variableMap":
-//	{
-//	},
-//	"m_functionMap":
-//	{
-//	}
-//}
 class CFuseSymbolTable
 {
 	CUtlVector< ConstantInfo_t > m_constants;

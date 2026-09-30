@@ -1,49 +1,12 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocFloatSpringNode",
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_floatingComment": "",
-//	"m_position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pChildGraph": null,
-//	"m_pSecondaryGraph": null,
-//	"m_inputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Value",
-//			"m_type": "Float",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": false
-//		}
-//	],
-//	"m_outputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Result",
-//			"m_type": "Float",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": true
-//		}
-//	],
-//	"m_flHertz": 4.000000,
-//	"m_flDampingRatio": 0.700000,
-//	"m_bUseStartValue": true,
-//	"m_flStartValue": 0.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocFloatSpringNode : public CNmGraphDocFlowNode
 {
 	// MPropertyDescription = "Valid Range [0.1 : 30]"
-	float32 m_flHertz;
+	float32 m_flHertz; // = 4
 	// MPropertyDescription = "Valid Range [0 : 10], 1 = Critically Damped"
-	float32 m_flDampingRatio;
+	float32 m_flDampingRatio; // = 0.7
 	// MPropertyDescription = "Should we initialize this node to the input value or to the specified start value"
-	bool m_bUseStartValue;
+	bool m_bUseStartValue; // = true
 	// MPropertyDescription = "Optional initialization value for this node"
 	float32 m_flStartValue;
 };

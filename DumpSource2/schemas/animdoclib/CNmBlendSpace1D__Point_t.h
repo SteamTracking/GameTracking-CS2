@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_name": "",
-//	"m_flValue": 0.000000,
-//	"m_pinID": ""
-//}
 class CNmBlendSpace1D::Point_t
 {
 	CUtlString m_name;

@@ -1,496 +1,161 @@
-// MGetKV3ClassDefaults = {
-//	"m_colCanvasBackground":
-//	[
-//		16,
-//		16,
-//		16
-//	],
-//	"m_colCanvasBackgroundWhenDebugging":
-//	[
-//		45,
-//		16,
-//		16
-//	],
-//	"m_colCanvasBackgroundStaleCompile":
-//	[
-//		16,
-//		16,
-//		16
-//	],
-//	"m_colCanvasBorderStaleCompile":
-//	[
-//		96,
-//		96,
-//		0
-//	],
-//	"m_colCanvasBorderDebuggerDetached":
-//	[
-//		0,
-//		80,
-//		96
-//	],
-//	"m_flGridSnapV2": 40.000000,
-//	"m_bSnapAbsToGrid": true,
-//	"m_bSnapSizeToGrid": true,
-//	"m_bGridMinorPoints": true,
-//	"m_flGridMinorSpacingV2": 40.000000,
-//	"m_flSuppressMinorGridFurtherThan": 5000.000000,
-//	"m_colGridMinorColor":
-//	[
-//		48,
-//		48,
-//		48
-//	],
-//	"m_flGridMinorWidth": 2.000000,
-//	"m_nGridMajorMultiple": 10,
-//	"m_colGridMajorColor":
-//	[
-//		31,
-//		31,
-//		31
-//	],
-//	"m_flGridMajorWidth": 1.500000,
-//	"m_colGridOriginColor":
-//	[
-//		0,
-//		54,
-//		55
-//	],
-//	"m_flGridOriginWidth": 1.500000,
-//	"m_nFlowTooltipBoxMargin": 4.000000,
-//	"m_FontSequencePoint": "Segoe UI,8,-1,5,50,0,0,0,0,0,Regular",
-//	"m_flSequencePointRadius": 21.000000,
-//	"m_flSequencePointLinkWidth": 2.000000,
-//	"m_colSequencePointFadeOverlay":
-//	[
-//		0,
-//		0,
-//		0,
-//		200
-//	],
-//	"m_colSequencePointSpontaneous":
-//	[
-//		0,
-//		255,
-//		0
-//	],
-//	"m_colSequencePointYield":
-//	[
-//		255,
-//		255,
-//		0
-//	],
-//	"m_colSequencePoint":
-//	[
-//		128,
-//		128,
-//		128
-//	],
-//	"m_colSequencePointLink":
-//	[
-//		200,
-//		200,
-//		200
-//	],
-//	"m_colSequencePointLinkYield":
-//	[
-//		200,
-//		200,
-//		0
-//	],
-//	"m_colSequencePointName":
-//	[
-//		255,
-//		255,
-//		255
-//	],
-//	"m_colFlowTooltipBorder":
-//	[
-//		0,
-//		0,
-//		0
-//	],
-//	"m_colFlowTooltipBackground":
-//	[
-//		100,
-//		100,
-//		100
-//	],
-//	"m_colFlowTooltipForeground":
-//	[
-//		255,
-//		255,
-//		255
-//	],
-//	"m_flPortDragOffCreateThreshold": 32.000000,
-//	"m_colBool":
-//	[
-//		142,
-//		47,
-//		0
-//	],
-//	"m_colNumber":
-//	[
-//		62,
-//		187,
-//		112
-//	],
-//	"m_colString":
-//	[
-//		0,
-//		109,
-//		187
-//	],
-//	"m_colOther":
-//	[
-//		156,
-//		115,
-//		0
-//	],
-//	"m_colCursorFlow":
-//	[
-//		140,
-//		140,
-//		140
-//	],
-//	"m_FontFlowTooltip": "Segoe UI,11,-1,5,50,0,0,0,0,0,Regular",
-//	"m_FontLiteral": "Barlow,13,-1,5,75,0,0,0,0,0,Bold",
-//	"m_FontDomainName": "Lucida Sans,72,-1,5,50,0,0,0,0,0,Regular",
-//	"m_vDomainNameOffsetPX":
-//	[
-//		10.000000,
-//		10.000000
-//	],
-//	"m_colDomainName":
-//	[
-//		64,
-//		64,
-//		64
-//	],
-//	"m_colDomainNameWhenDebugging":
-//	[
-//		128,
-//		64,
-//		64
-//	],
-//	"m_FontParentAssets": "Lucida Sans,20,-1,5,50,0,0,0,0,0,Regular",
-//	"m_colParentAssets":
-//	[
-//		64,
-//		64,
-//		64
-//	],
-//	"m_colParentAssetsBroken":
-//	[
-//		255,
-//		144,
-//		144
-//	],
-//	"m_FontCompileStatus": "Lucida Sans,16,-1,5,50,0,0,0,0,0,Regular",
-//	"m_colCompileStatus":
-//	[
-//		64,
-//		64,
-//		64
-//	],
-//	"m_flLiteralLabelSpacing": 8.000000,
-//	"m_colDebuggerBrokenBorder":
-//	[
-//		255,
-//		144,
-//		144
-//	],
-//	"m_DebuggerBrokenImg": "tools/images/pulse_editor/debugger_broken.png",
-//	"m_DebuggerBrokenOtherImg": "tools/images/pulse_editor/debugger_broken_other.png",
-//	"m_DebuggerBrokenStackImg": "tools/images/pulse_editor/debugger_broken_instack.png",
-//	"m_DebuggerBrokenStackOtherImg": "tools/images/pulse_editor/debugger_broken_instack_other.png",
-//	"m_flDebuggerBrokenMarkerOffset": 2.000000,
-//	"m_flDebuggerBrokenMarkerSize": 18.000000,
-//	"m_DebuggerBreakpointImg": "tools/images/pulse_editor/debugger_breakpoint.png",
-//	"m_DebuggerBreakpointDisabledImg": "tools/images/pulse_editor/debugger_breakpoint_disabled.png",
-//	"m_flYieldedCursorStackOffset": 8.000000,
-//	"m_GraphInstanceImg": "tools/images/pulse_editor/graph_instance.png",
-//	"m_flRecentExecTimeoutSec": 10.000000,
-//	"m_flRecentExecStartOffset": 20.000000,
-//	"m_flRecentExecEndOffset": 150.000000,
-//	"m_flRecentExecLineWidth": 4.000000,
-//	"m_colRecentExecStartColor":
-//	[
-//		150,
-//		255,
-//		150
-//	],
-//	"m_colRecentExecEndColor":
-//	[
-//		150,
-//		255,
-//		150,
-//		0
-//	],
-//	"m_colRecentExecRequirementFailStartColor":
-//	[
-//		200,
-//		150,
-//		150
-//	],
-//	"m_colRecentExecRequirementFailEndColor":
-//	[
-//		200,
-//		150,
-//		150,
-//		0
-//	],
-//	"m_flRecentExecConnectionIndicatorSize": 8.000000,
-//	"m_RecentExecConnectionIndicatorImg": "tools/images/pulse_editor/connection_execution_history.png",
-//	"m_bBreakOnExceptions": false,
-//	"m_bShowExecutionHistory": false,
-//	"m_bBoxSelectRequiresFullyContained": false,
-//	"m_bShowFullContextLogging": false,
-//	"m_bFollowCursorDuringDebugSteps": true,
-//	"m_flFlowMinWidth": 200.000000,
-//	"m_colSelectedBorder":
-//	[
-//		255,
-//		255,
-//		0
-//	],
-//	"m_flAppendButtonSize": 20.000000,
-//	"m_colAppendHover":
-//	[
-//		146,
-//		152,
-//		153
-//	],
-//	"m_AppendImg": "tools/images/pulse_editor/add_to_block.png",
-//	"m_flMoveChildArrowOffset": 5.000000,
-//	"m_flMoveChildArrowSize": 25.000000,
-//	"m_MoveChildArrowImg": "tools/images/pulse_editor/move_child.png",
-//	"m_colMoveChildArrow":
-//	[
-//		255,
-//		255,
-//		255
-//	],
-//	"m_flConnectionTangentStrength": 100.000000,
-//	"m_flConnectionCurveSpacing": 5.000000,
-//	"m_flConnectionDeltaLimitScale": 0.300000,
-//	"m_flBrokenConnectionOffset": 80.000000,
-//	"m_flConnectionInflowOffset": 0.000000,
-//	"m_flConnectionInparamOffset": 0.000000,
-//	"m_flConnectionInparamOffsetArray": 4.000000,
-//	"m_flConnectionCapBrokenSize": 8.000000,
-//	"m_ConnectionCapBrokenImg": "tools/images/pulse_editor/connection_cap_broken.png",
-//	"m_flConnectionColorLerpPercentageStart": 0.500000,
-//	"m_vecBlockCommentDefaultSize":
-//	[
-//		200.000000,
-//		200.000000
-//	],
-//	"m_vecBlockCommentMinSize":
-//	[
-//		200.000000,
-//		20.000000
-//	],
-//	"m_colBlockCommentDefault":
-//	[
-//		47,
-//		79,
-//		79
-//	],
-//	"m_colBlockCommentTextLight":
-//	[
-//		211,
-//		211,
-//		211
-//	],
-//	"m_colBlockCommentTextDark":
-//	[
-//		46,
-//		46,
-//		46
-//	],
-//	"m_flBlockCommentRegionAlpha": 0.160000,
-//	"m_flTimelineSeekBarHeight": 20.000000,
-//	"m_flTimelinePauseIconSize": 10.000000,
-//	"m_flTimelineCallModeIconSize": 18.000000,
-//	"m_FontTimelineTime": "Segoe UI,11,-1,5,50,0,0,0,0,0,Regular",
-//	"m_colTimelineLabel":
-//	[
-//		196,
-//		196,
-//		196
-//	],
-//	"m_vecTimelineIconFromPort":
-//	[
-//		-4.000000,
-//		-19.000000
-//	],
-//	"m_vecTimelinePauseIconOffset":
-//	[
-//		-8.000000,
-//		3.000000
-//	],
-//	"m_flTimelineCursorHeight": 12.000000,
-//	"m_flTimelineCursorTextHeight": 20.000000
-//}
 class CPulseEditorSettings
 {
-	Color m_colCanvasBackground;
-	Color m_colCanvasBackgroundWhenDebugging;
-	Color m_colCanvasBackgroundStaleCompile;
-	Color m_colCanvasBorderStaleCompile;
-	Color m_colCanvasBorderDebuggerDetached;
+	Color m_colCanvasBackground; // = [ 16, 16, 16 ]
+	Color m_colCanvasBackgroundWhenDebugging; // = [ 45, 16, 16 ]
+	Color m_colCanvasBackgroundStaleCompile; // = [ 16, 16, 16 ]
+	Color m_colCanvasBorderStaleCompile; // = [ 96, 96, 0 ]
+	Color m_colCanvasBorderDebuggerDetached; // = [ 0, 80, 96 ]
 	// MPropertyStartGroup = "+Grid"
-	float32 m_flGridSnapV2;
-	bool m_bSnapAbsToGrid;
-	bool m_bSnapSizeToGrid;
-	bool m_bGridMinorPoints;
-	float32 m_flGridMinorSpacingV2;
-	float32 m_flSuppressMinorGridFurtherThan;
-	Color m_colGridMinorColor;
-	float32 m_flGridMinorWidth;
+	float32 m_flGridSnapV2; // = 40
+	bool m_bSnapAbsToGrid; // = true
+	bool m_bSnapSizeToGrid; // = true
+	bool m_bGridMinorPoints; // = true
+	float32 m_flGridMinorSpacingV2; // = 40
+	float32 m_flSuppressMinorGridFurtherThan; // = 5000
+	Color m_colGridMinorColor; // = [ 48, 48, 48 ]
+	float32 m_flGridMinorWidth; // = 2
 	// MPropertyAttributeRange = "1 25"
-	int32 m_nGridMajorMultiple;
-	Color m_colGridMajorColor;
-	float32 m_flGridMajorWidth;
-	Color m_colGridOriginColor;
-	float32 m_flGridOriginWidth;
+	int32 m_nGridMajorMultiple; // = 10
+	Color m_colGridMajorColor; // = [ 31, 31, 31 ]
+	float32 m_flGridMajorWidth; // = 1.5
+	Color m_colGridOriginColor; // = [ 0, 54, 55 ]
+	float32 m_flGridOriginWidth; // = 1.5
 	// MPropertyStartGroup = "+Ports"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_nFlowTooltipBoxMargin;
+	float32 m_nFlowTooltipBoxMargin; // = 4
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontSequencePoint;
+	CUtlString m_FontSequencePoint; // = "Segoe UI,8,-1,5,50,0,0,0,0,0,Regular"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flSequencePointRadius;
+	float32 m_flSequencePointRadius; // = 21
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flSequencePointLinkWidth;
+	float32 m_flSequencePointLinkWidth; // = 2
 	// MPropertyColorPlusAlpha
-	Color m_colSequencePointFadeOverlay;
-	Color m_colSequencePointSpontaneous;
-	Color m_colSequencePointYield;
-	Color m_colSequencePoint;
-	Color m_colSequencePointLink;
-	Color m_colSequencePointLinkYield;
-	Color m_colSequencePointName;
+	Color m_colSequencePointFadeOverlay; // = [ 0, 0, 0, 200 ]
+	Color m_colSequencePointSpontaneous; // = [ 0, 255, 0 ]
+	Color m_colSequencePointYield; // = [ 255, 255, 0 ]
+	Color m_colSequencePoint; // = [ 128, 128, 128 ]
+	Color m_colSequencePointLink; // = [ 200, 200, 200 ]
+	Color m_colSequencePointLinkYield; // = [ 200, 200, 0 ]
+	Color m_colSequencePointName; // = [ 255, 255, 255 ]
 	Color m_colFlowTooltipBorder;
-	Color m_colFlowTooltipBackground;
-	Color m_colFlowTooltipForeground;
+	Color m_colFlowTooltipBackground; // = [ 100, 100, 100 ]
+	Color m_colFlowTooltipForeground; // = [ 255, 255, 255 ]
 	// MPropertyAttributeRange = "-1 128"
-	float32 m_flPortDragOffCreateThreshold;
+	float32 m_flPortDragOffCreateThreshold; // = 32
 	// MPropertyStartGroup = "+Types"
-	Color m_colBool;
-	Color m_colNumber;
-	Color m_colString;
-	Color m_colOther;
-	Color m_colCursorFlow;
+	Color m_colBool; // = [ 142, 47, 0 ]
+	Color m_colNumber; // = [ 62, 187, 112 ]
+	Color m_colString; // = [ 0, 109, 187 ]
+	Color m_colOther; // = [ 156, 115, 0 ]
+	Color m_colCursorFlow; // = [ 140, 140, 140 ]
 	// MPropertyStartGroup = "+Fonts"
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontFlowTooltip;
+	CUtlString m_FontFlowTooltip; // = "Segoe UI,11,-1,5,50,0,0,0,0,0,Regular"
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontLiteral;
+	CUtlString m_FontLiteral; // = "Barlow,13,-1,5,75,0,0,0,0,0,Bold"
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontDomainName;
-	Vector2D m_vDomainNameOffsetPX;
-	Color m_colDomainName;
-	Color m_colDomainNameWhenDebugging;
+	CUtlString m_FontDomainName; // = "Lucida Sans,72,-1,5,50,0,0,0,0,0,Regular"
+	Vector2D m_vDomainNameOffsetPX; // = [ 10, 10 ]
+	Color m_colDomainName; // = [ 64, 64, 64 ]
+	Color m_colDomainNameWhenDebugging; // = [ 128, 64, 64 ]
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontParentAssets;
-	Color m_colParentAssets;
-	Color m_colParentAssetsBroken;
+	CUtlString m_FontParentAssets; // = "Lucida Sans,20,-1,5,50,0,0,0,0,0,Regular"
+	Color m_colParentAssets; // = [ 64, 64, 64 ]
+	Color m_colParentAssetsBroken; // = [ 255, 144, 144 ]
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontCompileStatus;
-	Color m_colCompileStatus;
+	CUtlString m_FontCompileStatus; // = "Lucida Sans,16,-1,5,50,0,0,0,0,0,Regular"
+	Color m_colCompileStatus; // = [ 64, 64, 64 ]
 	// MPropertyStartGroup = "+Literals"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flLiteralLabelSpacing;
+	float32 m_flLiteralLabelSpacing; // = 8
 	// MPropertyStartGroup = "+Debugger"
-	Color m_colDebuggerBrokenBorder;
-	CUtlString m_DebuggerBrokenImg;
-	CUtlString m_DebuggerBrokenOtherImg;
-	CUtlString m_DebuggerBrokenStackImg;
-	CUtlString m_DebuggerBrokenStackOtherImg;
+	Color m_colDebuggerBrokenBorder; // = [ 255, 144, 144 ]
+	CUtlString m_DebuggerBrokenImg; // = "tools/images/pulse_editor/debugger_broken.png"
+	CUtlString m_DebuggerBrokenOtherImg; // = "tools/images/pulse_editor/debugger_broken_other.png"
+	CUtlString m_DebuggerBrokenStackImg; // = "tools/images/pulse_editor/debugger_broken_instack.png"
+	CUtlString m_DebuggerBrokenStackOtherImg; // = "tools/images/pulse_editor/debugger_broken_instack_other.png"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flDebuggerBrokenMarkerOffset;
+	float32 m_flDebuggerBrokenMarkerOffset; // = 2
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flDebuggerBrokenMarkerSize;
-	CUtlString m_DebuggerBreakpointImg;
-	CUtlString m_DebuggerBreakpointDisabledImg;
+	float32 m_flDebuggerBrokenMarkerSize; // = 18
+	CUtlString m_DebuggerBreakpointImg; // = "tools/images/pulse_editor/debugger_breakpoint.png"
+	CUtlString m_DebuggerBreakpointDisabledImg; // = "tools/images/pulse_editor/debugger_breakpoint_disabled.png"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flYieldedCursorStackOffset;
-	CUtlString m_GraphInstanceImg;
+	float32 m_flYieldedCursorStackOffset; // = 8
+	CUtlString m_GraphInstanceImg; // = "tools/images/pulse_editor/graph_instance.png"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flRecentExecTimeoutSec;
+	float32 m_flRecentExecTimeoutSec; // = 10
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flRecentExecStartOffset;
+	float32 m_flRecentExecStartOffset; // = 20
 	// MPropertyAttributeRange = "0 64"
-	float32 m_flRecentExecEndOffset;
+	float32 m_flRecentExecEndOffset; // = 150
 	// MPropertyAttributeRange = "0 8"
-	float32 m_flRecentExecLineWidth;
+	float32 m_flRecentExecLineWidth; // = 4
 	// MPropertyColorPlusAlpha
-	Color m_colRecentExecStartColor;
+	Color m_colRecentExecStartColor; // = [ 150, 255, 150 ]
 	// MPropertyColorPlusAlpha
-	Color m_colRecentExecEndColor;
+	Color m_colRecentExecEndColor; // = [ 150, 255, 150, 0 ]
 	// MPropertyColorPlusAlpha
-	Color m_colRecentExecRequirementFailStartColor;
+	Color m_colRecentExecRequirementFailStartColor; // = [ 200, 150, 150 ]
 	// MPropertyColorPlusAlpha
-	Color m_colRecentExecRequirementFailEndColor;
+	Color m_colRecentExecRequirementFailEndColor; // = [ 200, 150, 150, 0 ]
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flRecentExecConnectionIndicatorSize;
-	CUtlString m_RecentExecConnectionIndicatorImg;
+	float32 m_flRecentExecConnectionIndicatorSize; // = 8
+	CUtlString m_RecentExecConnectionIndicatorImg; // = "tools/images/pulse_editor/connection_execution_history.png"
 	bool m_bBreakOnExceptions;
 	bool m_bShowExecutionHistory;
 	bool m_bBoxSelectRequiresFullyContained;
 	bool m_bShowFullContextLogging;
-	bool m_bFollowCursorDuringDebugSteps;
+	bool m_bFollowCursorDuringDebugSteps; // = true
 	// MPropertyStartGroup = "+Group Layout"
-	float32 m_flFlowMinWidth;
-	Color m_colSelectedBorder;
+	float32 m_flFlowMinWidth; // = 200
+	Color m_colSelectedBorder; // = [ 255, 255, 0 ]
 	// MPropertyAttributeRange = "0 64"
-	float32 m_flAppendButtonSize;
-	Color m_colAppendHover;
-	CUtlString m_AppendImg;
+	float32 m_flAppendButtonSize; // = 20
+	Color m_colAppendHover; // = [ 146, 152, 153 ]
+	CUtlString m_AppendImg; // = "tools/images/pulse_editor/add_to_block.png"
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flMoveChildArrowOffset;
+	float32 m_flMoveChildArrowOffset; // = 5
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flMoveChildArrowSize;
-	CUtlString m_MoveChildArrowImg;
-	Color m_colMoveChildArrow;
+	float32 m_flMoveChildArrowSize; // = 25
+	CUtlString m_MoveChildArrowImg; // = "tools/images/pulse_editor/move_child.png"
+	Color m_colMoveChildArrow; // = [ 255, 255, 255 ]
 	// MPropertyStartGroup = "+Connections"
 	// MPropertyAttributeRange = "0 500"
-	float32 m_flConnectionTangentStrength;
+	float32 m_flConnectionTangentStrength; // = 100
 	// MPropertyAttributeRange = "1 50"
-	float32 m_flConnectionCurveSpacing;
+	float32 m_flConnectionCurveSpacing; // = 5
 	// MPropertyAttributeRange = "0 2"
-	float32 m_flConnectionDeltaLimitScale;
+	float32 m_flConnectionDeltaLimitScale; // = 0.3
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flBrokenConnectionOffset;
+	float32 m_flBrokenConnectionOffset; // = 80
 	// MPropertyAttributeRange = "0 32"
 	float32 m_flConnectionInflowOffset;
 	// MPropertyAttributeRange = "0 32"
 	float32 m_flConnectionInparamOffset;
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flConnectionInparamOffsetArray;
+	float32 m_flConnectionInparamOffsetArray; // = 4
 	// MPropertyAttributeRange = "0 32"
-	float32 m_flConnectionCapBrokenSize;
-	CUtlString m_ConnectionCapBrokenImg;
+	float32 m_flConnectionCapBrokenSize; // = 8
+	CUtlString m_ConnectionCapBrokenImg; // = "tools/images/pulse_editor/connection_cap_broken.png"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flConnectionColorLerpPercentageStart;
+	float32 m_flConnectionColorLerpPercentageStart; // = 0.5
 	// MPropertyStartGroup = "+Notes"
-	Vector2D m_vecBlockCommentDefaultSize;
-	Vector2D m_vecBlockCommentMinSize;
-	Color m_colBlockCommentDefault;
-	Color m_colBlockCommentTextLight;
-	Color m_colBlockCommentTextDark;
-	float32 m_flBlockCommentRegionAlpha;
+	Vector2D m_vecBlockCommentDefaultSize; // = [ 200, 200 ]
+	Vector2D m_vecBlockCommentMinSize; // = [ 200, 20 ]
+	Color m_colBlockCommentDefault; // = [ 47, 79, 79 ]
+	Color m_colBlockCommentTextLight; // = [ 211, 211, 211 ]
+	Color m_colBlockCommentTextDark; // = [ 46, 46, 46 ]
+	float32 m_flBlockCommentRegionAlpha; // = 0.16
 	// MPropertyStartGroup = "+Timelines"
-	float32 m_flTimelineSeekBarHeight;
-	float32 m_flTimelinePauseIconSize;
-	float32 m_flTimelineCallModeIconSize;
+	float32 m_flTimelineSeekBarHeight; // = 20
+	float32 m_flTimelinePauseIconSize; // = 10
+	float32 m_flTimelineCallModeIconSize; // = 18
 	// MPropertyAttributeEditor = "Font()"
-	CUtlString m_FontTimelineTime;
-	Color m_colTimelineLabel;
-	Vector2D m_vecTimelineIconFromPort;
-	Vector2D m_vecTimelinePauseIconOffset;
-	float32 m_flTimelineCursorHeight;
-	float32 m_flTimelineCursorTextHeight;
+	CUtlString m_FontTimelineTime; // = "Segoe UI,11,-1,5,50,0,0,0,0,0,Regular"
+	Color m_colTimelineLabel; // = [ 196, 196, 196 ]
+	Vector2D m_vecTimelineIconFromPort; // = [ -4, -19 ]
+	Vector2D m_vecTimelinePauseIconOffset; // = [ -8, 3 ]
+	float32 m_flTimelineCursorHeight; // = 12
+	float32 m_flTimelineCursorTextHeight; // = 20
 };

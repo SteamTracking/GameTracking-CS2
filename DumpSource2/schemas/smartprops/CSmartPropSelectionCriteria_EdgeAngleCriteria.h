@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropSelectionCriteria_EdgeAngleCriteria",
-//	"m_bEnabled": true,
-//	"m_flMinAngle": 0.000000,
-//	"m_flMaxAngle": 0.000000,
-//	"m_bInvert": false
-//}
 // MVDataComponentValidGrandParents = "CSmartPropElement_PlaceOnMesh"
 // MPropertyFriendlyName = "Filter Edges by Angle"
 // MPropertyDescription = ""

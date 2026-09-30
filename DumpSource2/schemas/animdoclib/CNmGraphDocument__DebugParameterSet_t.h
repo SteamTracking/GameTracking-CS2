@@ -1,21 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ID": "",
-//	"m_boolValues":
-//	[
-//	],
-//	"m_floatValues":
-//	[
-//	],
-//	"m_IDValues":
-//	[
-//	],
-//	"m_vectorValues":
-//	[
-//	],
-//	"m_targetValues":
-//	[
-//	]
-//}
 class CNmGraphDocument::DebugParameterSet_t
 {
 	CGlobalSymbol m_ID;

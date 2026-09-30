@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_ComputeNormalizedVector3D",
-//	"m_bEnabled": true,
-//	"m_OutputVariableName": "",
-//	"m_InputVector":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 // MPropertyFriendlyName = "Normalize Vector"
 // MPropertyDescription = "Normalize the value of a 3d vector."
 // MVDataClassGroup = "Compute"

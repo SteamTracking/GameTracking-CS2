@@ -1,14 +1,6 @@
 // MVDataRoot
 // MVDataSingleton
 // MPropertyFriendlyName = "Beat Pattern Library"
-// MGetKV3ClassDefaults = {
-//	"m_vecPatterns":
-//	[
-//	],
-//	"m_vecActiveTracks":
-//	[
-//	]
-//}
 class CSndBeatPatternManager
 {
 	// MPropertyFriendlyName = "Patterns"

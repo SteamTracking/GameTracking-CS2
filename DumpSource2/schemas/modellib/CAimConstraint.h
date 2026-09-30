@@ -1,30 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAimConstraint",
-//	"m_name": "",
-//	"m_vUpVector":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_slaves":
-//	[
-//	],
-//	"m_targets":
-//	[
-//	],
-//	"m_qAimOffset":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000
-//	],
-//	"m_nUpType": 0
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAimConstraint : public CBaseConstraint
 {
-	Quaternion m_qAimOffset;
+	Quaternion m_qAimOffset; // = [ 0, 0, 0, 1 ]
 	uint32 m_nUpType;
 };

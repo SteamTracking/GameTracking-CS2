@@ -1,18 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"position":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"angle":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"pose_sequence": ""
-//}
 class inv_image_item_t
 {
 	// MPropertyFriendlyName = "Position"

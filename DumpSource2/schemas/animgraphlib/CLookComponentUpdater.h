@@ -1,64 +1,13 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CLookComponentUpdater",
-//	"m_name": "",
-//	"m_id":
-//	{
-//		"m_id": 0
-//	},
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_bStartEnabled": false,
-//	"m_hLookHeading":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookHeadingNormalized":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookHeadingVelocity":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookPitch":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookDistance":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookDirection":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookTarget":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_hLookTargetWorldSpace":
-//	{
-//		"m_type": "ANIMPARAM_UNKNOWN",
-//		"m_index": 255
-//	},
-//	"m_bNetworkLookTarget": true
-//}
 // MHasKV3TransferPolymorphicClassname
 class CLookComponentUpdater : public CAnimComponentUpdater
 {
-	CAnimParamHandle m_hLookHeading;
-	CAnimParamHandle m_hLookHeadingNormalized;
-	CAnimParamHandle m_hLookHeadingVelocity;
-	CAnimParamHandle m_hLookPitch;
-	CAnimParamHandle m_hLookDistance;
-	CAnimParamHandle m_hLookDirection;
-	CAnimParamHandle m_hLookTarget;
-	CAnimParamHandle m_hLookTargetWorldSpace;
-	bool m_bNetworkLookTarget;
+	CAnimParamHandle m_hLookHeading; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookHeadingNormalized; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookHeadingVelocity; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookPitch; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookDistance; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookDirection; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookTarget; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hLookTargetWorldSpace; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	bool m_bNetworkLookTarget; // = true
 };

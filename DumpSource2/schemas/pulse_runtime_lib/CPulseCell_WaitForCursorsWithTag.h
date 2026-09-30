@@ -1,28 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CPulseCell_WaitForCursorsWithTag",
-//	"m_nEditorNodeID": -1,
-//	"m_BaseFlow_OnAfterCancel":
-//	{
-//		"m_SourceOutflowName": "",
-//		"m_nDestChunk": -1,
-//		"m_nInstruction": -1
-//	},
-//	"m_BaseFlow_WhileActive":
-//	{
-//		"m_SourceOutflowName": "",
-//		"m_nDestChunk": -1,
-//		"m_nInstruction": -1
-//	},
-//	"m_nCursorsAllowedToWait": -1,
-//	"m_WaitComplete":
-//	{
-//		"m_SourceOutflowName": "",
-//		"m_nDestChunk": -1,
-//		"m_nInstruction": -1
-//	},
-//	"m_bTagSelfWhenComplete": false,
-//	"m_nDesiredKillPriority": "None"
-//}
 // MPropertyFriendlyName = "Wait For Cursors With Tag"
 // MPropertyDescription = "Causes this execution cursor to wait for the completion of other cursors with the given tag. Can optionally kill the tag while waiting."
 // MPulseEditorHeaderIcon = "tools/images/pulse_editor/cursor_tag.png"
@@ -32,5 +7,5 @@ class CPulseCell_WaitForCursorsWithTag : public CPulseCell_WaitForCursorsWithTag
 	// MPropertyDescription = "Apply the same tag we're waiting on to the resulting cursor upon wait completion. Can be used to wait on our result cursor with the same tag."
 	bool m_bTagSelfWhenComplete;
 	// MPropertyDescription = "When we start waiting, how should we handle existing cursors?"
-	PulseCursorCancelPriority_t m_nDesiredKillPriority;
+	PulseCursorCancelPriority_t m_nDesiredKillPriority; // = "None"
 };

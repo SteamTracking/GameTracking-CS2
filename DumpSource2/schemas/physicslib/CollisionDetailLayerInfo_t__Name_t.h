@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nNameToken": "",
-//	"m_sNameString": ""
-//}
 // MVDataRoot
 class CollisionDetailLayerInfo_t::Name_t
 {

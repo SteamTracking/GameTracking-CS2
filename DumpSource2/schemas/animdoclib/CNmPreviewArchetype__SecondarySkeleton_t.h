@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_skeleton": "",
-//	"m_previewModel": "",
-//	"m_bodyPartChoiceName": "",
-//	"m_attachToBoneName": ""
-//}
 class CNmPreviewArchetype::SecondarySkeleton_t
 {
 	// MPropertyAttributeEditor = "AssetBrowse( vnmskel, *requiredoubleclick )"

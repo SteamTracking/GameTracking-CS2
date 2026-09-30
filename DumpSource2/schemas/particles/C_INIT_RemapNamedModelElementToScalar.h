@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = Could not parse KV3 Defaults
 // MHasKV3TransferPolymorphicClassname
 class C_INIT_RemapNamedModelElementToScalar : public CParticleFunctionInitializer
 {

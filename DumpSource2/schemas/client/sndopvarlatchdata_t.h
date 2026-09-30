@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "sndopvarlatchdata_t",
-//	"m_iszStack": "",
-//	"m_iszOperator": "",
-//	"m_iszOpvar": "",
-//	"m_flVal": 0.000000,
-//	"m_vPos": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class sndopvarlatchdata_t
 {

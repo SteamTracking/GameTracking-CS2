@@ -1,9 +1,4 @@
 // MVDataRoot
-// MGetKV3ClassDefaults = {
-//	"m_vecNavHulls":
-//	[
-//	]
-//}
 class CNavHullPresetVData
 {
 	// MPropertyFriendlyName = "Nav Hulls"

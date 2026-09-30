@@ -1,52 +1,8 @@
-// MGetKV3ClassDefaults = {
-//	"Name": "",
-//	"m_nGraphOutputChannels": -1,
-//	"m_bIsMainGraph": false,
-//	"m_Processors":
-//	[
-//	],
-//	"m_graphInputs":
-//	[
-//	],
-//	"m_controlTransientInputs":
-//	[
-//	],
-//	"m_controlOutputs":
-//	[
-//	],
-//	"m_impulseResponseInputs":
-//	[
-//	],
-//	"m_MixCommands":
-//	[
-//	],
-//	"m_heap":
-//	{
-//		"m_storage":
-//		[
-//		]
-//	},
-//	"m_audioMeters":
-//	[
-//	],
-//	"m_controlMeters":
-//	[
-//	],
-//	"m_nameInputMeters":
-//	[
-//	],
-//	"m_additionalOutputs":
-//	[
-//	],
-//	"m_automaticControlInputs":
-//	[
-//	]
-//}
 class CVMixBaseGraphDescription
 {
 	// MKV3TransferName = "Name"
 	CUtlString m_name;
-	int32 m_nGraphOutputChannels;
+	int32 m_nGraphOutputChannels; // = -1
 	bool m_bIsMainGraph;
 	// MKV3TransferName = "m_Processors"
 	CUtlLeanVector< std::unique_ptr< CVMixBaseProcessorDesc > > m_processorNodes;

@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_ConflictManager",
-//	"m_conflicts":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_ConflictManager
 {

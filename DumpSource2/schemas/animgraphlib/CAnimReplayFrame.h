@@ -1,39 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimReplayFrame",
-//	"m_inputDataBlocks":
-//	[
-//	],
-//	"m_instanceData": "[BINARY BLOB]",
-//	"m_startingLocalToWorldTransform":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000,
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000
-//	],
-//	"m_localToWorldTransform":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000,
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000
-//	],
-//	"m_timeStamp": 0.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimReplayFrame
 {
 	CUtlVector< CUtlBinaryBlock > m_inputDataBlocks;
-	CUtlBinaryBlock m_instanceData;
-	CTransform m_startingLocalToWorldTransform;
-	CTransform m_localToWorldTransform;
+	CUtlBinaryBlock m_instanceData; // = "[BINARY BLOB]"
+	CTransform m_startingLocalToWorldTransform; // = [ 0, 0, 0, 1, 0, 0, 0, 1 ]
+	CTransform m_localToWorldTransform; // = [ 0, 0, 0, 1, 0, 0, 0, 1 ]
 	float32 m_timeStamp;
 };

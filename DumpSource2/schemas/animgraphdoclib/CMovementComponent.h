@@ -1,144 +1,16 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMovementComponent",
-//	"m_group": "",
-//	"m_id":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bStartEnabled": true,
-//	"m_nPriority": 100,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_motors":
-//	[
-//	],
-//	"m_bNetworkPath": true,
-//	"m_facingDamping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	},
-//	"m_bNetworkFacing": true,
-//	"m_paramIDs":
-//	[
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		},
-//		{
-//			"m_id": 0
-//		}
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CMovementComponent : public CAnimGraphDoc_Component
 {
 	// MPropertySuppressField
 	CUtlVector< CSmartPtr< CAnimGraphDoc_Motor > > m_motors;
 	// MPropertyFriendlyName = "Network Path"
-	bool m_bNetworkPath;
+	bool m_bNetworkPath; // = true
 	// MPropertyGroupName = "+Facing"
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_facingDamping;
+	CAnimInputDamping m_facingDamping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 	// MPropertyGroupName = "+Facing"
 	// MPropertyFriendlyName = "Network Facing"
-	bool m_bNetworkFacing;
+	bool m_bNetworkFacing; // = true
 	// MPropertySuppressField
 	AnimParamID[34] m_paramIDs;
 };

@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_Name": "",
-//	"m_DisplayName": "",
-//	"m_VariableValues":
-//	[
-//	]
-//}
 class CSmartPropChoiceOption
 {
 	// MPropertyFriendlyName = "Option Value Name"

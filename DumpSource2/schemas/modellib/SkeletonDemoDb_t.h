@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_AnimCaptures":
-//	[
-//	],
-//	"m_CameraTrack":
-//	[
-//	],
-//	"m_flRecordingTime": 0.000000
-//}
 class SkeletonDemoDb_t
 {
 	CUtlVector< SkeletonAnimCapture_t* > m_AnimCaptures;

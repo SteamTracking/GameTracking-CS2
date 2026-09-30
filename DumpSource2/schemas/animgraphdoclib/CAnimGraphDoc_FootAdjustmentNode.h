@@ -1,44 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_FootAdjustmentNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_facingTargetParam": "",
-//	"m_facingTarget":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bResetChild": true,
-//	"m_bAnimationDriven": false,
-//	"m_baseClipName": "",
-//	"m_clips":
-//	[
-//	],
-//	"m_flTurnTimeMin": 1.500000,
-//	"m_flTurnTimeMax": 3.000000,
-//	"m_flStepHeightMax": 4.000000,
-//	"m_flStepHeightMaxAngle": 90.000000
-//}
 // MPropertyFriendlyName = "Foot Adjustment"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_FootAdjustmentNode : public CAnimGraphDoc_Node
@@ -51,7 +10,7 @@ class CAnimGraphDoc_FootAdjustmentNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "FloatParameter"
 	AnimParamID m_facingTarget;
 	// MPropertyFriendlyName = "Reset Child"
-	bool m_bResetChild;
+	bool m_bResetChild; // = true
 	// MPropertyFriendlyName = "Animation Driven"
 	// MPropertyAutoRebuildOnChange
 	bool m_bAnimationDriven;
@@ -68,17 +27,17 @@ class CAnimGraphDoc_FootAdjustmentNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Turn Time Min"
 	// MPropertyGroupName = "Procedural Settings"
 	// MPropertyAttrStateCallback
-	float32 m_flTurnTimeMin;
+	float32 m_flTurnTimeMin; // = 1.5
 	// MPropertyFriendlyName = "Turn Time Max"
 	// MPropertyGroupName = "Procedural Settings"
 	// MPropertyAttrStateCallback
-	float32 m_flTurnTimeMax;
+	float32 m_flTurnTimeMax; // = 3
 	// MPropertyFriendlyName = "Step Height Max"
 	// MPropertyGroupName = "Procedural Settings"
 	// MPropertyAttrStateCallback
-	float32 m_flStepHeightMax;
+	float32 m_flStepHeightMax; // = 4
 	// MPropertyFriendlyName = "Step Height Max Angle"
 	// MPropertyGroupName = "Procedural Settings"
 	// MPropertyAttrStateCallback
-	float32 m_flStepHeightMaxAngle;
+	float32 m_flStepHeightMaxAngle; // = 90
 };

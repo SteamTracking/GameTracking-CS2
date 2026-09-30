@@ -1,48 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_SubtractNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_baseInputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_subtractInputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_timingBehavior": "UseChild1",
-//	"m_flTimingBlend": 0.500000,
-//	"m_footMotionTiming": "Child1",
-//	"m_bApplyToFootMotion": true,
-//	"m_bResetBase": true,
-//	"m_bResetSubtract": true,
-//	"m_bApplyChannelsSeparately": true,
-//	"m_bUseModelSpace": false
-//}
 // MPropertyFriendlyName = "Subtract"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_SubtractNode : public CAnimGraphDoc_Node
@@ -53,21 +8,21 @@ class CAnimGraphDoc_SubtractNode : public CAnimGraphDoc_Node
 	CAnimGraphDoc_NodeConnection m_subtractInputConnection;
 	// MPropertyFriendlyName = "Timing Control"
 	// MPropertyAutoRebuildOnChange
-	BinaryNodeTiming m_timingBehavior;
+	BinaryNodeTiming m_timingBehavior; // = "UseChild1"
 	// MPropertyFriendlyName = "Timing Blend"
 	// MPropertyAttributeRange = "0 1"
 	// MPropertyAttrStateCallback
-	float32 m_flTimingBlend;
+	float32 m_flTimingBlend; // = 0.5
 	// MPropertyFriendlyName = "Foot Motion Timing"
-	BinaryNodeChildOption m_footMotionTiming;
+	BinaryNodeChildOption m_footMotionTiming; // = "Child1"
 	// MPropertyFriendlyName = "Subtract Foot Motion"
-	bool m_bApplyToFootMotion;
+	bool m_bApplyToFootMotion; // = true
 	// MPropertyFriendlyName = "Reset Base Child"
-	bool m_bResetBase;
+	bool m_bResetBase; // = true
 	// MPropertyFriendlyName = "Reset Subtracted Child"
-	bool m_bResetSubtract;
+	bool m_bResetSubtract; // = true
 	// MPropertyFriendlyName = "Treat Translation Separately"
-	bool m_bApplyChannelsSeparately;
+	bool m_bApplyChannelsSeparately; // = true
 	// MPropertyFriendlyName = "Use Model Space"
 	bool m_bUseModelSpace;
 };

@@ -1,21 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CEnvWindShared",
-//	"m_iMinWind": 0,
-//	"m_iMaxWind": 0,
-//	"m_windRadius": 0,
-//	"m_iMinGust": 0,
-//	"m_iMaxGust": 0,
-//	"m_flMinGustDelay": 0.000000,
-//	"m_flMaxGustDelay": 0.000000,
-//	"m_flGustDuration": 0.000000,
-//	"m_iGustDirChange": 0,
-//	"m_OnGustStart":
-//	{
-//	},
-//	"m_OnGustEnd":
-//	{
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CEnvWindShared
 {

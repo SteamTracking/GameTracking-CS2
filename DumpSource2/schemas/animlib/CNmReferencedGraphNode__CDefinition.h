@@ -1,12 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmReferencedGraphNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_nReferencedGraphIdx": -1,
-//	"m_nFallbackNodeIdx": -1
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmReferencedGraphNode::CDefinition : public CNmPoseNode::CDefinition
 {
-	int16 m_nReferencedGraphIdx;
-	int16 m_nFallbackNodeIdx;
+	int16 m_nReferencedGraphIdx; // = -1
+	int16 m_nFallbackNodeIdx; // = -1
 };

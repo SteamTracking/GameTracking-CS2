@@ -1,19 +1,5 @@
-// MGetKV3ClassDefaults = {
-//	"m_tmCamera":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000,
-//		0.000000,
-//		0.000000,
-//		0.000000,
-//		1.000000
-//	],
-//	"m_flTime": 0.000000
-//}
 class SkeletonAnimCapture_t::Camera_t
 {
-	CTransform m_tmCamera;
+	CTransform m_tmCamera; // = [ 0, 0, 0, 1, 0, 0, 0, 1 ]
 	float32 m_flTime;
 };

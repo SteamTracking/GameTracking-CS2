@@ -1,19 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixPlateverb",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0,
-//	"m_flPrefilter": 0.500000,
-//	"m_flInputDiffusion1": 0.500000,
-//	"m_flInputDiffusion2": 0.500000,
-//	"m_flDecay": 0.500000,
-//	"m_flDamp": 0.500000,
-//	"m_flFeedbackDiffusion1": 0.500000,
-//	"m_flFeedbackDiffusion2": 0.500000
-//}
 // MPropertyFriendlyName = "VMix Plateverb Audio Node"
 // MPropertyDescription = "Used to create reverb effects based on a model of a reverb plate."
 // MHasKV3TransferPolymorphicClassname
@@ -21,23 +5,23 @@ class CMixPlateverb : public CMixPropertyBase
 {
 	// MPropertyFriendlyName = "Prefilter"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flPrefilter;
+	float32 m_flPrefilter; // = 0.5
 	// MPropertyFriendlyName = "Input Diffusion 1"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flInputDiffusion1;
+	float32 m_flInputDiffusion1; // = 0.5
 	// MPropertyFriendlyName = "Input Diffusion 2"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flInputDiffusion2;
+	float32 m_flInputDiffusion2; // = 0.5
 	// MPropertyFriendlyName = "Decay"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flDecay;
+	float32 m_flDecay; // = 0.5
 	// MPropertyFriendlyName = "Dampening Factor"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flDamp;
+	float32 m_flDamp; // = 0.5
 	// MPropertyFriendlyName = "Feedback Diffusion 1"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flFeedbackDiffusion1;
+	float32 m_flFeedbackDiffusion1; // = 0.5
 	// MPropertyFriendlyName = "Feedback Diffusion 1"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flFeedbackDiffusion2;
+	float32 m_flFeedbackDiffusion2; // = 0.5
 };

@@ -1,59 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_AimMatrixNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_sequenceName": "",
-//	"m_flMaxYawAngle": 45.000000,
-//	"m_flMaxPitchAngle": 45.000000,
-//	"m_target": "LookTarget",
-//	"m_paramName": "",
-//	"m_param":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsPosition": false,
-//	"m_attachmentName": "",
-//	"m_blendMode": "AimMatrixBlendMode_Additive",
-//	"m_boneMaskName": "",
-//	"m_bResetBase": true,
-//	"m_bLockWhenWaning": true,
-//	"m_bUseBiasAndClamp": false,
-//	"m_flBiasAndClampYawOffset": 1.000000,
-//	"m_flBiasAndClampPitchOffset": 1.000000,
-//	"m_biasAndClampBlendCurve":
-//	{
-//		"m_flControlPoint1": 0.000000,
-//		"m_flControlPoint2": 1.000000
-//	},
-//	"m_damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	}
-//}
 // MPropertyFriendlyName = "Aim Matrix"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_AimMatrixNode : public CAnimGraphDoc_Node
@@ -64,12 +8,12 @@ class CAnimGraphDoc_AimMatrixNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "Sequence"
 	CUtlString m_sequenceName;
 	// MPropertyFriendlyName = "Max Yaw Angle"
-	float32 m_flMaxYawAngle;
+	float32 m_flMaxYawAngle; // = 45
 	// MPropertyFriendlyName = "Max Pitch Angle"
-	float32 m_flMaxPitchAngle;
+	float32 m_flMaxPitchAngle; // = 45
 	// MPropertyFriendlyName = "Target"
 	// MPropertyAutoRebuildOnChange
-	AnimVectorSource m_target;
+	AnimVectorSource m_target; // = "LookTarget"
 	// MPropertySuppressField
 	CUtlString m_paramName;
 	// MPropertyFriendlyName = "Parameter"
@@ -84,28 +28,28 @@ class CAnimGraphDoc_AimMatrixNode : public CAnimGraphDoc_Node
 	CUtlString m_attachmentName;
 	// MPropertyFriendlyName = "Blend Mode"
 	// MPropertyAutoRebuildOnChange
-	AimMatrixBlendMode m_blendMode;
+	AimMatrixBlendMode m_blendMode; // = "AimMatrixBlendMode_Additive"
 	// MPropertyFriendlyName = "Bone Mask"
 	// MPropertyAttributeChoiceName = "BoneMask"
 	// MPropertyAttrStateCallback
 	CUtlString m_boneMaskName;
 	// MPropertyFriendlyName = "Reset Child"
-	bool m_bResetBase;
+	bool m_bResetBase; // = true
 	// MPropertyFriendlyName = "Lock Blend When Waning"
-	bool m_bLockWhenWaning;
+	bool m_bLockWhenWaning; // = true
 	// MPropertyFriendlyName = "Use Bias + Clamp"
 	// MPropertyAutoRebuildOnChange
 	bool m_bUseBiasAndClamp;
 	// MPropertyFriendlyName = "Yaw Offset Angle"
 	// MPropertyAttrStateCallback
-	float32 m_flBiasAndClampYawOffset;
+	float32 m_flBiasAndClampYawOffset; // = 1
 	// MPropertyFriendlyName = "Pitch Offset Angle"
 	// MPropertyAttrStateCallback
-	float32 m_flBiasAndClampPitchOffset;
+	float32 m_flBiasAndClampPitchOffset; // = 1
 	// MPropertyFriendlyName = "Clamp Blend Curve"
 	// MPropertyAttributeEditor = "AnimGraphBlendCurve()"
 	// MPropertyAttrStateCallback
-	CBlendCurve m_biasAndClampBlendCurve;
+	CBlendCurve m_biasAndClampBlendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping;
+	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 };

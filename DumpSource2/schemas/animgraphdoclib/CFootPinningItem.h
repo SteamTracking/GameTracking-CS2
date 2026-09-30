@@ -1,19 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_footName": "",
-//	"m_targetBoneName": "",
-//	"m_ikChainName": "",
-//	"m_tag":
-//	{
-//		"m_id": 0
-//	},
-//	"m_paramName": "",
-//	"m_param":
-//	{
-//		"m_id": 0
-//	},
-//	"m_flMaxRotationLeft": 90.000000,
-//	"m_flMaxRotationRight": 90.000000
-//}
 // MPropertyFriendlyName = "Item"
 // MPropertyElementNameFn
 class CFootPinningItem
@@ -37,8 +21,8 @@ class CFootPinningItem
 	AnimParamID m_param;
 	// MPropertyFriendlyName = "Max Left Rotation"
 	// MPropertyAttributeRange = "0 180"
-	float32 m_flMaxRotationLeft;
+	float32 m_flMaxRotationLeft; // = 90
 	// MPropertyFriendlyName = "Max Right Rotation"
 	// MPropertyAttributeRange = "0 180"
-	float32 m_flMaxRotationRight;
+	float32 m_flMaxRotationRight; // = 90
 };

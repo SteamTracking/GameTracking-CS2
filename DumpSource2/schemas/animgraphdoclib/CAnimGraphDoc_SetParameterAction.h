@@ -1,15 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_SetParameterAction",
-//	"m_paramName": "",
-//	"m_param":
-//	{
-//		"m_id": 0
-//	},
-//	"m_value":
-//	{
-//		"m_nType": 0
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_SetParameterAction : public CAnimGraphDoc_Action
 {

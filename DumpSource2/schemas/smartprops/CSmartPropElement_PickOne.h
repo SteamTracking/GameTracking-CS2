@@ -1,43 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropElement_PickOne",
-//	"m_nElementID": -1,
-//	"m_bEnabled": true,
-//	"m_sLabel": "",
-//	"m_SelectionCriteria":
-//	[
-//	],
-//	"m_Modifiers":
-//	[
-//	],
-//	"m_Children":
-//	[
-//	],
-//	"m_SelectionMode": "RANDOM",
-//	"m_SpecificChildIndex": 0,
-//	"m_OutputChoiceVariableName": "",
-//	"m_bConfigurable": true,
-//	"m_vHandleOffset":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_HandleColor":
-//	[
-//		144,
-//		144,
-//		144
-//	],
-//	"m_HandleSize": 9,
-//	"m_HandleShape": "SQUARE"
-//}
 // MPropertyFriendlyName = "Select Single Child"
 // MPropertyDescription = "An element which selects a single choice from its set of child choices."
 // MHasKV3TransferPolymorphicClassname
 class CSmartPropElement_PickOne : public CSmartPropElement_Group
 {
 	// MPropertyDescription = "Specifies how the initial selection of a choice should be handled."
-	CSmartPropAttributeChoiceSelectionMode m_SelectionMode;
+	CSmartPropAttributeChoiceSelectionMode m_SelectionMode; // = "RANDOM"
 	// MPropertyFriendlyName = "Specific Child"
 	// MPropertyDescription = "Specifies the index of the child to pick."
 	// MPropertySuppressExpr = "( m_SelectionMode != SPECIFIC )"
@@ -47,7 +14,7 @@ class CSmartPropElement_PickOne : public CSmartPropElement_Group
 	// MPropertyAttributeEditor = "SmartPropItemNameEditor( Variable:Integer )"
 	CUtlString m_OutputChoiceVariableName;
 	// MPropertyDescription = "Should a control to select the specific choice be shown when this prop is placed in Hammer."
-	CSmartPropAttributeBool m_bConfigurable;
+	CSmartPropAttributeBool m_bConfigurable; // = true
 	// MPropertyGroupName = "Handle Settings"
 	// MPropertyReadonlyExpr = "m_bConfigurable == false"
 	// MPropertyDescription = "Specifies an offset in the local space of the element to apply to the configuration handle."
@@ -55,13 +22,13 @@ class CSmartPropElement_PickOne : public CSmartPropElement_Group
 	// MPropertyGroupName = "Handle Settings"
 	// MPropertyReadonlyExpr = "m_bConfigurable == false"
 	// MPropertyDescription = "Color to use to display the configuration handle."
-	CSmartPropAttributeColor m_HandleColor;
+	CSmartPropAttributeColor m_HandleColor; // = [ 144, 144, 144 ]
 	// MPropertyGroupName = "Handle Settings"
 	// MPropertyReadonlyExpr = "m_bConfigurable == false"
 	// MPropertyDescription = "Size of the configuration handle."
-	CSmartPropAttributeInt m_HandleSize;
+	CSmartPropAttributeInt m_HandleSize; // = 9
 	// MPropertyGroupName = "Handle Settings"
 	// MPropertyReadonlyExpr = "m_bConfigurable == false"
 	// MPropertyDescription = "Shape of the configuration handle to display."
-	ConfigurationHandleShape_t m_HandleShape;
+	ConfigurationHandleShape_t m_HandleShape; // = "SQUARE"
 };

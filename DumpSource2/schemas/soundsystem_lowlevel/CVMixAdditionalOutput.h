@@ -1,7 +1,4 @@
-// MGetKV3ClassDefaults = {
-//	"m_name": "output"
-//}
 class CVMixAdditionalOutput
 {
-	CUtlString m_name;
+	CUtlString m_name; // = "output"
 };

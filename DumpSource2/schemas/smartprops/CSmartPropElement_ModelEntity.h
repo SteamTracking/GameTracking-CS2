@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = Could not parse KV3 Defaults
 // MVDataOutlinerAssetNameExpr = "m_sModelName"
 // MHasKV3TransferPolymorphicClassname
 class CSmartPropElement_ModelEntity : public CSmartPropElement

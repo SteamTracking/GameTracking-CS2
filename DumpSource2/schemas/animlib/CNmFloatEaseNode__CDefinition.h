@@ -1,18 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmFloatEaseNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_flEaseTime": 1.000000,
-//	"m_flStartValue": 0.000000,
-//	"m_nInputValueNodeIdx": -1,
-//	"m_easingOp": "Linear",
-//	"m_bUseStartValue": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmFloatEaseNode::CDefinition : public CNmFloatValueNode::CDefinition
 {
-	float32 m_flEaseTime;
+	float32 m_flEaseTime; // = 1
 	float32 m_flStartValue;
-	int16 m_nInputValueNodeIdx;
-	NmEasingOperation_t m_easingOp;
+	int16 m_nInputValueNodeIdx; // = -1
+	NmEasingOperation_t m_easingOp; // = "Linear"
 	bool m_bUseStartValue;
 };

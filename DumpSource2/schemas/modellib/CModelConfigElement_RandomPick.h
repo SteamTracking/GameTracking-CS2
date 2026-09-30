@@ -1,16 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CModelConfigElement_RandomPick",
-//	"m_ElementName": "",
-//	"m_NestedElements":
-//	[
-//	],
-//	"m_Choices":
-//	[
-//	],
-//	"m_ChoiceWeights":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CModelConfigElement_RandomPick : public CModelConfigElement
 {

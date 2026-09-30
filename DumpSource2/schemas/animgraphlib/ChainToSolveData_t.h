@@ -1,43 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"m_nChainIndex": -1,
-//	"m_SolverSettings":
-//	{
-//		"m_SolverType": "IKSOLVER_TwoBone",
-//		"m_nNumIterations": 6,
-//		"m_EndEffectorRotationFixUpMode": "MatchTargetOrientation"
-//	},
-//	"m_TargetSettings":
-//	{
-//		"m_TargetSource": "Bone",
-//		"m_Bone":
-//		{
-//			"m_Name": ""
-//		},
-//		"m_AnimgraphParameterNamePosition":
-//		{
-//			"m_id": 0
-//		},
-//		"m_AnimgraphParameterNameOrientation":
-//		{
-//			"m_id": 0
-//		},
-//		"m_TargetCoordSystem": "World Space"
-//	},
-//	"m_DebugSetting": "SOLVEIKCHAINANIMNODEDEBUGSETTING_None",
-//	"m_flDebugNormalizedValue": 1.000000,
-//	"m_vDebugOffset":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 class ChainToSolveData_t
 {
-	int32 m_nChainIndex;
-	IKSolverSettings_t m_SolverSettings;
-	IKTargetSettings_t m_TargetSettings;
-	SolveIKChainAnimNodeDebugSetting m_DebugSetting;
-	float32 m_flDebugNormalizedValue;
+	int32 m_nChainIndex; // = -1
+	IKSolverSettings_t m_SolverSettings; // = { "m_EndEffectorRotationFixUpMode": "MatchTargetOrientation", "m_SolverType": "IKSOLVER_TwoBone", "m_nNumIterations": 6 }
+	IKTargetSettings_t m_TargetSettings; // = { "m_AnimgraphParameterNameOrientation": { "m_id": 0 }, "m_AnimgraphParameterNamePosition": { "m_id": 0 }, "m_Bone": { "m_Name": "" }, "m_TargetCoordSystem": "World Space", "m_TargetSource": "Bone" }
+	SolveIKChainAnimNodeDebugSetting m_DebugSetting; // = "SOLVEIKCHAINANIMNODEDEBUGSETTING_None"
+	float32 m_flDebugNormalizedValue; // = 1
 	VectorAligned m_vDebugOffset;
 };

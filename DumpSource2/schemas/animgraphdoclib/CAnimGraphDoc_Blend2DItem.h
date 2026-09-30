@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = Could not parse KV3 Defaults
 // MPropertyFriendlyName = "Blend Item"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_Blend2DItem

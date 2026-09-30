@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_hEntity": null,
-//	"m_szAttributeKey": ""
-//}
 class CPulseCell_ApplyDynamicAttributeBase::CursorState_t
 {
 	CHandle< CBaseEntity > m_hEntity;

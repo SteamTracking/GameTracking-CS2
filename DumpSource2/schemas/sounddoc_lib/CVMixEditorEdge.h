@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"plug0": "",
-//	"plug1": ""
-//}
 class CVMixEditorEdge
 {
 	// MKV3TransferName = "plug0"

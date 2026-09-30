@@ -1,18 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_Name": "",
-//	"m_Nodes":
-//	[
-//	],
-//	"m_flParentReaction": 0.000000,
-//	"m_nFlags": 0,
-//	"m_nEndIdx":
-//	[
-//		0,
-//		0,
-//		0,
-//		0
-//	]
-//}
 class FeModelSelfCollisionLayer_t
 {
 	CUtlString m_Name;

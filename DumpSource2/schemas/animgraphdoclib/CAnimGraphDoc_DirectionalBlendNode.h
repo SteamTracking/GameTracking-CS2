@@ -1,35 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_DirectionalBlendNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_animNamePrefix": "",
-//	"m_blendValueSource": "Parameter",
-//	"m_paramName": "",
-//	"m_param":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bLoop": true,
-//	"m_bLockBlendOnReset": false,
-//	"m_playbackSpeed": 1.000000,
-//	"m_damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	}
-//}
 // MPropertyFriendlyName = "Directional Blend"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_DirectionalBlendNode : public CAnimGraphDoc_Node
@@ -39,18 +7,18 @@ class CAnimGraphDoc_DirectionalBlendNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Blend Source"
 	// MPropertyAutoRebuildOnChange
 	// MPropertyAttrStateCallback
-	AnimValueSource m_blendValueSource;
+	AnimValueSource m_blendValueSource; // = "Parameter"
 	// MPropertySuppressField
 	CUtlString m_paramName;
 	// MPropertyFriendlyName = "Parameter"
 	// MPropertyAttributeChoiceName = "FloatParameter"
 	AnimParamID m_param;
 	// MPropertyFriendlyName = "Loop"
-	bool m_bLoop;
+	bool m_bLoop; // = true
 	// MPropertyFriendlyName = "Lock Blend on Reset"
 	bool m_bLockBlendOnReset;
 	// MPropertyFriendlyName = "Playback Speed"
-	float32 m_playbackSpeed;
+	float32 m_playbackSpeed; // = 1
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping;
+	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 };

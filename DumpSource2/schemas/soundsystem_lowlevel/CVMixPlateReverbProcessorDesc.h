@@ -1,39 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CVMixPlateReverbProcessorDesc",
-//	"m_name": "",
-//	"m_nDebugId": 0,
-//	"m_flxfade": 0.100000,
-//	"m_nChannels": -1,
-//	"m_bDebugBypass": false,
-//	"m_paramEnable":
-//	{
-//		"m_offset":
-//		{
-//			"category": "NULL_POINTER",
-//			"type": "VO_CHAR",
-//			"index": 0
-//		}
-//	},
-//	"m_paramMix":
-//	{
-//		"m_offset":
-//		{
-//			"category": "NULL_POINTER",
-//			"type": "VO_CHAR",
-//			"index": 0
-//		}
-//	},
-//	"m_desc":
-//	{
-//		"m_flPrefilter": 0.000000,
-//		"m_flInputDiffusion1": 0.000000,
-//		"m_flInputDiffusion2": 0.000000,
-//		"m_flDecay": 0.000000,
-//		"m_flDamp": 0.000000,
-//		"m_flFeedbackDiffusion1": 0.000000,
-//		"m_flFeedbackDiffusion2": 0.000000
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CVMixPlateReverbProcessorDesc : public CVMixBaseProcessorDesc
 {

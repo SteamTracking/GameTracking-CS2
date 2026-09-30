@@ -1,36 +1,15 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmTransitionNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_nTargetStateNodeIdx": -1,
-//	"m_nDurationOverrideNodeIdx": -1,
-//	"m_timeOffsetOverrideNodeIdx": -1,
-//	"m_startBoneMaskNodeIdx": -1,
-//	"m_flDuration": 0.000000,
-//	"m_boneMaskBlendInTimePercentage":
-//	{
-//		"m_flValue": 0.330000
-//	},
-//	"m_flTimeOffset": 0.000000,
-//	"m_transitionOptions":
-//	{
-//		"m_flags": 1
-//	},
-//	"m_targetSyncIDNodeIdx": -1,
-//	"m_blendWeightEasing": "Linear",
-//	"m_rootMotionBlend": "Blend"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmTransitionNode::CDefinition : public CNmPoseNode::CDefinition
 {
-	int16 m_nTargetStateNodeIdx;
-	int16 m_nDurationOverrideNodeIdx;
-	int16 m_timeOffsetOverrideNodeIdx;
-	int16 m_startBoneMaskNodeIdx;
+	int16 m_nTargetStateNodeIdx; // = -1
+	int16 m_nDurationOverrideNodeIdx; // = -1
+	int16 m_timeOffsetOverrideNodeIdx; // = -1
+	int16 m_startBoneMaskNodeIdx; // = -1
 	float32 m_flDuration;
-	NmPercent_t m_boneMaskBlendInTimePercentage;
+	NmPercent_t m_boneMaskBlendInTimePercentage; // = { "m_flValue": 0.33 }
 	float32 m_flTimeOffset;
-	CNmBitFlags m_transitionOptions;
-	int16 m_targetSyncIDNodeIdx;
-	NmEasingOperation_t m_blendWeightEasing;
-	NmRootMotionBlendMode_t m_rootMotionBlend;
+	CNmBitFlags m_transitionOptions; // = { "m_flags": 1 }
+	int16 m_targetSyncIDNodeIdx; // = -1
+	NmEasingOperation_t m_blendWeightEasing; // = "Linear"
+	NmRootMotionBlendMode_t m_rootMotionBlend; // = "Blend"
 };

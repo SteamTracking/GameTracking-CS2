@@ -1,40 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropElement_BendDeformer",
-//	"m_nElementID": -1,
-//	"m_bEnabled": true,
-//	"m_sLabel": "",
-//	"m_SelectionCriteria":
-//	[
-//	],
-//	"m_Modifiers":
-//	[
-//	],
-//	"m_Children":
-//	[
-//	],
-//	"m_bDeformationEnabled": true,
-//	"m_vOrigin":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vAngles":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vSize":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_flBendAngle": 0.000000,
-//	"m_flBendPoint": 0.000000,
-//	"m_flBendRadius": 0.000000
-//}
 // MPropertyFriendlyName = "Bend Deformer"
 // MPropertyDescription = "Creates a bend deformer that is applied to child elements. The deformation bends the local space x-axis around the local space z-axis. The Angles property can be used to rotate the local axis to change the direction of deformation."
 // MHasKV3TransferPolymorphicClassname
@@ -42,7 +5,7 @@ class CSmartPropElement_BendDeformer : public CSmartPropElement_Deformer
 {
 	// MPropertyFriendlyName = "Deformation Enabled"
 	// MPropertyDescription = "Should the deformation be applied. If disabled the children will still be placed, but will not be deformed. Esentially making the element behave as a group."
-	CSmartPropAttributeBool m_bDeformationEnabled;
+	CSmartPropAttributeBool m_bDeformationEnabled; // = true
 	// MPropertyFriendlyName = "Origin"
 	// MPropertyDescription = "A local offset to apply to the base volume of the deformer that will not apply to its children."
 	CSmartPropAttributeVector m_vOrigin;

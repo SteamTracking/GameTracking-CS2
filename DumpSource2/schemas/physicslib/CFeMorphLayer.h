@@ -1,22 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_Name": "",
-//	"m_nNameHash": 0,
-//	"m_Nodes":
-//	[
-//	],
-//	"m_InitPos":
-//	[
-//	],
-//	"m_Gravity":
-//	[
-//	],
-//	"m_GoalStrength":
-//	[
-//	],
-//	"m_GoalDamping":
-//	[
-//	]
-//}
 class CFeMorphLayer
 {
 	CUtlString m_Name;

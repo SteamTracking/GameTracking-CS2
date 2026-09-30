@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimTagManagerUpdater",
-//	"m_tags":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimTagManagerUpdater
 {

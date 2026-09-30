@@ -1,25 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_RandomRotation",
-//	"m_bEnabled": true,
-//	"m_vRandomRotationMin":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vRandomRotationMax":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vSnapIncrement":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 // MPropertyFriendlyName = "Transform: Random Rotation"
 // MPropertyDescription = "Apply a random rotation to the current transform."
 // MVDataClassGroup = "Transform"

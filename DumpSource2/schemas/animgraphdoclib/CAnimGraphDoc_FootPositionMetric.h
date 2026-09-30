@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_FootPositionMetric",
-//	"m_flWeight": 1.000000,
-//	"m_feet":
-//	[
-//	],
-//	"m_bIgnoreSlope": true
-//}
 // MPropertyFriendlyName = "Foot Position Metric"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_FootPositionMetric : public CAnimGraphDoc_MotionMetric
@@ -15,5 +7,5 @@ class CAnimGraphDoc_FootPositionMetric : public CAnimGraphDoc_MotionMetric
 	// MPropertyAutoExpandSelf
 	CUtlVector< CUtlString > m_feet;
 	// MPropertyFriendlyName = "Ignore Slope"
-	bool m_bIgnoreSlope;
+	bool m_bIgnoreSlope; // = true
 };

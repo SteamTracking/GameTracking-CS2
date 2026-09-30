@@ -1,20 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "ActiveModelConfig_t",
-//	"m_Handle": 0,
-//	"m_Name": "",
-//	"m_AssociatedEntities":
-//	[
-//	],
-//	"m_AssociatedEntityNames":
-//	[
-//	],
-//	"m_vecAssociatedEntityCollidesWithHierarchy":
-//	[
-//	],
-//	"m_vecAssociatedEntityCollidesOutsideHierarchy":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class ActiveModelConfig_t
 {

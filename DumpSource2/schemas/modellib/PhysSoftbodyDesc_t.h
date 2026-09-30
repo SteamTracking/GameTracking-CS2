@@ -1,23 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ParticleBoneHash":
-//	[
-//	],
-//	"m_Particles":
-//	[
-//	],
-//	"m_Springs":
-//	[
-//	],
-//	"m_Capsules":
-//	[
-//	],
-//	"m_InitPose":
-//	[
-//	],
-//	"m_ParticleBoneName":
-//	[
-//	]
-//}
 class PhysSoftbodyDesc_t
 {
 	CUtlVector< uint32 > m_ParticleBoneHash;

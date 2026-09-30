@@ -1,122 +1,12 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CVoiceContainerParameterBlender",
-//	"m_vSound":
-//	{
-//		"m_Sentences":
-//		[
-//		],
-//		"m_nRate": 0,
-//		"m_nFormat": "PCM16",
-//		"m_nChannels": 0,
-//		"m_nLoopStart": 0,
-//		"m_nSampleCount": 0,
-//		"m_flDuration": 0.000000,
-//		"m_nStreamingSize": 0,
-//		"m_nLoopEnd": 0
-//	},
-//	"m_pEnvelopeAnalyzer": null,
-//	"m_firstSound":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_secondSound":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_bEnableOcclusionBlend": false,
-//	"m_curve1":
-//	{
-//		"m_spline":
-//		[
-//		],
-//		"m_tangents":
-//		[
-//		],
-//		"m_vDomainMins":
-//		[
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vDomainMaxs":
-//		[
-//			0.000000,
-//			0.000000
-//		]
-//	},
-//	"m_curve2":
-//	{
-//		"m_spline":
-//		[
-//		],
-//		"m_tangents":
-//		[
-//		],
-//		"m_vDomainMins":
-//		[
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vDomainMaxs":
-//		[
-//			0.000000,
-//			0.000000
-//		]
-//	},
-//	"m_bEnableDistanceBlend": false,
-//	"m_curve3":
-//	{
-//		"m_spline":
-//		[
-//		],
-//		"m_tangents":
-//		[
-//		],
-//		"m_vDomainMins":
-//		[
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vDomainMaxs":
-//		[
-//			0.000000,
-//			0.000000
-//		]
-//	},
-//	"m_curve4":
-//	{
-//		"m_spline":
-//		[
-//		],
-//		"m_tangents":
-//		[
-//		],
-//		"m_vDomainMins":
-//		[
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vDomainMaxs":
-//		[
-//			0.000000,
-//			0.000000
-//		]
-//	}
-//}
 // MPropertyFriendlyName = "Parameter Blender"
 // MPropertyDescription = "Blends two containers according to parameter curves."
 // MHasKV3TransferPolymorphicClassname
 class CVoiceContainerParameterBlender : public CVoiceContainerBase
 {
 	// MPropertyFriendlyName = "First Sound"
-	CSoundContainerReference m_firstSound;
+	CSoundContainerReference m_firstSound; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	// MPropertyFriendlyName = "Second Sound"
-	CSoundContainerReference m_secondSound;
+	CSoundContainerReference m_secondSound; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	// MPropertyStartGroup = "Occlusion"
 	// MPropertyFriendlyName = "Enable Occlusion Blend"
 	bool m_bEnableOcclusionBlend;

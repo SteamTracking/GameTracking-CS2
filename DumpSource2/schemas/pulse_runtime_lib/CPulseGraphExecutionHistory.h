@@ -1,16 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nInstanceID": 0,
-//	"m_strFileName": "",
-//	"m_vecHistory":
-//	[
-//	],
-//	"m_mapCellDesc":
-//	{
-//	},
-//	"m_mapCursorDesc":
-//	{
-//	}
-//}
 class CPulseGraphExecutionHistory
 {
 	PulseGraphInstanceID_t m_nInstanceID;

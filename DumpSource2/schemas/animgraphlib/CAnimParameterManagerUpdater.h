@@ -1,24 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimParameterManagerUpdater",
-//	"m_parameters":
-//	[
-//	],
-//	"m_idToIndexMap":
-//	[
-//	],
-//	"m_nameToIndexMap":
-//	{
-//	},
-//	"m_indexToHandle":
-//	[
-//	],
-//	"m_autoResetParams":
-//	[
-//	],
-//	"m_autoResetMap":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimParameterManagerUpdater
 {

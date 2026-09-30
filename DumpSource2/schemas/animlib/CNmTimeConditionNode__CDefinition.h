@@ -1,18 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmTimeConditionNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_sourceStateNodeIdx": -1,
-//	"m_nInputValueNodeIdx": -1,
-//	"m_flComparand": 0.000000,
-//	"m_type": "ElapsedTime",
-//	"m_operator": "LessThan"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmTimeConditionNode::CDefinition : public CNmBoolValueNode::CDefinition
 {
-	int16 m_sourceStateNodeIdx;
-	int16 m_nInputValueNodeIdx;
+	int16 m_sourceStateNodeIdx; // = -1
+	int16 m_nInputValueNodeIdx; // = -1
 	float32 m_flComparand;
-	CNmTimeConditionNode::ComparisonType_t m_type;
-	CNmTimeConditionNode::Operator_t m_operator;
+	CNmTimeConditionNode::ComparisonType_t m_type; // = "ElapsedTime"
+	CNmTimeConditionNode::Operator_t m_operator; // = "LessThan"
 };

@@ -1,25 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_RandomOffset",
-//	"m_bEnabled": true,
-//	"m_vRandomPositionMin":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vRandomPositionMax":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vSnapIncrement":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 // MPropertyFriendlyName = "Transform: Random Offset"
 // MPropertyDescription = "Apply a random position offset to the current transform."
 // MVDataClassGroup = "Transform"

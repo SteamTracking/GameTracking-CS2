@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CPulseCell_Step_TestDomainEntFire",
-//	"m_nEditorNodeID": -1,
-//	"m_Input": ""
-//}
 // MPropertyFriendlyName = "Fake Ent-Fire"
 // MPulseEditorHeaderText = "Fire input {m_Input}"
 // MHasKV3TransferPolymorphicClassname

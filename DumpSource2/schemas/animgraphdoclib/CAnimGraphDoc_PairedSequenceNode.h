@@ -1,22 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_PairedSequenceNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_sPairedRole": "",
-//	"m_previewSequenceName": "",
-//	"m_flPlaybackSpeed": 1.000000,
-//	"m_bLoop": false
-//}
 // MPropertyFriendlyName = "Paired Animation Clip"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_PairedSequenceNode : public CAnimGraphDoc_Node
@@ -27,7 +8,7 @@ class CAnimGraphDoc_PairedSequenceNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "Sequence"
 	CUtlString m_previewSequenceName;
 	// MPropertyFriendlyName = "Playback Speed"
-	float32 m_flPlaybackSpeed;
+	float32 m_flPlaybackSpeed; // = 1
 	// MPropertyFriendlyName = "Loop"
 	bool m_bLoop;
 };

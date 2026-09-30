@@ -1,20 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"m_fRadius": 0.750000,
-//	"m_fScale": 0.000000,
-//	"m_fCubemapScale": 1.000000,
-//	"m_fVolumetricScale": 1.000000,
-//	"m_fGradientScale": 1.000000,
-//	"m_fWaterScale": 0.000000,
-//	"m_fWaterDensity": 0.000000,
-//	"m_fWaterDepthBlurRadius": 0.000000
-//}
 class PostProcessingFogScatteringParameters_t
 {
-	float32 m_fRadius;
+	float32 m_fRadius; // = 0.75
 	float32 m_fScale;
-	float32 m_fCubemapScale;
-	float32 m_fVolumetricScale;
-	float32 m_fGradientScale;
+	float32 m_fCubemapScale; // = 1
+	float32 m_fVolumetricScale; // = 1
+	float32 m_fGradientScale; // = 1
 	float32 m_fWaterScale;
 	float32 m_fWaterDensity;
 	float32 m_fWaterDepthBlurRadius;

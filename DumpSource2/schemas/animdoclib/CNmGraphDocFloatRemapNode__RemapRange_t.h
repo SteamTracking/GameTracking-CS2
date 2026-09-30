@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_flBegin": 0.000000,
-//	"m_flEnd": 0.000000
-//}
 // MPropertyAutoExpandSelf
 class CNmGraphDocFloatRemapNode::RemapRange_t
 {

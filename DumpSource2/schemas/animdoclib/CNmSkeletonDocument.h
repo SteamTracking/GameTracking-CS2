@@ -1,38 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmSkeletonDocument",
-//	"m_nVersion": 0,
-//	"m_sourceFilename": "",
-//	"m_rootBoneName": "root_motion",
-//	"m_flGlobalScale": 1.000000,
-//	"m_bIsAttachableProp": false,
-//	"m_bIsCS_HACK": false,
-//	"m_contactConfigs":
-//	[
-//	],
-//	"m_secondarySkeletons":
-//	[
-//	],
-//	"m_gameplayRelevantBones":
-//	[
-//	],
-//	"m_highLODBones":
-//	[
-//	],
-//	"m_boneMaskSetDefinitions":
-//	[
-//	],
-//	"m_floatChannelSets":
-//	[
-//	],
-//	"m_previewModelName": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmSkeletonDocument : public CNmAnimDocument
 {
 	// MPropertyAttributeEditor = "ModelDocAssetBrowse( dmx, fbx, smd, *requiredoubleclick, *ShowRelatedFile )"
 	CUtlString m_sourceFilename;
-	CUtlString m_rootBoneName;
-	float32 m_flGlobalScale;
+	CUtlString m_rootBoneName; // = "root_motion"
+	float32 m_flGlobalScale; // = 1
 	bool m_bIsAttachableProp;
 	bool m_bIsCS_HACK;
 	CUtlVector< CNmSkeletonDocument::ContactConfig_t > m_contactConfigs;

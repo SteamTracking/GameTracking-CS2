@@ -1,69 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sceneObjects":
-//	[
-//	],
-//	"m_visClusterMembership":
-//	[
-//	],
-//	"m_aggregateSceneObjects":
-//	[
-//	],
-//	"m_clutterSceneObjects":
-//	[
-//	],
-//	"m_rtProxies":
-//	[
-//	],
-//	"m_extraVertexStreamOverrides":
-//	[
-//	],
-//	"m_materialOverrides":
-//	[
-//	],
-//	"m_extraVertexStreams":
-//	[
-//	],
-//	"m_aggregateInstanceStreams":
-//	[
-//	],
-//	"m_vertexAlbedoStreams":
-//	[
-//	],
-//	"m_vertexEmissiveStreams":
-//	[
-//	],
-//	"m_layerNames":
-//	[
-//	],
-//	"m_sceneObjectLayerIndices":
-//	[
-//	],
-//	"m_grassFileName": "",
-//	"m_nodeLightingInfo":
-//	{
-//		"m_nLightmapVersionNumber": 0,
-//		"m_nLightmapGameVersionNumber": 0,
-//		"m_vLightmapUvScale":
-//		[
-//			1.000000,
-//			1.000000
-//		],
-//		"m_bHasLightmaps": false,
-//		"m_bBakedShadowsGamma20": false,
-//		"m_bCompressionEnabled": false,
-//		"m_nLPVEncoding": -1,
-//		"m_nLightmapEncoding": -1,
-//		"m_nChartPackIterations": 0,
-//		"m_nVradQuality": 0,
-//		"m_lightMaps":
-//		[
-//		],
-//		"m_bakedShadows":
-//		[
-//		]
-//	},
-//	"m_bHasBakedGeometryFlag": false
-//}
 class WorldNode_t
 {
 	CUtlVector< SceneObject_t > m_sceneObjects;
@@ -80,6 +14,6 @@ class WorldNode_t
 	CUtlVector< CUtlString > m_layerNames;
 	CUtlVector< uint8 > m_sceneObjectLayerIndices;
 	CUtlString m_grassFileName;
-	BakedLightingInfo_t m_nodeLightingInfo;
+	BakedLightingInfo_t m_nodeLightingInfo; // = { "m_bBakedShadowsGamma20": false, "m_bCompressionEnabled": false, "m_bHasLightmaps": false, "m_bakedShadows": [  ], "m_lightMaps": [  ], "m_nChartPackIterations": 0, "m_nLPVEncoding": -1, "m_nLightmapEncoding": -1, "m_nLightmapGameVersionNumber": 0, "m_nLightmapVersionNumber": 0, "m_nVradQuality": 0, "m_vLightmapUvScale": [ 1, 1 ] }
 	bool m_bHasBakedGeometryFlag;
 };

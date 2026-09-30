@@ -1,62 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"m_pOriginatingInfo":
-//	{
-//		"_class": "CTakeDamageInfo",
-//		"m_vecDamageForce":
-//		[
-//			0.000000,
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vecDamagePosition": null,
-//		"m_vecReportedPosition": null,
-//		"m_vecDamageDirection":
-//		[
-//			0.000000,
-//			0.000000,
-//			0.000000
-//		],
-//		"m_hInflictor": null,
-//		"m_hAttacker": null,
-//		"m_hAbility": null,
-//		"m_flDamage": 0.000000,
-//		"m_flTotalledDamage": 0.000000,
-//		"m_bitsDamageType": "",
-//		"m_iDamageCustom": 0,
-//		"m_iAmmoType": "",
-//		"m_flOriginalDamage": 0.000000,
-//		"m_bShouldBleed": false,
-//		"m_bShouldSpark": false,
-//		"m_nDamageFlags": "",
-//		"m_iHitGroupId": "HITGROUP_INVALID",
-//		"m_nNumObjectsPenetrated": 0,
-//		"m_flFriendlyFireDamageReductionRatio": 1.000000,
-//		"m_bStoppedBullet": false,
-//		"m_DestructibleHitGroupRequests":
-//		[
-//		]
-//	},
-//	"m_DestructibleHitGroupRequests":
-//	[
-//	],
-//	"m_nHealthLost": 0,
-//	"m_nHealthBefore": 0,
-//	"m_flDamageDealt": 0.000000,
-//	"m_flPreModifiedDamage": 0.000000,
-//	"m_vDamagePosition": null,
-//	"m_nTotalledHealthLost": 0,
-//	"m_flTotalledDamageDealt": 0.000000,
-//	"m_flTotalledPreModifiedDamage": 0.000000,
-//	"m_flNewDamageAccumulatorValue": 0.000000,
-//	"m_nDamageFlags": "",
-//	"m_bWasDamageSuppressed": false,
-//	"m_bSuppressFlinch": false,
-//	"m_nOverrideFlinchHitGroup": "HITGROUP_INVALID"
-//}
 class CTakeDamageResult
 {
 	// MKV3TransferSaveOpsForField = "GetTakeDamageConstPtrSaveRestoreOps"
-	CTakeDamageInfo* m_pOriginatingInfo;
+	CTakeDamageInfo* m_pOriginatingInfo; // = { "_class": "CTakeDamageInfo", "m_DestructibleHitGroupRequests": [  ], "m_bShouldBleed": false, "m_bShouldSpark": false, "m_bStoppedBullet": false, "m_bitsDamageType": "", "m_flDamage": 0, "m_flFriendlyFireDamageReductionRatio": 1, "m_flOriginalDamage": 0, "m_flTotalledDamage": 0, "m_hAbility": null, "m_hAttacker": null, "m_hInflictor": null, "m_iAmmoType": "", "m_iDamageCustom": 0, "m_iHitGroupId": "HITGROUP_INVALID", "m_nDamageFlags": "", "m_nNumObjectsPenetrated": 0, "m_vecDamageDirection": [ 0, 0, 0 ], "m_vecDamageForce": [ 0, 0, 0 ], "m_vecDamagePosition": null, "m_vecReportedPosition": null }
 	CUtlLeanVector< DestructiblePartDamageRequest_t > m_DestructibleHitGroupRequests;
 	int32 m_nHealthLost;
 	int32 m_nHealthBefore;
@@ -70,5 +15,5 @@ class CTakeDamageResult
 	TakeDamageFlags_t m_nDamageFlags;
 	bool m_bWasDamageSuppressed;
 	bool m_bSuppressFlinch;
-	HitGroup_t m_nOverrideFlinchHitGroup;
+	HitGroup_t m_nOverrideFlinchHitGroup; // = "HITGROUP_INVALID"
 };

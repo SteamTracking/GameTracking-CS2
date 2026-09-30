@@ -1,24 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_StateMachineNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_states":
-//	[
-//	],
-//	"m_bBlockWaningTags": false,
-//	"m_bLockStateWhenWaning": false,
-//	"m_bResetWhenActivated": false
-//}
 // MPropertyFriendlyName = "State Machine"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_StateMachineNode : public CAnimGraphDoc_Node, public CAnimGraphDoc_StateMachine

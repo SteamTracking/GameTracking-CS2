@@ -1,18 +1,8 @@
-// MGetKV3ClassDefaults = {
-//	"vecAncestorCursorIDs":
-//	[
-//	],
-//	"nSpawnNodeID": -1,
-//	"nRetiredAtNodeID": -1,
-//	"flLastReferenced": 0.000000,
-//	"nLastValidEntryIdx": 0,
-//	"bWasAnObservableComputation": false
-//}
 class PulseGraphExecutionHistoryCursorDesc_t
 {
 	CUtlVector< PulseCursorID_t > vecAncestorCursorIDs;
-	PulseDocNodeID_t nSpawnNodeID;
-	PulseDocNodeID_t nRetiredAtNodeID;
+	PulseDocNodeID_t nSpawnNodeID; // = -1
+	PulseDocNodeID_t nRetiredAtNodeID; // = -1
 	float32 flLastReferenced;
 	int32 nLastValidEntryIdx;
 	bool bWasAnObservableComputation;

@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmIDSelectorNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_conditionNodeIndices":
-//	[
-//	],
-//	"m_values":
-//	[
-//	],
-//	"m_defaultValue": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmIDSelectorNode::CDefinition : public CNmIDValueNode::CDefinition
 {

@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_ComponentManager",
-//	"m_components":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_ComponentManager
 {

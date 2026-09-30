@@ -1,25 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_hairs":
-//	[
-//	],
-//	"m_hairPositionOffsets":
-//	[
-//	],
-//	"m_hSimParamsMat": "",
-//	"m_strandSegmentCountHist":
-//	[
-//	],
-//	"m_nMaxSegmentsPerHairStrand": 0,
-//	"m_nGuideHairCount": 0,
-//	"m_nHairCount": 0,
-//	"m_nTotalVertexCount": 0,
-//	"m_nTotalSegmentCount": 0,
-//	"m_nGroomGroupID": 0,
-//	"m_nAttachBoneIdx": 0,
-//	"m_nAttachMeshIdx": -1,
-//	"m_nAttachMeshDrawCallIdx": -1,
-//	"m_bEnableSimulation": false
-//}
 class CRenderGroom
 {
 	CUtlVector< RenderHairStrandInfo_t > m_hairs;
@@ -33,7 +11,7 @@ class CRenderGroom
 	int32 m_nTotalSegmentCount;
 	int32 m_nGroomGroupID;
 	int32 m_nAttachBoneIdx;
-	int32 m_nAttachMeshIdx;
-	int32 m_nAttachMeshDrawCallIdx;
+	int32 m_nAttachMeshIdx; // = -1
+	int32 m_nAttachMeshDrawCallIdx; // = -1
 	bool m_bEnableSimulation;
 };

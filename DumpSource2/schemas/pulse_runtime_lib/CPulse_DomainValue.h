@@ -1,11 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"m_nType": "INVALID",
-//	"m_Value": "",
-//	"m_RequiredRuntimeType": "PVAL_VOID"
-//}
 class CPulse_DomainValue
 {
-	PulseDomainValueType_t m_nType;
+	PulseDomainValueType_t m_nType; // = "INVALID"
 	CGlobalSymbolCaseSensitive m_Value;
-	CPulseValueFullType m_RequiredRuntimeType;
+	CPulseValueFullType m_RequiredRuntimeType; // = "PVAL_VOID"
 };

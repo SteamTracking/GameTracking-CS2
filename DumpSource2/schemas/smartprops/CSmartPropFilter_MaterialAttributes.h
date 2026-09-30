@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropFilter_MaterialAttributes",
-//	"m_bEnabled": true,
-//	"m_AllowedMaterialAttributes":
-//	[
-//	],
-//	"m_DisallowedMaterialAttributes":
-//	[
-//	]
-//}
 // MPropertyFriendlyName = "Filter: Material Attributes"
 // MPropertyDescription = "Allows the parent element to be conditionally evaluated based on attributes assigned to the surface material."
 // MVDataClassGroup = "Filter"

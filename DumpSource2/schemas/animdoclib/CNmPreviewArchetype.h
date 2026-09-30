@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_primarySkeleton": "",
-//	"m_previewModel": "",
-//	"m_bodyPartChoiceName": "",
-//	"m_secondarySkeletonSettings":
-//	[
-//	]
-//}
 // MVDataRoot
 // MVDataOverlayType = 1
 class CNmPreviewArchetype

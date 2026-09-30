@@ -1,71 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimUpdateSharedData",
-//	"m_nodes":
-//	[
-//	],
-//	"m_nodeIndexMap":
-//	[
-//	],
-//	"m_components":
-//	[
-//	],
-//	"m_pParamListUpdater": null,
-//	"m_pTagManagerUpdater": null,
-//	"m_scriptManager": null,
-//	"m_settings":
-//	{
-//		"_class": "CAnimGraphSettingsManager",
-//		"m_settingsGroups":
-//		[
-//			{
-//				"_class": "CAnimGraphNetworkSettings",
-//				"m_bNetworkingEnabled": true
-//			}
-//		]
-//	},
-//	"m_pStaticPoseCache": null,
-//	"m_pSkeleton": null,
-//	"m_rootNodePath":
-//	{
-//		"m_path":
-//		[
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			}
-//		],
-//		"m_nCount": 0
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimUpdateSharedData
 {
@@ -75,7 +7,7 @@ class CAnimUpdateSharedData
 	CSmartPtr< CAnimParameterManagerUpdater > m_pParamListUpdater;
 	CSmartPtr< CAnimTagManagerUpdater > m_pTagManagerUpdater;
 	CSmartPtr< CAnimScriptManager > m_scriptManager;
-	CAnimGraphSettingsManager m_settings;
+	CAnimGraphSettingsManager m_settings; // = { "_class": "CAnimGraphSettingsManager", "m_settingsGroups": [ { "_class": "CAnimGraphNetworkSettings", "m_bNetworkingEnabled": true } ] }
 	CSmartPtr< CStaticPoseCacheBuilder > m_pStaticPoseCache;
 	CSmartPtr< CAnimSkeleton > m_pSkeleton;
 	CAnimNodePath m_rootNodePath;

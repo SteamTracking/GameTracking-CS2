@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_groupName": "",
-//	"m_valueType": "ID",
-//	"m_expectedValues":
-//	[
-//	]
-//}
 class CNmGraphDocDataDictionary::Parameter_t
 {
 	// MPropertySuppressField
@@ -14,7 +5,7 @@ class CNmGraphDocDataDictionary::Parameter_t
 	// MPropertyFlattenIntoParentRow
 	CUtlString m_name;
 	CUtlString m_groupName;
-	NmGraphValueType_t m_valueType;
+	NmGraphValueType_t m_valueType; // = "ID"
 	// MPropertyAutoExpandSelf
 	// MPropertyAttrStateCallback
 	CUtlVector< CGlobalSymbol > m_expectedValues;

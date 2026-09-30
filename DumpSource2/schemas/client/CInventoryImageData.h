@@ -1,132 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nNodeType": "NODE_TYPE_INVALID",
-//	"name": "",
-//	"inventory_image_data":
-//	{
-//		"map":
-//		{
-//			"map_name": "ui/icon_generation_basic_nuke_bombsitea",
-//			"map_rotation": 0.000000
-//		},
-//		"item":
-//		{
-//			"position":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"angle":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"pose_sequence": ""
-//		},
-//		"camera":
-//		{
-//			"angle":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"fov_h": 0.000000,
-//			"fov_v": 45.000000,
-//			"znear": 4.000000,
-//			"zfar": 1000.000000,
-//			"target":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"target_nudge":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"orbit_distance": 0.000000
-//		},
-//		"lightsun":
-//		{
-//			"color":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"angle":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"brightness": 1.000000
-//		},
-//		"lightfill":
-//		{
-//			"color":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"angle":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"brightness": 1.000000
-//		},
-//		"light0":
-//		{
-//			"color":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"angle":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"brightness": 0.000000,
-//			"orbit_distance": 1.000000
-//		},
-//		"light1":
-//		{
-//			"color":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"angle":
-//			[
-//				0.000000,
-//				0.000000,
-//				0.000000
-//			],
-//			"brightness": 0.000000,
-//			"orbit_distance": 1.000000
-//		},
-//		"clearcolor":
-//		{
-//			"color":
-//			[
-//				0.200000,
-//				0.200000,
-//				0.200000
-//			]
-//		}
-//	}
-//}
 // MVDataRoot
 // MVDataOutlinerDetailExpr = "name"
 // MVDataOverlayType = 1
@@ -141,7 +12,7 @@
 class CInventoryImageData
 {
 	// MPropertySuppressField
-	InventoryNodeType_t m_nNodeType;
+	InventoryNodeType_t m_nNodeType; // = "NODE_TYPE_INVALID"
 	// MPropertyFriendlyName = "Item Name"
 	// MPropertyReadOnly
 	// MPropertyReadonlyExpr = "1"
@@ -149,5 +20,5 @@ class CInventoryImageData
 	CUtlString name;
 	// MPropertyFriendlyName = "Inventory Image Data"
 	// MPropertyAutoExpandSelf
-	inv_image_data_t inventory_image_data;
+	inv_image_data_t inventory_image_data; // = { "camera": { "angle": [ 0, 0, 0 ], "fov_h": 0, "fov_v": 45, "orbit_distance": 0, "target": [ 0, 0, 0 ], "target_nudge": [ 0, 0, 0 ], "zfar": 1000, "znear": 4 }, "clearcolor": { "color": [ 0.2, 0.2, 0.2 ] }, "item": { "angle": [ 0, 0, 0 ], "pose_sequence": "", "position": [ 0, 0, 0 ] }, "light0": { "angle": [ 0, 0, 0 ], "brightness": 0, "color": [ 0, 0, 0 ], "orbit_distance": 1 }, "light1": { "angle": [ 0, 0, 0 ], "brightness": 0, "color": [ 0, 0, 0 ], "orbit_distance": 1 }, "lightfill": { "angle": [ 0, 0, 0 ], "brightness": 1, "color": [ 0, 0, 0 ] }, "lightsun": { "angle": [ 0, 0, 0 ], "brightness": 1, "color": [ 0, 0, 0 ] }, "map": { "map_name": "ui/icon_generation_basic_nuke_bombsitea", "map_rotation": 0 } }
 };

@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropChoice",
-//	"m_nElementID": -1,
-//	"m_Name": "",
-//	"m_DefaultOption": "",
-//	"m_Options":
-//	[
-//	]
-//}
 // MPropertyFriendlyName = "Choice"
 // MVDataAnonymousNode
 // MVDataOutlinerNameExpr = "m_Name"

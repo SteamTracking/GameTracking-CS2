@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = Could not parse KV3 Defaults
 class CStateNodeInstanceData
 {
 	CRelativeArray< float32 > m_stateWeights;

@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_StepsRemainingMetric",
-//	"m_flWeight": 0.000000,
-//	"m_feet":
-//	[
-//	],
-//	"m_flMinStepsRemaining": 1.000000
-//}
 // MPropertyFriendlyName = "Steps Remaining Metric"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_StepsRemainingMetric : public CAnimGraphDoc_MotionMetric
@@ -15,5 +7,5 @@ class CAnimGraphDoc_StepsRemainingMetric : public CAnimGraphDoc_MotionMetric
 	// MPropertyAutoExpandSelf
 	CUtlVector< CUtlString > m_feet;
 	// MPropertyFriendlyName = "Min Steps Remaining"
-	float32 m_flMinStepsRemaining;
+	float32 m_flMinStepsRemaining; // = 1
 };

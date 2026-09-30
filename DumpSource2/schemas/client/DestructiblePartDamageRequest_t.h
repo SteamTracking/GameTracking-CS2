@@ -1,30 +1,13 @@
-// MGetKV3ClassDefaults = {
-//	"m_nHitGroup": "HITGROUP_INVALID",
-//	"m_nDamageLevel": -1,
-//	"m_nDesiredHealth": 0,
-//	"m_nDestroyFlags": "GenerateBreakpieces|SetBodyGroupAndCollisionState|EnableFlinches",
-//	"m_nDamageType": "DMG_BLAST",
-//	"m_flBreakDamage": 0.000000,
-//	"m_flBreakDamageRadius": 24.000000,
-//	"m_hAttacker": null,
-//	"m_vWsBreakDamageOrigin": null,
-//	"m_vWsBreakDamageForce":
-//	[
-//		1.000000,
-//		0.000000,
-//		0.000000
-//	]
-//}
 class DestructiblePartDamageRequest_t
 {
-	HitGroup_t m_nHitGroup;
-	int32 m_nDamageLevel;
+	HitGroup_t m_nHitGroup; // = "HITGROUP_INVALID"
+	int32 m_nDamageLevel; // = -1
 	uint16 m_nDesiredHealth;
-	EDestructibleParts_DestroyParameterFlags m_nDestroyFlags;
-	DamageTypes_t m_nDamageType;
+	EDestructibleParts_DestroyParameterFlags m_nDestroyFlags; // = "GenerateBreakpieces|SetBodyGroupAndCollisionState|EnableFlinches"
+	DamageTypes_t m_nDamageType; // = "DMG_BLAST"
 	float32 m_flBreakDamage;
-	float32 m_flBreakDamageRadius;
+	float32 m_flBreakDamageRadius; // = 24
 	CHandle< C_BaseEntity > m_hAttacker;
 	VectorWS m_vWsBreakDamageOrigin;
-	Vector m_vWsBreakDamageForce;
+	Vector m_vWsBreakDamageForce; // = [ 1, 0, 0 ]
 };

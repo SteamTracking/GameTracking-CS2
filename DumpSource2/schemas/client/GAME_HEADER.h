@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sComment": "",
-//	"m_nSpawnGroupCount": 0,
-//	"m_sLandmark": "",
-//	"m_sRequiredAddons": ""
-//}
 class GAME_HEADER
 {
 	CUtlString m_sComment;

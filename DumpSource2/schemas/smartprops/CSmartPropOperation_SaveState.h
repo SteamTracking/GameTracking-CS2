@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_SaveState",
-//	"m_bEnabled": true,
-//	"m_StateName": ""
-//}
 // MPropertyFriendlyName = "Save State"
 // MPropertyDescription = "Save the current state, allowing it to be restored at a later state."
 // MVDataNodeTintColor = [188, 255, 255, 255]

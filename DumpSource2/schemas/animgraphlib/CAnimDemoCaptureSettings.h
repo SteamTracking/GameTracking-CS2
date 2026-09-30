@@ -1,80 +1,35 @@
-// MGetKV3ClassDefaults = {
-//	"m_vecErrorRangeSplineRotation":
-//	[
-//		0.100000,
-//		0.500000
-//	],
-//	"m_vecErrorRangeSplineTranslation":
-//	[
-//		0.100000,
-//		0.500000
-//	],
-//	"m_vecErrorRangeSplineScale":
-//	[
-//		0.100000,
-//		0.500000
-//	],
-//	"m_flIkRotation_MaxSplineError": 0.030000,
-//	"m_flIkTranslation_MaxSplineError": 0.300000,
-//	"m_vecErrorRangeQuantizationRotation":
-//	[
-//		0.100000,
-//		0.500000
-//	],
-//	"m_vecErrorRangeQuantizationTranslation":
-//	[
-//		0.100000,
-//		0.500000
-//	],
-//	"m_vecErrorRangeQuantizationScale":
-//	[
-//		0.100000,
-//		0.500000
-//	],
-//	"m_flIkRotation_MaxQuantizationError": 0.010000,
-//	"m_flIkTranslation_MaxQuantizationError": 0.100000,
-//	"m_baseSequence": "",
-//	"m_nBaseSequenceFrame": 0,
-//	"m_boneSelectionMode": "CaptureSelectedBones",
-//	"m_bones":
-//	[
-//	],
-//	"m_ikChains":
-//	[
-//	]
-//}
 class CAnimDemoCaptureSettings
 {
 	// MPropertyFriendlyName = "Rotation Error Range"
 	// MPropertyGroupName = "+Spline Settings"
-	Vector2D m_vecErrorRangeSplineRotation;
+	Vector2D m_vecErrorRangeSplineRotation; // = [ 0.1, 0.5 ]
 	// MPropertyFriendlyName = "Translation Error Range"
 	// MPropertyGroupName = "+Spline Settings"
-	Vector2D m_vecErrorRangeSplineTranslation;
+	Vector2D m_vecErrorRangeSplineTranslation; // = [ 0.1, 0.5 ]
 	// MPropertyFriendlyName = "Scale Error Range"
 	// MPropertyGroupName = "+Spline Settings"
-	Vector2D m_vecErrorRangeSplineScale;
+	Vector2D m_vecErrorRangeSplineScale; // = [ 0.1, 0.5 ]
 	// MPropertyFriendlyName = "Max IK Rotation Error"
 	// MPropertyGroupName = "+Spline Settings"
-	float32 m_flIkRotation_MaxSplineError;
+	float32 m_flIkRotation_MaxSplineError; // = 0.03
 	// MPropertyFriendlyName = "Max IK Translation Error"
 	// MPropertyGroupName = "+Spline Settings"
-	float32 m_flIkTranslation_MaxSplineError;
+	float32 m_flIkTranslation_MaxSplineError; // = 0.3
 	// MPropertyFriendlyName = "Rotation Error Range"
 	// MPropertyGroupName = "+Quantization Settings"
-	Vector2D m_vecErrorRangeQuantizationRotation;
+	Vector2D m_vecErrorRangeQuantizationRotation; // = [ 0.1, 0.5 ]
 	// MPropertyFriendlyName = "Translation Error Range"
 	// MPropertyGroupName = "+Quantization Settings"
-	Vector2D m_vecErrorRangeQuantizationTranslation;
+	Vector2D m_vecErrorRangeQuantizationTranslation; // = [ 0.1, 0.5 ]
 	// MPropertyFriendlyName = "Scale Error Range"
 	// MPropertyGroupName = "+Quantization Settings"
-	Vector2D m_vecErrorRangeQuantizationScale;
+	Vector2D m_vecErrorRangeQuantizationScale; // = [ 0.1, 0.5 ]
 	// MPropertyFriendlyName = "Max IK Rotation Error"
 	// MPropertyGroupName = "+Quantization Settings"
-	float32 m_flIkRotation_MaxQuantizationError;
+	float32 m_flIkRotation_MaxQuantizationError; // = 0.01
 	// MPropertyFriendlyName = "Max IK Translation Error"
 	// MPropertyGroupName = "+Quantization Settings"
-	float32 m_flIkTranslation_MaxQuantizationError;
+	float32 m_flIkTranslation_MaxQuantizationError; // = 0.1
 	// MPropertyFriendlyName = "Base Sequence"
 	// MPropertyGroupName = "+Base Pose"
 	// MPropertyAttributeChoiceName = "Sequence"
@@ -85,7 +40,7 @@ class CAnimDemoCaptureSettings
 	// MPropertyFriendlyName = "Bone Selection Mode"
 	// MPropertyGroupName = "+Bones"
 	// MPropertyAutoRebuildOnChange
-	EDemoBoneSelectionMode m_boneSelectionMode;
+	EDemoBoneSelectionMode m_boneSelectionMode; // = "CaptureSelectedBones"
 	// MPropertyFriendlyName = "Bones"
 	// MPropertyGroupName = "+Bones"
 	// MPropertyAttrStateCallback

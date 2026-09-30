@@ -1,39 +1,6 @@
 // MPropertyArrayElementNameKey = "m_name"
 // MVDataAnonymousNode
 // MVDataOutlinerNameExpr = "m_name"
-// MGetKV3ClassDefaults = {
-//	"m_name": "",
-//	"m_flSyncPriority": 0.000000,
-//	"m_syncStartType": "eSndBeatSyncStartTypeImmediate",
-//	"m_syncType": "eSndBeatSyncTypeReset",
-//	"m_timeSignature":
-//	{
-//		"nNumerator": 4,
-//		"nDenominator": 4
-//	},
-//	"m_flLength": 4.000000,
-//	"m_bLooping": false,
-//	"m_playEventType": "eSndBeatEventTypeBeat",
-//	"m_flPlayBeatMult": 1.000000,
-//	"m_playKeyType": "eSndBeatPatternTypeKeys",
-//	"m_vecPatternKeys":
-//	[
-//	],
-//	"m_vecPatternFloats":
-//	[
-//	],
-//	"m_vecPatternSndEvts":
-//	[
-//	],
-//	"m_vecPatternMidi":
-//	[
-//	],
-//	"m_syncEventType": "eSndBeatEventTypeBeat",
-//	"m_flSyncBeatMult": 1.000000,
-//	"m_vecSyncPatternKeys":
-//	[
-//	]
-//}
 class CSndBeatPattern
 {
 	// MPropertyFriendlyName = "Pattern Name"
@@ -41,24 +8,24 @@ class CSndBeatPattern
 	// MPropertyFriendlyName = "Pattern Priority"
 	float32 m_flSyncPriority;
 	// MPropertyFriendlyName = "Sync Start Type"
-	SndBeatSyncStartType_t m_syncStartType;
+	SndBeatSyncStartType_t m_syncStartType; // = "eSndBeatSyncStartTypeImmediate"
 	// MPropertyFriendlyName = "Sync Type"
-	SndBeatSyncType_t m_syncType;
+	SndBeatSyncType_t m_syncType; // = "eSndBeatSyncTypeReset"
 	// MPropertyFriendlyName = "Time Signature"
-	SndBeatTimeSignature_t m_timeSignature;
+	SndBeatTimeSignature_t m_timeSignature; // = { "nDenominator": 4, "nNumerator": 4 }
 	// MPropertyFriendlyName = "Length (beats)"
-	float32 m_flLength;
+	float32 m_flLength; // = 4
 	// MPropertyFriendlyName = "Looping"
 	bool m_bLooping;
 	// MPropertyStartGroup = "Playback"
 	// MPropertyFriendlyName = "Playback Event Type"
-	SndBeatEventType_t m_playEventType;
+	SndBeatEventType_t m_playEventType; // = "eSndBeatEventTypeBeat"
 	// MPropertySuppressExpr = "m_playEventType == eSndBeatEventTypeKeys"
 	// MPropertyFriendlyName = "Playback Event Beat/Bar/Phrase/Length Multiplier"
-	float32 m_flPlayBeatMult;
+	float32 m_flPlayBeatMult; // = 1
 	// MPropertySuppressExpr = "m_playEventType != eSndBeatEventTypeKeys"
 	// MPropertyFriendlyName = "Key Type"
-	SndBeatKeyType_t m_playKeyType;
+	SndBeatKeyType_t m_playKeyType; // = "eSndBeatPatternTypeKeys"
 	// MPropertySuppressExpr = "m_playKeyType != eSndBeatPatternTypeKeys"
 	CUtlVector< SndBeatEventKeys_t > m_vecPatternKeys;
 	// MPropertySuppressExpr = "m_playKeyType != eSndBeatPatternTypeKeyedFloats"
@@ -69,10 +36,10 @@ class CSndBeatPattern
 	CUtlVector< SndBeatEventKeyedMidiNotes_t > m_vecPatternMidi;
 	// MPropertyStartGroup = "Queue"
 	// MPropertyFriendlyName = "Queue Event Type"
-	SndBeatEventType_t m_syncEventType;
+	SndBeatEventType_t m_syncEventType; // = "eSndBeatEventTypeBeat"
 	// MPropertySuppressExpr = "m_syncEventType == eSndBeatEventTypeKeys"
 	// MPropertyFriendlyName = "Queue Beat/Bar/Phrase/Length Multiplier"
-	float32 m_flSyncBeatMult;
+	float32 m_flSyncBeatMult; // = 1
 	// MPropertySuppressExpr = "m_syncEventType != eSndBeatEventTypeKeys"
 	CUtlVector< SndBeatEventKeys_t > m_vecSyncPatternKeys;
 };

@@ -1,22 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CWarpSectionAnimTag",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false,
-//	"m_bWarpPosition": true,
-//	"m_bWarpOrientation": true
-//}
 // MPropertyFriendlyName = "Warp Section Tag"
 // MHasKV3TransferPolymorphicClassname
 class CWarpSectionAnimTag : public CWarpSectionAnimTagBase
 {
 	// MPropertyFriendlyName = "Warp Position"
-	bool m_bWarpPosition;
+	bool m_bWarpPosition; // = true
 	// MPropertyFriendlyName = "Warp Orientation"
-	bool m_bWarpOrientation;
+	bool m_bWarpOrientation; // = true
 };

@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocReferencedGraphNode::CData",
-//	"m_variation": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocReferencedGraphNode::CData : public CNmGraphDocVariationDataNode::CData
 {

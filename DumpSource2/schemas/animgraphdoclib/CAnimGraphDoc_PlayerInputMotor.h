@@ -1,24 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_PlayerInputMotor",
-//	"m_name": "Unnamed Motor",
-//	"m_bDefault": false,
-//	"m_sampleTimes":
-//	[
-//	],
-//	"m_bUseAcceleration": false,
-//	"m_flSpringConstant": 10.000000,
-//	"m_flAnticipationDistance": 0.000000,
-//	"m_anticipationPosParamName": "",
-//	"m_anticipationPosParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_anticipationHeadingParamName": "",
-//	"m_anticipationHeadingParam":
-//	{
-//		"m_id": 0
-//	}
-//}
 // MPropertyFriendlyName = "Player Input Motor"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_PlayerInputMotor : public CAnimGraphDoc_Motor
@@ -28,7 +7,7 @@ class CAnimGraphDoc_PlayerInputMotor : public CAnimGraphDoc_Motor
 	// MPropertyFriendlyName = "Use Acceleration"
 	bool m_bUseAcceleration;
 	// MPropertyFriendlyName = "Spring Constant"
-	float32 m_flSpringConstant;
+	float32 m_flSpringConstant; // = 10
 	// MPropertyFriendlyName = "Anticipation Distance"
 	float32 m_flAnticipationDistance;
 	// MPropertySuppressField

@@ -1,5 +1,3 @@
-// MGetKV3ClassDefaults = {
-//}
 class CSteamAudioSceneData
 {
 	IPLScene m_pScene;

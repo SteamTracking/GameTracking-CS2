@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CBrightnessContrastColorCorrectionLayer",
-//	"m_name": "Brightness/Contrast 1",
-//	"m_nOpacityPercent": 100,
-//	"m_bVisible": true,
-//	"m_pLayerMask": null,
-//	"m_nBrightness": 0,
-//	"m_nContrast": 0
-//}
 // MHasKV3TransferPolymorphicClassname
 class CBrightnessContrastColorCorrectionLayer : public CColorCorrectionLayer
 {

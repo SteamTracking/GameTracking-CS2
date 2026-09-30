@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = null
 class CRelativeTransform
 {
 	bool m_bTransformIsWorldSpace;

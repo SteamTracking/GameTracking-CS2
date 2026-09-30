@@ -1,17 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_pointNames":
-//	[
-//	],
-//	"m_points":
-//	[
-//	],
-//	"m_indices":
-//	[
-//	],
-//	"m_hullIndices":
-//	[
-//	]
-//}
 class CNmBlendSpace2D
 {
 	// MPropertyAutoExpandSelf

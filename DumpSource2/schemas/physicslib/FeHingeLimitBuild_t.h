@@ -1,17 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"nNode":
-//	[
-//		0,
-//		0,
-//		0,
-//		0,
-//		0,
-//		0
-//	],
-//	"nFlags": 0,
-//	"flLimitCW": 0.000000,
-//	"flLimitCCW": 0.000000
-//}
 class FeHingeLimitBuild_t
 {
 	uint16[6] nNode;

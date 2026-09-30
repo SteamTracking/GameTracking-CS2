@@ -1,42 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CVoiceContainerLoopXFade",
-//	"m_vSound":
-//	{
-//		"m_Sentences":
-//		[
-//		],
-//		"m_nRate": 0,
-//		"m_nFormat": "PCM16",
-//		"m_nChannels": 0,
-//		"m_nLoopStart": 0,
-//		"m_nSampleCount": 0,
-//		"m_flDuration": 0.000000,
-//		"m_nStreamingSize": 0,
-//		"m_nLoopEnd": 0
-//	},
-//	"m_pEnvelopeAnalyzer": null,
-//	"m_sound":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_flLoopEnd": 0.000000,
-//	"m_flLoopStart": 0.000000,
-//	"m_flFadeOut": 0.000000,
-//	"m_flFadeIn": 0.000000,
-//	"m_bPlayHead": false,
-//	"m_bPlayTail": false,
-//	"m_bEqualPow": false
-//}
 // MPropertyFriendlyName = "Loop XFade"
 // MPropertyDescription = "Sample accurate looping with xfade capabilities."
 // MHasKV3TransferPolymorphicClassname
 class CVoiceContainerLoopXFade : public CVoiceContainerBase
 {
 	// MPropertyFriendlyName = "Vsnd Reference"
-	CSoundContainerReference m_sound;
+	CSoundContainerReference m_sound; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	float32 m_flLoopEnd;
 	float32 m_flLoopStart;
 	float32 m_flFadeOut;

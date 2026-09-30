@@ -1,29 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_TagName": "",
-//	"m_TagDescription": "",
-//	"m_TagIcon": "",
-//	"m_TagColor":
-//	[
-//		255,
-//		255,
-//		255
-//	],
-//	"m_TagAliases":
-//	[
-//	],
-//	"m_ThumbnailOverlayImage": "",
-//	"m_bTagIndicatesRejectedAsset": false,
-//	"m_bTagHidesAssetByDefault": false,
-//	"m_RestrictAutoTagToAssetType": "",
-//	"m_AutoFilterTag": "",
-//	"m_AutoDataTag":
-//	{
-//		"m_SourceFile": "",
-//		"m_AssetKey": "",
-//		"m_AlternateAssetKey": "",
-//		"m_Expression": ""
-//	}
-//}
 // MVDataRoot
 // MVDataOutlinerDetailExpr = "m_TagName"
 // MVDataOutlinerIconExpr = "m_TagIcon"
@@ -38,7 +12,7 @@ class CAssetTagInfo
 	// MPropertyAttributeEditor = "ToolImage( 16 )"
 	CUtlString m_TagIcon;
 	// MPropertyDescription = "Color for the tag badge"
-	Color m_TagColor;
+	Color m_TagColor; // = [ 255, 255, 255 ]
 	// MPropertyDescription = "Alternate strings this tag will match when searching for assets by name."
 	// MPropertyAutoExpandSelf
 	CUtlVector< CUtlString > m_TagAliases;

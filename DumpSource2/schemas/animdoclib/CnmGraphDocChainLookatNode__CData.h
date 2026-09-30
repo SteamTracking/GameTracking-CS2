@@ -1,24 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CnmGraphDocChainLookatNode::CData",
-//	"m_endEffectorBoneName": "",
-//	"m_endEffectorForwardAxis":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_endEffectorOffset":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nChainLength": 2,
-//	"m_flBlendTimeSeconds": 0.000000,
-//	"m_chainWeights":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CnmGraphDocChainLookatNode::CData : public CNmGraphDocVariationDataNode::CData
 {
@@ -29,7 +8,7 @@ class CnmGraphDocChainLookatNode::CData : public CNmGraphDocVariationDataNode::C
 	Vector m_endEffectorOffset;
 	// MPropertyDescription = "The length of the IK chain"
 	// MPropertyAttributeRange = "2 7"
-	uint8 m_nChainLength;
+	uint8 m_nChainLength; // = 2
 	// MPropertyDescription = "How long should the blend in/out take"
 	float32 m_flBlendTimeSeconds;
 	// MPropertyAutoExpandSelf

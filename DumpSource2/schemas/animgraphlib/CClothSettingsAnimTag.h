@@ -1,25 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CClothSettingsAnimTag",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false,
-//	"m_flStiffness": 1.000000,
-//	"m_flEaseIn": 0.000000,
-//	"m_flEaseOut": 0.000000,
-//	"m_nVertexSet": ""
-//}
 // MPropertyFriendlyName = "Cloth Settings Tag"
 // MHasKV3TransferPolymorphicClassname
 class CClothSettingsAnimTag : public CAnimTagBase
 {
 	// MPropertyFriendlyName = "Stiffness"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flStiffness;
+	float32 m_flStiffness; // = 1
 	// MPropertyFriendlyName = "EaseIn"
 	// MPropertyAttributeRange = "0 1"
 	float32 m_flEaseIn;

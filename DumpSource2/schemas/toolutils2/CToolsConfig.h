@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_EngineTools":
-//	[
-//	],
-//	"m_ExternalTools":
-//	[
-//	],
-//	"m_EngineModulesThatReferenceAssets":
-//	[
-//	]
-//}
 class CToolsConfig
 {
 	CUtlVector< CEngineToolInfo > m_EngineTools;

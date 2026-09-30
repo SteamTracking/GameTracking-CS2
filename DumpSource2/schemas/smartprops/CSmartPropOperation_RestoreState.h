@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_RestoreState",
-//	"m_bEnabled": true,
-//	"m_StateName": "",
-//	"m_bDiscardIfUknown": false
-//}
 // MPropertyFriendlyName = "Restore State"
 // MPropertyDescription = "Replace the current state with a previously saved state."
 // MVDataNodeTintColor = [188, 255, 255, 255]

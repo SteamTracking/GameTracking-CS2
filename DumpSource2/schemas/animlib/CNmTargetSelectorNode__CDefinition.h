@@ -1,24 +1,11 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmTargetSelectorNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_optionNodeIndices":
-//	[
-//	],
-//	"m_flOrientationScoreWeight": 1.000000,
-//	"m_flPositionScoreWeight": 1.000000,
-//	"m_parameterNodeIdx": -1,
-//	"m_bIgnoreInvalidOptions": false,
-//	"m_bIsWorldSpaceTarget": true,
-//	"m_alignmentBoneID": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmTargetSelectorNode::CDefinition : public CNmClipReferenceNode::CDefinition
 {
 	CUtlLeanVectorFixedGrowable< int16, 8 > m_optionNodeIndices;
-	float32 m_flOrientationScoreWeight;
-	float32 m_flPositionScoreWeight;
-	int16 m_parameterNodeIdx;
+	float32 m_flOrientationScoreWeight; // = 1
+	float32 m_flPositionScoreWeight; // = 1
+	int16 m_parameterNodeIdx; // = -1
 	bool m_bIgnoreInvalidOptions;
-	bool m_bIsWorldSpaceTarget;
+	bool m_bIsWorldSpaceTarget; // = true
 	CGlobalSymbol m_alignmentBoneID;
 };

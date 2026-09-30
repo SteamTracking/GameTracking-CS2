@@ -1,15 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSequenceFinishedAnimTag",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false,
-//	"m_sequenceName": ""
-//}
 // MPropertyFriendlyName = "Sequence Finished Tag"
 // MHasKV3TransferPolymorphicClassname
 class CSequenceFinishedAnimTag : public CAnimTagBase

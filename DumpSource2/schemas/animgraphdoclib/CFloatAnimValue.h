@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CFloatAnimValue",
-//	"m_flConstValue": 0.000000,
-//	"m_paramName": "",
-//	"m_paramID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_eSource": "Constant"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CFloatAnimValue
 {
@@ -18,5 +8,5 @@ class CFloatAnimValue
 	// MPropertySuppressField
 	AnimParamID m_paramID;
 	// MPropertySuppressField
-	EAnimValueSource m_eSource;
+	EAnimValueSource m_eSource; // = "Constant"
 };

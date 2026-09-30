@@ -1,18 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CTimeRemainingMetricEvaluator",
-//	"m_means":
-//	[
-//	],
-//	"m_standardDeviations":
-//	[
-//	],
-//	"m_flWeight": 0.000000,
-//	"m_nDimensionStartIndex": -1,
-//	"m_bMatchByTimeRemaining": false,
-//	"m_flMaxTimeRemaining": 0.000000,
-//	"m_bFilterByTimeRemaining": false,
-//	"m_flMinTimeRemaining": 0.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CTimeRemainingMetricEvaluator : public CMotionMetricEvaluator
 {

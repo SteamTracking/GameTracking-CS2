@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_uRequestID": 0,
-//	"m_nGroupName": "",
-//	"m_sChoiceName": "",
-//	"m_nGroup": 0,
-//	"m_uChoice": 0,
-//	"m_uRefCount": 0
-//}
 class CBaseModelEntity::BodyGroupRequest_t
 {
 	uint32 m_uRequestID;

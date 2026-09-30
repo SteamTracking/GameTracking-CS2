@@ -1,15 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCompositeMaterialEditorDoc",
-//	"m_nVersion": 1,
-//	"m_Points":
-//	[
-//	],
-//	"m_KVthumbnail": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class CCompositeMaterialEditorDoc
 {
-	int32 m_nVersion;
+	int32 m_nVersion; // = 1
 	CUtlVector< CompositeMaterialEditorPoint_t > m_Points;
 	KeyValues3 m_KVthumbnail;
 };

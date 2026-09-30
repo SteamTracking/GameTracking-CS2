@@ -1,12 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixPropertyBase",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0
-//}
 // MHasKV3TransferPolymorphicClassname
 class CMixPropertyBase
 {
@@ -19,7 +10,7 @@ class CMixPropertyBase
 	CUtlString m_Comment;
 	// MPropertySortPriority = -1
 	// MPropertyHideField
-	bool m_bActive;
+	bool m_bActive; // = true
 	// MPropertySortPriority = -1
 	// MPropertyHideField
 	bool m_bSolo;

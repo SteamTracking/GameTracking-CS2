@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"SurfacePropertiesList":
-//	[
-//	]
-//}
 class CVPhysXSurfacePropertiesList
 {
 	// MKV3TransferName = "SurfacePropertiesList"

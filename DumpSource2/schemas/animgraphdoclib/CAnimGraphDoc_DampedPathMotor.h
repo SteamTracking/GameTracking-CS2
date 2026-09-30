@@ -1,32 +1,11 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_DampedPathMotor",
-//	"m_name": "Unnamed Motor",
-//	"m_bDefault": false,
-//	"m_bLockToPath": true,
-//	"m_flAnticipationTime": 1.000000,
-//	"m_flMinSpeedScale": 0.250000,
-//	"m_anticipationPosParamName": "",
-//	"m_anticipationPosParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_anticipationHeadingParamName": "",
-//	"m_anticipationHeadingParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_flSpringConstant": 10.000000,
-//	"m_flMinSpringTension": 1.000000,
-//	"m_flMaxSpringTension": 100.000000
-//}
 // MPropertyFriendlyName = "Damped Path Motor"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_DampedPathMotor : public CAnimGraphDoc_PathMotorBase
 {
 	// MPropertyFriendlyName = "Anticipation Time"
-	float32 m_flAnticipationTime;
+	float32 m_flAnticipationTime; // = 1
 	// MPropertyFriendlyName = "Minimum Speed Percentage"
-	float32 m_flMinSpeedScale;
+	float32 m_flMinSpeedScale; // = 0.25
 	// MPropertySuppressField
 	CUtlString m_anticipationPosParamName;
 	// MPropertyFriendlyName = "Anticipation Position Parameter"
@@ -39,11 +18,11 @@ class CAnimGraphDoc_DampedPathMotor : public CAnimGraphDoc_PathMotorBase
 	AnimParamID m_anticipationHeadingParam;
 	// MPropertyFriendlyName = "Spring Constant"
 	// MPropertyGroupName = "+Stopping:Arrival Damping"
-	float32 m_flSpringConstant;
+	float32 m_flSpringConstant; // = 10
 	// MPropertyFriendlyName = "Min Tension"
 	// MPropertyGroupName = "+Stopping:Arrival Damping"
-	float32 m_flMinSpringTension;
+	float32 m_flMinSpringTension; // = 1
 	// MPropertyFriendlyName = "Max Tension"
 	// MPropertyGroupName = "+Stopping:Arrival Damping"
-	float32 m_flMaxSpringTension;
+	float32 m_flMaxSpringTension; // = 100
 };

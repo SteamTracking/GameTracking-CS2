@@ -1,18 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"m_bUseReference": true,
-//	"m_sounds":
-//	[
-//	],
-//	"m_pSounds":
-//	[
-//	]
-//}
 // MPropertyFriendlyName = "Sound Array "
 // MPropertyDescription = "Reference to list of vsnd files or other containers."
 class CSoundContainerReferenceArray
 {
 	// MPropertyFriendlyName = "Use Vsnd File"
-	bool m_bUseReference;
+	bool m_bUseReference; // = true
 	// MPropertySuppressExpr = "m_bUseReference == 0"
 	// MPropertyFriendlyName = "Vsnd File"
 	CUtlVector< CStrongHandle< InfoForResourceTypeCVoiceContainerBase > > m_sounds;

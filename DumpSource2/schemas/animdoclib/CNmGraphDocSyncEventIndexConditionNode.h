@@ -1,34 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocSyncEventIndexConditionNode",
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_floatingComment": "",
-//	"m_position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pChildGraph": null,
-//	"m_pSecondaryGraph": null,
-//	"m_inputPins":
-//	[
-//	],
-//	"m_outputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Result",
-//			"m_type": "Bool",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": true
-//		}
-//	],
-//	"m_triggerMode": "ExactlyAtEventIndex",
-//	"m_nSyncEventIdx": -1
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocSyncEventIndexConditionNode : public CNmGraphDocFlowNode
 {
-	CNmSyncEventIndexConditionNode::TriggerMode_t m_triggerMode;
-	int32 m_nSyncEventIdx;
+	CNmSyncEventIndexConditionNode::TriggerMode_t m_triggerMode; // = "ExactlyAtEventIndex"
+	int32 m_nSyncEventIdx; // = -1
 };

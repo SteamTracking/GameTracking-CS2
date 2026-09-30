@@ -1,39 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"m_valueType": "FloatParameter",
-//	"m_floatParamNameIn": "",
-//	"m_floatParamNameOut": "",
-//	"m_vectorParamNameIn": "",
-//	"m_vectorParamNameOut": "",
-//	"m_floatParamIn":
-//	{
-//		"m_id": 0
-//	},
-//	"m_floatParamOut":
-//	{
-//		"m_id": 0
-//	},
-//	"m_vectorParamIn":
-//	{
-//		"m_id": 0
-//	},
-//	"m_vectorParamOut":
-//	{
-//		"m_id": 0
-//	},
-//	"m_damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	}
-//}
 // MPropertyFriendlyName = "Damped Value"
 class CDampedValueItem
 {
 	// MPropertyFriendlyName = "Value Type"
 	// MPropertyAutoRebuildOnChange
-	DampedValueType m_valueType;
+	DampedValueType m_valueType; // = "FloatParameter"
 	// MPropertySuppressField
 	CUtlString m_floatParamNameIn;
 	// MPropertySuppressField
@@ -59,5 +29,5 @@ class CDampedValueItem
 	// MPropertyAttrStateCallback
 	AnimParamID m_vectorParamOut;
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping;
+	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 };

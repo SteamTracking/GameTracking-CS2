@@ -1,25 +1,12 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_StateStatusCondition",
-//	"m_sourceValue": "SourceStateBlendWeight",
-//	"m_comparisonValueType": "StateComparisonValue_FixedValue",
-//	"m_comparisonFixedValue": 0.000000,
-//	"m_comparisonStateValue": "SourceStateBlendWeight",
-//	"m_comparisonParamName": "",
-//	"m_comparisonParamID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_comparisonOp": "COMPARISON_EQUALS"
-//}
 // MPropertyFriendlyName = "State Status Condition"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_StateStatusCondition : public CAnimGraphDoc_Condition
 {
-	StateValue m_sourceValue;
-	StateComparisonValueType m_comparisonValueType;
+	StateValue m_sourceValue; // = "SourceStateBlendWeight"
+	StateComparisonValueType m_comparisonValueType; // = "StateComparisonValue_FixedValue"
 	float32 m_comparisonFixedValue;
-	StateValue m_comparisonStateValue;
+	StateValue m_comparisonStateValue; // = "SourceStateBlendWeight"
 	CUtlString m_comparisonParamName;
 	AnimParamID m_comparisonParamID;
-	Comparison_t m_comparisonOp;
+	Comparison_t m_comparisonOp; // = "COMPARISON_EQUALS"
 };

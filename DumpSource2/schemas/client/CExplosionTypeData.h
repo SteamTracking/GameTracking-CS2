@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_SoundName": "",
-//	"m_ParticleEffect": "",
-//	"m_bIsIncindiary": false,
-//	"m_bHasForces": false,
-//	"m_DecalType": "Scorch"
-//}
 // MVDataRoot
 // MVDataOverlayType = 1
 // MVDataAssociatedFile = "scripts/explosion_types.vdata"
@@ -17,5 +10,5 @@ class CExplosionTypeData
 	// MPropertyDescription = "Whether this explosion has explosive forces"
 	bool m_bHasForces;
 	// MPropertyDescription = "Decal to use when this explosion occurs"
-	CGlobalSymbol m_DecalType;
+	CGlobalSymbol m_DecalType; // = "Scorch"
 };

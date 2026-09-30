@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"pszConvar": "",
-//	"pszCurrentValue": "",
-//	"pszOrgValue": ""
-//}
 class modifiedconvars_t
 {
 	char[128] pszConvar;

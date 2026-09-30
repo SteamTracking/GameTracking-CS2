@@ -1,63 +1,14 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_NodeStateTransition",
-//	"m_conditionList":
-//	{
-//		"_class": "CAnimGraphDoc_ConditionContainer",
-//		"m_conditions":
-//		[
-//		]
-//	},
-//	"m_srcState":
-//	{
-//		"m_id": 0
-//	},
-//	"m_destState":
-//	{
-//		"m_id": 0
-//	},
-//	"m_sComment": "",
-//	"m_bDisabled": false,
-//	"m_blendDuration":
-//	{
-//		"_class": "CFloatAnimValue",
-//		"m_flConstValue": 0.200000,
-//		"m_paramName": "",
-//		"m_paramID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_eSource": "Constant"
-//	},
-//	"m_bReset": true,
-//	"m_resetCycleOption": "Beginning",
-//	"m_flFixedCycleValue":
-//	{
-//		"_class": "CFloatAnimValue",
-//		"m_flConstValue": 0.000000,
-//		"m_paramName": "",
-//		"m_paramID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_eSource": "Constant"
-//	},
-//	"m_blendCurve":
-//	{
-//		"m_flControlPoint1": 0.000000,
-//		"m_flControlPoint2": 1.000000
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_NodeStateTransition : public CAnimGraphDoc_StateTransition
 {
 	// MPropertyFriendlyName = "Blend Duration"
-	CFloatAnimValue m_blendDuration;
+	CFloatAnimValue m_blendDuration; // = { "_class": "CFloatAnimValue", "m_eSource": "Constant", "m_flConstValue": 0.2, "m_paramID": { "m_id": 0 }, "m_paramName": "" }
 	// MPropertyFriendlyName = "Reset Destination"
-	bool m_bReset;
+	bool m_bReset; // = true
 	// MPropertyFriendlyName = "Start Cycle At"
-	ResetCycleOption m_resetCycleOption;
+	ResetCycleOption m_resetCycleOption; // = "Beginning"
 	// MPropertyFriendlyName = "Fixed Start Cycle Value"
-	CFloatAnimValue m_flFixedCycleValue;
+	CFloatAnimValue m_flFixedCycleValue; // = { "_class": "CFloatAnimValue", "m_eSource": "Constant", "m_flConstValue": 0, "m_paramID": { "m_id": 0 }, "m_paramName": "" }
 	// MPropertySuppressField
-	CBlendCurve m_blendCurve;
+	CBlendCurve m_blendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
 };

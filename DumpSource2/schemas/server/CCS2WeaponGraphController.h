@@ -1,27 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCS2WeaponGraphController",
-//	"m_hExternalGraph": 4294967295,
-//	"m_action": null,
-//	"m_bActionReset": null,
-//	"m_flWeaponActionSpeedScale": null,
-//	"m_weaponCategory": null,
-//	"m_weaponType": null,
-//	"m_weaponExtraInfo": null,
-//	"m_flWeaponAmmo": null,
-//	"m_flWeaponAmmoMax": null,
-//	"m_flWeaponAmmoReserve": null,
-//	"m_bWeaponIsSilenced": null,
-//	"m_flWeaponIronsightAmount": null,
-//	"m_bIsUsingLegacyModel": null,
-//	"m_idleVariation": null,
-//	"m_deployVariation": null,
-//	"m_attackType": null,
-//	"m_attackThrowStrength": null,
-//	"m_flAttackVariation": null,
-//	"m_inspectVariation": null,
-//	"m_inspectExtraInfo": null,
-//	"m_reloadStage": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class CCS2WeaponGraphController : public CAnimGraphControllerBase
 {

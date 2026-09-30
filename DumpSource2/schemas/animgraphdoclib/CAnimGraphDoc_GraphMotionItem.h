@@ -1,37 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_GraphMotionItem",
-//	"m_paramManager":
-//	{
-//		"_class": "CAnimGraphDoc_MotionParameterManager",
-//		"m_params":
-//		[
-//		]
-//	},
-//	"m_blockSpans":
-//	[
-//	],
-//	"m_tagSpans":
-//	[
-//	],
-//	"m_paramSpans":
-//	[
-//	],
-//	"m_bLoop": false,
-//	"m_name": "New Graph",
-//	"m_nodeManager":
-//	{
-//		"_class": "CAnimGraphDoc_MotionNodeManager",
-//		"m_nodes":
-//		[
-//		]
-//	}
-//}
 // MPropertyFriendlyName = "Motion Graph"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_GraphMotionItem : public CAnimGraphDoc_MotionItem
 {
 	// MPropertyFriendlyName = "Name"
-	CUtlString m_name;
+	CUtlString m_name; // = "New Graph"
 	// MPropertySuppressField
-	CAnimGraphDoc_MotionNodeManager m_nodeManager;
+	CAnimGraphDoc_MotionNodeManager m_nodeManager; // = { "_class": "CAnimGraphDoc_MotionNodeManager", "m_nodes": [  ] }
 };

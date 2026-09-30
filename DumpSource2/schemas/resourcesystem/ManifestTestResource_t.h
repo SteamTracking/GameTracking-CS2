@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"name": "",
-//	"child": ""
-//}
 class ManifestTestResource_t
 {
 	// MKV3TransferName = "name"

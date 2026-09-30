@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ChildRef": "",
-//	"m_flDelay": 0.000000,
-//	"m_bEndCap": false,
-//	"m_bDisableChild": false,
-//	"m_nDetailLevel": "PARTICLEDETAIL_LOW"
-//}
 class ParticleChildrenInfo_t
 {
 	// MPropertySuppressField
@@ -16,5 +9,5 @@ class ParticleChildrenInfo_t
 	// MPropertySuppressField
 	bool m_bDisableChild;
 	// MPropertyFriendlyName = "disable at detail levels below"
-	ParticleDetailLevel_t m_nDetailLevel;
+	ParticleDetailLevel_t m_nDetailLevel; // = "PARTICLEDETAIL_LOW"
 };

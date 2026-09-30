@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_bForceCurrentWorldTransform": false,
-//	"m_nHealthToGrant": 0
-//}
 class RagdollCreationParams_t
 {
 	// MNotSaved

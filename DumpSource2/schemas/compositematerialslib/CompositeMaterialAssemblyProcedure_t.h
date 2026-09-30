@@ -1,17 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_vecCompMatIncludes":
-//	[
-//	],
-//	"m_vecMatchFilters":
-//	[
-//	],
-//	"m_vecCompositeInputContainers":
-//	[
-//	],
-//	"m_vecPropertyMutators":
-//	[
-//	]
-//}
 // MPropertyElementNameFn
 class CompositeMaterialAssemblyProcedure_t
 {

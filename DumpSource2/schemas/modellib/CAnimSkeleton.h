@@ -1,30 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimSkeleton",
-//	"m_localSpaceTransforms":
-//	[
-//	],
-//	"m_modelSpaceTransforms":
-//	[
-//	],
-//	"m_boneNames":
-//	[
-//	],
-//	"m_children":
-//	[
-//	],
-//	"m_parents":
-//	[
-//	],
-//	"m_feet":
-//	[
-//	],
-//	"m_morphNames":
-//	[
-//	],
-//	"m_lodBoneCounts":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimSkeleton
 {

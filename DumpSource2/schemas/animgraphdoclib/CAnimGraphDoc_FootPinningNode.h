@@ -1,41 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_FootPinningNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_items":
-//	[
-//	],
-//	"m_eTimingSource": "FootMotion",
-//	"m_flBlendTime": 0.200000,
-//	"m_flLockBreakDistance": 24.000000,
-//	"m_flMaxLegStraightAmount": 0.980000,
-//	"m_bApplyFootRotationLimits": false,
-//	"m_hipBoneName": "",
-//	"m_bApplyLegTwistLimits": false,
-//	"m_flMaxLegTwist": 25.000000,
-//	"m_bResetChild": true
-//}
 // MPropertyFriendlyName = "Foot Pinning"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_FootPinningNode : public CAnimGraphDoc_Node
@@ -46,14 +8,14 @@ class CAnimGraphDoc_FootPinningNode : public CAnimGraphDoc_Node
 	// MPropertyAutoExpandSelf
 	CUtlVector< CFootPinningItem > m_items;
 	// MPropertyFriendlyName = "Lock Timing Source"
-	FootPinningTimingSource m_eTimingSource;
+	FootPinningTimingSource m_eTimingSource; // = "FootMotion"
 	// MPropertyFriendlyName = "Blend Time"
-	float32 m_flBlendTime;
+	float32 m_flBlendTime; // = 0.2
 	// MPropertyFriendlyName = "Lock Break Distance"
-	float32 m_flLockBreakDistance;
+	float32 m_flLockBreakDistance; // = 24
 	// MPropertyFriendlyName = "Max Leg Straight Amount"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flMaxLegStraightAmount;
+	float32 m_flMaxLegStraightAmount; // = 0.98
 	// MPropertyFriendlyName = "Limit Foot Rotation"
 	// MPropertyGroupName = "Foot Rotation Limits"
 	bool m_bApplyFootRotationLimits;
@@ -66,7 +28,7 @@ class CAnimGraphDoc_FootPinningNode : public CAnimGraphDoc_Node
 	bool m_bApplyLegTwistLimits;
 	// MPropertyFriendlyName = "Max Leg Twist Angle"
 	// MPropertyGroupName = "Knee Twist Limits"
-	float32 m_flMaxLegTwist;
+	float32 m_flMaxLegTwist; // = 25
 	// MPropertyFriendlyName = "Reset Child"
-	bool m_bResetChild;
+	bool m_bResetChild; // = true
 };

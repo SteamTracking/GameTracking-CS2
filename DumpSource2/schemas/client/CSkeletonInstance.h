@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = Could not parse KV3 Defaults
 class CSkeletonInstance : public CGameSceneNode
 {
 	CModelState m_modelState;

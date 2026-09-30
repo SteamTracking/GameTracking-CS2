@@ -1,7 +1,4 @@
-// MGetKV3ClassDefaults = {
-//	"m_name": "GameInput"
-//}
 class CVMixInputBase
 {
-	CUtlString m_name;
+	CUtlString m_name; // = "GameInput"
 };

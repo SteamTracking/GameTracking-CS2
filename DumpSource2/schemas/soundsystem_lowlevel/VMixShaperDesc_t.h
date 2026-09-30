@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nShape": 0,
-//	"m_fldbDrive": 0.000000,
-//	"m_fldbOutputGain": 0.000000,
-//	"m_flWetMix": 1.000000,
-//	"m_nOversampleFactor": 1
-//}
 class VMixShaperDesc_t
 {
 	// MPropertyFriendlyName = "Shape"
@@ -17,7 +10,7 @@ class VMixShaperDesc_t
 	// MPropertyAttributeRange = "-36 0"
 	float32 m_fldbOutputGain;
 	// MPropertyFriendlyName = "Dry/Wet"
-	float32 m_flWetMix;
+	float32 m_flWetMix; // = 1
 	// MPropertyFriendlyName = "Oversampling"
-	int32 m_nOversampleFactor;
+	int32 m_nOversampleFactor; // = 1
 };

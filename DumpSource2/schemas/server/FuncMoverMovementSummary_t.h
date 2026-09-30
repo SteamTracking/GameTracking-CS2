@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = null
 class FuncMoverMovementSummary_t
 {
 	float32 flStartT;

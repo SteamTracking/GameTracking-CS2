@@ -1,16 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"m_nMutatorCondition": "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS",
-//	"m_strMutatorConditionContainerName": "",
-//	"m_strMutatorConditionContainerVarName": "",
-//	"m_strMutatorConditionContainerVarValue": "",
-//	"m_bPassWhenTrue": true
-//}
 // MPropertyElementNameFn
 class CompMatMutatorCondition_t
 {
 	// MPropertyAutoRebuildOnChange
 	// MPropertyFriendlyName = "Condition"
-	CompMatPropertyMutatorConditionType_t m_nMutatorCondition;
+	CompMatPropertyMutatorConditionType_t m_nMutatorCondition; // = "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS"
 	// MPropertyFriendlyName = "Container Name"
 	// MPropertyAttrStateCallback
 	CUtlString m_strMutatorConditionContainerName;
@@ -21,5 +14,5 @@ class CompMatMutatorCondition_t
 	// MPropertyAttrStateCallback
 	CUtlString m_strMutatorConditionContainerVarValue;
 	// MPropertyFriendlyName = "Pass when True"
-	bool m_bPassWhenTrue;
+	bool m_bPassWhenTrue; // = true
 };

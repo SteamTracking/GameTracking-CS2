@@ -1,22 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"sName": "",
-//	"nNameHash": 0,
-//	"nColor": 0,
-//	"nFlags": 0,
-//	"nVertexBase": 0,
-//	"nVertexCount": 0,
-//	"nMapOffset": 0,
-//	"nNodeListOffset": 0,
-//	"vCenterOfMass":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"flVolumetricSolveStrength": 0.000000,
-//	"nScaleSourceNode": -1,
-//	"nNodeListCount": 0
-//}
 class FeVertexMapDesc_t
 {
 	CUtlString sName;
@@ -29,6 +10,6 @@ class FeVertexMapDesc_t
 	uint32 nNodeListOffset;
 	Vector vCenterOfMass;
 	float32 flVolumetricSolveStrength;
-	int16 nScaleSourceNode;
+	int16 nScaleSourceNode; // = -1
 	uint16 nNodeListCount;
 };

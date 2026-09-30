@@ -1,20 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmTargetWarpEvent",
-//	"m_flStartTime":
-//	{
-//		"m_flValue": 0.000000
-//	},
-//	"m_flDuration":
-//	{
-//		"m_flValue": 0.000000
-//	},
-//	"m_syncID": "",
-//	"m_rule": "WarpXYZ",
-//	"m_algorithm": "Bezier"
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmTargetWarpEvent : public CNmEvent
 {
-	NmTargetWarpRule_t m_rule;
-	NmTargetWarpAlgorithm_t m_algorithm;
+	NmTargetWarpRule_t m_rule; // = "WarpXYZ"
+	NmTargetWarpAlgorithm_t m_algorithm; // = "Bezier"
 };

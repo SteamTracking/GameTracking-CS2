@@ -1,19 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_AnkleBoneNames":
-//	[
-//	],
-//	"m_AttachmentNames":
-//	[
-//	],
-//	"m_DebugColor":
-//	[
-//		255,
-//		255,
-//		255
-//	],
-//	"m_CreatedEventType": "AE_FOOTSTEP",
-//	"m_CreatedEventFootValue": ""
-//}
 class CMotionAnalysisSettings_Foot
 {
 	// MPropertyAutoExpandSelf
@@ -22,9 +6,9 @@ class CMotionAnalysisSettings_Foot
 	// MPropertyAutoExpandSelf
 	// MPropertyDescription = "Attachment point(s) generated footstep events should have their 'attachment' key set. If multiple specified, use the first one found in the model."
 	CUtlVector< CGlobalSymbol > m_AttachmentNames;
-	Color m_DebugColor;
+	Color m_DebugColor; // = [ 255, 255, 255 ]
 	// MPropertyDescription = "Type of anim event"
-	CUtlString m_CreatedEventType;
+	CUtlString m_CreatedEventType; // = "AE_FOOTSTEP"
 	// MPropertyDescription = "Value to set the 'foot' key (if nonempty)"
 	CUtlString m_CreatedEventFootValue;
 };

@@ -1,27 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_CreateSizer",
-//	"m_bEnabled": true,
-//	"m_Name": "",
-//	"m_bDisplayModel": false,
-//	"m_flInitialMinX": 0.000000,
-//	"m_flInitialMaxX": 0.000000,
-//	"m_flConstraintMinX": 0.000000,
-//	"m_flConstraintMaxX": 0.000000,
-//	"m_OutputVariableMinX": "",
-//	"m_OutputVariableMaxX": "",
-//	"m_flInitialMinY": 0.000000,
-//	"m_flInitialMaxY": 0.000000,
-//	"m_flConstraintMinY": 0.000000,
-//	"m_flConstraintMaxY": 0.000000,
-//	"m_OutputVariableMinY": "",
-//	"m_OutputVariableMaxY": "",
-//	"m_flInitialMinZ": 0.000000,
-//	"m_flInitialMaxZ": 0.000000,
-//	"m_flConstraintMinZ": 0.000000,
-//	"m_flConstraintMaxZ": 0.000000,
-//	"m_OutputVariableMinZ": "",
-//	"m_OutputVariableMaxZ": ""
-//}
 // MPropertyFriendlyName = "Create Sizer"
 // MPropertyDescription = "Create a sizer that will be displayed at the current location, allowing the user to manipulate the specified set of size values."
 // MVDataClassGroup = "Manipulators"

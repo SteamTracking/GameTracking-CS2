@@ -1,11 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sBone": "",
-//	"m_sNewParent": "",
-//	"m_nStartFrame": 0,
-//	"m_nPeakFrame": 0,
-//	"m_nTailFrame": 0,
-//	"m_nEndFrame": 0
-//}
 class CAnimLocalHierarchy
 {
 	CBufferString m_sBone;

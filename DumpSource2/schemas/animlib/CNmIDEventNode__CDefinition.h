@@ -1,17 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmIDEventNode::CDefinition",
-//	"m_nNodeIdx": -1,
-//	"m_nSourceStateNodeIdx": -1,
-//	"m_eventConditionRules":
-//	{
-//		"m_flags": 0
-//	},
-//	"m_defaultValue": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmIDEventNode::CDefinition : public CNmIDValueNode::CDefinition
 {
-	int16 m_nSourceStateNodeIdx;
+	int16 m_nSourceStateNodeIdx; // = -1
 	CNmBitFlags m_eventConditionRules;
 	CGlobalSymbol m_defaultValue;
 };

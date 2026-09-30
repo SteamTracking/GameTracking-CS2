@@ -1,25 +1,8 @@
-// MGetKV3ClassDefaults = {
-//	"id": 0,
-//	"edictindex": -1,
-//	"saveentityindex": -1,
-//	"bWasSaved": false,
-//	"flags": "",
-//	"classname": "",
-//	"globalname": "",
-//	"entityname": "",
-//	"landmarkModelSpace":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pPrecacheEntityKeys": null
-//}
 class entitytable_t
 {
 	int32 id;
-	CEntityIndex edictindex;
-	CEntityIndex saveentityindex;
+	CEntityIndex edictindex; // = -1
+	CEntityIndex saveentityindex; // = -1
 	bool bWasSaved;
 	SaveRestoreTableFlags_t flags;
 	CUtlSymbolLarge classname;

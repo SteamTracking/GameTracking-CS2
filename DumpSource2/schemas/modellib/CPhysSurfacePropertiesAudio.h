@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"audioreflectivity": 0.000000,
-//	"audiohardnessfactor": 0.000000,
-//	"audioroughnessfactor": 0.000000,
-//	"scrapeRoughThreshold": 0.000000,
-//	"impactHardThreshold": 0.000000,
-//	"audioHardMinVelocity": 0.000000,
-//	"staticImpactVolume": 0.000000,
-//	"occlusionFactor": 0.000000
-//}
 class CPhysSurfacePropertiesAudio
 {
 	// MKV3TransferName = "audioreflectivity"

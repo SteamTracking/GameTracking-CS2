@@ -1,38 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocTransitionEventConditionNode",
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_floatingComment": "",
-//	"m_position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pChildGraph": null,
-//	"m_pSecondaryGraph": null,
-//	"m_inputPins":
-//	[
-//	],
-//	"m_outputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Result",
-//			"m_type": "Bool",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": true
-//		}
-//	],
-//	"m_ruleCondition": "AnyAllowed",
-//	"m_bMatchOnlySpecificMarkerID": false,
-//	"m_markerIDToMatch": "",
-//	"m_bLimitSearchToSourceState": false,
-//	"m_bIgnoreInactiveBranchEvents": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocTransitionEventConditionNode : public CNmGraphDocFlowNode
 {
-	NmTransitionRuleCondition_t m_ruleCondition;
+	NmTransitionRuleCondition_t m_ruleCondition; // = "AnyAllowed"
 	bool m_bMatchOnlySpecificMarkerID;
 	// MPropertyAttributeEditor = "AnimGraphID()"
 	CGlobalSymbol m_markerIDToMatch;

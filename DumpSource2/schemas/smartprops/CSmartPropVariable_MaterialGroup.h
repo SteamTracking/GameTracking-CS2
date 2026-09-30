@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropVariable_MaterialGroup",
-//	"m_nElementID": -1,
-//	"m_VariableName": "",
-//	"m_bExposeAsParameter": false,
-//	"m_DisplayName": "",
-//	"m_HideExpression": "",
-//	"m_ReadOnlyExpression": "",
-//	"m_sModelName": "",
-//	"m_DefaultValue": ""
-//}
 // MPropertyFriendlyName = "Material Group"
 // MHasKV3TransferPolymorphicClassname
 class CSmartPropVariable_MaterialGroup : public CSmartPropVariable

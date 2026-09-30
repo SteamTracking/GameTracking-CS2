@@ -1,28 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"angle":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"fov_h": 0.000000,
-//	"fov_v": 45.000000,
-//	"znear": 4.000000,
-//	"zfar": 1000.000000,
-//	"target":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"target_nudge":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"orbit_distance": 0.000000
-//}
 class inv_image_camera_t
 {
 	// MPropertyFriendlyName = "Angle"
@@ -35,15 +10,15 @@ class inv_image_camera_t
 	// MPropertyFriendlyName = "Vertical FOV"
 	// MCustomFGDMetadata = "{ reset_to_default_icon = true }"
 	// MPropertyAttributeRange = "0 360"
-	float32 fov_v;
+	float32 fov_v; // = 45
 	// MPropertyFriendlyName = "Z Near"
 	// MCustomFGDMetadata = "{ reset_to_default_icon = true }"
 	// MPropertyAttributeRange = "0 1000"
-	float32 znear;
+	float32 znear; // = 4
 	// MPropertyFriendlyName = "Z Far"
 	// MCustomFGDMetadata = "{ reset_to_default_icon = true }"
 	// MPropertyAttributeRange = "0 1000"
-	float32 zfar;
+	float32 zfar; // = 1000
 	// MPropertyFriendlyName = "Target"
 	// MCustomFGDMetadata = "{ reset_to_default_icon = true }"
 	Vector target;

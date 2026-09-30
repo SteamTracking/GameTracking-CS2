@@ -1,16 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CPulseCell_Inflow_BaseEntrypoint",
-//	"m_nEditorNodeID": -1,
-//	"m_EntryChunk": -1,
-//	"m_RegisterMap":
-//	{
-//		"m_Inparams": null,
-//		"m_Outparams": null
-//	}
-//}
 // MHasKV3TransferPolymorphicClassname
 class CPulseCell_Inflow_BaseEntrypoint : public CPulseCell_BaseFlow
 {
-	PulseRuntimeChunkIndex_t m_EntryChunk;
+	PulseRuntimeChunkIndex_t m_EntryChunk; // = -1
 	PulseRegisterMap_t m_RegisterMap;
 };

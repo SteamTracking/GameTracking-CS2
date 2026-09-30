@@ -1,17 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"impactsoft": "",
-//	"impacthard": "",
-//	"scrapesmooth": "",
-//	"scraperough": "",
-//	"bulletimpact": "",
-//	"rolling": "",
-//	"break": "",
-//	"strain": "",
-//	"meleeimpact": "",
-//	"pushoff": "",
-//	"skidstop": "",
-//	"resonant": ""
-//}
 class CPhysSurfacePropertiesSoundNames
 {
 	// MKV3TransferName = "impactsoft"

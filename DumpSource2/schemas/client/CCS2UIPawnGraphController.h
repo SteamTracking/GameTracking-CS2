@@ -1,23 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCS2UIPawnGraphController",
-//	"m_hExternalGraph": 4294967295,
-//	"m_nAnimationSeed": null,
-//	"m_characterMode": null,
-//	"m_bCharacterModeReset": null,
-//	"m_nTeamPreviewVariant": null,
-//	"m_nTeamPreviewRandom": null,
-//	"m_nTeamPreviewPosition": null,
-//	"m_endOfMatchCelebration": null,
-//	"m_action": null,
-//	"m_bannerAnimation": null,
-//	"m_weaponCategory": null,
-//	"m_weaponType": null,
-//	"m_weaponState": null,
-//	"m_inspectTurnAngle": null,
-//	"m_nChickSnapshotVariant": null,
-//	"m_nChickLifeStage": null,
-//	"m_bCT": null
-//}
 // MHasKV3TransferPolymorphicClassname
 class CCS2UIPawnGraphController : public CAnimGraphControllerBase
 {

@@ -1,9 +1,5 @@
-// MGetKV3ClassDefaults = {
-//	"m_Type": "PVAL_VOID",
-//	"m_Value": null
-//}
 class CPulse_Constant
 {
-	CPulseValueFullType m_Type;
+	CPulseValueFullType m_Type; // = "PVAL_VOID"
 	KeyValues3 m_Value;
 };

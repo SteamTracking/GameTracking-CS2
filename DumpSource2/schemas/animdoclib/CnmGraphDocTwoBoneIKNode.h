@@ -1,68 +1,8 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CnmGraphDocTwoBoneIKNode",
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_floatingComment": "",
-//	"m_position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pChildGraph": null,
-//	"m_pSecondaryGraph": null,
-//	"m_inputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Input",
-//			"m_type": "Pose",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": false
-//		},
-//		{
-//			"m_ID": "",
-//			"m_name": "Target",
-//			"m_type": "Target",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": false
-//		},
-//		{
-//			"m_ID": "",
-//			"m_name": "Enabled",
-//			"m_type": "Bool",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": false
-//		}
-//	],
-//	"m_outputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Result",
-//			"m_type": "Pose",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": true
-//		}
-//	],
-//	"m_pDefaultVariationData":
-//	{
-//		"_class": "CnmGraphDocTwoBoneIKNode::CData",
-//		"m_effectorBoneName": "",
-//		"m_flBlendTimeSeconds": 0.000000
-//	},
-//	"m_overrides":
-//	[
-//	],
-//	"m_defaultResourceName": "",
-//	"m_bIsTargetInWorldSpace": false,
-//	"m_blendMode": "Effector",
-//	"m_flChainRotationWeight": 0.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CnmGraphDocTwoBoneIKNode : public CNmGraphDocVariationDataNode
 {
 	bool m_bIsTargetInWorldSpace;
-	NmIKBlendMode_t m_blendMode;
+	NmIKBlendMode_t m_blendMode; // = "Effector"
 	// MPropertyDescription = "ChainRotationWeight - this controls how we solve for effector rotations, 0.0f will try to fully rotate the effector, 1.0f will try to solve the rotation by rotating the IK chain"
 	float32 m_flChainRotationWeight;
 };

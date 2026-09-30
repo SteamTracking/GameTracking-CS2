@@ -1,26 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixSteamAudioDirect",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0,
-//	"m_bApplyDistanceAttenuation": false,
-//	"m_bApplyAirAbsorption": false,
-//	"m_bApplyDirectivity": false,
-//	"m_bApplyOcclusion": false,
-//	"m_bApplyTransmission": false,
-//	"m_flDipoleWeight": 1.000000,
-//	"m_flDipolePower": 1.000000,
-//	"m_flOcclusion": 1.000000,
-//	"m_flTransmissionLow": 0.000000,
-//	"m_flTransmissionMid": 0.000000,
-//	"m_flTransmissionHigh": 0.000000,
-//	"m_vecTransmission":
-//	[
-//	]
-//}
 // MPropertyFriendlyName = "VMix Steam Audio Direct Node"
 // MPropertyDescription = "Applies steam audio model for direct audio.  This includes modeling the loss due to transmission in air, directivity and occlusion effects."
 // MHasKV3TransferPolymorphicClassname
@@ -38,13 +15,13 @@ class CMixSteamAudioDirect : public CMixPropertyBase
 	bool m_bApplyTransmission;
 	// MPropertyFriendlyName = "Dipole Weight"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flDipoleWeight;
+	float32 m_flDipoleWeight; // = 1
 	// MPropertyFriendlyName = "Dipole Power"
 	// MPropertyAttributeRange = "0.0 4.0"
-	float32 m_flDipolePower;
+	float32 m_flDipolePower; // = 1
 	// MPropertyFriendlyName = "Occlusion Value"
 	// MPropertyAttributeRange = "0.0 1.0"
-	float32 m_flOcclusion;
+	float32 m_flOcclusion; // = 1
 	// MPropertyFriendlyName = "Transmission Value (Low Freq)"
 	// MPropertyAttributeRange = "0.0 1.0"
 	float32 m_flTransmissionLow;

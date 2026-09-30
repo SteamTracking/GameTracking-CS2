@@ -1,35 +1,13 @@
-// MGetKV3ClassDefaults = {
-//	"m_nLightmapVersionNumber": 0,
-//	"m_nLightmapGameVersionNumber": 0,
-//	"m_vLightmapUvScale":
-//	[
-//		1.000000,
-//		1.000000
-//	],
-//	"m_bHasLightmaps": false,
-//	"m_bBakedShadowsGamma20": false,
-//	"m_bCompressionEnabled": false,
-//	"m_nLPVEncoding": -1,
-//	"m_nLightmapEncoding": -1,
-//	"m_nChartPackIterations": 0,
-//	"m_nVradQuality": 0,
-//	"m_lightMaps":
-//	[
-//	],
-//	"m_bakedShadows":
-//	[
-//	]
-//}
 class BakedLightingInfo_t
 {
 	uint32 m_nLightmapVersionNumber;
 	uint32 m_nLightmapGameVersionNumber;
-	Vector2D m_vLightmapUvScale;
+	Vector2D m_vLightmapUvScale; // = [ 1, 1 ]
 	bool m_bHasLightmaps;
 	bool m_bBakedShadowsGamma20;
 	bool m_bCompressionEnabled;
-	int8 m_nLPVEncoding;
-	int8 m_nLightmapEncoding;
+	int8 m_nLPVEncoding; // = -1
+	int8 m_nLightmapEncoding; // = -1
 	uint8 m_nChartPackIterations;
 	uint8 m_nVradQuality;
 	CUtlVector< CStrongHandle< InfoForResourceTypeCTextureBase > > m_lightMaps;

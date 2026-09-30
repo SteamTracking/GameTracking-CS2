@@ -1,29 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_ChoiceNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_children":
-//	[
-//	],
-//	"m_seed": 0,
-//	"m_choiceMethod": "WeightedRandom",
-//	"m_choiceChangeMethod": "OnReset",
-//	"m_blendMethod": "SingleBlendTime",
-//	"m_blendTime": 0.200000,
-//	"m_bCrossFade": false,
-//	"m_bResetChosen": true,
-//	"m_bDontResetSameSelection": false
-//}
 // MPropertyFriendlyName = "Choice"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_ChoiceNode : public CAnimGraphDoc_Node
@@ -34,23 +8,23 @@ class CAnimGraphDoc_ChoiceNode : public CAnimGraphDoc_Node
 	// MPropertySuppressField
 	int32 m_seed;
 	// MPropertyFriendlyName = "Method"
-	ChoiceMethod m_choiceMethod;
+	ChoiceMethod m_choiceMethod; // = "WeightedRandom"
 	// MPropertyFriendlyName = "Change Selection"
-	ChoiceChangeMethod m_choiceChangeMethod;
+	ChoiceChangeMethod m_choiceChangeMethod; // = "OnReset"
 	// MPropertyGroupName = "Blending"
 	// MPropertyFriendlyName = "Blend Method"
 	// MPropertyAutoRebuildOnChange
-	ChoiceBlendMethod m_blendMethod;
+	ChoiceBlendMethod m_blendMethod; // = "SingleBlendTime"
 	// MPropertyGroupName = "Blending"
 	// MPropertyFriendlyName = "Blend Duration"
 	// MPropertyAttrStateCallback
-	float32 m_blendTime;
+	float32 m_blendTime; // = 0.2
 	// MPropertyGroupName = "Blending"
 	// MPropertyFriendlyName = "Cross Fade"
 	bool m_bCrossFade;
 	// MPropertyFriendlyName = "Reset On Selection"
 	// MPropertyAutoRebuildOnChange
-	bool m_bResetChosen;
+	bool m_bResetChosen; // = true
 	// MPropertyFriendlyName = "Don't Reset Same Selection"
 	// MPropertyAttrStateCallback
 	bool m_bDontResetSameSelection;

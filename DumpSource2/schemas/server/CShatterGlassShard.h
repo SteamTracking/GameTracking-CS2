@@ -1,37 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CShatterGlassShard",
-//	"m_hShardHandle": 0,
-//	"m_hPhysicsEntity": null,
-//	"m_hParentPanel": null,
-//	"m_hParentShard": 0,
-//	"m_ShatterStressType": "SHATTERGLASS_BLUNT",
-//	"m_vecStressVelocity":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nOnFrameEdge": "ONFRAME_UNKNOWN",
-//	"m_nSubShardGeneration": 0,
-//	"m_vecPanelSpaceStressPositionA":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vecPanelSpaceStressPositionB":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_bStressPositionAIsValid": false,
-//	"m_bStressPositionBIsValid": false,
-//	"m_bFlaggedForRemoval": false,
-//	"m_flPhysicsEntitySpawnedAtTime": null,
-//	"m_hEntityHittingMe": null,
-//	"m_vecNeighbors":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CShatterGlassShard
 {
@@ -45,7 +11,7 @@ class CShatterGlassShard
 	CHandle< CShatterGlassShardPhysics > m_hPhysicsEntity;
 	CHandle< CFuncShatterglass > m_hParentPanel;
 	uint32 m_hParentShard;
-	ShatterGlassStressType m_ShatterStressType;
+	ShatterGlassStressType m_ShatterStressType; // = "SHATTERGLASS_BLUNT"
 	Vector m_vecStressVelocity;
 	// MNotSaved
 	bool m_bCreatedModel;
@@ -61,7 +27,7 @@ class CShatterGlassShard
 	float32 m_flSumOfAllEdges;
 	// MNotSaved
 	float32 m_flArea;
-	OnFrame m_nOnFrameEdge;
+	OnFrame m_nOnFrameEdge; // = "ONFRAME_UNKNOWN"
 	int32 m_nSubShardGeneration;
 	// MNotSaved
 	Vector2D m_vecAverageVertPosition;

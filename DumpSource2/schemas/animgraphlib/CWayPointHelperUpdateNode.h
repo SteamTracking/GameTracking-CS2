@@ -1,63 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CWayPointHelperUpdateNode",
-//	"m_nodePath":
-//	{
-//		"m_path":
-//		[
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			},
-//			{
-//				"m_id": 0
-//			}
-//		],
-//		"m_nCount": 0
-//	},
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_name": "",
-//	"m_pChildNode":
-//	{
-//		"m_nodeIndex": -1
-//	},
-//	"m_flStartCycle": 0.000000,
-//	"m_flEndCycle": 0.000000,
-//	"m_bOnlyGoals": true,
-//	"m_bPreventOvershoot": true,
-//	"m_bPreventUndershoot": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CWayPointHelperUpdateNode : public CUnaryUpdateNode
 {
 	float32 m_flStartCycle;
 	float32 m_flEndCycle;
-	bool m_bOnlyGoals;
-	bool m_bPreventOvershoot;
+	bool m_bOnlyGoals; // = true
+	bool m_bPreventOvershoot; // = true
 	bool m_bPreventUndershoot;
 };

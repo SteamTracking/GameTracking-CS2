@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ModelName": "",
-//	"m_nSequenceIndex": 0,
-//	"m_flCycle": 0.000000,
-//	"m_KVModelStateChoices": null,
-//	"m_bEnableChildModel": false,
-//	"m_ChildModelName": "",
-//	"m_vecCompositeMaterialAssemblyProcedures":
-//	[
-//	]
-//}
 class CompositeMaterialEditorPoint_t
 {
 	// MPropertyGroupName = "Preview Model"

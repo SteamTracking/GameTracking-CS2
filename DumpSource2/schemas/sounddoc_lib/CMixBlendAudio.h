@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixBlendAudio",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0,
-//	"m_flLockAmount": 0.000000
-//}
 // MPropertyFriendlyName = "VMix Blend Audio Node"
 // MPropertyDescription = "This node will do a pairwise blend through a set of audio signals.  It will blend through as many different signals as you connect.  A blend factor of 0.0 is 100% the first signal, and a blend factor of 1.0 is 100% the last signal."
 // MHasKV3TransferPolymorphicClassname

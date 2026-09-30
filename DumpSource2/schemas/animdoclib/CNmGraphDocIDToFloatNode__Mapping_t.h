@@ -1,7 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ID": "",
-//	"m_value": 0.000000
-//}
 // MPropertyAutoExpandSelf
 class CNmGraphDocIDToFloatNode::Mapping_t
 {

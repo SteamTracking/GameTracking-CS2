@@ -1,150 +1,21 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "C_OP_ConstrainDistanceToPath",
-//	"m_flOpStrength":
-//	{
-//		"m_nType": "PF_TYPE_LITERAL",
-//		"m_nMapType": "PF_MAP_TYPE_DIRECT",
-//		"m_flLiteralValue": 1.000000,
-//		"m_NamedValue": "",
-//		"m_nControlPoint": 0,
-//		"m_nScalarAttribute": 3,
-//		"m_nVectorAttribute": 6,
-//		"m_nVectorComponent": 0,
-//		"m_bReverseOrder": false,
-//		"m_flRandomMin": 0.000000,
-//		"m_flRandomMax": 1.000000,
-//		"m_bHasRandomSignFlip": false,
-//		"m_nRandomSeed": 0,
-//		"m_nRandomMode": "PF_RANDOM_MODE_CONSTANT",
-//		"m_strSnapshotSubset": "",
-//		"m_flLOD0": 0.000000,
-//		"m_flLOD1": 0.000000,
-//		"m_flLOD2": 0.000000,
-//		"m_flLOD3": 0.000000,
-//		"m_nNoiseInputVectorAttribute": 0,
-//		"m_flNoiseOutputMin": 0.000000,
-//		"m_flNoiseOutputMax": 1.000000,
-//		"m_flNoiseScale": 0.100000,
-//		"m_vecNoiseOffsetRate":
-//		[
-//			0.000000,
-//			0.000000,
-//			0.000000
-//		],
-//		"m_flNoiseOffset": 0.000000,
-//		"m_nNoiseOctaves": 1,
-//		"m_nNoiseTurbulence": "PF_NOISE_TURB_NONE",
-//		"m_nNoiseType": "PF_NOISE_TYPE_PERLIN",
-//		"m_nNoiseModifier": "PF_NOISE_MODIFIER_NONE",
-//		"m_flNoiseTurbulenceScale": 1.000000,
-//		"m_flNoiseTurbulenceMix": 0.500000,
-//		"m_flNoiseImgPreviewScale": 1.000000,
-//		"m_bNoiseImgPreviewLive": true,
-//		"m_flNoCameraFallback": 0.000000,
-//		"m_bUseBoundsCenter": false,
-//		"m_nInputMode": "PF_INPUT_MODE_CLAMPED",
-//		"m_flMultFactor": 1.000000,
-//		"m_flInput0": 0.000000,
-//		"m_flInput1": 1.000000,
-//		"m_flOutput0": 0.000000,
-//		"m_flOutput1": 1.000000,
-//		"m_flNotchedRangeMin": 0.000000,
-//		"m_flNotchedRangeMax": 1.000000,
-//		"m_flNotchedOutputOutside": 0.000000,
-//		"m_flNotchedOutputInside": 1.000000,
-//		"m_nRoundType": "PF_ROUND_TYPE_NEAREST",
-//		"m_nBiasType": "PF_BIAS_TYPE_STANDARD",
-//		"m_flBiasParameter": 0.000000,
-//		"m_Curve":
-//		{
-//			"m_spline":
-//			[
-//			],
-//			"m_tangents":
-//			[
-//			],
-//			"m_vDomainMins":
-//			[
-//				0.000000,
-//				0.000000
-//			],
-//			"m_vDomainMaxs":
-//			[
-//				0.000000,
-//				0.000000
-//			]
-//		},
-//		"m_flCompareValue": 0.000000
-//	},
-//	"m_nOpEndCapState": "PARTICLE_ENDCAP_ALWAYS_ON",
-//	"m_nToolsState": "PARTICLE_TOOLS_STATE_ALWAYS_ON",
-//	"m_flOpStartFadeInTime": 0.000000,
-//	"m_flOpEndFadeInTime": 0.000000,
-//	"m_flOpStartFadeOutTime": 0.000000,
-//	"m_flOpEndFadeOutTime": 0.000000,
-//	"m_flOpFadeOscillatePeriod": 0.000000,
-//	"m_bNormalizeToStopTime": false,
-//	"m_flOpTimeOffsetMin": 0.000000,
-//	"m_flOpTimeOffsetMax": 0.000000,
-//	"m_nOpTimeOffsetSeed": 0,
-//	"m_nOpTimeScaleSeed": 0,
-//	"m_flOpTimeScaleMin": 1.000000,
-//	"m_flOpTimeScaleMax": 1.000000,
-//	"m_bDisableOperator": false,
-//	"m_Notes": "",
-//	"m_fMinDistance": 0.000000,
-//	"m_flMaxDistance0": 100.000000,
-//	"m_flMaxDistanceMid": -1.000000,
-//	"m_flMaxDistance1": -1.000000,
-//	"m_PathParameters":
-//	{
-//		"m_nStartControlPointNumber": 0,
-//		"m_nMidControlPointNumber": -1,
-//		"m_nEndControlPointNumber": 0,
-//		"m_nBulgeControl": 0,
-//		"m_flBulge": 0.000000,
-//		"m_flMidPoint": 0.500000,
-//		"m_vStartPointOffset":
-//		[
-//			0.000000,
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vMidPointOffset":
-//		[
-//			0.000000,
-//			0.000000,
-//			0.000000
-//		],
-//		"m_vEndOffset":
-//		[
-//			0.000000,
-//			0.000000,
-//			0.000000
-//		]
-//	},
-//	"m_flTravelTime": 10.000000,
-//	"m_nFieldScale": 19,
-//	"m_nManualTField": 19
-//}
 // MHasKV3TransferPolymorphicClassname
 class C_OP_ConstrainDistanceToPath : public CParticleFunctionConstraint
 {
 	// MPropertyFriendlyName = "minimum distance"
 	float32 m_fMinDistance;
 	// MPropertyFriendlyName = "maximum distance"
-	float32 m_flMaxDistance0;
+	float32 m_flMaxDistance0; // = 100
 	// MPropertyFriendlyName = "maximum distance middle"
-	float32 m_flMaxDistanceMid;
+	float32 m_flMaxDistanceMid; // = -1
 	// MPropertyFriendlyName = "maximum distance end"
-	float32 m_flMaxDistance1;
-	CPathParameters m_PathParameters;
+	float32 m_flMaxDistance1; // = -1
+	CPathParameters m_PathParameters; // = { "m_flBulge": 0, "m_flMidPoint": 0.5, "m_nBulgeControl": 0, "m_nEndControlPointNumber": 0, "m_nMidControlPointNumber": -1, "m_nStartControlPointNumber": 0, "m_vEndOffset": [ 0, 0, 0 ], "m_vMidPointOffset": [ 0, 0, 0 ], "m_vStartPointOffset": [ 0, 0, 0 ] }
 	// MPropertyFriendlyName = "travel time"
-	float32 m_flTravelTime;
+	float32 m_flTravelTime; // = 10
 	// MPropertyFriendlyName = "travel time scale field"
 	// MPropertyAttributeChoiceName = "particlefield_scalar"
-	ParticleAttributeIndex_t m_nFieldScale;
+	ParticleAttributeIndex_t m_nFieldScale; // = 19
 	// MPropertyFriendlyName = "manual time placement field"
 	// MPropertyAttributeChoiceName = "particlefield_scalar"
-	ParticleAttributeIndex_t m_nManualTField;
+	ParticleAttributeIndex_t m_nManualTField; // = 19
 };

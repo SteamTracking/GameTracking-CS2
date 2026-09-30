@@ -1,27 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"m_nEntIndex": -1,
-//	"m_nEntParent": -1,
-//	"m_ImportedCollision":
-//	[
-//	],
-//	"m_ModelName": "",
-//	"m_CaptureName": "",
-//	"m_ModelBindPose":
-//	[
-//	],
-//	"m_FeModelInitPose":
-//	[
-//	],
-//	"m_nFlexControllers": 0,
-//	"m_bPredicted": false,
-//	"m_Frames":
-//	[
-//	]
-//}
 class SkeletonAnimCapture_t
 {
-	CEntityIndex m_nEntIndex;
-	CEntityIndex m_nEntParent;
+	CEntityIndex m_nEntIndex; // = -1
+	CEntityIndex m_nEntParent; // = -1
 	CUtlVector< CEntityIndex > m_ImportedCollision;
 	CUtlString m_ModelName;
 	CUtlString m_CaptureName;

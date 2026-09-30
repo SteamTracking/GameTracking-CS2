@@ -1,55 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_MotionMatchingNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_groups":
-//	[
-//	],
-//	"m_metrics":
-//	[
-//	],
-//	"m_blendCurve":
-//	{
-//		"m_flControlPoint1": 0.000000,
-//		"m_flControlPoint2": 1.000000
-//	},
-//	"m_nRandomSeed": 0,
-//	"m_flSampleRate": 0.100000,
-//	"m_bSearchEveryTick": true,
-//	"m_flSearchInterval": 0.100000,
-//	"m_bSearchWhenMotionEnds": true,
-//	"m_bSearchWhenGoalChanges": true,
-//	"m_flBlendTime": 0.300000,
-//	"m_flSelectionThreshold": 0.000000,
-//	"m_flReselectionTimeWindow": 0.300000,
-//	"m_bLockSelectionWhenWaning": false,
-//	"m_bEnableRotationCorrection": true,
-//	"m_bGoalAssist": true,
-//	"m_flGoalAssistDistance": 40.000000,
-//	"m_flGoalAssistTolerance": 2.000000,
-//	"m_bEnableDistanceScaling": true,
-//	"m_flDistanceScale_OuterRadius": 120.000000,
-//	"m_flDistanceScale_InnerRadius": 40.000000,
-//	"m_flDistanceScale_MaxScale": 1.500000,
-//	"m_flDistanceScale_MinScale": 0.500000,
-//	"m_distanceScale_Damping":
-//	{
-//		"_class": "CAnimInputDamping",
-//		"m_speedFunction": "NoDamping",
-//		"m_fSpeedScale": 1.000000,
-//		"m_fFallingSpeedScale": 1.000000
-//	}
-//}
 // MPropertyFriendlyName = "Motion Matching"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_MotionMatchingNode : public CAnimGraphDoc_Node
@@ -59,72 +7,72 @@ class CAnimGraphDoc_MotionMatchingNode : public CAnimGraphDoc_Node
 	// MPropertySuppressField
 	CUtlVector< CSmartPtr< CAnimGraphDoc_MotionMetric > > m_metrics;
 	// MPropertySuppressField
-	CBlendCurve m_blendCurve;
+	CBlendCurve m_blendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
 	// MPropertySuppressField
 	int32 m_nRandomSeed;
 	// MPropertyFriendlyName = "Sample Rate"
 	// MPropertyAttributeRange = "0.01 0.2"
-	float32 m_flSampleRate;
+	float32 m_flSampleRate; // = 0.1
 	// MPropertyFriendlyName = "Search Every Update"
 	// MPropertyGroupName = "Search Frequency"
 	// MPropertyAutoRebuildOnChange
-	bool m_bSearchEveryTick;
+	bool m_bSearchEveryTick; // = true
 	// MPropertyFriendlyName = "Search Interval"
 	// MPropertyGroupName = "Search Frequency"
 	// MPropertyAttrStateCallback
-	float32 m_flSearchInterval;
+	float32 m_flSearchInterval; // = 0.1
 	// MPropertyFriendlyName = "Search when motion ends"
 	// MPropertyGroupName = "Search Frequency"
 	// MPropertyAttrStateCallback
-	bool m_bSearchWhenMotionEnds;
+	bool m_bSearchWhenMotionEnds; // = true
 	// MPropertyFriendlyName = "Search when goal changes"
 	// MPropertyGroupName = "Search Frequency"
 	// MPropertyAttrStateCallback
-	bool m_bSearchWhenGoalChanges;
+	bool m_bSearchWhenGoalChanges; // = true
 	// MPropertyFriendlyName = "Blend Time"
-	float32 m_flBlendTime;
+	float32 m_flBlendTime; // = 0.3
 	// MPropertyFriendlyName = "Selection Threshold"
 	float32 m_flSelectionThreshold;
 	// MPropertyFriendlyName = "Re-Selection Time Window"
-	float32 m_flReselectionTimeWindow;
+	float32 m_flReselectionTimeWindow; // = 0.3
 	// MPropertyFriendlyName = "Lock Selection When Waning"
 	bool m_bLockSelectionWhenWaning;
 	// MPropertyFriendlyName = "Enable Rotation Correction"
-	bool m_bEnableRotationCorrection;
+	bool m_bEnableRotationCorrection; // = true
 	// MPropertyFriendlyName = "Enable Goal Assist"
 	// MPropertyGroupName = "Goal Assist"
 	// MPropertyAutoRebuildOnChange
-	bool m_bGoalAssist;
+	bool m_bGoalAssist; // = true
 	// MPropertyFriendlyName = "Goal Assist Distance"
 	// MPropertyGroupName = "Goal Assist"
 	// MPropertyAttrStateCallback
-	float32 m_flGoalAssistDistance;
+	float32 m_flGoalAssistDistance; // = 40
 	// MPropertyFriendlyName = "Goal Assist Tolerance"
 	// MPropertyGroupName = "Goal Assist"
 	// MPropertyAttrStateCallback
-	float32 m_flGoalAssistTolerance;
+	float32 m_flGoalAssistTolerance; // = 2
 	// MPropertyFriendlyName = "Enable Distance Scaling"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAutoRebuildOnChange
-	bool m_bEnableDistanceScaling;
+	bool m_bEnableDistanceScaling; // = true
 	// MPropertyFriendlyName = "Outer Stopping Radius"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAttrStateCallback
-	float32 m_flDistanceScale_OuterRadius;
+	float32 m_flDistanceScale_OuterRadius; // = 120
 	// MPropertyFriendlyName = "Inner Stopping Radius"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAttrStateCallback
-	float32 m_flDistanceScale_InnerRadius;
+	float32 m_flDistanceScale_InnerRadius; // = 40
 	// MPropertyFriendlyName = "Maximum Speed Scale"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAttrStateCallback
-	float32 m_flDistanceScale_MaxScale;
+	float32 m_flDistanceScale_MaxScale; // = 1.5
 	// MPropertyFriendlyName = "Minimum Speed Scale"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAttrStateCallback
-	float32 m_flDistanceScale_MinScale;
+	float32 m_flDistanceScale_MinScale; // = 0.5
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_distanceScale_Damping;
+	CAnimInputDamping m_distanceScale_Damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
 };

@@ -1,16 +1,6 @@
-// MGetKV3ClassDefaults = {
-//	"m_sound":
-//	{
-//		"m_namespace": "",
-//		"m_bUseReference": true,
-//		"m_sound": "",
-//		"m_pSound": null
-//	},
-//	"m_flVolumeDB": 0.000000
-//}
 class CVoiceContainerSetElement
 {
-	CSoundContainerReference m_sound;
+	CSoundContainerReference m_sound; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
 	// MPropertyFriendlyName = "Volume (in Decibels)"
 	float32 m_flVolumeDB;
 };

@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = Could not parse KV3 Defaults
 // MVDataRoot
 // MVDataNodeType = 1
 // MPropertyPolymorphicClass

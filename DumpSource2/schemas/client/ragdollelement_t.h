@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"originParentSpace":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"parentIndex": 0,
-//	"m_flRadius": 0.000000,
-//	"m_nHeight": 0
-//}
 class ragdollelement_t
 {
 	Vector originParentSpace;

@@ -1,33 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocCommentNode",
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_floatingComment": "",
-//	"m_position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pChildGraph": null,
-//	"m_pSecondaryGraph": null,
-//	"m_size":
-//	[
-//		100.000000,
-//		100.000000
-//	],
-//	"m_comment": "",
-//	"m_nodeColor":
-//	[
-//		255,
-//		76,
-//		76,
-//		76
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocCommentNode : public CNmGraphDocNode
 {
-	Vector2D m_size;
+	Vector2D m_size; // = [ 100, 100 ]
 	CUtlString m_comment;
-	Color m_nodeColor;
+	Color m_nodeColor; // = [ 255, 76, 76, 76 ]
 };

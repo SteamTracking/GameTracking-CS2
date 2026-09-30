@@ -1,56 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmGraphDocIDSelectorNode",
-//	"m_ID": "",
-//	"m_name": "",
-//	"m_floatingComment": "",
-//	"m_position":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_pChildGraph": null,
-//	"m_pSecondaryGraph": null,
-//	"m_inputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "ID",
-//			"m_type": "Bool",
-//			"m_bIsDynamicPin": true,
-//			"m_bAllowMultipleOutConnections": false
-//		},
-//		{
-//			"m_ID": "",
-//			"m_name": "ID",
-//			"m_type": "Bool",
-//			"m_bIsDynamicPin": true,
-//			"m_bAllowMultipleOutConnections": false
-//		}
-//	],
-//	"m_outputPins":
-//	[
-//		{
-//			"m_ID": "",
-//			"m_name": "Result",
-//			"m_type": "ID",
-//			"m_bIsDynamicPin": false,
-//			"m_bAllowMultipleOutConnections": true
-//		}
-//	],
-//	"m_options":
-//	[
-//		"ID",
-//		"ID"
-//	],
-//	"m_defaultID": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmGraphDocIDSelectorNode : public CNmGraphDocFlowNode
 {
 	// MPropertyAutoExpandSelf
 	// MPropertyResizable = 0
 	// MPropertyAttributeEditor = "AnimGraphID()"
-	CUtlVector< CGlobalSymbol > m_options;
+	CUtlVector< CGlobalSymbol > m_options; // = [ "ID", "ID" ]
 	// MPropertyAttributeEditor = "AnimGraphID()"
 	CGlobalSymbol m_defaultID;
 };

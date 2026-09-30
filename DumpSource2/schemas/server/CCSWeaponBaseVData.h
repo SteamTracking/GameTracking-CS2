@@ -1,146 +1,10 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCSWeaponBaseVData",
-//	"m_szWorldModel": "",
-//	"m_szWorldModelAg2Override": "",
-//	"m_sToolsOnlyOwnerModelName": "",
-//	"m_bBuiltRightHanded": true,
-//	"m_bAllowFlipping": true,
-//	"m_sMuzzleAttachment": "muzzle",
-//	"m_szMuzzleFlashParticle": "",
-//	"m_szMuzzleFlashParticleConfig": "",
-//	"m_szBarrelSmokeParticle": "",
-//	"m_nMuzzleSmokeShotThreshold": 4,
-//	"m_flMuzzleSmokeTimeout": 0.250000,
-//	"m_flMuzzleSmokeDecrementRate": 1.000000,
-//	"m_bGenerateMuzzleLight": true,
-//	"m_bShouldAnimateInWorld": false,
-//	"m_bLinkedCooldowns": false,
-//	"m_iFlags": "",
-//	"m_iWeight": 0,
-//	"m_bAutoSwitchTo": true,
-//	"m_bAutoSwitchFrom": true,
-//	"m_nPrimaryAmmoType": "",
-//	"m_nSecondaryAmmoType": "",
-//	"m_iMaxClip1": 0,
-//	"m_iMaxClip2": 0,
-//	"m_iDefaultClip1": -1,
-//	"m_iDefaultClip2": -1,
-//	"m_bReserveAmmoAsClips": false,
-//	"m_bTreatAsSingleClip": false,
-//	"m_bKeepLoadedAmmo": false,
-//	"m_iRumbleEffect": "RUMBLE_INVALID",
-//	"m_flDropSpeed": 300.000000,
-//	"m_iSlot": 0,
-//	"m_iPosition": 0,
-//	"m_aShootSounds":
-//	{
-//	},
-//	"m_WeaponType": "WEAPONTYPE_UNKNOWN",
-//	"m_WeaponCategory": "WEAPONCATEGORY_OTHER",
-//	"m_szAnimSkeleton": "",
-//	"m_vecMuzzlePos0":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_vecMuzzlePos1":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_szTracerParticle": "",
-//	"m_GearSlot": "GEAR_SLOT_INVALID",
-//	"m_GearSlotPosition": -1,
-//	"m_DefaultLoadoutSlot": "LOADOUT_SLOT_INVALID",
-//	"m_nPrice": 0,
-//	"m_nKillAward": 0,
-//	"m_nPrimaryReserveAmmoMax": 0,
-//	"m_nSecondaryReserveAmmoMax": 0,
-//	"m_bMeleeWeapon": false,
-//	"m_bHasBurstMode": false,
-//	"m_bIsRevolver": false,
-//	"m_bCannotShootUnderwater": false,
-//	"m_szName": "",
-//	"m_eSilencerType": "WEAPONSILENCER_NONE",
-//	"m_bShowCrosshair": true,
-//	"m_bIsFullAuto": false,
-//	"m_nNumBullets": 0,
-//	"m_bReloadsSingleShells": false,
-//	"m_flCycleTime": 0.000000,
-//	"m_flCycleTimeWhenInBurstMode": 0.000000,
-//	"m_flTimeBetweenBurstShots": 0.000000,
-//	"m_flMaxSpeed": 0.000000,
-//	"m_flSpread": 0.000000,
-//	"m_flInaccuracyCrouch": 0.000000,
-//	"m_flInaccuracyStand": 0.000000,
-//	"m_flInaccuracyJump": 0.000000,
-//	"m_flInaccuracyLand": 0.000000,
-//	"m_flInaccuracyLadder": 0.000000,
-//	"m_flInaccuracyFire": 0.000000,
-//	"m_flInaccuracyMove": 0.000000,
-//	"m_flRecoilAngle": 0.000000,
-//	"m_flRecoilAngleVariance": 0.000000,
-//	"m_flRecoilMagnitude": 0.000000,
-//	"m_flRecoilMagnitudeVariance": 0.000000,
-//	"m_nTracerFrequency": 0,
-//	"m_flInaccuracyJumpInitial": 0.000000,
-//	"m_flInaccuracyJumpApex": 0.000000,
-//	"m_flInaccuracyReload": 0.000000,
-//	"m_flDeployDuration": 0.000000,
-//	"m_flDisallowAttackAfterReloadStartDuration": 0.000000,
-//	"m_nBurstShotCount": 2,
-//	"m_bAllowBurstHolster": true,
-//	"m_nRecoilSeed": 0,
-//	"m_nSpreadSeed": 0,
-//	"m_flAttackMovespeedFactor": 0.000000,
-//	"m_flInaccuracyPitchShift": 0.000000,
-//	"m_flInaccuracyAltSoundThreshold": 0.000000,
-//	"m_szUseRadioSubtitle": "",
-//	"m_bUnzoomsAfterShot": false,
-//	"m_bHideViewModelWhenZoomed": false,
-//	"m_nZoomLevels": 0,
-//	"m_nZoomFOV1": 0,
-//	"m_nZoomFOV2": 0,
-//	"m_flZoomTime0": 0.000000,
-//	"m_flZoomTime1": 0.000000,
-//	"m_flZoomTime2": 0.000000,
-//	"m_flIronSightPullUpSpeed": 8.000000,
-//	"m_flIronSightPutDownSpeed": 4.000000,
-//	"m_flIronSightFOV": 80.000000,
-//	"m_flIronSightPivotForward": 10.000000,
-//	"m_flIronSightLooseness": 0.500000,
-//	"m_nDamage": 0,
-//	"m_flHeadshotMultiplier": 0.000000,
-//	"m_flArmorRatio": 0.000000,
-//	"m_flPenetration": 0.000000,
-//	"m_flRange": 0.000000,
-//	"m_flRangeModifier": 0.000000,
-//	"m_flFlinchVelocityModifierLarge": 0.000000,
-//	"m_flFlinchVelocityModifierSmall": 0.000000,
-//	"m_flRecoveryTimeCrouch": 0.000000,
-//	"m_flRecoveryTimeStand": 0.000000,
-//	"m_flRecoveryTimeCrouchFinal": 0.000000,
-//	"m_flRecoveryTimeStandFinal": 0.000000,
-//	"m_nRecoveryTransitionStartBullet": 0,
-//	"m_nRecoveryTransitionEndBullet": 0,
-//	"m_flThrowVelocity": 0.000000,
-//	"m_vSmokeColor":
-//	[
-//		1.000000,
-//		1.000000,
-//		1.000000
-//	],
-//	"m_szAnimClass": ""
-//}
 // MPropertySuppressBaseClassField = "m_iSlot"
 // MPropertySuppressBaseClassField = "m_iPosition"
 // MHasKV3TransferPolymorphicClassname
 class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 {
-	CSWeaponType m_WeaponType;
-	CSWeaponCategory m_WeaponCategory;
+	CSWeaponType m_WeaponType; // = "WEAPONTYPE_UNKNOWN"
+	CSWeaponCategory m_WeaponCategory; // = "WEAPONCATEGORY_OTHER"
 	// MPropertyStartGroup = "Visuals"
 	CResourceNameTyped< CWeakHandle< InfoForResourceTypeCNmSkeleton > > m_szAnimSkeleton;
 	Vector m_vecMuzzlePos0;
@@ -150,11 +14,11 @@ class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 	// MPropertyStartGroup = "HUD Positions"
 	// MPropertyFriendlyName = "HUD Bucket"
 	// MPropertyDescription = "Which 'column' to display this weapon in the HUD"
-	gear_slot_t m_GearSlot;
-	int32 m_GearSlotPosition;
+	gear_slot_t m_GearSlot; // = "GEAR_SLOT_INVALID"
+	int32 m_GearSlotPosition; // = -1
 	// MPropertyFriendlyName = "HUD Bucket Position"
 	// MPropertyDescription = "Default team (non Terrorist or Counter-Terrorist) 'row' to display this weapon in the HUD."
-	loadout_slot_t m_DefaultLoadoutSlot;
+	loadout_slot_t m_DefaultLoadoutSlot; // = "LOADOUT_SLOT_INVALID"
 	// MPropertyStartGroup = "In-Game Data"
 	int32 m_nPrice;
 	int32 m_nKillAward;
@@ -166,8 +30,8 @@ class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 	bool m_bCannotShootUnderwater;
 	// MPropertyFriendlyName = "In-Code weapon name"
 	CGlobalSymbol m_szName;
-	CSWeaponSilencerType m_eSilencerType;
-	bool m_bShowCrosshair;
+	CSWeaponSilencerType m_eSilencerType; // = "WEAPONSILENCER_NONE"
+	bool m_bShowCrosshair; // = true
 	bool m_bIsFullAuto;
 	int32 m_nNumBullets;
 	bool m_bReloadsSingleShells;
@@ -194,8 +58,8 @@ class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 	float32 m_flInaccuracyReload;
 	float32 m_flDeployDuration;
 	float32 m_flDisallowAttackAfterReloadStartDuration;
-	int32 m_nBurstShotCount;
-	bool m_bAllowBurstHolster;
+	int32 m_nBurstShotCount; // = 2
+	bool m_bAllowBurstHolster; // = true
 	// MPropertyStartGroup = "Firing"
 	int32 m_nRecoilSeed;
 	int32 m_nSpreadSeed;
@@ -213,11 +77,11 @@ class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 	float32 m_flZoomTime1;
 	float32 m_flZoomTime2;
 	// MPropertyStartGroup = "Iron Sights"
-	float32 m_flIronSightPullUpSpeed;
-	float32 m_flIronSightPutDownSpeed;
-	float32 m_flIronSightFOV;
-	float32 m_flIronSightPivotForward;
-	float32 m_flIronSightLooseness;
+	float32 m_flIronSightPullUpSpeed; // = 8
+	float32 m_flIronSightPutDownSpeed; // = 4
+	float32 m_flIronSightFOV; // = 80
+	float32 m_flIronSightPivotForward; // = 10
+	float32 m_flIronSightLooseness; // = 0.5
 	// MPropertyStartGroup = "Damage"
 	int32 m_nDamage;
 	float32 m_flHeadshotMultiplier;
@@ -236,6 +100,6 @@ class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 	int32 m_nRecoveryTransitionEndBullet;
 	// MPropertyStartGroup = "Grenade Data"
 	float32 m_flThrowVelocity;
-	Vector m_vSmokeColor;
+	Vector m_vSmokeColor; // = [ 1, 1, 1 ]
 	CGlobalSymbol m_szAnimClass;
 };

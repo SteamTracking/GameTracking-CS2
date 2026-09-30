@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropSelectionCriteria_MaterialCriteria",
-//	"m_bEnabled": true,
-//	"m_material": "",
-//	"m_bInvert": false
-//}
 // MVDataComponentValidGrandParents = "CSmartPropElement_PlaceOnMesh"
 // MPropertyFriendlyName = "Filter Faces By Material"
 // MPropertyDescription = ""

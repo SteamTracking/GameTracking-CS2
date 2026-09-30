@@ -1,17 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_SequenceBlend2DItem",
-//	"m_blendValue":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_bUseCustomDuration": false,
-//	"m_flCustomDuration": 0.000000,
-//	"m_tagSpans":
-//	[
-//	],
-//	"m_sequenceName": ""
-//}
 // MPropertyFriendlyName = "Sequence Blend Item"
 // MPropertyElementNameFn
 // MHasKV3TransferPolymorphicClassname

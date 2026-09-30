@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_name": "",
-//	"m_parameters":
-//	[
-//	]
-//}
 // MPropertyAutoExpandSelf
 class CNmGraphDocDataDictionary::ParameterSet_t
 {

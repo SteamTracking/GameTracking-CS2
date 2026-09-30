@@ -1,22 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_boneName": "",
-//	"m_flSpringStrength": 10.000000,
-//	"m_flSimRateFPS": 90.000000,
-//	"m_flDamping": 0.010000,
-//	"m_eSimSpace": "SimSpace_World",
-//	"m_vBoundsMaxLS":
-//	[
-//		10.000000,
-//		10.000000,
-//		10.000000
-//	],
-//	"m_vBoundsMinLS":
-//	[
-//		-10.000000,
-//		-10.000000,
-//		-10.000000
-//	]
-//}
 // MPropertyFriendlyName = "Item"
 // MPropertyElementNameFn
 class CJiggleBoneItem
@@ -25,18 +6,18 @@ class CJiggleBoneItem
 	// MPropertyAttributeChoiceName = "Bone"
 	CUtlString m_boneName;
 	// MPropertyFriendlyName = "Spring Strength"
-	float32 m_flSpringStrength;
+	float32 m_flSpringStrength; // = 10
 	// MPropertyFriendlyName = "Sim Rate (FPS)"
-	float32 m_flSimRateFPS;
+	float32 m_flSimRateFPS; // = 90
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyAttributeRange = "0 1"
-	float32 m_flDamping;
+	float32 m_flDamping; // = 0.01
 	// MPropertyFriendlyName = "Sim Space"
-	JiggleBoneSimSpace m_eSimSpace;
+	JiggleBoneSimSpace m_eSimSpace; // = "SimSpace_World"
 	// MPropertyFriendlyName = "Max"
 	// MPropertyGroupName = "Movement Limits"
-	Vector m_vBoundsMaxLS;
+	Vector m_vBoundsMaxLS; // = [ 10, 10, 10 ]
 	// MPropertyFriendlyName = "Min"
 	// MPropertyGroupName = "Movement Limits"
-	Vector m_vBoundsMinLS;
+	Vector m_vBoundsMinLS; // = [ -10, -10, -10 ]
 };

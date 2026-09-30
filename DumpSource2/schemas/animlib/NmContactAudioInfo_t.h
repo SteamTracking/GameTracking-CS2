@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_audioActionID": "",
-//	"m_audioTypeID": "",
-//	"m_soundeventOverrideID": ""
-//}
 // MPropertyAutoExpandSelf
 class NmContactAudioInfo_t
 {

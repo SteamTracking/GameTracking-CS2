@@ -1,20 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCS2ChickenGraphController",
-//	"m_hExternalGraph": 4294967295,
-//	"m_action": null,
-//	"m_bActionReset": null,
-//	"m_actionVariation": null,
-//	"m_bInWater": null,
-//	"m_mode": null,
-//	"m_lifeStage": null,
-//	"m_idlePhase": null,
-//	"m_turnAngle": null,
-//	"m_bHasLookatTarget": null,
-//	"m_lookatTarget": null,
-//	"m_bFlinch": null,
-//	"m_flinchVariation": null,
-//	"m_bHasActionCompletedEvent": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CCS2ChickenGraphController : public CAnimGraphControllerBase
 {

@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = null
 // MNetworkNoBase
 // MHasKV3TransferPolymorphicClassname
 class CTimeline : public IntervalTimer

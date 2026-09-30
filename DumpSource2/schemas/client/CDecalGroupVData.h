@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_vecOptions":
-//	[
-//	],
-//	"m_flTotalProbability": 0.000000
-//}
 // MVDataRoot
 class CDecalGroupVData
 {

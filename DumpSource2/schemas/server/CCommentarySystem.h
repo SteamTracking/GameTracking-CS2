@@ -1,20 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CCommentarySystem",
-//	"m_bCommentaryEnabledMidGame": false,
-//	"m_flNextTeleportTime": null,
-//	"m_iTeleportStage": 0,
-//	"m_bCheatState": false,
-//	"m_bIsFirstSpawnGroupToLoad": false,
-//	"m_ModifiedConvars":
-//	[
-//	],
-//	"m_hCurrentNode": null,
-//	"m_hActiveCommentaryNode": null,
-//	"m_hLastCommentaryNode": null,
-//	"m_vecNodes":
-//	[
-//	]
-//}
 // MHasKV3TransferPolymorphicClassname
 class CCommentarySystem
 {

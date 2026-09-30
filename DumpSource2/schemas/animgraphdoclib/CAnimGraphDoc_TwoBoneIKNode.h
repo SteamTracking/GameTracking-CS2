@@ -1,49 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_TwoBoneIKNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_ikChainName": "",
-//	"m_bAutoDetectHingeAxis": true,
-//	"m_endEffectorType": "IkEndEffector_Bone",
-//	"m_endEffectorAttachmentName": "",
-//	"m_targetType": "IkTarget_Attachment",
-//	"m_attachmentName": "",
-//	"m_targetBoneName": "",
-//	"m_targetParamName": "",
-//	"m_targetParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bMatchTargetOrientation": false,
-//	"m_rotationParamName": "",
-//	"m_rotationParam":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bConstrainTwist": false,
-//	"m_flMaxTwist": 15.000000
-//}
 // MPropertyFriendlyName = "Two-Bone IK"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_TwoBoneIKNode : public CAnimGraphDoc_Node
@@ -54,11 +8,11 @@ class CAnimGraphDoc_TwoBoneIKNode : public CAnimGraphDoc_Node
 	// MPropertyAttributeChoiceName = "IKChain"
 	CUtlString m_ikChainName;
 	// MPropertyFriendlyName = "Auto-Detect Hinge Axis"
-	bool m_bAutoDetectHingeAxis;
+	bool m_bAutoDetectHingeAxis; // = true
 	// MPropertyGroupName = "End Effector"
 	// MPropertyFriendlyName = "End Effector Type"
 	// MPropertyAutoRebuildOnChange
-	IkEndEffectorType m_endEffectorType;
+	IkEndEffectorType m_endEffectorType; // = "IkEndEffector_Bone"
 	// MPropertyGroupName = "End Effector"
 	// MPropertyFriendlyName = "Attachment"
 	// MPropertyAttributeChoiceName = "Attachment"
@@ -67,7 +21,7 @@ class CAnimGraphDoc_TwoBoneIKNode : public CAnimGraphDoc_Node
 	// MPropertyGroupName = "Target"
 	// MPropertyFriendlyName = "Target Type"
 	// MPropertyAutoRebuildOnChange
-	IkTargetType m_targetType;
+	IkTargetType m_targetType; // = "IkTarget_Attachment"
 	// MPropertyGroupName = "Target"
 	// MPropertyFriendlyName = "Attachment"
 	// MPropertyAttributeChoiceName = "Attachment"
@@ -103,5 +57,5 @@ class CAnimGraphDoc_TwoBoneIKNode : public CAnimGraphDoc_Node
 	// MPropertyGroupName = "Target"
 	// MPropertyFriendlyName = "Max Twist"
 	// MPropertyAttrStateCallback
-	float32 m_flMaxTwist;
+	float32 m_flMaxTwist; // = 15
 };

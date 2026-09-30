@@ -1,59 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_TargetWarpNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputConnection":
-//	{
-//		"m_nodeID":
-//		{
-//			"m_id": 0
-//		},
-//		"m_outputID":
-//		{
-//			"m_id": 0
-//		}
-//	},
-//	"m_eLinearRootMotionMode": "TargetWarpLinearRootMotionMode_Default",
-//	"m_eAngleMode": "eFacingHeading",
-//	"m_eCorrectionMethod": "ScaleMotion",
-//	"m_eTargetWarpTimingMethod": "ReachDestinationOnRootMotionEnd",
-//	"m_moveHeadingParamID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_desiredMoveHeadingParamID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_targetPositionParamID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bTargetPositionIsWorldSpace": false,
-//	"m_targetFacePositionParamID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bTargetFacePositionIsWorldSpace": false,
-//	"m_targetUpVectorParamID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bOnlyWarpWhenTagIsFound": false,
-//	"m_bWarpOrientationDuringTranslation": false,
-//	"m_flMaxAngle": 180.000000,
-//	"m_bWarpAroundCenter": false
-//}
 // MPropertyFriendlyName = "Target Warp"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_TargetWarpNode : public CAnimGraphDoc_Node
@@ -62,13 +6,13 @@ class CAnimGraphDoc_TargetWarpNode : public CAnimGraphDoc_Node
 	CAnimGraphDoc_NodeConnection m_inputConnection;
 	// MPropertyFriendlyName = "Linear Root Motion Mode"
 	// MPropertyAutoRebuildOnChange
-	TargetWarpLinearRootMotionMode m_eLinearRootMotionMode;
+	TargetWarpLinearRootMotionMode m_eLinearRootMotionMode; // = "TargetWarpLinearRootMotionMode_Default"
 	// MPropertyFriendlyName = "Angle Mode"
-	TargetWarpAngleMode_t m_eAngleMode;
+	TargetWarpAngleMode_t m_eAngleMode; // = "eFacingHeading"
 	// MPropertyFriendlyName = "Correction Method"
-	TargetWarpCorrectionMethod m_eCorrectionMethod;
+	TargetWarpCorrectionMethod m_eCorrectionMethod; // = "ScaleMotion"
 	// MPropertyFriendlyName = "Timing Method"
-	TargetWarpTimingMethod m_eTargetWarpTimingMethod;
+	TargetWarpTimingMethod m_eTargetWarpTimingMethod; // = "ReachDestinationOnRootMotionEnd"
 	// MPropertyFriendlyName = "Move Heading"
 	// MPropertyAttributeChoiceName = "FloatParameter"
 	AnimParamID m_moveHeadingParamID;
@@ -98,7 +42,7 @@ class CAnimGraphDoc_TargetWarpNode : public CAnimGraphDoc_Node
 	bool m_bWarpOrientationDuringTranslation;
 	// MPropertyFriendlyName = "Max Angle"
 	// MPropertyDescription = "If the angle delta between the current face direction and the target face direction is more than this angle, no warping will occur."
-	float32 m_flMaxAngle;
+	float32 m_flMaxAngle; // = 180
 	// MPropertyFriendlyName = "Warp orientation around center"
 	// MPropertyDescription = "If set, orientation warp pivots around the model center instead of abs origin."
 	bool m_bWarpAroundCenter;

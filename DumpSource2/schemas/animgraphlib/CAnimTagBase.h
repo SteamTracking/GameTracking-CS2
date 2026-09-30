@@ -1,20 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimTagBase",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAnimTagBase
 {
 	// MPropertyFriendlyName = "Name"
 	// MPropertySortPriority = 100
-	CGlobalSymbol m_name;
+	CGlobalSymbol m_name; // = "Unnamed Tag"
 	// MPropertyFriendlyName = "Comment"
 	// MPropertyAttributeEditor = "TextBlock()"
 	// MPropertySortPriority = -100

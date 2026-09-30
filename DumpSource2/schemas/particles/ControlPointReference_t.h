@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_controlPointNameString": 0,
-//	"m_vOffsetFromControlPoint":
-//	[
-//		0.000000,
-//		0.000000,
-//		0.000000
-//	],
-//	"m_bOffsetInLocalSpace": false
-//}
 class ControlPointReference_t
 {
 	// MPropertyFriendlyName = "Control point"

@@ -1,9 +1,5 @@
-// MGetKV3ClassDefaults = {
-//	"parentIndex": -1,
-//	"childIndex": -1
-//}
 class ragdollhierarchyjoint_t
 {
-	int32 parentIndex;
-	int32 childIndex;
+	int32 parentIndex; // = -1
+	int32 childIndex; // = -1
 };

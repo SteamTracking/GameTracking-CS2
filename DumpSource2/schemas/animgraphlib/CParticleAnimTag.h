@@ -1,25 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CParticleAnimTag",
-//	"m_name": "Unnamed Tag",
-//	"m_sComment": "",
-//	"m_group": "",
-//	"m_tagID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bIsReferenced": false,
-//	"m_hParticleSystem": "",
-//	"m_particleSystemName": "",
-//	"m_configName": "",
-//	"m_bDetachFromOwner": false,
-//	"m_bAggregate": false,
-//	"m_bStopWhenTagEnds": false,
-//	"m_bTagEndStopIsInstant": false,
-//	"m_attachmentName": "",
-//	"m_attachmentType": "PATTACH_POINT_FOLLOW",
-//	"m_attachmentCP1Name": "",
-//	"m_attachmentCP1Type": "PATTACH_INVALID"
-//}
 // MPropertyFriendlyName = "Particle Tag"
 // MHasKV3TransferPolymorphicClassname
 class CParticleAnimTag : public CAnimTagBase
@@ -47,12 +25,12 @@ class CParticleAnimTag : public CAnimTagBase
 	CUtlString m_attachmentName;
 	// MPropertyFriendlyName = "Attachment Type"
 	// MPropertyGroupName = "Attachments"
-	ParticleAttachment_t m_attachmentType;
+	ParticleAttachment_t m_attachmentType; // = "PATTACH_POINT_FOLLOW"
 	// MPropertyFriendlyName = "Attachment (Control Point 1)"
 	// MPropertyGroupName = "Attachments"
 	// MPropertyAttributeChoiceName = "Attachment"
 	CUtlString m_attachmentCP1Name;
 	// MPropertyFriendlyName = "Attachment Type (Control Point 1)"
 	// MPropertyGroupName = "Attachments"
-	ParticleAttachment_t m_attachmentCP1Type;
+	ParticleAttachment_t m_attachmentCP1Type; // = "PATTACH_INVALID"
 };

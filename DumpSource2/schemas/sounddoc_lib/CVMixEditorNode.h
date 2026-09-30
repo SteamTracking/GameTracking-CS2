@@ -1,19 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"name": "",
-//	"friendlyname": "",
-//	"type": "",
-//	"editor_pos":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"editor_size":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"properties": null
-//}
 class CVMixEditorNode
 {
 	// MKV3TransferName = "name"

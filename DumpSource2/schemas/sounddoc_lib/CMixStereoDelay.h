@@ -1,14 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMixStereoDelay",
-//	"m_name": "",
-//	"m_Comment": "",
-//	"m_bActive": true,
-//	"m_bSolo": false,
-//	"m_bEditProperties": false,
-//	"m_nGenerationId": 0,
-//	"m_flDelayLeft": 0.000000,
-//	"m_flDelayRight": 0.000000
-//}
 // MPropertyFriendlyName = "VMix Stereo Delay Audio Node"
 // MPropertyDescription = "A simple delay with separate left & right delay times."
 // MHasKV3TransferPolymorphicClassname

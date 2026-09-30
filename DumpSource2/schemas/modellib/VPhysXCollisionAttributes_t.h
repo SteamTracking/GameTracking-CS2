@@ -1,32 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nIncludeDetailLayerCount": 0,
-//	"m_CollisionGroup": 0,
-//	"m_InteractAs":
-//	[
-//	],
-//	"m_InteractWith":
-//	[
-//	],
-//	"m_InteractExclude":
-//	[
-//	],
-//	"m_DetailLayers":
-//	[
-//	],
-//	"m_CollisionGroupString": "",
-//	"m_InteractAsStrings":
-//	[
-//	],
-//	"m_InteractWithStrings":
-//	[
-//	],
-//	"m_InteractExcludeStrings":
-//	[
-//	],
-//	"m_DetailLayerStrings":
-//	[
-//	]
-//}
 class VPhysXCollisionAttributes_t
 {
 	int32 m_nIncludeDetailLayerCount;

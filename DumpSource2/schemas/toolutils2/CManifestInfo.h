@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_Name": "",
-//	"m_Group": "",
-//	"m_Mod": "",
-//	"m_SourceFile": "",
-//	"m_nSourceLine": 0,
-//	"m_Resources":
-//	[
-//	]
-//}
 class CManifestInfo
 {
 	CUtlString m_Name;

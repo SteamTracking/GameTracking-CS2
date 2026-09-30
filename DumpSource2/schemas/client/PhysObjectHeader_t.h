@@ -1,4 +1,3 @@
-// MGetKV3ClassDefaults = null
 class PhysObjectHeader_t
 {
 	PhysInterfaceId_t type;

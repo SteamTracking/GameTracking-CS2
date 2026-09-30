@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropOperation_ResetScale",
-//	"m_bEnabled": true,
-//	"m_bIgnoreObjectScale": false
-//}
 // MPropertyFriendlyName = "Transform: Reset Scale"
 // MPropertyDescription = "Reset the current scale such the element only inherits the object level scale, but does not inherit the scale applied to its parent."
 // MVDataClassGroup = "Transform"

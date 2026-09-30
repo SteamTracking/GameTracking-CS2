@@ -1,9 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_ID": "",
-//	"m_parentID": "",
-//	"m_skeleton": "",
-//	"m_pUserData": null
-//}
 class NmVariation_t
 {
 	CGlobalSymbol m_ID;

@@ -1,28 +1,16 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CNmClipDocEvent_Sound",
-//	"m_flStartTime": 0.000000,
-//	"m_flDuration": 0.000000,
-//	"m_relevance": "ClientAndServer",
-//	"m_bContinuePlayingSoundAtDurationEnd": false,
-//	"m_flDurationInterruptionThreshold": 0.900000,
-//	"m_name": "",
-//	"m_position": "None",
-//	"m_attachmentName": "",
-//	"m_tags": ""
-//}
 // MHasKV3TransferPolymorphicClassname
 class CNmClipDocEvent_Sound : public CNmClipDocEvent
 {
-	CNmEventRelevance_t m_relevance;
+	CNmEventRelevance_t m_relevance; // = "ClientAndServer"
 	// MPropertyAttrStateCallback
 	bool m_bContinuePlayingSoundAtDurationEnd;
 	// MPropertyAttrStateCallback
-	float32 m_flDurationInterruptionThreshold;
+	float32 m_flDurationInterruptionThreshold; // = 0.9
 	// MPropertyStartGroup = "+Sound"
 	// MPropertyAttributeEditor = "SoundPicker()"
 	CUtlString m_name;
 	// MPropertyStartGroup = "+Position"
-	CNmSoundEvent::Position_t m_position;
+	CNmSoundEvent::Position_t m_position; // = "None"
 	CUtlString m_attachmentName;
 	// MPropertyStartGroup = "+Metadata"
 	CUtlString m_tags;

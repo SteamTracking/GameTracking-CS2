@@ -1,8 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CGlowProperty",
-//	"m_iGlowType": 0,
-//	"m_bEligibleForScreenHighlight": false
-//}
 // MHasKV3TransferPolymorphicClassname
 class CGlowProperty
 {

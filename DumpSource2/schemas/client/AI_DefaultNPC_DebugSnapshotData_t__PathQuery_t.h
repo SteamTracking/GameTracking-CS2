@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_nInitialMovementId": "",
-//	"m_nCurrentMovementId": "",
-//	"m_nMode": "",
-//	"m_nType": "",
-//	"m_nState": ""
-//}
 // MDebugSnapshotDataSummaryFn
 class AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
 {

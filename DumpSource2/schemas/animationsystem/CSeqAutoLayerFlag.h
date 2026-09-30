@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_bPost": false,
-//	"m_bSpline": false,
-//	"m_bXFade": false,
-//	"m_bNoBlend": false,
-//	"m_bLocal": false,
-//	"m_bPose": false,
-//	"m_bFetchFrame": false,
-//	"m_bSubtract": false
-//}
 class CSeqAutoLayerFlag
 {
 	bool m_bPost;

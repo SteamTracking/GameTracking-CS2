@@ -1,33 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAnimGraphDoc_SubGraphNode",
-//	"m_sName": "Unnamed",
-//	"m_vecPosition":
-//	[
-//		0.000000,
-//		0.000000
-//	],
-//	"m_nNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_bDebugThisNode": false,
-//	"m_networkMode": "ServerAuthoritative",
-//	"m_inputNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_outputNodeID":
-//	{
-//		"m_id": 0
-//	},
-//	"m_inputConnectionMap":
-//	[
-//	],
-//	"m_subGraphFilename": "",
-//	"m_animNameMap":
-//	{
-//	}
-//}
 // MPropertyFriendlyName = "SubGraph"
 // MHasKV3TransferPolymorphicClassname
 class CAnimGraphDoc_SubGraphNode : public CAnimGraphDoc_ContainerNodeBase

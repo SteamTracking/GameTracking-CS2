@@ -1,20 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CMotionNodeSequence",
-//	"m_name": "",
-//	"m_id":
-//	{
-//		"m_id": 0
-//	},
-//	"m_tags":
-//	[
-//	],
-//	"m_hSequence": -1,
-//	"m_flPlaybackSpeed": 1.000000
-//}
 // MHasKV3TransferPolymorphicClassname
 class CMotionNodeSequence : public CMotionNode
 {
 	CUtlVector< TagSpan_t > m_tags;
-	HSequence m_hSequence;
-	float32 m_flPlaybackSpeed;
+	HSequence m_hSequence; // = -1
+	float32 m_flPlaybackSpeed; // = 1
 };

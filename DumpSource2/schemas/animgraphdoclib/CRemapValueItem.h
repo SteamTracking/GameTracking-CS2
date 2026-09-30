@@ -1,36 +1,9 @@
-// MGetKV3ClassDefaults = {
-//	"m_valueType": "FloatParameter",
-//	"m_floatParamNameIn": "",
-//	"m_floatParamNameOut": "",
-//	"m_vectorParamNameIn": "",
-//	"m_vectorParamNameOut": "",
-//	"m_floatParamIn":
-//	{
-//		"m_id": 0
-//	},
-//	"m_floatParamOut":
-//	{
-//		"m_id": 0
-//	},
-//	"m_vectorParamIn":
-//	{
-//		"m_id": 0
-//	},
-//	"m_vectorParamOut":
-//	{
-//		"m_id": 0
-//	},
-//	"m_flMinInputValue": 0.000000,
-//	"m_flMaxInputValue": 1.000000,
-//	"m_flMinOutputValue": 0.000000,
-//	"m_flMaxOutputValue": 1.000000
-//}
 // MPropertyFriendlyName = "Remap Value"
 class CRemapValueItem
 {
 	// MPropertyFriendlyName = "Value Type"
 	// MPropertyAutoRebuildOnChange
-	RemapValueType m_valueType;
+	RemapValueType m_valueType; // = "FloatParameter"
 	// MPropertySuppressField
 	CUtlString m_floatParamNameIn;
 	// MPropertySuppressField
@@ -58,9 +31,9 @@ class CRemapValueItem
 	// MPropertyFriendlyName = "Min Input Value"
 	float32 m_flMinInputValue;
 	// MPropertyFriendlyName = "Max Input Value"
-	float32 m_flMaxInputValue;
+	float32 m_flMaxInputValue; // = 1
 	// MPropertyFriendlyName = "Min Output Value"
 	float32 m_flMinOutputValue;
 	// MPropertyFriendlyName = "Max Output Value"
-	float32 m_flMaxOutputValue;
+	float32 m_flMaxOutputValue; // = 1
 };

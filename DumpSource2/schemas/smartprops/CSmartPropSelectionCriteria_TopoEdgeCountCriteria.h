@@ -1,10 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSmartPropSelectionCriteria_TopoEdgeCountCriteria",
-//	"m_bEnabled": true,
-//	"m_nTargetOpenEdgeCount": 0,
-//	"m_bInvert": false,
-//	"m_bSharedVert": false
-//}
 // MVDataComponentValidGrandParents = "CSmartPropElement_PlaceOnMesh"
 // MPropertyFriendlyName = "Filter Faces By Open Edges"
 // MPropertyDescription = ""

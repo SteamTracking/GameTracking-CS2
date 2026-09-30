@@ -1,13 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_sDescription": "",
-//	"m_sFriendlyName": "",
-//	"m_bIsQueryOnly": false,
-//	"m_sParentDetailLayer": "",
-//	"m_vecSubtreeDetailLayers":
-//	[
-//	],
-//	"m_bNotPickable": false
-//}
 // MVDataRoot
 // MVDataOutlinerLeafNameFn
 class CollisionDetailLayerInfo_t

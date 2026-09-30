@@ -1,22 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CAI_Expresser",
-//	"m_conceptCooldowns":
-//	{
-//	},
-//	"m_ruleCooldowns":
-//	{
-//	},
-//	"m_flStopTalkTime": null,
-//	"m_flStopTalkTimeWithoutDelay": null,
-//	"m_flQueuedSpeechTime": null,
-//	"m_flBlockedTalkTime": null,
-//	"m_voicePitch": 100,
-//	"m_flLastTimeAcceptedSpeak": null,
-//	"m_bAllowSpeakingInterrupts": false,
-//	"m_bConsiderSceneInvolvementAsSpeech": false,
-//	"m_bSceneEntityDisabled": false,
-//	"m_nLastSpokenPriority": 0
-//}
 // MHasKV3TransferPolymorphicClassname
 class CAI_Expresser
 {
@@ -26,7 +7,7 @@ class CAI_Expresser
 	GameTime_t m_flStopTalkTimeWithoutDelay;
 	GameTime_t m_flQueuedSpeechTime;
 	GameTime_t m_flBlockedTalkTime;
-	int32 m_voicePitch;
+	int32 m_voicePitch; // = 100
 	GameTime_t m_flLastTimeAcceptedSpeak;
 	bool m_bAllowSpeakingInterrupts;
 	bool m_bConsiderSceneInvolvementAsSpeech;

@@ -1,15 +1,3 @@
-// MGetKV3ClassDefaults = {
-//	"m_fldbGainInput": 0.000000,
-//	"m_fldbGainOutput": 0.000000,
-//	"m_fldbThresholdBelow": -40.000000,
-//	"m_fldbThresholdAbove": -30.000000,
-//	"m_flRatioBelow": 12.000000,
-//	"m_flRatioAbove": 4.000000,
-//	"m_flAttackTimeMS": 50.000000,
-//	"m_flReleaseTimeMS": 200.000000,
-//	"m_bEnable": false,
-//	"m_bSolo": false
-//}
 class VMixDynamicsBand_t
 {
 	// MPropertyFriendlyName = "Input Gain (dB)"
@@ -17,17 +5,17 @@ class VMixDynamicsBand_t
 	// MPropertyFriendlyName = "Output Gain (dB)"
 	float32 m_fldbGainOutput;
 	// MPropertyFriendlyName = "Below Threshold(dB)"
-	float32 m_fldbThresholdBelow;
+	float32 m_fldbThresholdBelow; // = -40
 	// MPropertyFriendlyName = "Above Threshold(dB)"
-	float32 m_fldbThresholdAbove;
+	float32 m_fldbThresholdAbove; // = -30
 	// MPropertyFriendlyName = "Upward Ratio"
-	float32 m_flRatioBelow;
+	float32 m_flRatioBelow; // = 12
 	// MPropertyFriendlyName = "Downward Ratio"
-	float32 m_flRatioAbove;
+	float32 m_flRatioAbove; // = 4
 	// MPropertyFriendlyName = "Attack time (ms)"
-	float32 m_flAttackTimeMS;
+	float32 m_flAttackTimeMS; // = 50
 	// MPropertyFriendlyName = "Release time (ms)"
-	float32 m_flReleaseTimeMS;
+	float32 m_flReleaseTimeMS; // = 200
 	// MPropertyFriendlyName = "Enabled"
 	bool m_bEnable;
 	// MPropertyFriendlyName = "Solo"

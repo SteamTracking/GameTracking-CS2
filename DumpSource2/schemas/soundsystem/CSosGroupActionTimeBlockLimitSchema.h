@@ -1,12 +1,7 @@
-// MGetKV3ClassDefaults = {
-//	"_class": "CSosGroupActionTimeBlockLimitSchema",
-//	"m_nMaxCount": -1,
-//	"m_flMaxDuration": 0.000000
-//}
 // MPropertyFriendlyName = "Timed Block Limiter"
 // MHasKV3TransferPolymorphicClassname
 class CSosGroupActionTimeBlockLimitSchema : public CSosGroupActionSchema
 {
-	int32 m_nMaxCount;
+	int32 m_nMaxCount; // = -1
 	float32 m_flMaxDuration;
 };
