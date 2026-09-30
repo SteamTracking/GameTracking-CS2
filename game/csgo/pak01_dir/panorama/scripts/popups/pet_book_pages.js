@@ -116,10 +116,10 @@ var PetBookPages;
                 0: { alsoRequires: 'stage:warehouse', hint: '#pet_book_hint_adolescent_intro' },
             } },
         'teen-trip-1': { id: 6, snippet: 'page-teen-trip-set-1', holes: {
-                0: { alsoRequires: 'stage:dust2|airport|inferno|train', hint: '#pet_book_hint_adolescent_road_trip' },
+                0: { alsoRequires: 'stage:dust2|airport|inferno|train', hint: '#pet_book_hint_adolescent_road_trip_1' },
             } },
         'teen-trip-2': { id: 7, snippet: 'page-teen-trip-set-2', holes: {
-                0: { alsoRequires: 'stage:mirage|nuke|cache|ancient', hint: '#pet_book_hint_adolescent_road_trip' },
+                0: { alsoRequires: 'stage:mirage|nuke|cache|ancient', hint: '#pet_book_hint_adolescent_road_trip_2' },
             } },
         'birthday': { id: 8, snippet: 'page-birthday', holes: {
                 0: { alsoRequires: 'activity:jump,headwear:party', hint: '#pet_book_hint_birthday' },

@@ -145,7 +145,7 @@ var mainmenu_watch;
                     elButton.style.backgroundPosition = '50% 50%';
                     elButton.style.backgroundSize = 'auto 110%';
                     elButton.style.backgroundImgOpacity = '.7';
-                    if (i == maxTournaments) {
+                    if ((i == maxTournaments) && (g_ActiveTournamentInfo.active)) {
                         elButton.SetPanelEvent('onactivate', () => {
                             UiToolkitAPI.ShowCustomLayoutPopupParameters('id-popup-major-hub', 'file://{resources}/layout/popups/popup_major_hub.xml', 'eventid=' + i);
                         });

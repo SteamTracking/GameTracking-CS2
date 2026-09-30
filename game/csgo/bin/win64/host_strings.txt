@@ -1,4 +1,4 @@
- !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$0\
+ !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$@\
  (08@HPXb
  (08@HR
  (0X`hpz
@@ -98,7 +98,7 @@
 2\vpL
 2\vpx
 ?expf
-@HPX`hv
+@08N
 @N0h
 AA:P;
 APPSYSTEM: In ConnectGameInterfaces(), s_nRegistrationCount is %d!\n
@@ -130,6 +130,7 @@ LightmapUVW
 OverlayProjectionDirection
 P08@J
 P08J
+P08N
 Parameter %s is an incorrect type (needs to be %s)
 PerVertexLighting
 PivotPaint
@@ -168,6 +169,7 @@ lowprecisionuv
 lowprecisionuv1
 medium
 optionallycompressedtangentframe
+p08@H^
 posxyz
 r\vpx
 runleft

@@ -2541,6 +2541,7 @@ $tI(knN
 .CSVCMsg_GameEventList.key_t"
 .CSVCMsg_SendTable.sendprop_t
 .CSVCMsg_Sounds.sounddata_t
+.D0C
 .EProtoDebugVisiblity:
 .ERQLC*
 .ESource2PlayStatsFieldType
@@ -2659,6 +2660,7 @@ $tI(knN
 00A+
 0123456789abcdef
 0123456789abcdefghijklmnopqrstuvwxyz
+04+G
 08@HP
 08@HR
 08@J0
@@ -2674,8 +2676,8 @@ $tI(knN
 0X8b?~
 0\n\vserializers
 0\ng_VProfCurrentProfile
-0d*C
 0iN>/
+0vD0C
 0x%x,
 0|t?L
 0|t?uj
@@ -2686,9 +2688,9 @@ $tI(knN
 1#QNAN
 1#SNAN
 1.2.11
+11:57:24
 11Y@
 127.0.0.1
-13:51:40
 16777215"R\n\nCMsg_CVars
 16777215B$
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
@@ -2728,7 +2730,8 @@ $tI(knN
 2\r%2t
 2\r.PrefetchType"h\n
 2\rU2t
-2\vp0
+2\vp4+G
+2\vpp
 2i0/
 3$EE\f
 3'F^7
@@ -2772,7 +2775,6 @@ $tI(knN
 6GQ^h~
 6KT3c7
 6NK>
-6V\fH
 6\fXO>\ntA
 6\n\fmessage_type
 6\r56t
@@ -3254,16 +3256,18 @@ $tI(knN
 ?ysB
 @ Current  :  %s\n
 @08@HPX`hpx
-@08N
+@08ND0C
 @GetProfile_ultrafast
 @HPX
 @HPX&I
-@HPX`hv@
+@HPX`hv
 @\nvtune
 @\tV_atofloat32
 @^8U)zj
+@fD0C
 @ht C
 @i-kuX
+@nD0C
 A command with the specified name already exists. Cannot create an alias with the same name.\n
 A dB floor of when to stop transmitting packets, the volume between this and voice_threshold will still transmit packets to allow for volume ramping.
 A file with this name is already in the pool.
@@ -3469,6 +3473,7 @@ BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
 BKbhTb~XBK!;
+BPuY
 BROADCAST
 BSR_ANYCRLF)
 BSR_UNICODE)
@@ -5466,19 +5471,19 @@ FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
 FlattenedSerializersVersion001
 Float
 Float( %f )
-FloatBitMap_t::ConvertGammaToLinear(518): Conversion not supported yet!\n
+FloatBitMap_t::ConvertGammaToLinear(520): Conversion not supported yet!\n
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
-FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::WriteToBuffer(1209): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
-FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2160
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2272
+FloatBitMap_t::WriteToBufferDXT_atitc(1267): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1352): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1361): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1369): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2396
 FlsAlloc
 FlsFree
 FlsGetValue
@@ -5770,6 +5775,7 @@ G|u0J\n
 H$6t
 H*0"ZOW
 H.FM
+HAU`
 HD?0
 HGR9\f
 HH:mm:ss
@@ -5784,7 +5790,6 @@ HLTV send full frame %d: %d bytes\n
 HLTV:  SetSignonState( %s )\n
 HLTV:maxplayers set to %i\n
 HLTVServerAsync
-HQW`
 HSR_GAME_REMOTE_CHANGELEVEL_RECONNECT
 HammerMapLoader001
 Handle Return Values
@@ -5794,7 +5799,6 @@ HardCancel
 HasField
 HasLegacyGameUI
 HasModAppSystems
-HeX`
 Hebrew
 Hello world!
 HelpSystem_001
@@ -6725,7 +6729,7 @@ Overrides the max players reported to prospective clients
 Overriding minidump handler with Engine2MinidumpFunction\n
 P08@J0
 P08J@
-P08N
+P08ND0C
 P4File
 P:S;A
 P?fff?33s?{
@@ -6843,7 +6847,6 @@ Paused: %s
 Pauses demo playback.
 Pauses instant replay.
 Pauses when the 'render time' reaches the specified tick.
-Pd*C
 Pe6^
 Peak commit charge: %.2f MiB\n
 Peak resident memory:    %s\n
@@ -6996,6 +6999,7 @@ Playing Broadcast (%s)
 Playing Demo (%s)
 Playing back demo: '%s' at tick %u\n
 PmNk
+PnD0C
 Pointers cannot be used as numeric values
 Polish
 PollAndProcessInput
@@ -7149,6 +7153,7 @@ R8G8B8A8_ETC2_EAC
 R8G8B8_ETC2
 R8G8_UINT
 R8_UINT
+R8_UNORM
 R9G9B9E5_FLOAT
 R;876.
 RCON Cmd: recv error (%s)\n
@@ -7189,9 +7194,8 @@ RP_PAUSE
 RP_TOGGLEPAUSE
 RSDS
 RST%d
-R\fp0
+R\fpp
 R\tV_fdopen
-R\vpd*C
 RaiseException
 Random Float
 Random Integer
@@ -7649,6 +7653,7 @@ Sending network quality stats to server, summary over %d seconds\n
 Sending voice from: %s - playerslot: %d [ xuid %llx ]\n
 Sending vprof lite summary to server.  %d frames, %d detailed line items\n
 Sep 21 2026
+Sep 30 2026
 September
 SerializedEntitiesVersion001
 Server
@@ -8853,6 +8858,7 @@ XsBI
 Y8a:
 Y>kX>M
 YSb2
+YVW`
 Y\n)NETWORK_DISCONNECT_NO_PEER_GROUP_HANDLERS
 Y\n*NETWORK_DISCONNECT_STRINGTABLEMSG_OVERFLOW
 Y\n0NETWORK_DISCONNECT_REJECT_SERVERCDKEYAUTHINVALID
@@ -8974,7 +8980,6 @@ Zq",9\fB
 \n--- EVENT PROFILE ---------------------------------------------------\n
 \n----------Benchmark run on %s------\n
 \n-CSource2Metrics_MatchPerfSummary_Notification
-\n4oC
 \n6fM
 \nBegin mem_test\n
 \nClientServerEngineLoop\n{\n
@@ -8986,7 +8991,6 @@ Zq",9\fB
 \nGame: "%s"\nMap: "%s"\nPlayers: %i (%i bots) / %i humans\nBuild: %u (revision %s)\nServer Number: %i\n\n
 \nIHDRPLTEIDATIENDtRNScHRMgAMAiCCPsBITsRGBtEXtzTXtiTXtbKGDhISTpHYssPLTtIMEoFFseXIf
 \nParsing attempt:  
-\nPd*C
 \nProcess Memory:\nWorking set: %.2f MiB\nPeak working set: %.2f MiB\n
 \nRegistered comments:\n
 \nScene information:\n
@@ -9287,6 +9291,7 @@ Zq",9\fB
 \nlit data: dyn %ld, stat %ld
 \nlit tree: sent %ld
 \nopt %lu(%lu) stat %lu(%lu) stored %lu lit %u dist %u 
+\ntrC
 \p{Xan}
 \p{Xps}
 \p{Xsp}
@@ -9371,7 +9376,6 @@ Zq",9\fB
 \vm\vm\vm\vH\vm\vm\v
 \vm\vm\vm\vm\vH\v
 \vnJH
-\vpd*C
 \vxYT
 ] is an invalid data character in JavaScript compatibility mode
 ]\n,NETWORK_DISCONNECT_REJECT_INVALIDRESERVATION
@@ -9451,6 +9455,7 @@ _temp_mapcycle.txt
 `eh vector destructor iterator'
 `eh vector vbase constructor iterator'
 `eh vector vbase copy constructor iterator'
+`fD0C
 `generic-class-parameter-
 `generic-method-parameter-
 `generic-type-
@@ -9465,6 +9470,7 @@ _temp_mapcycle.txt
 `managed vector constructor iterator'
 `managed vector copy constructor iterator'
 `managed vector destructor iterator'
+`nD0C
 `non-type-template-parameter
 `omni callsig'
 `placement delete closure'
@@ -9496,6 +9502,7 @@ a numbered reference must not be zero
 a&M-=Z]<i*k)n-t&q&p&|
 a6>r
 a?wSa?\
+aBvD0C
 a\v4+Wk
 abcdefghijklmnopqrstuvwxyz
 abortflag
@@ -10213,6 +10220,7 @@ f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 f9U\n
 f?3Jf?6
 fD""B
+fD0C
 fD>b
 fDD"AUDT$t
 fP~V
@@ -10416,6 +10424,7 @@ h>1my
 hJ4%
 hPU3
 hTarget
+hYt^
 h\n,NETWORK_DISCONNECT_REMOTE_TIMEOUT_CONNECTING
 has_observable_context
 has_pvs_vis_bits_deprecated
@@ -10982,6 +10991,7 @@ n>sak><
 n?A6
 n?SZn?
 nBits != 32
+nD0C
 nGh>
 nI9>h
 nMax
@@ -11209,11 +11219,12 @@ overwatch
 owM&
 owner dead
 oz>!km>
-p08@H^
+p08@H^D0C
 p0p@
 p2p_listpeers
 p2p_ping "%s"
 p4edit
+p>D0C
 p?ff
 p@HPX`h\f
 pClass
@@ -11254,7 +11265,6 @@ path
 pause
 paused
 pc64
-pd*C
 peer
 pending
 pending_full_frame
@@ -11296,6 +11306,7 @@ playing %s from '%s'\n
 playsound
 playsound 
 playsound <soundname>
+pnD0C
 png 
 png_screenshot
 pointer, 
@@ -11384,9 +11395,8 @@ r?dar?\n
 rA?7
 rEy5
 rFg7
-r\fpd*C
 r\tVr.>T
-r\vp0
+r\vpp
 r_always_render_all_windows
 r_aspectratio
 r_camerapos
@@ -12249,6 +12259,7 @@ utl_vector,
 utlstringtoken
 uzKs@>
 v2!L.2
+vD0C
 vE-2
 vQO+t
 vWewe

@@ -3588,7 +3588,9 @@ $woundcutouttexture
 0j7@
 0jg@
 0l9@
+0l\nA
 0mS@
+0m\nA
 0mj@
 0n\nA
 0nc@
@@ -3598,10 +3600,8 @@ $woundcutouttexture
 0oj@
 0p0@
 0p7@
-0p\nA
 0pe@
 0q3@
-0q\nA
 0r2@
 0r3@
 0r8@
@@ -3641,6 +3641,7 @@ $woundcutouttexture
 2D Zoom
 2\nP!E
 2\vp4O
+2\vpP
 2nd most active material around a probe.
 30.0
 333?
@@ -3662,11 +3663,11 @@ $woundcutouttexture
 8"3hrf
 8&Kx
 8-byte data pool
+8l\nA
+8m\nA
 8n\nA
 8o\nA
-8p\nA
-8q\nA
-8y\nA
+8w\nA
 969p
 9>-memory-
 9\tV_asind
@@ -3894,7 +3895,7 @@ AssignSmoothingModeToEdges
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Async Simulate Particles
-AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempted to add two format updaters with the same file format (%s)!\n
 Attempted to add two legacy updaters with the same file format (%s)!\n
 Attempted to add two serializers with the same file encoding (%s)!\n
@@ -5752,9 +5753,9 @@ Float To Game Time
 FloatBitMap::QuarterSize
 FloatBitMap::QuarterSize3D
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
-FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -5951,13 +5952,15 @@ HeightFogScrollDir1
 HeightFogScrollDir2
 HeightFogTexture
 HeightFogWorldScale
-HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 Hide surface
 Hide unless error/warning occurs
 HideSmallGrid
 Higher the fraction, more open the space around the probe.
 HighlightDeprecated
 Hitbox indexing is incorrect for set %s, hitbox %s. Hitboxes will not be setup properly.\n
+Hl\nA
+Hm\nA
 Hn\nA
 Ho\nA
 Hold
@@ -5974,8 +5977,6 @@ HotspotApplyMaterial
 HotspotMappingMode
 HotspotPerFace
 HotspotTilingSelectionMode
-Hp\nA
-Hq\nA
 HudSkin
 Hue/Saturation %d
 Hull Per Element
@@ -7027,6 +7028,7 @@ Pj7@
 Pjj@
 PkS@
 PlY@
+Pl\nA
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Plane Normal
@@ -7036,6 +7038,7 @@ Please make sure you deleted history on the mesh before exporting.\nThe mesh app
 Pm5@
 Pn0@
 Pn\nA
+Po\nA
 Poj@
 Polygon Mesh Data Pool - level 1
 Polygon Mesh Data Pool - level 2
@@ -7105,8 +7108,6 @@ Poy@
 Pp7@
 Pp8@
 PpS@
-Pp\nA
-Pq\nA
 Pr2@
 PrZ@
 Pre-Age Noise
@@ -7240,7 +7241,6 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
-R8_UNORM
 R9G9B9E5_SHAREDEXP
 RGB blend weight for sequence 0
 RGB blend weight for sequence 1
@@ -8525,11 +8525,10 @@ XPosition
 XResolution
 XYZ, Luv
 XZP%c %d
-Xa\fA
+Xl\nA
+Xm\nA
 Xn\nA
 Xo\nA
-Xp\nA
-Xq\nA
 Y axis scaling Scalar field
 Y-Axis
 YCbCrCoefficients
@@ -10316,7 +10315,6 @@ group_title
 groupid
 growth time
 h.\npUl
-ha\fA
 halfgridsnap
 hammer
 hammerClipboard
@@ -10355,6 +10353,8 @@ hideValue
 hide_interpolation_type
 hitNormal
 hitbox
+hl\nA
+hm\nA
 hn\nA
 ho\nA
 hold
@@ -10363,8 +10363,6 @@ hold_right
 horizontal differencing 
 hotkey
 houdini
-hp\nA
-hq\nA
 http
 ice_surface_dota.vfx
 icon
@@ -11482,6 +11480,7 @@ pivotOffset
 pixelAspectRatio
 pk7@
 pkh@
+pl\nA
 plane
 plantTypes
 platform
@@ -11496,6 +11495,7 @@ playerclip
 playoverscript
 plugTypes
 pmX@
+pm\nA
 pn0@
 pnS@
 pn\nA
@@ -11542,8 +11542,6 @@ powf
 poy@
 pp7@
 ppY@
-pp\nA
-pq\nA
 precomputedmaxrange
 precomputedminrange
 prefab
@@ -12624,10 +12622,10 @@ wxform
 wyS]
 x0Ysqx
 xform
+xl\nA
+xm\nA
 xn\nA
 xo\nA
-xp\nA
-xq\nA
 yaw_initial
 yaw_offset_max
 yaw_offset_min

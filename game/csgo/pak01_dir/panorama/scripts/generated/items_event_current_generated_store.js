@@ -29,7 +29,7 @@ var g_ActiveTournamentInfo = {
     souvenir_cost: 1,
     num_global_offerings: 1,
     num_stages_with_swiss: 3,
-    active: true,
+    active: false,
 };
 var g_ActiveTournamentTeams = [
     {

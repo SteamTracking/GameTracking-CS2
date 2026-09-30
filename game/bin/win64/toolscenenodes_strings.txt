@@ -475,6 +475,7 @@ $prefix_element$
 '()+,-./:=?
 '5'7'M'S'U'_'k'm's'w'
 '6J~U\fm
+'7allow_linking
 'DAE
 'O6n
 'OverrideClass' was specified but class '%s' has not been previously defined.\n
@@ -3853,7 +3854,6 @@ $prefix_element$
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\rlhp
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vpL
 2^pV
 2a"l
 2aboutToShow()
@@ -5588,7 +5588,7 @@ AssignSmoothingModeToEdges
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Async Simulate Particles
-AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempted to add two format updaters with the same file format (%s)!\n
 Attempted to add two legacy updaters with the same file format (%s)!\n
 Attempted to add two serializers with the same file encoding (%s)!\n
@@ -8178,9 +8178,9 @@ Float To Game Time
 FloatBitMap::QuarterSize
 FloatBitMap::QuarterSize3D
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
-FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -8450,7 +8450,7 @@ Heap32First
 Heap32ListFirst
 Heap32ListNext
 Heap32Next
-HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 Hg>?S
 Hhr+g
 Hide surface
@@ -10066,7 +10066,6 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
-R8_UNORM
 R9G9B9E5_SHAREDEXP
 R=1C&b
 R?metaObject@QStandardItemModel@@UEBAPEBUQMetaObject@@XZ
@@ -10209,7 +10208,6 @@ R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
 R\r1>Vp
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpL
 R]Di
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
@@ -12201,7 +12199,6 @@ algorithms
 align
 alignToAxis
 allflags
-allow_linking
 allow_scale
 allow_sst_generation
 allowed_api_features

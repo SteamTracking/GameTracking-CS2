@@ -27,7 +27,7 @@ var MainMenu;
     let _m_bVanityAnimationAlreadyStarted = false;
     let _m_bHasPopupNotification = false;
     let _m_popupNotificationCallbackHandle = -1;
-    let _m_bMajorStoreBalanceChecked = false;
+    let _m_bRemindUsersToSpendMajorTokens = false;
     let _m_tLastSeenDisconnectedFromGC = 0;
     const _m_NotificationBarColorClasses = [
         "NotificationRed", "NotificationYellow", "NotificationGreen", "NotificationLoggingOn"
@@ -1116,7 +1116,7 @@ var MainMenu;
         }
     }
     function _CheckMajorStoreBalance() {
-        if (_m_bMajorStoreBalanceChecked || _m_bHasPopupNotification)
+        if (!_m_bRemindUsersToSpendMajorTokens || _m_bHasPopupNotification)
             return;
         if (GameStateAPI.IsLocalPlayerPlayingMatch())
             return;
@@ -1127,7 +1127,7 @@ var MainMenu;
             return;
         if (!MyPersonaAPI.IsConnectedToGC() || !MyPersonaAPI.IsInventoryValid())
             return;
-        _m_bMajorStoreBalanceChecked = true;
+        _m_bRemindUsersToSpendMajorTokens = false;
         const idxLookup = InventoryAPI.GetCacheTypeElementIndexByKey('SeasonalOperations', g_ActiveTournamentInfo.credits_id);
         if (g_ActiveTournamentInfo.credits_id != InventoryAPI.GetCacheTypeElementFieldByIndex('SeasonalOperations', idxLookup, 'season_value'))
             return;

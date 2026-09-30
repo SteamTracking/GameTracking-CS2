@@ -21415,7 +21415,6 @@ $prefix_element$
 /vpk.privatekey.vdf
 /vpk.publickey.vdf
 /zt1
-0 Qw
 0 to 1 value controlling how much random offset is applied to each point. A value of 0 will generate a regular grid of points.
 0 to 1 value specifying the location on the local x-axis of the deformer around which the bend will occur. A value of 0 means the bend will occur around the minimum end of the deformer, a value of 1 means the bend will occur around the maximum end of the deformer, a value of 0.5 means the bend will occur at the center of the deformer volume.
 0123456789
@@ -21427,6 +21426,7 @@ $prefix_element$
 09,h
 0;Q5[
 0<cz
+0@Rw
 0M2~@p
 0W/5
 0Z@q
@@ -21437,6 +21437,7 @@ $prefix_element$
 0e\r8
 0pp@5tqE?|sO541
 0tU+xc:
+0vD\f
 0x%llx
 0}dV
 1 component
@@ -21448,11 +21449,11 @@ $prefix_element$
 1!1'1-191C1E1K1]1a1g1m1s1
 1.0 - FractionalPart( A ) 
 1024
+11:59:42
 11nN
 12'0
 1280x720
 12v)
-13:57:21
 14 (default)
 15\tr\
 16-byte data pool
@@ -21482,6 +21483,7 @@ $prefix_element$
 2)252Y2]2c2k2o2u2w2{2
 2)Ab`
 2+~,@\r;Zj09
+200:
 2048
 20t\f
 241:1: FLOAT : ( ( MINUS )? ( DIGIT )+ '.' ( DIGIT )* ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? '.' ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? );
@@ -21510,7 +21512,7 @@ $prefix_element$
 2\fWQx
 2\rE2h
 2\rlhp
-2\vpd
+2\vp4
 2^pV
 2_BONE_IK
 2a"l
@@ -21524,7 +21526,7 @@ $prefix_element$
 2prB
 3%3+3/353A3G3[3_3g3k3s3y3
 31tPR
-333?
+333?p
 35-w
 37LQ
 3D Skybox
@@ -21853,7 +21855,6 @@ $prefix_element$
 ?ParallelComputeSurfacePoints
 ?SelectionSource_t
 ?VBH;
-?compressed_size
 ?d86L
 ?dt]X
 ?fff?
@@ -21865,11 +21866,13 @@ $prefix_element$
 ?srJO
 ?tya
 ?uWS
+?valve_stats
 ?x29
 @!@%@+@1@?@C@E@]@a@g@m@
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
+@08ND\f
 @0pp
 @@C:\buildworker\csgo_rel_win64\build\src\animlib\animpose.cpp
 @@CNmGraphDocIDEventPercentageThroughNode
@@ -21877,7 +21880,6 @@ $prefix_element$
 @BH]f
 @CMapLocator
 @CMixControlAutomatic
-@HPX`hvP
 @Integer overflow in %s
 @MfKZ
 @Pgl
@@ -22716,7 +22718,7 @@ Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Async Simulate Particles
 Atlas Dimension
-AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Entity Scope
 Attach Location Name
 Attach Point
@@ -25718,7 +25720,6 @@ CompileNmGraphVariation
 CompileNmSkeleton
 CompilePanorama
 CompileParticle
-CompilePostProcessing
 CompilePulseGraphDef
 CompileQueuedResourceFiles
 CompileResource
@@ -28045,6 +28046,8 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
+Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
+Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -28712,12 +28715,12 @@ FloatBitMap::DownsampleNiceFiltered
 FloatBitMap::QuarterSize
 FloatBitMap::QuarterSize3D
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::ConvertLinearToGamma(607): Conversion not supported yet!\n
+FloatBitMap_t::ConvertLinearToGamma(609): Conversion not supported yet!\n
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
-FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
-FloatBitMap_t::Sanitize(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:5700
+FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::Sanitize(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:5714
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
 FloatBitmapGammaTypeFromString(139): Unknown gamma type "%s"!\n
@@ -29330,7 +29333,7 @@ HeightCombine
 HeightToNormal
 Held Weapon Behavior
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 HemiOctAnisoRoughness
 HemiOctAnisoRoughness_RG_BA
 HemiOctIsoRoughnessAdjustable_RG_BA
@@ -29342,6 +29345,7 @@ Hero Facet
 Hero Facet %d
 Hertz
 HexDecode
+Hexagonal Cylinder
 Hg>?S
 Hhr+g
 Hidden
@@ -31841,6 +31845,7 @@ Occlusion path ratio of direct path over shortest path between the source and se
 Occlusion value between the source and selected probe.
 OcclusionCullingBoundsExpand
 OcclusionCullingBoundsScale
+Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -32080,6 +32085,7 @@ P-384
 P-521
 P08@J
 P08J
+P08ND\f
 P1\t98"
 P5[1
 PAGN_4
@@ -32967,7 +32973,6 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
-R8_UNORM
 R9G9B9E5_SHAREDEXP
 R=1C&b
 RAND lib
@@ -33115,9 +33120,9 @@ RT Proxy albedo: %s verts / %s.  %i/%i instances with unique data.\n
 RT Proxy emissive: %s of data.\n
 RT Proxy geometry: %s verts / %s, %s indices / %s.  Duplicated %i verts due to partitions\n
 RT60 for low, mid, and high frequency bands for the probe.
+R\fp4
 R\r1>Vp
 R\vp!y
-R\vpd
 R]Di
 R_T5Y
 Race Child Cursors
@@ -33652,6 +33657,7 @@ S<Fb
 S<hN-AO
 SAXPY2
 SCENE
+SCompilePostProcessing
 SECG curve over a 112 bit prime field
 SECG curve over a 113 bit binary field
 SECG curve over a 128 bit prime field
@@ -33718,7 +33724,6 @@ SNMPv2
 SNtu
 SO~c
 SPEAK
-SPostProcessing
 SQ8_d`\
 SRTP_AES128_CM_SHA1_32
 SRTP_AES128_CM_SHA1_80
@@ -34970,11 +34975,11 @@ TestResource_RequiredDependency
 TestResource_SpecialInputDependency_
 Tetrahedron
 TexCoord2OffsetByModelU
+TexCoord2OffsetByModelV
 TexCoord2OffsetStepSizeU
 TexCoord2OffsetStepSizeV
 TexCoord2ScaleByModelUOrigin
 TexCoord2ScaleByModelVOrigin
-TexCoordOffsetByModelU
 TexCoordOffsetByModelV
 TexCoordOffsetScale
 TexCoordOffsetStepSizeU
@@ -36702,7 +36707,6 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
-\fp\vPH
 \ful2
 \fy&3Gl
 \l:ArR
@@ -36813,7 +36817,6 @@ Z~wl
 \nCreating World\n
 \nMS,\nVS_MS_RTX
 \nNo game entities will be available for creation.\n
-\nPEC
 \nPS_RENDER_STATE
 \nRTX
 \nRay Tracing Environment\n
@@ -36851,11 +36854,11 @@ Z~wl
 \r!\r+\r-\r=\r?\rO\rU\ri\ry\r
 \r@h!Aq8
 \rB6uZ
-\rCTwistConstraint
+\rCParentConstraint
 \rKT8v
 \rLAM
 \rMinghuaQu\f
-\rTexCoord2OffsetByModelV
+\rTexCoordOffsetByModelU
 \rTxL
 \rUHz4Z}\r
 \rWhO
@@ -36949,6 +36952,7 @@ Z~wl
 \t\t\t\t"m_stringArg" "string" ""\n
 \t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n
 \t\t\t\t\n\n\n\n\n\n\n\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tP
 \tbody_groups = %s\n
 \tmaterial_group = "%s"\n
 \toRE
@@ -37156,6 +37160,7 @@ _wjb
 _xU`u
 _zero
 _}eOk
+`200:
 `28)fk
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
 `:zQF
@@ -37187,6 +37192,7 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
+aBvD\f
 aD/x
 aDSS
 aECDH
@@ -38554,6 +38560,7 @@ compressed
 compressed length too long
 compressed-data
 compressedValues
+compressed_size
 compressedtangentframe
 compression
 compression disabled
@@ -40731,6 +40738,7 @@ g|FeW\v
 g|MT
 h&eC
 h*Ax
+h+\n0l
 h0XB
 h2Wl
 h2n_\
@@ -40829,6 +40837,7 @@ hero_facet_%d
 hero_innate
 heroes
 hex:
+hex_cyl
 hex_to_string
 hexkey
 hhwi
@@ -43532,6 +43541,7 @@ occluder
 occlusion
 occlusion_exponent
 ocsphelper
+oct_cyl
 od?;7y
 odMsh
 odd number of chars
@@ -43700,7 +43710,7 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p0jp
+p08@H^D\f
 p2{l
 p4Z3
 p4lib
@@ -43885,7 +43895,7 @@ pbeWithSHA1And40BitRC2-CBC
 pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
-pc64 Sep 21 2026 13:57:26
+pc64 Sep 30 2026 11:59:44
 pcPathLengthConstraint
 peak
 peak_attr
@@ -44029,6 +44039,7 @@ playerclip
 playoverscript
 playresponse
 plugTypes
+pnD\f
 point
 point arithmetic failure
 point at infinity
@@ -44347,6 +44358,7 @@ rX&O0
 rZ1VwGf5
 rZPM
 r\vDi
+r\vp4
 rad2deg
 radians
 radius0_key
@@ -45800,7 +45812,7 @@ t+RW
 t0;?ZlP*m
 t2U 
 t4O_
-t4\nh
+t4\nP
 t80z
 tA`KO/3G!\n7h=
 tBCPhysSurfacePropertiesAudio
@@ -46807,7 +46819,6 @@ value_with_specific_type
 value_zero
 valuechannel
 values
-valve_stats
 vanim
 var sys = {}; ts.setSys( sys ); sys;
 variable

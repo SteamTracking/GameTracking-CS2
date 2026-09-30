@@ -332,8 +332,6 @@
 .?AVCBufferBarrierTracker@@
 .?AVCBufferMovedListenerDeferredDeletion@@
 .?AVCBufferedDescriptorSetVulkan@@
-.?AVCColorFormatBase@@
-.?AVCColorFormatVulkan@@
 .?AVCCompileTargetExprOpCodeHandler@@
 .?AVCCompileTargetExprStackMachineBuilder@@
 .?AVCConstantBufferVulkan@@
@@ -459,13 +457,12 @@
 2\nP!E
 58x\t
 5;FJ$,XEK4<
-6Lu)
 6\fE649
 7&F|If
 7T2,
 8"3hrf
 8&Kx
-8FfS-
+8F$W-
 969p
 :AM:am:PM:pm
 :Jan:January:Feb:February:Mar:March:Apr:April:May:May:Jun:June:Jul:July:Aug:August:Sep:September:Oct:October:Nov:November:Dec:December
@@ -697,33 +694,33 @@ CRenderDeviceBase::Present(683):
 CRenderDeviceBase::StartRenderDocCapture(3582): 
 CRenderDeviceVulkan::AllocateBufferInPool - invalid memory pool handle.\n
 CRenderDeviceVulkan::AllocateBufferInPool - unable to get Vulkan buffer.\n
-CRenderDeviceVulkan::AllocateBufferInPool(10142): failed to allocate GPU memory in custom pool for %s.\n
-CRenderDeviceVulkan::AllocateBufferInPool(10197): vmaBindImageMemory failed for buffer %s with error %d.\n
+CRenderDeviceVulkan::AllocateBufferInPool(10144): failed to allocate GPU memory in custom pool for %s.\n
+CRenderDeviceVulkan::AllocateBufferInPool(10199): vmaBindImageMemory failed for buffer %s with error %d.\n
 CRenderDeviceVulkan::AllocateStaticDescriptorSet: Failed to allocate descriptor set.\n
 CRenderDeviceVulkan::AllocateTextureInPool - invalid memory pool handle.\n
-CRenderDeviceVulkan::AllocateTextureInPool(9813): Allocation already set for %s, it is not valid to assign a new allocation.\n
-CRenderDeviceVulkan::AllocateTextureInPool(9890): failed to allocate GPU memory in custom pool for %s.\n
-CRenderDeviceVulkan::AllocateTextureInPool(9957): vmaBindImageMemory failed for image %s with error %d.\n
+CRenderDeviceVulkan::AllocateTextureInPool(9815): Allocation already set for %s, it is not valid to assign a new allocation.\n
+CRenderDeviceVulkan::AllocateTextureInPool(9892): failed to allocate GPU memory in custom pool for %s.\n
+CRenderDeviceVulkan::AllocateTextureInPool(9959): vmaBindImageMemory failed for image %s with error %d.\n
 CRenderDeviceVulkan::AllocateUpdateAfterBindDescriptorSet: Failed to allocate descriptor set.\n
-CRenderDeviceVulkan::BeginSubmittingDisplayLists(4410): 
+CRenderDeviceVulkan::BeginSubmittingDisplayLists(4412): 
 CRenderDeviceVulkan::CreateDefaultBuffers(2507): 
 CRenderDeviceVulkan::CreateDefaultShaders
 CRenderDeviceVulkan::CreateDescriptorSet: Failed to create descriptor set '%s'.\n
 CRenderDeviceVulkan::CreateIndirectCommandsPreprocessBuffer- invalid layout handle.\n
 CRenderDeviceVulkan::CreateIndirectExecutionSet
-CRenderDeviceVulkan::CreateTLAS(7817): 
-CRenderDeviceVulkan::DeleteQueryObject(4624): 
+CRenderDeviceVulkan::CreateTLAS(7819): 
+CRenderDeviceVulkan::DeleteQueryObject(4626): 
 CRenderDeviceVulkan::DestroyDeviceMemoryPool - invalid memory pool handle.\n
 CRenderDeviceVulkan::DestroyIndirectCommandsLayout - invalid layout handle.\n
-CRenderDeviceVulkan::FreeBufferFromPool(10235): Unable to get Vulkan buffer.\n
-CRenderDeviceVulkan::FreeBufferFromPool(10241): no allocation for buffer %s.\n
+CRenderDeviceVulkan::FreeBufferFromPool(10237): Unable to get Vulkan buffer.\n
+CRenderDeviceVulkan::FreeBufferFromPool(10243): no allocation for buffer %s.\n
 CRenderDeviceVulkan::FreeTextureFromPool - invalid memory pool handle.\n
-CRenderDeviceVulkan::FreeTextureFromPool(9989): Unable to get Vulkan image for %s.\n
-CRenderDeviceVulkan::FreeTextureFromPool(9995): no allocation for image %s.\n
-CRenderDeviceVulkan::GetDeviceMemoryBufferAllocationInfo(10340): Unable to get Vulkan buffer.\n
-CRenderDeviceVulkan::GetDeviceMemoryBufferAllocationInfo(10346): no allocation for buffer %s.\n
-CRenderDeviceVulkan::GetDeviceMemoryTextureAllocationInfo(10316): Unable to get Vulkan image for %s.\n
-CRenderDeviceVulkan::GetDeviceMemoryTextureAllocationInfo(10322): no allocation for image %s.\n
+CRenderDeviceVulkan::FreeTextureFromPool(9991): Unable to get Vulkan image for %s.\n
+CRenderDeviceVulkan::FreeTextureFromPool(9997): no allocation for image %s.\n
+CRenderDeviceVulkan::GetDeviceMemoryBufferAllocationInfo(10342): Unable to get Vulkan buffer.\n
+CRenderDeviceVulkan::GetDeviceMemoryBufferAllocationInfo(10348): no allocation for buffer %s.\n
+CRenderDeviceVulkan::GetDeviceMemoryTextureAllocationInfo(10318): Unable to get Vulkan image for %s.\n
+CRenderDeviceVulkan::GetDeviceMemoryTextureAllocationInfo(10324): no allocation for image %s.\n
 CRenderDeviceVulkan::GetDeviceSpecificTexture
 CRenderDeviceVulkan::GetDeviceSpecificTexture() failed to get texture data.\n
 CRenderDeviceVulkan::GetVertexBuffer
@@ -731,7 +728,7 @@ CRenderDeviceVulkan::GetVertexBufferAllowDeleted
 CRenderDeviceVulkan::InitDevice: failed to get queue properties\n
 CRenderDeviceVulkan::InitDevice: no graphics queue found\n
 CRenderDeviceVulkan::InitDevice: vkEnumerateDeviceExtensionProperties( ... ) failed.\n
-CRenderDeviceVulkan::ReadTexturePixels(4221): 
+CRenderDeviceVulkan::ReadTexturePixels(4223): 
 CRenderDeviceVulkan::RebakeDescriptorSetsReferencing - could not allocate descriptor in new pool.\n
 CRenderDeviceVulkan::SetHardwareGammaRamp failed to get swap chain.\n
 CRenderDeviceVulkan::UpdateDescriptorSet: Failed to update descriptor set.\n
@@ -769,7 +766,7 @@ CTextureManagerBase::MN_OnResourceLoadCompleted
 CTextureManagerBase::MN_OnResourceLoadFailed
 CTextureManagerBase::MarkAsyncUpdatedThisFrame - Invalid texture handle.\n
 CTextureManagerBase::RemoveTextureFromAnyQueues
-CTextureManagerVulkan::ComputeTextureObject(1418): 
+CTextureManagerVulkan::ComputeTextureObject(1415): 
 CTextureManagerVulkan::ComputeTextureObject: Tried to create a depth-stencil texture which is *not* a render target!\n
 CTextureStreamingHelper::LoadExplicitlyRequestedTextures
 CTextureStreamingHelper::RemoveMipLevelsForTextures
@@ -1293,6 +1290,7 @@ LZWDecodeCompat: Not enough data at scanline %d (short %ld bytes)
 LZWDecodeCompat: Wrong length of decoded string: data probably corrupted at scanline %d
 LZWPreDecode
 LZWSetupEncode
+L\v0a
 LateWarpEvaluate failed : error code = 0x%08x, info: %ls
 Latewarp.Available
 Latewarp.Backbuffer
@@ -1581,7 +1579,6 @@ RENDERDOC_GetAPI
 RESOURCE_TYPE_TEXTURE
 RJqn
 RTX\n
-R\vpt
 R_T5Y
 Ran out of query slots.\n
 Rasterizer state is VK_POLYGON_MODE_LINE but VkPhysicalDeviceFeatures.fillModeNonSolid is not supported.  Forcing to VK_POLYGON_MODE_FILL.  May result in incorrect rendering.\n
@@ -2578,7 +2575,6 @@ error: vkGetPhysicalDeviceProperties2 entrypoint does not exist for this Vulkan 
 expected an integer or the name of a #define
 expected an integer, got "%.*s" ( #define names can be used in combo declarations and rules, but not in FEATURES )
 extraPrimitiveOverestimationSize
-f0T-
 fDeltaTime
 fDeviceToViewDepth
 fDownscaleFactor
@@ -2804,6 +2800,8 @@ out.var.SV_TARGET0
 out.var.TEXCOORD0
 outReactiveMask
 outputpatch
+p>JN-
+p>iN-
 pH_r
 pIntermediateSwapChainImage == pSwapChainVulkan->m_pIntermediateSwapChainImage
 pNext
@@ -2834,7 +2832,6 @@ psize
 psrs
 pushConstantRanges
 quAt
-r\fpt
 r_dilatedDepth
 r_dilated_motion_vectors
 r_dilated_reactive_masks

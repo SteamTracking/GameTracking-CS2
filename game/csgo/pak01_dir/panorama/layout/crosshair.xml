@@ -4,20 +4,5 @@
 		<include src="s2r://panorama/styles/csgostyles.vcss" />
 		<include src="s2r://panorama/styles/crosshair.vcss" />
 	</styles>
-	<CSGOCrosshair class="crosshair" clampfractionalpixelpositions="false">
-		<Image id="TopPip" class="crosshair__pip crosshair__pip--green" src="s2r://panorama/images/hud/reticle/crosshairpip2_png.vtex" />
-		<Image id="RightPip" class="crosshair__pip crosshair__pip--green" src="s2r://panorama/images/hud/reticle/crosshairpip2_90_png.vtex" />
-		<Image id="BottomPip" class="crosshair__pip crosshair__pip--green" src="s2r://panorama/images/hud/reticle/crosshairpip2_180_png.vtex" />
-		<Image id="LeftPip" class="crosshair__pip crosshair__pip--green" src="s2r://panorama/images/hud/reticle/crosshairpip2_270_png.vtex" />
-		<Panel id="TopArc" class="crosshair__arc crosshair__arc--horizontal" />
-		<Panel id="RightArc" class="crosshair__arc crosshair__arc--vertical" />
-		<Panel id="BottomArc" class="crosshair__arc crosshair__arc--horizontal" />
-		<Panel id="LeftArc" class="crosshair__arc crosshair__arc--vertical" />
-		<Image id="TopPipBlack" class="crosshair__pip crosshair__pip--black" src="s2r://panorama/images/hud/reticle/reticlepip_png.vtex" />
-		<Image id="RightPipBlack" class="crosshair__pip crosshair__pip--black" src="s2r://panorama/images/hud/reticle/reticlepip_90_png.vtex" />
-		<Image id="BottomPipBlack" class="crosshair__pip crosshair__pip--black" src="s2r://panorama/images/hud/reticle/reticlepip_180_png.vtex" />
-		<Image id="LeftPipBlack" class="crosshair__pip crosshair__pip--black" src="s2r://panorama/images/hud/reticle/reticlepip_270_png.vtex" />
-		<Image class="crosshair__blackcircle" src="s2r://panorama/images/hud/reticle/reticlecircle_png.vtex" scaling="stretch" />
-		<Image class="crosshair__dot" src="s2r://panorama/images/hud/reticle/reticlecircle_png.vtex" textureheight="1" />
-	</CSGOCrosshair>
+	<CSGOCrosshairPreview class="crosshair" clampfractionalpixelpositions="false" />
 </root>

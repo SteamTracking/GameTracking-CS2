@@ -153,7 +153,7 @@ var MainMenuStore;
             }
         }
         const bHasItems = aItemsList.length > 0;
-        const bForceTournamentVisible = sSectionName === 'tournament';
+        const bForceTournamentVisible = ((sSectionName === 'tournament') && g_ActiveTournamentInfo.active);
         if (!bHasItems && !bForceTournamentVisible) {
             elParent.visible = false;
             return;

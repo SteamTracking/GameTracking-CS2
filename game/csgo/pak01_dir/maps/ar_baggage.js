@@ -26,7 +26,7 @@ function ConveyorReset ()
 	Instance.EntFireAtName( "conveyor_power_indicator", "Skin", "0" );
 	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 255 255" );
 	Instance.EntFireAtName( "button_stop_indicator", "Skin", "0" );
-	//Instance.EntFireAtName( "button_stop_light", "Skin", "0" );
+	                                                             
 	Instance.EntFireAtName( "button_stop", "Lock" );
 	Instance.EntFireAtName( "conveyor_control_sign", "SetSpeed", "0" );
 	SetConveyorSpeed( "conveyor_a2_upper_mid", 0 );
@@ -57,7 +57,7 @@ function ConveyorStop ()
 	Instance.EntFireAtName( "conveyor_power_indicator", "Skin", "0" );
 	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 255 255" );
 	Instance.EntFireAtName( "button_stop_indicator", "Skin", "0" );
-	//Instance.EntFireAtName( "button_stop_light", "Skin", "0" );
+	                                                             
 	Instance.EntFireAtName( "button_stop", "Lock" );
 	Instance.EntFireAtName( "conveyor_control_sign", "SetSpeed", "0" );
 	SetConveyorSpeed( "conveyor_a2_upper_mid", 0, 1 );
@@ -88,7 +88,7 @@ function ConveyorPlane ()
 	Instance.EntFireAtName( "button_stop", "Lock" );
 	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 255 255" );
 	Instance.EntFireAtName( "button_stop_indicator", "Skin", "0" );
-	//Instance.EntFireAtName( "button_stop_light", "Skin", "0" );
+	                                                             
 	SetConveyorSpeed( "conveyor_a2_upper_mid", -5 );
 	SetConveyorSpeed( "conveyor_a2_upper_cross_06", -190 );
 	SetConveyorSpeed( "conveyor_a2_upper_cross_05", -190 );
@@ -112,19 +112,19 @@ function ConveyorPlane ()
 	Instance.EntFireAtName( "conveyor_direction_button", "Lock" );
 	Instance.EntFireAtName( "conveyor_dir_indicator", "Color", "255 255 255" );
 	Instance.EntFireAtName( "conveyor_dir_indicator", "Skin", "0" );
-	Instance.EntFireAtName( "button_stop", "Unlock", "", 11 );  // Delay working? 
-	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 0 0", 11 ); //Delay working?
+	Instance.EntFireAtName( "button_stop", "Unlock", "", 11 );                    
+	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 0 0", 11 );                 
 	Instance.EntFireAtName( "button_stop_indicator", "Skin", "1", 11 );
-	Instance.EntFireAtName( "conveyor_dir_indicator", "Color", "0 255 0", 11 ); //Delay working?
+	Instance.EntFireAtName( "conveyor_dir_indicator", "Color", "0 255 0", 11 );                 
 	Instance.EntFireAtName( "conveyor_dir_indicator", "Skin", "1", 11 );
-	Instance.EntFireAtName( "conveyor_direction_button", "Unlock", "", 11 ); //Delay working?
+	Instance.EntFireAtName( "conveyor_direction_button", "Unlock", "", 11 );                 
 }
 
 function ConveyorBaggage ()
 {
 	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 255 255" );
 	Instance.EntFireAtName( "button_stop_indicator", "Skin", "0" );
-	//Instance.EntFireAtName( "button_stop_light", "Skin", "0" );
+	                                                             
 	Instance.EntFireAtName( "button_stop", "Lock" );
 	Instance.EntFireAtName( "conveyor_dir_switch_mover", "Open" );
 	Instance.EntFireAtName( "relay.snd.direction_change", "Trigger" );
@@ -151,12 +151,12 @@ function ConveyorBaggage ()
 	Instance.EntFireAtName( "conveyor_dir_indicator", "Color", "255 255 255" );
 	Instance.EntFireAtName( "conveyor_dir_indicator", "Skin", "0" );
 	Instance.EntFireAtName( "conveyor_direction_button", "Lock" );
-	Instance.EntFireAtName( "button_stop", "Unlock", "", 11 );  // Delay working? 
-	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 0 0", 11 ); //Delay working?
+	Instance.EntFireAtName( "button_stop", "Unlock", "", 11 );                    
+	Instance.EntFireAtName( "button_stop_indicator", "Color", "255 0 0", 11 );                 
 	Instance.EntFireAtName( "button_stop_indicator", "Skin", "1", 11 );
-	Instance.EntFireAtName( "conveyor_dir_indicator", "Color", "0 255 0", 11 ); //Delay working?
+	Instance.EntFireAtName( "conveyor_dir_indicator", "Color", "0 255 0", 11 );                 
 	Instance.EntFireAtName( "conveyor_dir_indicator", "Skin", "1", 11 );
-	Instance.EntFireAtName( "conveyor_direction_button", "Unlock", "", 11 ); //Delay working?
+	Instance.EntFireAtName( "conveyor_direction_button", "Unlock", "", 11 );                 
 }
 
 Instance.OnScriptInput( "ToggleDir", () =>

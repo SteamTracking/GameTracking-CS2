@@ -1,7 +1,10 @@
  (%d remaining)...
- (08@HPXb
- (08@HR
- (0X`hpz
+ (08@HPX`j@d
+ (08@HPXbP
+ (08@HPZ@d
+ (08@HRP
+ (08@JP
+ (0X`hpzP
  (Boosted +1)
  (repeat)
  - IsCheckedOut: %s\n
@@ -136,7 +139,6 @@
 "G\n#CMsgGCStorePurchaseFinalizeResponse
 "I\n4CCommunity_TerminateGamePersonalDataEntries_Response
 "P\n#CMsgGCCStrike15_v2_GC2ClientTextMsg
-"P\n/CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
 "\f?focusNextPrevChild@QTextBrowser@@MEAA_N_N@Z
 "\n\nowner_soid
 "b\n2CQuest_PublisherAddCommunityItemsToPlayer_Response
@@ -306,24 +308,23 @@ $\n\tword_list
 '\n\fglobal_stats
 '\v?enterEvent@QMenu@@MEAAXPEAVQEvent@@@Z
 ( %1, %2, %3, %4% )
-(5BX
-(5tX
-(92X
-(9sX
-(AeX
-(AfX
+(9bX
 (Documents Filter - Use | for OR, space for AND)
-(E5X
-(EMX
-(ExX
+(EKX
+(EOX
+(EmX
 (Filter)
-(IuX
-(IyX
-(M3X
+(IpX
+(M5X
+(McX
 (No Active Session)
 (Outliner Filter)
-(QKX
-(YwX
+(QDX
+(UAX
+(UGX
+(Y9X
+(YHX
+(YSX
 (\f"(\n&CMsgGCCStrike15_v2_ClientRequestOffers"\\n(CMsgGCCStrike15_v2_ClientRequestSouvenir
 (\f"6\n#CSOAccountKeychainRemoveToolCharges
 (\f"?\n#CMsgGCCStrike15_v2_Client2GCTextMsg
@@ -352,7 +353,6 @@ $\n\tword_list
 (\n$k_ECommunityItemAttribute_ExpiryTime
 (\n$k_EGCMsgGetAccountDetails_DEPRECATED
 (\n$k_EGCMsgWebAPIJobRequestHttpResponse
-(\n\feinit_result
 (\n\tattribute
 (\r""\n\rCMsgSortItems
 (\r",\n*CMsgGCCStrike15_v2_GiftsLeaderboardRequest"
@@ -392,8 +392,8 @@ $\n\tword_list
 (\t"A\n0CCommunity_GetGamePersonalDataCategories_Request
 (\t"E\n!CMsgGCCStrike15_v2_GCToClientChat
 (\t"E\n$CMsgGCCStrike15_v2_ClientAuthKeyCode
+(\t"P\n/CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
 (\t"S\n"CMsgGCCStrike15_v2_ClientPollState
-(\t"T\n-CMsgGCCStrike15_v2_GC2ClientRequestValidation
 (\t"U\n3CCommunity_TerminateGamePersonalDataEntries_Request
 (\t"U\n<CChinaAgreementSessions_StartAgreementSessionInGame_Response
 (\t"u\n-CCommunity_GetGamePersonalDataEntries_Request
@@ -448,17 +448,18 @@ $\n\tword_list
 (\v2I.CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock
 (\v2\f.CSOEconItem
 (\v?enterEvent@QToolButton@@MEAAXPEAVQEvent@@@Z
+(a8X
+(aeX
 (default)
-(eCX
-(iEX
-(u5X
-(u6X
-(uLX
-(uWX
-(ueX
-(uyX
-(yGX
-(ycX
+(eZX
+(etX
+(iNX
+(igX
+(q4X
+(q6X
+(qIX
+(qUX
+(qvX
 ) ?timerEvent@QTableView@@MEAAXPEAVQTimerEvent@@@Z
 )\f?focusOutEvent@QAbstractItemView@@MEAAXPEAVQFocusEvent@@@Z
 )\n!penalty_account_id_sessions_green
@@ -476,6 +477,7 @@ $\n\tword_list
 )\n%k_ECommunityItemClass_ProfileModifier
 )\n%k_UnlockStyle_Failed_CantAffordAttrib
 )\n?displayText@QStyledItemDelegate@@UEBA?AVQString@@AEBVQVariant@@AEBVQLocale@@@Z
+)\n\nECsgoGCMsg
 )\r?hideEvent@QComboBox@@MEAAXPEAVQHideEvent@@@Z
 )\t?buddy@QAbstractItemModel@@UEBA?AVQModelIndex@@AEBV2@@Z
 )\v?createData@QMapDataBase@@SAPEAU1@XZ
@@ -507,7 +509,6 @@ $\n\tword_list
 *\n&k_ECommunityItemAttribute_TradableTime
 *\n&k_EGCMsgGetUserGameStatsSchemaResponse
 *\n\fitem_updates
-*\n\nECsgoGCMsg
 *lootlist
 *paintkit
 + ?timerEvent@QToolButton@@MEAAXPEAVQTimerEvent@@@Z
@@ -550,7 +551,6 @@ $\n\tword_list
 -\n(k_EMsgGCCStrike15_v2_ClientCommendPlayer
 -\n(k_EMsgGCCStrike15_v2_ClientNetworkConfig
 -\n(k_EMsgGCCStrike15_v2_ClientRequestOffers
--\n(k_EMsgGCCStrike15_v2_GC2ClientInitSystem
 -\n(k_EMsgGCUserTrackTimePlayedConsecutively
 -\n)k_ECsgoSteamUserStat_MatchWinsCompetitive
 -\n\fcommendation
@@ -2037,11 +2037,7 @@ $\n\tword_list
 .?AVCMsgGCCStrike15_v2_Fantasy@@
 .?AVCMsgGCCStrike15_v2_Fantasy_FantasySlot@@
 .?AVCMsgGCCStrike15_v2_Fantasy_FantasyTeam@@
-.?AVCMsgGCCStrike15_v2_GC2ClientInitSystem@@
-.?AVCMsgGCCStrike15_v2_GC2ClientInitSystem_Response@@
 .?AVCMsgGCCStrike15_v2_GC2ClientNotifyXPShop@@
-.?AVCMsgGCCStrike15_v2_GC2ClientRefuseSecureMode@@
-.?AVCMsgGCCStrike15_v2_GC2ClientRequestValidation@@
 .?AVCMsgGCCStrike15_v2_GC2ClientTextMsg@@
 .?AVCMsgGCCStrike15_v2_GC2ClientTournamentInfo@@
 .?AVCMsgGCCStrike15_v2_GC2ServerReservationUpdate@@
@@ -2509,7 +2505,6 @@ $\n\tword_list
 .DeepPlayerMatchEvent"
 .DeepPlayerStatsEntry
 .DetailedSearchStatistic
-.EInitSystemResult
 .GCConnectionStatus
 .GCProtoBufMsgSrc
 .GC_BannedWordType
@@ -2591,7 +2586,9 @@ $\n\tword_list
 /sprays
 /stickers
 /weapons/customization/paints_gloves/
-08@J
+08@HR@d
+08@JP
+08B@d
 0\n+k_EGCItemCustomizationNotification_NameItem
 0\n+k_EMsgGCCStrike15_v2_AccountPrivacySettings
 0\n+k_EMsgGCCStrike15_v2_Account_RequestCoPlays
@@ -2604,9 +2601,11 @@ $\n\tword_list
 0\n,GCConnectionStatus_NO_SESSION_IN_LOGON_QUEUE
 0\n,k_ECommunityItemAttribute_CommunityItemAppID
 0\n\tbroadcast
+0v\fw;
 0x%1
 0x%p = %s '%s'
 0x%s
+0xh;
 1"?updateGeometry@QWidget@@QEAAXXZ
 18446744073709551615
 1970/01/02
@@ -2749,7 +2748,6 @@ $\n\tword_list
 2\n\nline_items
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vp43?
 2aboutToShow()
 2activated( int )
 2changed()
@@ -2765,6 +2763,7 @@ $\n\tword_list
 2linkActivated( const QString & )
 2mapped(QWidget*)
 2mapped(int)
+2pg!
 2returnPressed()
 2started()
 2textChanged(QString)
@@ -2779,7 +2778,6 @@ $\n\tword_list
 3\n.k_EGCItemCustomizationNotification_RemovePatch
 3\n.k_EGCItemCustomizationNotification_UnlockCrate
 3\n.k_EMsgGCCStrike15_v2_ClientRedeemMissionReward
-3\n.k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
 3\n.k_EMsgGCCStrike15_v2_GetEventFavorites_Request
 3\n.k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello
 3\n.k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello
@@ -2793,7 +2791,6 @@ $\n\tword_list
 4\n/k_EGCItemCustomizationNotification_NameBaseItem
 4\n/k_EGCItemCustomizationNotification_StatTrakSwap
 4\n/k_EGCMsgTerminateGamePersonalDataEntriesRequest
-4\n/k_EMsgGCCStrike15_v2_GC2ClientRequestValidation
 4\n/k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
 4\n/k_EMsgGCCStrike15_v2_GetEventFavorites_Response
 4\n/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
@@ -2823,7 +2820,6 @@ $\n\tword_list
 6\n1k_EGCItemCustomizationNotification_RemoveKeychain
 6\n1k_EGCItemCustomizationNotification_XRayItemReveal
 6\n1k_EMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin
-6\n1k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response
 6\n1k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo
 6\n1k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing
 6\n1k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
@@ -2835,7 +2831,10 @@ $\n\tword_list
 7\n2k_EGCItemCustomizationNotification_XpShopUseTicket
 7\n2k_EMsgGCCStrike15_v2_GCToClientSteamdatagramTicket
 7\n2k_EMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment
-89@X
+8%lX
+8@J@d
+8B@d
+8QwX
 8\f?focusOutEvent@QTextBrowser@@MEAAXPEAVQFocusEvent@@@Z
 8\n3k_EGCItemCustomizationNotification_ActivateFanToken
 8\n3k_EGCItemCustomizationNotification_GenerateSouvenir
@@ -2844,6 +2843,8 @@ $\n\tword_list
 8\n3k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo
 8\v?event@QCompleter@@MEAA_NPEAVQEvent@@@Z
 8]?size@QPixmap@@QEBA?AVQSize@@XZ
+8akX
+8qzW
 9>-memory-
 9\f?focusOutEvent@QTextEdit@@MEAAXPEAVQFocusEvent@@@Z
 9\n4k_EMsgGCCStrike15_v2_MatchEndRewardDropsNotification
@@ -3362,6 +3363,7 @@ $\n\tword_list
 ?fromSecsSinceEpoch@QDateTime@@SA?AV1@_JW4TimeSpec@Qt@@H@Z
 ?fromUtf8@QString@@SA?AV1@PEBDH@Z
 ?getAndRef@ExternalRefCountData@QtSharedPointer@@SAPEAU12@PEBVQObject@@@Z
+?hTJ
 ?hasChildren@QSortFilterProxyModel@@UEBA_NAEBVQModelIndex@@@Z
 ?hasIndex@QAbstractItemModel@@QEBA_NHHAEBVQModelIndex@@@Z
 ?hasRegisteredConverterFunction@QMetaType@@SA_NHH@Z
@@ -4333,7 +4335,7 @@ $\n\tword_list
 ?userType@QVariant@@QEBAHXZ
 ?valueToKeys@QMetaEnum@@QEBA?AVQByteArray@@H@Z
 @#?write@QTableWidgetItem@@UEBAXAEAVQDataStream@@@Z
-@HPX`hv
+@08N\fw;
 @\n\fSingleObject
 @\n\vserver_type
 @\v?event@QFrame@@MEAA_NPEAVQEvent@@@Z
@@ -5651,8 +5653,10 @@ Other Tools
 Outliner
 OverideHelpContextName
 OverlayProjectionDirection
-P08@J
-P08Jp4!
+P08@JP
+P08J
+P08N\fw;
+P2@d
 P?isValid@QColor@@QEBA_NXZ
 P?isValid@QTextCharFormat@@QEBA_NXZ
 P?itemData@QStandardItemModel@@UEBA?AV?$QMap@HVQVariant@@@@AEBVQModelIndex@@@Z
@@ -5708,6 +5712,7 @@ PgDn
 PgUp
 Picks
 PivotPaint
+Pj@d
 PlayerCommendationInfo
 PlayerDecalDigitalSignature
 PlayerMedalsInfo
@@ -5739,6 +5744,7 @@ Publish
 Publish '%1'
 Publish: %s\n
 Published ID
+Pxh;
 Q?loadResource@QTextDocument@@MEAA?AVQVariant@@HAEBVQUrl@@@Z
 QAbstractButton*
 QAction
@@ -6277,6 +6283,7 @@ X\n\tTeamStats
 X\n\vFantasyTeam
 X\r?horizontalHeader@QTableView@@QEBAPEAVQHeaderView@@XZ
 X\v?event@QPushButton@@MEAA_NPEAVQEvent@@@Z
+X`hr@d
 XpProgressData
 Y?setData@QStandardItem@@UEAAXAEBVQVariant@@H@Z
 Y?setData@QStandardItemModel@@UEAA_NAEBVQModelIndex@@AEBVQVariant@@H@Z
@@ -6371,6 +6378,7 @@ Zip system failure.\n
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \f\n EGCItemCustomizationNotification
 \f\n?deselect@QLineEdit@@QEAAXXZ
+\fp\vPxh;
 \n CMsgItemAcknowledged__DEPRECATED
 \n!CMsgGCCStrike15_v2_Party_Register
 \n!CMsgGCCStrike15_v2_PlayersProfile
@@ -6389,7 +6397,6 @@ Zip system failure.\n
 \n%CWorkshop_SetItemPaymentRules_Request
 \n&CGameServers_AggregationQuery_Response
 \n&CMsgGCCStrike15_v2_ClientCommendPlayer
-\n&CMsgGCCStrike15_v2_GC2ClientInitSystem
 \n&CMsgGCCStrike15_v2_Party_SearchResults
 \n'%1' already exists.\n\nPlease choose an alternate filename.\n
 \n'%1' is already in use as an existing item.\n\nPlease choose an alternate name.\n
@@ -6405,7 +6412,6 @@ Zip system failure.\n
 \n*CMsgGCCStrike15_v2_ClientToGCRequestTicket
 \n*CWorkshop_PopulateItemDescriptions_Request
 \n+CMsgGCCStrike15_v2_GiftsLeaderboardResponse
-\n,CMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
 \n,CMsgGCCStrike15_v2_MatchmakingGC2ClientHello
 \n,CMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
 \n,CMsgGCCstrike15_v2_ClientRedeemMissionReward
@@ -6419,7 +6425,6 @@ Zip system failure.\n
 \n.CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
 \n.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
 \n.CMsgGCCStrike15_v2_MatchmakingServerRoundStats
-\n/CMsgGCCStrike15_v2_GC2ClientInitSystem_Response
 \n/CMsgGCCStrike15_v2_MatchmakingClient2ServerPing
 \n0CMsgGCCStrike15_v2_ClientRequestWatchInfoFriends
 \n0CMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment
@@ -6541,7 +6546,6 @@ Zip system failure.\n
 \n\ncmd_leader
 \n\ncurrent_xp
 \n\ncyber_cafe
-\n\ndiagnostic
 \n\ndropreason
 \n\nerror_text
 \n\nevent_type
@@ -6565,7 +6569,6 @@ Zip system failure.\n
 \n\nmsperpoint
 \n\nmusicindex
 \n\nnote_level
-\n\noutputname
 \n\npaintindex
 \n\nplayer_dob
 \n\nprime_only
@@ -6669,7 +6672,6 @@ Zip system failure.\n
 \n\tinstances
 \n\tinventory
 \n\titemindex
-\n\tkick_user
 \n\tleague_id
 \n\tlongitude
 \n\tmatchtime
@@ -6717,8 +6719,6 @@ Zip system failure.\n
 \n\vaccount_mvp
 \n\vagreementid
 \n\vattr_defidx
-\n\vaux_system1
-\n\vaux_system2
 \n\vbalance_url
 \n\vbid_control
 \n\vbinary_data
@@ -6734,19 +6734,14 @@ Zip system failure.\n
 \n\vdescription
 \n\vegg_item_id
 \n\venemy_kills
-\n\verror_code1
-\n\verror_code2
 \n\vfaux_itemid
-\n\vfile_report
 \n\vfinal_batch
 \n\vflash_count
 \n\vfloat_value
-\n\vfull_report
 \n\vis_favorite
 \n\vis_verified
 \n\vitem_def_id
 \n\vitem_rarity
-\n\vload_system
 \n\vmatchmaking
 \n\vmstimestamp
 \n\vnet_message
@@ -6788,7 +6783,6 @@ Zip system failure.\n
 \n\vyoutube_url
 \n_V_StrSubst
 \n_V_StringAfterPrefixCaseSensitive
-\nu7X
 \r?darker@QColor@@QEBA?AV1@H@Z
 \r?data@QStandardItem@@UEBA?AVQVariant@@H@Z
 \r?data@QStandardItemModel@@UEBA?AVQVariant@@AEBVQModelIndex@@H@Z
@@ -6817,7 +6811,6 @@ Zip system failure.\n
 \r?initStyleOption@QStyledItemDelegate@@MEBAXPEAVQStyleOptionViewItem@@AEBVQModelIndex@@@Z
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
-\rtext
 \t?addPixmap@QIcon@@QEAAXAEBVQPixmap@@W4Mode@1@W4State@1@@Z
 \t?alpha@QColor@@QEBAHXZ
 \t?alphaF@QColor@@QEBANXZ
@@ -6866,6 +6859,7 @@ Zip system failure.\n
 \v?fixup@QSpinBox@@MEBAXAEAVQString@@@Z
 \v?focusChanged@QApplication@@QEAAXPEAVQWidget@@0@Z
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
+\vpxh;
 ]?staticMetaObject@QTextDocument@@2UQMetaObject@@B
 ]?staticMetaObject@QWindow@@2UQMetaObject@@B
 ]\r?horizontalOffset@QListView@@MEBAHXZ
@@ -6902,13 +6896,11 @@ _sticker_capsule
 _toolsautosave
 `?validate@QDoubleValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QRegExpValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
-`IcX
-`MSX
-`QjX
 `\v?event@QSpinBox@@MEAA_NPEAVQEvent@@@Z
 a?windowText@QPalette@@QEBAAEBVQBrush@@XZ
 a?write@QStandardItem@@UEBAXAEAVQDataStream@@@Z
 a?x@QMouseEvent@@QEBAHXZ
+aBv\fw;
 a\tV_fread
 abandon
 abandoned_match
@@ -7353,7 +7345,6 @@ file://{images}/econ/weapon_cases/crate_musickit_%s_capsule.png
 file://{images}/econ/weapon_cases/crate_musickit_%s_stattrak_capsule.png
 file://{images}/econ/weapon_cases/crate_sticker_pack_%s.png
 filePath
-files_prevented_trusted
 filter
 filterText
 first_sale_date
@@ -7510,12 +7501,10 @@ gs_location_id
 gs_ping
 gungameprogressive
 gungametrbomb
-h5RX
 h\r?horizontalScrollbarAction@QTreeView@@MEAAXH@Z
 h\v?event@QTabWidget@@MEAA_NPEAVQEvent@@@Z
 ha?window@QPalette@@QEBAAEBVQBrush@@XZ
 halfgridsnap
-handle
 hbox
 hcenter
 headerColor
@@ -7541,6 +7530,7 @@ horizontalStretch
 horizontal_header
 horizontal_header_labels
 hours
+hpzP
 i ?topLevelWidgets@QApplication@@SA?AV?$QList@PEAVQWidget@@@@XZ
 iValueIn
 i\f?forward@QTextBrowser@@UEAAXXZ
@@ -7659,7 +7649,6 @@ jump_to_item
 k"?value@QAbstractSlider@@QEBAHXZ
 k\v?event@QTextEdit@@MEAA_NPEAVQEvent@@@Z
 kc_sticker_display_case
-key_data
 key_name
 keychain
 keychain_%d
@@ -7931,7 +7920,6 @@ models/inventory_items/music_kits/music_kit_%s.vmdl
 models/props/crates/csgo_drop_crate_%s.vmdl
 models/weapons/uid.vmdl
 modelstatechoices
-module
 monitor_pid
 move
 moveclass
@@ -7985,8 +7973,6 @@ num_item_presets not set!
 o\n?dragEnterEvent@QWidget@@MEAAXPEAVQDragEnterEvent@@@Z
 o\v?event@QTreeWidget@@MEAA_NPEAVQEvent@@@Z
 objects_modified
-offer_insecure_mode
-offer_secure_mode
 offsetDelta
 offset_x
 offset_y
@@ -8020,7 +8006,8 @@ overrideclass
 owcaseid
 owner_only
 owns_polymorphic_data
-p0j@L!
+p08@H^\fw;
+p2@d
 pButton
 pCurrentFocusWidget
 pData
@@ -8084,6 +8071,7 @@ payload
 payment_row_usd
 payment_rules/0/workshop_revenue_share
 payment_us_usd
+pb@d
 pearlescent
 pedestal display model
 pedestal_display_model
@@ -8118,6 +8106,7 @@ player_xp_bonus_flags
 players_humans
 players_online
 players_searching
+pn\fw;
 point
 point_follow
 point_follow_substepped
@@ -8161,6 +8150,7 @@ public_inventory
 public_list_contents
 public_profile
 publish_to_workshop
+pxh;
 qQ?lineTo@QPainterPath@@QEAAXAEBVQPointF@@@Z
 q\n?dragLeaveEvent@QAbstractScrollArea@@MEAAXPEAVQDragLeaveEvent@@@Z
 q\v?event@QWidgetAction@@MEAA_NPEAVQEvent@@@Z
@@ -8240,7 +8230,6 @@ reserved_stattrak_loot_list_index
 reset_attr
 reset_to_default_icon
 resourcecompiler.exe
-response
 response_result
 restriction
 retakes
@@ -8335,17 +8324,12 @@ set_description
 set_for_output
 set_name
 settings
-sha_hash
 shared
 showAsTickMark
 showEvent
 showValueText
 show_in_armory
-show_trusted_ui
-show_unsigned_ui
 show_vdata_file
-show_warning_not_trusted
-show_warning_not_trusted_2
 side
 sidelist
 signal
@@ -8485,7 +8469,6 @@ suppressed_field
 survival
 svalue
 system
-system_package
 tW?rotate@QPainter@@QEAAXN@Z
 t\n?beginEditBlock@QTextCursor@@QEAAXXZ
 t\n?connect@QObject@@SA?AVConnection@QMetaObject@@PEBV1@AEBVQMetaMethod@@01W4ConnectionType@Qt@@@Z
