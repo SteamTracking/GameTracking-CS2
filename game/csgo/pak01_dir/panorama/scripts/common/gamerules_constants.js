@@ -15,7 +15,7 @@ var dictPlayerStatusImage = {
     12: "file://{images}/icons/ui/three_stack.svg",
     13: "file://{images}/icons/ui/four_stack.svg",
     14: "file://{images}/icons/ui/five_stack.svg",
-    15: "file://{images}/icons/ui/disconnect.svg" // five party in the team
+    15: "file://{images}/icons/ui/disconnect.svg"
 };
 var dictRoundResultImage = {
     "win_elimination": "file://{images}/icons/ui/kill.svg",

@@ -29,10 +29,10 @@ var EventschedTeamTooltip = ( function()
 
 
 
-		// TEAM NAME
+		            
 		$.GetContextPanel().SetDialogVariable( 'eventsched-tt-teamname', team_name );
 		
-		// TEAM LOGO
+		            
 		var elTeamLogo = $.GetContextPanel().FindChildTraverse( 'id-estt-header__team-logo' );
 		if ( elTeamLogo )
 		{
@@ -46,25 +46,25 @@ var EventschedTeamTooltip = ( function()
 		}
 		
 		
-		// $.RegisterForUnhandledEvent( 'Tournaments_TeamReceived', _TeamReceived );
+		                                                                            
 		
 
 		_Populate();
 	}
 
-	// function _TeamReceived ( teamAsString )
-	// {
-	// 	if ( teamAsString != undefined && teamAsString != "" )
-	// 	{
-	// 		_m_oTeam = JSON.parse( teamAsString );
+	                                          
+	    
+	   	                                                      
+	   	 
+	   		                                      
 
-	// 		_Populate();
-	// 	}
-	// }
+	   		            
+	   	 
+	    
 
 	function _Populate ()
 	{
-		// PLAYERS
+		          
 
 		var elPlayerContainer = $.GetContextPanel().FindChildTraverse( 'id-estt-lineup-container' );
 
@@ -76,10 +76,10 @@ var EventschedTeamTooltip = ( function()
 			elPlayer.BLoadLayoutSnippet( 'snippet-estt-player' );
 
 			var playerName = player_name[ idx ] !== "" ? player_name[ idx ] : "?"; 
-			// PLAYER NAME
+			              
 			elPlayer.SetDialogVariable( 'esttplayer-name', playerName );
 
-			//PLAYER IMAGE
+			              
 			var elPlayerImage = elPlayer.FindChildTraverse( 'id-estt-player__photo' );
 			if ( elPlayerImage )
 			{

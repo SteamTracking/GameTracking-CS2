@@ -5,7 +5,6 @@ var ContextmenuPlayerCard;
     function Init() {
         _LoadPlayerCard();
         _GetContextMenuEntries();
-        // dispatch this event so the sidebar does not close when the context menu is up.
     }
     ContextmenuPlayerCard.Init = Init;
     function _LoadPlayerCard() {
@@ -18,20 +17,6 @@ var ContextmenuPlayerCard;
         newPanel.BLoadLayout('file://{resources}/layout/playercard.xml', false, false);
     }
     ContextmenuPlayerCard.ContextMenus = [
-        /*
-        {
-            name: 'example', // Name must match the tail of the loc token for this entry
-            AvailableForItem: ( id ) =>
-            {
-                // Decide if this context menu entry should show up for this item
-                return true;
-            },
-            OnSelected: ( id ) =>
-            {
-                // Called when the entry is selected
-            }
-        },
-        */
         {
             name: 'invite',
             icon: 'invite',
@@ -49,7 +34,6 @@ var ContextmenuPlayerCard;
                 if (!gss || !gss.hasOwnProperty('game')) {
                     return false;
                 }
-                // You are searching so you can't invite
                 return gss.game.apr > 1 ? true : false;
             },
         },
@@ -109,8 +93,6 @@ var ContextmenuPlayerCard;
             name: 'petbook',
             icon: 'pet_book',
             AvailableForItem: (id) => {
-                // Your own books only, and not from inside a match: the book is a main menu thing. An egg
-                // alone has no book yet.
                 return !GameStateAPI.IsLocalPlayerPlayingMatch() && _IsSelf(id) &&
                     (_HatchedPetItemID() !== '' || _RetiredPetBookKeys().length > 0);
             },
@@ -132,12 +114,11 @@ var ContextmenuPlayerCard;
                 return false;
             },
             OnSelected: (id) => {
-                LobbyAPI.KickPlayer(id); // TODO: Need a confirm dialog
+                LobbyAPI.KickPlayer(id);
                 $.DispatchEvent('ContextMenuEvent', '');
             },
         },
         {
-            // Temp: Useful for testing, probably not where we want this?
             name: 'leave_lobby',
             icon: 'leave',
             AvailableForItem: (id) => {
@@ -156,7 +137,7 @@ var ContextmenuPlayerCard;
             name: 'message',
             icon: 'message',
             AvailableForItem: (id) => {
-                return !_IsSelf(id); // return FriendsListAPI.GetFriendRelationship( id ) === "friend";
+                return !_IsSelf(id);
             },
             OnSelected: (id) => {
                 SteamOverlayAPI.StartChatWithUser(id);
@@ -236,8 +217,6 @@ var ContextmenuPlayerCard;
             OnSelected: (id) => {
                 let communityUrl = SteamOverlayAPI.GetSteamCommunityURL();
                 SteamOverlayAPI.OpenURL(communityUrl + "/profiles/" + id + "/minimaledit");
-                // format of the link we are making
-                // http://steamcommunity.com/profiles/NAME/minimaledit
                 $.DispatchEvent('ContextMenuEvent', '');
             },
         },
@@ -251,7 +230,6 @@ var ContextmenuPlayerCard;
             },
             OnSelected: (id) => {
                 LobbyAPI.ChangeTeammateColor();
-                // don't close the panel for friend to cycle colors easily
             },
         },
         {
@@ -263,7 +241,7 @@ var ContextmenuPlayerCard;
                 const bInPartyAndMutable = !_IsSelf(id) && PartyListAPI.BIsVoiceChatEnabled() && PartyListAPI.BIsPlayerInParty(id);
                 return bInGameAndMutable || bInPartyAndMutable;
             },
-            OnSelected: null, // managed by the xml
+            OnSelected: null,
         },
         {
             name: 'report',
@@ -372,52 +350,22 @@ var ContextmenuPlayerCard;
         return (InventoryAPI.GetMusicIDForPlayer(id) > 1);
     }
     function _IsSelf(id) {
-        //DEVONLY{
-        const debug = false;
-        if (debug)
-            return false;
-        //}DEVONLY
         return id === MyPersonaAPI.GetXuid();
     }
-    //----------------------------------------------------------------------------------
-    // The pet picture books. The living pet's is named after the bird, because the bird is in the
-    // inventory; the ones left behind are numbered, because reading a name out of one means unpacking
-    // it and that waits until a book is opened.
-    //----------------------------------------------------------------------------------
-    // The living pet's item id, or '' while it is still an egg: an egg has no book to show.
     function _HatchedPetItemID() {
         const strLivePet = InventoryAPI.GetPetItemID();
         const nStage = strLivePet === '' ? 0 : Number(InventoryAPI.GetItemAttributeValue(strLivePet, '{uint32}upgrade level'));
         return nStage > 0 ? strLivePet : '';
     }
-    // Cloud keys for the books left behind, newest first. C++ hands them over ascending by item id and
-    // sorts them as uint64, so this only turns that around - re-sorting a 20 digit id here would run
-    // out of precision. The living pet's own book is dropped: it is the row above these.
     function _RetiredPetBookKeys() {
         const strLivePet = InventoryAPI.GetPetItemID();
         const strLivePrefix = strLivePet === '' ? '' : '_p' + strLivePet + '_x';
         return GameInterfaceAPI.GetPetBookCloudFileKeys().reverse()
             .filter(strCloudKey => strLivePrefix === '' || !strCloudKey.startsWith(strLivePrefix));
     }
-    // The living pet's book goes by the bird's name. No unpacking: the item is in the inventory.
     function _LivePetBookLabel(elPanel) {
-        /*
-        const strPetId = InventoryAPI.GetPetItemID();
-        const strName = InventoryAPI.HasCustomName( strPetId ) ? InventoryAPI.GetItemName( strPetId )
-            : InventoryAPI.GetItemNameUncustomized( strPetId );
-
-        // Eggs never reach the list, but a bird without a name still needs a row.
-        if ( strName === '' )
-        {
-            return $.Localize( '#pet_book_menu_current_unnamed' );
-        }
-
-        elPanel.SetDialogVariable( 'pet_name', strName );
-        */
-        return $.Localize('#pet_book_menu_current_unnamed', elPanel); // ( '#pet_book_menu_current', elPanel );
+        return $.Localize('#pet_book_menu_current_unnamed', elPanel);
     }
-    // One row per book, the living pet's first. Localize bakes the number into the string it returns,
-    // so the one dialog variable serves every row.
     function _ShowPetBookMenu() {
         const elPanel = $.GetContextPanel();
         const items = [];
@@ -436,9 +384,8 @@ var ContextmenuPlayerCard;
             locPanel.SetDialogVariable('hatch_date', InventoryAPI.LocalizeDateCoarsely(value, 'month'));
             return $.Localize('#pet_book_menu_retired', locPanel);
         }
-        // The loop will asynchronously create all the other buttons for this context menu
         _RetiredPetBookKeys().forEach((strCloudKey, nIndex) => {
-            const oldPetItemID = GameInterfaceAPI.UnpackPetBookCloudFile('[header]' + strCloudKey); // unpack the header of the file
+            const oldPetItemID = GameInterfaceAPI.UnpackPetBookCloudFile('[header]' + strCloudKey);
             const strPetMenuEntry = MakeRetiredPetName(oldPetItemID, elPanel);
             if (strPetMenuEntry) {
                 items.push({
@@ -451,17 +398,14 @@ var ContextmenuPlayerCard;
             UiToolkitAPI.ShowSimpleContextMenu('petbook', 'PetBookContextMenu', items);
         }
     }
-    // Asked for no book by name, the popup reads the living pet - see PetBookPages.Init.
     function _OpenLivePetBook() {
         UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_pet_book.xml');
         _CloseForBook();
     }
-    // The popup unpacks the key it is handed, so nothing is unpacked to build the list.
     function _OpenPetBook(strCloudKey) {
         UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_pet_book.xml', 'bookkey=' + strCloudKey);
         _CloseForBook();
     }
-    // The list closes itself on the click; this takes the player card behind it with it.
     function _CloseForBook() {
         $.DispatchEvent('DismissAllContextMenus');
     }
@@ -475,26 +419,23 @@ var ContextmenuPlayerCard;
         let elContextMenuBtns;
         for (let entry of ContextmenuPlayerCard.ContextMenus) {
             if (entry.AvailableForItem(xuid)) {
-                $.Msg('context menu' + entry.name);
                 count = count === 5 ? 0 : count;
                 if (count === 0) {
                     elContextMenuBtns = $.GetContextPanel().FindChildInLayoutFile('id_playercard-button-row' + rowCount);
                     if (!elContextMenuBtns) {
                         elContextMenuBtns = $.CreatePanel('Panel', elContextMenuBtnsParent, 'id_playercard-button-row' + rowCount, { class: 'context-menu-playercard-btns__container' });
-                        elContextMenuBtns.xuid = xuid; //store it in the parent so we can access it when we create buttons.
+                        elContextMenuBtns.xuid = xuid;
                         rowCount++;
                     }
                 }
-                if ('xml' in entry) // we have an XML for the button
-                 {
+                if ('xml' in entry) {
                     let elEntryBtn = $.CreatePanel('Panel', elContextMenuBtns, entry.name, {
                         class: 'IconButton',
                         style: 'tooltip-position: bottom;'
                     });
                     elEntryBtn.BLoadLayout(entry.xml, false, false);
                 }
-                else // default case
-                 {
+                else {
                     let elEntryBtn = $.CreatePanel('Button', elContextMenuBtns, entry.name, {
                         class: 'IconButton',
                         style: 'tooltip-position: bottom;'
@@ -514,7 +455,6 @@ var ContextmenuPlayerCard;
                     }
                     let onSelected = entry.OnSelected;
                     elEntryBtn.SetPanelEvent('onactivate', () => onSelected(xuid, type));
-                    // tooltip
                     elEntryBtn.SetPanelEvent('onmouseover', () => UiToolkitAPI.ShowTextTooltip(elEntryBtn.id, tooltip));
                     elEntryBtn.SetPanelEvent('onmouseout', () => UiToolkitAPI.HideTextTooltip());
                 }

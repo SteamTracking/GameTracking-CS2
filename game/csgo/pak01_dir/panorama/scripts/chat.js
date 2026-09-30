@@ -4,13 +4,10 @@ var Chat;
 (function (Chat) {
     let m_isContentPanelOpen = false;
     let m_lastChatEntry = null;
-    //This is a hack
     let m_isChatType = $.GetContextPanel().GetParent().id === "id-team-vote-middle" ? true : false;
     function _Init() {
         let elInput = $('#ChatInput');
         elInput.SetPanelEvent('oninputsubmit', _ChatTextSubmitted);
-        $.Msg('m_isChatType: ' + m_isChatType);
-        $.Msg('m_isChatType: ' + $.GetContextPanel().GetParent().id);
         if (m_isChatType) {
             _OpenChat();
             return;
@@ -31,14 +28,14 @@ var Chat;
     }
     function _Close() {
         if (m_isChatType)
-            return true; // swallow ESC key and don't allow closing chat in Premier - it breaks the layout and cannot get chat back
+            return true;
         let elChatContainer = $('#ChatContainer');
         if (elChatContainer.BHasClass("chat-open")) {
             elChatContainer.RemoveClass("chat-open");
             elChatContainer.SetFocus();
             $.Schedule(.1, _ScrollToBottom);
             _SetClosedHeight();
-            return true; // swallow escape key if we closed the chat
+            return true;
         }
         return false;
     }
@@ -51,7 +48,7 @@ var Chat;
     }
     function _ChatTextSubmitted() {
         if (m_lastChatEntry && (Date.now() - m_lastChatEntry < 200))
-            return; // ignore client-side chat spam, require at least 200ms between sending text, server has more rate-limits too
+            return;
         else
             m_lastChatEntry = Date.now();
         if (m_isChatType) {
@@ -102,8 +99,6 @@ var Chat;
         let panelToClip = $.GetContextPanel();
         if (!panelToClip || panelToClip.BHasClass('hidden'))
             return;
-        // Chat has its parent reset when we have the accept match button up.
-        // We check to make sure its in under the correct parent for the clip styles to apply
         if ($.GetContextPanel().GetParent().id !== 'MainMenuFriendsAndParty')
             return;
         let panelToClipWidth = panelToClip.actuallayoutwidth;
@@ -125,9 +120,6 @@ var Chat;
         _SetClosedHeight();
     }
     ;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent("PanoramaComponent_Lobby_MatchmakingSessionUpdate", _SessionUpdate);

@@ -9,11 +9,8 @@
 /// <reference path="../hud/hudwinpanel_background_map.ts" />
 var HudWinPanel;
 (function (HudWinPanel) {
-    // function MVPParticleSystem ( panelId: string, particlename : string , cp15 :  [ x:number , y: number , z:number ] ): void
-    // {
-    let _m_elCanvas; // the canvas we draw the line on
-    let _m_elPlotContainer; // a panel that sits over the canvas and where we add the icons and text.
-    // We use a separate panel so we can animate them separately.
+    let _m_elCanvas;
+    let _m_elPlotContainer;
     let _m_canvasHeightInPixels;
     let _m_canvasWidthInPixels;
     let _m_teamPerspective;
@@ -21,14 +18,13 @@ var HudWinPanel;
     let _m_timeslice;
     let _m_bInit = false;
     let _m_xRange;
-    let _m_prevChance; // for tracking delta;
+    let _m_prevChance;
     let _m_ListeningForGameEvents = false;
     let _m_bCanvasIsReady = false;
-    // separating events into categories
     let _m_arrTimelineEvents = [];
     let _m_arrPersonalDamageEvents = [];
     let _m_winningTeam;
-    const TOTAL_TIME_REVEAL = 5; // should match .show-canvas
+    const TOTAL_TIME_REVEAL = 5;
     const BEAM_ONLY_ON_DAMAGE = false;
     function _Init() {
         if (_m_bInit)
@@ -39,7 +35,6 @@ var HudWinPanel;
         _m_bInit = true;
     }
     function _SetMVP(xuid, reason, team) {
-        $.Msg(`_SetMVP ${xuid} ${reason} ${team}`);
         const avatar = $("#MVPAvatar");
         avatar.PopulateFromPlayerSlot(GameStateAPI.GetPlayerSlot(xuid));
         avatar.SetHasClass("team--TERRORIST", team === 2);
@@ -49,40 +44,40 @@ var HudWinPanel;
         let elMapContainer = $.GetContextPanel().FindChildInLayoutFile('id-match-mvp-map-container');
         MvpBackgroundMap.SetUpMapWinPanel(xuid, reason, team, elMapContainer);
         switch (reason) {
-            case 1: // CSMVP_ELIMINATION
+            case 1:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_kills";
                 break;
-            case 2: // CSMVP_BOMBPLANT
+            case 2:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_bombplant";
                 break;
-            case 3: // CSMVP_BOMBDEFUSE
+            case 3:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_bombdefuse";
                 break;
-            case 4: // CSMVP_HOSTAGERESCUE
+            case 4:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_rescue";
                 break;
-            case 5: // CSMVP_GUNGAMEWINNER
+            case 5:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_gungame";
                 break;
-            case 7: // CSMVP_SURVIVALSURVIVOR
+            case 7:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_winner";
                 break;
-            case 9: // CSMVP_ACEROUND
+            case 9:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_ace";
                 break;
-            case 10: // CSMVP_BURNDAMAGE
+            case 10:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_inferno";
                 break;
-            case 11: //CSMVP_NADEDAMAGE
+            case 11:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_blast";
                 break;
-            case 12: // CSMVP_MotionGraphyTest
+            case 12:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_winner";
                 break;
-            case 13: // CSMVP_MotionGraphyTest
+            case 13:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_bombplant_clutch";
                 break;
-            case 14: // CSMVP_MotionGraphyTest
+            case 14:
                 sMvpReasonToken = "#Panorama_winpanel_mvp_award_bombdefuse_clutch";
                 break;
             case 15:
@@ -99,13 +94,10 @@ var HudWinPanel;
     function _OnReceivePlayerHurt(attackerXuid, victimXuid, damage) {
         if (!_m_ListeningForGameEvents)
             return;
-        // we recieved this message after the report message but before we're ready to display it. Retry in a 0.5s
         if (!_m_bCanvasIsReady) {
-            $.Msg("-- deferred _OnReceivePlayerHurt");
             $.Schedule(0.5, () => _OnReceivePlayerHurt(attackerXuid, victimXuid, damage));
             return;
         }
-        // we only care about damage if it relates to the local player
         if (_m_localXuid != attackerXuid && _m_localXuid != victimXuid)
             return;
         const wasDamageGiven = _m_localXuid == attackerXuid;
@@ -118,9 +110,7 @@ var HudWinPanel;
     function _OnReceivePlayerDeath(xuid) {
         if (!_m_ListeningForGameEvents)
             return;
-        // we recieved this message after the report message but before we're ready to display it. Retry in a 0.5s
         if (!_m_bCanvasIsReady) {
-            $.Msg("-- deferred _OnReceivePlayerDeath");
             $.Schedule(0.5, () => _OnReceivePlayerDeath(xuid));
             return;
         }
@@ -150,23 +140,17 @@ var HudWinPanel;
     function _ShowRoundEndReport(msg) {
         if (!msg)
             return;
-        // reset the display
         _Reset();
         _m_ListeningForGameEvents = true;
-        // we need to know the canvas size to proceed, so let it init.
         if (!_m_elCanvas.IsSizeValid()) {
-            $.Msg("-- deferred _ShowRoundEndReport");
             $.Schedule(0.5, () => _ShowRoundEndReport.bind(msg));
             return;
         }
         _m_bCanvasIsReady = true;
-        // set the title
         $.GetContextPanel().SetDialogVariable('player_name', GameStateAPI.GetPlayerName(_m_localXuid));
-        // now we can record dimensions
         _m_canvasHeightInPixels = _m_elCanvas.actuallayoutheight / _m_elCanvas.actualuiscale_y;
         _m_canvasWidthInPixels = _m_elCanvas.actuallayoutwidth / _m_elCanvas.actualuiscale_x;
         const oInitialConditions = msg.init_conditions;
-        //plot the starting probability
         const nStartingOdds = oInitialConditions.terrorist_odds;
         const arrEvents = msg.all_rer_event_data;
         _m_arrTimelineEvents = _ExtractTimelineEvents(arrEvents);
@@ -190,19 +174,16 @@ var HudWinPanel;
         _ProcessTimelineEvents(_m_arrTimelineEvents, points, plotPoints, nStartingOdds);
         const finalPoint = points[points.length - 1];
         _ProcessDamageEvents(_m_arrPersonalDamageEvents, finalPoint[0]);
-        // draw the graph line
         const bCT = _m_teamPerspective == 3;
         const drawColor = bCT ? '#B5D4EEaa' : '#EAD18Aaa';
         _m_elCanvas.DrawSoftLinePointsJS(plotPoints.length, plotPoints.flat(), 4, 1.0, drawColor);
         _m_elCanvas.TriggerClass('show-canvas');
-        // separate the display
         const graphWidth = (_m_arrTimelineEvents.length) / _m_xRange * 100;
         const elGraphGuides = $.GetContextPanel().FindChildTraverse('GraphGuides');
         elGraphGuides.style.width = graphWidth + "%";
         const elLivingBG = $.GetContextPanel().FindChildTraverse('LivingBG');
         elLivingBG.style.width = 100 - graphWidth + "%";
         _Colorize();
-        // shut it down 1 second before the end of freezetime
         const freezetime = Number(GameInterfaceAPI.GetSettingString('mp_freezetime'));
         const roundRestartDelay = Number(GameInterfaceAPI.GetSettingString('mp_round_restart_delay'));
         const shutdownDelay = roundRestartDelay + freezetime - 1;
@@ -235,7 +216,6 @@ var HudWinPanel;
     }
     function _ProcessTimelineEvents(arrEvents, points, plotPoints, nStartingOdds) {
         let loopingSfxHandle = null;
-        // go through all of the events and plot them
         for (let index = 0; index < arrEvents.length; ++index) {
             const oEvent = arrEvents[index];
             const x = index + 1;
@@ -245,7 +225,6 @@ var HudWinPanel;
             points.push(point);
             plotPoints.push(plotPoint);
             let delta = 0;
-            // play the line sfx
             if (index == 0)
                 delta = oEvent['terrorist_odds'] - nStartingOdds;
             else
@@ -260,14 +239,12 @@ var HudWinPanel;
                 loopingSfxHandle = UiToolkitAPI.PlaySoundEvent(sfx);
             });
         }
-        // kill the last looping sound at the end of the graph
         Scheduler.Schedule(_m_arrTimelineEvents.length * _m_timeslice, () => {
             if (loopingSfxHandle)
                 UiToolkitAPI.StopSoundEvent(loopingSfxHandle, 0.1);
         });
     }
     function _ProcessDamageEvents(arrEvents, startX) {
-        // go through all of the events and plot them
         for (let index = 0; index < arrEvents.length; ++index) {
             const oEvent = arrEvents[index];
             const x = startX + index + 1;
@@ -289,7 +266,6 @@ var HudWinPanel;
     }
     function _FindDamageDataForPlayer(oEvent, xuid) {
         const oDamageData = oEvent.all_damage_data;
-        // we're going to merge attack and defend damage events
         const returnObj = {};
         for (let i = 0; i < oDamageData.length; i++) {
             if (oDamageData[i].other_xuid.toString() == xuid)
@@ -343,7 +319,6 @@ var HudWinPanel;
         elDamage.returnHealthRemoved = 0;
         elDamage.returnHits = 0;
         elDamage.style.x = plotPoint[0] + "px";
-        // create beam
         if (BEAM_ONLY_ON_DAMAGE) {
             const bCT = _m_winningTeam == 3;
             const elTeamColorBar = $.CreatePanel('Panel', _m_elPlotContainer, 'bar-' + victimData['xuid']);
@@ -354,7 +329,6 @@ var HudWinPanel;
             elTeamColorBar.style.x = plotPoint[0] + "px";
             elTeamColorBar.style.height = _FlipY(plotPoint)[1] + 70 + "px";
         }
-        // if there is damage at this time then show it. Otherwise everything is ready for post-round attacks.
         if (oDamage) {
             const healthRemoved = oDamage.health_removed || 0;
             const nHits = oDamage.num_hits || 0;
@@ -373,7 +347,6 @@ var HudWinPanel;
     function _DecoratePoint(oEvent, plotPoint) {
         const victimData = oEvent['victim_data'];
         const objectiveData = oEvent['objective_data'];
-        // we want to add the xuid to the event  so we can turn Death on later
         const key = objectiveData ? objectiveData['type'] : victimData ? victimData['xuid'] : '';
         const elEventPlot = $.CreatePanel("Panel", _m_elPlotContainer, 'Event-' + key);
         elEventPlot.BLoadLayoutSnippet('snippet-event');
@@ -391,15 +364,12 @@ var HudWinPanel;
             const isDead = victimData['is_dead'];
             elEventChance.visible = isDead;
             elDeath.visible = isDead;
-            // event icon
             elEventIcon.SetImage("file://{images}/icons/ui/kill.svg");
             elEventIcon.visible = false;
-            // avatar image
             const elAvatarImage = elEventPlot.FindChildTraverse('Avatar');
             elAvatarImage.PopulateFromPlayerSlot(GameStateAPI.GetPlayerSlot(xuid.toString()));
             const bCT = teamNumber == 3;
             elAvatarImage.SwitchClass('teamstyle', 'team--' + (bCT ? 'CT' : 'TERRORIST'));
-            // create beam
             if (!BEAM_ONLY_ON_DAMAGE) {
                 const elTeamColorBar = $.CreatePanel('Panel', _m_elPlotContainer, 'bar-' + victimData['xuid']);
                 elTeamColorBar.AddClass('ris-graph__bar');
@@ -408,43 +378,39 @@ var HudWinPanel;
                 elTeamColorBar.style.x = plotPoint[0] + "px";
                 elTeamColorBar.style.height = _FlipY(plotPoint)[1] + 70 + "px";
             }
-            // player color
             const rgbColor = TeamColor.GetTeamColor(Number(color));
             elEventMain.FindChildTraverse('JsAvatarTeamColor').style.washColor = 'rgb(' + rgbColor + ')';
         }
         else if (objectiveData) {
             const elAvatarImage = elEventPlot.FindChildTraverse('Avatar');
             elAvatarImage.visible = false;
-            // event icon
             let src = "";
             let bEventCT = false;
             switch (objectiveData['type']) {
-                case 0: // T_BOMB_PLANTED
+                case 0:
                     src = "file://{images}/icons/ui/bomb_c4.svg";
                     bEventCT = false;
                     break;
-                case 1: // T_BOMB_EXPLODED
+                case 1:
                     src = "file://{images}/icons/ui/bomb.svg";
                     bEventCT = false;
                     break;
-                case 2: // CT_BOMB_DEFUSED
+                case 2:
                     src = "file://{images}/icons/equipment/defuser.svg";
                     bEventCT = true;
                     break;
-                case 3: // CT_TIME_WIN
+                case 3:
                     src = "file://{images}/icons/ui/time_exp.svg";
                     bEventCT = true;
                     break;
             }
             elEventIcon.SetImage(src);
             elEventIcon.AddClass('event__icon--objective');
-            // tint the event
             elEventBG.SetHasClass('color-ct', bEventCT);
             elEventBG.SetHasClass('color-t', !bEventCT);
         }
         const delta = chance - _m_prevChance;
         const deltaSymbol = delta < 0 ? "▼" : delta > 0 ? "▲" : "";
-        // chance label
         if (chance == 100) {
             elEventPlot.SetDialogVariable('chance', $.Localize('#ris_win'));
             elEventChance.FindChildTraverse('EventChanceNumber').style.color = '#ffffff';
@@ -457,10 +423,8 @@ var HudWinPanel;
             elEventPlot.SetDialogVariable('chance', deltaSymbol + chance + '%');
             elEventChance.FindChildTraverse('EventChanceNumber').style.color = _RemapToTeamColorRGB(chance - _m_prevChance, -20, 20);
         }
-        // Plot the point
         elEventPlot.style.x = plotPoint[0] + "px";
         elEventPlot.style.y = plotPoint[1] + "px";
-        // DISPLAY
         if (elEventMain && elEventMain.IsValid())
             elEventMain.RemoveClass('prereveal');
         if (elEventChance && elEventChance.IsValid())
@@ -476,8 +440,6 @@ var HudWinPanel;
         const bCTWon = _m_winningTeam == 3;
         if (bCTWon)
             frac = 1 - frac;
-        //		CT blue: [ 122, 210, 238 ];
-        //		Terrorist yellow:  [ 234, 210, 139 ];
         const R = frac * (234 - 122) + 122;
         const G = 210;
         const B = (1 - frac) * (238 - 139) + 139;
@@ -485,16 +447,13 @@ var HudWinPanel;
     }
     function _Reset() {
         const localTeamNumber = GameStateAPI.GetAssociatedTeamNumber(_m_localXuid);
-        // if we're not on a team, use the hud player's perspective.
         const bUseInEye = GameStateAPI.IsDemoOrHltv() || (localTeamNumber != 2 && localTeamNumber != 3);
         _m_localXuid = bUseInEye ? GameStateAPI.GetHudPlayerXuid() : GameStateAPI.GetLocalPlayerXuid();
         _m_teamPerspective = (localTeamNumber == 2 || localTeamNumber == 3) ? localTeamNumber : 2;
         const bCT = _m_teamPerspective == 3;
-        // find some panels
         _m_elCanvas = $.GetContextPanel().FindChildTraverse('RisCanvas');
         _m_elPlotContainer = $.GetContextPanel().FindChildTraverse('RisPlotContainer');
         Scheduler.Cancel();
-        // clear all pending jobs
         _m_arrTimelineEvents = [];
         _m_arrPersonalDamageEvents = [];
         _m_elPlotContainer.RemoveAndDeleteChildren();
@@ -502,16 +461,12 @@ var HudWinPanel;
         elDamageContainer.RemoveAndDeleteChildren();
         _m_elCanvas.ClearJS('rgba(0,0,0,0)');
         $.GetContextPanel().SetDialogVariable('team', GameStateAPI.GetTeamClanName(bCT ? 'CT' : 'TERRORIST'));
-        // set the team logo
         const elTeamLogo = $.GetContextPanel().FindChildTraverse('RisTeamLogo');
         if (elTeamLogo) {
             elTeamLogo.SetImage(bCT ? "file://{images}/icons/ui/ct_logo_1c.svg" : "file://{images}/icons/ui/t_logo_1c.svg");
         }
         _Colorize();
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('HudWinPanel_MVP', $.GetContextPanel(), _SetMVP);
         _Init();

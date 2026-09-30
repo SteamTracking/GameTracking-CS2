@@ -20,7 +20,6 @@ var PlayerCard;
         _m_bShownInFriendsList = $.GetContextPanel().GetAttributeString('data-slot', '') !== '';
         $("#AnimBackground").PopulateFromSteamID(_m_xuid);
         _RegisterForInventoryUpdate();
-        $.Msg((_m_bShownInFriendsList ? 'Friend Entry' : 'Popup Card') + ' for xuid: ' + _m_xuid);
         if (!_m_isSelf)
             FriendsListAPI.RequestFriendProfileUpdateFromScript(_m_xuid);
         FillOutFriendCard();
@@ -44,7 +43,6 @@ var PlayerCard;
         if (_m_xuid) {
             _m_currentLvl = FriendsListAPI.GetFriendLevel(_m_xuid);
             _m_ShowLockedRankSkillGroupState = !_IsPlayerPrime() && _HasXpProgressToFreeze();
-            // General elements available for everybody
             UpdateName();
             _SetHonorIcon();
             _SetAvatar();
@@ -52,7 +50,6 @@ var PlayerCard;
             _SetPlayerBackground();
             _SetRank();
             _SetPrimeUpsell();
-            // Skill group elements and expanding section with other skill groups
             if (_m_isSelf) {
                 if (MyPersonaAPI.GetPipRankWins("Premier") >= 0) {
                     if (_m_bShownInFriendsList)
@@ -68,7 +65,6 @@ var PlayerCard;
             else {
                 SetAllSkillGroups();
             }
-            // Commendations and prime
             if (_m_bShownInFriendsList) {
                 $.GetContextPanel().FindChildInLayoutFile('JsPlayerCommendations').AddClass('hidden');
                 $.GetContextPanel().FindChildInLayoutFile('JsPlayerPrime').AddClass('hidden');
@@ -81,8 +77,6 @@ var PlayerCard;
         }
     }
     function ProfileUpdated(xuid) {
-        //This is used for updating friends cards from the callback 'PanoramaComponent_FriendsList_ProfileUpdated'.
-        $.Msg('-----ProfileUpdated-----');
         if (_m_xuid === xuid)
             FillOutFriendCard();
     }
@@ -133,7 +127,6 @@ var PlayerCard;
         }
         let bHasRankToFreezeButNoPrestige = (_m_ShowLockedRankSkillGroupState) ? true : false;
         let currentPoints = FriendsListAPI.GetFriendXp(_m_xuid), pointsPerLevel = MyPersonaAPI.GetXpPerLevel();
-        // Set Xp bar and show.
         let elXpBarInner = $.GetContextPanel().FindChildInLayoutFile('JsPlayerXpBarInner');
         if (bHasRankToFreezeButNoPrestige) {
             elXpBarInner.GetParent().visible = false;
@@ -143,7 +136,6 @@ var PlayerCard;
             elXpBarInner.style.width = percentComplete + '%';
             elXpBarInner.GetParent().visible = true;
         }
-        // weekly rewards aka care package
         if (_m_isSelf) {
             const xpBonuses = MyPersonaAPI.GetActiveXpBonuses();
             const bEligibleForCarePackage = xpBonuses.split(',').includes('2');
@@ -152,9 +144,7 @@ var PlayerCard;
             const nStage = petId ? Number(InventoryAPI.GetItemAttributeValue(petId, '{uint32}upgrade level')) : 0;
             $.GetContextPanel().SetHasClass('pet-feed-eligible', bEligibleForCarePackage && !!petId && nStage > 0);
         }
-        // Set Xp rank name.
         let elRankText = $.GetContextPanel().FindChildInLayoutFile('JsPlayerRankName');
-        // if the rank is frozen, use the same styling as the upsell non-prime case
         elRankText.SetHasClass('player-card-prime-text', bHasRankToFreezeButNoPrestige);
         elRank.SetHasClass('player-card-nonprime-locked-xp-row', bHasRankToFreezeButNoPrestige);
         if (bHasRankToFreezeButNoPrestige) {
@@ -164,7 +154,6 @@ var PlayerCard;
             elRankText.SetDialogVariable('name', $.Localize('#SFUI_XP_RankName_' + _m_currentLvl));
             elRankText.SetDialogVariableInt('level', _m_currentLvl);
         }
-        // Set Xp rank image and show.
         let elRankIcon = $.GetContextPanel().FindChildInLayoutFile('JsPlayerXpIcon');
         elRankIcon.SetImage('file://{images}/icons/xp/level' + _m_currentLvl + '.png');
         elRank.RemoveClass('hidden');
@@ -208,35 +197,26 @@ var PlayerCard;
         return elSkillGroup;
     }
     function _ShowOtherRanksByDefault(elSkillGroup, type) {
-        // Since we fetch he rank for you and we don't want to do it on load
-        // we hide it when we make the panel.
-        // If its not the profile inthe friends panel then we are asking for it anyway by opening
-        // So default both ranks to show.
         let elToggleBtn = $.GetContextPanel().FindChildInLayoutFile('SkillGroupExpand');
         if (type !== 'Competitive' && _m_bShownInFriendsList) {
             elSkillGroup.AddClass('collapsed');
             return;
         }
         elToggleBtn.visible = _m_bShownInFriendsList ? true : false;
-        // If its your other rank we are asking for and this is not for the friendslist panel then
-        // ask for the rank.
         if (!_m_bShownInFriendsList && _m_isSelf) {
             _AskForLocalPlayersAdditionalSkillGroups();
         }
     }
     function _AskForLocalPlayersAdditionalSkillGroups() {
         let hintLoadSkillGroups = '';
-        // If we get back -1 then we are looking at our own rank so we need to load it.
         for (let type of _m_arrAdditionalSkillGroups) {
             if (FriendsListAPI.GetFriendCompetitiveRank(_m_xuid, type) === -1) {
                 hintLoadSkillGroups += (hintLoadSkillGroups ? ',' : '') + type;
             }
         }
-        // Hint load the entire batch
         if (hintLoadSkillGroups) {
             MyPersonaAPI.HintLoadPipRanks(hintLoadSkillGroups);
         }
-        // Create the panels
         _m_arrAdditionalSkillGroups.forEach(type => _SetSkillGroup(type));
     }
     function _UpdateSkillGroup(elSkillGroup, type) {
@@ -244,8 +224,6 @@ var PlayerCard;
         const wins = FriendsListAPI.GetFriendCompetitiveWins(_m_xuid, type);
         let options = {
             root_panel: elSkillGroup,
-            //	xuid: _m_xuid,
-            //	api: 'friends' as SkillRatingSourceAPI_t,
             rating_type: type,
             do_fx: true,
             full_details: true,
@@ -264,12 +242,6 @@ var PlayerCard;
     function _SetPrimeUpsell() {
         let elUpsellPanel = $.GetContextPanel().FindChildInLayoutFile('JsPlayerCardPrimeUpsell');
         elUpsellPanel.SetHasClass('hidden', !MyPersonaAPI.IsInventoryValid() || _IsPlayerPrime() || !_m_isSelf);
-        // For a limited time if you have more that level 2xp or prestige but are not prime we will show you your actual rank in a hidden state
-        // So here we will hide the upsell versions of the XP and Skillgroup.
-        // This is so you can see the locked xpo and rank for you for a limited time.
-        // Allows users to see thier progress nonprime and transfer it to Prime for a limited time.
-        // Uncomment the retrun when that grace period is over.
-        // return;
         elUpsellPanel.FindChildInLayoutFile("id-player-card-prime-upsell-xp").visible = !_HasXpProgressToFreeze() && !_IsPlayerPrime();
         elUpsellPanel.FindChildInLayoutFile("id-player-card-prime-upsell-skillgroup").visible = !_HasXpProgressToFreeze() && !_IsPlayerPrime();
     }
@@ -285,7 +257,6 @@ var PlayerCard;
         for (let i = 0; i < catagoriesCount; i++) {
             catagories[i].value = FriendsListAPI.GetFriendCommendations(_m_xuid, catagories[i].key);
             let elCommend = $.GetContextPanel().FindChildInLayoutFile('JsPlayer' + catagories[i].key);
-            // Are there any commends for this catagory.
             if (!catagories[i].value || catagories[i].value === 0) {
                 elCommend.AddClass('hidden');
                 countHiddenCommends++;
@@ -297,13 +268,11 @@ var PlayerCard;
                 elCommend.FindChild('JsCommendLabel').text = String(catagories[i].value);
             }
         }
-        // If there are no commends then hide the panel. This counts 'wins'
         elCommendsBlock.SetHasClass('hidden', countHiddenCommends === catagoriesCount && !_IsPlayerPrime());
         return countHiddenCommends === catagoriesCount;
     }
     function _SetPrime(bHasNoCommendsToShow) {
         let elPrime = $.GetContextPanel().FindChildInLayoutFile('JsPlayerPrime');
-        // Player is Prime so show the element
         if (!MyPersonaAPI.IsInventoryValid())
             elPrime.AddClass('hidden');
         if (_IsPlayerPrime()) {
@@ -324,12 +293,10 @@ var PlayerCard;
         if (!_m_isSelf)
             return;
         let teamName = MyPersonaAPI.GetMyOfficialTeamName(), tournamentName = MyPersonaAPI.GetMyOfficialTournamentName();
-        // Show team hide team panel
         if (!teamName || !tournamentName) {
             $.GetContextPanel().FindChildInLayoutFile('JsPlayerTeam').AddClass('hidden');
             return;
         }
-        // Hide matchmaking stats and show tournament team panel
         $.GetContextPanel().FindChildInLayoutFile('JsPlayerXp').AddClass('hidden');
         $.GetContextPanel().FindChildInLayoutFile('JsPlayerCardSkillGroupContainer').AddClass('hidden');
         $.GetContextPanel().FindChildInLayoutFile('JsPlayerTeam').RemoveClass('hidden');
@@ -339,7 +306,6 @@ var PlayerCard;
         $.GetContextPanel().FindChildInLayoutFile('JsTournamentLabel').text = tournamentName;
     }
     function _SetFlairItems() {
-        // Get the total number of flair items in our inventory.
         let flairItems = FriendsListAPI.GetFriendDisplayItemDefCount(_m_xuid);
         let flairItemIdList = [];
         let elFlairPanal = $.GetContextPanel().FindChildInLayoutFile('FlairCarouselAndControls');
@@ -352,7 +318,6 @@ var PlayerCard;
             let flairItemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(flairDefIdx, 0);
             flairItemIdList.push(flairItemId);
         }
-        // Clean up and remove items in this list before making any new panels.
         $.GetContextPanel().FindChildInLayoutFile('FlairCarousel').RemoveAndDeleteChildren();
         _MakeFlairCarouselPages(flairItemIdList);
         elFlairPanal.RemoveClass('hidden');
@@ -446,12 +411,8 @@ var PlayerCard;
         }
     }
     PlayerCard.ShowHideAdditionalRanks = ShowHideAdditionalRanks;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         if ($.DbgIsReloadingScript()) {
-            $.Msg("Playercard reloaded\n ");
         }
         Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_GC_Hello', FillOutFriendCard);

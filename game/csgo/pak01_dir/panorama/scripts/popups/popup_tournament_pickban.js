@@ -25,12 +25,12 @@ var PopupTournamentPickBan = ( function ()
         if ( numStartTeamID == undefined )
             return
         
-        // reset global state
+                             
         $.GetContextPanel().SetHasClass( "pickban__initial-pick", false );
         $.GetContextPanel().SetHasClass( "pickban__initial-wait", false );
         $.GetContextPanel().SetHasClass( "pickban__draft", false );
         
-        // returns which team performs first veto, or 0 if it still needs to be decided - then GetTeamID(0)
+                                                                                                           
         if ( numStartTeamID == 0 )
         {
             numStartTeamID = MatchDraftAPI.GetTeamID( 0 );
@@ -65,7 +65,7 @@ var PopupTournamentPickBan = ( function ()
         var allCompetitiveMaps = GameTypesAPI.GetMapGroupAttributeSubKeys( "mg_active", "maps" );
         m_availableMaps = allCompetitiveMaps.split(",");
             
-        // re-rest tiles in the panel
+                                     
         var numActiveIndex = MatchDraftAPI.GetDraftEntryActiveIndex();
         
         if ( MatchDraftAPI.GetDraft() == "completed" )
@@ -93,7 +93,7 @@ var PopupTournamentPickBan = ( function ()
             if ( strTileName in m_pickbanTiles )
                 return m_pickbanTiles[ strTileName ];
             
-            // create and initialize if needed
+                                              
             var elDraftContainer = $.GetContextPanel().FindChildInLayoutFile( 'DraftContainer' );
             var elNewTile = $.CreatePanel( 'Panel', elDraftContainer, 'Tile' + i );
             elNewTile.AddClass( 'pickban_draft_tile' );
@@ -130,7 +130,7 @@ var PopupTournamentPickBan = ( function ()
             newEntry.text = strText;
             elDropdown.AddOption( newEntry );
 
-            // set selected
+                           
             if ( strSelectedData === strData )
             {
                 elDropdown.SetSelected( entryID );
@@ -148,7 +148,7 @@ var PopupTournamentPickBan = ( function ()
 
         function SetupMapSelection( elOption, numIndex, strDefaultDropdownLoc, strConfirmBtnLoc )
         {
-            // popuplate available maps for pick/ban
+                                                    
             var elPickDropdown = elOption.FindChildTraverse( 'PickDropdown' );
             elPickDropdown.RemoveAllOptions();
             AddDropdownOption( elPickDropdown, "default", $.Localize( strDefaultDropdownLoc ), '', '' );
@@ -160,7 +160,7 @@ var PopupTournamentPickBan = ( function ()
             }
 
             var elConfirmBtn = elOption.FindChildTraverse( 'ConfirmBtn' );
-            elConfirmBtn.enabled = false; // disabled by default
+            elConfirmBtn.enabled = false;                       
 
             var _OnMapDropdownSelected = function ( elOption, elDropdown, elConfirmBtn )
             {
@@ -204,7 +204,7 @@ var PopupTournamentPickBan = ( function ()
 
         function SetupTeamSelection( elOption, numIndex )
         {
-            // popuplate available maps for pick/ban
+                                                    
             var elPickDropdown = elOption.FindChildTraverse( 'PickDropdown' );
             elPickDropdown.RemoveAllOptions();
             AddDropdownOption( elPickDropdown, "default", $.Localize( "#SFUI_Tournament_Starting_Side" ), '', '' );
@@ -212,7 +212,7 @@ var PopupTournamentPickBan = ( function ()
             AddDropdownOption( elPickDropdown, "ct-side", $.Localize( "#terrorists" ), "#terrorists", '' );
 
             var elConfirmBtn = elOption.FindChildTraverse( 'ConfirmBtn' );
-            elConfirmBtn.enabled = false; // disabled by default
+            elConfirmBtn.enabled = false;                       
 
             var _OnTeamDropdownSelected = function ( elOption, elDropdown, elConfirmBtn )
             {
@@ -327,7 +327,7 @@ var PopupTournamentPickBan = ( function ()
             var isChoosingMap = strMapName == "";
             var isChoosingTeam = numCtTeamID == 0;
 
-            // determine which option's being picked
+                                                    
             elMapOption.SetHasClass( 'pickban__picking', isActive && isChoosingMap && isPickingMap );
             elMapOption.SetHasClass( 'pickban__waiting', isActive && isChoosingMap && !isPickingMap );
             elTeamOption.SetHasClass( 'pickban__picking', isActive && !isChoosingMap && isChoosingTeam && isPickingSide );
@@ -399,7 +399,7 @@ var PopupTournamentPickBan = ( function ()
 	
 	var _SessionSettingsUpdate = function( sessionState ) 
 	{
-		// if user is no longer searching then hide the draft
+		                                                     
 		if ( !LobbyAPI.GetMatchmakingStatusString() )
 		{
 			_CloseThisPopupWindow();
@@ -422,9 +422,9 @@ var PopupTournamentPickBan = ( function ()
 	};
 })();
 
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                           
+                                                                                                    
 ( function()
 {
 	$.RegisterForUnhandledEvent( "PanoramaComponent_TournamentMatch_DraftUpdate", PopupTournamentPickBan.DraftUpdate );

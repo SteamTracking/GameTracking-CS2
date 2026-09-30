@@ -7066,9 +7066,10 @@ $prefix_element$
 .tif
 .vmat
 .webp
-0 ja
-08Ag
+0(Ag
+0Pga
 0\r%0t
+0h>g
 0x%llx
 1024
 16-byte data pool
@@ -7084,7 +7085,8 @@ $prefix_element$
 2DBlend
 2DBlendEditor
 2DBlendFromAnimation
-2\vp8Ag
+2\vp(Ag
+2\vph>g
 2_BONE_IK
 4-byte data pool
 4096
@@ -7431,7 +7433,7 @@ Assigns a floating point value to a material attribute over a frame range.
 Assigns all vertex weights to the specified bone.
 Associates a semantic identifier with an animgraph2 used by this model.
 Atlas Dimension
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Point
 Attach to Morphing Base Mesh
 AttachedSoundEvent
@@ -8925,8 +8927,6 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
-Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
-Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -9130,9 +9130,9 @@ Flexible
 Flip Bone Forward
 Flip Direction
 Flip the forward (x) axis direction of bones
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 FoldLipLo
 FoldLipUp
@@ -9274,10 +9274,9 @@ Height Target
 Height Tolerance
 Height of the primitive to project normals from.
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
-Hexagonal Cylinder
 Hidden
 Hide Materialgroup in Tools
 Hide Render Color in Tools
@@ -10065,7 +10064,6 @@ ORIENT
 O\tV_expd
 Object
 Object Rotation
-Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -10145,7 +10143,6 @@ Overrides the target VSNAP resource (defaults to "particles/models/%model_name%/
 Overwrite all bone data
 Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
-P8Ag
 PARENT
 PF\n%d %d\n-1.000000\n
 PLUG_TYPE_INPUT
@@ -10204,6 +10201,7 @@ Perform a set of parametric mesh modification operations.
 Persistent
 Perturb vertex positions using sine waves.
 Pf\n%d %d\n-1.000000\n
+Ph>g
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -10444,9 +10442,11 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
+R8_UNORM
 R9G9B9E5_SHAREDEXP
 RBF Based Anim Constraint
 ROTATION
+R\fp(Ag
 R_T5Y
 Radial Basis Function Type
 Radius Params CP ( Prop Group Smallest Radius / Prop Group Largest Radius / Number of Avg Objects )
@@ -11425,8 +11425,6 @@ ZIPVSetField
 [cloth] | [procedural]
 [procedural]
 \f?nkK=f
-\fp\v`8Ag
-\fpgm
 \n***ASSERT FAILED*** Image data section has too many channels (%d).
 \n***ASSERT FAILED*** Pointer is null.
 \n***ERROR*** [DecompressRle] Malformed RLE data encountered
@@ -11449,6 +11447,7 @@ ZIPVSetField
 \tV_sscanf_s
 \tV_strnchr
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\v\n\v\n\v\n\v\n\v\n\v\n\v\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\f\r\f\r\f\r\f\r\f\r\f\r\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
+\vp(Ag
 ]>jkT>Q3
 _CustomCommand
 _CustomCommand%d
@@ -11504,7 +11503,6 @@ _temp_tangent
 _volumeatlas_
 _wjb
 _zero
-`8Ag
 `=IhC?zm6>
 absolute
 accent
@@ -12414,7 +12412,6 @@ group_id
 group_name
 grow_or_shrink
 guide_hair_count
-h+\n0xa
 hair_count
 halfEdges %d,%d faces %d,%d angle %.1f deg.
 half_angle_degrees
@@ -12447,7 +12444,6 @@ help text for Struct Array!
 help text for Test Enum!
 help text for Translation!
 hemisphere
-hex_cyl
 hiddenFlags
 hiddenGroups
 hidden_in_tools
@@ -13066,7 +13062,6 @@ numsides_key
 o KPBf
 oOffset
 oY.o<
-oct_cyl
 offseTime
 offsetTime
 offset_angles
@@ -13121,7 +13116,7 @@ overwrite_existing
 overwrite_existing_flags_only
 ownerlog
 owns_polymorphic_data
-p8Ag
+p(Ag
 p=f3G=
 p\r0\fP!K
 panorama_image
@@ -13170,6 +13165,7 @@ peaktailend
 per_material_options
 permissive
 pervertexlighting
+ph>g
 phonememap
 physicsSimplificationError
 physicsSimplificationOverride
@@ -13303,6 +13299,7 @@ quad_bend_tolerance
 quadratic
 quaternion log
 quaternion_array
+r\vp(Ag
 radius0_key
 radius1_key
 radiusScale

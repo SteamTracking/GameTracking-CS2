@@ -6,22 +6,17 @@ var TooltipInventoryItem;
     function SetupTooltip() {
         let ctx = $.GetContextPanel();
         let id = ctx.GetAttributeString("itemid", "0");
-        // is this a faux item id?
         let bThisIsFauxItemID = InventoryAPI.IsFauxItemID(id);
-        // name
         ctx.SetDialogVariable('name', InventoryAPI.GetItemNameUncustomized(id));
         const elCustomName = ctx.FindChildInLayoutFile('jsCustomName');
         if (elCustomName) {
             elCustomName.visible = InventoryAPI.HasCustomName(id);
             ctx.SetDialogVariable('custom-name', '"' + InventoryAPI.GetItemNameCustomized(id) + '"');
         }
-        // description
         let strDesc = InventoryAPI.GetItemDescription(id, '');
         if (strDesc.endsWith('<br>')) {
-            // remove trailing <br>
             strDesc = strDesc.slice(0, -4);
         }
-        // special tooltip line for "Charm Pliers" to display Keychain Remove Charges
         if (bThisIsFauxItemID && InventoryAPI.DoesItemMatchDefinitionByName(id, "Remove Keychain Tool")) {
             let numKeychainRemoveToolChargesRemaining = InventoryAPI.GetCacheTypeElementFieldByIndex('KeychainRemoveToolCharges', 0, 'charges');
             if (numKeychainRemoveToolChargesRemaining > 0) {
@@ -30,12 +25,10 @@ var TooltipInventoryItem;
             }
         }
         ctx.SetDialogVariable('description', strDesc);
-        //Original Owner
         let isOriginalOwner = (InventoryAPI.GetItemAttributeValue(id, '{uint32}purchaser account id') != undefined);
         let elOrignalOwner = $('#JsOriginalOwnerTooltip');
         elOrignalOwner.visible = isOriginalOwner;
         $('#JsOriginalOwnerTooltipSeperator').visible = isOriginalOwner;
-        // Set collection name
         let strSetName = InventoryAPI.GetTag(id, 'ItemSet');
         let elCollectionLogo = $('#CollectionLogo');
         if (elCollectionLogo)
@@ -52,7 +45,6 @@ var TooltipInventoryItem;
             elCollectionLogo.SetImage('');
             ctx.SetDialogVariable('collection', '');
         }
-        // Set rarity color/label
         let rarity = InventoryAPI.GetItemRarity(id);
         let rarityName = InventoryAPI.GetItemType(id);
         if (rarityName) {
@@ -64,7 +56,6 @@ var TooltipInventoryItem;
             ctx.RemoveClass('tooltip-inventory-item__has-rarity');
             ctx.SetDialogVariable('rarity', '');
         }
-        // set grade (wear amount)
         let numWear = bThisIsFauxItemID ? undefined : InventoryAPI.GetWear(id);
         if (numWear != undefined && numWear >= 0) {
             ctx.AddClass('tooltip-inventory-item__has-grade');
@@ -74,9 +65,7 @@ var TooltipInventoryItem;
             ctx.RemoveClass('tooltip-inventory-item__has-grade');
             ctx.SetDialogVariable('grade', '');
         }
-        // set teams
         let strTeam = InventoryAPI.GetItemTeam(id);
-        // HACK: Check for no team.
         let strCategory = InventoryAPI.GetLoadoutCategory(id);
         if (!strCategory || strCategory === 'flair0' || strCategory === 'musickit' || strCategory === 'spray0') {
             strTeam = undefined;
@@ -95,17 +84,14 @@ var TooltipInventoryItem;
             ctx.RemoveClass('tooltip-inventory-item__team-ct');
             ctx.RemoveClass('tooltip-inventory-item__team-t');
         }
-        // replace description with debug information
         if (GameInterfaceAPI.GetSettingString("cl_inventory_debug_tooltip") == "1") {
             let debugOutput = "<br />";
             function Print(string) {
                 debugOutput += string + "<br />";
             }
-            // generic
             Print("--------------------------------------");
             Print("itemID: " + id);
             Print("--------------------------------------");
-            // tags
             let oTags = InventoryAPI.BuildItemTagsObject(id);
             for (let key of Object.keys(oTags)) {
                 let tag = oTags[key];
@@ -113,7 +99,6 @@ var TooltipInventoryItem;
                 let val = tag[Object.keys(tag)[0]];
                 Print(cat + ": " + val);
             }
-            ///////////////////////////////////////////////////////
             ctx.SetDialogVariable('description', debugOutput);
         }
     }

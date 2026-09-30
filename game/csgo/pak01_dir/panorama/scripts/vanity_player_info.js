@@ -58,7 +58,6 @@ var VanityPlayerInfo;
         }
     }
     VanityPlayerInfo.SetVanityInfoPanelPos = SetVanityInfoPanelPos;
-    // individual elements
     function _SetName(newPanel, xuid) {
         newPanel.SetDialogVariable('partyxuid', xuid);
     }
@@ -96,7 +95,6 @@ var VanityPlayerInfo;
         const bHasRankToFreezeButNoPrestige = (!_IsPlayerPrime(xuid) && _HasXpProgressToFreeze()) ? true : false;
         const currentPoints = FriendsListAPI.GetFriendXp(xuid);
         const pointsPerLevel = MyPersonaAPI.GetXpPerLevel();
-        // Set Xp bar and show.
         if (bHasRankToFreezeButNoPrestige) {
             elXpBarInner.GetParent().visible = false;
         }
@@ -106,7 +104,6 @@ var VanityPlayerInfo;
             elXpBarInner.GetParent().visible = true;
             _ShowPrestigeUpgrade(newPanel, xuid, isLocalPlayer);
         }
-        // Set Xp rank image and show.
         elRankIcon.SetImage('file://{images}/icons/xp/level' + currentLvl + '.png');
         newPanel.RemoveClass('no-valid-xp');
     }
@@ -126,8 +123,6 @@ var VanityPlayerInfo;
         }
         let options = {
             root_panel: newPanel,
-            //	xuid: xuid,
-            //	api: 'partylist' as SkillRatingSourceAPI_t,
             do_fx: true,
             full_details: false,
             rating_type: rating_type,
@@ -183,12 +178,8 @@ var VanityPlayerInfo;
             }
         });
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         if ($.DbgIsReloadingScript()) {
-            $.Msg("Vanity player reloaded\n ");
         }
     }
 })(VanityPlayerInfo || (VanityPlayerInfo = {}));

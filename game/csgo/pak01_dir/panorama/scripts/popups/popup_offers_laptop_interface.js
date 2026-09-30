@@ -28,16 +28,15 @@ var CollectionOffers;
         }
         getNext() {
             if (this.available.length === 0) {
-                this.reset(); // Reset once all numbers are used
+                this.reset();
             }
             const index = Math.floor(Math.random() * this.available.length);
             const value = this.available[index];
-            this.available.splice(index, 1); // Remove selected number
+            this.available.splice(index, 1);
             return value;
         }
     }
     function _GetRandomIntInRange(min, max) {
-        // Swap if min is greater than max
         if (min > max)
             [min, max] = [max, min];
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -189,7 +188,6 @@ var CollectionOffers;
             _MakeMessage(systemDealerLeaveContainerDestroy);
         }
     };
-    // system messages
     const systemDealerJoin = {
         line: '#system_dealer_join_chat_0',
         sender: 'system',
@@ -266,15 +264,12 @@ var CollectionOffers;
         if (!setName)
             setName = ItemInfo.GetSet(InventoryAPI.GetLootListItemIdByIndex(m_idContainerItem, 0));
         m_elMessagesParent.SetDialogVariable('collection', $.Localize('#CSGO_' + setName));
-        // _UpdateOfferRemainingBoxes( false );
         _UpdateOfferTimer();
         _CollectionInfo();
         _SetTooltips(elScreen);
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdated);
         $.RegisterForUnhandledEvent('PanoramaComponent_Store_PurchaseFinalizing', _OnPurchaseFinalizing);
         $.RegisterForUnhandledEvent('ShowStoreStatusPanel', _ShowStoreStatusPanel);
-        // For now just print the volatile limits to dev.console:
-        $.Msg('Volatile Container Limits = ' + InventoryAPI.GetVolatileLimits());
         _MakeMessage(systemDealerJoin);
         elScreen.SetPanelEvent('onactivate', () => { _MakeFingerPrints(elScreen); });
     }
@@ -317,7 +312,6 @@ var CollectionOffers;
     }
     CollectionOffers.Close = Close;
     function _RandomizeLocString(line) {
-        // if we never established the random stream for this line, let's see if we can establish one
         if (line && line.length > 0 && line[0] === '#' && line[line.length - 1] === '_') {
             if (!m_mapUniqueRandoms.hasOwnProperty(line)) {
                 const urMax = UiToolkitAPI.EnumerateLocalizationStringVariants(line);
@@ -393,7 +387,6 @@ var CollectionOffers;
         let elMessageLabel = elMessage.FindChildInLayoutFile('id-chat-message-label');
         elMessage.AddClass('show');
         _HighlightCurrentMessage();
-        // We use Steam profile name for declining offers, so turn off HTML to prevent JS-injections
         elMessageLabel.html = (message.sender !== 'system');
         if (message.sender === 'dealer') {
             elMessage.FindChildInLayoutFile('id-chat-message-label-placeholder');
@@ -415,25 +408,14 @@ var CollectionOffers;
         }
     }
     async function _OnSystemDealerJoinBootstrap() {
-        $.Msg("Dealer joined, container itemid = " + m_idContainerItem);
         let numOffers = InventoryAPI.GetItemAttributeValue(m_idContainerItem, '{uint32}quest points remaining');
-        $.Msg("OnSystemDealerJoinBootstrap: numOffers = " + numOffers);
         let oLimits = JSON.parse(InventoryAPI.GetVolatileLimits());
-        // Initial limit setting disabled for now
-        // if( !oLimits.selected && numOffers == undefined )
-        // {
-        //     // We have not set the offer limit and its the first time opening this terminal
-        //     await _MakeMessage( dealerOfferLimitMessage );
-        // }
         if (numOffers == undefined) {
-            // We are opening this terminal for the very first time
             m_numOfferCounter = 0;
             await _MakeMessage(dealerIntroMessage);
         }
         else {
-            // We are coming back to a pre-existing negotiation
             m_numOfferCounter = numOffers;
-            // _UpdateOfferRemainingBoxes( true );
             await _MakeMessage(dealerReturningToContractMessage);
         }
         const setting = oLimits.choices.find(item => item.limit === oLimits.limit);
@@ -445,7 +427,6 @@ var CollectionOffers;
         m_elScreen.FindChildInLayoutFile('id-laptop-signal-icon').SetHasClass('connected-' + m_signalBars, true);
     }
     async function _ShowDealerWaitMessageDotDotDot(bPreserveOfferID) {
-        // Show waiting message
         const elWaitMessage = $.CreatePanel('Panel', m_elMessagesParent, '');
         elWaitMessage.BLoadLayoutSnippet('wait-message');
         elWaitMessage.FindChildInLayoutFile('avatar-image').SetDefaultImage("file://{images}/avatars/arms_dealer.psd");
@@ -456,34 +437,29 @@ var CollectionOffers;
             await Async.Delay(.1);
         }
         else {
-            CollectionOffers.m_currentOfferId = ''; // reset the offer, we are going to await another offer here
+            CollectionOffers.m_currentOfferId = '';
             m_numVolatileNotifications = 0;
         }
         return elWaitMessage;
     }
     async function _AwaitOfferItemID(bJustNotificationIsOk) {
-        // Wait at least one second, but time out after waiting for 5 seconds
         for (let i = 5; i-- > 0;) {
             await Async.Delay(1);
             if (bJustNotificationIsOk && (m_numVolatileNotifications > 0)) {
-                $.Msg('GC notification arrived: ' + m_numVolatileNotifications + ', offerid: ' + CollectionOffers.m_currentOfferId);
                 return CollectionOffers.m_currentOfferId ? CollectionOffers.m_currentOfferId : m_idContainerItem;
             }
             if (CollectionOffers.m_currentOfferId) {
-                $.Msg('GC offer received: ' + CollectionOffers.m_currentOfferId);
                 return CollectionOffers.m_currentOfferId;
             }
         }
-        $.Msg('GC failed to respond in time');
         UiToolkitAPI.ShowGenericPopupOk($.Localize('#SFUI_SteamConnectionErrorTitle'), $.Localize('#PlayMenu_unavailable_newuser_2_nogcconnection'), '', () => { });
         Close(false);
         return '';
     }
     async function _ReplaceMessageDotDotDotWithOffer(elWaitMessage) {
-        UpdateCollectionDots(); // now that all volatile offer data has been loaded, show collection dots with known items
+        UpdateCollectionDots();
         elWaitMessage.FindChildInLayoutFile('id-waiting').visible = false;
         const OfferItemData = _GetItemData(CollectionOffers.m_currentOfferId);
-        $.Msg("Setting offer data: " + OfferItemData.defName + ", " + OfferItemData.itemType + ", " + OfferItemData.price);
         _HighlightCurrentMessage();
         await _DisplayOfferDownloadMessage(elWaitMessage, OfferItemData);
         _UpdateWeaponModel(OfferItemData);
@@ -492,8 +468,7 @@ var CollectionOffers;
         m_elMessagesParent.ScrollToBottom();
         m_elScreen.FindChildInLayoutFile('id-chat-messages-bg').SetHasClass('show', true);
         let elUserButtonContainer = m_elScreen.FindChildInLayoutFile('id-user-messages-container');
-        if (!elUserButtonContainer.BHasClass('show')) // hidden by default
-         {
+        if (!elUserButtonContainer.BHasClass('show')) {
             elUserButtonContainer.SetHasClass('show', true);
         }
         if (_IsFinalOffer()) {
@@ -528,7 +503,7 @@ var CollectionOffers;
         const elWaitMessage = await _ShowDealerWaitMessageDotDotDot();
         InventoryAPI.UseToolWithIntArg(m_idContainerItem, m_idContainerItem, m_numOfferCounter);
         m_bWrappingUpThisTransaction = true;
-        if (!await _AwaitOfferItemID(true)) // we are just awaiting a notification
+        if (!await _AwaitOfferItemID(true))
             return;
         elWaitMessage.RemoveAndDeleteChildren();
         await _MakeMessage(dealerEndOffer);
@@ -537,14 +512,10 @@ var CollectionOffers;
     }
     async function _DealerTransitionToPurchaseState() {
         const strPurchaseString = '' + InventoryAPI.GetItemDefinitionIndex(m_idContainerItem) + '(' + m_idContainerItem + ')';
-        $.Msg('_DealerTransitionToPurchaseState: ' + strPurchaseString);
         StoreAPI.StoreItemPurchase(strPurchaseString);
     }
     function _OnPurchaseFinalizing(strTxnID) {
-        $.Msg("_OnPurchaseFinalizing: " + strTxnID);
         m_bWrappingUpThisTransaction = true;
-        // Once we start finalizing this purchase transaction, our laptop goes away
-        // and we will have a persistent SQLQ job to commit the purchase to user's wallet
         const storeStatusMessage = {
             line: '#dealer_message_purchase_finalizing_0',
             sender: 'system'
@@ -552,17 +523,13 @@ var CollectionOffers;
         _MakeMessage(storeStatusMessage);
     }
     function _ShowStoreStatusPanel(strText, bAllowClose, bCancel, strOkCmd) {
-        // The only "unrecoverable error" is when the user explicitly cancels the TXN
         if (strText === '#StoreCheckout_TransactionCanceled') {
             _MakeMessage(dealerTxnXldBailout);
             return;
         }
-        // if this is the "Loading..." screen, then just don't print the status into the chat
         if (bCancel)
             return;
-        // if this is "Purchase Success" then the dealer can go ahead and Acknowledge the item and stuff
         if (strText === '#StoreCheckout_TransactionCompleted') {
-            $.Msg('_DealerTransitionToPurchaseState: item successfully purchased!');
             const storeStatusMessage = {
                 line: strText,
                 sender: 'system-success',
@@ -573,7 +540,6 @@ var CollectionOffers;
             _MakeMessage(storeStatusMessage);
             return;
         }
-        // Just print the message in chat, and re-enable the buttons
         const storeStatusMessage = {
             line: strText,
             sender: 'system-steam',
@@ -587,7 +553,6 @@ var CollectionOffers;
         _MakeMessage(storeStatusMessage);
     }
     async function _MessageOfferComment(OfferItemData) {
-        // If these conditions are true always say these
         if (OfferItemData.rarity === 6 || OfferItemData.rarity === 5) {
             if (OfferItemData.rarity === 6) {
                 await _MakeMessage(dealerCovert);
@@ -608,7 +573,6 @@ var CollectionOffers;
         else if (OfferItemData.statTrack) {
             await _MakeMessage(dealerStatTrak);
         }
-        // only say these once and only sometimes
         else if (OfferItemData.numWear === 1 && _RollChance(50)
             && (await m_mapLineTracker.awaitMessageOnce(dealerMinimalWear))) {
             ;
@@ -741,13 +705,11 @@ var CollectionOffers;
         const numPaidAlready = 0;
         let payPrice = OfferItemData.price;
         m_elYesBtn.SetDialogVariable('price', payPrice);
-        // Visible state of Buttons
         m_elYesBtn.visible = true;
         m_elNoBtn.visible = !_IsFinalOffer() && (numPaidAlready === 0);
         m_elEndBtn.visible = _IsFinalOffer() && (numPaidAlready === 0);
         m_elScreen.FindChildInLayoutFile('id-offer-limit-setting').visible = (numPaidAlready === 0);
         m_elScreen.FindChildInLayoutFile('id-price-tooltip').visible = (numPaidAlready === 0);
-        // Set up Hold button actions
         if (m_elYesBtn.visible) {
             const btnYesSettings = {
                 btn: m_elYesBtn,
@@ -803,11 +765,9 @@ var CollectionOffers;
             };
             HoldButton.SetupButton(btnNoSettings);
         }
-        // Default enable state for buttons
         _EnableActionButtons(numPaidAlready === 0);
     }
     function OnInventoryUpdated() {
-        // Listen for the event when our volatile container has expired
         if (m_bWrappingUpThisTransaction)
             return;
         if (InventoryAPI.IsValidItemID(m_idContainerItem))
@@ -828,7 +788,7 @@ var CollectionOffers;
             return;
         }
         if (numericType !== 1012 || !szType || !szType.startsWith("casket_contents"))
-            return; // k_EGCItemCustomizationNotification_CasketContents (#1012)
+            return;
         if (itemid !== m_idContainerItem)
             return;
         ++m_numVolatileNotifications;
@@ -837,17 +797,14 @@ var CollectionOffers;
             m_numOfferCounter = 0;
         else {
             m_numOfferCounter = numOffers;
-            // _UpdateOfferRemainingBoxes( true );
         }
         InventoryAPI.SetInventorySortAndFilters('inv_sort_age', false, "casketcontents:" + m_idContainerItem, '', '');
         const count = InventoryAPI.GetInventoryCount();
         const offerItemID = (count && (count > 0)) ? InventoryAPI.GetInventoryItemIDByIndex(0) : "";
-        $.Msg("Dealer ItemCustomizationNotification, container itemid = " + m_idContainerItem + " (count=" + count + ", offerid=" + offerItemID + ")");
         if (!offerItemID)
             return;
         if (!InventoryAPI.IsValidItemID(offerItemID))
             return;
-        // Got a validated offer ItemID, assign it and resume our async awaiting flow
         CollectionOffers.m_currentOfferId = offerItemID;
     }
     CollectionOffers.OnItemCustomizationNotification = OnItemCustomizationNotification;
@@ -891,7 +848,6 @@ var CollectionOffers;
         _SetRarityColor(m_elScreen.FindChildInLayoutFile('id-offer-preview-gradient'), OfferItemData.rarityColor);
         const certData = InventoryAPI.GetItemCertificateInfo(OfferItemData.itemId);
         const aCertData = certData.split("\n");
-        // (m_elScreen.FindChildInLayoutFile( 'id-offer-preview-icon-blurred' ) as ItemImage_t).itemid = OfferItemData.itemId;
         let elCollectionImage = m_elScreen.FindChildInLayoutFile('id-offer-preview-collection-icon');
         elCollectionImage.itemid = OfferItemData.itemId;
         IconUtil.SetupFallbackItemSetIcon(elCollectionImage, setName);
@@ -997,9 +953,7 @@ var CollectionOffers;
             elImage.style.x = mouseInPanelPosition.x + 'px';
             elImage.style.y = mouseInPanelPosition.y + 'px';
             const rotate = _GetRandomIntInRange(-30, 25);
-            // const opacity = _GetRandomIntInRange( 0, 10 )/ 100;
             elImage.style.transform = 'translateY(128px) translateX(-64px) rotateZ(' + rotate + 'deg);';
-            // elImage.style.opacity = opacity.toString();
         }
         m_fingerPrintCount++;
     }
@@ -1017,8 +971,6 @@ var CollectionOffers;
         m_elScreen.SetDialogVariable('collection-name', $.Localize('#CSGO_' + collectionName));
         IconUtil.SetupFallbackItemSetIcon(elCollectionImage, collectionName);
         IconUtil.SetItemSetSVGImage(elCollectionImage, collectionName);
-        // ... cannot update dots here, because the data might be async-loading
-        // UpdateCollectionDots();
     }
     function UpdateCollectionDots() {
         m_elScreen.FindChildInLayoutFile('id-offer-collection-progress').SetHasClass('show', true);
@@ -1040,10 +992,9 @@ var CollectionOffers;
             if (!elItem) {
                 elItem = $.CreatePanel("Panel", raritySection, itemId);
                 elItem.BLoadLayoutSnippet('offer-collection-item');
-                // color @define color-rarity-unusual: #ffd700 in csgo styles
                 _SetRarityColor(elItem, (rarityNum === 0) ? '#ffd700' : InventoryAPI.GetItemRarityColor(itemId));
             }
-            const iidCheckHistoricData = (rarityNum === 0) ? InventoryAPI.GetFauxItemIDFromDefAndPaintIndexUB1(m_defidxContainerItem, 1, 3 /* AE_UNUSUAL */) : itemId;
+            const iidCheckHistoricData = (rarityNum === 0) ? InventoryAPI.GetFauxItemIDFromDefAndPaintIndexUB1(m_defidxContainerItem, 1, 3) : itemId;
             const bSeenInHistoricData = (oHistoricData && oHistoricData.faux_itemid.includes(iidCheckHistoricData)) ? true : false;
             if (m_initialDotsUpdateFinished && !elItem.BHasClass('seen') && bSeenInHistoricData) {
                 elItem.SetHasClass('seen-anim', bSeenInHistoricData);
@@ -1089,34 +1040,31 @@ var CollectionOffers;
                 });
                 elItem.enabled = rarityNum !== 0;
             }
-            const iidCheckHistoricData = (rarityNum === 0) ? InventoryAPI.GetFauxItemIDFromDefAndPaintIndexUB1(m_defidxContainerItem, 1, 3 /* AE_UNUSUAL */) : itemId;
+            const iidCheckHistoricData = (rarityNum === 0) ? InventoryAPI.GetFauxItemIDFromDefAndPaintIndexUB1(m_defidxContainerItem, 1, 3) : itemId;
             const bSeenInHistoricData = (oHistoricData && oHistoricData.faux_itemid.includes(iidCheckHistoricData)) ? true : false;
             elItem.SetHasClass('seen', bSeenInHistoricData);
             if (bSeenInHistoricData) {
                 raritySection.SetDialogVariableInt('seen', ++itemsSeenInRarityTier);
             }
             raritySection.SetDialogVariableInt('total', ++itemsInRarityTier);
-            // color @define color-rarity-unusual: #ffd700 in csgo styles
             _SetRarityColor(elItem.FindChildInLayoutFile('id-lootlist-xp-rarity'), (rarityNum === 0) ? '#ffd700' : InventoryAPI.GetItemRarityColor(itemId));
             elItem.SetDialogVariable('loot-name', (rarityNum === 0) ? $.Localize(InventoryAPI.GetLootListUnusualItemName(m_idContainerItem)) : InventoryAPI.GetItemName(itemId));
-            // Set the state of the "Claim XP" button
             let btn = raritySection.FindChildInLayoutFile('id-lootlist-xp-claim');
             if (btn) {
-                const iClaimRewardID = (rarityNum === 0) ? 99 : rarityNum; // AE_UNUSUAL claim request with "99" rarity
+                const iClaimRewardID = (rarityNum === 0) ? 99 : rarityNum;
                 const bClaimed = (oClaimedData && oClaimedData.reward.includes(iClaimRewardID)) ? true : false;
                 const bAllowClaimingXP = !bClaimed && (itemsSeenInRarityTier == itemsInRarityTier);
                 btn.enabled = bAllowClaimingXP && (itemsSeenInRarityTier == itemsInRarityTier);
                 btn.text = $.Localize(bClaimed ? '#popup_lootlist_claim_ok' : '#popup_lootlist_claim_xp', btn);
                 btn.SetPanelEvent('onactivate', () => {
-                    $.Msg('id-lootlist-xp-claim: ' + m_defidxContainerItem + " :: " + iClaimRewardID + " :: " + (bAllowClaimingXP ? "allowed" : "n/a"));
                     if (!bAllowClaimingXP)
                         return;
                     if (!FriendsListAPI.GetFriendPrimeEligible(MyPersonaAPI.GetXuid())) {
                         UiToolkitAPI.ShowCustomLayoutPopup('prime_status', 'file://{resources}/layout/popups/popup_prime_status.xml');
-                        return; // force user to get Prime Account Status before earning XP
+                        return;
                     }
                     if (FriendsListAPI.GetFriendLevel(MyPersonaAPI.GetXuid()) >= InventoryAPI.GetMaxLevel()) {
-                        const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml'); // force the user to get Prestige first before claiming regular XP
+                        const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml');
                         let oSettings = {
                             item_id: '0',
                             show_work_type_warning: false,
@@ -1126,7 +1074,7 @@ var CollectionOffers;
                         return;
                     }
                     if (m_tmsExpectingXpGrantNotification && (Date.now() - m_tmsExpectingXpGrantNotification < 1500))
-                        return; // disallow smashing the button within GC ratelimit, even for different XP categories
+                        return;
                     m_tmsExpectingXpGrantNotification = Date.now();
                     InventoryAPI.ClaimVolatileReward(m_defidxContainerItem, iClaimRewardID);
                     btn.enabled = false;
@@ -1135,7 +1083,6 @@ var CollectionOffers;
             }
         }
     }
-    // Offer limit message and Popup 
     async function _ShowMessageOfferLimit() {
         const elMessage = $.CreatePanel('Panel', m_elMessagesParent, '');
         elMessage.BLoadLayoutSnippet('interaction-offer-limit-message');
@@ -1216,13 +1163,11 @@ var DecodeText;
         let aTextString = textString.split('');
         let aExistingLetter = elContainer.Children();
         let numExistingLetters = aExistingLetter.length;
-        // Delete extra labels for the existing letter
         if (aTextString.length < numExistingLetters) {
             for (let i = aTextString.length; i < numExistingLetters; i++) {
                 aExistingLetter[i].DeleteAsync(0);
             }
         }
-        // Make blank letters for spacing
         aTextString.forEach((letter, index) => {
             let elLetter = elContainer.FindChild('letter-' + index);
             if (!elLetter) {

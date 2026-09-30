@@ -7,71 +7,34 @@ var ItemContextEntries;
     function FilterEntries(id, populateFilterText) {
         const bHasFilter = populateFilterText !== "(not found)";
         return _Entries.filter((entry) => {
-            // exclusive only
             if (entry.exclusiveFilter) {
                 if (!entry.exclusiveFilter.includes(populateFilterText))
                     return false;
             }
-            // filter if specified
             else if (bHasFilter && entry.populateFilter) {
                 if (!entry.populateFilter.includes(populateFilterText))
                     return false;
             }
-            // if we don't have filter, just include everything that's not exclusive
             else {
                 if (bHasFilter)
                     return false;
             }
-            // actions must opt-in to rental items, by default rentals don't have any actions
             if (!entry.bActionIsRentalAware && InventoryAPI.IsRental(id))
                 return false;
-            // filter by availability
             return entry.AvailableForItem(id);
         });
     }
     ItemContextEntries.FilterEntries = FilterEntries;
-    //--------------------------------------------------------------------------------------------------
-    // Define new context menu entries here.
-    // Uses iteminfo.ts to get items info for from item ids
-    // ItemInfo is a part of the script and you need to include it
-    //--------------------------------------------------------------------------------------------------
     const _Entries = [
-        /*
-            {
-                name: 'example', // Name must match the tail of the loc token for this entry
-                populateFilter: ['bla'], // always include unless filter is specified
-                exclusiveFilter: ['exclusive'], // only include this if matching filter is specified
-                AvailableForItem: ( id ) => {
-                    // Decide if this context menu entry should show up for this item
-                    return true;
-                },
-                OnSelected: ( id ) => {
-                    // Called when the entry is selected
-                }
-            },
-        */
-        //DEVONLY{
-        {
-            name: '_DEV_DELETE_ITEM',
-            populateFilter: ['loadout', 'loadout_slot_t', 'loadout_slot_ct'],
-            AvailableForItem: (id) => parseInt(GameInterfaceAPI.GetSettingString('dev_delete_items_allowed')) > 0,
-            OnSelected: (id) => {
-                $.DispatchEvent('ContextMenuEvent', '');
-                InventoryAPI.DeleteItem(id);
-            }
-        },
-        //}DEVONLY
         {
             name: 'preview',
             populateFilter: ['lootlist', 'loadout', 'loadout_slot_t', 'loadout_slot_ct', 'tradeup_items', 'tradeup_ingredients'],
             bActionIsRentalAware: true,
             AvailableForItem: (id) => {
-                // Special inspect to see the total number of charm pliers owned
                 if (InventoryAPI.DoesItemMatchDefinitionByName(id, "Remove Keychain Tool"))
                     return true;
                 if (InventoryAPI.DoesItemMatchDefinitionByName(id, "sticker_display_case"))
                     return true;
-                // Anything with an equip slot has a preview, as well as stickers
                 return ItemInfo.IsPreviewable(id);
             },
             OnSelected: (id, contextmenuparam) => {
@@ -109,16 +72,14 @@ var ItemContextEntries;
             name: 'bulkretrieve',
             populateFilter: ['loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             AvailableForItem: (id) => {
-                // Caskets have bulk retrieve operation too
                 const defName = InventoryAPI.GetItemDefinitionName(id);
                 return (defName === 'casket') && !!InventoryAPI.GetItemAttributeValue(id, 'modification date');
             },
             OnSelected: (id) => {
                 $.DispatchEvent('ContextMenuEvent', '');
                 const defName = InventoryAPI.GetItemDefinitionName(id);
-                if (defName === 'casket') { // Caskets have custom preview
+                if (defName === 'casket') {
                     if (InventoryAPI.GetItemAttributeValue(id, 'items count')) {
-                        // Do the popup
                         UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_casket_operation.xml', 'op=loadcontents' +
                             '&nextcapability=casketretrieve' +
                             '&spinner=1' +
@@ -137,14 +98,13 @@ var ItemContextEntries;
             populateFilter: ['loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             style: (id) => 'BottomSeparator',
             AvailableForItem: (id) => {
-                // Caskets have bulk retrieve operation too
                 const defName = InventoryAPI.GetItemDefinitionName(id);
                 return (defName === 'casket') && !!InventoryAPI.GetItemAttributeValue(id, 'modification date');
             },
             OnSelected: (id) => {
                 $.DispatchEvent('ContextMenuEvent', '');
                 const defName = InventoryAPI.GetItemDefinitionName(id);
-                if (defName === 'casket') { // Bulk load items into casket
+                if (defName === 'casket') {
                     $.DispatchEvent('ShowSelectItemForCapabilityPopup', id, '', 'casketstore');
                 }
             }
@@ -170,9 +130,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Replace CT item (that is already equipped but a different finish)
-            // this is also the context item for gloves/agents/musickits/etc
-            // no further input needed
             name: 'swap_finish_ct',
             CustomName: (id) => GetItemToReplaceName(id, 'ct'),
             populateFilter: ['inspect', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
@@ -184,8 +141,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Replace T item (that is already equipped but a different finish)
-            // no further input needed
             name: 'swap_finish_t',
             CustomName: (id) => GetItemToReplaceName(id, 't'),
             populateFilter: ['inspect', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
@@ -209,7 +164,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Replace spray item weapon
             name: 'equip_spray',
             populateFilter: ['inspect', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             AvailableForItem: (id) => ItemInfo.IsSprayPaint(id) && !InventoryAPI.IsEquipped(id, "noteam"),
@@ -219,7 +173,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Replace spray item weapon
             name: 'equip_tournament_spray',
             populateFilter: ['inspect', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             AvailableForItem: (id) => {
@@ -231,7 +184,6 @@ var ItemContextEntries;
             }
         },
         {
-            //Musickit
             name: 'equip_musickit',
             CustomName: (id) => GetItemToReplaceName(id, 'noteam'),
             populateFilter: ['inspect', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
@@ -262,7 +214,7 @@ var ItemContextEntries;
         {
             name: 'open_watch_panel_pickem',
             AvailableForItem: (id) => {
-                if (GameStateAPI.GetMapBSPName()) // not available when connected to a server
+                if (GameStateAPI.GetMapBSPName())
                     return false;
                 return (ItemInfo.ItemDefinitionNameSubstrMatch(id, 'tournament_journal_') && (InventoryAPI.GetRawDefinitionKey(id, 'item_sub_position2') === 'spray0'));
             },
@@ -298,15 +250,15 @@ var ItemContextEntries;
                 if (ItemInfo.ItemDefinitionNameSubstrMatch(id, 'XpShopTicket'))
                     return true;
                 if (ItemInfo.ItemDefinitionNameSubstrMatch(id, 'Remove Keychain Tool '))
-                    return true; // extra space is intentional, there's a default contract named without the space which we don't want
-                if (ItemInfo.ItemDefinitionNameSubstrMatch(id, 'xpgrant')) { // see 'getprestige' above for when user needs to prestige first
+                    return true;
+                if (ItemInfo.ItemDefinitionNameSubstrMatch(id, 'xpgrant')) {
                     return (FriendsListAPI.GetFriendLevel(MyPersonaAPI.GetXuid()) < InventoryAPI.GetMaxLevel());
                 }
                 if (!InventoryAPI.IsTool(id))
                     return false;
                 const season = InventoryAPI.GetItemAttributeValue(id, 'season access');
                 if (season != undefined)
-                    return true; // this is an operation ticket pass
+                    return true;
                 return false;
             },
             OnSelected: (id) => {
@@ -357,7 +309,7 @@ var ItemContextEntries;
                 return ItemInfo.ItemHasCapability(id, 'decodable') &&
                     !!InventoryAPI.GetItemAttributeValue(id, '{uint32}volatile container') &&
                     InventoryAPI.IsRental(id) &&
-                    (InventoryAPI.GetItemQuality(id) === 14); // AE_VOLATILE (quality#14)
+                    (InventoryAPI.GetItemQuality(id) === 14);
             },
             bActionIsRentalAware: true,
             OnSelected: (id) => {
@@ -395,7 +347,6 @@ var ItemContextEntries;
                 }
                 if (InventoryAPI.GetChosenActionItemsCount(id, 'decodable') === 0) {
                     if (InventoryAPI.IsTool(id)) {
-                        // User has no cases to this key, still show the empty dialog
                         $.DispatchEvent('ShowSelectItemForCapabilityPopup', id, '', 'decodable');
                     }
                     else if (InventoryAPI.GetItemAttributeValue(id, '{uint32}volatile container')) {
@@ -426,7 +377,6 @@ var ItemContextEntries;
                 if (InventoryAPI.IsRental(id))
                     return 'preview';
                 if (InventoryAPI.GetItemDefinitionName(id) === 'casket') {
-                    // This is a freshly purchased casket, user must give it a name (which also makes it non-refundable)
                     return InventoryAPI.GetItemAttributeValue(id, 'modification date') ? 'yourcasket' : 'newcasket';
                 }
                 return 'nameable';
@@ -452,8 +402,7 @@ var ItemContextEntries;
                     elPanel.Data().oSettings = oSettings;
                 }
                 else if (InventoryAPI.GetItemDefinitionName(id) === 'casket') {
-                    // This is a freshly purchased casket, user must give it a name (which also makes it non-refundable)
-                    const fauxNameTag = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1200, 0); // "Name Tag"
+                    const fauxNameTag = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1200, 0);
                     const noteText = InventoryAPI.GetItemAttributeValue(id, 'modification date') ? 'yourcasket' : 'newcasket';
                     $.DispatchEvent('ContextMenuEvent', '');
                     const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_capability_nameable.xml');
@@ -482,7 +431,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Actual keychain not weapon that has 'can keychain' capability
             name: (id) => InventoryAPI.IsRental(id) ? 'preview_can_keychain' : 'can_keychain',
             populateFilter: ['inspect', 'preview', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             bActionIsRentalAware: true,
@@ -548,7 +496,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Actual sticker not weapon that has 'can sticker' capability
             name: (id) => InventoryAPI.IsRental(id) ? 'preview_can_sticker' : 'can_sticker',
             populateFilter: ['inspect', 'preview', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             bActionIsRentalAware: true,
@@ -594,29 +541,12 @@ var ItemContextEntries;
             OnSelected: (id) => {
                 $.DispatchEvent('CSGOPlaySoundEffect', 'sticker_applySticker', 'MOUSE');
                 $.DispatchEvent('ContextMenuEvent', '');
-                if (InventoryAPI.GetChosenActionItemsCount(id, 'can_wrap_sticker') > 0) { // pick the pouch to wrap around our sticker
+                if (InventoryAPI.GetChosenActionItemsCount(id, 'can_wrap_sticker') > 0) {
                     $.DispatchEvent('ShowSelectItemForCapabilityPopup', id, '', 'can_wrap_sticker');
                 }
-                else { // buy a pouch that we sell from in-game store
+                else {
                     const defidxWrapper = InventoryAPI.GetItemDefinitionIndexFromDefinitionName("sticker_display_case");
-                    const fauxCasket = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxWrapper, 0); // "casket"
-                    /*
-                    const boundSticker = InventoryAPI.GetItemAttributeValue( id, '{uint32}sticker slot 0 id' ) as number;
-                    const inspectSticker = `{ "keychain slot 0 sticker": ${boundSticker} }`;
-                    UiToolkitAPI.ShowCustomLayoutPopupParameters(
-                        '',
-                        'file://{resources}/layout/popups/popup_inventory_inspect.xml',
-                        'itemid=' + fauxCasket
-                        + '&' +
-                        'inspect-attributes=' + inspectSticker
-                        + '&' +
-                        'inspectonly=false'
-                        + '&' +
-                        'asyncworkitemwarning=no'
-                        + '&' +
-                        'storeitemid=' + fauxCasket
-                    );
-                    */
+                    const fauxCasket = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxWrapper, 0);
                     const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('popup-inspect-' + id, 'file://{resources}/layout/popups/popup_capability_can_keychain.xml');
                     let oSettings = {
                         popup_panel: elPanel,
@@ -644,7 +574,6 @@ var ItemContextEntries;
             }
         },
         {
-            // Actual patch not agent that has 'can patch' capability
             name: (id) => InventoryAPI.IsRental(id) ? 'preview_can_patch' : 'can_patch',
             populateFilter: ['inspect', 'preview', 'loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             bActionIsRentalAware: true,
@@ -706,7 +635,6 @@ var ItemContextEntries;
             }
         },
         {
-            //Trade up add
             name: 'tradeup_add',
             populateFilter: ['tradeup_items'],
             AvailableForItem: (id) => {
@@ -720,7 +648,6 @@ var ItemContextEntries;
             }
         },
         {
-            //Trade up remove
             name: 'tradeup_remove',
             exclusiveFilter: ['tradeup_ingredients'],
             AvailableForItem: (id) => {
@@ -733,7 +660,6 @@ var ItemContextEntries;
             }
         },
         {
-            // open tradeup contract
             name: 'open_contract',
             AvailableForItem: (id) => ItemInfo.IsTradeUpContract(id),
             OnSelected: (id) => {
@@ -748,7 +674,6 @@ var ItemContextEntries;
                 $.DispatchEvent('ContextMenuEvent', '');
                 const CapDisabledMessage = InventoryAPI.GetItemCapabilityDisabledMessageByIndex(id, 0);
                 if (CapDisabledMessage === "") {
-                    // No error so go ahead and give the gift.
                     const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml');
                     let oSettings = {
                         item_id: id,
@@ -778,7 +703,6 @@ var ItemContextEntries;
         {
             name: 'add_to_favorites_ct',
             style: (id) => {
-                // If we can also add this item to T favorites then use the add_to_favorites_both TopSeparator
                 if (CanAddToFavorites(id, 't'))
                     return '';
                 return 'TopSeparator';
@@ -805,7 +729,6 @@ var ItemContextEntries;
         {
             name: 'add_to_favorites_t',
             style: (id) => {
-                // If we can add to or remove from CT favorites then use that TopSeparator
                 if (CanAddToFavorites(id, 'ct') || InventoryAPI.ItemIsInFavorites('ct', id))
                     return '';
                 return 'TopSeparator';
@@ -821,7 +744,6 @@ var ItemContextEntries;
         {
             name: 'remove_from_favorites_t',
             style: (id) => {
-                // If we can add to or remove from CT favorites then use that TopSeparator
                 if (CanAddToFavorites(id, 'ct') || InventoryAPI.ItemIsInFavorites('ct', id))
                     return '';
                 return 'TopSeparator';
@@ -986,11 +908,11 @@ var ItemContextEntries;
             AvailableForItem: (id) => InventoryAPI.IsPotentiallyMarketable(id),
             OnSelected: (id) => {
                 $.DispatchEvent('ContextMenuEvent', '');
-                if (InventoryAPI.GetChosenActionItemsCount(id, 'can_collect') > 0) { // pick a casket
+                if (InventoryAPI.GetChosenActionItemsCount(id, 'can_collect') > 0) {
                     $.DispatchEvent('ShowSelectItemForCapabilityPopup', id, '', 'can_collect');
                 }
-                else { // buy a casket
-                    const fauxCasket = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1201, 0); // "casket"
+                else {
+                    const fauxCasket = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1201, 0);
                     const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml');
                     let oSettings = {
                         item_id: fauxCasket,
@@ -1061,7 +983,7 @@ var ItemContextEntries;
                 if (slot == 'musickit')
                     team = 'noteam';
                 let defaultId = LoadoutAPI.GetDefaultItem(team, slot);
-                $.DispatchEvent('ContextMenuEvent', ''); // hide context menu on click
+                $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot(team, defaultId, slot);
             },
         },
@@ -1084,7 +1006,7 @@ var ItemContextEntries;
                 if (slot == 'musickit')
                     team = 'noteam';
                 let defaultId = LoadoutAPI.GetDefaultItem(team, slot);
-                $.DispatchEvent('ContextMenuEvent', ''); // hide context menu on click
+                $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot(team, defaultId, slot);
             },
         },
@@ -1110,7 +1032,7 @@ var ItemContextEntries;
                 let defaultId = LoadoutAPI.GetDefaultItem(team, slot);
                 let defaultDefIndex = InventoryAPI.GetItemDefinitionIndex(defaultId);
                 let preferredId = LoadoutAPI.GetPreferredItemIdForItemDefIndex(team, defaultDefIndex);
-                $.DispatchEvent('ContextMenuEvent', ''); // hide context menu on click
+                $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot(team, preferredId, slot);
             },
         },
@@ -1136,7 +1058,7 @@ var ItemContextEntries;
                 let defaultId = LoadoutAPI.GetDefaultItem(team, slot);
                 let defaultDefIndex = InventoryAPI.GetItemDefinitionIndex(defaultId);
                 let preferredId = LoadoutAPI.GetPreferredItemIdForItemDefIndex(team, defaultDefIndex);
-                $.DispatchEvent('ContextMenuEvent', ''); // hide context menu on click
+                $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot(team, preferredId, slot);
             },
         },
@@ -1156,7 +1078,7 @@ var ItemContextEntries;
                 let defIndex = InventoryAPI.GetItemDefinitionIndex(id);
                 let slot = LoadoutAPI.GetSlotEquippedWithDefIndex(team, defIndex);
                 let fauxId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defIndex, 0);
-                $.DispatchEvent('ContextMenuEvent', ''); // hide context menu on click
+                $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot(team, fauxId, slot);
             },
         },
@@ -1176,14 +1098,11 @@ var ItemContextEntries;
                 let defIndex = InventoryAPI.GetItemDefinitionIndex(id);
                 let slot = LoadoutAPI.GetSlotEquippedWithDefIndex(team, defIndex);
                 let fauxId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defIndex, 0);
-                $.DispatchEvent('ContextMenuEvent', ''); // hide context menu on click
+                $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot(team, fauxId, slot);
             },
         },
     ];
-    //--------------------------------------------------------------------------------------------------
-    // context menu specific helpers
-    //--------------------------------------------------------------------------------------------------
     function GetItemToReplaceName(id, team, slot) {
         if (slot === null || slot === undefined || slot === '') {
             if (ItemInfo.IsWeapon(id) && !['melee', 'secondary0', 'c4', 'equipment2'].includes(InventoryAPI.GetDefaultSlot(id))) {
@@ -1211,7 +1130,7 @@ var ItemContextEntries;
     }
     function EquipItem(id, team, slot) {
         if (slot === null || slot === undefined || slot === '') {
-            slot = InventoryAPI.GetDefaultSlot(id); // item slot can be implied (most common scenario)
+            slot = InventoryAPI.GetDefaultSlot(id);
             if (ItemInfo.IsWeapon(id) && !["melee", "secondary0", "c4", "equipment2"].includes(slot))
                 slot = ItemInfo.GetEquippedSlot(id, team[0]);
         }
@@ -1220,20 +1139,15 @@ var ItemContextEntries;
             if (!TryEquipItemInSlot(element, id, slot))
                 return;
         }
-        // Check if we need to restart main menu vanity
         let bNeedToRestartMainMenuVanity = false;
         if (ItemInfo.IsCharacter(id)) {
             const teamOfCharacter = (InventoryAPI.GetItemTeam(id).search('Team_T') === -1) ? 'ct' : 't';
-            if (teamOfCharacter !== teamShownOnMainMenu) { // equipping character flips the main menu shown team
+            if (teamOfCharacter !== teamShownOnMainMenu) {
                 GameInterfaceAPI.SetSettingString('ui_vanitysetting_team', teamOfCharacter);
             }
-            // flipping the character always restarts vanity
             bNeedToRestartMainMenuVanity = true;
         }
         else {
-            // if we equipped onto a team featured on the main menu
-            // and the item is either gloves or the item character holds
-            // then we should restart our main menu presentation
             team.filter(e => e === teamShownOnMainMenu);
             if (team.length > 0) {
                 if ((slot === 'clothing_hands') ||
@@ -1242,7 +1156,6 @@ var ItemContextEntries;
                 }
             }
         }
-        // Restart main menu vanity if applicable
         if (bNeedToRestartMainMenuVanity) {
             $.DispatchEvent('ForceRestartVanity');
         }
@@ -1318,7 +1231,7 @@ var ItemContextEntries;
                 }
         }
         if (LoadoutAPI.GetItemID(team, slot) == id)
-            return false; // It's already equipped! Don't show swap finish options.
+            return false;
         if (LoadoutAPI.IsShuffleEnabled(team, slot))
             return false;
         return CanEquipItem(id);
@@ -1342,7 +1255,6 @@ var ItemContextEntries;
             return false;
         if (slot == 'musickit' && team != 'noteam')
             return false;
-        // InventoryAPI.ItemIsInFavorites will need a team check
         if (InventoryAPI.ItemIsInFavorites(team, id))
             return false;
         if (!DoesItemTeamMatchTeamRequired(team, id))

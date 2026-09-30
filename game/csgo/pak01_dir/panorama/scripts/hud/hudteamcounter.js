@@ -11,7 +11,6 @@ var HudTeamCounter;
         const returnHealthRemoved = elAvatarPanel.GetAttributeInt("return_health_removed", 0);
         const returnNumHits = elAvatarPanel.GetAttributeInt("return_num_hits", 0);
         const orderIndex = elAvatarPanel.GetAttributeInt("order_index", 0);
-        $.Msg('---------------------SHOW ', orderIndex);
         const elDamageReport = elAvatarPanel.FindChildTraverse('PostRoundDamageReport');
         elDamageReport.SetHasClass('given', healthRemoved > 0);
         elDamageReport.SetHasClass('taken', returnHealthRemoved > 0);
@@ -26,18 +25,13 @@ var HudTeamCounter;
                 if (!elAvatarPanel || !elAvatarPanel.IsValid())
                     return;
                 elAvatarPanel.AddClass('show-prdr');
-                $.Msg("PRDR: show-prdr ", elAvatarPanel.id);
             });
         }
     }
     function HideDamageReport() {
         $.GetContextPanel().FindChildrenWithClassTraverse("show-prdr").forEach(el => el.RemoveClass('show-prdr'));
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
-        $.Msg('---------------------Registered ShowDamageReport ');
         $.RegisterForUnhandledEvent('RevealPostRoundDamageReportPanel', ShowDamageReport);
         $.RegisterForUnhandledEvent('ClearAllPostRoundDamageReportPanels', HideDamageReport);
     }

@@ -144,7 +144,6 @@ var ItemTileStore;
     function SetOnActivate(elPanel, oItemData) {
         elPanel.enabled = !oItemData.isDisabled;
         if (oItemData.isDropItem || oItemData.isDisabled) {
-            // oItemData.isDropItem actions handeled in rankup_redemption_store.ts
             return;
         }
         else if (IsMarketItem(oItemData)) {
@@ -201,7 +200,7 @@ var ItemTileStore;
     }
     function ShowDecodePopup(id, displayItemId, isNew) {
         var strExtraSettings = '';
-        if (isNew) { // For new releases items allow multi-purchase dropdown, they are not truly coupons
+        if (isNew) {
             strExtraSettings = '&overridepurchasemultiple=1';
         }
         const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('popup-inspect-' + id, 'file://{resources}/layout/popups/popup_capability_decodable.xml');
@@ -215,7 +214,6 @@ var ItemTileStore;
         elPanel.Data().oSettings = oSettings;
     }
     function ShowInspectPopup(id) {
-        $.Msg("Store: _ShowInspectPopup " + id + " (" + id + ")");
         const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml');
         let oSettings = {
             item_id: id,
@@ -228,7 +226,6 @@ var ItemTileStore;
     let jsTooltipDelayHandle = null;
     function AddMouseOverEvents(elPanel, oItemData) {
         const tooltipHotspot = elPanel.FindChildTraverse('tooltip-hotspot');
-        // panel.id isn't a valid tooltip target for normal store items. use the main image instead.
         const tooltipTargetPanelId = oItemData.isDropItem ? elPanel.id :
             oItemData.hasOwnProperty('linkedid') ? 'tooltip-hotspot' :
                 oItemData.isNotReleased ? 'tooltip-hotspot' :

@@ -7,17 +7,12 @@ var AcknowledgeXpGrant;
     function OnLoad() {
         let elRankIcon = $.GetContextPanel().FindChildInLayoutFile('JsPlayerXpIcon');
         let elRankText = $.GetContextPanel().FindChildInLayoutFile('JsPlayerRankName');
-        // Set Xp rank name.
         elRankText.SetDialogVariable('name', $.Localize('#SFUI_XP_RankName_' + _m_currentLvl));
         elRankText.SetDialogVariableInt('level', _m_currentLvl);
-        // Set Xp rank image and show.
         elRankIcon.SetImage('file://{images}/icons/xp/level' + _m_currentLvl + '.png');
-        //
-        // Movie
-        //
-        let fauxItemID = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(4607, 0); // xpgrant
+        let fauxItemID = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(4607, 0);
         let rarityColor = InventoryAPI.GetItemRarityColor(fauxItemID);
-        rarityColor = "#8847ff"; // Operation Shattered Web
+        rarityColor = "#8847ff";
         let elMovie = $.GetContextPanel().FindChildInLayoutFile('AcknowledgeMovie');
         elMovie.style.washColor = rarityColor;
         let elBar = $.GetContextPanel().FindChildInLayoutFile('AcknowledgeBar');

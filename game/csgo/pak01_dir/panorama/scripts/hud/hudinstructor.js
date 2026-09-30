@@ -2,8 +2,6 @@
 /// <reference path="../csgo.d.ts" />
 var HudInstructor;
 (function (HudInstructor) {
-    // ShowBinding is javascript equivalent of src1 CLocatorTarget::UseBindingImage().
-    // Cycles through the list of bindings showing each one in turn.
     function ShowBinding(elLesson, hLocator, i) {
         if (elLesson.BHasClass('hidden')) {
             HideBindings(elLesson);
@@ -61,7 +59,6 @@ var HudInstructor;
             }
             elLesson.SwitchClass('BindingIcon', bindingTexture);
             if (elLesson.bindingCount && elLesson.bindingCount > 1) {
-                // Schedule display of next binding in the list
                 let iNext = i + 1;
                 if (iNext == elLesson.bindingCount) {
                     iNext = 0;
@@ -86,9 +83,6 @@ var HudInstructor;
     function OnHideBindingsEvent(elLesson) {
         HideBindings(elLesson);
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('CSGOHudInstructorShowBindings', $.GetContextPanel(), OnShowBindingsEvent);
         $.RegisterEventHandler('CSGOHudInstructorHideBindings', $.GetContextPanel(), OnHideBindingsEvent);

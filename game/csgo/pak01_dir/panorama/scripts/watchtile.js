@@ -55,7 +55,6 @@ var watchTile;
         myTeam = _multiresult.myTeam;
         let rawModeName = MatchInfoAPI.GetMatchMode(elTile.Data().matchId);
         let mapName = MatchInfoAPI.GetMatchMap(elTile.Data().matchId);
-        $.Msg("Loading layout " + matchTileDescriptor + ".xml for match tile " + elTile.Data().matchId + " (t=" + tournamentName + "), (ms=" + matchState + ")");
         elTile.BLoadLayout("file://{resources}/layout/matchtiles/" + matchTileDescriptor + ".xml", true, false);
         let elTileMenu = elTile.FindChildTraverse('MatchTileMenu');
         let elDownloadingButton = undefined;
@@ -66,15 +65,8 @@ var watchTile;
         let elWatchButton = undefined;
         if (elTileMenu) {
             if (elTile.Data().matchListDescriptor === 'live') {
-                //elWatchButton = _AddButton( elTileMenu, elTile.Data().matchListDescriptor + "_" + elTile.Data().matchId, "watch", $.Localize( "#CSGO_Watch_Info_live"), _Watch.bind( "", elTile), false );
             }
             else {
-                //elShareButton =  _AddButton( elTileMenu, elTile.Data().matchListDescriptor + "_" + elTile.Data().matchId, "link", $.Localize( "#CSGO_Watch_Copy_Url" ), _ShareMatch.bind( "", elTile ), false );
-                //elDownloadButton = _AddButton( elTileMenu, elTile.Data().matchListDescriptor + "_" + elTile.Data().matchId, "downloaded", $.Localize( "#CSGO_Watch_Download" ), _DownloadMatch.bind( "", elTile ), false );
-                //elDownloadingButton = _AddButton( elTileMenu, elTile.Data().matchListDescriptor + "_" + elTile.Data().matchId, "downloading", $.Localize( "#SFUI_GameUI_MatchDlDownloading"), undefined, true );
-                //elDownloadFailedButton = _AddButton( elTileMenu, elTile.Data().matchListDescriptor + "_" + elTile.Data().matchId, "warning", $.Localize( "#WatchMenu_Info_Download_Failed" ), _UpdateFailedNotify.bind( "", elTile ), false );
-                //elMoreButton = _AddButton( elTileMenu, elTile.Data().matchListDescriptor + "_" + elTile.Data().matchId, "expand", $.Localize( "#WatchMenu_Expand_Match_Menu" ), _OpenContextMenu.bind( "", elTile ), false );
-                //_UpdateMatchState( elTile );
             }
         }
         let elMatchMapLabel = elTile.FindChildInLayoutFile('mapname');
@@ -97,7 +89,6 @@ var watchTile;
                 elMatchMapLabel.text = mapLabelLocalizedText;
             }
         }
-        // reverse score order if player participated, such that player's team is always listed first in the matchup
         let team0 = 0;
         let team1 = 1;
         if (bPlayerParticipated && (myTeam != 0)) {
@@ -219,8 +210,3 @@ var watchTile;
     }
     watchTile.GetDownloadHandler = GetDownloadHandler;
 })(watchTile || (watchTile = {}));
-// TODO:
-// Tooltips for popup buttons
-// Tooltips for tile buttons
-// Copy download link
-// Activate actions from popup buttons

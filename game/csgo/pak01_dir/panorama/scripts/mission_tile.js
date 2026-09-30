@@ -17,13 +17,8 @@ var MissionTile;
     function Init(srcText) {
         if (MyPersonaAPI.GetElevatedState() != "elevated")
             return;
-        // Several mission tiles are live at once (main menu, pause menu, HUD), so the
-        // caller tag and panel id are what tell their p.missions spew apart.
         const logPrefix = '[p.missions] ' + srcText + ': ' + $.GetContextPanel().id + ': ';
-        $.Msg(logPrefix + "Init");
         let missionData = undefined;
-        // in the pause menu we use the server's version if we have it so we can show live data.
-        // otherwise we show global data
         if (IsThePauseMenuPanel()) {
             missionData = MissionsAPI.GetRecurringMission(false);
         }
@@ -31,17 +26,7 @@ var MissionTile;
             missionData = MissionsAPI.GetRecurringMission(!IsTheInGamePanel());
         }
         $.GetContextPanel().Data().m_oMissionData = missionData;
-        // test
-        // if ( missionData )
-        // {
-        // 	 missionData.progress_saved =10;
-        // 	    missionData.progress_this_match = 50;
-        // 	  missionData.goal_points = [ 100, 200, 400 ]; 
-        // 	  missionData.xp_reward = [ 100, 100, 200 ];
-        // }
-        //	$.Msg( logPrefix + JSON.stringify( m_oMissionData ) );
         if (!$.GetContextPanel().Data().m_oMissionData) {
-            $.Msg(logPrefix + "no GetRecurringMissions()");
             $.GetContextPanel().AddClass('hidden');
             return;
         }
@@ -50,17 +35,14 @@ var MissionTile;
                 $.GetContextPanel().Data().m_livePointsCache = -1;
             }
             if (FriendsListAPI.IsGameInWarmup()) {
-                $.Msg(logPrefix + "warmup");
                 $.GetContextPanel().AddClass('hidden');
                 return;
             }
             if (GameStateAPI.GetMapBSPName() === 'lobby_mapveto') {
-                $.Msg(logPrefix + "lobby_mapveto");
                 $.GetContextPanel().AddClass('hidden');
                 return;
             }
             if (!GameStateAPI.GetActiveQuestID()) {
-                $.Msg(logPrefix + "NO QUEST ID");
                 $.GetContextPanel().AddClass('hidden');
                 return;
             }
@@ -71,16 +53,13 @@ var MissionTile;
                 $.GetContextPanel().TriggerClass('progress-pulse');
                 $.GetContextPanel().Data().m_livePointsCache = missionData.progress_this_match;
                 $.DispatchEvent('CSGOPlaySoundEffect', 'UI.Mission.QuotaUp', 'MOUSE');
-                $.Msg(logPrefix + 'PULSE');
             }
         }
         else if (!IsTheInGamePanel()) {
             if (!MyPersonaAPI.IsConnectedToGC()) {
-                $.Msg(logPrefix + "no gc");
                 $.GetContextPanel().AddClass('hidden');
                 return;
             }
-            // map image
             let imagePath = 'undefined';
             if (missionData.hasOwnProperty('mapgroup') && missionData.mapgroup != '') {
                 const cfg = GameTypesAPI.GetConfig();
@@ -97,14 +76,11 @@ var MissionTile;
                 elBgArt.style.backgroundPosition = '50% 0%';
                 elBgArt.style.backgroundSize = 'cover';
             }
-            // set button
             SetButtonPlayMission();
-            // force update of all styles 
             SessionUpdate();
         }
         $.GetContextPanel().SetHasClass('COMPLETE', missionData.progress_saved +
             (missionData.progress_this_match ? missionData.progress_this_match : 0) >= missionData.goal_points.slice(-1)[0]);
-        $.Msg(logPrefix + "progress_this_match " + missionData.progress_this_match);
         $.GetContextPanel().RemoveClass('hidden');
         ConstructMissionStrings($.GetContextPanel());
         if (!$.GetContextPanel().Data().hasOwnProperty('id') ||
@@ -226,7 +202,6 @@ var MissionTile;
                         val = val.toUpperCase();
                 }
                 elPanel.SetDialogVariable(k, val);
-                //	$.Msg( 'mission string: ' + k + ' = ' + val );
             }
         }
     }
@@ -240,7 +215,6 @@ var MissionTile;
             const liveValue = missionData.progress_saved + missionData.progress_this_match;
             SegmentedProgressBar.SetValue(elProg, liveValue, 'Live');
         }
-        $.Msg('[p.missions] ' + $.GetContextPanel().id + ': ' + missionData.progress_saved + ' ' + missionData.progress_this_match);
     }
     function GetSearchStatus() {
         return LobbyAPI.GetMatchmakingStatusString();
@@ -281,8 +255,6 @@ var MissionTile;
         }
     }
     function PlayMission() {
-        // Init();
-        //  return;
         $.DispatchEvent('PlayMenu_SwitchGameModeTab', $.GetContextPanel().Data().m_oMissionData.gamemode);
         $.DispatchEvent('CSGOPlaySoundEffect', 'mainmenu_mission_start', 'MOUSE');
         LobbyAPI.CreateSession();
@@ -291,11 +263,11 @@ var MissionTile;
         let gmFlags = 0;
         if (gameMode === "deathmatch") {
             gameType = "gungame";
-            gmFlags = 32; // ffa
+            gmFlags = 32;
         }
         let mg = $.GetContextPanel().Data().m_oMissionData.mapgroup;
         if (gameMode == "competitive") {
-            mg = "mg_" + $.GetContextPanel().Data().m_oMissionData.map; // singlemap only? 
+            mg = "mg_" + $.GetContextPanel().Data().m_oMissionData.map;
             gmFlags = 16;
         }
         var settings = {
@@ -342,9 +314,6 @@ var MissionTile;
             Init("UpdateMainMenu");
         }
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         Init('default');
         $.RegisterForUnhandledEvent('OnRecurringMissionsReceived', Init.bind(null, "OnRecurringMissionsReceived"));

@@ -12,7 +12,6 @@ var PopupMajorStoreBalance;
         _m_cp.SetDialogVariableInt('balance', _m_cp.GetAttributeInt('balance', 0));
         _m_cp.SetDialogVariable('tournament_name', $.Localize('#CSGO_Tournament_Event_NameShort_' + eventId));
         _m_cp.FindChildInLayoutFile('id-major-store-balance-logo').SetImage('file://{images}/tournaments/backgrounds/pickem_mainmenu_promo_' + eventId + '.psd');
-        // Same background the Major Hub uses behind its store block
         _m_cp.FindChildInLayoutFile('id-major-store-balance-banner').style.backgroundImage = "url( 'file://{images}/tournaments/backgrounds/pickem_bg_" + eventId + ".png')";
         _m_cp.SetHasClass('major-' + eventId, true);
     }
@@ -23,7 +22,6 @@ var PopupMajorStoreBalance;
     }
     PopupMajorStoreBalance.OpenMajorHub = OpenMajorHub;
     function Close() {
-        // The main menu owns the handle and unregisters it when it fires
         if (_m_callbackHandle != -1) {
             UiToolkitAPI.InvokeJSCallback(_m_callbackHandle);
             _m_callbackHandle = -1;

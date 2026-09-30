@@ -6,34 +6,14 @@
 /// <reference path="rating_emblem.ts" />
 /// <reference path="match_stakes.ts" />
 /// <reference path="context_menus/context_menu_playercard.ts" />
-/*
-globals
-
-$
-MockAdapter
-GameStateAPI
-InventoryAPI
-GameInterfaceAPI
-dictPlayerStatusImage
-UiToolkitAPI
-MatchStatsAPI
-GameTypesAPI
-MissionsAPI
-dictRoundResultImage
-StoreAPI
-LeaderboardsAPI
-MyPersonaAPI
-*/
 var Scoreboard;
 (function (Scoreboard) {
     const _m_cP = $.GetContextPanel();
     class PanelCache_t {
-        // Scoreboard children
         m_elTimelineRoundLabel = null;
         m_elTimelineScoreOt = null;
         m_elMusicKitUnborrow = null;
         m_elMetaLabelsModeMap = null;
-        // Scoreboard layout children
         m_elPlayersTableAny = null;
         m_elMouseBinding = null;
         m_elFooterWebsite = null;
@@ -41,7 +21,6 @@ var Scoreboard;
         m_elRoundLossBonus = null;
         m_elMuteImage = null;
         m_elBlockUgcImage = null;
-        // context children
         m_elRounds = [];
         m_metaModeImage = null;
         m_metaLabelsMap = null;
@@ -142,17 +121,14 @@ var Scoreboard;
         }
     }
     let _m_panelCache = new PanelCache_t();
-    let _m_LocalPlayerID = ''; // xuid of local player for highlighting
+    let _m_LocalPlayerID = '';
     function GetLocalPlayerId() {
         if (_m_LocalPlayerID === '')
             _m_LocalPlayerID = GameStateAPI.GetLocalPlayerXuid();
         return _m_LocalPlayerID;
     }
     const _commendNames = ['leader', 'teacher', 'friendly'];
-    // NOTE: 'teamname' can influence the value of some other stats, make sure this is the *first* stat!
     const _statNames = ['teamname', 'dc', 'score', 'risc', 'mvps', 'kills', 'assists', 'deaths', 'rank', 'idx', 'damage', 'avgrisc', 'money', 'hsp', 'kdr', 'adr', 'utilitydamage', 'enemiesflashed', 'musickit', 'skillgroup', 'ping', '3k', '4k', '5k', 'status', 'name', 'flair', 'avatar', 'gglevel', 'knifekills', 'taserkills', 'honoricon', ..._commendNames];
-    // object to keep track of team data
-    //
     class Team_t {
         static GetOrCreateTeam(scoreBoard, teamName) {
             if (!_m_oTeams[teamName]) {
@@ -170,7 +146,6 @@ var Scoreboard;
         };
         m_teamName;
         m_teamLogoImagePath;
-        // cached panels
         m_elPlayersTable;
         m_elLogoChildren;
         constructor(teamName, scoreBoard) {
@@ -189,7 +164,6 @@ var Scoreboard;
             }
             this.m_elLogoChildren = elTeamLogoChildren;
         }
-        // only call for the local player's team because we only want to show local player team commendations
         CalculateAllCommends() {
             let leader = this.m_CommendLeaderboards["leader"];
             let teacher = this.m_CommendLeaderboards["teacher"];
@@ -319,11 +293,11 @@ var Scoreboard;
             commend_friendly: 0,
         };
         m_xuid;
-        m_elPlayer = undefined; // panel of the player's row
-        m_elTeam = undefined; // panel of the player's team, also parent of player row/panel
-        m_oStats = {}; // collection of the players stat values
-        m_oElStats = {}; // collection of the player's cell panels
-        m_isMuted = false; // muted state;
+        m_elPlayer = undefined;
+        m_elTeam = undefined;
+        m_oStats = {};
+        m_oElStats = {};
+        m_isMuted = false;
         m_oMatchStats = undefined;
         m_oGameStats = undefined;
         m_xp_trail_level;
@@ -412,16 +386,16 @@ var Scoreboard;
     let _m_bRowLabelsCreated = false;
     let _m_oAllUpdateStatNames = [];
     let _m_oUpdateStatNames = [];
-    let _m_updatePlayerIndex = 0; // pointer to next player to update
-    let _m_oTeams = {}; // a collection of teams
-    let _m_arrSortingPausedRefGetCounter = 0; // Pause the player sorting when > 0
-    let _m_hDenyInputToGame = null; // Handle used by the player card context menu to deny input to the game
+    let _m_updatePlayerIndex = 0;
+    let _m_oTeams = {};
+    let _m_arrSortingPausedRefGetCounter = 0;
+    let _m_hDenyInputToGame = null;
     let _m_dataSetCurrent = 0;
     let _m_dataSetGetCount = 0;
     let _m_areTeamsSwapped = false;
     let _m_maxRounds = 0;
-    let _m_oPlayers; // object that contains players
-    let _m_RoundUpdated = {}; // keeping track of which rounds have been updated so we don't updated multiple times per round
+    let _m_oPlayers;
+    let _m_RoundUpdated = {};
     let _m_TopCommends = {
         'leader': "0",
         'teacher': "0",
@@ -437,9 +411,6 @@ var Scoreboard;
     let _m_updatePlayerHandler = null;
     let _m_haveViewers = false;
     let FAKEMODE = '';
-    //DEVONLY{
-    FAKEMODE = '';
-    //}DEVONLY
     const sortOrder_default = {
         'dc': 0,
         'score': 0,
@@ -453,8 +424,6 @@ var Scoreboard;
         'friendly': 0,
         'rank': 0,
         'idx': -1,
-        // we include the below so players can choose to sort by them.
-        // otherwise they never get used because player index never ties
         'damage': 0,
         'avgrisc': 0,
         'money': 0,
@@ -477,8 +446,6 @@ var Scoreboard;
         'friendly': -1,
         'rank': -1,
         'idx': 0,
-        // we include the below so players can choose to sort by them.
-        // otherwise they never get used because player index never ties
         'damage': 0,
         'avgrisc': 0,
         'money': 0,
@@ -496,10 +463,8 @@ var Scoreboard;
         'damage': 0,
         'hsp': 0,
         'idx': -1,
-        // we include the below so players can choose to sort by them.
-        // otherwise they never get used because player index never ties
         'assists': 0,
-        'deaths': -1, // reverse
+        'deaths': -1,
     };
     const sortOrder_gg = {
         'dc': 0,
@@ -510,10 +475,8 @@ var Scoreboard;
         'kdr': 0,
         'hsp': 0,
         'idx': -1,
-        // we include the below so players can choose to sort by them.
-        // otherwise they never get used because player index never ties
         'assists': 0,
-        'deaths': -1, // reverse
+        'deaths': -1,
     };
     const sortOrder_tmm = {
         'dc': 0,
@@ -528,8 +491,6 @@ var Scoreboard;
         'friendly': 0,
         'rank': 0,
         'idx': -1,
-        // we include the below so players can choose to sort by them.
-        // otherwise they never get used because player index never ties
         'score': 0,
         'avgrisc': 0,
         'money': 0,
@@ -539,7 +500,7 @@ var Scoreboard;
         'utilitydamage': 0,
         'enemiesflashed': 0,
     };
-    let _m_sortOrder = sortOrder_default; // which player sort we're using
+    let _m_sortOrder = sortOrder_default;
     _Reset();
     function _Reset() {
         _m_bInit = false;
@@ -571,17 +532,6 @@ var Scoreboard;
         _m_cP.RemoveAndDeleteChildren();
         _m_cP.m_matchInfo = undefined;
         _m_cP.m_bSnippetLoaded = false;
-        //DEVONLY{
-        if (FAKEMODE === 'Premier') {
-            MockAdapter.AddTable('scoreboard_premier', {
-                k_GetPlayerCompetitiveRanking: 1234,
-                k_GetPlayerCompetitiveRankType: {
-                    0: FAKEMODE
-                },
-            });
-            MockAdapter.SetMockData('scoreboard_premier');
-        }
-        //}DEVONLY
     }
     function _Helper_LoadSnippet(element, snippet) {
         if (element && !element.m_bSnippetLoaded) {
@@ -589,9 +539,6 @@ var Scoreboard;
             element.m_bSnippetLoaded = true;
         }
     }
-    //
-    // get a jso of teams and their players
-    //
     function _PopulatePlayerList(oPlayerData) {
         if (oPlayerData.teams.length === 0)
             return;
@@ -609,35 +556,28 @@ var Scoreboard;
                 continue;
             const teamName = oPlayerData.teams[p.team].name;
             const oPlayer = _m_oPlayers.GetPlayerByXuid(xuid);
-            // if it is a new player, add to the list of players
             if (!oPlayer) {
                 let oNewPlayer = _m_oPlayers.AddPlayer(xuid);
                 _NewPlayerPanel(oNewPlayer);
                 oNewPlayer.UpdateAndSort(_m_oUpdateStatNames, true);
-                // Since the label is on the scoreboard, there's no need to highlight it every time we create a player
                 highlightSortStatLabel = true;
             }
-            else if (oPlayer.m_oStats['teamname'] != teamName) // changed teams
-             {
+            else if (oPlayer.m_oStats['teamname'] != teamName) {
                 _ChangeTeams(oPlayer, teamName);
             }
         }
         if (highlightSortStatLabel) {
-            // only use the first stat ( after 'dc' ) in sortorder
-            let sortOrder = Object.keys(_m_sortOrder)[1]; // 0 is 'dc'
+            let sortOrder = Object.keys(_m_sortOrder)[1];
             _HighlightSortStatLabel(sortOrder);
         }
     }
     function _ChangeTeams(oPlayer, newTeamName) {
-        // nm if no change.
         if (oPlayer.m_oStats['teamname'] == newTeamName)
             return false;
         let xuid = oPlayer.m_xuid;
         let oldTeam = oPlayer.m_oStats['teamname'];
         let elPlayer = oPlayer.m_elPlayer;
-        // update the stat on the player
         oPlayer.m_oStats['teamname'] = newTeamName;
-        // update the commendation lists
         if (oldTeam in _m_oTeams) {
             _m_oTeams[oldTeam].DeletePlayerFromCommendsLeaderboards(xuid);
         }
@@ -647,23 +587,18 @@ var Scoreboard;
         else {
             oPlayer.m_team = undefined;
         }
-        // reset commendations so they get picked up in UpdateAllStats and entered into new team
         oPlayer.m_oStats['leader'] = -1;
         oPlayer.m_oStats['teacher'] = -1;
         oPlayer.m_oStats['friendly'] = -1;
         if (!elPlayer || !elPlayer.IsValid())
             return true;
-        // update the player's row class for team color
         if (oldTeam)
             elPlayer.RemoveClass('sb-team--' + oldTeam);
         elPlayer.AddClass('sb-team--' + newTeamName);
-        // hide spectators in tournament matches
         if (IsTeamASpecTeam(newTeamName) && MatchStatsAPI.IsTournamentMatch()) {
             elPlayer.AddClass('hidden');
             return true;
         }
-        // move the player row panel to the new team
-        //
         let team = oPlayer.m_team;
         let elTeam = team ? team.m_elPlayersTable : null;
         if (!elTeam && !IsTeamASpecTeam(newTeamName)) {
@@ -679,10 +614,6 @@ var Scoreboard;
         }
         return true;
     }
-    //
-    // function that walks over list of players, one each call, and updates them.
-    // refresh the player list every go-through
-    //
     function _UpdateNextPlayer() {
         const oPlayerData = GameStateAPI.GetPlayerDataJSO();
         _m_oPlayers.DeleteMissingPlayers(oPlayerData);
@@ -696,7 +627,6 @@ var Scoreboard;
     function _UpdateAllPlayers_delayed() {
         $.Schedule(0.01, _UpdateAllPlayers);
     }
-    ////////////////////////////////////////////////
     function _UpdateAllPlayers(bInitialCreate = false) {
         if (!_m_bInit)
             return;
@@ -706,9 +636,6 @@ var Scoreboard;
         _PopulatePlayerList(oPlayerData);
         _m_updatePlayerIndex = 0;
         if (!bInitialCreate) {
-            // traverse the dictionary we made and update each player
-            // this could update player row positions, so disable position
-            // animation first to avoid catch-up effect
             for (let i = 0; i < _m_oPlayers.GetCount(); i++) {
                 let elPlayer = _m_oPlayers.GetPlayerByIndex(i).m_elPlayer;
                 if (elPlayer && elPlayer.IsValid())
@@ -717,7 +644,6 @@ var Scoreboard;
             for (let i = 0; i < _m_oPlayers.GetCount(); i++) {
                 _UpdatePlayer(i, bSilent);
             }
-            //	re-enable position animation
             for (let i = 0; i < _m_oPlayers.GetCount(); i++) {
                 let elPlayer = _m_oPlayers.GetPlayerByIndex(i).m_elPlayer;
                 if (elPlayer && elPlayer.IsValid())
@@ -725,7 +651,6 @@ var Scoreboard;
             }
         }
     }
-    // highlight a stat
     function _Pulse(el) {
         el.RemoveClass('sb-pulse-highlight');
         el.AddClass('sb-pulse-highlight');
@@ -735,14 +660,8 @@ var Scoreboard;
         _UpdatePlayer(index, true);
     }
     function _UpdatePlayerByPlayerSlot_delayed(slot) {
-        // we need to delay the update because the gameresource updates after the game event that we're reacting to.
-        // If we don't delay, the data will not be new
         $.Schedule(0.01, () => _UpdatePlayerByPlayerSlot(slot));
     }
-    ////////////////////////////////////////////////
-    //
-    // update a player
-    //
     function _UpdatePlayer(idx, bSilent = false) {
         let oPlayer = _m_oPlayers.GetPlayerByIndex(idx);
         if (!oPlayer)
@@ -750,7 +669,6 @@ var Scoreboard;
         bSilent = bSilent && _m_cP.visible;
         oPlayer.UpdateAndSort(_m_oUpdateStatNames, bSilent);
     }
-    ////////////////////////////////////////////////
     function _UpdateSpectatorButtons() {
         let elButtonPanel = $('#spec-button-group');
         if (!elButtonPanel || !elButtonPanel.IsValid())
@@ -774,8 +692,6 @@ var Scoreboard;
             return false;
         return (x < y);
     }
-    // NOTE: Sort player only supports numeric stat comparison
-    //
     function _SortPlayer(oPlayer) {
         if (_m_arrSortingPausedRefGetCounter != 0)
             return;
@@ -787,7 +703,6 @@ var Scoreboard;
             return;
         let children = elTeam.Children();
         for (let i = 0; i < children.length; i++) {
-            // dont sort against ourselves
             if (oPlayer.m_xuid === children[i].m_xuid)
                 continue;
             let oCompareTargetPlayer = _m_oPlayers.GetPlayerByXuid(children[i].m_xuid);
@@ -796,9 +711,7 @@ var Scoreboard;
             for (let stat in _m_sortOrder) {
                 let p1stat = oPlayer.m_oStats[stat];
                 let p2stat = oCompareTargetPlayer.m_oStats[stat];
-                if (_m_sortOrder[stat] === -1) // reverse
-                 {
-                    // swap
+                if (_m_sortOrder[stat] === -1) {
                     let tmp = p1stat;
                     p1stat = p2stat;
                     p2stat = tmp;
@@ -822,16 +735,13 @@ var Scoreboard;
             teamname === 'UNKNOWN TEAM' ||
             teamname === '');
     }
-    ////////////////////////////////////////////////
     function _UpdateAllStatsForPlayer(oPlayer, oUpdateStatNames, bSilent = false) {
         const bIsUpdatingAllStats = true;
         for (let stat of oUpdateStatNames) {
             _UpdatePlayerStat(oPlayer, stat, bIsUpdatingAllStats, bSilent);
         }
     }
-    // an update method for simple text labels ( e.g. kills, deaths, assists )
     function _GenericUpdateStat(oPlayer, stat, fnGetStat, bSilent = false) {
-        // create a label in the panel if it doesn't exist
         let elPanel = oPlayer.m_oElStats[stat];
         if (!elPanel || !elPanel.IsValid())
             return;
@@ -851,7 +761,6 @@ var Scoreboard;
         }
     }
     function _GenericUpdateStatDirect(oPlayer, stat, val, bSilent = false) {
-        // create a label in the panel if it doesn't exist
         let elPanel = oPlayer.m_oElStats[stat];
         if (!elPanel || !elPanel.IsValid())
             return;
@@ -904,7 +813,6 @@ var Scoreboard;
                     let newStatValue = InventoryAPI.GetMusicIDForPlayer(ownerXuid);
                     if (newStatValue !== oPlayer.m_oStats[stat]) {
                         oPlayer.m_oStats[stat] = newStatValue;
-                        // update local music kit display
                         if (isLocalPlayer) {
                             let elMusicKit = _m_panelCache.m_elMusicKit;
                             if (!elMusicKit || !elMusicKit.IsValid())
@@ -912,7 +820,6 @@ var Scoreboard;
                             let isValidMusicKit = newStatValue > 0;
                             elMusicKit.SetHasClass('hidden', !isValidMusicKit);
                             if (isValidMusicKit) {
-                                // set cancel borrow state
                                 if (_m_panelCache.m_elMusicKitUnborrow) {
                                     _m_panelCache.m_elMusicKitUnborrow.SetHasClass('hidden', !isBorrowed);
                                 }
@@ -930,9 +837,6 @@ var Scoreboard;
                     }
                     let elPlayer = oPlayer.m_elPlayer;
                     if (elPlayer && elPlayer.IsValid()) {
-                        ////////////////////////////////
-                        // ICON ON NAME LABEL
-                        ////////////////////////////////
                         let elMusicKitIcon = elPlayer.FindChildTraverse('id-sb-name__musickit');
                         if (elMusicKitIcon && elMusicKitIcon.IsValid()) {
                             elMusicKitIcon.SetHasClass('hidden', newStatValue <= 1);
@@ -945,8 +849,7 @@ var Scoreboard;
                     const newTeam = (oPlayer.GetGameStat('team_name'));
                     const bChangedTeams = _ChangeTeams(oPlayer, newTeam);
                     if (bChangedTeams && !bIsUpdatingAllStats) {
-                        // update all player stats
-                        _UpdateAllStatsForPlayer(oPlayer, _m_oUpdateStatNames, true); // will recurse but ok because will exit early
+                        _UpdateAllStatsForPlayer(oPlayer, _m_oUpdateStatNames, true);
                         _SortPlayer(oPlayer);
                     }
                 }
@@ -964,10 +867,10 @@ var Scoreboard;
                         return;
                     oPlayer.m_elPlayer?.SetHasClass('bot', oPlayer.GetGameStat('is_fake_player'));
                     let szCustomLabel = _GetCustomStatTextValue('ping', oPlayer);
-                    elLabel.SetHasClass('sb-row__cell--ping__label--bot', !!szCustomLabel); // TODO: fix this style to use same function making rules
+                    elLabel.SetHasClass('sb-row__cell--ping__label--bot', !!szCustomLabel);
                     if (szCustomLabel) {
                         elLabel.text = $.Localize(szCustomLabel);
-                        oPlayer.m_oStats[stat] = szCustomLabel; // We have to set this otherwise _GenericUpdateStat will not update the actual label
+                        oPlayer.m_oStats[stat] = szCustomLabel;
                     }
                     else {
                         _GenericUpdateStatDirect(oPlayer, stat, oPlayer.GetGameStat('ping'), true);
@@ -1007,8 +910,6 @@ var Scoreboard;
                 {
                     let kdr;
                     if (_m_overtime == 0) {
-                        // using matchstats version of kdr which is consistent with other stats:
-                        // does not deduct for suicides and updates at the end of the round.
                         let kdrFn = _GetMatchStatFn('kdr');
                         kdr = kdrFn(oPlayer.m_xuid);
                         if (typeof kdr == 'number' && kdr > 0) {
@@ -1016,11 +917,6 @@ var Scoreboard;
                         }
                     }
                     else {
-                        //
-                        // for overtime support we use kills/deaths and NOT matchstats because
-                        // kdr that does not match visible kills and deaths is confusing.
-                        // This is a stop gap for Majors. A proper solution would rethink kills/deaths/etc on the player resource.
-                        //
                         let denom = oPlayer.GetStatNum('deaths') || 1;
                         kdr = oPlayer.GetStatNum('kills') / denom;
                     }
@@ -1037,15 +933,12 @@ var Scoreboard;
                         let elMVPPanel = oPlayer.m_oElStats[stat];
                         if (!elMVPPanel || !elMVPPanel.IsValid())
                             return;
-                        // create the star image
                         let elMVPStarImage = elMVPPanel.FindChildTraverse('star-image');
                         if (!elMVPStarImage || !elMVPStarImage.IsValid())
                             return;
-                        // create the numerator label
                         let elMVPStarNumberLabel = elMVPPanel.FindChildTraverse('star-count');
                         if (!elMVPStarNumberLabel || !elMVPStarNumberLabel.IsValid())
                             return;
-                        //////////////
                         oPlayer.m_oStats[stat] = newStatValue;
                         elMVPStarImage.SetHasClass('hidden', newStatValue == 0);
                         elMVPStarNumberLabel.SetHasClass('hidden', newStatValue == 0);
@@ -1059,42 +952,21 @@ var Scoreboard;
                 break;
             case 'status':
                 {
-                    // 	None,
-                    // 	Dead,
-                    // 	Bomb,
-                    // 	Dominated,
-                    // 	DominatedDead,
-                    // 	Nemesis,
-                    // 	NemesisDead,
-                    // 	Defuser,
-                    // 	SwitchTeams,
-                    // 	SwitchTeamsDead,
-                    // 	MatchmakingTwoStackSmallParty,
-                    // 	MatchmakingTwoStackParty,
-                    // 	MatchmakingThreeStackParty,
-                    // 	MatchmakingFourStackParty,
-                    // 	MatchmakingFiveStackParty,
-                    // 	Disconnected,
-                    // 	ScoreboardStatusMax
                     let newStatValue = oPlayer.GetGameStat('status');
-                    // uncomment to debug DC sorting.
-                    //		newStatValue = GameStateAPI.GetPlayerSlot( oPlayer.m_xuid ) % 3 ? 15 : newStatValue; // for sorting
                     if (newStatValue !== oPlayer.m_oStats[stat]) {
                         oPlayer.m_oStats[stat] = newStatValue;
                         let elPlayer = oPlayer.m_elPlayer;
                         if (!elPlayer || !elPlayer.IsValid())
                             return;
                         elPlayer.SetHasClass('sb-player-status-dead', newStatValue === 1);
-                        // stylize and set status of players on condition of connection status
                         elPlayer.SetHasClass('sb-player-status-disconnected', newStatValue === 15);
-                        oPlayer.m_oStats['dc'] = newStatValue === 15 ? 0 : 1; // for sorting
+                        oPlayer.m_oStats['dc'] = newStatValue === 15 ? 0 : 1;
                         let elPanel = oPlayer.m_oElStats[stat];
                         if (!elPanel || !elPanel.IsValid())
                             return;
                         let elStatusImage = elPanel.m_elImage;
                         if (!elStatusImage || !elStatusImage.IsValid())
                             return;
-                        // set the image
                         elStatusImage.SetImage(dictPlayerStatusImage[newStatValue]);
                     }
                 }
@@ -1111,13 +983,9 @@ var Scoreboard;
                 break;
             case 'money':
                 {
-                    // create a label in the panel if it doesn't exist
                     let elPanel = oPlayer.m_oElStats[stat];
                     if (!elPanel || !elPanel.IsValid())
                         return;
-                    // This code is really cludgey - it doesn't really update, but rather creates
-                    // or updates labels, but is a copy of generic update stat code so should probably use that
-                    // <fix this>
                     let elLabel = elPanel.m_elLabel;
                     if (!elLabel || !elLabel.IsValid())
                         return;
@@ -1142,9 +1010,6 @@ var Scoreboard;
                     let elPanel = oPlayer.m_oElStats[stat];
                     if (!elPanel || !elPanel.IsValid())
                         return;
-                    ////////////////////////////////
-                    // NAME
-                    ////////////////////////////////
                     oPlayer.m_elPlayer.SetDialogVariableInt('player_slot', oPlayer.GetGameStat('slot'));
                 }
                 break;
@@ -1159,11 +1024,6 @@ var Scoreboard;
                             elHonorIcon.Set(xp_trail_level, false);
                         oPlayer.m_xp_trail_level = xp_trail_level;
                     }
-                    /////////////////////// dbug to show player models
-                    //DEVONLY{
-                    //					const model = MockAdapter.GetPlayerModel( oPlayer.m_xuid );
-                    //					elNameLabel.text = model;
-                    //}DEVONLY
                 }
                 break;
             case 'leader':
@@ -1191,7 +1051,6 @@ var Scoreboard;
                                 break;
                         }
                     }
-                    // new value? Update it.
                     if (oPlayer.m_oStats[stat] != newStatValue) {
                         oPlayer.m_oStats[stat] = newStatValue;
                         if (oPlayer.m_team)
@@ -1201,8 +1060,6 @@ var Scoreboard;
                 break;
             case 'flair':
                 {
-                    // Don't access InventoryAPI while state is latched --
-                    // we could be referring to a player who has already disconnected.
                     if (GameStateAPI.IsLatched()) {
                         return;
                     }
@@ -1227,22 +1084,15 @@ var Scoreboard;
                     let elPanel = oPlayer.m_oElStats[stat];
                     if (!elPanel || !elPanel.IsValid())
                         return;
-                    // AVATAR IMAGE
-                    //
-                    // create
                     let elAvatarImage = elPanel.m_elImage;
                     if (!elAvatarImage || !elAvatarImage.IsValid())
                         return;
-                    // update
                     const slot = oPlayer.GetGameStat('slot');
                     if (slot >= 0) {
                         elAvatarImage.PopulateFromPlayerSlot(slot);
                     }
                     const team = oPlayer.m_team?.m_teamName || '';
                     elAvatarImage.SwitchClass('teamstyle', 'team--' + team);
-                    /////////////////////////////////////////////////////////////////////////
-                    // TEAM COLOR
-                    //
                     if (elAvatarImage.m_elPlayerColor == undefined) {
                         elAvatarImage.m_elPlayerColor = elAvatarImage.FindChildTraverse('player-color');
                     }
@@ -1260,9 +1110,6 @@ var Scoreboard;
                             }
                         }
                     }
-                    //////////////////////////
-                    // MUTE STATE
-                    //
                     let isMuted = oPlayer.GetGameStat('is_muted');
                     oPlayer.m_isMuted = isMuted;
                     let isEnemyTeamMuted = GameInterfaceAPI.GetSettingString("cl_mute_enemy_team") == "1";
@@ -1289,8 +1136,6 @@ var Scoreboard;
                                 const wins = oPlayer.GetGameStat('comp_wins');
                                 let options = {
                                     root_panel: elSkillgroup,
-                                    //	xuid: oPlayer.m_xuid,
-                                    //	api: 'gamestate' as SkillRatingSourceAPI_t,
                                     full_details: false,
                                     rating_type: rating_type,
                                     leaderboard_details: { score: score, matchesWon: wins },
@@ -1329,7 +1174,6 @@ var Scoreboard;
                 break;
             default:
                 {
-                    $.Msg(stat + ' is an unhandled stat');
                 }
                 break;
         }
@@ -1352,18 +1196,6 @@ var Scoreboard;
     function _GetPlayerRowForGameMode() {
         let mode = MockAdapter.GetGameModeInternalName(false);
         let skirmish = MockAdapter.GetGameModeInternalName(true);
-        //DEVONLY{
-        if (FAKEMODE !== '') {
-            switch (FAKEMODE) {
-                case 'Premier':
-                    return 'snippet_scoreboard-classic__row--premier';
-                case 'Competitive':
-                    return 'snippet_scoreboard-classic__row--comp';
-                case 'Wingman':
-                    return 'snippet_scoreboard-classic__row--wingman';
-            }
-        }
-        //}DEVONLY
         if (GameStateAPI.IsQueuedMatchmakingMode_Team()) {
             return 'snippet_scoreboard-classic__row--premier';
         }
@@ -1393,7 +1225,6 @@ var Scoreboard;
         }
     }
     function _HighlightSortStatLabel(stat) {
-        // remove hiliting class
         for (let el of _m_cP.FindChildrenWithClassTraverse('sb-row__cell')) {
             if (el && el.IsValid()) {
                 if (el.BHasClass('sb-row__cell--' + stat)) {
@@ -1410,49 +1241,26 @@ var Scoreboard;
         if (!elLabelRow || !elLabelRow.IsValid())
             return;
         let elLabelRowOrSet = elLabelRow;
-        // PROCESS SETS
         if (set !== '') {
-            //////////////
-            // LABEL SETS
-            //
-            // structure of sets
-            //
-            //				+-----+     +----------------+
-            //				|label+-----+ set containers |
-            //				+-----+     +----+---------+-+
-            //								 |         |
-            //						 +-------+--+     ++--------+
-            //						 |set 1     |     |set 2    |
-            //						 +--+-----+-+     +--+----+-+
-            //							|     |          |    |
-            //						 +--+-----+---+ +----++ +-+---+
-            //						 |label||label| |label| |label|
-            //						 +------------+ +-----+ +-----+
-            //
-            // do we have a set container?
             let labelSetContainerId = 'id-sb-row__set-container';
             let elLabelSetContainer = $('#' + labelSetContainerId);
             if (!elLabelSetContainer || !elLabelSetContainer.IsValid()) {
                 elLabelSetContainer = $.CreatePanel('Panel', elLabelRow, labelSetContainerId);
                 elLabelSetContainer.BLoadLayoutSnippet('snippet_sb-label-set-container');
-                // enable the cycle button
                 if ($('#id-sb-row__set-container')) {
                     $('#id-sb-meta__cycle').RemoveClass('hidden');
                 }
             }
             let elSetLabels = elLabelSetContainer.FindChildTraverse('id-sb-row__sets');
-            // do we have a set?
             let LabelSetId = 'id-sb-labels-set-' + set;
             let elLabelSet = elSetLabels.FindChildTraverse(LabelSetId);
             let elLabelSetClasses = [];
             if (!elLabelSet || !elLabelSet.IsValid()) {
-                _m_dataSetGetCount++; // keep track of the total number of sets
-                // create the set container
+                _m_dataSetGetCount++;
                 elLabelSet = $.CreatePanel('Panel', elSetLabels, LabelSetId);
                 elLabelSetClasses.push('sb-row__set', 'no-hover');
             }
             elLabelRowOrSet = elLabelSet;
-            // hide any set other than the current one
             if (set != _m_dataSetCurrent.toString()) {
                 elLabelSetClasses.push('hidden');
             }
@@ -1460,7 +1268,6 @@ var Scoreboard;
                 elLabelSet.AddClasses(elLabelSetClasses);
             }
         }
-        // Create the label for the column for this stat
         let elStatPanel = elLabelRowOrSet.FindChildInLayoutFile('id-sb-' + stat);
         if (!elStatPanel || !elStatPanel.IsValid()) {
             let statPanelClasses = ['sb-row__cell', 'sb-row__cell--' + stat, 'sb-row__cell--label'].join(" ");
@@ -1479,7 +1286,6 @@ var Scoreboard;
                     elStatLabel.text = $.Localize('#Scoreboard_' + stat);
                 }
             }
-            // Create the tooltip
             let toolTipString = $.Localize('#Scoreboard_' + stat + '_tooltip');
             if (toolTipString !== '') {
                 elStatLabel.SetPanelEvent('onmouseover', () => UiToolkitAPI.ShowTextTooltip(elStatLabel.id, toolTipString));
@@ -1487,27 +1293,20 @@ var Scoreboard;
             }
             elStatPanel.SetPanelEvent('onactivate', () => {
                 let newSortOrder = { 'dc': 0 };
-                // get the unmodified sort order for this mode
                 let modeDefaultSortOrder = _GetSortOrderForMode(MockAdapter.GetGameModeInternalName(false));
-                // insert the desired stat as the first entry
-                // if it doesn't exist then abort
                 if (stat in modeDefaultSortOrder)
                     newSortOrder[stat] = modeDefaultSortOrder[stat];
                 else
                     return;
                 _HighlightSortStatLabel(stat);
-                // copy the other stats in order.
                 for (let s in modeDefaultSortOrder) {
                     if (s == stat)
                         continue;
-                    // 'dc' is forced to the top regardless of player sort preference
                     if (s == 'dc')
                         continue;
                     newSortOrder[s] = modeDefaultSortOrder[s];
                 }
-                // set the global sort to this new sort.
                 _m_sortOrder = newSortOrder;
-                // resort players with new sort.
                 for (let i = 0; i < _m_oPlayers.GetCount(); i++) {
                     let oPlayer = _m_oPlayers.GetPlayerByIndex(i);
                     _SortPlayer(oPlayer);
@@ -1515,16 +1314,6 @@ var Scoreboard;
             });
         }
     }
-    //DEVONLY{
-    function _ToggleSortOrderAndResort() {
-        let defaultSort = _GetSortOrderForMode(MockAdapter.GetGameModeInternalName(false));
-        if (_m_sortOrder == defaultSort)
-            _m_sortOrder = sortOrder_reverse;
-        else
-            _m_sortOrder = defaultSort;
-    }
-    //}DEVONLY
-    // custom stat values override
     function _GetCustomStatTextValue(stat, oPlayer) {
         let szCustomLabel = null;
         if (stat === 'ping') {
@@ -1543,28 +1332,22 @@ var Scoreboard;
         const xuid = oPlayer.m_elPlayer ? oPlayer.m_elPlayer.m_xuid : '';
         for (let entry of ContextmenuPlayerCard.ContextMenus) {
             if (entry.AvailableForItem(xuid)) {
-                $.Msg('scoreboard context button ' + entry.name);
-                // is there a scoreboard cell for it?
                 if (!oPlayer.m_oElStats.hasOwnProperty(entry.name))
                     continue;
                 const elContextMenuBtns = oPlayer.m_oElStats[entry.name];
-                if ('xml' in entry) // we have an XML for the button
-                 {
+                if ('xml' in entry) {
                     let elEntryBtn = $.CreatePanel('Panel', elContextMenuBtns, entry.name, {
                         class: 'cell__button',
                         style: 'tooltip-position: bottom;'
                     });
                     elEntryBtn.BLoadLayout(entry.xml, false, false);
                 }
-                else // default case
-                 {
+                else {
                     let elEntryBtn = $.CreatePanel('Button', elContextMenuBtns, entry.name + '_' + xuid, {
                         class: 'cell__button',
                         style: 'tooltip-position: bottom;'
                     });
                     $.CreatePanel('Image', elEntryBtn, entry.name, { src: 'file://{images}/icons/ui/' + entry.icon + '.svg' });
-                    //			let label = $.CreatePanel( 'Label', elEntryBtn, entry.name + '-label' );
-                    //			label.text = $.Localize( '#tooltip_short_' + entry.name );
                     let tooltip = '#tooltip_' + entry.name;
                     if ('IsDisabled' in entry) {
                         if (entry.IsDisabled()) {
@@ -1577,7 +1360,6 @@ var Scoreboard;
                     }
                     let onSelected = entry.OnSelected;
                     elEntryBtn.SetPanelEvent('onactivate', () => onSelected(xuid, ''));
-                    // tooltip
                     {
                         elEntryBtn.SetPanelEvent('onmouseover', () => UiToolkitAPI.ShowTextTooltip(elEntryBtn.id, tooltip));
                         elEntryBtn.SetPanelEvent('onmouseout', () => UiToolkitAPI.HideTextTooltip());
@@ -1586,17 +1368,15 @@ var Scoreboard;
             }
         }
     }
-    // create a player row
     function _NewPlayerPanel(oPlayer) {
         if (!oPlayer.m_elTeam || !oPlayer.m_elTeam.IsValid())
             return;
         oPlayer.m_elPlayer = $.CreatePanel('Panel', oPlayer.m_elTeam, 'player-' + oPlayer.m_xuid);
-        oPlayer.m_elPlayer.m_xuid = oPlayer.m_xuid; // store it on the panel as well for easy reverse lookup.
+        oPlayer.m_elPlayer.m_xuid = oPlayer.m_xuid;
         _Helper_LoadSnippet(oPlayer.m_elPlayer, _GetPlayerRowForGameMode());
         _CreateLabelsForRow(oPlayer.m_elPlayer);
         oPlayer.m_elPlayer.m_elSkillGroup = oPlayer.m_elPlayer.FindChildTraverse('jsRatingEmblem');
         {
-            // stats we want regardless of whether they have a column or not
             _RegisterStatUpdate('teamname');
             _RegisterStatUpdate('musickit');
             _RegisterStatUpdate('status');
@@ -1611,8 +1391,6 @@ var Scoreboard;
             if (!elStatCell || !elStatCell.IsValid())
                 return;
             const stat = elStatCell.GetAttributeString('data-stat', '');
-            //	$.Msg( 'scoreboard: init cell ' + stat );
-            // sometimes we group stat panels for layout. so recurse!
             let children = elStatCell.Children();
             for (let i = 0; i < children.length; i++) {
                 _InitStatCell(children[i], oPlayer);
@@ -1620,7 +1398,6 @@ var Scoreboard;
             if (stat === '') {
                 return;
             }
-            // store pointer to the stat element
             oPlayer.m_oElStats[stat] = elStatCell;
             if (oPlayer.m_oElStats[stat]) {
                 let elLabel = oPlayer.m_oElStats[stat].FindChildTraverse('label');
@@ -1629,11 +1406,8 @@ var Scoreboard;
                 oPlayer.m_oElStats[stat].m_elImage = elImg;
             }
             let elStatCellClasses = ['sb-row__cell', 'sb-row__cell--' + stat];
-            // STAT CELLS
-            //
             const set = elStatCell.GetAttributeString('data-set', '');
             if (set !== '') {
-                // do we have a set container?
                 let SetContainerId = 'id-sb-row__set-container';
                 let elParent = elStatCell.GetParent();
                 let elSetContainer = oPlayer.m_elPlayer.FindChildTraverse(SetContainerId);
@@ -1641,20 +1415,15 @@ var Scoreboard;
                     elSetContainer = $.CreatePanel('Panel', elParent, SetContainerId);
                     elParent.MoveChildAfter(elSetContainer, elStatCell);
                 }
-                // do we have a set?
                 let setId = 'id-sb-set-' + set;
                 let elSetClasses = [];
                 let elSet = elSetContainer.FindChildTraverse(setId);
                 if (!elSet || !elSet.IsValid) {
-                    // create the set container
                     elSet = $.CreatePanel('Panel', elSetContainer, setId);
                     elSetClasses.push('sb-row__set', 'no-hover');
-                    // reset the alt bg color
                     idx = 0;
                 }
-                // move the stat to the set
                 elStatCell.SetParent(elSet);
-                // hide any set other than the current one
                 if (set != _m_dataSetCurrent.toString()) {
                     elSetClasses.push('hidden');
                 }
@@ -1662,7 +1431,6 @@ var Scoreboard;
                     elSet.AddClasses(elSetClasses);
                 }
             }
-            // alternate dark backgrounds
             if (idx++ % 2)
                 elStatCellClasses.push('sb-row__cell--dark');
             elStatCell.AddClasses(elStatCellClasses);
@@ -1671,27 +1439,19 @@ var Scoreboard;
                 _RegisterStatUpdate(stat);
             }
         }
-        // process each stat:
-        // - add a label for it in the header
-        // - register the stat update function
-        //
-        // add the cells that are inside 'highlight'
         const elStatCells = oPlayer.m_elPlayer.Children();
         for (let i = 0; i < elStatCells.length; i++) {
             _InitStatCell(elStatCells[i], oPlayer);
         }
         _CreatePlayerButtons(oPlayer);
-        // copies of stats
-        oPlayer.m_oStats = {}; // dictionary of stats
+        oPlayer.m_oStats = {};
         oPlayer.m_oStats['idx'] = GameStateAPI.GetPlayerSlot(oPlayer.m_xuid);
-        // mouse events
         oPlayer.m_elPlayer.SetPanelEvent('onmouseover', () => { _m_arrSortingPausedRefGetCounter++; });
         oPlayer.m_elPlayer.SetPanelEvent('onmouseout', () => { _m_arrSortingPausedRefGetCounter--; });
         if (MockAdapter.IsXuidValid(oPlayer.m_xuid)) {
             oPlayer.m_elPlayer.SetPanelEvent('onactivate', () => {
                 _m_arrSortingPausedRefGetCounter++;
-                let elPlayerCardContextMenu = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEventSetFocus('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + oPlayer.m_xuid, _OnPlayerCardDismiss, 
-                /*bSetFocus*/ false);
+                let elPlayerCardContextMenu = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEventSetFocus('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + oPlayer.m_xuid, _OnPlayerCardDismiss, false);
                 if (elPlayerCardContextMenu) {
                     elPlayerCardContextMenu.AddClass('ContextMenu_NoArrow');
                 }
@@ -1712,7 +1472,6 @@ var Scoreboard;
     function _UpdateMatchInfo() {
         if (!_m_bInit)
             return;
-        /////////////////////////////////////// NAME
         let updateMapLabel = false;
         let queueChanged = false;
         let imagePathChanged = false;
@@ -1730,7 +1489,6 @@ var Scoreboard;
             updateMapLabel = true;
             queueChanged = true;
             imagePathChanged = true;
-            // Make sure we *clone* the object rather than just storing a reference to it!
             _m_cP.m_matchInfo = { ...mi };
         }
         else {
@@ -1750,7 +1508,6 @@ var Scoreboard;
                 queueChanged = true;
             }
             if (updateMapLabel || imagePathChanged || queueChanged || (_m_cP.m_matchInfo.is_demo_or_hltv !== is_demo_or_hltv)) {
-                // Only copy the object if anything actually changed, since the copy is so very slow
                 _m_cP.m_matchInfo = { ...mi };
             }
         }
@@ -1800,7 +1557,6 @@ var Scoreboard;
             let questID = GameStateAPI.GetActiveQuestID();
             if (questID > 0) {
                 elCoopStats.AddClass('show-mission-desc');
-                //MissionsAPI.ApplyQuestDialogVarsToPanelJS( questID, elCoopStats );
                 let elLabel = elCoopStats.FindChildInLayoutFile('MissionDescriptionLabel');
                 if (elLabel) {
                     let strMissionDescriptionToken = MissionsAPI.GetQuestDefinitionField(questID, 'loc_description');
@@ -1814,7 +1570,6 @@ var Scoreboard;
                 oPlayer.m_team.CalculateAllCommends();
             }
         }
-        // mouse enable bind
         const elMouseBinding = _m_panelCache.m_elMouseBinding;
         if (elMouseBinding && elMouseBinding.IsValid()) {
             let bind = GameInterfaceAPI.GetSettingString('cl_scoreboard_mouse_enable_binding');
@@ -1872,7 +1627,6 @@ var Scoreboard;
         if (elTick && elTick.IsValid()) {
             elTick.SetHasClass('hilite', rnd <= jsoTime.rounds_played + 1);
         }
-        // clear all rounds in the future that may have been set before a match restart
         if (rnd > jsoTime.rounds_played) {
             let bCanClinch = jsoTime.can_clinch;
             if (bCanClinch) {
@@ -1918,14 +1672,12 @@ var Scoreboard;
             elRndTop = elRndBot;
             elRndBot = elTemp;
         }
-        // set the team colors
         elRndTop.AddClass('sb-team--CT');
         elRndBot.AddClass('sb-team--TERRORIST');
         const roundData = oScoreData.rounddata[rnd];
         if (typeof roundData !== 'object') {
             return;
         }
-        // ROUND RESULTS
         let result = roundData.result;
         if (result.charAt(0) === 'c') {
             if (bFlippedSides)
@@ -1935,7 +1687,6 @@ var Scoreboard;
             if ((result.charAt(1) === 't') && (result.charAt(2) === '_')) {
                 result = result.substring(3);
             }
-            // rush
             if ((MockAdapter.GetGameModeInternalName(false) == 'rush')) {
                 result = "win_rush";
             }
@@ -1956,7 +1707,6 @@ var Scoreboard;
             if (result.charAt(1) === '_') {
                 result = result.substring(2);
             }
-            // rush
             if ((MockAdapter.GetGameModeInternalName(false) == 'rush')) {
                 result = "win_rush";
             }
@@ -1969,7 +1719,6 @@ var Scoreboard;
             elRndTick.RemoveClass('sb-team--CT');
             elRndTickLabel.RemoveClass('sb-team--CT');
         }
-        // expecting "CT" or "TERRORIST" for teamName
         let _UpdateCasualties = (teamName, elRnd, nPlayers) => {
             if (_m_oTeams[teamName]) {
                 let livingCount = teamName === 'CT' ? roundData.players_alive_CT : roundData.players_alive_TERRORIST;
@@ -1987,7 +1736,6 @@ var Scoreboard;
                 }
             }
         };
-        // CASUALTIES
         let nPlayers = 5;
         if (MockAdapter.GetGameModeInternalName(false) == 'scrimcomp2v2') {
             nPlayers = 2;
@@ -2003,13 +1751,11 @@ var Scoreboard;
         arrPanelsToToggleTransparency.forEach(el => el.SetHasClass('transparent', hide));
     }
     function _Casualties_OnMouseOver() {
-        // ignore if survivors are always on
         if (GameInterfaceAPI.GetSettingString('cl_scoreboard_survivors_always_on') == '0') {
             _ShowSurvivors();
         }
     }
     function _Casualties_OnMouseOut() {
-        // ignore if survivors are always on
         if (GameInterfaceAPI.GetSettingString('cl_scoreboard_survivors_always_on') == '0') {
             _ShowSurvivors(true);
         }
@@ -2073,11 +1819,9 @@ var Scoreboard;
         let living = teamInfo.alive_count;
         let updateLogo = (teamLogoImagePath != team.m_teamLogoImagePath) && (teamLogoImagePath != '');
         team.m_teamLogoImagePath = teamLogoImagePath;
-        // team name
         _m_cP.SetDialogVariable('sb_team_name--' + teamName, clanName);
         _m_cP.SetDialogVariableInt(teamName + '_alive', living);
         _m_cP.SetDialogVariableInt(teamName + '_total', total);
-        // team logo
         if (updateLogo) {
             const elLogoChildren = team.m_elLogoChildren;
             for (const elTeamLogoBackground of elLogoChildren) {
@@ -2098,11 +1842,9 @@ var Scoreboard;
             return info;
         }
         const teamdata = (oScoreData ? oScoreData.teamdata : []);
-        // update team meta data
         for (const teamName in _m_oTeams) {
             const teamData = TeamInfoForName(teamName, teamdata);
             _UpdateTeamInfo(teamName, teamData);
-            // score
             if (teamData) {
                 _m_cP.SetDialogVariableInt('sb_team_score--' + teamName, teamData.score);
                 if (teamData.score_1h !== undefined) {
@@ -2141,7 +1883,6 @@ var Scoreboard;
         let lastRound = jsoTime.last_round_this_period;
         m_topScore = 0;
         m_botScore = 0;
-        // scores are measured for the current period so if we're in overtime, intialize it with half of the rounds leading into this OT
         if (jsoTime.overtime > 0) {
             m_topScore = (jsoTime.maxrounds + (jsoTime.overtime - 1) * jsoTime.maxrounds_overtime) / 2;
             m_botScore = (jsoTime.maxrounds + (jsoTime.overtime - 1) * jsoTime.maxrounds_overtime) / 2;
@@ -2151,14 +1892,12 @@ var Scoreboard;
         }
     }
     function _UpdateScore_Classic() {
-        // we may be trying to update scores before players and teams have been initialized.
         if (Object.keys(_m_oTeams).length === 0) {
             _InitClassicTeams();
         }
         let oScoreData = MockAdapter.GetScoreDataJSO();
         let jsoTime = MockAdapter.GetTimeDataJSO();
         _UpdateTeams(oScoreData);
-        // MATCH INFO
         if (!jsoTime)
             return;
         let currentRound = jsoTime.rounds_played + 1;
@@ -2166,7 +1905,6 @@ var Scoreboard;
         _m_cP.SetDialogVariableInt('rounds_remaining', jsoTime.rounds_remaining);
         _m_cP.SetDialogVariableInt('scoreboard_ot', jsoTime.overtime);
         _m_cP.SetHasClass('sb-tournament-match', MatchStatsAPI.IsTournamentMatch());
-        // clear the timelines and remake them because first half round results need to swap positions.
         let bResetTimeline = false;
         if (_m_maxRounds != jsoTime.maxrounds_this_period) {
             bResetTimeline = true;
@@ -2183,7 +1921,6 @@ var Scoreboard;
             _m_overtime = jsoTime.overtime;
             bResetTimeline = true;
         }
-        // should we update the rounds?
         if (bResetTimeline || !(currentRound in _m_RoundUpdated)) {
             if (bResetTimeline) {
                 let shouldUpdateRounds = false;
@@ -2210,7 +1947,7 @@ var Scoreboard;
         let elTimeline = _m_panelCache.m_elTimelineSegments;
         if (!elTimeline || !elTimeline.IsValid())
             return;
-        elTimeline.AddClass('sb-team-tint'); // we mark the entire timeline to be tinted whenever a team is applied
+        elTimeline.AddClass('sb-team-tint');
         let id = 'id-sb-timeline__segment--' + phase;
         let elSegment = elTimeline.FindChildTraverse(id);
         if (!elSegment || !elSegment.IsValid()) {
@@ -2219,7 +1956,6 @@ var Scoreboard;
         }
         let elRoundContainer = elSegment.FindChildTraverse('id-sb-timeline__round-container');
         if (elRoundContainer && elRoundContainer.IsValid()) {
-            // create the rounds
             for (let rnd = startRound; rnd <= endRound; rnd++) {
                 const rndStr = rnd.toString();
                 let elRnd = elSegment.FindChildTraverse(rndStr);
@@ -2230,7 +1966,6 @@ var Scoreboard;
                     elTop.BLoadLayoutSnippet('snippet_scoreboard-classic__timeline__segment__round__data');
                     let elBot = elRnd.FindChildTraverse('id-sb-timeline__segment__round--bot');
                     elBot.BLoadLayoutSnippet('snippet_scoreboard-classic__timeline__segment__round__data');
-                    // put larger gaps every 5 rounds
                     let elRndTickLabel = elRnd.FindChildTraverse('id-sb-timeline__segment__round__tick__label');
                     if (rnd % 5 == 0) {
                         elRndTickLabel.text = rndStr;
@@ -2257,7 +1992,6 @@ var Scoreboard;
                 }
             }
         }
-        // flip first half score positions
         if (MockAdapter.AreTeamsPlayingSwitchedSides() !== MockAdapter.AreTeamsPlayingSwitchedSidesInRound(endRound)) {
             let elCTScore = elSegment.FindChildTraverse('id-sb-timeline__segment__score__ct');
             let elTScore = elSegment.FindChildTraverse('id-sb-timeline__segment__score__t');
@@ -2318,18 +2052,15 @@ var Scoreboard;
         }
     }
     function _ResetTimeline(oScoreData, jsoTime, updateRounds = true) {
-        // When we reset timeline we should also update bonus
         _UpdateRoundLossBonus();
         let elTimeline = _m_panelCache.m_elTimelineSegments;
         if (!elTimeline || !elTimeline.IsValid())
             return;
-        // clear the timeline
         elTimeline.RemoveAndDeleteChildren();
         if (!jsoTime)
             return;
         if (!_SupportsTimeline(jsoTime))
             return;
-        // Show overtime rounds if we support them.
         let firstRound;
         let lastRound;
         let midRound;
@@ -2346,8 +2077,7 @@ var Scoreboard;
             _InsertTimelineDivider();
             _InitTimelineSegment(midRound + 1, lastRound, 'second-half');
         }
-        else // captures "casual"
-         {
+        else {
             _InitTimelineSegment(firstRound, lastRound, 'no-halves');
         }
         if (updateRounds) {
@@ -2439,7 +2169,6 @@ var Scoreboard;
         }
         UpdateCasterButtons();
     }
-    ////////////////////////////////////////////////
     function _CycleStats() {
         if (_m_dataSetGetCount === 0)
             return;
@@ -2448,7 +2177,6 @@ var Scoreboard;
             if (_m_dataSetCurrent >= _m_dataSetGetCount)
                 _m_dataSetCurrent = 0;
         }
-        // Labels
         let elLabelSets = $('#id-sb-row__sets');
         let labelSetsChildren = elLabelSets.Children();
         for (let i = 0; i < labelSetsChildren.length; i++) {
@@ -2460,7 +2188,6 @@ var Scoreboard;
                 elChild.AddClass('hidden');
             }
         }
-        // Players
         for (let i = 0; i < _m_oPlayers.GetCount(); i++) {
             let elPlayer = _m_oPlayers.GetPlayerByIndex(i).m_elPlayer;
             if (elPlayer && elPlayer.IsValid()) {
@@ -2563,7 +2290,6 @@ var Scoreboard;
                 return sortOrder_default;
         }
     }
-    ////////////////////////////////////////////////
     function _Initialize() {
         _Reset();
         let jsoTime = MockAdapter.GetTimeDataJSO();
@@ -2572,7 +2298,6 @@ var Scoreboard;
         }
         _LoadScoreboardTemplate();
         _m_bRowLabelsCreated = false;
-        // set labels
         let temp = $.CreatePanel('Panel', _m_cP, 'temp');
         _Helper_LoadSnippet(temp, _GetPlayerRowForGameMode());
         temp.visible = false;
@@ -2581,7 +2306,6 @@ var Scoreboard;
         let oScoreData = MockAdapter.GetScoreDataJSO();
         _ResetTimeline(oScoreData, jsoTime);
         _m_bInit = true;
-        // init these to blanks
         _m_cP.SetDialogVariable('server_name', '');
         _UpdateHLTVViewerNumber(0);
         _UpdateMatchInfo();
@@ -2623,7 +2347,6 @@ var Scoreboard;
         _UpdateMuteVoiceState();
         _UpdateUgcState();
         if (bInitialCreate) {
-            // Make sure we create the teams before updating any match and score info
             _UpdateAllPlayers(bInitialCreate);
         }
         else {
@@ -2633,18 +2356,15 @@ var Scoreboard;
         _UpdateScore();
         _UpdateSpectatorButtons();
     }
-    ////////////////////////////////////////////////
     function _CloseScoreboard() {
         if (_m_updatePlayerHandler) {
             $.UnregisterForUnhandledEvent('Scoreboard_UpdatePlayerByPlayerSlot', _m_updatePlayerHandler);
             _m_updatePlayerHandler = null;
         }
-        // close any open player cards:
         $.DispatchEvent('DismissAllContextMenus');
         UiToolkitAPI.HideTextTooltip();
         _UnregisterEvents();
     }
-    ////////////////////////////////////////////////
     function _OpenScoreboard() {
         _UpdateEverything();
         _ShowSurvivors((GameInterfaceAPI.GetSettingString('cl_scoreboard_survivors_always_on') == '0'));
@@ -2653,7 +2373,6 @@ var Scoreboard;
         }
         _RegisterEvents();
     }
-    ////////////////////////////////////////////////
     function GetFreeForAllTopThreePlayers() {
         _UpdateEverything();
         if (!_m_cP)
@@ -2666,17 +2385,6 @@ var Scoreboard;
         return [undefined, undefined, undefined];
     }
     Scoreboard.GetFreeForAllTopThreePlayers = GetFreeForAllTopThreePlayers;
-    //DEVONLY{
-    //--------------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------------
-    function _CreateBugReport() {
-        let strReport = 'Sample\n';
-        for (let i = 0; i < 10; i++) {
-            strReport += 'Line' + i + '\n';
-        }
-        return strReport;
-    }
-    //}DEVONLY
     function GetCasterIsCameraman() {
         let nCameraMan = parseInt(GameInterfaceAPI.GetSettingString('spec_autodirector_cameraman'));
         let bQ = (MockAdapter.IsDemoOrHltv() && nCameraMan != 0 && MockAdapter.IsHLTVAutodirectorOn());
@@ -2717,23 +2425,19 @@ var Scoreboard;
         const msg = $.GetContextPanel().id + ' registering ';
         events.forEach(function (arrEvent, idx) {
             eventHandles[idx] = $.RegisterForUnhandledEvent(arrEvent[0], arrEvent[1]);
-            $.Msg(msg + arrEvent[0]);
         });
     }
     function _UnregisterEvents() {
         const msg = $.GetContextPanel().id + ' unregistering ';
         events.forEach(function (arrEvent, idx) {
             $.UnregisterForUnhandledEvent(arrEvent[0], eventHandles[idx]);
-            $.Msg(msg + arrEvent[0]);
         });
     }
     function _LoadScoreboardTemplate() {
         let scoreboardTemplate;
         let mode = MockAdapter.GetGameModeInternalName(false);
         let skirmish = MockAdapter.GetGameModeInternalName(true);
-        // We want to differentiate the deathmatch modes but aren't sure this needs to be done outside of this scope. Do it here.
         if (mode == 'deathmatch') {
-            // FFA
             if (GameInterfaceAPI.GetSettingString('mp_teammates_are_enemies') !== '0') {
                 skirmish = 'ffadm';
             }
@@ -2778,14 +2482,10 @@ var Scoreboard;
         _m_panelCache.ClearAll();
         _Helper_LoadSnippet(_m_cP, scoreboardTemplate);
         _m_panelCache.CacheScoreboard(_m_cP);
-        // add a class to the root based on server conditions so we style appropriately
-        //
-        //
         if (MockAdapter.IsDemoOrHltv())
             _m_cP.AddClass('IsDemoOrHltv');
         if (MatchStatsAPI.IsTournamentMatch())
             _m_cP.AddClass('IsTournamentMatch');
-        // choose a mode-appropriate sorting order
         _m_sortOrder = _GetSortOrderForMode(mode);
     }
     function _CreateAndInitializeFunc() {
@@ -2796,7 +2496,6 @@ var Scoreboard;
         }
         let loadedScoreboardTemplate = _LoadScoreboardTemplate();
         _m_bRowLabelsCreated = false;
-        // make sure _m_bInit is set before calling _UpdateEverything!
         _m_bInit = true;
         const bInitialCreate = true;
         _UpdateEverything(bInitialCreate);
@@ -2807,42 +2506,27 @@ var Scoreboard;
             _CreateLabelsForRow(temp);
             temp.DeleteAsync(.0);
         }
-        // init these to blanks
         _m_cP.SetDialogVariable('server_name', '');
         _UpdateHLTVViewerNumber(0);
-        // close any open player cards:
         $.DispatchEvent('DismissAllContextMenus');
         UiToolkitAPI.HideTextTooltip();
     }
     function _CreateAndInitialize(bImmediately = false) {
         if (bImmediately) {
-            // NOTE: This case is only used for panel reload where we need to make sure
-            // the scoreboard is created and initialized immediately esp in a case where
-            // the scoreboard is open and the _UpdateJob() is registered and running
-            // which expects a correctly initialized scoreboard.
             _CreateAndInitializeFunc();
         }
         else {
-            // NOTE: ok we schedule the actual creation to be executed later in the frame. We need to wait for certain events to be handled
-            // e.g. C_BaseEntity::OnFlagsChanged() since we won't get correct xuids for the players/bots before those are handled meaning
-            // we would not be able to create the panels and then trigger creating them upon first opening the scoreboard...
             $.Schedule(0.01, _CreateAndInitializeFunc);
         }
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _m_oAllUpdateStatNames = [];
         _InitializeStatUpdateFuncs();
-        $.Msg("Scoreboard: Registering events for " + $.GetContextPanel().GetParent().id);
-        // specific to this scoreboard panel (Hud or Pause Menu)
         $.RegisterEventHandler('OnOpenScoreboard', $.GetContextPanel(), _OpenScoreboard);
         $.RegisterEventHandler('OnCloseScoreboard', $.GetContextPanel(), _CloseScoreboard);
         $.RegisterEventHandler('Scoreboard_UpdateJob', $.GetContextPanel(), _UpdateJob);
         $.RegisterEventHandler('Scoreboard_ResetAndInit', $.GetContextPanel(), _Initialize);
         $.RegisterEventHandler('Scoreboard_CreateAndInit', $.GetContextPanel(), _CreateAndInitialize);
-        // events that all scoreboards should listen to.
         $.RegisterForUnhandledEvent('GameState_OnLevelLoad', _Initialize);
         $.RegisterForUnhandledEvent('Scoreboard_CycleStats', _CycleStats);
         $.RegisterForUnhandledEvent('Scoreboard_ToggleSetCasterIsCameraman', _ToggleSetCasterIsCameraman);
@@ -2852,7 +2536,4 @@ var Scoreboard;
         $.RegisterForUnhandledEvent('GameState_RankRevealAll', _RankRevealAll);
         $.RegisterForUnhandledEvent('Scoreboard_UpdateHLTVViewers', _UpdateHLTVViewerNumber);
     }
-    //DEVONLY{
-    // $.RegisterForUnhandledEvent( 'Scoreboard_Debug_Sort', _ToggleSortOrderAndResort );
-    //}DEVONLY
 })(Scoreboard || (Scoreboard = {}));

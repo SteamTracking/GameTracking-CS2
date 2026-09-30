@@ -28,6 +28,6 @@ function setupTooltip()
 	}
 
 	var mapNameShort = DeepStatsAPI.MapIDToString( mapid );
-	//$('#MapIcon').SetImage( "file://{images}/map_icons/map_icon_" + mapNameShort + ".svg" );
+	                                                                                          
 	$.GetContextPanel().SetDialogVariable( "map_name", $.Localize("#SFUI_Map_" + mapNameShort) );
 }

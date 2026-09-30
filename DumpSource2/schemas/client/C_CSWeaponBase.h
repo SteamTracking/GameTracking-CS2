@@ -23,7 +23,6 @@ class C_CSWeaponBase : public C_BasePlayerWeapon
 	float32 m_flPostponeFireReadyFrac;
 	bool m_bInReload;
 	GameTick_t m_nDeployTick;
-	GameTime_t m_flAttackHoldStartTime;
 	GameTime_t m_flDroppedAtTime;
 	bool m_bIsHauledBack;
 	bool m_bSilencerOn;

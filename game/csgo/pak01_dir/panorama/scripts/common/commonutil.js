@@ -1,11 +1,7 @@
 "use strict";
 /// <reference path="../csgo.d.ts" />
-//This file contains functions that helps setting up map icon
 var CommonUtil;
 (function (CommonUtil) {
-    // For languages we show a region background,
-    // but language ICU codes differ from country ISO codes for a lot of languages
-    // so we try to remap using this table first, and use the region otherwise
     const remap_lang_to_region = {
         af: 'za',
         ar: 'sa',
@@ -41,7 +37,6 @@ var CommonUtil;
         "ru", "sa", "sam", "se", "sg", "si", "sk", "sq", "th", "tr",
         "tw", "ua", "us", "ve", "vn", "za",
     ];
-    // elPanel is presumed to have a unique id. Otherwise the tooltip anchor won't work.
     function SetRegionOnLabel(isoCode, elPanel, tooltip = true) {
         let tooltipString = "";
         if (isoCode) {
@@ -62,7 +57,7 @@ var CommonUtil;
             else {
                 tooltipString = (sTranslated && sLocal) ? sTranslated + " (" + sLocal + ")" : "";
             }
-            if (remap_lang_to_region[isoCode]) { // check in the remapping table for languages to fall back to region images (e.g. "EN" ==> "GB")
+            if (remap_lang_to_region[isoCode]) {
                 imgCode = remap_lang_to_region[isoCode];
             }
         }
@@ -87,13 +82,6 @@ var CommonUtil;
                 elLabel.SetPanelEvent('onmouseover', () => UiToolkitAPI.ShowTextTooltip(elTTAnchor.id, tooltipString));
                 elLabel.SetPanelEvent('onmouseout', () => UiToolkitAPI.HideTextTooltip());
             }
-            //DEVONLY{
-            if (bWarningColor) {
-                // in trunk we want to see the string
-                elPanel.style.washColor = "yellow";
-                elLabel.SetPanelEvent('onmouseover', () => UiToolkitAPI.ShowTextTooltip(elTTAnchor.id, isoCode.toUpperCase()));
-            }
-            //}DEVONLY
             elLabel.RemoveClass('hidden');
             elLabel.SetHasClass('world-region-label', true);
             elLabel.SetHasClass('world-region-label--image', true);

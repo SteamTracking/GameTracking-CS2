@@ -35,7 +35,7 @@ var watchMatchTile = ( function (){
 		var elTeam2Container = elTile.FindChildTraverse( 'id-wmt-team2-container' );
 		_CreateTeamPanelsInContainerPanel( elTeam2Container, 2, oTeam2 );
 
-		// we dynamically create every label, even static ones, so that they inherit the CSS from the containing panel.
+		                                                                                                               
 		var elVersusContainer = elTile.FindChildTraverse( 'id-wmt-vs-container' );
 		$.CreatePanel( "Label", elVersusContainer, 'id-wmt-label-vs', { 
 			class: 'wmt__datum wmt__datum--vs stratum-font',
@@ -43,11 +43,11 @@ var watchMatchTile = ( function (){
 		} );
 
 		
-		// Streams
+		          
 		var elWatchButton = elTile.FindChildTraverse( "id-wmt" );
 		if ( elWatchButton )
 		{
-			// Streams
+			          
 			if ( 'streams' in oMatch && oMatch[ 'streams' ].length > 0 )
 			{
 				var elStatus = elTile.FindChildTraverse( "id-wmt__status" );
@@ -74,7 +74,7 @@ var watchMatchTile = ( function (){
 				{
 					var items = [];
 
-					// Bilibili stream
+					                  
 					if ( EmbeddedStreamAPI.GetStreamExternalLinkTypes().indexOf( 'B' ) >= 0 )
 					{
 						items.push( { label: $.Localize( '#CSGO_Watch_Info_live' ), jsCallback: function() {
@@ -83,7 +83,7 @@ var watchMatchTile = ( function (){
 						} } );
 					}
 					
-					// GOTV
+					       
 					if ( EmbeddedStreamAPI.GetStreamExternalLinkTypes().indexOf( 'G' ) >= 0 )
 					{
 						items.push( { label: $.Localize( '#CSGO_Watch_Watch_GOTV' ), jsCallback: function() {
@@ -92,11 +92,11 @@ var watchMatchTile = ( function (){
 						} } );
 					}
 
-					// nothing? placeholder... to avoid showing an empty context menu...
+					                                                                    
 					if ( items.length <= 0 )
 					{
 						items.push( { label: $.Localize( '#CSGO_Watch_Info_live' ), jsCallback: function() {
-							// welp... do nothing...
+							                        
 							$.DispatchEvent( 'CSGOPlaySoundEffect', 'UIPanorama.sidemenu_select', 'MOUSE' );
 						} } );
 					}
@@ -119,9 +119,9 @@ var watchMatchTile = ( function (){
 	function _CreateTeamTooltip ( panel, oTeam )
 	{
 		
-		// Team Tooltip
-		//
-		//
+		               
+		  
+		  
 			
 		var xmlsrc = 'file://{resources}/layout/tooltips/tooltip_eventsched_team_simple.xml';
 		
@@ -170,8 +170,8 @@ var watchMatchTile = ( function (){
 
 	}
 
-		// CUSTOM LAYOUT TOOLTIP EVENTS
-	//
+		                               
+	  
 	function _OnMouseOverCustomLayoutTooltip ( _panel, _tooltipId, _xmlsrc, _parms )
 	{
 		UiToolkitAPI.ShowCustomLayoutParametersTooltip(
@@ -188,7 +188,7 @@ var watchMatchTile = ( function (){
 
 
 	return {
-		Init			: 	_Init,		/* takes tile panel and match JSO as string */
+		Init			: 	_Init,		                                              
 	};
 })();
 

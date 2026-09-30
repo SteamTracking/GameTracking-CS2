@@ -17,7 +17,6 @@ var MainMenuXpShop;
     let m_nTrack;
     let m_scheduleHandleRepeatCollage = null;
     function _Init() {
-        $.Msg('Item-xpshop tile- ' + "_Init");
         if (!_ShouldShow()) {
             return;
         }
@@ -34,7 +33,6 @@ var MainMenuXpShop;
         }
         _SetUpTracks();
         if (!m_displayStarted) {
-            // only start this once
             _MakeStoreItemTiles(_GetItemsForDisplay());
             m_displayStarted = true;
         }
@@ -162,10 +160,10 @@ var MainMenuXpShop;
             aShuffleItems = _GetRandomSample([..._GetRandomSample(newItems, sampleSize), ..._GetRandomSample(oldItems, numItemsInCarousel - sampleSize)], numItemsInCarousel);
             aShuffleItems.sort((a, b) => {
                 if (a.ui_show_new_tag && !b.ui_show_new_tag)
-                    return -1; //push a
+                    return -1;
                 if (!a.ui_show_new_tag && b.ui_show_new_tag)
-                    return 1; // push b 
-                return 0; // Both or neither have it. Keep the same.
+                    return 1;
+                return 0;
             });
         }
         else {
@@ -175,11 +173,9 @@ var MainMenuXpShop;
     }
     function _GetRandomSample(items, sampleSize = 10) {
         const size = Math.min(sampleSize, items.length);
-        // Shallow copy 
         const copy = [...items];
         for (let i = 0; i < size; i++) {
             const randomIndex = i + Math.floor(Math.random() * (copy.length - i));
-            // Swap elements
             [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
         }
         return copy.slice(0, size);
@@ -206,14 +202,12 @@ var MainMenuXpShop;
     ;
     function _MakeStoreItemTiles(aItemsList) {
         let elParent = $.GetContextPanel().FindChildInLayoutFile('id-mainmenu-xpshop-carousel');
-        // Make all the new tiles, possibly bump the max count of tiles (but do not decrease it)
         for (let i = 0; i < aItemsList.length; i++) {
             let elTile = elParent.FindChildInLayoutFile('id-mainmenu-xpshop-store-tile' + aItemsList[i].itemId);
             if (!elTile) {
                 elTile = $.CreatePanel('Panel', elParent, 'id-mainmenu-xpshop-store-tile' + aItemsList[i].itemId);
                 elTile.BLoadLayoutSnippet('mainmenu-xpshop-itemtile');
                 elTile.FindChildInLayoutFile('id-item-image').itemid = aItemsList[i].itemId;
-                // (elTile.FindChildInLayoutFile( 'id-item-image-blur' ) as ItemImage_t).itemid = aItemsList[i].itemId;
                 const setName = ItemInfo.GetSet(aItemsList[i].itemId);
                 const SetImage = elTile.FindChildInLayoutFile('id-item-set-image');
                 IconUtil.SetupFallbackItemSetIcon(SetImage, setName);
@@ -228,9 +222,6 @@ var MainMenuXpShop;
         }
         _GetXpShopItems();
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', _Init);

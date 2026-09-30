@@ -10,9 +10,6 @@ var IntroMovie;
             movieName = "file://{resources}/videos/intro-perfectworld.webm";
         }
         $("#IntroMoviePlayer").SetMovie(movieName);
-        // This function is called from CGameUI::OnGameUIActivated()
-        // For now, we schedule the movie to play on the next frame because the first frame is so long that it causes the videoplayer to
-        // stutter. The same bug can be seen if you hit a breakpoint, then resume during a video playback with audio.
         $.Schedule(0.0, PlayIntroMovie);
         $("#IntroMoviePlayer").SetFocus();
         $.RegisterKeyBind($("#IntroMoviePlayer"), "key_enter,key_space,key_escape", SkipIntroMovie);
@@ -37,14 +34,9 @@ var IntroMovie;
         $("#IntroMoviePlayer").SetMovie("");
     }
     function HideIntroMovie() {
-        // Can't destroy the movie player straight away as this event has been dispatched by the video player itself
-        // and therefore delay the destruction to the next iteration of the scheduler.
         $.Schedule(0.0, DestroyMoviePlayer);
         $.DispatchEventAsync(0.0, "CSGOHideIntroMovie");
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent("CSGOShowIntroMovie", ShowIntroMovie);
         $.RegisterForUnhandledEvent("CSGOEndIntroMovie", HideIntroMovie);

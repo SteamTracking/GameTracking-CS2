@@ -2,9 +2,6 @@
 /// <reference path="csgo.d.ts" />
 /// <reference path="avatar.ts" />
 /// <reference path="friendslist.ts" />
-/////////////////////////////////////////////////////
-// This object is used in Friendlist for the party part
-/////////////////////////////////////////////////////
 var PartyMenu;
 (function (PartyMenu) {
     let elPartySection = $('#PartyList');
@@ -25,7 +22,6 @@ var PartyMenu;
         }
         let elPartyMembersList = elPartySection.FindChildInLayoutFile('PartyMembers');
         _UpdateNumPlayersInparty();
-        // Show lobby slots if you have more than just you in the lobby or you are searching
         let bIsSearching = _IsSearching();
         if (m_prevMembersInParty >= PartyListAPI.GetPartySessionUiThreshold() || bIsSearching) {
             elPartyMembersList.RemoveAndDeleteChildren();
@@ -36,8 +32,6 @@ var PartyMenu;
             FriendsList.UpdateHeightOpenSection();
             elPartyMembersList.RemoveAndDeleteChildren();
         }
-        // this style enables showing party list in the game pause menu
-        // currently for survival searching in game happens only in solo mode, so only show the searching element in game if solo party
         elPartySection.GetParent().SetHasClass('friendslist-party-searching', bIsSearching && (m_prevMembersInParty <= 1));
         _UpdateLeaveBtn();
     }
@@ -62,8 +56,6 @@ var PartyMenu;
         return true;
     }
     function _UpdateMembersList(lobbySettings, numPlayersActuallyInParty) {
-        // Allows more people in the lobby then requred by the made modes.
-        // This so you can meet up with people then kick out the ones you don't want to play with.
         let maxAllowedInLobby = 10;
         let numPlayersPossibleInMode = SessionUtil.GetMaxLobbySlotsForGameMode(lobbySettings.mode);
         if (elPartySection.BHasClass('hidden')) {
@@ -120,7 +112,6 @@ var PartyMenu;
         let wins = PartyListAPI.GetFriendCompetitiveWins(xuid);
         let winsNeededForRank = SessionUtil.GetNumWinsNeededForRank(skillgroupType);
         let elRank = elPartyMember.FindChildInLayoutFile('PartyRank');
-        $.Msg('_SetPartyMemberRank type=' + skillgroupType + ' xuid=' + xuid + ' wins=' + wins + ' needed=' + winsNeededForRank + ' skill=' + skillGroup);
         if (wins < winsNeededForRank || (wins >= winsNeededForRank && skillGroup < 1) || !PartyListAPI.GetFriendPrimeEligible(xuid)) {
             elRank.visible = false;
             return;
@@ -131,9 +122,6 @@ var PartyMenu;
     }
     function _SetPrimeForMember(elPartyMember, xuid) {
         return;
-        // this is now part of honor icon
-        // let elPrime = elPartyMember.FindChildInLayoutFile( 'PartyPrime' );
-        // elPrime.visible = PartyListAPI.GetFriendPrimeEligible( xuid );
     }
     function _TintForOverPlayerCountForMode(elPartyMember, isOverCount) {
         elPartyMember.SetHasClass('friendtile--warning', isOverCount);
@@ -153,7 +141,6 @@ var PartyMenu;
     }
     function _AddOpenPlayerCardAction(elPartyMember, xuid) {
         function openCard() {
-            // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
             $.DispatchEvent('SidebarContextMenuActive', true);
             if (xuid != '0') {
                 let contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, () => $.DispatchEvent('SidebarContextMenuActive', false));
@@ -170,7 +157,6 @@ var PartyMenu;
         elPartyMember.SetPanelEvent("onmouseout", () => UiToolkitAPI.HideTextTooltip());
     }
     function _SessionUpdate(updateType) {
-        // Store the handlers to the events for the session. If we don't have a session then unregester them.
         if (LobbyAPI.IsSessionActive()) {
             if (m_eventRebuildPartyList == undefined) {
                 m_eventRebuildPartyList = $.RegisterForUnhandledEvent("PanoramaComponent_PartyList_RebuildPartyList", _RefreshPartyMembers);
@@ -206,7 +192,6 @@ var PartyMenu;
             }
         });
     }
-    //--------------------------------------------------------------------------------------------------
     function _UpdateLeaveBtn() {
         let elLeaveBtn = elPartySection.FindChildInLayoutFile('PartyLeaveBtn');
         elLeaveBtn.visible = (!GameStateAPI.IsLocalPlayerPlayingMatch() && LobbyAPI.IsSessionActive());
@@ -215,9 +200,6 @@ var PartyMenu;
         let elLeaveBtn = elPartySection.FindChildInLayoutFile('PartyLeaveBtn');
         elLeaveBtn.SetPanelEvent('onactivate', () => LobbyAPI.CloseSession());
     }
-    //--------------------------------------------------------------------------------------------------
-    // Helpers for lobby state
-    //--------------------------------------------------------------------------------------------------
     function _GetSearchStatus() {
         return LobbyAPI.GetMatchmakingStatusString();
     }
@@ -225,7 +207,6 @@ var PartyMenu;
         let StatusString = _GetSearchStatus();
         return (StatusString !== '' && StatusString !== null) ? true : false;
     }
-    //--------------------------------------------------------------------------------------------------
     function _ShowMatchmakingStatusTooltipEvent() {
         let btnSettings = $.GetContextPanel().FindChildInLayoutFile('MatchStatusInfo');
         btnSettings.SetPanelEvent('onmouseover', () => {
@@ -233,9 +214,6 @@ var PartyMenu;
         });
         btnSettings.SetPanelEvent('onmouseout', () => UiToolkitAPI.HideCustomLayoutTooltip('LobbySettingsTooltip'));
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent("PanoramaComponent_Lobby_MatchmakingSessionUpdate", _SessionUpdate);

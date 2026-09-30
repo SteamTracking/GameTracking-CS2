@@ -137,12 +137,8 @@ var InventorySearch;
             newEntry.text = $.Localize('#' + sort);
             elDropdown.AddOption(newEntry);
         }
-        // Set initial selection
         elDropdown.SetSelected(InventoryAPI.GetSortMethodByIndex(0));
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
     }

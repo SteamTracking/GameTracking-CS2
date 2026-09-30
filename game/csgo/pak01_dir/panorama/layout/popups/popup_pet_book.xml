@@ -26,7 +26,7 @@
 		<snippet name="page-intro">
 			<Panel class="pb-page pb-page--intro">
 				<Panel class="pb-page--background-tiled pb-page__dressing" hittest="false" />
-				<Image class="pb-page__title-image pb-page__dressing" hittest="false" src="s2r://panorama/images/pet_book/just_hatched_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="64" texturewidth="-1" />
+				<Image class="pb-page__title-image pb-page__dressing" hittest="false" src="s2r://panorama/images/pet_book/just_hatched_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="64" texturewidth="-1" />
 				<Label class="pb-page__subtitle pb-page__dressing" text="{s:pet_name_1}" hittest="false" />
 				<Button class="pb-slot pb-slot--full" data-slot="0" />
 				<Label class="pb-page__caption pb-page__dressing" text="{s:hatch_date}" />
@@ -50,7 +50,7 @@
 			<Panel class="pb-page pb-page--early-days">
 				<Button class="pb-slot pb-slot--full-page" data-slot="0" />
 				<Panel hittest="false" class="pb-page--early-days-text-container pb-page__dressing">
-					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/early_days_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/early_days_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 					<Label hittest="false" class="pb-page__paragraph stratum-regular-italic" data-paragraph="#pet_book_page_chick_and_you" data-variants="8" />
 				</Panel>
 			</Panel>
@@ -61,7 +61,7 @@
 				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
 				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_chick_park" data-variants="8" />
 				<Image hittest="false" class="pb-page--park-leaves pb-page__dressing" scaling="stretch-to-fit-x-preserve-aspect" src="s2r://panorama/images/pet_book/leaves_psd.vtex" />
-				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/park_life_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/park_life_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				<Button class="pb-slot pb-slot--full vertical-center" data-slot="0" />
 			</Panel>
 		</snippet>
@@ -70,7 +70,7 @@
 				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
 				<Button class="pb-slot pb-slot--full" data-slot="0" />
 				<Panel class="pb-page__title-box">
-					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/a_little_older_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/a_little_older_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				</Panel>
 				<Image hittest="false" class="pb-page__border-image pb-page__dressing" src="s2r://panorama/images/pet_book/border_top.vsvg" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_adolescent_intro" data-variants="8" />
@@ -81,7 +81,7 @@
 				<Panel hittest="false" class="pb-page--background pb-page__dressing" />
 				<Button class="pb-slot pb-slot--full" data-slot="0" />
 				<Panel hittest="false" class="pb-page__title-box">
-					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/road_trip_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/road_trip_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				</Panel>
 				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" html="true" data-paragraph="#pet_book_page_adolescent_road_trip" data-variants="8" />
 			</Panel>
@@ -89,7 +89,6 @@
 		<snippet name="page-teen-trip-set-2">
 			<Panel class="pb-page pb-page--teen-trip">
 				<Panel hittest="false" class="pb-page--background map2 pb-page__dressing" />
-				<Image hittest="false" class="pb-page__trip2-title-image pb-page__dressing" src="s2r://panorama/images/pet_book/road_trip_2_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				<Button class="pb-slot pb-slot--full trip2" data-slot="0" />
 			</Panel>
 		</snippet>
@@ -97,7 +96,7 @@
 			<Panel class="pb-page pb-page--birthday">
 				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
 				<Button class="pb-slot pb-slot--full-page" data-slot="0" />
-				<Image hittest="false" class="pb-page__dressing ballons" src="s2r://panorama/images/pet_book/balloons_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Image hittest="false" class="pb-page__dressing ballons" src="s2r://panorama/images/pet_book/balloons_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				<Image hittest="false" class="pb-page__dressing ballon-right" src="s2r://panorama/images/pet_book/balloon_1_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				<Image hittest="false" class="pb-page__dressing ballon-left" src="s2r://panorama/images/pet_book/balloon_2_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
 				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_birthday" data-variants="8" />

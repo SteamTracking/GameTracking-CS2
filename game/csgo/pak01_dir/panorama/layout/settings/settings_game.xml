@@ -383,14 +383,6 @@
 						<CSGOSettingsSlider text="#SFUI_Settings_Spec_InterpCameraSpeed" max="2.5" min="0.25" displayprecision="2" convar="cl_obs_interp_speed" />
 					</TooltipPanel>
 					<Panel class="horizontal-separator" />
-					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_EnableAutomaticDeathcamReplay_Info">
-						<Label text="#SFUI_Settings_EnableAutomaticDeathcamReplay" class="half-width" />
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="spec_replay_autostart">
-							<Label text="#GameUI_Yes" value="1" id="deathcamreplay0" />
-							<Label text="#GameUI_No" value="0" id="deathcamreplay1" />
-						</CSGOSettingsEnumDropDown>
-					</TooltipPanel>
-					<Panel class="horizontal-separator" />
 				</Panel>
 			</Panel>
 			<Panel id="SettingsItemSettings" class="SettingsBackground">

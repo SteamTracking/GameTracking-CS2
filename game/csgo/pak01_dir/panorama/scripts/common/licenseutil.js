@@ -16,7 +16,7 @@ var LicenseUtil;
             case "free_pw":
                 szMessageText = "#SFUI_LoginLicenseAssist_NoOnlineLicense_PW";
                 break;
-            case "free_sc": // Running under Steam China, but need to complete China SSA registration
+            case "free_sc":
                 szMessageText = "#SFUI_LoginLicenseAssist_NoOnlineLicense_SC";
                 szButtonText = "#Store_Register_License";
                 break;
@@ -41,7 +41,6 @@ var LicenseUtil;
     LicenseUtil.BuyLicenseForRestrictions = BuyLicenseForRestrictions;
     function ShowLicenseRestrictions(restrictions) {
         if (restrictions !== false) {
-            // Need to sell user a license
             UiToolkitAPI.ShowGenericPopupYesNo($.Localize(restrictions.license_act), $.Localize(restrictions.license_msg), '', () => BuyLicenseForRestrictions(restrictions), () => { });
         }
     }

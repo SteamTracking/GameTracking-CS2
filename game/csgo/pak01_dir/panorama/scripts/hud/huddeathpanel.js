@@ -46,12 +46,9 @@ var HudDeathPanel;
     function SetAnimBackground(xuid) {
         HudSpecatorBg.PickBg(xuid);
     }
-    // Returns the image name for the given xuid
-    // Returns empty string in case of failure
     function GetFlairItemImage(xuid) {
         if (xuid === '' || xuid === '0')
             return '';
-        // We can't access the xuid inventory so we ask for the display item a different way
         let flairItemId = InventoryAPI.GetFlairItemId(xuid);
         if (flairItemId === "0" || !flairItemId) {
             let flairDefIdx = FriendsListAPI.GetFriendDisplayItemDefFeatured(xuid);

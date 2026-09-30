@@ -3,26 +3,21 @@
 var EventUtil;
 (function (EventUtil) {
     const _eventIdSet = new Set([
-        // ESL One: Road to Rio events
         '5277',
         '5278',
         '5279',
         '5281',
         '5282',
-        // Summer RMR events
         '5356',
         '5339',
         '5338',
         '5376',
-        // Fall 2020 RMR Events
         '5500',
         '5506',
         '5465',
         '5464',
-        // 2021 RMR Events
         '5937',
         '5967',
-        // 2021 PGL Major
         '4866',
         '6207',
     ]);

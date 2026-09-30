@@ -999,6 +999,7 @@ $worldspacetype
 (\v?enterEvent@QToolButton@@MEAAXPEAVQEvent@@@Z
 (d4t8
 (fS{ggRcjh
+(f`7f
 (fixed)
 (h`H1pqA
 (higher) +4
@@ -1206,8 +1207,6 @@ $worldspacetype
 ....................
 ../src/devtools/bin/certificates/game/
 ..uR5&m
-.0Df
-.0Kf
 .4bb
 .97yY
 .?AUBufferedImpulseResponse_t@@
@@ -12572,7 +12571,6 @@ $worldspacetype
 .?AVStockSpike@@
 .APARTICLE_EHANDLE__
 .HCK\v
-.P2f
 .P6AXPEAVCQBindableCommandPushButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEAVCQBindableCommandToolButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEAVGameData@@@Z
@@ -12587,10 +12585,7 @@ $worldspacetype
 .P6AXPEAVQToolBar@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEAVQToolButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEBDPEAVCBufferString@@@Z
-.P7f
-.PAf
-.PIf
-.PKf
+.PCf
 .Q.Ol
 .R?matches@QKeyEvent@@QEBA_NW4StandardKey@QKeySequence@@@Z
 .[?setRed@QColor@@QEAAXH@Z
@@ -12864,8 +12859,6 @@ $worldspacetype
 .mp3
 .nav
 .navdbg
-.p1f
-.pAf
 .pfm
 .png
 .pp@0
@@ -12916,14 +12909,14 @@ $worldspacetype
 0123456789
 02V8[
 05=k
+089Y
 08@J CB
 08bX
 09,h
 0;Q5[
 0<cz
-0>I`f
-0H?Y
 0M2~@p
+0T+Y
 0W/5
 0Z@q
 0\f504P
@@ -12931,11 +12924,9 @@ $worldspacetype
 0\fU04i
 0\r%0t
 0\r0#0)070;0U0Y0[0g0q0y0}0
-0d1Y
 0e\r8
 0pp@5tqE?|sO541
 0tU+xc:
-0v<%Y
 0x%1
 0x%llx
 0x%p = %s '%s'
@@ -13750,8 +13741,8 @@ $worldspacetype
 2\rlhp
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
 2\vp!J
-2\vpH?Y
-2\vpd
+2\vp4
+2\vp89Y
 2^pV
 2_BONE_IK
 2`JB
@@ -13857,7 +13848,6 @@ $worldspacetype
 333333
 35-w
 37LQ
-3@pt
 3D Skybox
 3D Views
 3DES
@@ -13943,23 +13933,25 @@ $worldspacetype
 5sfm_v8
 5t?F
 5~EW
-6 Kf
 6#6165676;6M6O6S6Y6a6k6m6
 6#RDP#
 6%vi
 6,2K
 6-zeZ
-60\ff
+60!f
+607f
 62$|S)6f
 64 283 0
 64CK\vH
 666666666666666666666666666666666666666666666666\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.\ssl\s3_enc.c
 6666666666666666jjjjjjjjjjjjjjjj[
 67-s
-6@Hf
 6FaceSkyBox
 6H,N
 6O|T%
+6P f
+6P*f
+6PBf
 6Qd=
 6[?setRenderHint@QPainter@@QEAAXW4RenderHint@1@_N@Z
 6\ng_flConfigMaxCoord
@@ -13973,7 +13965,6 @@ $worldspacetype
 6l13
 6lkc
 6myY;
-6p/f
 6qo~
 6r-m_v
 6r1ij
@@ -14020,6 +14011,7 @@ $worldspacetype
 8= zp
 8A6j
 8B0[=
+8F`3f
 8GZS
 8SIffK5W
 8TZvrv<
@@ -14186,6 +14178,7 @@ $worldspacetype
 > (After)
 >"?IsValid@FbxProperty@fbxsdk@@QEBA_NXZ
 >#>)>/>3>A>W>c>e>w>
+>06f
 >333>
 >4|6eXg_e
 >7^0g
@@ -16668,13 +16661,14 @@ $worldspacetype
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
-@08N<%Y
+@08N,
 @0pp
-@>PCf
+@6p\ff
+@6p\tf
 @@CNmFloatCurveEvent
 @BH]f
 @C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlsortvector.h
-@HV 6f
+@HPX`hv
 @Integer overflow in %s
 @MfKZ
 @Pgl
@@ -17657,7 +17651,7 @@ At least one edge must be selected.
 At least one face must be selected.
 At least two vertices must be selected.
 Atlas Dimension
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Object To View
 Attach Point
 Attach View To Object
@@ -23074,8 +23068,6 @@ Expand all categories
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
-Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
-Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -23286,6 +23278,7 @@ F\v?event@QGroupBox@@MEAA_NPEAVQEvent@@@Z
 F_BLOOD_USE_UV2
 F_TEXTURE_FORMAT
 F_TEXTURE_FORMAT2
+F`6f
 Face
 Face %d
 Face Fit
@@ -23624,9 +23617,9 @@ FloatBitMap::QuarterSize
 FloatBitMap::QuarterSize3D
 FloatBitMap_t: Error loading %s\n
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
 FloatSlot
@@ -23723,6 +23716,8 @@ Four-View Quad
 Fourth Control Point Location
 Fourth Control Point Number
 Fourth Control Point Parent
+Fp(f
+Fp\vf
 Frac
 Fractal
 Fractional component (ie. returns 0.34 for 12.34)
@@ -24291,14 +24286,13 @@ Height of the primitive to project normals from.
 Height:
 Help
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
 HeroViewer
 Heuristic Remap
 Hex:
 HexDecode
-Hexagonal Cylinder
 Hg>?S
 Hhr+g
 Hidden
@@ -25836,7 +25830,7 @@ Maximum of two values (int)
 Maximum projection angle
 Maximum radius for created lights
 Maximum segment length %
-MbP?`m
+MbP?`l
 Mc]T=
 MdiArea
 Merge
@@ -26925,7 +26919,6 @@ Occlusion Reflection Energy
 Occlusion path deviation between the source and selected probe.
 Occlusion path ratio of direct path over shortest path between the source and selected probe.
 Occlusion value between the source and selected probe.
-Octagonal Cylinder
 Octaves:
 Offset (accumulative)
 Offset Angle
@@ -27532,15 +27525,13 @@ P-384
 P-521
 P08@J CB
 P08JpCC
-P08N<%Y
+P08N,
 P1\t98"
 P2 CB
 P4CopyFile
 P4CopyFile: Couldn't copy "%s" to "%s"\n
 P4CopyFile: Couldn't deduce depot path for source file "%s"\n
 P5[1
-P6 "f
-P60Hf
 P: CB
 P?isValid@QColor@@QEBA_NXZ
 P?isValid@QTextCharFormat@@QEBA_NXZ
@@ -27765,6 +27756,7 @@ PSK-AES128-CBC-SHA
 PSK-AES256-CBC-SHA
 PSK-RC4-SHA
 PSPECIFIED
+PT+Y
 PUBLIC KEY
 PURH
 PUT 
@@ -27941,7 +27933,6 @@ Pathing coefficients for 1st order Ambisonics.
 Pause Game
 PauseGame
 PauseGameOnActivate
-Pd1Y
 Peak Cycle
 Peak Frame
 Peak Frame Number
@@ -28610,6 +28601,7 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
+R8_UNORM
 R9G9B9E5_SHAREDEXP
 R=1C&b
 R?metaObject@QRegularExpressionValidator@@UEBAPEBUQMetaObject@@XZ
@@ -28764,14 +28756,14 @@ RSA_verify_PKCS1_PSS_mgf1
 RT60 for low, mid, and high frequency bands for the probe.
 RW?restore@QPainter@@QEAAXXZ
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
-R\fpH?Y
+R\fp89Y
 R\n?background@QPainter@@QEBAAEBVQBrush@@XZ
 R\r1>Vp
 R\r?hitTestComplexControl@QProxyStyle@@UEBA?AW4SubControl@QStyle@@W4ComplexControl@3@PEBVQStyleOptionComplex@@AEBVQPoint@@PEBVQWidget@@@Z
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpd
-R\vpd1Y
+R\vp4
+R\vpT+Y
 R]Di
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
@@ -33292,8 +33284,8 @@ X\r?horizontalHeader@QTableView@@QEBAPEAVQHeaderView@@XZ
 X\tQo
 X\v?event@QPushButton@@MEAA_NPEAVQEvent@@@Z
 Xd3h
+Xf 4f
 XfJ7
-XfP:f
 XjfR
 XqgA+
 Xuub
@@ -33602,6 +33594,7 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
+\fp\v`89Y
 \ful2
 \fy&3Gl
 \game
@@ -33706,7 +33699,7 @@ Z~wl
 \nIf the map is built without these entities it will not function correctly in game.\nContinue with build anyway?
 \nNo game entities will be available for creation.\n
 \nOld Param: %s\nSingle Compat Param: %s
-\nPd1Y
+\nPT+Y
 \nRead only files which will NOT be saved:\n
 \nS?moveTo@QPainterPath@@QEAAXAEBVQPointF@@@Z
 \nThe following required entities are missing:
@@ -33781,7 +33774,6 @@ Z~wl
 \rModelDoc
 \rN?grabWindow@QScreen@@QEAA?AVQPixmap@@_KHHHH@Z
 \rO?initPainter@QPaintDevice@@MEBAXPEAVQPainter@@@Z
-\rPBf
 \rTxL
 \rUHz4Z}\r
 \rWhO
@@ -33930,8 +33922,8 @@ Z~wl
 \v\vTSG
 \vj0k
 \vjC7
-\vpH?Y
-\vpd1Y
+\vp89Y
+\vpT+Y
 ]1h=bfz
 ]?sharedPainter@QPaintDevice@@MEBAPEAVQPainter@@XZ
 ]?staticMetaObject@QTextDocument@@2UQMetaObject@@B
@@ -34098,6 +34090,7 @@ _zero_percent_distance
 _}eOk
 `2 CB
 `28)fk
+`89Y
 `:zQF
 `?validate@QDoubleValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QIntValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
@@ -34112,10 +34105,8 @@ _}eOk
 `VX:H
 `\f?foreground@QTableWidgetItem@@QEBA?AVQBrush@@XZ
 `\r?entryInfoList@QDir@@QEBA?AV?$QList@VQFileInfo@@@@V?$QFlags@W4Filter@QDir@@@@V?$QFlags@W4SortFlag@QDir@@@@@Z
-`\rP\f0d1Y
 `\v?event@QSpinBox@@MEAA_NPEAVQEvent@@@Z
 `anonymous-namespace'::FlipEdges(), C:\buildworker\csgo_rel_win64\build\src\meshutils\remesh.cpp:2834
-`d1Y
 `fPw.\vM
 `h9T~
 `o_je
@@ -34137,7 +34128,7 @@ a?worldTransform@QPainter@@QEBAAEBVQTransform@@XZ
 a?write@QStandardItem@@UEBAXAEAVQDataStream@@@Z
 a@XZ
 aA0k
-aBv<%Y
+aBv,
 aD/x
 aDSS
 aECDH
@@ -35665,7 +35656,6 @@ d.usernotice
 d.v1AttrCert
 d.v2AttrCert
 d.x400Address
-d/\vLE
 d/rRw
 d2i ecpkparameters failure
 d2i ts resp int failed
@@ -36533,6 +36523,7 @@ f ?topLevelItemCount@QTreeWidget@@QEBAHXZ
 f#9i\n
 f%wyLmX:
 f&dy
+f0&f
 f1cK%
 f45\r
 f>KZ}
@@ -37438,6 +37429,7 @@ g|MT
 h&eC
 h(?SetIsBindPose@FbxPose@fbxsdk@@QEAAX_N@Z
 h*Ax
+h+\nPz8
 h0XB
 h2Wl
 h2n_\
@@ -37577,7 +37569,6 @@ hero_name
 herocolor
 herolightscale
 hex:
-hex_cyl
 hex_to_string
 hexkey
 hhwi
@@ -39941,7 +39932,6 @@ observer_cursors
 occluder
 occlusion_exponent
 ocsphelper
-oct_cyl
 od?;7y
 odMsh
 odd number of chars
@@ -40123,7 +40113,7 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^<%Y
+p08@H^,
 p0jp
 p2 CB
 p20[=
@@ -40133,7 +40123,10 @@ p4Z3
 p5Z3
 p5\nL,
 p618
-p>u_f
+p6P=f
+p89Y
+p>EYf
+p>dYf
 p@0pqE5tsO?|1
 pAction
 pAsset
@@ -40151,8 +40144,8 @@ pElement
 pEntity
 pEvent
 pFilter
+pFp\vf
 pG_*h
-pH?Y
 pIp 
 pLightRigButton
 pMapNode
@@ -40166,6 +40159,7 @@ pSPo
 pSoundEventName
 pSourceFunc
 pSpecified
+pT+Y
 pTagName
 pTargetName
 pToolButton
@@ -40293,7 +40287,6 @@ pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
 pcPathLengthConstraint
-pd1Y
 peak
 peak_attr
 peak_cycle
@@ -40432,7 +40425,6 @@ playerclip
 plugId0
 plugId1
 plugTypes
-pn<%Y
 point
 point arithmetic failure
 point at infinity
@@ -40735,10 +40727,10 @@ rRfKR
 rX&O0
 rZ1VwGf5
 rZPM
-r\fpd1Y
+r\fpT+Y
 r\n?dragLeaveEvent@QGraphicsItem@@MEAAXPEAVQGraphicsSceneDragDropEvent@@@Z
 r\vDi
-r\vpH?Y
+r\vp89Y
 r_dota_wind_min_high_freq_strength
 rad2deg
 radius0_key
@@ -43340,7 +43332,6 @@ vortex_max_speed_mph
 voume_random_min_scale
 voxel_size
 voxelize
-vp)f
 vparams
 vphzc
 vpost

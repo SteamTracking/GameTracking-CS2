@@ -8,7 +8,6 @@ var TeamSelectMenu;
     let m_errorTimerHandle = false;
     let m_playerCounts = [0, 0];
     let m_botCounts = [0, 0];
-    // 'UISceneFrameBoundary' register event handler
     let _m_UiSceneFrameBoundaryEventHandler = null;
     let m_scheduledHideWash = null;
     function _Init() {
@@ -97,28 +96,23 @@ var TeamSelectMenu;
         let bUnassigned = $.GetContextPanel().GetTeamNumber() == 0;
         $("#TeamSelectCancel").visible = !bUnassigned;
         if (bUnassigned && isFinite(nTimeout) && nTimeout > 0) {
-            // Delete the old timer bar.
             let elTimer = $("#AutojoinTimer");
             let elTimerBar = elTimer.FindChildInLayoutFile("AutojoinTimerBar");
             if (elTimerBar) {
                 elTimerBar.DeleteAsync(0);
             }
-            // Create a new timer bar.
             elTimerBar = $.CreatePanel("Panel", elTimer, "AutojoinTimerBar");
             elTimerBar.style.animationDuration = nTimeout + "s";
             elTimerBar.AddClass("team-select__timer__bar");
-            // Show the timer.
             elTimer.endTime = Date.now() * 0.001 + nTimeout;
             elTimer.visible = true;
         }
         else {
-            // Hide the timer.
             $("#AutojoinTimer").visible = false;
         }
     }
     function _SelectTeam(nTeamNum) {
         if (nTeamNum != 0 && nTeamNum == MockAdapter.GetPlayerTeamNumber(MyPersonaAPI.GetXuid())) {
-            // Player is already on this team so just close the menu
             HidePanel();
             return;
         }
@@ -147,11 +141,6 @@ var TeamSelectMenu;
         }
     }
     function _SetTeam(team) {
-        /*
-        team 1 is spectator
-        team 2 is T
-        team 3 is CT
-        */
         GameInterfaceAPI.ConsoleCommand("jointeam " + team + " 1");
     }
     function _SetTeamT() {
@@ -172,7 +161,6 @@ var TeamSelectMenu;
         });
     }
     function _Escape() {
-        // Open pause menu if we're not on a team yet. Exit team select otherwise.
         if ($.GetContextPanel().GetTeamNumber() == 0)
             GameInterfaceAPI.ConsoleCommand("gameui_activate");
         else
@@ -214,9 +202,6 @@ var TeamSelectMenu;
         elTeammate.MoveChildAfter(elName, elAvatar);
         _UpdateBotPlayerCount(m_botCounts[nTeamIdx], m_playerCounts[nTeamIdx], nTeamIdx == 0 ? "TERRORIST" : "CT");
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent("CSGOShowTeamSelectMenu", _ShowPanel);
@@ -229,7 +214,6 @@ var TeamSelectMenu;
         $.RegisterEventHandler("ReadyForDisplay", $.GetContextPanel(), _OnReadyForDisplay);
         $.RegisterEventHandler("UnreadyForDisplay", $.GetContextPanel(), _OnUnreadyForDisplay);
         let _m_cP = $("#TeamSelectMenu");
-        // for the case when we're a debug panel. see \scripts\mainmenu_tests.js
         if (!_m_cP)
             _m_cP = $("#PanelToTest");
         $.RegisterKeyBind(_m_cP, "key_escape", _Escape);

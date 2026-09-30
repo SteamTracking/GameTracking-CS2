@@ -40,7 +40,7 @@ var PopupRedeemSouvenir;
         }
         let coinLevel = InventoryAPI.GetItemAttributeValue(coinId, "upgrade level");
         let coinRedeemsPurchased = InventoryAPI.GetItemAttributeValue(coinId, "operation drops awarded 1");
-        if (coinRedeemsPurchased) // also support legacy fan coin that didn't have purchased drop souvenirs
+        if (coinRedeemsPurchased)
             coinLevel += coinRedeemsPurchased;
         const redeemed = InventoryAPI.GetItemAttributeValue(coinId, "operation drops awarded 0");
         var redeemsAvailable = coinLevel - redeemed;
@@ -58,7 +58,7 @@ var PopupRedeemSouvenir;
         if (!coinId || coinId === '0') {
             return;
         }
-        if (m_redeemsAvailable <= 0) { // Cannot redeem, dump the user into the journal, maybe they can purchase more charges
+        if (m_redeemsAvailable <= 0) {
             OnClose();
             UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_tournament_journal.xml', 'journalid=' + coinId);
             return;

@@ -15,9 +15,9 @@ var singlematch = ( function()
 
 		$.GetContextPanel().AddClass( 'reveal' );
 
-		//
-		// Check downloaded container first
-		//
+		  
+		                                   
+		  
 		let sState = MatchListAPI.GetState( 'downloaded' );
 		if ( sState !== 'ready' ) 
 		{
@@ -26,13 +26,13 @@ var singlematch = ( function()
 
 		_m_sToken = MatchListAPI.FindMatchByID( 'downloaded', _m_matchId );
 		if ( !_m_sToken )
-		{	// we never downloaded this match - check ephemeral inmemory container
+		{	                                                                      
 			_m_sToken = MatchListAPI.FindMatchByID( 'inmemory', _m_matchId );
 		}
 
-		//
-		// Now we either have to download full info, or have the token
-		//
+		  
+		                                                              
+		  
 		if ( _m_sToken )
 		{
 			var elMatchInfo = $.GetContextPanel().FindChildTraverse( 'MatchInfo' );
@@ -82,7 +82,7 @@ var singlematch = ( function()
     }
 
 
-		/* Public interface */
+		                      
 	return {
 
 		Appear: 	_Appear,
@@ -91,10 +91,10 @@ var singlematch = ( function()
 
 } )();
 	
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                           
+                                                                                                    
 ( function()
 {
-	$.Msg( 'Single Match Popup' );
+	                              
 } )();

@@ -5,7 +5,7 @@ var PopupConfirmPickemPicks = ( function(){
     var m_timeoutHandle = false;
     var _Init = function()
     {
-        $.Msg( '_picksforconfirm' + $.GetContextPanel()._oPicksData.picksforconfirm );
+                                                                                      
         
         var applyImmediate = $.GetContextPanel()._oPicksData.applyImmediate;
 
@@ -77,7 +77,7 @@ var PopupConfirmPickemPicks = ( function(){
 	{
 		var aPicksForConfirm = $.GetContextPanel()._oPicksData.picksforconfirm;
 		var aTeamIds = $.GetContextPanel()._oPicksData.picksnoitems;
-		// When everything is being removed from the picks, show custom message
+		                                                                       
 		var elStickerItemImages = $.GetContextPanel().FindChildInLayoutFile( 'id-popup-confirm-clearall' );
 		elStickerItemImages.visible = ( aPicksForConfirm.length <= 0 && aTeamIds.length <= 0 );
 	}

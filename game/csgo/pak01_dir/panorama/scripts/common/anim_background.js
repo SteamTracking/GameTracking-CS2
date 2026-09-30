@@ -7,7 +7,6 @@ var HudSpecatorBg;
         if (!m_elBg || !m_elBg.IsValid()) {
             return;
         }
-        // WIP: Excercise MiniProfileBackground custom panel to get player's actual equipment
         m_elBg.PopulateFromSteamID(xuid);
     }
     HudSpecatorBg.PickBg = PickBg;

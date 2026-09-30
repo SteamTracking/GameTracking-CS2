@@ -9,20 +9,17 @@
 var MvpBackgroundMap;
 (function (MvpBackgroundMap) {
     function SetUpMapWinPanel(xuid, reason, team, elParent) {
-        //let numKills = GameStateAPI.GetPlayerRoundKills( xuid );
-        let strTeam = team === 3 ? 'ct' : 't'; // 2 is team--TERRORIST,
+        let strTeam = team === 3 ? 'ct' : 't';
         let mvpCharItemId = GameStateAPI.GetPlayerCharacterItemID(xuid);
         let oSettings;
         let isNonPremier;
         if (!mvpCharItemId)
             mvpCharItemId = LoadoutAPI.GetItemID(strTeam, 'customplayer');
-        // Override is set in the controllibrary.xml for testing.
         let teamOverride = $.GetContextPanel().Data().teamOverride;
         if (teamOverride) {
             $.GetContextPanel().SetHasClass('WinPanelRoot--Win--T', $.GetContextPanel().Data().teamOverride === 2);
             $.GetContextPanel().SetHasClass('WinPanelRoot--Win--CT', $.GetContextPanel().Data().teamOverride === 3);
         }
-        // Override is set in the controllibrary.xml for testing.
         let mode = $.GetContextPanel().Data().gameModeOverride;
         if (mode && !GameStateAPI.IsQueuedMatchmaking()) {
             mode = $.GetContextPanel().Data().gameModeOverride;
@@ -37,7 +34,6 @@ var MvpBackgroundMap;
         }
         isNonPremier = mode.toLowerCase() !== 'premier';
         $.GetContextPanel().SetHasClass('non-premier', isNonPremier);
-        // Background characters represent the opposite team
         let backgroundCharModel = "";
         if (strTeam === 't')
             backgroundCharModel = "agents/models/ctm_sas/ctm_sas.vmdl";
@@ -54,48 +50,42 @@ var MvpBackgroundMap;
         SetFlairModel(oSettings, xuid);
         if (isNonPremier) {
             _MvpMapPanelLogicNonPremier(oSettings);
-            // debug so we don't have to go into premier every time to see the anims
-            // _MvpMapPanelLogicThreeKills( oSettings );
         }
         else {
             switch (reason) {
-                case 1: // CSMVP_ELIMINATION
+                case 1:
                     _MvpMapPanelLogicCelebrate(oSettings);
                     break;
-                case 2: // CSMVP_BOMBPLANT
+                case 2:
                     _MvpMapPanelLogicCelebrate(oSettings);
                     break;
-                case 3: // CSMVP_BOMBDEFUSE
+                case 3:
                     _MvpMapPanelLogicCelebrate(oSettings);
                     break;
-                case 4: // CSMVP_HOSTAGERESCUE
-                    // GENERIC PANEL
+                case 4:
                     _MvpMapPanelLogicCelebrate(oSettings);
                     break;
-                case 5: // CSMVP_GUNGAMEWINNER
-                    // GENERIC PANEL
+                case 5:
                     _MvpMapPanelLogicCelebrate(oSettings);
                     break;
-                case 7: // CSMVP_SURVIVALSURVIVOR
-                    // GENERIC PANEL
+                case 7:
                     _MvpMapPanelLogicCelebrate(oSettings);
                     break;
-                case 9: // CSMVP_ACEROUND
+                case 9:
                     _MvpMapPanelLogicAceRound(oSettings);
                     break;
-                case 10: // CSMVP_BURNDAMAGE
+                case 10:
                     _MvpMapPanelLogicBurnDamage(oSettings);
                     break;
-                case 11: //CSMVP_NADEDAMAGE
-                    // GENERIC PANEL
+                case 11:
                     _MvpMapPanelLogicBlastDamage(oSettings);
                     break;
-                case 12: // CSMVP_MOSTFLASHED
+                case 12:
                     break;
-                case 13: // CSMVP_BOMBPLANT_CLUTCH
+                case 13:
                     _MvpMapPanelLogicBombPlant(oSettings);
                     break;
-                case 14: // CSMVP_BOMBDEFUSE_CLUTCH
+                case 14:
                     _MvpMapPanelLogicBombDefuse(oSettings);
                     break;
                 case 15:
@@ -111,7 +101,6 @@ var MvpBackgroundMap;
     function MakeMvpMapPanel(elParent) {
         if (elParent.FindChildInLayoutFile('id-match-mvp-map')) {
             elParent.RemoveAndDeleteChildren();
-            //return elParent.FindChildInLayoutFile('id-match-mvp-map' ) as MapPlayerPreviewPanel_t ;
         }
         return $.CreatePanel('MapPlayerPreviewPanel', elParent, 'id-match-mvp-map', {
             "require-composition-layer": "true",
@@ -129,7 +118,6 @@ var MvpBackgroundMap;
         let elMap = oSettings.mapPanel;
         let itemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(InventoryAPI.GetItemDefinitionIndexFromDefinitionName('weapon_awp'), 0);
         elMap.TransitionToCamera('camera_start', 0);
-        //Move card off screen
         HideCharacters(oSettings);
         elMap.SetActiveCharacter(0);
         elMap.SetPlayerModel(oSettings.mvpCharModel);
@@ -248,7 +236,6 @@ var MvpBackgroundMap;
         ShowCharacters(oSettings);
         oSettings.backgroundIndex = 1;
         SharedMapLogic(oSettings);
-        // oSettings.mapPanel.FireEntityInput( 'env_effects_basic', 'Start' );
     }
     function _MvpMapPanelLogicBombPlant(oSettings) {
         let elMap = oSettings.mapPanel;
@@ -300,7 +287,6 @@ var MvpBackgroundMap;
         elMap.SetActiveCharacter(7);
         elMap.SetPlayerModel(model);
         elMap.PlayBannerAnimation('banner_fire');
-        //Celebrating Character
         elMap.SetActiveCharacter(6);
         elMap.SetPlayerModel(oSettings.mvpCharModel);
         elMap.PlayBannerAnimation('celebrate_stretch_noweap_idle0' + (Math.round(Math.random() * 3) + 1));
@@ -330,10 +316,6 @@ var MvpBackgroundMap;
         ShowCharacters(oSettings);
         oSettings.backgroundIndex = 2;
         SharedMapLogic(oSettings);
-        // $.Schedule( 1.75, ()=>{
-        //     elMap.FireEntityInput( 'mvp_blast_effect', 'Stop' );
-        //     elMap.FireEntityInput( 'mvp_blast_effect', 'start' );
-        // })
         $.Schedule(2, () => {
             elMap.TransitionToCamera('camera_grenade', 1);
             elMap.FireEntityInput('mvp_char11', 'Alpha', '255');
@@ -352,7 +334,6 @@ var MvpBackgroundMap;
         HideCharacters(oSettings);
         oSettings.backgroundIndex = 0;
         SharedMapLogic(oSettings);
-        // oSettings.mapPanel.FireEntityInput( 'env_effects_basic', 'Start' );
     }
     function SharedMapLogic(oSettings) {
         let ctLightColor = '67 162 230';

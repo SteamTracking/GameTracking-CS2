@@ -20,9 +20,9 @@ var DirectChallengeJoin = ( function ()
 
 	function OnTextEntryChanged ()
 	{
-		// m_ResultsContainer.RemoveAndDeleteChildren();
+		                                                
 
-		// skip if all whitespace 
+		                          
 		var hasText = /.*\S.*/;
 		if ( !hasText.test( $( '#TextEntry' ).text ) )
 		{
@@ -30,7 +30,7 @@ var DirectChallengeJoin = ( function ()
 			return;
 		}
 
-		// split based on whitespace but skip anything without word chars
+		                                                                 
 		var arrStrings = $( '#TextEntry' ).text.split( /\s/ ).filter( s => /^\w+$/.test( s ) );
 		_Validate();
 
@@ -63,7 +63,7 @@ var DirectChallengeJoin = ( function ()
 		var nNumClans = MyPersonaAPI.GetMyClanCount();
 		for ( var i = 0; i < nNumClans; i++ )
 		{
-			// 64-bit clan id for handle to MyPersona functions
+			                                                   
 			var clanId32 = MyPersonaAPI.GetMyClanId32BitByIndex( i );
 
 			if ( groupId === clanId32 )
@@ -90,10 +90,10 @@ var DirectChallengeJoin = ( function ()
 
 		if ( _IsChallengeKeyValid( value.toUpperCase(), oReturn, '' ) )
 		{
-			// update the popup with data
-			var type = oReturn.value[ 2 ]; // u for user, g for group
-			var id = oReturn.value[ 3 ]; // xuid if user, clanid if group
-			var id32 = parseInt( oReturn.value[ 4 ] ); // 32-bit id of the clan or user
+			                             
+			var type = oReturn.value[ 2 ];                           
+			var id = oReturn.value[ 3 ];                                 
+			var id32 = parseInt( oReturn.value[ 4 ] );                                 
 
 			var elTile = $.CreatePanel( "Panel", elAvatarContainer, 'JsKeyValidatedResult', { class: "directchallenge__join-validator" } );
 			elTile.codeXuid = id;
@@ -103,7 +103,7 @@ var DirectChallengeJoin = ( function ()
 			elTile.BLoadLayout( 'file://{resources}/layout/friendtile.xml', false, false );
 			$.GetContextPanel().FindChildInLayoutFile( 'id-direct-challenge-icon' ).SetHasClass( 'valid', true );
 
-			// Add clan specific styling and icon for link.
+			                                               
 			if ( type == 'g' )
 			{
 				elTile.SetAttributeString( 'isClan', 'true' );
@@ -116,7 +116,7 @@ var DirectChallengeJoin = ( function ()
 				});
 			}
 
-			// This gives the panel enough time to load so we call the init.
+			                                                                
 			$.Schedule( .1, function ()
 			{
 				if ( !elTile.IsValid() )
@@ -125,7 +125,7 @@ var DirectChallengeJoin = ( function ()
 				elTile.RemoveClass( 'hidden' );
 			} );
 
-			// Not part of Group but the group does exist.
+			                                              
 			if ( type == 'g' && !_IsPartOfGroup( id32 ) )
 			{
 				bSuccess = false;
@@ -145,7 +145,7 @@ var DirectChallengeJoin = ( function ()
 
 			$.GetContextPanel().FindChildInLayoutFile( 'id-direct-challenge-icon' ).SetHasClass( 'valid', false );
 			
-			// Show not found Message.
+			                          
 			m_elErrortext.SetDialogVariable( 'code', $( '#TextEntry' ).text.toUpperCase() );
 			m_elErrortext.text = $.Localize( '#DirectChallenge_BadKeyText', m_elErrortext );
 		}
@@ -177,9 +177,9 @@ var DirectChallengeJoin = ( function ()
 
 } )();
 
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created 
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                            
+                                                                                                    
 ( function ()
 {
 } )();

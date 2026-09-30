@@ -16,7 +16,7 @@ var DirectChallengeSteamGroupSelector = ( function ()
 		var nNumClans = MyPersonaAPI.GetMyClanCount();
 		for ( var i = 0; i < nNumClans; i++ )
 		{
-			// 32-bit clan id for GetDirectChallengeCodeForClan
+			                                                   
 			var clanID32 = MyPersonaAPI.GetMyClanId32BitByIndex( i );
 			var clanChallengeKey = CompetitiveMatchAPI.GetDirectChallengeCodeForClan( clanID32 );
 			var clanName = FriendsListAPI.GetClanInfoById32Bit( clanID32, 'name' );
@@ -76,10 +76,10 @@ var DirectChallengeSteamGroupSelector = ( function ()
 
 } )();
 
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created 
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                            
+                                                                                                    
 ( function ()
 {
-//	$.RegisterForUnhandledEvent( 'PlayMenu_GoTeamMatchmaking_CodeGenerated', PopupGoTeamMatchmaking.CodeRegenerated );
+  	                                                                                                                  
 } )();

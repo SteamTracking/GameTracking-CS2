@@ -2,7 +2,7 @@
 /// <reference path="../csgo.d.ts" />
 var HoldButton;
 (function (HoldButton) {
-    let m_LoopingSounds = {}; // sound handles
+    let m_LoopingSounds = {};
     let _m_btnSettings = {
         holdTimer: 0,
         holdTimeMax: 10,

@@ -26,9 +26,9 @@ var mainmenu_overwatch = ( function()
 
 	function _UpdateAllControlsFromComponent()
 	{
-		//
-		// Error message label
-		//
+		  
+		                      
+		  
 		var strErrorCode = OverwatchAPI.GetEvidencePreparationError();
         if ( !strErrorCode )
         {
@@ -41,12 +41,12 @@ var mainmenu_overwatch = ( function()
 		_m_lblErrorText.text = strErrorCode ? $.Localize( strErrorCode ) : '';
 		_m_panError.enabled = !!strErrorCode;
 
-		//
-		// Set the download percentage
-		// 0 : not working
-		// 100 : fully ready
-		// anything else : downloading
-		//
+		  
+		                              
+		                  
+		                    
+		                              
+		  
 		var nProgress = OverwatchAPI.GetEvidencePreparationPercentage();
 		_m_btnDownload.enabled = ( nProgress === 0 );
 		_m_btnReview.enabled = ( nProgress === 100 );
@@ -58,7 +58,7 @@ var mainmenu_overwatch = ( function()
         OverwatchAPI.StartDownloadingCaseEvidence();
     }
 
-    // event PanoramaComponent_Overwatch_CaseUpdated
+                                                    
     function _CaseUpdated()
     {
         _UpdateAllControlsFromComponent();
@@ -80,7 +80,7 @@ var mainmenu_overwatch = ( function()
 		}
     }
 
-    /* Public interface */
+                          
     return {
 		Init                : _Init,
 		OnReadyForDisplay	: _OnReadyForDisplay,
@@ -92,9 +92,9 @@ var mainmenu_overwatch = ( function()
 
 })();
 
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                           
+                                                                                                    
 (function()
 {
 	mainmenu_overwatch.Init();

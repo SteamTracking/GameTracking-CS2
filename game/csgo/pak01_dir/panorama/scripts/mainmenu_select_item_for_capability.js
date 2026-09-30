@@ -8,13 +8,11 @@ var MainMenuSelectItemForCapability;
     function _ShowSelectItemForWorkshopPreviewCapability(capability, itemid, itemid2) {
         _OpenSelectItemForCapabilityPopUp(capability, itemid, itemid2, true);
     }
-    // This gets called when have added one item to the storage unit and are asked it we wat to add more to that unit.
     function _PromptShowSelectItemForCapabilityPopup(titletxt, messagetxt, capability, itemid, itemid2) {
         UiToolkitAPI.ShowGenericPopupOkCancel($.Localize(titletxt), $.Localize(messagetxt), '', () => $.DispatchEvent('ShowSelectItemForCapabilityPopup', itemid, itemid2, capability), () => { });
     }
     function _OpenSelectItemForCapabilityPopUp(itemid, itemid2 = '', capability, bWorkshopItemPreview = false) {
         const CloseItemForCapabilityCallbackHandle = UiToolkitAPI.RegisterJSCallback(() => {
-            $.Msg('Close Item Capability Callback');
             if (CloseItemForCapabilityCallbackHandle) {
                 UiToolkitAPI.UnregisterJSCallback(CloseItemForCapabilityCallbackHandle);
             }

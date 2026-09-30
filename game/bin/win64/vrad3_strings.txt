@@ -659,7 +659,6 @@ $timer
 .tif
 .vmat
 .webp
-00v"
 0x%llx
 16-byte data pool
 1\f%1t
@@ -714,7 +713,7 @@ AsShotICCProfile
 AsShotNeutral
 AsShotPreProfileMatrix
 AsShotWhiteXY
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempted to add two format updaters with the same file format (%s)!\n
 Attempted to add two legacy updaters with the same file format (%s)!\n
 Attempted to add two serializers with the same file encoding (%s)!\n
@@ -1247,9 +1246,9 @@ Fingers
 Fingers_L
 Fingers_R
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
 Floating point "Predictor" not supported with %d data format
@@ -1279,7 +1278,7 @@ H8>Y
 HalftoneHints
 Hammer temp export
 HammerPathTraceWorld
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HostComputer
 ICC Profile
@@ -1491,7 +1490,6 @@ Out of memory allocating %d byte temp buffer.
 Output aborted.
 Output memory size is zero
 OutputLuxels
-P0v"
 PURH
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
@@ -1510,6 +1508,7 @@ Particle Configuration File
 Path Trace Triangles... spp=[%i...%i], err=%.02f
 Path Tracing
 Payload
+Pdu"
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -1517,6 +1516,7 @@ Photoshop
 PixarLog
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
+Pls"
 Position Along Path Random
 Position Along Path Sequential
 Position From Parent Particles
@@ -2360,7 +2360,6 @@ oscillate_scalar
 oscillate_vector
 outerconeangle
 ownerlog
-p0v"
 pEnd->x <= g_LightProbeGrid.NumCellsX()
 pEnd->y <= g_LightProbeGrid.NumCellsY()
 pEnd->z <= g_LightProbeGrid.NumCellsZ()
@@ -2380,13 +2379,14 @@ path_trace_triangles_gpu_init
 path_trace_triangles_gpu_shutdown
 path_trajectory
 pattern
-pc64 Sep 30 2026 11:55:41
+pc64 Sep 21 2026 13:52:38
 physicsSimplificationError
 physicsSimplificationOverride
 pinEnabled
 pin_enabled
 pivotOffset
 pixelAspectRatio
+pls"
 pointentityclass
 posTolerance
 position$0

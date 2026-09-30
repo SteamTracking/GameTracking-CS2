@@ -742,11 +742,12 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 0123456789
 0123456789)"
 0=Wrap,1=Mirror,2=Clamp,3=Border,4=MirrorOnce
+0>IY0
 0x%1
 0x%p = %s '%s'
 1/2/3
-11:56:51
 128 x 128
+13:53:15
 1:1: Tokens : ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | BOOLLITERAL | ID | INTEGERLITERAL | HEXINTEGERLITERAL | FLOATLITERAL | COMMENT | WS );
 1AboutAction()
 1AcceptColorInternal(FatColor_t)
@@ -1056,11 +1057,11 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 5;FJ$,XEK4<
 5\f?focusOutEvent@QMenuBar@@MEAAXPEAVQFocusEvent@@@Z
 5\v?event@QCheckBox@@MEAA_NPEAVQEvent@@@Z
+6#Y0
 6[?setRenderHint@QPainter@@QEAAXW4RenderHint@1@_N@Z
 6\f?focusOutEvent@QPlainTextEdit@@MEAAXPEAVQFocusEvent@@@Z
 6\v?createNode@QMapDataBase@@QEAAPEAUQMapNodeBase@@HHPEAU2@_N@Z
 6\v?event@QComboBox@@UEAA_NPEAVQEvent@@@Z
-6c\0
 7&F|If
 7T2,
 7\f?focusOutEvent@QPushButton@@MEAAXPEAVQFocusEvent@@@Z
@@ -2725,7 +2726,7 @@ Asset Browser
 Assets
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempting to register the command %s for context %s multiple times\n
 Attributes
 Attributes Used:
@@ -3558,9 +3559,9 @@ Float To Game Time
 Float2 (expression) = 
 Float3 (expression) = 
 Float4 (expression) = 
-FloatBitMap_t::ConvertLinearToGamma(609): Conversion not supported yet!\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::ConvertLinearToGamma(607): Conversion not supported yet!\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -3654,7 +3655,7 @@ Help - %1
 Help for Dynamic Expressions
 HelpIdPrefix_Default
 HelpIdPrefix_LayeredProperty
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hex:
 Hide unless error/warning occurs
 Highest
@@ -4463,7 +4464,6 @@ RSDSt8
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpT
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Rad2 Deg
@@ -6174,6 +6174,7 @@ offsetDelta
 opqMU
 optionallycompressedtangentframe
 originalColor
+p>uX0
 pAction
 pCheckpointName
 pCurrentFocusWidget
@@ -6205,7 +6206,6 @@ q\n?dragLeaveEvent@QAbstractScrollArea@@MEAAXPEAVQDragLeaveEvent@@@Z
 q\v?event@QWidgetAction@@MEAA_NPEAVQEvent@@@Z
 quiet
 rQ?lineTo@QPainterPath@@QEAAXNN@Z
-r\fpT
 rad2deg
 radians
 random

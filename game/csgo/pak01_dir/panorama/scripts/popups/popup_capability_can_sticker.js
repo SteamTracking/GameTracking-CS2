@@ -11,7 +11,7 @@
 /// <reference path="popup_inspect_shared.ts" />
 var CapabilityCanApplyAction;
 (function (CapabilityCanApplyAction) {
-    const m_szRemoveKeychainToolChargesForPurchase = 'Remove Keychain Tool Pack'; // this is what user must buy to refill charges
+    const m_szRemoveKeychainToolChargesForPurchase = 'Remove Keychain Tool Pack';
     function Init() {
         InspectShared.SetPopupSetting('is_apply_remove_item', true);
         const itemId = InspectShared.GetPopupSetting('item_id');
@@ -20,17 +20,13 @@ var CapabilityCanApplyAction;
         const isRemove = _IsRemove(worktype);
         if (isRemove) {
             if (!itemId) {
-                //Add error dialog here
                 ClosePopUp();
                 return;
             }
         }
         else {
-            // if we are applying a keychain, then duplicate off the item into a temp item
-            // and then force-apply the keychain in code for the simulation to be easy
             if (worktype === 'can_keychain' || worktype === 'can_sticker') {
                 const tempCreatedItem = InventoryAPI.CreateTempCombinedItemWithTool(itemId, toolId);
-                $.Msg(`CreateTempCombinedItemWithTool( ${itemId}, ${toolId} ) --> ${tempCreatedItem}`);
                 if (!tempCreatedItem) {
                     ClosePopUp();
                     return;
@@ -39,7 +35,6 @@ var CapabilityCanApplyAction;
             }
             if ((worktype === 'can_wrap_sticker') && toolId) {
                 const tempCreatedItem = InventoryAPI.CreateTempCombinedItemWithTool(itemId, toolId);
-                $.Msg(`CreateTempCombinedItemWithTool( ${itemId}, ${toolId} ) --> ${tempCreatedItem}`);
                 if (!tempCreatedItem) {
                     ClosePopUp();
                     return;
@@ -49,17 +44,14 @@ var CapabilityCanApplyAction;
             if (worktype === 'craft_souvenir') {
                 const craftSouvenirFauxTool = 'craft_souvenir:' + InspectShared.GetPopupSetting('umid_souvenir');
                 const tempCreatedItem = InventoryAPI.CreateTempCombinedItemWithTool(itemId, craftSouvenirFauxTool);
-                $.Msg(`CreateTempCombinedItemWithTool( ${itemId}, ${craftSouvenirFauxTool} ) --> ${tempCreatedItem}`);
                 if (!tempCreatedItem) {
                     ClosePopUp();
                     return;
                 }
-                // Find how many credits our player currently owns?
                 let nRedeemableBalance = 0;
                 {
                     const idxLookup = InventoryAPI.GetCacheTypeElementIndexByKey('SeasonalOperations', g_ActiveTournamentInfo.credits_id);
                     if (g_ActiveTournamentInfo.credits_id == InventoryAPI.GetCacheTypeElementFieldByIndex('SeasonalOperations', idxLookup, 'season_value')) {
-                        // This could come back "undefined" or "null" and should be treated as zero
                         nRedeemableBalance = InventoryAPI.GetCacheTypeElementFieldByIndex('SeasonalOperations', idxLookup, 'redeemable_balance');
                         nRedeemableBalance = (nRedeemableBalance === null || nRedeemableBalance === undefined) ? 0 : nRedeemableBalance;
                     }
@@ -101,17 +93,13 @@ var CapabilityCanApplyAction;
             || (oSettings.type === 'sticker' && !!InspectShared.GetPopupSetting('remove_sticker_all_at_once')))) {
             _OnConfirmPressed(oSettings);
         }
-        // Stickers scraping doesn't close the popup but updates the model.  So we register this event so we know when to update the model.
         if (worktype === "remove_sticker") {
             $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', CapabilityCanSticker.OnFinishedScratch);
         }
         $.DispatchEvent('CapabilityPopupIsOpen', true);
-        // If the user is trying to remove charms, have zero charges, but own charm charges, then instead go to
-        // the interface for them to use their charm charges first
         if (worktype === 'remove_keychain') {
             const numKeychainRemoveToolChargesRemaining = InventoryAPI.GetCacheTypeElementFieldByIndex('KeychainRemoveToolCharges', 0, 'charges');
             if (numKeychainRemoveToolChargesRemaining > 0) {
-                $.Msg(`Remove Keychain Popup: ${numKeychainRemoveToolChargesRemaining} charges owned`);
             }
             else {
                 let ownedKeychainRemoveChargesID = '';
@@ -128,22 +116,16 @@ var CapabilityCanApplyAction;
                     }
                 }
                 if (ownedKeychainRemoveChargesID) {
-                    $.Msg(`User has no keychain remove charges, but has an item to activate: ${ownedKeychainRemoveChargesID} -- offering useitem for it`);
                     ClosePopUp();
-                    // Offer the user to immediately use their newly purchased charges
-                    // we must do it via event so that it was properly queued up after the
-                    // event forcing all popups to close
                     const elPanel = $.DispatchEvent("ShowCustomLayoutPopupParametersAsEvent", '', 'file://{resources}/layout/popups/popup_inventory_inspect.xml', 'item_id=' + ownedKeychainRemoveChargesID +
                         ',' + 'work_type=useitem');
                 }
                 else {
-                    $.Msg(`User has no keychain remove charges, will see purchase bar to buy: ${m_szRemoveKeychainToolChargesForPurchase}`);
                 }
             }
         }
     }
     CapabilityCanApplyAction.Init = Init;
-    //--------------------------------------------------------------------------------------------------
     function _IsRemove(worktype) {
         return (worktype === "remove_sticker" || worktype === "remove_patch" || worktype === "remove_keychain");
     }
@@ -194,7 +176,6 @@ var CapabilityCanApplyAction;
     function _SetSelectedSlot(slotIndex, oSettings) {
         oSettings.asyncBarPanel.SetAttributeString('selectedItemToApplySlot', slotIndex.toString());
     }
-    //--------------------------------------------------------------------------------------------------
     function _UpdateInspectMap() {
         InspectModelImage.SwitchMap($.GetContextPanel());
         const worktype = InspectShared.GetPopupSetting('work_type');
@@ -231,28 +212,21 @@ var CapabilityCanApplyAction;
         }
     }
     function _SetUpAsyncActionBar(toolId) {
-        //$.GetContextPanel().SetAttributeString( 'toolid', toolId );
         const worktype = InspectShared.GetPopupSetting('work_type');
         const itemId = InspectShared.GetPopupSetting('item_id');
         const elAsyncActionBarPanel = $.GetContextPanel().FindChildInLayoutFile('PopUpInspectAsyncBar');
         InspectAsyncActionBar.Init();
-        //
-        // If an action requires a purchased tool, then upsell it:
-        //
         const elPurchase = $.GetContextPanel().FindChildInLayoutFile('PopUpInspectPurchaseBar');
         let bConfigurePurchaseBar = false;
         let mustPurchaseItemID = '';
         if (worktype === 'can_wrap_sticker' && InventoryAPI.IsFauxItemID(itemId)) {
-            // We are showing a preview of "encapsulation", but the user actually must purchase
-            // a new Sticker Slab to encapsulate the sticker, so the action bar will be the "purchase bar"
             bConfigurePurchaseBar = true;
             mustPurchaseItemID = itemId;
         }
         if (worktype === 'remove_keychain' || worktype === 'can_keychain') {
             bConfigurePurchaseBar = true;
-            if (worktype === 'remove_keychain') { // only offer purchasing keychain remove charges if the user doesn't have any charges currently
+            if (worktype === 'remove_keychain') {
                 const numKeychainRemoveToolChargesRemaining = InventoryAPI.GetCacheTypeElementFieldByIndex('KeychainRemoveToolCharges', 0, 'charges');
-                // numKeychainRemoveToolChargesRemaining = 0; // to test purchase of charm detachments
                 const defidxForPurchase = (numKeychainRemoveToolChargesRemaining > 0) ? 0 : InventoryAPI.GetItemDefinitionIndexFromDefinitionName(m_szRemoveKeychainToolChargesForPurchase);
                 if (defidxForPurchase) {
                     mustPurchaseItemID = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxForPurchase, 0);
@@ -262,7 +236,7 @@ var CapabilityCanApplyAction;
         if (elPurchase && bConfigurePurchaseBar) {
             if (mustPurchaseItemID) {
                 InspectShared.SetPopupSetting('purchase_item_id', mustPurchaseItemID);
-                $.GetContextPanel().SetAttributeString('toolid', ''); // force showing "This action requires ..." upsell purchase string
+                $.GetContextPanel().SetAttributeString('toolid', '');
             }
             InspectPurchaseBar.Init();
             if (mustPurchaseItemID) {
@@ -273,14 +247,10 @@ var CapabilityCanApplyAction;
     }
     function _OnStorePurchaseCompleted(ItemId) {
         if (InventoryAPI.DoesItemMatchDefinitionByName(ItemId, m_szRemoveKeychainToolChargesForPurchase)) {
-            $.Msg('_OnStorePurchaseCompleted (remove keychain charges): ' + ItemId);
             $.DispatchEvent('HideStoreStatusPanel');
             const bAutoAcknowledge = true;
             AcknowledgeItems.GetItemsByType([m_szRemoveKeychainToolChargesForPurchase], bAutoAcknowledge);
             ClosePopUp();
-            // Offer the user to immediately use their newly purchased charges
-            // we must do it via event so that it was properly queued up after the
-            // event forcing all popups to close
             $.DispatchEvent("ShowCustomLayoutPopupParametersAsEvent", '', 'file://{resources}/layout/popups/popup_inventory_inspect.xml', 'item_id=' + ItemId +
                 ',' + 'work_type=useitem');
         }
@@ -290,14 +260,10 @@ var CapabilityCanApplyAction;
         if (worktype === 'can_wrap_sticker' &&
             InventoryAPI.IsFauxItemID(itemId) &&
             InventoryAPI.DoesItemMatchDefinitionByName(ItemId, "sticker_display_case")) {
-            $.Msg('_OnStorePurchaseCompleted (sticker slab): ' + ItemId);
             $.DispatchEvent('HideStoreStatusPanel');
             const bAutoAcknowledge = true;
             AcknowledgeItems.GetItemsByType(["sticker_display_case"], bAutoAcknowledge);
             ClosePopUp();
-            // Offer the user to immediately use their newly purchased sticker slab
-            // we must do it via event so that it was properly queued up after the
-            // event forcing all popups to close
             const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('popup-inspect-' + ItemId, 'file://{resources}/layout/popups/popup_capability_can_keychain.xml');
             let oSettings = {
                 popup_panel: elPanel,
@@ -309,7 +275,6 @@ var CapabilityCanApplyAction;
         }
     }
     ;
-    //--------------------------------------------------------------------------------------------------
     function ClosePopUp() {
         const elAsyncActionBarPanel = $.GetContextPanel().FindChildInLayoutFile('PopUpInspectAsyncBar');
         const elPurchase = $.GetContextPanel().FindChildInLayoutFile('PopUpInspectPurchaseBar');
@@ -324,9 +289,7 @@ var CapabilityCanApplyAction;
     function StickerScrapeClickedStickerIndex(stickerIndex) {
         _OnSelectForRemove(stickerIndex, $.GetContextPanel().Data().oApplySettings);
     }
-    // Entry point called when panel is created
     {
-        // Got a new item from a case
         let _m_PanelRegisteredForEventsStickerApply;
         if (!_m_PanelRegisteredForEventsStickerApply) {
             _m_PanelRegisteredForEventsStickerApply = $.RegisterForUnhandledEvent('CSGOShowMainMenu', Init);
@@ -338,9 +301,6 @@ var CapabilityCanApplyAction;
         }
     }
 })(CapabilityCanApplyAction || (CapabilityCanApplyAction = {}));
-//--------------------------------------------------------------------------------------------------
-// Sticker specific funtions
-//--------------------------------------------------------------------------------------------------
 var CapabilityCanSticker;
 (function (CapabilityCanSticker) {
     let m_isFinalScratch = false;
@@ -373,8 +333,6 @@ var CapabilityCanSticker;
         const m_elPreviewPanel = $.GetContextPanel().FindChildInLayoutFile('CanApplyItemModel');
         const elPanel = m_elPreviewPanel.FindChildTraverse('ItemPreviewPanel') || null;
         if (!m_firstCameraAnim) {
-            // no need to reset the position of the gun its the first time and already in default position.
-            // intro anim logic will play from inspect.ts
             m_firstCameraAnim = true;
             return;
         }
@@ -387,7 +345,7 @@ var CapabilityCanSticker;
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.StickerScratch', 'MOUSE');
             m_isFinalScratch = true;
             InspectAsyncActionBar.ResetTimeouthandle();
-            InventoryAPI.WearItemSticker(itemId, slotIndex, 111); // remove the sticker
+            InventoryAPI.WearItemSticker(itemId, slotIndex, 111);
             InspectAsyncActionBar.SetCallbackTimeout();
         }
         else {
@@ -398,15 +356,13 @@ var CapabilityCanSticker;
                 if (elStickerScrapeLevelSlider) {
                     valTargetWear = elStickerScrapeLevelSlider.value;
                     if (valTargetWear <= elStickerScrapeLevelSlider.default) {
-                        $.Msg(`InventoryAPI.WearItemSticker( ${itemId}, ${slotIndex}, ${valTargetWear} ) ignored because wear is already at ${elStickerScrapeLevelSlider.default}`);
                         InspectAsyncActionBar.ResetTimeouthandle();
                         const elAsyncActionBarPanel = popup_panel.FindChildInLayoutFile('PopUpInspectAsyncBar');
                         InspectAsyncActionBar.OnCloseRemove(elAsyncActionBarPanel);
-                        return; // this button is "disabled" and performs no scraping
+                        return;
                     }
                 }
             }
-            $.Msg(`InventoryAPI.WearItemSticker( ${itemId}, ${slotIndex}, ${valTargetWear} )`);
             $.DispatchEvent('CSGOPlaySoundEffect', 'UI.StickerScratch', 'MOUSE');
             HighlightStickerBySlot(slotIndex);
             InventoryAPI.WearItemSticker(itemId, slotIndex, valTargetWear);
@@ -418,8 +374,6 @@ var CapabilityCanSticker;
     }
     CapabilityCanSticker.HighlightStickerBySlot = HighlightStickerBySlot;
     function OnFinishedScratch() {
-        // Last scratch so the panel is going to close from the 'PanoramaComponent_Inventory_ItemCustomizationNotification' event
-        // in the Asyncbar.
         if (m_isFinalScratch || !$.GetContextPanel()) {
             return;
         }

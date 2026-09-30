@@ -7,14 +7,12 @@ var MainMenuMiniStore;
 (function (MainMenuMiniStore) {
     const _m_StorePanel = $.GetContextPanel();
     function _Init() {
-        $.Msg('Item-mini-store- ' + "Init");
         if (!MyPersonaAPI.IsConnectedToGC()) {
             _m_StorePanel.SetHasClass('hidden', true);
             return;
         }
         let restrictions = LicenseUtil.GetCurrentLicenseRestrictions();
         if (restrictions) {
-            $.Msg('Item-mini-store- restrictions: ' + restrictions);
             _m_StorePanel.SetHasClass('hidden', true);
             return;
         }
@@ -24,8 +22,6 @@ var MainMenuMiniStore;
         _GetStoreItems();
     }
     function _GetStoreItems() {
-        $.Msg('Item-mini-store- ' + "_GetStoreItems");
-        $.Msg('Item-mini-store- ' + StoreItems.GetStoreItems().coupon.length);
         if (StoreItems.GetStoreItems().coupon && StoreItems.GetStoreItems().coupon.length < 1) {
             StoreItems.MakeStoreItemList();
         }
@@ -37,11 +33,9 @@ var MainMenuMiniStore;
         _MakeStoreItemTiles(aItemsList);
         _m_StorePanel.SetHasClass('hidden', false);
     }
-    let _m_numMiniStoreItemsToShow = 5; // show at least 5, but might be more if we have more "new coupons"
+    let _m_numMiniStoreItemsToShow = 5;
     function _MakeStoreItemTiles(aItemsList) {
-        $.Msg('Item-mini-store- ' + "_MakeStoreItemTiles();");
         let elParent = $.GetContextPanel().FindChildInLayoutFile('id-mini-store-carousel');
-        // Calculate how many offers are "new"
         let numNewPinnedOffers = 0;
         for (let i = 0; i < aItemsList.length; i++) {
             let oItemData = aItemsList[i];
@@ -50,12 +44,10 @@ var MainMenuMiniStore;
             else
                 break;
         }
-        // Make all the new tiles, possibly bump the max count of tiles (but do not decrease it)
         _m_numMiniStoreItemsToShow = Math.max(_m_numMiniStoreItemsToShow, numNewPinnedOffers);
         for (let i = 0; i < _m_numMiniStoreItemsToShow; i++) {
             let oItemData = aItemsList[i];
             oItemData.isDisplayedInMainMenu = true;
-            $.Msg('Item-mini-store- ' + $.Localize(InventoryAPI.GetRawDefinitionKey(oItemData.id, 'item_name') + '_tinyname'));
             let elTile = elParent.FindChildInLayoutFile('id-mini-store-tile' + aItemsList[i].id);
             if (!elTile) {
                 elTile = $.CreatePanel('Button', elParent, 'id-mini-store-tile' + aItemsList[i].id);
@@ -64,9 +56,6 @@ var MainMenuMiniStore;
             ItemTileStore.Init(elTile, aItemsList[i]);
         }
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', _Init);

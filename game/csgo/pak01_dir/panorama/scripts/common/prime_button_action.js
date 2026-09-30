@@ -3,8 +3,6 @@
 var PrimeButtonAction;
 (function (PrimeButtonAction) {
     function SetUpPurchaseBtn(btnPurchase) {
-        // buy  upgrade
-        $.Msg('GetStoreUrl(): ' + GetStoreUrl());
         let sPrice = StoreAPI.GetStoreItemSalePrice(InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(1353, 0), 1, '');
         btnPurchase.SetDialogVariable("price", sPrice ? sPrice : '$0');
         btnPurchase.SetPanelEvent('onactivate', () => {

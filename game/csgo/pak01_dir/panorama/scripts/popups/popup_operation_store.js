@@ -24,7 +24,7 @@ var CapabilityOperationStore = ( function()
 
 		if( !OperationUtil.ValidateOperationInfo( nActiveSeason ) || !_CanUserDoShopping() )
 		{
-			// close popup
+			              
 			$.DispatchEvent( 'UIPopupButtonClicked', '' );
 			return;
 		}
@@ -48,19 +48,19 @@ var CapabilityOperationStore = ( function()
 			return;
 		}
 
-		//default value
+		               
 		$.GetContextPanel().SetDialogVariableInt( 'after_purchase_stars', OperationUtil.GetOperationInfo().nCoinRank );
 		SetCurrrentStars();
 
-		// START - This section is hidden because we are not shipping the discounts for ranks levels.
-		// SetStoreNavBtnEvents();
-		// END
+		                                                                                             
+		                          
+		      
 
 		StarsShoppingCart.SelectStoreTab();
 
-		// START - This section is hidden because we are not shipping the discounts for ranks levels.
-		// StarsShoppingCart.SetYourRankIndicator();
-		// END
+		                                                                                             
+		                                            
+		      
 	};
 
 	var SetCurrrentStars = function( )
@@ -116,19 +116,19 @@ var StarsShoppingCart = ( function()
 			storeids: OperationUtil.GetOperationStarDefIdxArray(),
 			coinid: 4550
 		}
-		//DEVONLY{,
-		// Not used in the operation 
-		// {
-		// 	rank_restriction: 3,
-		// 	storeids: [ 4614, 4615 ],
-		// 	coinid: 4551
-		// },
-		// {
-		// 	rank_restriction: 4,
-		// 	storeids: [ 4616, 4617 ],
-		// 	coinid: 4552
-		// },
-		//}DEVONLY
+		           
+		                             
+		    
+		   	                    
+		   	                         
+		   	            
+		     
+		    
+		   	                    
+		   	                         
+		   	            
+		     
+		          
 	];
 
 	var MAX_QUANTITY = StoreAPI.GetStoreCartItemLimit();
@@ -148,102 +148,102 @@ var StarsShoppingCart = ( function()
 		var elApply = $.GetContextPanel().FindChildInLayoutFile( 'AsyncItemWorkUseItem' );
 		elApply.SetPanelEvent( 'onactivate', _OnActivate.bind( undefined, elApply, 'useitem' ) );
 
-		// This section is hidden because we are not shipping the discounts for ranks levels.
-		// _GetPricingDiscounts();
+		                                                                                     
+		                          
 	};
 
 
-	// This section is hidden because we are not shipping the discounts for ranks levels.
-	//DEVONLY{
-	var _GetPricingDiscounts = function()
-	{
-		var priceForEachRankPerStar = {};
-		var elContainer = $.GetContextPanel().FindChildInLayoutFile( 'popup-operation-store-subtitle-container' );
-		var currentRank = OperationUtil.GetOperationInfo().nCoinRank;
+	                                                                                     
+	          
+	                                     
+	 
+		                                 
+		                                                                                                          
+		                                                             
 
-		ARRAY_STORE_ITEMS.forEach( function( rank )
-		{
-			var elLabel = elContainer.Children().find( element => element.GetAttributeInt( 'data-rank', 0 ) === rank.rank_restriction );
+		                                           
+		 
+			                                                                                                                            
 
-			rank.storeids.forEach( function( defIndex )
-			{
-				var fauxItemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( defIndex, 0 );
-				var nPriceIOfItem = parseInt( ItemInfo.GetStoreSalePrice( fauxItemId, 1, '#' ));
+			                                           
+			 
+				                                                                               
+				                                                                                
 
-				// Price per item for rank preview.
-				var starsInItem = InventoryAPI.GetItemAttributeValue( fauxItemId, 'upgrade level' );
-				var nPricePerStar = nPriceIOfItem / starsInItem;
+				                                   
+				                                                                                    
+				                                                
 				
-				if ( !priceForEachRankPerStar[ 'price_for_rank' + rank.rank_restriction ] )
-				{
-					priceForEachRankPerStar[ 'price_for_rank' + rank.rank_restriction ] = 0;
-				}
+				                                                                           
+				 
+					                                                                        
+				 
 
-				priceForEachRankPerStar[ 'price_for_rank' + rank.rank_restriction ] += nPricePerStar;
-			} );
+				                                                                                     
+			    
 
-			var baseRankPricePerItemCombined = priceForEachRankPerStar[ 'price_for_rank' + ARRAY_STORE_ITEMS[ 0 ].rank_restriction ];
-			var RankPricePerItemCombined = priceForEachRankPerStar[ 'price_for_rank' + rank.rank_restriction ];
-			var difference = baseRankPricePerItemCombined - RankPricePerItemCombined;
-			var average = ( baseRankPricePerItemCombined + RankPricePerItemCombined ) / 2;
-			var percentDiscount = Math.floor( ( difference / average ) * 100 );
-			elLabel.SetDialogVariableInt( 'discount_per_star', percentDiscount );
+			                                                                                                                         
+			                                                                                                   
+			                                                                         
+			                                                                              
+			                                                                   
+			                                                                     
 			
-			if ( rank.rank_restriction > currentRank )
-			{
-				var fauxCoinId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( rank.coinid, 0 );
-				var missionsThreshold = InventoryAPI.GetItemAttributeValue( fauxCoinId, 'upgrade threshold' );
-				elLabel.SetDialogVariableInt( 'missions_remaining', ( missionsThreshold - OperationUtil.GetOperationInfo().nMissionsCompleted ) );
-				elLabel.SetDialogVariable( 'coin_type', $.Localize( '#op_store_coin_type_' + rank.rank_restriction ) );
+			                                          
+			 
+				                                                                                  
+				                                                                                              
+				                                                                                                                                  
+				                                                                                                       
 
-				elLabel.text = $.Localize( '#op_store_rank_discounts', elLabel );
-			}
-			else if ( rank.rank_restriction === currentRank || ( rank.rank_restriction === 4 && currentRank > 4 ))
-			{
-				elLabel.SetDialogVariable( 'coin_type', $.Localize( '#op_store_coin_type_' + currentRank ) );
-				elLabel.text = currentRank > 2 ? $.Localize( '#op_store_rank_discounts_current', elLabel ) :
-					$.Localize( '#op_store_your_coin', elLabel );
-			}
-			else 
-			{
-				elLabel.visible = false;
-			}
-		} );
-	};
-	//}DEVONLY
+				                                                                 
+			 
+			                                                                                                      
+			 
+				                                                                                             
+				                                                                                            
+					                                             
+			 
+			     
+			 
+				                        
+			 
+		    
+	  
+	          
 
 	var _SelectStoreTab = function()
 	{
-		// We just force the rank to 2 becuase we are not using tiers for items based on rank currently.
+		                                                                                                
 		var nRank = OperationUtil.GetOperationInfo().nCoinRank > 1 ? 2 : 0;
 		
-		// START - This section is hidden because we are not shipping the discounts for ranks levels.
-		// $.GetContextPanel().FindChildInLayoutFile( 'popup-operation-store-rank-' + nRank ).checked = true;
-		// END
+		                                                                                             
+		                                                                                                     
+		      
 
 		_UpdateStoreBasedOnCoinRank( nRank );
 		_PreFillCart();
 	};
 
-	// This section is hidden because we are not shipping the discounts for ranks levels.
-	//DEVONLY{
-	var _SetYourRankIndicator = function()
-	{
-		var ChildrenList = $.GetContextPanel().FindChildInLayoutFile( 'popup-operation-current-rank' ).Children();
+	                                                                                     
+	          
+	                                      
+	 
+		                                                                                                          
 		
-		ChildrenList.filter( entry => Number( entry.GetAttributeString( 'data-rank', '' )) <= OperationUtil.GetOperationInfo().nCoinRank ).forEach(
-			element => {
-				element.AddClass( 'popup-operation-coin-progress-fill' );
-		});
-	};
-	//}DEVONLY
+		                                                                                                                                           
+			            
+				                                                         
+		   
+	  
+	          
 
 	var _UpdateStoreBasedOnCoinRank = function( nRank, bIsPreview = false )
 	{
-		// we are not selling different points based on coin rank
-		var oStoreData = ARRAY_STORE_ITEMS[0]; // ARRAY_STORE_ITEMS.find( rank => rank.rank_restriction === nRank );
+		                                                         
+		var oStoreData = ARRAY_STORE_ITEMS[0];                                                                      
 
-		$.Msg( oStoreData.storeids[ 0 ] );
+		                                  
 		oStoreData.storeids.forEach( element => {
 
 			var elRow = $.CreatePanel( 'Panel', elParent, element );
@@ -256,7 +256,7 @@ var StarsShoppingCart = ( function()
 			elRow.Data().quantity = 0;
 			elRow.Data().starsCount = starsCount;
 
-			// Set all the static info
+			                          
 			if ( !discount )
 			{
 				elRow.AddClass( 'popup-operation-store-row--no-discount' );
@@ -273,7 +273,7 @@ var StarsShoppingCart = ( function()
 			elRow.SetDialogVariable( 'store-item-sale-price', ItemInfo.GetStoreSalePrice( fauxItemId, 1 ) );
 			elRow.SetDialogVariableInt( 'store-item-quantity', elRow.Data().quantity );
 
-			// increment decriment Buttons
+			                              
 			elRow.FindChildInLayoutFile( 'popup-operation-store-count-increment' ).enabled = !bIsPreview;
 			elRow.FindChildInLayoutFile( 'popup-operation-store-count-increment' ).SetPanelEvent(
 				'onactivate',
@@ -298,7 +298,7 @@ var StarsShoppingCart = ( function()
 			return;
 
 		if ( elRow.Data().starsCount == MAX_QUANTITY )
-		{	// reset all other rows when clicking the mega button
+		{	                                                     
 			elRow.GetParent().Children().forEach( elOtherRow => {
 				if ( elOtherRow.Data() && elOtherRow.Data().starsCount ) {
 					while ( elOtherRow.Data().quantity > 0 )
@@ -333,7 +333,7 @@ var StarsShoppingCart = ( function()
 		elRow.SetDialogVariable( 'store-item-purchase-price', price );
 		elRow.SetDialogVariable( 'store-item-stars-quantity', dispQuantity );
 		
-		// Update totals and the spinners
+		                                 
 		var totalStarCount = _UpdateTotals();
 		elRow.GetParent().Children().forEach( elOtherRow => {
 			if ( elOtherRow.Data() && elOtherRow.Data().starsCount ) {
@@ -430,7 +430,7 @@ var StarsShoppingCart = ( function()
 			}
 
 			m_scheduleHandle = $.Schedule( 5, _CancelWaitforCallBack );
-			$.Msg( 'popup_operation_store.js: scheduled _CancelWaitforCallBack ' + m_scheduleHandle );
+			                                                                                          
 
 			$.GetContextPanel().FindChildInLayoutFile( 'op-Store-spinner' ).RemoveClass( 'hidden' );
 			btn.AddClass( 'hidden' );
@@ -453,8 +453,8 @@ var StarsShoppingCart = ( function()
 
 	var _CancelWaitforCallBack = function( )
 	{
-		$.Msg( 'popup_operation_store.js: _CancelWaitforCallBack fired! ' + m_scheduleHandle );
-		if ( !m_scheduleHandle ) return; // weird callbacks behaviour - if it was cancelled before it fired then don't put up a dialog
+		                                                                                       
+		if ( !m_scheduleHandle ) return;                                                                                              
 		m_scheduleHandle = null;
 		
 		var elSpinner = $.GetContextPanel().FindChildInLayoutFile( 'op-Store-spinner' );
@@ -473,7 +473,7 @@ var StarsShoppingCart = ( function()
 
 	var _ResetTimeouthandle = function()
 	{
-		$.Msg( 'popup_operation_store.js: _ResetTimeouthandle called ' + ( m_scheduleHandle ? '(was scheduled) ': '(n/a) ' ) + m_scheduleHandle );
+		                                                                                                                                          
 		if ( m_scheduleHandle )
 		{
 			$.CancelScheduled( m_scheduleHandle );
@@ -499,7 +499,7 @@ var StarsShoppingCart = ( function()
 		
 		if ( aDefNames.includes( InventoryAPI.GetItemDefinitionName( ItemId ) ) )
 		{
-			$.Msg( ItemId );
+			                
 			_ResetTimeouthandle();
 
 			$.DispatchEvent( 'HideStoreStatusPanel' );
@@ -558,7 +558,7 @@ var StarsShoppingCart = ( function()
 	{
 		var nStarsNeeded = $.GetContextPanel().GetAttributeInt( 'starsneeded', 0 );
 
-		$.Msg( 'starsNeeded' + nStarsNeeded );
+		                                      
 		if ( nStarsNeeded < 1 )
 		{
 			return;
@@ -570,12 +570,12 @@ var StarsShoppingCart = ( function()
 
 		elRows.forEach( row =>
 		{
-			// $.Msg( 'amount:' + amount + '/ starsCount: ' + row.Data().starsCount );
+			                                                                          
 			amount = amount / row.Data().starsCount;
 
 			if ( Math.floor( amount ) > 0 )
 			{
-				// $.Msg( 'floor: ' + Math.floor( amount ) );
+				                                             
 				for ( var i = 0; i < Math.floor( amount ); i++ )
 				{
 					_AddItem( row );
@@ -613,9 +613,9 @@ var StarsShoppingCart = ( function()
 		Init: _Init,
 		nStarsInCart: _nStarsInCart,
 		SelectStoreTab: _SelectStoreTab,
-	//DEVONLY{
-		SetYourRankIndicator: _SetYourRankIndicator,
-	//}DEVONLY
+	          
+		                                            
+	          
 		UpdateStoreBasedOnCoinRank: _UpdateStoreBasedOnCoinRank,
 		ResetTimeouthandle: _ResetTimeouthandle,
 		ItemAcquired: _ItemAcquired,

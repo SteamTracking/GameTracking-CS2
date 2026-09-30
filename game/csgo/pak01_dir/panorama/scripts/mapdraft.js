@@ -10,8 +10,6 @@ var MapDraft;
     const _m_phaseTitleText = _m_cp.FindChildInLayoutFile('id-map-draft-phase-info');
     const _m_rowsContainer = _m_cp.FindChildInLayoutFile('id-map-draft-phase-rows');
     const _m_rowPhaseName = 'id-map-draft-phase-buttons-container';
-    //#define TEAM_TERRORIST	2
-    //#define TEAM_CT			3
     const _m_nT = 2;
     const _m_nCt = 3;
     let _m_msLastSoundTimestamp = (new Date()).getTime();
@@ -19,16 +17,13 @@ var MapDraft;
         const msTimestampNow = (new Date()).getTime();
         if (msThrottleRequired && (msThrottleRequired > 0)) {
             if (msTimestampNow - _m_msLastSoundTimestamp < msThrottleRequired)
-                return; // do not play this sound, throttle is required and we need to wait it out
+                return;
         }
         $.DispatchEvent('CSGOPlaySoundEffect', strSoundEffect, 'MOUSE');
         _m_msLastSoundTimestamp = msTimestampNow;
     }
     function _Update() {
         let sGameUiState = GameStateAPI.GetCSGOGameUIStateName();
-        $.Msg('GameStateAPI.GetCSGOGameUIStateName(): ' + sGameUiState);
-        $.Msg('MatchDraftAPI.GetDraft(): ' + MatchDraftAPI.GetDraft());
-        $.Msg('MatchDraftAPI.GetIngamePhase(): ' + MatchDraftAPI.GetIngamePhase());
         let bThisPanelIsVisible = true;
         if (sGameUiState === 'CSGO_GAME_UI_STATE_LOADINGSCREEN' || MatchDraftAPI.GetDraft() !== 'ingame' || MatchDraftAPI.GetIngamePhase() < 1) {
             bThisPanelIsVisible = false;
@@ -50,31 +45,21 @@ var MapDraft;
             _m_rowsContainer.RemoveAndDeleteChildren();
             return;
         }
-        //Show the panel
         _m_cp.visible = true;
         _m_cp.SetHasClass('map-draft--show', true);
-        //
-        // Custom rules for when to play a "click" sound
-        // ... we don't want enemy selections to spam it, we don't want our teammates
-        // to spam it ... basically just play it only when the phase changes
-        //
-        if (MatchDraftAPI.GetIngamePhase() != _m_nPhase) { // phase changed, play a gong hit sound
+        if (MatchDraftAPI.GetIngamePhase() != _m_nPhase) {
             _PlaySoundEffect('tab_mainmenu_watch');
         }
-        else { // other players voted, play a subtle click but no more frequently than once a second
-            // if it's my team's turn to act and teammates are voting
+        else {
             const ingameTeamToActNow = MatchDraftAPI.GetIngameTeamToActNow();
             if (ingameTeamToActNow && (ingameTeamToActNow == GameStateAPI.GetPlayerTeamNumber(MyPersonaAPI.GetXuid()))) {
                 _PlaySoundEffect('UIPanorama.mainmenu_rollover', 400);
             }
         }
-        //Update the Phase
         _m_nPhase = MatchDraftAPI.GetIngamePhase();
-        $.Msg('_m_nPhase: ' + _m_nPhase);
-        if (_m_nPhase > 6) { // Clamp the phase to 6 = "start match"
+        if (_m_nPhase > 6) {
             _m_nPhase = 6;
         }
-        // Hide old Phase btns if we have a new phase
         _HideFinishedPhaseRows();
         _MakeVoteButtons(_UpdateButtonsRow());
         _UpdateActionText();
@@ -96,7 +81,6 @@ var MapDraft;
         }
     }
     function _UpdateButtonsRow() {
-        // Find this phase's container
         let elContainer = _m_rowsContainer.FindChildInLayoutFile(_m_rowPhaseName + _m_nPhase);
         if (!elContainer) {
             elContainer = $.CreatePanel('Panel', _m_rowsContainer, _m_rowPhaseName + _m_nPhase);
@@ -123,10 +107,7 @@ var MapDraft;
     }
     function _MakeVoteButtons(elContainer) {
         if (_m_nPhase === 1) {
-            // Ban first or pick team later
             _m_isThisPhasePick = true;
-            // Your team need to be in the slot to ban first
-            // You are actually voting for your team to ban first or other team to pick team later
             const nYourTeam = GameStateAPI.GetPlayerTeamNumber(MyPersonaAPI.GetXuid());
             const nOtherTeam = nYourTeam === _m_nT ? _m_nCt : _m_nT;
             _MakeButton(elContainer, {
@@ -149,7 +130,6 @@ var MapDraft;
             });
         }
         else if (_m_nPhase === 5) {
-            // Pick Starting side
             _m_isThisPhasePick = true;
             _MakeButton(elContainer, {
                 id: 'id-phase-5-btn-start-ct',
@@ -175,13 +155,11 @@ var MapDraft;
             _MakeLargeMap(elContainer, 'map-draft-phase-pick-map-image--large');
         }
         else if (_m_nPhase < 5) {
-            // Map Vetos
             _m_isThisPhasePick = false;
             const aVoteIds = MatchDraftAPI.GetIngameMapIdsList().split(',');
             for (let i = 0; i < aVoteIds.length; i++) {
                 const nVoteId = parseInt(aVoteIds[i]);
                 const mapName = DeepStatsAPI.MapIDToString(nVoteId);
-                // Skip making maps in the final ban phase that have already been vetoed
                 if (_m_nPhase !== 4 ||
                     (_m_nPhase === 4 && MatchDraftAPI.GetIngameTeamToActNow() !== GameStateAPI.GetPlayerTeamNumber(MyPersonaAPI.GetXuid())) ||
                     (_m_nPhase === 4 && MatchDraftAPI.GetIngameTeamToActNow() === GameStateAPI.GetPlayerTeamNumber(MyPersonaAPI.GetXuid()) &&
@@ -223,17 +201,14 @@ var MapDraft;
         }
         elButton.SetHasClass('map-draft-phase-button__status--positive', oBtnData.ispick);
         elButton.enabled = true;
-        // Not your turn to vote or the map is already vetoed.
         if (MatchDraftAPI.GetIngameTeamToActNow() !== GameStateAPI.GetPlayerTeamNumber(MyPersonaAPI.GetXuid()) ||
             oBtnData.hasOwnProperty('mapstatus') && oBtnData.mapstatus === 'veto') {
             elButton.SetHasClass('map-draft-phase-button--vetoed', oBtnData.mapstatus === 'veto');
             elButton.enabled = false;
             return;
         }
-        // Who voted for this from my team.
         const aVotedXuids = MatchDraftAPI.GetIngameXuidsForVote(Number(oBtnData.voteid)).split(',');
         elButton.SetHasClass('map-draft-phase-button--selected', aVotedXuids.indexOf(MyPersonaAPI.GetXuid()) !== -1);
-        // Is this tile winning the vote.
         if (MatchDraftAPI.GetIngameXuidsForVote(Number(oBtnData.voteid))) {
             const aVoteIds = MatchDraftAPI.GetIngameWinningVotes().split(',');
             elButton.SetHasClass('map-draft-phase-button--winning-vote', aVoteIds.indexOf(oBtnData.voteid.toString()) !== -1);
@@ -241,7 +216,6 @@ var MapDraft;
         else {
             elButton.SetHasClass('map-draft-phase-button--winning-vote', false);
         }
-        // Fill out avatars that voted.
         const elAvatarsContainer = elButton.FindChildInLayoutFile('id-map-draft-phase-avatars-container');
         elAvatarsContainer.RemoveAndDeleteChildren();
         for (let i = 0; i < aVotedXuids.length; i++) {
@@ -250,31 +224,24 @@ var MapDraft;
     }
     function _OnActivateVoteTile(elContainer, oBtnData) {
         const aCurrentVotes = _GetCurrentVotes();
-        // You are trying to unselect an already selected btn and you already selected.
         const matchingVoteSlot = aCurrentVotes.indexOf(oBtnData.voteid);
         if (matchingVoteSlot !== -1) {
-            $.Msg("Vote Remove, Phase: " + _m_nPhase + " slot: " + matchingVoteSlot + "voteid" + 0);
             MatchDraftAPI.ActionIngameCastMyVote(_m_nPhase, matchingVoteSlot, 0);
             _PlaySoundEffect('buymenu_select');
             return;
         }
-        // Filter out panels that are not vote btns.
         const aBtns = elContainer.Children().filter(btn => btn.Data().voteid);
-        // If you are on pick that only has 2 options. Unselect the selected option and set this one.
         if (aBtns.length < 3) {
             MatchDraftAPI.ActionIngameCastMyVote(_m_nPhase, 0, oBtnData.voteid);
             _PlaySoundEffect('buymenu_purchase');
             return;
         }
-        // Let you vote if you are allowed.
         const freeSlot = _GetFirstFreeVoteSlot(aCurrentVotes);
         if (freeSlot !== null) {
-            $.Msg("Vote Sent, Phase: " + _m_nPhase + " slot: " + freeSlot + " voteid: " + oBtnData.voteid);
             MatchDraftAPI.ActionIngameCastMyVote(_m_nPhase, freeSlot, oBtnData.voteid);
             _PlaySoundEffect('buymenu_purchase');
         }
         else {
-            // Show already selected btns
             for (let btn of aBtns) {
                 if (btn.BHasClass('map-draft-phase-button--selected')) {
                     btn.RemoveClass('map-draft-phase-button--pulse');
@@ -289,7 +256,6 @@ var MapDraft;
         for (let i = 0; i < _GetNumVoteSlots(); i++) {
             const voteId = MatchDraftAPI.GetIngameMyVoteInSlot(i) || "empty";
             aCurrentVotes.push(voteId);
-            $.Msg("voteId: " + voteId);
         }
         return aCurrentVotes;
     }
@@ -324,7 +290,6 @@ var MapDraft;
             _m_cp.FindChildInLayoutFile('id-map-draft-phase-wait').text = $.Localize('#matchdraft_phase_action_wait_' + _m_nPhase);
             return;
         }
-        // Buttons update before this so we can count how many buttons are selected for this phase
         const elContainer = _m_rowsContainer.FindChildInLayoutFile(_m_rowPhaseName + _m_nPhase);
         const nPickedMaps = elContainer.Children().filter(btn => btn.BHasClass('map-draft-phase-button--selected'));
         _m_cp.SetDialogVariableInt('maps', nPickedMaps.length);
@@ -348,11 +313,8 @@ var MapDraft;
             elMapImage.AddClass(style);
             const nYourTeam = GameStateAPI.GetPlayerTeamNumber(MyPersonaAPI.GetXuid());
             const nOtherTeam = nYourTeam === _m_nT ? _m_nCt : _m_nT;
-            // If you Banned fist then other team pick the starting side
-            // If they picked the same side as you then you will start as the opposite team.
             const nStartingTeam = (MatchDraftAPI.GetIngameTeamWithFirstChoice() === MatchDraftAPI.GetIngameTeamStartingCT())
                 ? nOtherTeam : nYourTeam;
-            $.Msg("nStartingTeam " + nStartingTeam);
             const teamLogo = nStartingTeam === _m_nT ? 't_logo.svg' : 'ct_logo.svg';
             const startingTeam = nStartingTeam === _m_nT ? '#CSGO_Inventory_Team_T' : '#CSGO_Inventory_Team_CT';
             elContainer.FindChildInLayoutFile('id-map-draft-starting-team').visible = true;
@@ -362,20 +324,15 @@ var MapDraft;
     }
     function _PopulatePlayerList() {
         const yourXuid = MyPersonaAPI.GetXuid();
-        // when spectator/hltv, account for yourXuid not being on any team
-        $.Msg('_PopulatePlayerList');
-        // Get player on server
         const oPlayerData = GameStateAPI.GetPlayerDataJSO();
-        // Go through each team we care about and update the players
         const teamNames = ['TERRORIST', 'CT'];
         let iYourXuidTeamIdx = 1;
         for (let iTeam = 0; iTeam < teamNames.length; ++iTeam) {
             const teamName = teamNames[iTeam];
             const teamIndex = oPlayerData.teams.findIndex(t => t.name === teamName);
-            if (iTeam === 0 && oPlayerData.players.find(p => p.team === teamIndex)) { // check first team whether it contains your player? if yes => you are team0; else => you are team1
+            if (iTeam === 0 && oPlayerData.players.find(p => p.team === teamIndex)) {
                 iYourXuidTeamIdx = 0;
             }
-            // check if you are in the player list and assing the correct list.
             const teamPanelId = (iYourXuidTeamIdx === iTeam) ? 'id-map-draft-phase-your-team' : 'id-map-draft-phase-other-team';
             const elTeammates = _m_cp.FindChildInLayoutFile(teamPanelId).FindChild('id-map-draft-phase-avatars');
             elTeammates.RemoveAndDeleteChildren();
@@ -405,7 +362,6 @@ var MapDraft;
             elAvatar.FindChildTraverse('JsAvatarImage').PopulateFromSteamID(xuid);
             const teamColor = GameStateAPI.GetPlayerColor(xuid);
             const elTeamColor = elAvatar.FindChildInLayoutFile('JsAvatarTeamColor');
-            $.Msg('teamColor: ' + teamColor);
             if (!teamColor) {
                 elTeamColor.visible = false;
             }
@@ -418,7 +374,6 @@ var MapDraft;
     }
     function _AddOpenPlayerCardAction(elAvatar, xuid) {
         elAvatar.SetPanelEvent("onactivate", () => {
-            // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
             $.DispatchEvent('SidebarContextMenuActive', true);
             if (xuid !== "0") {
                 const contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, () => $.DispatchEvent('SidebarContextMenuActive', false));
@@ -438,9 +393,6 @@ var MapDraft;
             $.UnregisterForUnhandledEvent(h[0], h[1]);
         }
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), _OnReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), _OnUnreadyForDisplay);

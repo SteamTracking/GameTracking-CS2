@@ -6,6 +6,8 @@
 .?AVCAvi@@
 .?AVIAvi@@
 .avi
+2\vpX
+2\vpp
 AVI '%s' not found\n
 AVIERR_BADFLAGS
 AVIERR_BADFORMAT: corrupt file or unrecognized format
@@ -51,10 +53,12 @@ CUtlLeanVectorBase<struct UtlLinkedListElem_t<class CAVIMaterial *,unsigned shor
 CUtlLeanVectorBase<struct UtlLinkedListElem_t<class CAviFile,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 REGDB_E_CLASSNOTREG: file type not recognised
 RSDSL\f
+R\fpX
 SetRect
 Success
 Unable to find valid AVI decompressor for AVI material "%s"\n
 dev/avi/renderavi.vmat
 materials/error.vmat
+r\vpX
 unknown avi result code
 valve_avi.dll

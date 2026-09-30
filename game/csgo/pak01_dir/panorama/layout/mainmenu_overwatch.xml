@@ -21,7 +21,6 @@
 					<Label class="overwatch-content__subheader" text="#Panorama_Overwatch_Tooltip_sh3" html="true" />
 					<Label class="overwatch-content__paragraph" text="#Panorama_Overwatch_Tooltip_p4" html="true" />
 				</Panel>
-				<TextButton class="FlatButton" unlocalized="true" text="TEST SHOW VERDICT POPUP" onactivate="mainmenu_overwatch.ShowVerdictPopup();" />
 			</Panel>
 			<Panel class="content-controls-actions-bar overwatch-actions-bar">
 				<ProgressBar id="overwatch-downloading-progress" class="overwatch-case-downloading__progressbar" />

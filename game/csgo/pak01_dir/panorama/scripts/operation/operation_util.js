@@ -6,7 +6,7 @@ var OperationUtil = ( function () {
 	var m_numTierUnlocked = 0;
 	var m_numMissionsCompleted = 0;
 
-	// Used to populate store
+	                         
 	var m_nRedeemableGoodsCount = 0;
 
 	var m_numMissionsRewardThresholds = 0;
@@ -22,19 +22,19 @@ var OperationUtil = ( function () {
 
 	var _ValidateOperationInfo = function( nSeasonAccess )
 	{
-		// Get the operation number we want to look at.
-		// Then store the data for hit.
-		// If you want the data updated the call this again to get the latest data
+		                                               
+		                               
+		                                                                          
 		m_nSeasonAccess = nSeasonAccess;
 		
 		if ( nSeasonAccess < 0 || nSeasonAccess === null || nSeasonAccess === undefined )
 			return false;
 		
 		m_nSeasonAccess = nSeasonAccess;
-		$.Msg( ' --- season_access=' + m_nSeasonAccess );
+		                                                 
 
 		m_nCoinRank = MyPersonaAPI.GetMyMedalRankByType( ( m_nSeasonAccess + 1 ) + "Operation$OperationCoin" );
-		$.Msg( ' --- m_nCoinRank=' + m_nCoinRank );
+		                                           
 
 		m_bPrime = PartyListAPI.GetFriendPrimeEligible( MyPersonaAPI.GetXuid() );
 		m_nRewardsCount = MissionsAPI.GetSeasonalOperationTrackRewardsCount( m_nSeasonAccess );
@@ -42,11 +42,11 @@ var OperationUtil = ( function () {
 		m_nLoopingRewardsCount = MissionsAPI.GetSeasonalOperationLoopingRewardsCount( m_nSeasonAccess );
 		m_numMissionsRewardThresholds = MissionsAPI.GetSeasonalOperationXpRewardsThresholds( m_nSeasonAccess );
 
-		// Find the index of the SO cache entry representing the requested operation (and double-check the matching season value)
+		                                                                                                                         
 		var idxOperation = InventoryAPI.GetCacheTypeElementIndexByKey( 'SeasonalOperations', m_nSeasonAccess );
 		if ( idxOperation != undefined && idxOperation != null
 			&& InventoryAPI.GetCacheTypeElementFieldByIndex( 'SeasonalOperations', idxOperation, 'season_value' ) == m_nSeasonAccess )
-		{	// double-check the matching season value and print stats
+		{	                                                         
 			m_numMissionsCompleted = InventoryAPI.GetCacheTypeElementFieldByIndex( 'SeasonalOperations', idxOperation, 'missions_completed' );
 			m_numTierUnlocked = InventoryAPI.GetCacheTypeElementFieldByIndex( 'SeasonalOperations', idxOperation, 'tier_unlocked' );
 			if ( m_nRedeemableGoodsCount && m_nRedeemableGoodsCount > 0 )
@@ -64,7 +64,7 @@ var OperationUtil = ( function () {
 		}
 		else
 		{
-			$.Msg( '--- user is new to this operation' );
+			                                             
 
 			m_numMissionsCompleted = 0;
 			m_numTierUnlocked = 0;
@@ -75,26 +75,26 @@ var OperationUtil = ( function () {
 
 		_AddLoopingRewardsToDisplay();
 
-		$.Msg( '--- active card=' + m_nActiveCardIndex );
-		$.Msg( '--- missions_completed=' + m_numMissionsCompleted );
-		$.Msg( '--- xprewards=' + m_numMissionsRewardThresholds );
-		$.Msg( '--- redeemable_balance=' + m_numRedeemableBalance );
-		$.Msg( '--- tier_unlocked=' + m_numTierUnlocked );
-		$.Msg( '--- premium=' + m_bPremiumUser );
-		$.Msg( '--- prime=' + m_bPrime );
-		$.Msg( '--- m_nRewardsCount=' + m_nRewardsCount );
-		$.Msg( '--- m_nRedeemableGoodsCount=' + m_nRedeemableGoodsCount );
+		                                                 
+		                                                            
+		                                                          
+		                                                            
+		                                                  
+		                                         
+		                                 
+		                                                  
+		                                                                  
 
 		return true;
 	};
 
 	var _AddLoopingRewardsToDisplay = function()
 	{
-		// How many rewards will we display?
+		                                    
 		if ( m_nLoopingRewardsCount > 0 )
-		{	// also display one full extra loop of the track
+		{	                                                
 			m_nRewardsCount += m_nLoopingRewardsCount;
-			// and if the user is already on the loop then display the next loop too
+			                                                                        
 			while ( m_numTierUnlocked > m_nRewardsCount - m_nLoopingRewardsCount )
 			{
 				m_nRewardsCount += m_nLoopingRewardsCount;
@@ -104,7 +104,7 @@ var OperationUtil = ( function () {
 
 	var _GetObjValue= function( bHasStoreItems, rewardIndex, item )
 	{
-		// console.log(item);
+		                     
 		var data;
 		
 		if( bHasStoreItems )
@@ -116,7 +116,7 @@ var OperationUtil = ( function () {
 			data = MissionsAPI.GetSeasonalOperationTrackRewardSchema( m_nSeasonAccess, rewardIndex, item.value );
 		}
 
-		$.Msg( '---_rewardData.item.objHandle=' + rewardIndex + ": " + item.value + ": " + data );
+		                                                                                          
 		if( item.value === 'ui_order')
 		{
 			return data ? data : '';
@@ -132,7 +132,7 @@ var OperationUtil = ( function () {
 		
 		var toolsKey = InventoryAPI.GetRawDefinitionKey( rewardId, "inv_container_and_tools" ); 
 
-		$.Msg( '---toolsKey' + toolsKey );
+		                                  
 
 		if( ( toolsKey === "weapon_case" ) )
 		{
@@ -159,14 +159,14 @@ var OperationUtil = ( function () {
 
 	var _GetRewardsData = function()
 	{
-		//Run validate before you call this.
+		                                    
 		if ( !m_nSeasonAccess || m_nSeasonAccess === -1 )
 		{
 			return;
 		}
 		var bHasStoreItems = _HasStoreItems();
 		var nRewardsCount  = bHasStoreItems ? m_nRedeemableGoodsCount : m_nRewardsCount;
-		$.Msg( '---_GetRewardsData nRewardsCount=' + bHasStoreItems );
+		                                                              
 
 		var aRewardDataFields = [
 			{ objHandle:'points', value: 'points'},
@@ -192,15 +192,15 @@ var OperationUtil = ( function () {
 			_rewardData.idx = i;
 			aRewardDataFields.forEach(function( item, index ) 
 			{
-				$.Msg( '---ASK objHandle=' + item.objHandle );
+				                                              
 				_rewardData[item.objHandle] = _GetObjValue( bHasStoreItems, i, item );
 			});
 
-			// NOTE: both "sRewardName" and "sRewardFree" can be empty strings (missing rewards, definitely not every tier gives free rewards)
-			// we can have arbitrary reward schema for the client, for now let's assume that they are item definition names, 
-			// could change the layout to be defidx number or additional fields later too
-			// if we hang multiple rewards per tier, then we can comma-separate them and split them up, something like:
-			// "item_name_free" "capsule,nametag,sticker";
+			                                                                                                                                  
+			                                                                                                                 
+			                                                                             
+			                                                                                                           
+			                                              
 			var rewardTypes = [
 				{ type: 'premium', names: _rewardData.RewardItemsNames },
 				{ type: 'free', names: _rewardData.FreeRewardItemsNames }
@@ -221,10 +221,10 @@ var OperationUtil = ( function () {
 					{
 						var itemidForReward;
 						if ( reward.startsWith( 'lootlist:' ) )
-						{ // use first item from the lootlist to display
+						{                                               
 							itemidForReward = InventoryAPI.GetLootListItemIdByIndex( reward, 0 );
 						} else
-						{	// real item definition, use that item for display
+						{	                                                  
 							var nDefinitionIndex = InventoryAPI.GetItemDefinitionIndexFromDefinitionName( reward );
 							itemidForReward = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( nDefinitionIndex, 0 );
 						}
@@ -247,7 +247,7 @@ var OperationUtil = ( function () {
 					var idxFistGroupElement = _rewardData.lootlist.length;
 					var strListName = 'lootlist:'+strBaseLootlistName+k;
 					var moreItems = _GetLootListForReward( strListName );
-					$.Msg( '_GetLootListForReward for ' + strListName + ' --> ' + ( moreItems ? moreItems.length : 0 ) );
+					                                                                                                     
 					if ( moreItems.length > 0 )
 					{
 						for ( var mm = 0; mm < moreItems.length; ++ mm )
@@ -282,11 +282,11 @@ var OperationUtil = ( function () {
 		{
 			for ( var i = 0; i < count; i++ )
 			{
-				//
-				// Special operation code -- graffiti items inside lootlists for
-				// operation rewards get some random tints so that display was
-				// a little more interesting
-				//
+				  
+				                                                                
+				                                                              
+				                            
+				  
 				var itemId = InventoryAPI.GetLootListItemIdByIndex( rewardId, i );
 				if ( ItemInfo.IsSprayPaint( itemId ) || ItemInfo.IsSpraySealed( itemId ) )
 				{
@@ -301,7 +301,7 @@ var OperationUtil = ( function () {
 
 	function _IfOperationEndedGetExtendedSeasonWithRedeemableBalance( bAlwaysShowOperationEndedMessageBox )
 	{
-		var nActiveSeason = 10; // April 2021 <vitaliy> Limited time after the operation is over we still allow users to access the operation shop
+		var nActiveSeason = 10;                                                                                                                   
 		
 		if ( bAlwaysShowOperationEndedMessageBox )
 		{
@@ -332,10 +332,10 @@ var OperationUtil = ( function () {
 			);
 
 			elPopup.SetAttributeInt( "starsneeded", starsNeeded );
-			$.Msg( 'starsNeeded' + starsNeeded + ' , id: ' + elPopup.id );
+			                                                              
 			
 			var oOldStarsActivate = _UpdateOldStars();
-			$.Msg( 'oOldStarsActivate: ' + oOldStarsActivate.ids.length + ' ' + ( ( oOldStarsActivate.ids.length > 0 ) ? oOldStarsActivate.ids.join( ', ' ) : 'n/a' ) );
+			                                                                                                                                                            
 			if ( oOldStarsActivate.ids.length > 0 )
 			{
 				elPopup.SetAttributeString( "oldstarstoactivate", oOldStarsActivate.ids.join( ',' ) );
@@ -374,7 +374,7 @@ var OperationUtil = ( function () {
 
 		$.DispatchEvent( 'CSGOPlaySoundEffect', 'tab_mainmenu_inventory', 'MOUSE' );
 
-		// If the operation is over then nothing to open
+		                                                
 		var nActiveSeason = GameTypesAPI.GetActiveSeasionIndexValue();
 		if ( nActiveSeason < 0 )
 		{
@@ -428,7 +428,7 @@ var OperationUtil = ( function () {
 
 	var _MissionsThatMatchYourMatchMakingSettings = function( SessionGameMode, sessionMaps, nSeasonAccess )
 	{
-		// var activeCardIndx = MissionsAPI.GetSeasonalOperationMissionCardActiveIdx( nSeasonAccess );
+		                                                                                              
 
 		var numMissionCards = MissionsAPI.GetSeasonalOperationMissionCardsCount( nSeasonAccess );
 		for ( var i = 0; i < numMissionCards; ++ i )
@@ -448,7 +448,7 @@ var OperationUtil = ( function () {
 			var mapGroup = InventoryAPI.GetQuestMapGroup( MissionItemID );
 
 			if ( !mapGroup )
-			{	// some quests in schema do not specify a map group, so build from the map name
+			{	                                                                               
 				mapGroup = 'mg_' + InventoryAPI.GetQuestMap( MissionItemID );
 			}
 

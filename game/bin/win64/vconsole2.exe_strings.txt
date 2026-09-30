@@ -322,7 +322,6 @@ $t5\tEi\fo
 ( %1, %2, %3, %4% )
 ( ?timerEvent@QTabBar@@MEAAXPEAVQTimerEvent@@@Z
 (#?windowModality@QWidget@@QEBA?AW4WindowModality@Qt@@XZ
-(5mD
 (7dt!
 (Custom Colors Disabled)
 (Filter)
@@ -334,6 +333,7 @@ $t5\tEi\fo
 (\v?enterEvent@QToolButton@@MEAAXPEAVQEvent@@@Z
 (bLLDc
 (d.9QN
+(eXD
 (i En
 (p8m
 ) ?timerEvent@QTableView@@MEAAXPEAVQTimerEvent@@@Z
@@ -868,76 +868,72 @@ $t5\tEi\fo
 /]?size@QImage@@QEBA?AVQSize@@XZ
 /s\tIg
 0.0.0.0
+027@
+037@
 03j3
-058@
-066@
 068@
-098@
+06A@
+073@
+083@
 099i 
-0A8@
-0B7@
+0AA@
+0B6@
 0BCDEFGHIJKLMNOPQRSTUVWXYZ1BCDEFGHIJKLMNOPQRSTUVWXYZ2BCDEFGHIJKLMNOPQRSTUVWXYZ3BCDEFGHIJKLMNOPQRSTUVWXYZ4BCDEFGHIJKLMNOPQRSTUVWXYZ\n
-0C7@
-0D7@
-0F3@
-0F8@
-0G8@
-0H8@
-0I8@
+0BI@
+0C3@
+0E3@
+0E8@
+0EA@
+0HH@
 0IDAT8
-0J3@
-0K6@
-0L6@
-0M6@
-0N3@
-0N6@
-0O3@
-0O6@
+0IH@
+0OI@
 0Ou"@
-0P6@
-0PI@
-0Q3@
-0Q6@
-0RA@
-0S3@
-0Tg"
-0V3@
-0VH@
-0W6@
-0WH@
+0R7@
+0RI@
+0S7@
+0S8@
+0T6@
+0TH@
+0UH@
 0Y8@
-0Z8@
 0a)Y
-0b7@
-0bH@
-0cH@
-0j8@
-0lH@
+0bA@
+0c7@
+0cA@
+0d7@
+0dA@
+0e7@
+0f7@
+0gH@
+0h7@
+0h8@
+0i7@
+0k7@
 0m8@
-0mH@
-0s6@
-0s7@
-0sA@
-0t3@
-0t7@
-0t8@
-0tA@
-0u7@
-0uH@
-0v7@
+0n8@
+0o5@
+0oH@
+0p5@
+0p8@
+0q5@
+0q8@
+0qA@
+0r8@
+0sH@
+0w6@
+0w8@
 0x%1
 0x%llx
 0x%p = %s '%s'
-0x7@
-0y7@
-0y8@
-0z7@
+0x6@
+0zH@
 1"?updateGeometry@QWidget@@QEAAXXZ
 1&im*
-11:55:56
-11:56:10
 127.0.0.0
 127.0.0.1:%d
+13:53:01
+13:53:20
 16];h
 16yd
 172.16.0.0
@@ -1207,7 +1203,6 @@ $t5\tEi\fo
 2\nmg
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vpTg"
 2aboutToShow()
 2accepted()
 2actionTriggered( int )
@@ -1272,18 +1267,17 @@ $t5\tEi\fo
 3\v?event@QApplication@@MEAA_NPEAVQEvent@@@Z
 3wn;7:
 4)Br
-416@
+417@
+467@
 49-8
 4>G1_
-4A7@
 4EnP6AI
-4F7@
 4V+2 W
 4[?setRegularExpression@QRegularExpressionValidator@@QEAAXAEBVQRegularExpression@@@Z
 4[YF
 4\n?doItemsLayout@QTreeView@@UEAAXXZ
 4\r?hidePopup@QComboBox@@UEAAXXZ
-4d6@
+4z8@
 5 Line gap\n
 5.15.2
 58OnB!
@@ -1321,40 +1315,40 @@ $t5\tEi\fo
 7u{7"
 8"3hrf
 8&Kx
-818@
-848@
-878@
-888@
 8:9a
-8B8@
-8K3@
-8K8@
-8M3@
-8R3@
+8F8@
+8HA@
+8I3@
+8IA@
+8L7@
+8N7@
+8O7@
+8OA@
 8R7)
-8T3@
-8T7@
-8U3@
-8V8@
+8TH@
+8UH@
 8WWWs
 8XU%
-8YA@
-8ZA@
 8\f?focusOutEvent@QTextBrowser@@MEAAXPEAVQFocusEvent@@@Z
 8\v?event@QCompleter@@MEAA_NPEAVQEvent@@@Z
 8]?size@QPixmap@@QEBA?AVQSize@@XZ
-8a7@
-8a8@
-8bH@
-8cH@
-8gA@
-8k8@
-8l8@
+8c7@
+8d6@
+8d7@
+8e8@
+8f8@
+8g7@
+8j7@
+8j8@
+8jA@
 8liS
-8pA@
-8s7@
-8t7@
-8w7@
+8m7@
+8n5@
+8n7@
+8s8@
+8x8@
+8z6@
+8zH@
 9*x2$
 969p
 98On@
@@ -1760,7 +1754,6 @@ $t5\tEi\fo
 ??MQTreeWidgetItem@@UEBA_NAEBV0@@Z
 ??YQString@@QEAAAEAV0@AEBV0@@Z
 ??YQString@@QEAAAEAV0@PEBD@Z
-?InputBindSystem
 ?QStringList_join@QtPrivate@@YA?AVQString@@PEBVQStringList@@PEBVQChar@@H@Z
 ?Tmx;
 ?Unable to read file %s\n
@@ -3120,6 +3113,7 @@ $t5\tEi\fo
 ?value@QSettings@@QEBA?AVQVariant@@AEBVQString@@AEBV2@@Z
 ?valueToKeys@QMetaEnum@@QEBA?AVQByteArray@@H@Z
 @#?write@QTableWidgetItem@@UEBAXAEAVQDataStream@@@Z
+@0JA@
 @Integer overflow in %s
 @Physics
 @UI4
@@ -3128,7 +3122,6 @@ $t5\tEi\fo
 @\tFFQb
 @\v?event@QFrame@@MEAA_NPEAVQEvent@@@Z
 @fff>fff>fff>fff>
-@hiD
 @iJT
 @spawn
 A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them.
@@ -3215,7 +3208,7 @@ Asserts/Errors Only
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 At Whitespace
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attachment Text - Attachment Text - Attachment Text
 Attempting to register the command %s for context %s multiple times\n
 AuC=
@@ -3226,6 +3219,7 @@ Auto-Restart when any monitored libraries change
 Auto-reload file
 Awx#
 B channel not found!\n
+B8TA@
 BC3qxWc
 BDU5
 BLUq_
@@ -3692,6 +3686,7 @@ CVConsoleSubToolInfo
 CVConsoleSubToolsConfig
 CVertexListSceneObject
 CWeakHandle
+C\B5@
 CalibrationIlluminant1
 CalibrationIlluminant2
 Call C%d:I%d (%s)
@@ -3740,7 +3735,6 @@ CheckState
 CheckmarkPossible
 ChromaBlurRadius
 Ck(E! eY
-ClR5@
 Clamp Float
 Clamp Int
 Clamp value to range (float)
@@ -3857,12 +3851,11 @@ Custom\nColor
 D ?toPlainText@QTextEdit@@QEBA?AVQString@@XZ
 D f(M9h
 D#sC
-D16@
+D17@
 D3nPJ
-DA7@
+D67@
 DBM&(
 DETAILED\nColor
-DF7@
 DISABLED
 DJ1E
 DNGBackwardVersion
@@ -3924,6 +3917,7 @@ Disconnect
 Disconnected From '%1'\n
 Disconnecting From '%1'\n
 Div R%d <- R%d / R%d
+Dn5@
 DockWidgetArea
 DockWidgetTitleBackground
 DocumentName
@@ -4082,8 +4076,8 @@ Flat
 FlatSelection
 Float To Game Time
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -4177,45 +4171,46 @@ Group3Options
 Group4Options
 GvZ<3
 H!0kZj
-H08@
-H0H@
-H68@
-H78@
-H88@
-H98@
-H9iD
+H%ZD
+H27@
+H28@
+H73@
 HAC K  Unused Binding
 HCto
-HJ8@
-HK6@
+HDA@
+HH3@
 HKEY_CURRENT_USER\Software\Valve\GeoView
-HL6@
-HN6@
-HP6@
+HQ7@
+HQZD
+HS7@
+HTH@
+HU8@
+HUH@
 HV &G
 HV.J
-HV8@
-HY3@
+HWH@
 H\fBp
 H\tV_cosd
 Hack Dota Layer Opaque
 Hack Dota Layer Opaque Translucent
-HaiD
 HalftoneHints
 Has All Flags
 Has Any Flags
-HbH@
-HcH@
+Hc7@
+Hd7@
 HeH@
+He[D
 Header Color
 Header Color...
 HeaderCheckStateChanged
 HeaderSectionBackground
 HeaderSectionLine
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 HeroViewer
 Hex:
+Hg7@
 HgBNv
+Hi8@
 Hidden Channels
 HiddenIds
 Hide
@@ -4228,27 +4223,23 @@ Highlight Color...
 Highlight Line Matches
 HighlightColor
 HighlightedText
+Hj7@
 Hj~7!
-Hk6@
+Hl8@
+Hm7@
 Hmx\
-HnQ@
+Hn7@
+Ho5@
 Home
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HorizontalStrafeCamera
 HostComputer
 HoverItemChanged
+Hp5@
 Hp8@
-Hs7@
-HsH@
-Ht6@
-Ht7@
-Hu8@
-Hv8@
-Hw7@
-Hz7@
-Hz8@
+Hx6@
+HzH@
 H}Go-
-H}jD
 I ?toggleViewAction@QDockWidget@@QEBAPEAVQAction@@XZ
 IBindTarget
 IBindableCameraScene
@@ -4400,9 +4391,7 @@ Kill Cursors With Tag
 Koez
 Kt6b}$
 K}QVi1c
-L16@
-LA7@
-LF7@
+L67@
 LMouse
 LMouseDoubleClick
 LT?pixel@QImage@@QEBAIHH@Z
@@ -4459,6 +4448,7 @@ LinkVisited
 Link\t\tB\t
 Listening For Application On '%1'\n
 Listening...
+Ln5@
 LoadEXRImageFromMemory failed! Error message: %s\n
 LoadEXRImageFromMemory() failed! Error message: %s\n
 LoadFromInMemoryEXR( %s ) failed.\n
@@ -4695,6 +4685,7 @@ O.G+e
 O?Et=
 O?installUpdateHandler@QAccessible@@SAP6AXPEAVQAccessibleEvent@@@ZP6AX0@Z@Z
 O?inverted@QTransform@@QEBA?AV1@PEA_N@Z
+OH5@
 OP?isNull@QIcon@@QEBA_NXZ
 O\YZ
 O\fyW
@@ -4938,42 +4929,40 @@ OverlayProjectionDirection
 Overwrite With Current
 P"?updateSection@QHeaderView@@IEAAXH@Z
 P05y
-P0H@
-P48@
-P58@
-P5A@
+P17@
+P1A@
+P37@
+P88@
 P=B A
 P?isValid@QColor@@QEBA_NXZ
 P?isValidColor@QColor@@SA_NAEBVQString@@@Z
 P?itemData@QStandardItemModel@@UEBA?AV?$QMap@HVQVariant@@@@AEBVQModelIndex@@@Z
 P?jumpToNextImage@QImageReader@@QEAA_NXZ
 P?keyboardModifiers@QGuiApplication@@SA?AV?$QFlags@W4KeyboardModifier@Qt@@@@XZ
-PC7@
-PC8@
-PF3@
+PD3@
+PEI@
 PF8@
+PH6@
 PIDAT8
 PJD<
 PJE=9'
 PJIa"\v
-PK3@
-PM6@
-PN3@
+PL7@
+PL8@
+PLI@
+PM8@
 POISONED 
-PQ6@
+PP7@
+PPI@
 PQ]D?
+PR7@
 PRP\vI
-PSI@
+PSH@
+PTH@
+PUH@
 PURH
-PV3@
-PW3@
-PY8@
-PZ7@
-PZI@
 P\f?font@QTableWidgetItem@@QEBA?AVQFont@@XZ
 P\vFE
-Pa8@
-PaH@
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
 PackBitsDecode: discarding %ld bytes to avoid buffer overrun
@@ -4991,20 +4980,25 @@ Pass Outflow
 Paste
 Paste (Overwrite)
 PasteColor
-Pb7@
 PbH@
-Pc8@
-PcH@
+Pc7@
+Pd7@
 Pd8@
+Pe7@
+PeH@
 PerVertexLighting
-Pf8@
+Pf7@
+Pg8@
 PgDn
 PgUp
+Ph7@
+Ph8@
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
 Photoshop
 Physics Debug Draw
+Pi7@
 Pick
 Pick Global Background
 PickCancelled
@@ -5013,18 +5007,18 @@ PitchCameraDown
 PitchCameraUp
 PivotPaint
 PixarLog
+Pk7@
+Pk8@
+Pl7@
+PlH@
 PlaceholderText
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Please close and restart VConsole to update!
-Pm8@
-PmA@
-PmH@
-PnA@
-PnH@
 Policy
 Port: (Default = %1)
-PpH@
+Pp8@
+Pq5@
 Predictor
 PredictorEncodeTile
 PredictorSetup
@@ -5046,19 +5040,20 @@ Properties
 Properties...
 Property '%s.%s' not writable
 Protocol: %d\n
-Ps7@
 PsH@
-Pt7@
 Pt8@
 PtZP
-Pu7@
 Pulse domain which enables particle content to query leaf code to introspect game state.
 Pulse: %s 
-Pv7@
-Px7@
-Py7@
+Pw6@
+Pw8@
+Px8@
+PxH@
+Py8@
 PyNn2FAh
-PzH@
+Pz6@
+Pz8@
+PzA@
 Q1y\tkL
 Q?logicalDotsPerInch@QScreen@@QEBANXZ
 Q?logicalDpiY@QPaintDevice@@QEBAHXZ
@@ -5147,7 +5142,6 @@ R\r?hitTestComplexControl@QProxyStyle@@UEBA?AW4SubControl@QStyle@@W4ComplexContr
 R\rBe
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpTg"
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Rad2 Deg
@@ -5532,16 +5526,14 @@ Sync may be disrupted! Restart from alternate location DISABLED (%1)
 Syncing in progress! Auto Restart pending...
 Syntax error with array notation or invalid splitscreen slot in '%1'.\n
 SystemParametersInfoA
-T16@
+T67@
 T?parent@QStandardItemModel@@UEBA?AVQModelIndex@@AEBV2@@Z
 T?pos@QCursor@@SA?AVQPoint@@XZ
 T?pos@QDropEvent@@QEBA?AVQPoint@@XZ
 T?pos@QMouseEvent@@QEBA?AVQPoint@@XZ
 T?primaryScreen@QGuiApplication@@SAPEAVQScreen@@XZ
-TA7@
 TBZU
 TBbUI
-TF7@
 TGA (*.tga)
 TIFFAppendToStrip
 TIFFClientOpen
@@ -5612,6 +5604,7 @@ TileWidth
 Time since the start of the timer
 TmvSQD
 Tm{X#e
+Tn8@
 Toggle Wireframe Selected
 Toggle mat_fullbright - Does Not Add To History\n
 Toggle mat_wireframe and set Focus back to App.\n
@@ -5850,9 +5843,11 @@ Writable
 Write error at scanline %lu
 W~1Z
 X to the Y power
+X08@
+X18@
+X28@
 X68@
 X78@
-X88@
 X8\r,z
 X?setBrush@QPainter@@QEAAXAEBVQBrush@@@Z
 X?setBrush@QPainter@@QEAAXW4BrushStyle@Qt@@@Z
@@ -5872,49 +5867,56 @@ X?setCoordinateMode@QGradient@@QEAAXW4CoordinateMode@1@@Z
 X?setCosmetic@QPen@@QEAAX_N@Z
 X?setDashOffset@QPen@@QEAAXN@Z
 X?setDashPattern@QPen@@QEAAXAEBV?$QVector@N@@@Z
-XB7@
-XB8@
+XA3@
+XB3@
+XB6@
+XC3@
 XClipPathUnits
-XG3@
-XJ3@
+XE6@
+XEA@
+XFI@
+XG6@
+XJ7@
 XJpQ
-XK6@
+XKI@
 XM3w
 XMLPacket
+XN7@
 XN?hasChildren@QStandardItemModel@@UEBA_NAEBVQModelIndex@@@Z
 XNML
-XO6@
+XO7@
 XPosition
+XRA@
 XResolution
-XTI@
-XVA@
+XTH@
+XU8@
+XUH@
 XW%\vC
-XX3@
 XX?setBackground@QPainter@@QEAAXAEBVQBrush@@@Z
-XYI@
 XYY~
 XYZ, Luv
+XZ8@
 X[[CY
 X\r?horizontalHeader@QTableView@@QEBAPEAVQHeaderView@@XZ
-X\tkD
 X\v?event@QPushButton@@MEAA_NPEAVQEvent@@@Z
-Xa7@
-XbA@
-XbH@
 Xbox VDP is not supported on this platform.
 Xc7@
-XcA@
-XcH@
+Xd7@
 Xe8@
+XeH@
+Xf8@
+Xg7@
 XhD?\
+Xj7@
+Xm7@
 Xm8;
-XnQ@
-Xs7@
-XsH@
-Xt7@
-Xw7@
-Xy8@
-Xz7@
+Xn5@
+Xn7@
+Xn8@
+Xo5@
+Xr5@
+XsA@
+XxH@
 X}zl
 Y?setData@QStandardItem@@UEAAXAEBVQVariant@@H@Z
 Y?setData@QStandardItemModel@@UEAA_NAEBVQModelIndex@@AEBVQVariant@@H@Z
@@ -5932,7 +5934,6 @@ YClipPathUnits
 YO?insertColumns@QStandardItemModel@@UEAA_NHHAEBVQModelIndex@@@Z
 YPosition
 YResolution
-YVkD
 YW?rgb@QColor@@QEBAIXZ
 Y\v?event@QRadioButton@@MEAA_NPEAVQEvent@@@Z
 YawCameraLeft
@@ -6155,7 +6156,7 @@ Z~!|L8\v1H
 \n\f?data@QStringListModel@@UEBA?AVQVariant@@AEBVQModelIndex@@H@Z
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
 \n_V_StringAfterPrefixCaseSensitive
-\nqkD
+\nplB
 \p4u
 \r?dark@QPalette@@QEBAAEBVQBrush@@XZ
 \r?darker@QColor@@QEBA?AV1@H@Z
@@ -6324,14 +6325,11 @@ _wjb
 `?validate@QIntValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QRegularExpressionValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?valueF@QColor@@QEBANXZ
-`InD
 `Q?lightnessF@QColor@@QEBANXZ
 `T?pixmap@QIcon@@QEBA?AVQPixmap@@HW4Mode@1@W4State@1@@Z
 `W?rgba@QColor@@QEBAIXZ
-`YmD
 `\v?event@QSpinBox@@MEAA_NPEAVQEvent@@@Z
 `qok
-`umD
 a { text-decoration: underline; color: %1; }
 a:fulltype
 a:typeparam
@@ -6461,10 +6459,13 @@ cursor_id
 cursors
 curvature
 custom_colors
+d38@
+d67@
 d6J0
 d6ai
 d7(N
-dF7@
+dD6@
+dE8@
 dO{H
 dZr:
 d\f?convertToFormat_helper@QImage@@IEBA?AV1@W4Format@1@V?$QFlags@W4ImageConversionFlag@Qt@@@@@Z
@@ -6658,64 +6659,58 @@ green
 grid
 group_title
 h*CU
-h16@
+h17@
+h28@
+h38@
 h4*3
-h68@
-h88@
-h98@
+h67@
+h83@
 h<7s
-hA8@
-hB8@
-hDA@
-hEA@
-hF8@
-hG8@
-hJ8@
-hM6@
-hN6@
-hQ3@
+hA3@
+hJ7@
+hLA@
+hM7@
 hQXk0F
-hR3@
-hR6@
-hS3@
+hS7@
 hSnX
-hU6@
-hW6@
-hZ7@
+hUH@
+hVH@
 h\r?horizontalScrollbarAction@QTreeView@@MEAAXH@Z
 h\v?event@QTabWidget@@MEAA_NPEAVQEvent@@@Z
 ha?window@QPalette@@QEBAAEBVQBrush@@XZ
 handleDelta
 hbox
-hcH@
+hc7@
 hcenter
-hdH@
+hd7@
 he8@
+heH@
 helpsystem.dll
-hfA@
+hf8@
+hg7@
+hhA@
+hiA@
 hideFromTaskSwitching
 highlightColor
 highlightLineSearchResults
 highlightText
-hj8@
+hj7@
 hjO>
-hkA@
-hl8@
-hn8@
+hm7@
+hn5@
+hn7@
 horizontal differencing 
 horizontalPolicy
 horizontalStretch
 horizontal_header
 horizontal_header_labels
-hs7@
-hsH@
-ht7@
+hq5@
+htH@
 hu8@
-hv8@
-hw7@
-hyA@
+hxH@
 hy\teQ
-hz7@
+hz8@
+hzH@
 i ?topLevelWidgets@QApplication@@SA?AV?$QList@PEAVQWidget@@@@XZ
 i=TZ
 iN_Uh
@@ -6761,7 +6756,6 @@ kX?setBlue@QColor@@QEAAXH@Z
 k\v?event@QTextEdit@@MEAA_NPEAVQEvent@@@Z
 l-%Zk
 lELp
-lF7@
 lJoH
 lR?metaObject@QIntValidator@@UEBAPEBUQMetaObject@@XZ
 l\n?dragEnterEvent@QLineEdit@@MEAAXPEAVQDragEnterEvent@@@Z
@@ -6943,7 +6937,6 @@ n{ey
 o KPBf
 o$FFb
 o>6qai
-oM5@
 oY.o<
 o\n?dragEnterEvent@QWidget@@MEAAXPEAVQDragEnterEvent@@@Z
 o\v?event@QTreeWidget@@MEAA_NPEAVQEvent@@@Z
@@ -6960,96 +6953,100 @@ outputcolor
 oy1\v
 p"?value@QSpinBox@@QEBAHXZ
 p"vb
-p0I@
-p16@
-p48@
-p58@
-p78@
+p07@
+p27@
+p2I@
+p5H@
+p67@
+p68@
 p8d8
+p98@
 p>,iO~L
-pA7@
-pB7@
-pC7@
-pCH@
+pB6@
 pCheckpointName
 pCurrentFocusWidget
+pD3@
 pD3o
+pD6@
 pDescription
 pDevice
+pE3@
+pE6@
 pE8@
-pF3@
-pF7@
+pFA@
 pFilter
 pFromWidget
-pG3@
-pHI@
 pI3@
-pI7@
-pII@
-pJ3@
-pK7@
-pK8@
-pL7@
 pLightRigButton
 pLogViewer
 pModule->%s( 0x%llX )\n
-pO6@
+pN7@
+pO8@
 pObject
+pPH@
 pPrevFocusWidget
-pQ6@
+pQ7@
+pQ8@
+pQH@
+pR7@
+pSH@
 pTagName
-pTg"
 pToWidget
 pToolButton
 pToolsVisModeButton
 pTraceResult
-pV3@
+pU8@
+pUH@
 pV8@
 pV?read@QImageReader@@QEAA?AVQImage@@XZ
-pW6@
+pVH@
+pWH@
 pWidget
-pX6@
-pY8@
+pXH@
 p\n?dragLeaveEvent@QAbstractItemView@@MEAAXPEAVQDragLeaveEvent@@@Z
 p\v?event@QWidget@@MEAA_NPEAVQEvent@@@Z
 p`?type@QStandardItem@@UEBAHXZ
-pa8@
 paH@
 parent
 parent_cursor_id
-pcH@
-pdH@
+pc7@
+pd7@
+pd8@
+pe7@
 peH@
+pf7@
 pfH@
-ph8@
+pgA@
+pgH@
+ph7@
+pi5@
+pi7@
 pi\nH%
 pickedColor
 pixelAspectRatio
-pnH@
-poH@
+pk7@
+pl7@
+po5@
 pointer not found in module list\n
 polymorphic_arg
 port_name
 posxyz
-pp8@
 previous_value
 propattr_flatten_into_parent_row
 propertyeditor
 propertyeditor.dll
-ps7@
-psH@
 pseudo-
-pt7@
+pt8@
 ptH@
-pu7@
 puH@
 pulse_node_custom_attributes
 pulse_open_graph_id %u %u
 pulse_runtime_lib
-pv7@
-px7@
-py7@
-py8@
+pv8@
+pw6@
+px6@
+pxH@
+pz6@
 pz8@
 q12_
 q1AVpx
@@ -7178,14 +7175,11 @@ success\n
 suppress_menu
 system_state
 t*iv`
+t07@
 t2ak
-tC8@
 tEXtSoftware
-tF7@
 tH)a]
-tT6@
 tU3njZkq
-tU8@
 t\n?connect@QObject@@SA?AVConnection@QMetaObject@@PEBV1@AEBVQMetaMethod@@01W4ConnectionType@Qt@@@Z
 t\nhM
 t\t?addFile@QIcon@@QEAAXAEBVQString@@AEBVQSize@@W4Mode@1@W4State@1@@Z
@@ -7237,6 +7231,7 @@ tools_preview
 toolscene
 toolscenenodes
 toolscenevismodes.txt
+tq8@
 transformInverse
 transformVector
 transformVectorToLocal
@@ -7384,45 +7379,55 @@ wxform
 wy)D
 wyS]
 x"?valueFromText@QSpinBox@@MEBAHAEBVQString@@@Z
+x07@
+x08@
 x0Ysqx
-x68@
-x88@
-x98@
-xA7@
-xB8@
-xC8@
+x17@
+x18@
+x28@
+x37@
+x38@
+x5A@
+x63@
+x67@
+x73@
+xBA@
+xD6@
 xEIh
-xF7@
-xH3@
+xG3@
 xIDAT(
-xJ6@
-xK6@
-xL6@
 xOIIQd
-xP6@
-xQ3@
-xTA@
-xZ7@
+xP7@
+xUH@
+xVH@
 x\f?generatedIconPixmap@QCommonStyle@@UEBA?AVQPixmap@@W4Mode@QIcon@@AEBV2@PEBVQStyleOption@@@Z
 x\n?dragLeaveEvent@QListView@@MEAAXPEAVQDragLeaveEvent@@@Z
 xc7@
-xcH@
-xdH@
+xd7@
 xdt,T
+xeH@
 xform
+xg7@
+xg8@
 xi\t%x
+xj7@
+xk8@
+xl8@
 xm#uc
-xmA@
+xm7@
+xn5@
+xn7@
+xo8@
+xoH@
+xp5@
 xpd\
-xs7@
-xsH@
-xt7@
-xu8@
-xv8@
-xw7@
+xq5@
+xq8@
+xr8@
+xtH@
 xwv/
+xxA@
 xxz-<Z]
-xz7@
 y8Ry
 yTTh%
 yU?qt_metacall@QDoubleValidator@@UEAAHW4Call@QMetaObject@@HPEAPEAX@Z

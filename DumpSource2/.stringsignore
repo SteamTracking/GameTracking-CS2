@@ -5157,12 +5157,8 @@ Crosshair color, green component
 Crosshair color, red component
 Crosshair follows the weapon's predicted recoil (aim punch)
 Crosshair opacity. 0 = fully transparent, 255 = fully opaque
-Crosshair outline color, blue component
-Crosshair outline color, green component
-Crosshair outline color, red component
-Crosshair outline opacity. 0 = fully transparent, 255 = fully opaque
 Crosshair shown when observing a bot. 0 = show your crosshair, 1 = show your crosshair only when the bot can be taken over (otherwise default), 2 = always show the default crosshair
-Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square, 9 = Static Quad.
+Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square. Styles 0, 1 and 7 track the weapon's actual inaccuracy.
 Crouch
 Crouch height
 Crouch height of navigating agent capsules if enabled.
@@ -5995,6 +5991,7 @@ EHitGroup
 EHudPanelClassStatus_t
 EIKEndEffectorRotationFixUpMode
 EInButtonState
+EInitSystemResult
 EKillTypes_t
 ELEMENT
 ELEMENT_ACCESS
@@ -8337,6 +8334,7 @@ Invert Phase
 InvincibleAbsorb
 InvinciblePassthrough
 Iron Sights
+Ironsight dot scale
 Ironsight filter alpha
 Ironsight min channel color value
 Is Angle
@@ -12774,7 +12772,6 @@ SceneViewId_t
 Schema Enum
 SchemaSystem
 SchemaSystem_001
-Scope dot scale
 Scramble the teams and restart the game
 Scratch Target
 Screen
@@ -13812,6 +13809,7 @@ Space in which the up direction is defined.
 Space in which the up target is defined.
 Spacing Scale
 Spacing between points on the path
+Spacing between ticks on the grenade throw crosshair
 SparkOnce
 SparkType
 SparseShadowTree
@@ -16925,10 +16923,6 @@ cl_crosshaircolor_b
 cl_crosshaircolor_g
 cl_crosshaircolor_r
 cl_crosshairdot
-cl_crosshairoutline_a
-cl_crosshairoutline_b
-cl_crosshairoutline_g
-cl_crosshairoutline_r
 cl_crosshairsize
 cl_crosshairstyle
 cl_crosshairthickness
@@ -17095,6 +17089,7 @@ cl_grenadecrosshair_fire
 cl_grenadecrosshair_flash
 cl_grenadecrosshair_keepusercrosshair
 cl_grenadecrosshair_smoke
+cl_grenadecrosshair_tickinterval
 cl_grenadecrosshair_ticklabels
 cl_grenadecrosshair_tickscaling
 cl_grenadecrosshairdelay_decoy
@@ -20253,6 +20248,15 @@ k_EGCToGCMsgMasterAckResponse
 k_EGCToGCMsgMasterStartupComplete
 k_EGCToGCMsgRouted
 k_EGCToGCMsgRoutedReply
+k_EInitSystemResult_Existing
+k_EInitSystemResult_FailedInit
+k_EInitSystemResult_FailedOpen
+k_EInitSystemResult_Invalid
+k_EInitSystemResult_Max
+k_EInitSystemResult_Mismatch
+k_EInitSystemResult_None
+k_EInitSystemResult_NotFound
+k_EInitSystemResult_Success
 k_EMsgGCAckPetEvent
 k_EMsgGCAcknowledgeRentalExpiration
 k_EMsgGCAddItemToSocketResponse_DEPRECATED
@@ -20316,7 +20320,11 @@ k_EMsgGCCStrike15_v2_DraftSummary
 k_EMsgGCCStrike15_v2_FantasyRequestClientData
 k_EMsgGCCStrike15_v2_FantasyUpdateClientData
 k_EMsgGCCStrike15_v2_GC2ClientGlobalStats
+k_EMsgGCCStrike15_v2_GC2ClientInitSystem
+k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response
 k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop
+k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
+k_EMsgGCCStrike15_v2_GC2ClientRequestValidation
 k_EMsgGCCStrike15_v2_GC2ClientTextMsg
 k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo
 k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
@@ -25073,7 +25081,6 @@ m_flArmorRatio
 m_flArrivalEpsilon
 m_flAspectRatio
 m_flAttack
-m_flAttackHoldStartTime
 m_flAttackMovespeedFactor
 m_flAttackTime
 m_flAttackTimeMS
@@ -34253,9 +34260,6 @@ r_csgo_cmaa_debug_edges
 r_csgo_cmaa_enable
 r_csgo_cmaa_extra_sharp
 r_csgo_cmaa_quality
-r_csgo_crosshair_debug_tiles
-r_csgo_crosshair_debug_tiles_count_red
-r_csgo_crosshair_tile_size
 r_csgo_csm_max_visible_distance
 r_csgo_csm_max_visible_distance_preview
 r_csgo_csm_override_staticgeo_cascades_alphatest

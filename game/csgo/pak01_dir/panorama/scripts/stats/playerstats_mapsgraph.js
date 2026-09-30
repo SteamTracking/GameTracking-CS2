@@ -1,6 +1,6 @@
-// playerstats_mapsgraph.js
-// 
-// 
+                           
+   
+   
 
 "use strict"; 
 
@@ -15,13 +15,13 @@ var MapSpiderGraph = ( function ()
 	 };
 })();
 
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                           
+                                                                                                    
 (function()
 {
 	MapSpiderGraph.Init();
-	//$.RegisterForUnhandledEvent( "EvtName", MapSpiderGraph.EvtHook );
-	//$.RegisterEventHandler( "EvtName", $.GetContextPanel(), Chat.EvtHook );
+	                                                                   
+	                                                                         
 
 })();

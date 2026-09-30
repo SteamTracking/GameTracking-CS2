@@ -9,7 +9,6 @@ var EOM_Win;
     const _m_cP = $.GetContextPanel();
     let _m_oMatchEndData = undefined;
     let _m_oScoreData = undefined;
-    //#define TEAM_TERRORIST 2
     const _m_nT = 2;
     function _SetVictoryStatement() {
         if (!_m_cP || !_m_cP.IsValid())
@@ -18,7 +17,6 @@ var EOM_Win;
             return;
         if (!_m_oScoreData)
             return;
-        // WINNER
         const winningTeamNumber = _m_oMatchEndData.winning_team_number;
         let result = "#eom-result-tie3";
         const teamT = _m_oScoreData.teamdata.find(td => td.team_name === "TERRORIST");
@@ -86,7 +84,6 @@ var EOM_Win;
         return true;
     }
     function Start() {
-        $.Msg("STARTING WIN PANEL");
         if (MockAdapter.GetMockData() && !MockAdapter.GetMockData().includes('EOM_WIN')) {
             _End();
             return;
@@ -102,14 +99,10 @@ var EOM_Win;
         }
     }
     function _End() {
-        $.Msg("ENDING WIN PANEL");
         EndOfMatch.ShowNextPanel();
     }
     function Shutdown() {
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         EndOfMatch.RegisterPanelObject({
             name: 'eom-win',

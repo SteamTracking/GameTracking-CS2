@@ -14,14 +14,13 @@ var ContextMenuGetSouvenir;
             $.GetContextPanel().SetHasClass('no-score', true);
             return;
         }
-        $.Msg('sUmids" ' + sUmids);
         $.GetContextPanel().SetHasClass('no-score', false);
         let tournamentIndex = $.GetContextPanel().GetAttributeString('tournamentId', '');
         _m_coinId = InventoryAPI.GetActiveTournamentCoinItemId(parseInt(tournamentIndex));
         if (_m_coinId && _m_coinId !== '0') {
             let coinLevel = parseInt(InventoryAPI.GetItemAttributeValue(_m_coinId, "upgrade level"));
             let coinRedeemsPurchased = parseInt(InventoryAPI.GetItemAttributeValue(_m_coinId, "operation drops awarded 1"));
-            if (coinRedeemsPurchased) // also support legacy fan coin that didn't have purchased drop souvenirs
+            if (coinRedeemsPurchased)
                 coinLevel += coinRedeemsPurchased;
             let redeemed = parseInt(InventoryAPI.GetItemAttributeValue(_m_coinId, "operation drops awarded 0"));
             _m_redeemsAvailable = coinLevel - redeemed;
@@ -71,8 +70,6 @@ var ContextMenuGetSouvenir;
         elMatch.FindChildInLayoutFile('id-team-logo-1').SetImage("file://{images}/tournaments/teams/" +
             (bTteamSwap ? team0 : team1) + ".svg");
         var rawMapName = MatchInfoAPI.GetMatchMap(umid);
-        // var mapStringPrefix = '#SFUI_Map_';
-        // elMatch.SetDialogVariable( 'map-name', $.Localize( mapStringPrefix + rawMapName ) );
         let mapBg = elMatch.FindChild('id-map-bg');
         mapBg.style.backgroundImage = 'url("file://{images}/map_icons/screenshots/720p/' + rawMapName + '.png")';
         mapBg.style.backgroundPosition = '50% 50%';
@@ -89,20 +86,18 @@ var ContextMenuGetSouvenir;
         let elGetSouvenirBtn = elMatch.FindChildInLayoutFile('id-get-souvenir-btn');
         let elDropdown = elMatch.FindChildInLayoutFile('PurchaseCountDropdown');
         let tailUmid = umid.split('_').at(-1);
-        // Playoff souvenirs can only be redeemed when the highlight reels have been generated
         const nEventID = MatchInfoAPI.GetMatchTournamentEventID(umid);
         const nStageID = MatchInfoAPI.GetMatchTournamentStageID(umid);
         const team0 = MatchInfoAPI.GetMatchTournamentTeamID(umid, 0);
         const team1 = MatchInfoAPI.GetMatchTournamentTeamID(umid, 1);
         const bPlayoffMatch = MatchInfoAPI.IsMatchTournamentStageIDPlayoff(nStageID);
         const bThisMatchHasRedeemsEnabled = !bPlayoffMatch || InventoryAPI.HasHighlightReelSchema(nEventID, nStageID, team0, team1);
-        elGetSouvenir.SetHasClass('awaiting-highlights', !bThisMatchHasRedeemsEnabled && (nEventID < 26)); // EventID=26 => Cologne 2026 Major => Make Your Own Souvenirs
+        elGetSouvenir.SetHasClass('awaiting-highlights', !bThisMatchHasRedeemsEnabled && (nEventID < 26));
         if (nEventID >= 26) {
             let previewBtn = elMatch.FindChildInLayoutFile('id-preview-souvenir-btn');
             previewBtn.text = $.Localize('#popup_redeem_souvenir_action_craft');
             return;
         }
-        // You can only redeem before buying
         if (_m_redeemsAvailable > 0) {
             elGetSouvenir.SetDialogVariable('price', $.Localize('#popup_redeem_souvenir_action_redeem'));
             elDropdown.visible = false;
@@ -116,7 +111,6 @@ var ContextMenuGetSouvenir;
             });
             return;
         }
-        // If souvenirs are for sale then you can purchase
         let defIndexForCharges = g_ActiveTournamentInfo.itemid_charge;
         let idFaux = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defIndexForCharges, 0);
         if (StoreAPI.GetStoreItemSalePrice(idFaux, 1, '')) {
@@ -172,44 +166,13 @@ var ContextMenuGetSouvenir;
     ;
     function _SetPreviewBtn(elMatch, rawMapName, umid) {
         let previewBtn = elMatch.FindChildInLayoutFile('id-preview-souvenir-btn');
-        // Make sure we are subscirbed to the shop prices if we are going to make souvenirs
         StoreAPI.VolatileShopSubscribe(g_ActiveTournamentInfo.itemid_dynamic_stickers, true);
         previewBtn.SetPanelEvent('onactivate', () => {
-            /*
-            $.Msg( 'g_ActiveTournamentInfo + ' + g_ActiveTournamentInfo.souvenirs[rawMapName]);
-
-            let nEventID = MatchInfoAPI.GetMatchTournamentEventID( umid );
-            let nStageID = MatchInfoAPI.GetMatchTournamentStageID( umid );
-            let team0 = MatchInfoAPI.GetMatchTournamentTeamID( umid, 0 );
-            let team1 = MatchInfoAPI.GetMatchTournamentTeamID( umid, 1 );
-
-            const bPlayoffMatch = MatchInfoAPI.IsMatchTournamentStageIDPlayoff( nStageID );
-            let idFaux = InventoryAPI.GetFauxItemIDFromDefAndPaintIndexUB1( g_ActiveTournamentInfo.souvenirs[rawMapName], 0, bPlayoffMatch ? 13 : 0 );
-
-            let attributes = `{ "tournament event id": ${nEventID}, "tournament event stage id": ${nStageID}, "tournament event team0 id": ${team0}, "tournament event team1 id": ${team1} }`;
-
-            const elPanel = UiToolkitAPI.ShowCustomLayoutPopup(
-                'popup-inspect-' + idFaux,
-                'file://{resources}/layout/popups/popup_capability_decodable.xml'
-            );
-
-            let oSettings: InspectPopupSettings_t= {
-                item_id: idFaux,
-                item_attributes: attributes,
-                show_work_type_warning: false,
-                force_hide_async_bar: true,
-                inspect_only: true,
-                work_type: 'decodeable',
-                only_close_btn: true
-            }
-
-            elPanel.Data().oSettings = oSettings;
-            */
             const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
             const idFauxSticker = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxStickerItem, g_ActiveTournamentInfo.stickerids[g_ActiveTournamentInfo.stickerids.length - 1]);
             if (!MissionsAPI.GetSeasonalOperationFauxCreditsCost(g_ActiveTournamentInfo.credits_id, idFauxSticker)) {
                 StoreAPI.VolatileShopSubscribe(g_ActiveTournamentInfo.itemid_dynamic_stickers, true);
-                return; // we have to wait till we have actual pricesheet to use our credits
+                return;
             }
             $.DispatchEvent('CSGOPlaySoundEffect', 'sticker_applySticker', 'MOUSE');
             $.DispatchEvent('ContextMenuEvent', '');
@@ -226,9 +189,6 @@ var ContextMenuGetSouvenir;
             return;
         }
     };
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', _ItemCustomizationNotification);
     }

@@ -14185,6 +14185,7 @@ $zorum.communi
 0 4X
 0 4Ya
 0 4l
+0 4t
 0 6R
 0 CQ
 0 DF
@@ -14534,7 +14535,6 @@ $zorum.communi
 008!
 0081
 009!
-00:t
 00;k0i
 00>F0
 00?h0
@@ -14803,11 +14803,11 @@ $zorum.communi
 0>BT
 0>D0
 0>H0z
+0>In
 0>K0m
 0>KN
 0>Q0
 0>W0
-0>Yt
 0>ir
 0>mi
 0>qg
@@ -18936,8 +18936,8 @@ $zorum.communi
 2\vM\v_\vA\v,\v>\v-
 2\vM\v_\vA\v.\v?\v(\vK\v8\v?\v
 2\v\v\v22\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v
-2\vp0:t
-2\vpH
+2\vp 4t
+2\vp8
 2]00
 2]DaDeDiDmDqD
 2^264
@@ -26822,7 +26822,6 @@ $zorum.communi
 @INCH
 @INSECT
 @IQq\s
-@InputBindSystem
 @Integer overflow in %s
 @Ixfk{
 @JADEvvW
@@ -29415,7 +29414,7 @@ Atlantic:South_Georgia
 Atlantic:St_Helena
 Atlantic:Stanley
 Atlas Dimension
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Atq'4lS
 Attach Point
 Attach To Bone ID
@@ -35346,8 +35345,6 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
-Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
-Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -36652,9 +36649,9 @@ Float Curve
 Float Curve (%s)
 Float To Game Time
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Flooding was detected in this HTTP/2 session, and it must be closed
 Floor - round float down to nearest integer
@@ -37790,6 +37787,7 @@ HAwggvgl\v
 HBASA 
 HBASA-
 HB\nH!
+HB`f
 HCHC
 HCI{I
 HD'I
@@ -38172,14 +38170,13 @@ Height Target
 Height Tolerance
 Height of the primitive to project normals from.
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
 HeroViewer
 Heth
 Hex:
 Hex_Digit
-Hexagonal Cylinder
 HgHg
 HgIg
 Hgig
@@ -44091,7 +44088,6 @@ OcOc
 OcQ\fZ
 OcR+h
 OceQh
-Octagonal Cylinder
 Ocz6
 Oczc&
 OczcWS!
@@ -44443,6 +44439,7 @@ O}Rj_SaSg
 O}Tw
 O~O{O
 O~R/R:M
+P 4t
 P NI
 P P!P"P#P$P%P&P'P(P)P*P+P,P-P.P/P0P1P2P3P4P5P6P7P8P9P:P<P=P>P?Pe4f4@
 P P"P#P$P'P+P/P0P1P2P3P4P5P6P7P8P9P;P=P?P@PAPBPDPEPFPIPJPKPMPPPQPRPSPTPVPWPXPYP[P]P^P_P`PaPbPcPdPfPgPhPiPjPkPmPnPoPpPqPrPsPtPuPxPyPzP|P}P
@@ -44488,7 +44485,6 @@ P0!1
 P0!L!
 P0$(W
 P0%:e0
-P0:t
 P0D0Y0
 P0Q!R
 P0QPQ
@@ -46373,6 +46369,7 @@ R8SiS
 R8_SINT
 R8_SNORM
 R8_TYPELESS
+R8_UNORM
 R95J) SM5a5
 R9=C
 R9G9B9E5_SHAREDEXP
@@ -46844,8 +46841,8 @@ R\tSES
 R\tScSrS
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
 R\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\v
-R\vp0:t
-R\vpH
+R\vp 4t
+R\vp8
 R]8]8]8]8
 R]IQS]
 R]IQS]j
@@ -57986,6 +57983,7 @@ Z~00
 \rB\r|\r.\r?\r1\rM\r1\rM\r
 \rC\r$\r?\r/\rK\r
 \rC\r$\rM\r0\r?\r.\r 
+\rD0l
 \rD0p
 \rDDTDDDDDgx
 \rENl
@@ -58398,7 +58396,6 @@ Z~00
 \rSOO
 \rSUf
 \rSz9
-\rT6l
 \rTAMING
 \rTENSE
 \rTOf
@@ -60744,7 +60741,7 @@ Z~00
 \v.\vM\v*\v?\v_\v0\vM\v
 \v.\vM\v*\vG\v0\v?\v
 \v.\vM\v.\v>\v(\v
-\v0\nPh
+\v0\nPX
 \v0\r00
 \v0\v!\v,\vM\v_\vA\v
 \v0\v(\vG\v8\v?\v
@@ -69170,7 +69167,6 @@ hera
 herneutral5e
 hero-ne
 hertz
-hex_cyl
 hexagramsymbols
 heyt}
 he}f
@@ -69344,7 +69340,7 @@ hull_max_face_count
 hull_vertices
 huta
 huyqx
-hvl<t
+hv\6t
 hvppq
 hvvvv
 hw4B
@@ -78751,6 +78747,7 @@ nZiq
 nZoZ
 nZoeo
 n[nXn$nVnnn-n&non4nMn:n,nCn
+n\6t
 n\fplp
 n\fx\vc
 n\n?dragEnterEvent@QTextEdit@@MEAAXPEAVQDragEnterEvent@@@Z
@@ -78959,7 +78956,6 @@ nkrqr
 nl-Title
 nl-am
 nl-t-d0-title
-nl<t
 nl_AW
 nl_BE
 nl_BQ
@@ -79352,7 +79348,6 @@ ockelements
 ockst
 ocowojo{o
 ocpcqcrcsc
-oct_cyl
 octet
 odbZ
 ode1name
@@ -79605,6 +79600,7 @@ p 0u
 p 1z
 p 4X
 p 4Y
+p 4t
 p 8N
 p 9h
 p BR
@@ -79766,7 +79762,6 @@ p.s{s
 p/fy
 p/pPq
 p01"W0D0
-p0:t
 p0;4
 p0D/
 p0D0
@@ -79882,6 +79877,7 @@ p>iXy
 p>ir~
 p>k0
 p>qS
+p>um
 p>uuw
 p>we
 p@e"f&m
@@ -84920,6 +84916,7 @@ vZrZrZ
 vZvLwhx
 v[sfWiWdWYsgsjs
 v[wkwfw^wcwywjwlw\wewhwbw
+v\6t
 v\fD:R
 v\fza{o
 v\nT\nt
@@ -85327,7 +85324,6 @@ vkrk
 vkrkrk
 vkuk
 vl1F
-vl<t
 vlab>c
 vlad
 vlb 

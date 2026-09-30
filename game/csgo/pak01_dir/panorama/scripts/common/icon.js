@@ -1,16 +1,14 @@
 "use strict";
 /// <reference path="../csgo.d.ts" />
-//This file contains functions that helps setting up map icon
 var IconUtil;
 (function (IconUtil) {
-    // Used in the for loop below
     function SetPNGImageFallback(mapIconDetails, icon_image_path) {
         if (mapIconDetails.m_type == 'svg') {
             mapIconDetails.m_type = 'png';
             mapIconDetails.m_icon.SetImage(icon_image_path + '.png');
         }
         else {
-            mapIconDetails.m_icon.SetImage('file://{images}/map_icons/map_icon_NONE.png'); // this should a known valid path
+            mapIconDetails.m_icon.SetImage('file://{images}/map_icons/map_icon_NONE.png');
         }
     }
     function SetupFallbackMapIcon(elIconPanel, icon_image_path) {
@@ -18,10 +16,8 @@ var IconUtil;
         $.RegisterEventHandler('ImageFailedLoad', elIconPanel, () => SetPNGImageFallback(mapIconDetails, icon_image_path));
     }
     IconUtil.SetupFallbackMapIcon = SetupFallbackMapIcon;
-    // For Item Set Icons
     function SetItemSetPNGImageFallback(elIconPanel, icon_image_name) {
-        $.Msg('IconUtil did not find a SVG for ' + icon_image_name + ' using a _small.PNG');
-        elIconPanel.SetImage('file://{images}/econ/set_icons/' + icon_image_name + '_small.png'); // this should a known valid path
+        elIconPanel.SetImage('file://{images}/econ/set_icons/' + icon_image_name + '_small.png');
     }
     IconUtil.SetItemSetPNGImageFallback = SetItemSetPNGImageFallback;
     function SetItemSetSVGImage(elIconPanel, icon_image_name) {

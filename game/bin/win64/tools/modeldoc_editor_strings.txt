@@ -81,6 +81,7 @@
  ?timerEvent@QAbstractSlider@@MEAAXPEAVQTimerEvent@@@Z
  ?timerEvent@QAbstractSpinBox@@MEAAXPEAVQTimerEvent@@@Z
  ?write@QMetaProperty@@QEBA_NPEAVQObject@@AEBVQVariant@@@Z
+ A8;W
  Box Lasso Select
  CCD
  Click to inherit.
@@ -610,7 +611,6 @@ $prefix_element$
 (export) %d %s %d %s\n
 (layer %d)
 (no-compile)
-(q9g
 ) ?timerEvent@QTableView@@MEAAXPEAVQTimerEvent@@@Z
 )\f?focusOutEvent@QAbstractItemView@@MEAAXPEAVQFocusEvent@@@Z
 )\n?displayText@QStyledItemDelegate@@UEBA?AVQString@@AEBVQVariant@@AEBVQLocale@@@Z
@@ -12208,7 +12208,6 @@ $prefix_element$
 0.000
 0000``
 08@J 
-0>PK
 0\r%0h
 0\r%0t
 0x%1
@@ -12869,9 +12868,8 @@ $prefix_element$
 2\n?doItemsLayout@QListView@@UEAAXXZ
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vp$s
-2\vpDp
-2\vpX
+2\vp4j
+2\vpH
 2_BONE_IK
 2aboutToShow()
 2accepted()
@@ -12987,6 +12985,7 @@ $prefix_element$
 8&Kx
 8-byte data pool
 8192
+8QG]
 8\f?focusOutEvent@QTextBrowser@@MEAAXPEAVQFocusEvent@@@Z
 8\v?event@QCompleter@@MEAA_NPEAVQEvent@@@Z
 8]?size@QPixmap@@QEBA?AVQSize@@XZ
@@ -13466,6 +13465,7 @@ $prefix_element$
 ??YQString@@QEAAAEAV0@AEBV0@@Z
 ??YQString@@QEAAAEAV0@PEBD@Z
 ?CurveEditor()
+?P0H
 ?QStringList_join@QtPrivate@@YA?AVQString@@PEBVQStringList@@PEBVQChar@@H@Z
 ?\f?debug@QMessageLogger@@QEBA?AVQDebug@@XZ
 ?\n?availableGeometry@QScreen@@QEBA?AVQRect@@XZ
@@ -13760,7 +13760,7 @@ $prefix_element$
 ?getAndRef@ExternalRefCountData@QtSharedPointer@@SAPEAU12@PEBVQObject@@@Z
 ?getHsv@QColor@@QEBAXPEAH000@Z
 ?getRgb@QColor@@QEBAXPEAH000@Z
-?hQm
+?hCm
 ?hasChildren@QSortFilterProxyModel@@UEBA_NAEBVQModelIndex@@@Z
 ?hasColor@QMimeData@@QEBA_NXZ
 ?hasFormat@QMimeData@@UEBA_NAEBVQString@@@Z
@@ -14980,16 +14980,17 @@ $prefix_element$
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
-@08N
 @AuthPhysCollisionAttributesModeEnum_t
-@HPX`hvPf
-@HV`t
+@HPX`hv@`
+@HVPn
 @Integer overflow in %s
 @ModelDocEvent_ShowAbsoluteFrameNumbersChanged_t
+@Npa
 @\v?event@QFrame@@MEAA_NPEAVQEvent@@@Z
 @bonemerge
 @cl_aggregate_particles
 @fff>fff>fff>fff>
+@huQ
 @spawn
 @unnamed_%d
 A bone named %s already exists.
@@ -15557,7 +15558,7 @@ Associates a semantic identifier with an animgraph2 used by this model.
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Atlas Dimension
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Point
 Attach To Bone ID
 Attach to Morphing Base Mesh
@@ -18789,8 +18790,6 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
-Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
-Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -18897,7 +18896,6 @@ Extrude Radius
 Extrude Sides
 Extrude Twist
 ExtrudeReplaceHull failed to build new convex hull with extrusion %f\n
-F(TW
 FAILED TO LOAD (#0) '%s': %s\n
 FAILED TO Load (#1): %s\n
 FAILED TO SAVE (#1): %s\n
@@ -19200,9 +19198,9 @@ Float Spring
 Float Switch
 Float To Game Time
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating Comment
 Floating point "Predictor" not supported with %d data format
 Floats
@@ -19467,9 +19465,8 @@ Grow or Shrink
 Grow or shrink a selection
 Grow the selection by adding contiguous components to the selection.
 HAC K  Unused Binding
-HE6g
-HE8g
 HELPER_BONE
+HM&g
 HSLA
 HSLA\t
 HSVA
@@ -19509,7 +19506,7 @@ Height Tolerance
 Height of the primitive to project normals from.
 Helper Error: NO VALID NODE!?
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
 Hero ID %d %s missing from %s!\n
@@ -19517,7 +19514,6 @@ HeroID
 HeroViewer
 Hertz
 Hex:
-Hexagonal Cylinder
 Hidden
 Hide Advanced Options
 Hide Cloth Render Tris
@@ -19596,7 +19592,6 @@ How quickly the elasticity target pose changes to match the current pose
 How sensitive the setting thresholds for 'stationary' should be - a value of 1 means use the vdata settings directly.
 How should the bodies, created by these shapes, be ordered in the final model
 How the end effector should be rotated after the solve.
-Hu5g
 Hud Settings
 Hull
 Hull Count
@@ -19605,6 +19600,7 @@ Hull Per Mesh
 Hull Too Complex for Runtime (%d verts, %d edges, %d faces)
 HullPerElement
 HullPerMesh
+Hy&g
 Hybrid
 I ?toggleViewAction@QDockWidget@@QEBAPEAVQAction@@XZ
 IAsset*
@@ -19668,6 +19664,7 @@ I[?setRgbF@QColor@@QEAAXNNNN@Z
 I\n?compare@QString@@QEBAHAEBV1@W4CaseSensitivity@Qt@@@Z
 I\r?endsWith@QString@@QEBA_NVQChar@@W4CaseSensitivity@Qt@@@Z
 I\r?hitButton@QCheckBox@@MEBA_NAEBVQPoint@@@Z
+Ib'g
 Iexpr
 If (R%d) Jump to Instr I%d
 If (R%d) Leap to Chunk C%d
@@ -21361,7 +21358,6 @@ O\tV_expd
 Oa?width@QImage@@QEBAHXZ
 Object
 Object Rotation
-Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -22037,8 +22033,8 @@ Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
 P08@J 
 P08Jp
-P08N
-P6@L
+P60F
+P6PZ
 P?isValid@QColor@@QEBA_NXZ
 P?isValid@QTextCharFormat@@QEBA_NXZ
 P?item@QStandardItemModel@@QEBAPEAVQStandardItem@@HH@Z
@@ -22150,6 +22146,7 @@ Persistent
 Persona
 Perspective
 Perturb vertex positions using sine waves.
+Pf0|
 Pf\n%d %d\n-1.000000\n
 PgDn
 PgUp
@@ -22619,6 +22616,7 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
+R8_UNORM
 R9G9B9E5_SHAREDEXP
 R?metaObject@QRegExpValidator@@UEBAPEBUQMetaObject@@XZ
 R?metaObject@QRegularExpressionValidator@@UEBAPEBUQMetaObject@@XZ
@@ -22640,11 +22638,10 @@ RT Proxy Triangles: %d\n
 RT Proxy Vertices: %d\n
 RW?restore@QPainter@@QEAAXXZ
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
-R\fp$s
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpDp
-R\vpX
+R\vp4j
+R\vpH
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Rad2 Deg
@@ -24826,7 +24823,6 @@ X24_TYPELESS_G8_UINT
 X32_TYPELESS_G8X24_UINT
 X:%.2f Y:%.2f Z:%.2f
 X;nL4=nL4=nL4=nL4=
-X=7g
 X?setBrush@QPainter@@QEAAXAEBVQBrush@@@Z
 X?setBrush@QPainter@@QEAAXW4BrushStyle@Qt@@@Z
 X?setBrush@QPalette@@QEAAXW4ColorGroup@1@W4ColorRole@1@AEBVQBrush@@@Z
@@ -25060,7 +25056,8 @@ ZoomOut
 \f\n?cmp@QVariant@@QEBA_NAEBV1@@Z
 \f\n?deselect@QLineEdit@@QEAAXXZ
 \f\r?heightForWidth@QFormLayout@@UEBAHH@Z
-\fpDp
+\fp4j
+\fp9H
 \n   Size: L: <%i, %i>   A: <%i, %i>   Scale: %0.2f\n   Geometry: %s\n   Virtual Geometry: %s\n   Available Geometry: %s\n   Orientation: %s\n
 \n***ASSERT FAILED*** Image data section has too many channels (%d).
 \n***ASSERT FAILED*** Pointer is null.
@@ -25177,6 +25174,7 @@ ZoomOut
 \r[WRN] %d crossing edges detected - unfixed\n
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
+\rtext
 \s*([+-*/])\s*=\s*([\-0-9.e]*)
 \t"?update@QWidget@@QEAAXAEBVQRect@@@Z
 \t?addPixmap@QIcon@@QEAAXAEBVQPixmap@@W4Mode@1@W4State@1@@Z
@@ -25249,9 +25247,9 @@ ZoomOut
 \v?fixup@QSpinBox@@MEBAXAEAVQString@@@Z
 \v?flags@QTreeWidgetItem@@QEBA?AV?$QFlags@W4ItemFlag@Qt@@@@XZ
 \v?focusChanged@QApplication@@QEAAXPEAVQWidget@@0@Z
-\vPhN
+\vPXH
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\vpDp
+\vp4j
 ]?sharedPainter@QPaintDevice@@MEBAPEAVQPainter@@XZ
 ]?start@QMovie@@QEAAXXZ
 ]?staticMetaObject@QTextDocument@@2UQMetaObject@@B
@@ -25367,13 +25365,16 @@ _variant_
 _volumeatlas_
 _wjb
 _zero
+`60H
+`60I
+`60x
+`6pI
 `?validate@QDoubleValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QIntValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QRegExpValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QRegularExpressionValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?value@QColor@@QEBAHXZ
 `?valueF@QColor@@QEBANXZ
-`Q9g
 `Q?lightnessF@QColor@@QEBANXZ
 `V?queryKeyboardModifiers@QGuiApplication@@SA?AV?$QFlags@W4KeyboardModifier@Qt@@@@XZ
 `\r?entryInfoList@QDir@@QEBA?AV?$QList@VQFileInfo@@@@V?$QFlags@W4Filter@QDir@@@@V?$QFlags@W4SortFlag@QDir@@@@@Z
@@ -26732,7 +26733,7 @@ group_title
 grow_or_shrink
 guide_hair_count
 hAttachmentCamera
-hMk_
+hIb_
 hResource
 h\r?horizontalScrollbarAction@QTreeView@@MEAAXH@Z
 h\v?event@QTabWidget@@MEAA_NPEAVQEvent@@@Z
@@ -26785,7 +26786,6 @@ hero_effigy
 hero_effigy_persona_1
 hero_model_change
 heroic_statue
-hex_cyl
 hidden_in_tools
 hideSourceMesh
 hide_if_child_selected
@@ -27677,7 +27677,6 @@ objectName
 observable_listeners
 observable_scope
 observer_cursors
-oct_cyl
 offhand_weapon
 offhand_weapon2
 offhand_weapon2_persona_1
@@ -27736,7 +27735,6 @@ overwrite_existing
 overwrite_existing_flags_only
 owns_polymorphic_data
 p"?value@QSpinBox@@QEBAHXZ
-p08@H^
 p0jp@/
 pAction
 pActionObject
@@ -27776,7 +27774,7 @@ pVoidWizard
 pWidget
 p\n?dragLeaveEvent@QAbstractItemView@@MEAAXPEAVQDragLeaveEvent@@@Z
 p\r0\fP!K
-p\r`\fPDp
+p\r`\fP4j
 p\v?event@QWidget@@MEAA_NPEAVQEvent@@@Z
 p`?type@QStandardItem@@UEBAHXZ
 panorama_image
@@ -27976,8 +27974,6 @@ quad_bend_tolerance
 quadratic
 quaternion_array
 quiet
-r> VW
-r\vp$s
 rad2deg
 radiant
 radiant_creeps
@@ -28418,7 +28414,6 @@ swing_offset_angle
 swing_relax
 switch_threshold
 system_state
-tBh(8
 tW?rotate@QPainter@@QEAAXN@Z
 t\n?beginEditBlock@QTextCursor@@QEAAXXZ
 t\n?connect@QObject@@SA?AVConnection@QMetaObject@@PEBV1@AEBVQMetaMethod@@01W4ConnectionType@Qt@@@Z

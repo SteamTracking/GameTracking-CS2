@@ -24,7 +24,6 @@ var AcknowledgeItems;
         }
         const numItems = items.length;
         AcknowledgeAllItems.SetItemsToSaveAsNew(items);
-        // if there is an update while you are in this popup delete the items and remake them with the new list.
         const elParent = $.GetContextPanel().FindChildInLayoutFile('AcknowledgeItemsCarousel');
         elParent.RemoveAndDeleteChildren();
         for (let i = 0; i < items.length; i++) {
@@ -32,7 +31,6 @@ var AcknowledgeItems;
             elDelayLoadPanel.SetLoadFunction(MakeItemPanel.bind(null, items[i], i, numItems));
             elDelayLoadPanel.ListenForClassRemoved('Offscreen');
         }
-        // Set the button visibility for view in loadout
         $.Schedule(.25, () => {
             let aPanels = $.GetContextPanel().FindChildInLayoutFile('AcknowledgeItemsCarousel').Children();
             if (aPanels.length > 0) {
@@ -73,7 +71,6 @@ var AcknowledgeItems;
         ShowGiftPanel(elItemTile, item.id);
         ShowSetPanel(elItemTile, item);
         ItemCount(elItemTile, index, numItems);
-        $.Msg('MakeItemPanel : ' + elParent.id);
         elParent.Data().itemId = item.id;
     }
     function ShowModelOrItem(elItemTile, id, type = "") {
@@ -92,7 +89,6 @@ var AcknowledgeItems;
         elLabel.text = InventoryAPI.GetItemName(id);
     }
     function SetTitle(elItemTile, item, rarityColor) {
-        // Set custom label text for storage units 'nametag_add'
         const defName = InventoryAPI.GetItemDefinitionName(item.id);
         const elTitle = elItemTile.FindChildInLayoutFile('AcknowledgeItemTitle');
         const titleSuffex = (item.pickuptype
@@ -109,7 +105,6 @@ var AcknowledgeItems;
     }
     function SetParticlesBg(elItemTile, rarityColor, modelPath, itemId) {
         const oColor = HexColorToRgb(rarityColor);
-        $.Msg('oColor: ' + oColor.r.toString() + ' ' + oColor.g.toString() + ' ' + oColor.b.toString());
         let elParticlePanel = elItemTile.FindChildInLayoutFile('popup-acknowledge__item__particle');
         elParticlePanel.visible = !modelPath;
         if (!modelPath) {
@@ -129,7 +124,6 @@ var AcknowledgeItems;
     function ColorRarityBar(elItemTile, rarityColor) {
         const elBar = elItemTile.FindChildInLayoutFile('AcknowledgeBar');
         elBar.style.washColor = rarityColor;
-        $.Msg('rarityColor: ' + rarityColor);
     }
     function ShowGiftPanel(elItemTile, id) {
         const elPanel = elItemTile.FindChildInLayoutFile('AcknowledgeItemGift');
@@ -146,9 +140,8 @@ var AcknowledgeItems;
         const elImage = elItemTile.FindChildInLayoutFile('AcknowledgeItemSetImage');
         const strSetName = InventoryAPI.GetTag(id, 'ItemSet');
         if (!strSetName || strSetName === '0') {
-            // Special case - claiming a "REWARD" charm from the XP SHOP gives +N removal charges (read the actual number from the pack schema)
             if (ItemInfo.IsKeychain(id) && item.pickuptype === 'xpshopredeem') {
-                let m_szRemoveKeychainToolChargesForPurchase = 'Remove Keychain Tool Pack'; // this is what user must buy to refill charges
+                let m_szRemoveKeychainToolChargesForPurchase = 'Remove Keychain Tool Pack';
                 let defidxForPurchase = InventoryAPI.GetItemDefinitionIndexFromDefinitionName(m_szRemoveKeychainToolChargesForPurchase);
                 let fauxPurchaseItemID = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxForPurchase, 0);
                 elLabel.SetDialogVariableInt('item_count', Number(InventoryAPI.GetItemAttributeValue(fauxPurchaseItemID, '{uint32}items count')));
@@ -167,10 +160,6 @@ var AcknowledgeItems;
             return;
         }
         elLabel.text = setName;
-        //DEVONLY{
-        if (strSetName === '')
-            throw "Show this to Ido.";
-        //}DEVONLY
         IconUtil.SetupFallbackItemSetIcon(elImage, strSetName);
         IconUtil.SetItemSetSVGImage(elImage, strSetName);
         elImage.SetHasClass('popup-acknowledge__subtitle_seticon_tiny', false);
@@ -207,12 +196,10 @@ var AcknowledgeItems;
             else
                 newItems.unshift({ type: strCustomization, id: itemId, pickuptype: pickUpType });
         }
-        // This item was passed when the popup xml was loaded to explicity show the acknowledge panel 
         const getUpdateItem = GetUpdatedItem();
         if (getUpdateItem && newItems.filter(item => item.id === getUpdateItem.id).length < 1) {
             newItems.push(getUpdateItem);
         }
-        // Put reward items first
         const priorityItemAckTypes = ["xpshopredeem", "quest_reward"];
         const rewardItems = newItems.filter(item => item.pickuptype && priorityItemAckTypes.includes(item.pickuptype));
         const otherItems = newItems.filter(item => !(item.pickuptype && priorityItemAckTypes.includes(item.pickuptype)));
@@ -229,9 +216,6 @@ var AcknowledgeItems;
     }
     AcknowledgeItems_1.GetItemsByType = GetItemsByType;
     function GetUpdatedItem() {
-        // See possible types in uicomponent_inventory.cpp
-        // ClientJob_EMsgGCItemCustomizationNotification
-        // Don't forget to add matching loc strings like "popup_title_stattrack_swap"
         const itemidExplicitAcknowledge = $.GetContextPanel().GetAttributeString("ackitemid", '');
         if (itemidExplicitAcknowledge === '')
             return null;
@@ -260,7 +244,6 @@ var AcknowledgeItems;
             m_elEquipBtn.SetHasClass('hide', isHidden);
         }
     }
-    //---------------------------------AcknowledgeAllItems Section-------------------------------
     let AcknowledgeAllItems;
     (function (AcknowledgeAllItems) {
         let itemsToSave = [];
@@ -271,7 +254,7 @@ var AcknowledgeItems;
         function AcknowledgeItems(alist) {
             const acklist = alist ? alist : itemsToSave;
             for (let item of acklist) {
-                InventoryAPI.SetItemSessionPropertyValue(item.id, 'item_pickup_method', InventoryAPI.GetItemPickupMethod(item.id)); // e.g. 'quest_reward', 'xpshopredeem'
+                InventoryAPI.SetItemSessionPropertyValue(item.id, 'item_pickup_method', InventoryAPI.GetItemPickupMethod(item.id));
                 if (item.type === 'acknowledge') {
                     InventoryAPI.SetItemSessionPropertyValue(item.id, 'recent', '1');
                     InventoryAPI.AcknowledgeNewItembyItemID(item.id);
@@ -294,8 +277,6 @@ var AcknowledgeItems;
         function InvokeJSCallback() {
             const callbackResetAcknowlegePopupHandle = $.GetContextPanel().GetAttributeInt("callback", -1);
             if (callbackResetAcknowlegePopupHandle != -1) {
-                // Resets the handle the inventory has to the pop up. This allows us to create a new pop up.
-                // We hold one open so that it can update with new items rather than making new pop ups.
                 UiToolkitAPI.InvokeJSCallback(callbackResetAcknowlegePopupHandle);
             }
         }

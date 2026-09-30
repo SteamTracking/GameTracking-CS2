@@ -26,7 +26,7 @@ var PlayerStatsLineGraphAvgTooltip = ( function()
 		if ( _IsPerRound( index ) )
 			return $.Localize('#playerstats_suffix_per_round');
 		else if ( _isPerDeath( index ) )
-			return "";//$.Localize('playerstats_suffix_per_death');
+			return "";                                             
 		else if ( _isPercentage( index ) )
 			return $.Localize('#playerstats_suffix_per_cent');
 		

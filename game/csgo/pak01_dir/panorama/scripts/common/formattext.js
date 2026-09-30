@@ -5,7 +5,6 @@ var CFormattedText = class {
     vars;
     constructor(strLocTag, mapDialogVars) {
         this.tag = strLocTag;
-        // clone vars to avoid reference mutation behind our back
         this.vars = Object.assign({}, mapDialogVars);
     }
     SetOnLabel(elLabel) {
@@ -32,21 +31,16 @@ var FormatText;
         if (!elLabel.fmtTextVars)
             return;
         for (const varName in elLabel.fmtTextVars) {
-            // TODO: Add 'ClearDialogVariable' to remove a dvar from a panel
             elLabel.SetDialogVariable(varName, '');
         }
-        // remove key
         delete elLabel.fmtTextVars;
     }
-    /////// time convertions ///////
     function SecondsToDDHHMMSSWithSymbolSeperator(rawSeconds) {
         const time = ConvertSecondsToDaysHoursMinSec(rawSeconds);
         const timeText = [];
         let returnRemaining = false;
         for (const key in time) {
             const value = time[key];
-            // Always return minutes and seconds.
-            // Don't return empty days hours.
             if ((value > 0 && !returnRemaining) || key == 'minutes')
                 returnRemaining = true;
             if (returnRemaining) {
@@ -70,22 +64,20 @@ var FormatText;
                 break;
             if (value <= 0)
                 continue;
-            // See if we should bump up the value for better "rounding" purposes
-            // and select a different locstring
             let lockey = '#SFUI_Store_Timer_Day:f';
             if (key == 'days') {
                 if (time['hours'] > 16)
-                    ++value; // round up 17,18,...,23 hours to an extra day
+                    ++value;
             }
             else if (key == 'hours') {
                 lockey = '#SFUI_Store_Timer_Hour:f';
                 if (time['minutes'] > 40)
-                    ++value; // round up 40+ minutes to an hour
+                    ++value;
             }
             else if (key == 'minutes') {
                 lockey = '#SFUI_Store_Timer_Min:f';
                 if (time['seconds'] > 40)
-                    ++value; // round up 40+ seconds to a minute
+                    ++value;
             }
             return $.ConstructString(lockey, { value: value });
         }
@@ -110,7 +102,6 @@ var FormatText;
     }
     FormatText.PadNumber = PadNumber;
     function SplitAbbreviateNumber(number, fixed = 0) {
-        // missing feature: negative number support
         if (number < 0)
             return -1;
         let pow10 = Math.log10(number) | 0;
@@ -124,19 +115,13 @@ var FormatText;
         if (!$.CanLocalize(stringToken))
             return [number.toString(), ''];
         const scale = Math.pow(10, pow10);
-        // scale the number
         const scaledNumber = number / scale;
-        // allow decimals if scaled number is a single digit
         const decimals = scaledNumber < 10.0 ? 1 : 0;
-        // trim to one decimal digit, remove ".0", and add the symbol suffix.
         const finalNum = scaledNumber.toFixed(fixed).replace(/\.0+$/, '');
         return [finalNum, $.Localize(stringToken)];
     }
     FormatText.SplitAbbreviateNumber = SplitAbbreviateNumber;
-    // this uses language conventions to express large numbers, i.e. "5236.6" as "5.2K"
-    // Looks for token "NumberAbbreviation_E" in localization file.
     function AbbreviateNumber(number) {
-        // missing feature: negative number support
         if (number < 0)
             return -1;
         let pow10 = Math.log10(number) | 0;
@@ -150,21 +135,16 @@ var FormatText;
         if (!$.CanLocalize(stringToken))
             return number.toString();
         const scale = Math.pow(10, pow10);
-        // scale the number
         const scaledNumber = number / scale;
-        // allow decimals if scaled number is a single digit
         const decimals = scaledNumber < 10.0 ? 1 : 0;
-        // trim to one decimal digit, remove ".0", and add the symbol suffix.
         const finalNum = scaledNumber.toFixed(decimals).replace(/\.0+$/, '');
         $.GetContextPanel().SetDialogVariable('abbreviated_number', finalNum);
         const result = $.Localize(stringToken, $.GetContextPanel());
-        $.Msg(number + " : " + scaledNumber + " : " + result);
         return result;
     }
     FormatText.AbbreviateNumber = AbbreviateNumber;
     function FormatRentalTime(expirationDate) {
-        // get total seconds between the times
-        let currentDate = Math.trunc(Date.now() / 1000); // Js returns in milliseconds
+        let currentDate = Math.trunc(Date.now() / 1000);
         if (expirationDate <= currentDate) {
             return {
                 time: '',
@@ -183,8 +163,7 @@ var FormatText;
     }
     FormatText.FormatRentalTime = FormatRentalTime;
     function FormatExpirationToDDHHMMSSWithSymbolSeperator(expirationDate) {
-        // get total seconds between the times
-        let currentDate = Math.trunc(Date.now() / 1000); // Js returns in milliseconds
+        let currentDate = Math.trunc(Date.now() / 1000);
         if (expirationDate <= currentDate) {
             return {
                 time: '',
@@ -204,8 +183,7 @@ var FormatText;
     }
     FormatText.FormatExpirationToDDHHMMSSWithSymbolSeperator = FormatExpirationToDDHHMMSSWithSymbolSeperator;
     function FormatPetFoodTimeRemaining(expirationDate) {
-        // get total seconds between the times
-        let currentDate = Math.trunc(Date.now() / 1000); // Js returns in milliseconds
+        let currentDate = Math.trunc(Date.now() / 1000);
         let seconds = expirationDate - currentDate;
         return {
             time: FormatText.SecondsToSignificantTimeString(seconds),
@@ -214,13 +192,9 @@ var FormatText;
         };
     }
     FormatText.FormatPetFoodTimeRemaining = FormatPetFoodTimeRemaining;
-    // localizes decimal points, thousands delimiters, and sets significant digits
     function FormatNumberToNiceString(value, nsigdigits) {
-        // sig digits
         let strNum = value.toFixed(nsigdigits);
-        // localize decimal
         strNum = strNum.replace('.', $.Localize('#LOC_Number_DecimalPoint'));
-        // localize thousanfs
         strNum = strNum.replace(/\B(?=(\d{3})+(?!\d))/g, $.Localize("#LOC_Number_Grouping"));
         return strNum;
     }

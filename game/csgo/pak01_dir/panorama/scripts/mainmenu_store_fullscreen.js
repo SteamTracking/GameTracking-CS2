@@ -15,7 +15,6 @@ var MainMenuStore;
     let _m_pagePrefix = 'id-store-page-';
     let _m_inventoryUpdatedHandler;
     function ReadyForDisplay() {
-        $.Msg('MainMenuStore ReadyForDisplay: ' + $.GetContextPanel().id);
         if (!ConnectedToGcCheck()) {
             return;
         }
@@ -25,10 +24,8 @@ var MainMenuStore;
             (StoreItems.GetStoreItems().coupon && StoreItems.GetStoreItems().coupon.length < 1)) {
             StoreItems.MakeStoreItemList();
         }
-        // Make the tabs that are read from store data
         ShowPrimePanelOnHomePage();
         MakeTabsBtnsFromStoreData();
-        // Never been opened or being forced to open to a specific section from somewhere else in the UI
         let openToSection = _m_cp.GetAttributeString('set-active-section', '');
         if (_m_activePanelId === '' || !_m_activePanelId || openToSection !== '') {
             SetDefaultTab(openToSection);
@@ -43,7 +40,6 @@ var MainMenuStore;
         const aNewItems = AcknowledgeItems.GetItems().filter(item => (item.pickuptype
             && ['xpshopredeem', 'quest_reward'].includes(item.pickuptype)));
         if (aNewItems.length > 0) {
-            // Delay allows the particle to play.
             jsAcknowledgeDelayHandle = null;
             jsAcknowledgeDelayHandle = $.Schedule(1.5, () => {
                 $.DispatchEvent('ShowAcknowledgePopup', '', '');
@@ -61,7 +57,6 @@ var MainMenuStore;
             jsAcknowledgeDelayHandle = null;
         }
         $.DispatchEvent('UpdateXpShop');
-        $.Msg('MainMenuStore UnReadyForDisplay: ' + $.GetContextPanel().id);
         if (_m_inventoryUpdatedHandler) {
             $.UnregisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', _m_inventoryUpdatedHandler);
             _m_inventoryUpdatedHandler = null;
@@ -69,7 +64,6 @@ var MainMenuStore;
     }
     function ConnectedToGcCheck() {
         if (!MyPersonaAPI.IsInventoryValid() || !MyPersonaAPI.IsConnectedToGC()) {
-            //No connection to GC so show a message
             UiToolkitAPI.ShowGenericPopupOk($.Localize('#SFUI_SteamConnectionErrorTitle'), $.Localize('#SFUI_Steam_Error_LinkUnexpected'), '', () => $.DispatchEvent('HideContentPanel'));
             return false;
         }
@@ -98,7 +92,6 @@ var MainMenuStore;
         }
     }
     function NavigateToTab(panelId, keyType = '') {
-        $.Msg('Store Active Tab Id--> ' + panelId);
         if (keyType) {
             panelId = _m_pagePrefix + keyType;
         }
@@ -128,8 +121,7 @@ var MainMenuStore;
         let extraSuffix = '';
         if ((sSectionName === 'coupon') && (aItemsList.length > 0) &&
             (aItemsList[0].isNewRelease)) {
-            $.Msg("Featured NEW item ID = " + aItemsList[0].id + ", name = " + InventoryAPI.GetItemName(aItemsList[0].id));
-            if ('17293822569102711679' === aItemsList[0].id) // shockone_01 for now, ideally comes from Music Item .econitem using the tool
+            if ('17293822569102711679' === aItemsList[0].id)
                 extraSuffix = '_nightmode2';
         }
         let elPanel = _m_cp.FindChildInLayoutFile(parentId);
@@ -161,8 +153,7 @@ var MainMenuStore;
             }
         }
         const bHasItems = aItemsList.length > 0;
-        // use full for showing tournament tile after pass stops selling but items are still selling.
-        const bForceTournamentVisible = ((sSectionName === 'tournament') && g_ActiveTournamentInfo.active);
+        const bForceTournamentVisible = sSectionName === 'tournament';
         if (!bHasItems && !bForceTournamentVisible) {
             elParent.visible = false;
             return;
@@ -191,7 +182,6 @@ var MainMenuStore;
     function MakeTabsBtnsFromStoreData() {
         let elParent = _m_cp.FindChildInLayoutFile('id-store-lister-tabs');
         let oItemsByCategory = StoreItems.GetStoreItems();
-        $.Msg('MakeTabsBtnsFromStoreData');
         for (let [key, value] of Object.entries(oItemsByCategory)) {
             let panelIdString = 'id-store-nav-' + key;
             let elButton = elParent.FindChildInLayoutFile(panelIdString);
@@ -211,7 +201,6 @@ var MainMenuStore;
                 });
             }
         }
-        // button for xpshop
         let elButton = elParent.FindChildInLayoutFile('id-store-nav-xpshop');
         if (!elButton) {
             let nTrack = MissionsAPI.GetSeasonalOperationXpShopIndex();
@@ -219,7 +208,6 @@ var MainMenuStore;
             if (nTrack > 0) {
                 let nCount = MissionsAPI.GetSeasonalOperationRedeemableGoodsCount(nTrack);
                 for (let i = 0; i < nCount; i++) {
-                    // we only need to know if there is more then one new item.
                     if (nNewItemCount > 1) {
                         break;
                     }
@@ -311,9 +299,6 @@ var MainMenuStore;
             elBalance.RemoveClass('hidden');
         }
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         ReadyForDisplay();
         let elJsStore = $('#JsMainMenuStore');
@@ -321,8 +306,5 @@ var MainMenuStore;
         $.RegisterEventHandler('UnreadyForDisplay', elJsStore, UnreadyForDisplay);
         $.RegisterForUnhandledEvent('PanoramaComponent_Store_AccountWalletUpdated', AccountWalletUpdated);
         $.RegisterForUnhandledEvent('PanoramaComponent_Store_PriceSheetChanged', ReadyForDisplay);
-        // $.RegisterForUnhandledEvent( 'FilterStoreCouponsDisplay', CouponsSearchFilterCallback );
-        // $.RegisterForUnhandledEvent( 'PanoramaComponent_Store_AccountWalletUpdated', AccountWalletUpdated );//TODO
-        // $.RegisterForUnhandledEvent( 'PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdate ); // Hook this up for buying Premier
     }
 })(MainMenuStore || (MainMenuStore = {}));

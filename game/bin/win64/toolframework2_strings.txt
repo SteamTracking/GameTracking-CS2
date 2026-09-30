@@ -7004,7 +7004,6 @@ $name_$id
 0.3937 (convert from cm)
 0.Ui
 02\x
-04U^
 0@ffffl\f
 0Aq=\n
 0R@ffffF(
@@ -9415,7 +9414,7 @@ AssocQueryStringA
 Associates a semantic identifier with an animgraph2 used by this model.
 At least one LOD must be selected.\n
 Atlas Dimension
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Point
 Attach to Morphing Base Mesh
 AttachedSoundEvent
@@ -10840,8 +10839,6 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
-Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
-Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -11091,11 +11088,11 @@ Flip Bone Forward
 Flip Direction
 Flip the forward (x) axis direction of bones
 Float Bitmap Failure
-FloatBitMap_t::ConvertLinearToGamma(609): Conversion not supported yet!\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::ConvertLinearToGamma(607): Conversion not supported yet!\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
-FloatBitMap_t::MapRGBParallel(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:3300
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::MapRGBParallel(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:3286
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
 Floating point "Predictor" not supported with %d data format
@@ -11283,10 +11280,9 @@ Height Target
 Height Tolerance
 Height of the primitive to project normals from.
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
-Hexagonal Cylinder
 Hidden
 Hide Materialgroup in Tools
 Hide Render Color in Tools
@@ -12270,7 +12266,6 @@ O\tV_expd
 Oa?width@QImage@@QEBAHXZ
 Object
 Object Rotation
-Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -12381,7 +12376,6 @@ Overwriting existing wrinkle map data on mesh
 P!AH
 P'?SetBoolProp@FbxIOSettings@fbxsdk@@QEAAXPEBD_N@Z
 P45A
-P4U^
 P?isValid@QColor@@QEBA_NXZ
 P?itemData@QStandardItemModel@@UEBA?AV?$QMap@HVQVariant@@@@AEBVQModelIndex@@@Z
 P?jumpToNextImage@QImageReader@@QEAA_NXZ
@@ -12439,7 +12433,6 @@ ParseImageDataSection failed
 Particle system that handles the generated model/snapshot (Must be authored specifically for this case to work properly)
 ParticleCompileBinaryIdenticalHack_underlying_struct
 Path Overflow, must be less than 260 characters.
-PdA^
 Peak Cycle
 Peak Frame
 Peak Frame Number
@@ -12758,6 +12751,7 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
+R8_UNORM
 R9G9B9E5_SHAREDEXP
 R?mapRect@QTransform@@QEBA?AVQRectF@@AEBV2@@Z
 R?metaObject@QStandardItemModel@@UEBAPEBUQMetaObject@@XZ
@@ -12775,7 +12769,6 @@ R\n@Z*oG8
 R\r?hitTestComplexControl@QProxyStyle@@UEBA?AW4SubControl@QStyle@@W4ComplexControl@3@PEBVQStyleOptionComplex@@AEBVQPoint@@PEBVQWidget@@@Z
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vp4U^
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Radial Basis Function Type
@@ -14125,7 +14118,6 @@ Z}uU
 \nFMu@
 \nFQu@
 \nFas@
-\nP4U^
 \n\nMeshes with unknown surface properties:
 \n\nThe chosen shader doesn't have an input for this texture.\nIf selected, this texture will be copied, but not used.
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
@@ -14224,7 +14216,6 @@ Z}uU
 \vM8@0
 \vV?ffff
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\vp4U^
 \|e9d
 ]?staticMetaObject@QWindow@@2UQMetaObject@@B
 ]Kyw@
@@ -15406,7 +15397,7 @@ gxXM|Z
 gyrating
 gytU@
 h"lxz
-h+\npvV
+h+\nPpV
 h5n{
 h;K5X]
 h?RD
@@ -15461,7 +15452,6 @@ help text for Test Enum!
 help text for Translation!
 hemisphere
 herring
-hex_cyl
 hidden_in_tools
 hide_cursor_during_camera_manipulation
 hide_if_child_selected
@@ -16125,7 +16115,6 @@ oY.o<
 o\n?dragEnterEvent@QWidget@@MEAAXPEAVQDragEnterEvent@@@Z
 o\v?event@QTreeWidget@@MEAA_NPEAVQEvent@@@Z
 obscene
-oct_cyl
 octopus
 odv7
 offset_angles
@@ -16185,7 +16174,6 @@ p l6@
 p)cS
 p+Affff
 p1A3333+
-p4U^
 p6@ffffff
 p;4,F
 p=JK
@@ -16432,7 +16420,6 @@ r@3333S
 r@ffff
 rJ@LB
 rKK\t@i;
-r\fp4U^
 rabbit
 rabid
 raccoon

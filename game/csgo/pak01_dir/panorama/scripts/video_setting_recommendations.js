@@ -26,12 +26,12 @@ var VideoSettingRecommendations;
         if (GameInterfaceAPI.GetSettingString('cl_graphics_driver_warning_dont_show_again') !== '0')
             return false;
         switch (driverInfo.vendor_id) {
-            case 0x1002: // ATI (AMD)
+            case 0x1002:
                 {
                     ShowGraphicsDriverPopup("AMD", 'https://amd.com/support');
                     return true;
                 }
-            case 0x10DE: // Nvidia
+            case 0x10DE:
                 {
                     ShowGraphicsDriverPopup("Nvidia", 'https://nvidia.com/drivers');
                     return true;
@@ -55,9 +55,8 @@ var VideoSettingRecommendations;
         if (GameInterfaceAPI.GetSettingString('cl_vrr_recommendation_dont_show_again') !== '0')
             return false;
         switch (driverInfo.vendor_id) {
-            case 0x10DE: // Nvidia
+            case 0x10DE:
                 {
-                    // G-Sync doesn't work in tools mode so don't bother suggesting it.
                     if (GameInterfaceAPI.HasCommandLineParm("-tools"))
                         return false;
                     ShowVariableRefreshRatePopup("Nvidia", $.Localize('#GSyncHelpLinkURL'));
@@ -100,7 +99,6 @@ var VideoSettingRecommendations;
         return true;
     }
     function MaybeShowLowLatencyVSyncPopup(vrrStatus, lowLatencyType, config) {
-        // Recommend V-Sync + Reflex when G-Sync is enabled
         if ((vrrStatus !== 'active') ||
             (lowLatencyType !== 'nvidia_reflex') ||
             (config.vsync === true && config.low_latency !== 0)) {

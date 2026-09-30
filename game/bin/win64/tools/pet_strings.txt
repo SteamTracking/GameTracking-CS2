@@ -4742,7 +4742,7 @@ AssetBrowse()
 Assigns a friendly name to be displayed in the editor
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Entity Scope
 Attach Location Name
 Attach Type
@@ -6352,8 +6352,8 @@ Float Interp (Open)
 Float Min/Max:
 Float To Game Time
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -6479,7 +6479,7 @@ Has All Flags
 Has Any Flags
 Held Weapon Behavior
 Help
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hero ID %d %s missing from %s!\n
 HeroID
 HeroViewer
@@ -9013,14 +9013,12 @@ ZoomOut
 [Requirement] %s for: %s
 [Slot %d]
 [\v?event@QScrollArea@@MEAA_NPEAVQEvent@@@Z
-[pds
 \?setWeight@QFont@@QEAAXH@Z
 \?setWidth@QPen@@QEAAXH@Z
 \?setWidthF@QPen@@QEAAXN@Z
 \\r?horizontalOffset@QHeaderView@@MEBAHXZ
 \\v?event@QScrollBar@@UEAA_NPEAVQEvent@@@Z
 \f"?update@QWidget@@QEAAXXZ
-\f0tL
 \f?createObject@QTextDocument@@MEAAPEAVQTextObject@@AEBVQTextFormat@@@Z
 \f?data@QMimeData@@QEBA?AVQByteArray@@AEBVQString@@@Z
 \f?data@QModelIndex@@QEBA?AVQVariant@@H@Z
@@ -9165,7 +9163,6 @@ ZoomOut
 \rO?initPainter@QPaintDevice@@MEBAXPEAVQPainter@@@Z
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
-\rpds
 \t?addPixmap@QIcon@@QEAAXAEBVQPixmap@@W4Mode@1@W4State@1@@Z
 \t?alpha@QColor@@QEBAHXZ
 \t?alphaF@QColor@@QEBANXZ

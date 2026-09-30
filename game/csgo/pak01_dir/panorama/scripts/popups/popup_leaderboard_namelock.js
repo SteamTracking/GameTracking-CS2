@@ -34,9 +34,6 @@ var LeaderboardNameLock;
         $.DispatchEvent('ContextMenuEvent', '');
     }
     LeaderboardNameLock.OpenProfile = OpenProfile;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('PanoramaComponent_FriendsList_NameChanged', Init);
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_SetPlayerLeaderboardSafeName', Success);

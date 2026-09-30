@@ -33,15 +33,12 @@ var FriendTile;
     function _SetImage(elTile) {
         let elAvatarImg = elTile.FindChildTraverse('JsFriendAvatar');
         elAvatarImg.PopulateFromSteamID(_m_xuid);
-        // hide the avatar image if it's a clan but we don't have the info.
         elAvatarImg.visible = !_m_isClan || _m_hasClanInfo;
     }
     function _SetStatusBar(elTile) {
         let elBg = elTile.FindChildTraverse('JsFriendTileStatusBg');
         let statusBucket = FriendsListAPI.GetFriendStatusBucket(_m_xuid);
         let isFriend = FriendsListAPI.GetFriendRelationship(_m_xuid);
-        // GetCoPlayerInCSGO is used for recent players.
-        // If tile is for a recent player who is not your friend then we override the status bucket value.
         if (TeammatesAPI.GetCoPlayerInCSGO(_m_xuid) && isFriend !== "friend") {
             statusBucket = "PlayingCSGO";
         }
@@ -108,11 +105,9 @@ var FriendTile;
             return;
         }
         function OpenContextMenu(xuid) {
-            // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
             $.DispatchEvent('SidebarContextMenuActive', true);
             let contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid +
-                (elTile.Data().type ? ('&type=' + elTile.Data().type) : ''), // 'recent' (see e.g. friendslist.ts)
-            () => $.DispatchEvent('SidebarContextMenuActive', false));
+                (elTile.Data().type ? ('&type=' + elTile.Data().type) : ''), () => $.DispatchEvent('SidebarContextMenuActive', false));
             contextMenuPanel.AddClass("ContextMenu_NoArrow");
         }
         elTile.FindChildTraverse('JsFriendTileBtn').SetPanelEvent('onactivate', OpenContextMenu.bind(undefined, _m_xuid));

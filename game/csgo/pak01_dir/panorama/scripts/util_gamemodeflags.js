@@ -3,18 +3,12 @@
 var GameModeFlags;
 (function (GameModeFlags) {
     const k_gamemodeflags = {
-        // js doesn't preserve member order in objects if the key is a number, so we can't use {flag:icon} and also preserve the order.
-        // instead we use separate arrays that are matched by the index.
         competitive: {
             name: 'competitive',
             flags: [
-                // 48,
-                // 32,
                 16
             ],
             icons: [
-                // 'file://{images}/icons/ui/timer_both.svg',
-                // 'file://{images}/icons/ui/timer_short.svg',
                 'file://{images}/icons/ui/timer_long.svg'
             ],
             user_visible_flags: false
@@ -23,13 +17,9 @@ var GameModeFlags;
             name: 'deathmatch',
             flags: [
                 32
-                // 16,
-                // 4,
             ],
             icons: [
                 'file://{images}/icons/ui/free_for_all.svg'
-                // 'file://{images}/icons/ui/normal_deathmatch.svg',
-                // 'file://{images}/icons/ui/team_deathmatch.svg',
             ],
             user_visible_flags: true
         }

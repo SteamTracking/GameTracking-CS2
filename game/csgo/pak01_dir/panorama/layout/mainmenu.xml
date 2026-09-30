@@ -100,15 +100,6 @@
 									<Image class="mainmenu-top-navbar__radio-btn__icon gc-connect-anim" src="s2r://panorama/images/icons/ui/gc_connecting_outer.vsvg" scaling="stretch-to-fit-preserve-aspect" />
 								</Panel>
 							</Panel>
-							<RadioButton id="MainMenuNavBarCtrlZoo" class="mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly dev-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsControlLibrary&apos;, &apos;controlslibrary&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarCtrlZoo&apos;, &apos;#tooltip_navbar_zoo&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/zoo.vsvg" />
-							</RadioButton>
-							<RadioButton id="MainMenuNavBarPerf" class="mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly dev-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsPerformanceMenu&apos;, &apos;mainmenu_perf&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarPerf&apos;, &apos;#tooltip_navbar_perf&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/graph.vsvg" />
-							</RadioButton>
-							<RadioButton id="MainMenuNavBarTestPanels" class="mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly dev-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsTests&apos;, &apos;mainmenu_tests&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarTestPanels&apos;, &apos;#tooltip_navbar_tests&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/bug.vsvg" />
-							</RadioButton>
 						</Panel>
 						<Panel id="MainMenuNavBarCenterContainer" class="mainmenu-top-navbar__center-container DisableDuringDemoPlayback">
 							<RadioButton id="MainMenuNavBarInventory" class="mainmenu-top-navbar__radio-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsInventory&apos;, &apos;mainmenu_inventory&apos;);">
@@ -127,10 +118,6 @@
 									<Label class="mainmenu-top-navbar__radio-btn__label mainmenu-top-navbar__radio-btn__label--play stratum-regular-condensed" text="#CSGO_MainMenu_Play" />
 								</Panel>
 								<Panel class="mainmenu-top-navbar__play_seperator horizontal-align-right visible-if-not-limitedbeta" />
-							</RadioButton>
-							<RadioButton id="MainMenuNavBarStats" class="mainmenu-top-navbar__radio-btn hide" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsPlayerStats&apos;, &apos;mainmenu_playerstats&apos;);">
-								<Frame id="MainMenuSubscriptionAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
-								<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular-condensed" text="#CSGO_MainMenu_Stats" />
 							</RadioButton>
 							<RadioButton id="MainMenuNavBarStore" class="mainmenu-top-navbar__radio-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsMainMenuStore&apos;, &apos;mainmenu_store_fullscreen&apos;);">
 								<Frame id="MainMenuStoreAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />

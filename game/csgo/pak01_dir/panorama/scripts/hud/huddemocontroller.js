@@ -6,7 +6,6 @@ var HudDemoController;
         return true;
     }
     HudDemoController.EatClick = EatClick;
-    // Should mirror ObserverMode_t in C++
     let ObserverMode;
     (function (ObserverMode) {
         ObserverMode[ObserverMode["OBS_MODE_NONE"] = 0] = "OBS_MODE_NONE";
@@ -15,7 +14,6 @@ var HudDemoController;
         ObserverMode[ObserverMode["OBS_MODE_CHASE"] = 3] = "OBS_MODE_CHASE";
         ObserverMode[ObserverMode["OBS_MODE_ROAMING"] = 4] = "OBS_MODE_ROAMING";
     })(ObserverMode || (ObserverMode = {}));
-    // Should mirror EDemoTimelineEvent_t in C++
     let DemoTimelineEvent;
     (function (DemoTimelineEvent) {
         DemoTimelineEvent[DemoTimelineEvent["EDemoTimelineEvent_Kill"] = 0] = "EDemoTimelineEvent_Kill";
@@ -30,7 +28,7 @@ var HudDemoController;
             "death",
             "dealt_damage",
             "received_damage",
-            "tick" // EDemoTimelineEvent_TickMarker
+            "tick"
         ];
         return labels[timelineEvent];
     }
@@ -39,16 +37,13 @@ var HudDemoController;
     cp.SetDialogVariableInt("timestep_value", timeStepSeconds);
     const slider = $("#Slider");
     const timescale = $("#TimeScale");
-    //const XRayCheckBox = $( "#XRayCheckBox" ) as Panel_t
     const XRayToggleButton = $("#XRayToggleButton");
-    //const TrueViewCheckBox = $( "#TrueViewCheckBox" ) as Panel_t
     const TrueViewToggleButton = $("#TrueViewToggleButton");
     const TrueViewDOACheckBox = $("#TrueViewDOACheckBox");
     const TrueViewDOAToggleButton = $("#TrueViewDOAToggleButton");
     const TrueViewWrongVersionCheckBox = $("#TrueViewWrongVersionCheckBox");
     const TrueViewWrongVersionToggleButton = $("#TrueViewWrongVersionToggleButton");
     const SettingsPanel = $("#Settings");
-    // UG this is not working
     timescale.SetPanelEvent('onmouseover', () => UiToolkitAPI.ShowTextTooltip(timescale.id, "Playback speed"));
     timescale.SetPanelEvent('onmouseout', () => UiToolkitAPI.HideTextTooltip());
     const hud = cp.GetParent();
@@ -57,7 +52,6 @@ var HudDemoController;
             return;
         if (lastState && lastState.bIsPlayingBroadcast)
             return;
-        // disallow toggling in overwatch
         if (lastState && lastState.bIsOverwatch)
             return;
         if (hud.BHasClass("DemoControllerMinimal")) {
@@ -106,7 +100,6 @@ var HudDemoController;
             state.RoundIntervals.at(-1)?.nTickEnd;
         const bStateAtEndOfPlayback = nFinalTick != undefined && state.nTick >= nFinalTick;
         if (bStateAtEndOfPlayback != bAtEndOfPlayback) {
-            // show the correct text on the "end playback" button
             if (state.bIsOverwatch) {
                 const sEndPlayback = bStateAtEndOfPlayback ?
                     $.Localize('#CSGO_Demo_End_Playback_Overwatch_Finished') :
@@ -129,7 +122,6 @@ var HudDemoController;
             if (nSlashIndex !== -1)
                 sFileName = sFileName.substring(nSlashIndex + 1);
             cp.SetDialogVariable("total_time", TicksToTimeText(state.nTotalTicks, state.nSecondsPerTick, false));
-            // Toggle the UI to its initial state (0 = disabled, 1 = minimal, 2 = full)
             if (state?.bIsPlayingBroadcast) {
                 hud.SetHasClass("DemoControllerHidden", false);
                 hud.SetHasClass("DemoControllerMinimal", false);
@@ -141,10 +133,8 @@ var HudDemoController;
                 hud.SetHasClass("DemoControllerMinimal", nUIMode == 1);
                 hud.SetHasClass("DemoControllerFull", nUIMode == 2);
             }
-            // set the initial highlights state
             OnHighlightsModeChanged(state.bIsPlayingHighlights);
             bHighlightsMode = state.bIsPlayingHighlights;
-            // set the correct string on the "end playback" button
             const sEndPlayback = state.bIsOverwatch ?
                 $.Localize('#CSGO_Demo_End_Playback_Overwatch') :
                 $.Localize('#CSGO_Demo_End_Playback');
@@ -157,10 +147,6 @@ var HudDemoController;
         if (pMarkers.actuallayoutwidth > 0 && !bRoundsMarked) {
             bRoundsMarked = true;
             pMarkers.RemoveAndDeleteChildren();
-            // The calculations in here are complected by the SliderThumb having a range that differs from the Slider total
-            // SliderThumb is (usually) 16px wide and its position is clamped to keep itself fully within the SliderTrack.
-            // SliderThumb can have pixel offsets from the left of 0px to 984px on a 1000px SliderTrack.
-            // Below we place markers to align with the center of the SliderThumb.
             const pThumb = $("#SliderThumb");
             const nThumbWidth = pThumb.actuallayoutwidth / pThumb.actualuiscale_x;
             const nMarkersWidth = (pMarkers.actuallayoutwidth / pThumb.actualuiscale_x) - nThumbWidth;
@@ -170,13 +156,10 @@ var HudDemoController;
                 let nLeft = nStartTick / state.nTotalTicks * nMarkersWidth + nThumbWidth / 2;
                 let nWidth = (nEndTick - nStartTick) / state.nTotalTicks * nMarkersWidth;
                 if (i === 0) {
-                    // First range marker is extended to the left so the SliderTrack doesn't look like it has a gap
-                    // (except for highlights, where gaps between the ranges is expected)
                     nWidth += nLeft;
                     nLeft = 0;
                 }
                 else if (i === state.RoundIntervals.length - 1) {
-                    // Last range marker is extended to the right so the SliderTrack doesn't look like it has a gap
                     nWidth += nThumbWidth / 2;
                 }
                 const className = i % 2 === 0 ? "roundMarker even" : "roundMarker odd";
@@ -185,14 +168,12 @@ var HudDemoController;
                 pMarker.style.width = nWidth + "px";
             }
         }
-        // update highlight markers when the focused player changes
         if (nSpectatingPlayerId != state.nSpectatingPlayerId) {
             CreateHighlightIntervals();
             CreateTimelineEvents();
             nSpectatingPlayerId = state.nSpectatingPlayerId;
             $("#HighlightsButton")?.SetHasClass("hide", !ShouldShowHighlightsButton());
         }
-        // check whether highlights mode has changed
         if ((state.bIsPlayingHighlights != bHighlightsMode) || bStateChanged) {
             OnHighlightsModeChanged(state.bIsPlayingHighlights);
             bHighlightsMode = state.bIsPlayingHighlights;
@@ -215,14 +196,10 @@ var HudDemoController;
             XRayToggleButton.SetSelected(spec_show_xray != 0);
             const cl_demo_predict = parseInt(GameInterfaceAPI.GetSettingString("cl_demo_predict"));
             const cl_trueview_show_doa_predictions = parseInt(GameInterfaceAPI.GetSettingString("cl_trueview_show_doa_predictions"));
-            //TrueViewCheckBox.SetHasClass( "Selected", cl_demo_predict > 0 );
             TrueViewToggleButton.SetSelected(cl_demo_predict > 0);
-            //TrueViewDOACheckBox.SetHasClass( "Selected", cl_trueview_show_doa_predictions != 0 );
             TrueViewDOAToggleButton.SetSelected(cl_trueview_show_doa_predictions != 0);
             TrueViewDOACheckBox.enabled = cl_demo_predict > 0;
-            //TrueViewDOAToggleButton.enabled = cl_demo_predict > 0;
             TrueViewWrongVersionCheckBox.enabled = cl_demo_predict > 0;
-            //TrueViewWrongVersionToggleButton.enabled = cl_demo_predict > 0;
             if (cl_demo_predict > 0) {
                 TrueViewWrongVersionToggleButton.SetSelected(cl_demo_predict >= 2);
             }
@@ -231,7 +208,6 @@ var HudDemoController;
             SettingsPanel.RemoveClass("Visible");
         }
         const cl_demo_predict = parseInt(GameInterfaceAPI.GetSettingString("cl_demo_predict"));
-        //TrueViewCheckBox.SetSelected( cl_demo_predict > 0 );
     }
     $.Schedule(0, FrameUpdate);
     $.RegisterEventHandler("SliderReleased", slider, (_, fValue) => {
@@ -264,7 +240,6 @@ var HudDemoController;
     HudDemoController.OnStepTimeForward = OnStepTimeForward;
     function OnStepTime(fStep) {
         if (lastState) {
-            $.Msg(lastState.nTick, fStep / lastState.nSecondsPerTick, lastState.nTick + (fStep / lastState.nSecondsPerTick));
             cp.GotoTick(lastState.nTick + (fStep / lastState.nSecondsPerTick));
         }
         return true;
@@ -318,7 +293,6 @@ var HudDemoController;
     }
     function OnHighlightsModeChanged(bEnabled) {
         cp.SetHasClass("highlightsActive", bEnabled);
-        // show either "Round" or "Highlight" depending on the playback mode
         $("#IntervalLabel").text = bEnabled ? $.Localize('#CSGO_Demo_Highlight') : $.Localize('#CSGO_Demo_Round');
         CreateHighlightIntervals();
         CreateTimelineEvents();
@@ -344,7 +318,7 @@ var HudDemoController;
             const sClass = TimelineEventToLabel(timelineEvent.eEventType);
             const pIcon = $.CreatePanel("Panel", pHighlightIcons, "", { class: `highlight-icon ${sClass}` });
             pIcon.style.marginLeft = nLeft + "px";
-            const flSkipToTicksBefore = 64 * 2; // skip to 2 seconds before the event when clicking the icon
+            const flSkipToTicksBefore = 64 * 2;
             pIcon.SetPanelEvent('onactivate', () => cp.GotoTick(timelineEvent.nTick - flSkipToTicksBefore));
         }
     }
@@ -427,7 +401,6 @@ var HudDemoController;
             GameInterfaceAPI.ConsoleCommand("cl_demo_predict 0");
         }
         else {
-            // Turn it on
             if (!TrueViewWrongVersionToggleButton.IsSelected()) {
                 GameInterfaceAPI.ConsoleCommand("cl_demo_predict 1");
             }

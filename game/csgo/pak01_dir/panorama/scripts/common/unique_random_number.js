@@ -22,12 +22,11 @@ var UniqueRandomUtils;
             if (this.currentIndex < 0) {
                 return null;
             }
-            // Return the number at the current index, then move the pointer down
             return this.numbers[this.currentIndex--];
         }
         reset() {
-            this.shuffle(); // Reshuffle the existing array
-            this.currentIndex = this.numbers.length - 1; // Reset the pointer
+            this.shuffle();
+            this.currentIndex = this.numbers.length - 1;
         }
     }
     UniqueRandomUtils.UniqueRandomGenerator = UniqueRandomGenerator;

@@ -47,7 +47,6 @@ var SettingsMenuGameSettings;
         }
         elContainer.SetHasClass('no-data-centers', numSamplesAdded == 0);
     }
-    // On creation
     {
         _InitGameSettings();
         SettingsMenuShared.ChangeBackground(0);

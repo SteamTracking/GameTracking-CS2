@@ -8,10 +8,9 @@ var CapabilityHeader;
         const itemId = InspectShared.GetPopupSetting('item_id');
         const worktype = InspectShared.GetPopupSetting('work_type');
         const storeItemid = InspectShared.GetPopupSetting('store_item_id');
-        $.Msg('popup_capability_header: _Init ' + worktype + " " + storeItemid);
         if (!worktype && !storeItemid)
             return;
-        let itemType = ''; // suffix to augment item type strings
+        let itemType = '';
         if (itemId != undefined && itemId != null && itemId !== '') {
             let itemDefName = InventoryAPI.GetItemDefinitionName(itemId);
             if (worktype === 'decodeable') {
@@ -68,11 +67,9 @@ var CapabilityHeader;
                 elTitle.text = "#popup_xray_title";
             }
         }
-        //for decodealbe panel that is restricted
         else if (worktype === 'decodeable' && InventoryAPI.GetDecodeableRestriction(itemId) === 'xray') {
             elTitle.text = '#popup_' + worktype + '_xray_title';
         }
-        // opening case with no key so we show a differnt title
         else if (!toolId && worktype === 'decodeable') {
             elTitle.text = '#popup_totool_' + worktype + '_header' + itemType;
         }
@@ -92,21 +89,18 @@ var CapabilityHeader;
         const allowRental = InspectShared.GetPopupSetting('allow_rent');
         const worktype = _GetWorkType();
         let sWarnLocString = '';
-        if (InspectShared.GetPopupSetting('show_work_type_warning') === false ? false : true) { // Explicitly need to show the warning
+        if (InspectShared.GetPopupSetting('show_work_type_warning') === false ? false : true) {
             sWarnLocString = '#popup_' + worktype + '_warning' + itemType;
         }
         if (worktype === 'decodeable') {
-            // If we are selling this item, then this will display no warning
             let sRestriction = storeItemId ? '' : InventoryAPI.GetDecodeableRestriction(itemId);
-            if ((sRestriction === 'restricted' && !allowRental) || (sRestriction === 'xray' && showXrayMachineUi)) { // Decodeable container cannot be opened, must show restriction
+            if ((sRestriction === 'restricted' && !allowRental) || (sRestriction === 'xray' && showXrayMachineUi)) {
                 sWarnLocString = '#popup_' + worktype + '_err_' + sRestriction;
                 elWarn.AddClass('popup-capability__error');
             }
         }
         const warningText = InspectShared.GetPopupSetting('async_work_type_warning_text');
-        // Allow custom warning text to appear too
         if (warningText) {
-            $.Msg('Overriding sWarnLocString ' + sWarnLocString + ' > ' + warningText);
             sWarnLocString = warningText;
         }
         elWarn.SetHasClass('hidden', sWarnLocString ? false : true);

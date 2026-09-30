@@ -18,23 +18,13 @@ var PopupNews;
                 $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.mainmenu_press_home', 'MOUSE');
             });
         }
-        //
-        // Adjust the link as needed for display in client and navigate to it
-        //
         let elBlogHTML = $.GetContextPanel().FindChildTraverse('BlogHTML');
         if (elBlogHTML) {
-            // Debug links:
-            // link = 'https://csgostaging.wpcomstaging.com/index.php/2019/04/23968/';
-            // link = 'https://stackoverflow.com/';
-            // Make a special URL that allows for distinguishing in-client views -vs- web views
-            // also fixes proxy caching settings when generating in-client PHP to not pollute
-            // the in-browser stylesheets (wordpress woes)
             if (link.indexOf('?') < 0)
                 link += '?';
             else
                 link += '&';
             link += 'is_embedded_in_client=1';
-            // Navigate to the URL
             elBlogHTML.SetURL(link);
         }
     }

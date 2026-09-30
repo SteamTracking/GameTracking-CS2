@@ -31,8 +31,8 @@ var PickEmBracket = ( function()
 
 		for( var i = 0; i < groupsCount; i++ )
 		{
-			// The left column is the first day match ups. we set these up first since these are determined 
-			// before  the playoffs stage starts.
+			                                                                                                
+			                                     
 			if( sectionIndex === elPickemPanel._oPickemData.oInitData.sectionindex )
 			{
 				_SetUpFirstDayTeams( elPickemPanel, sectionIndex, i );
@@ -124,16 +124,16 @@ var PickEmBracket = ( function()
 
 		var isBracketActive = _SetIsLocked( elPickemPanel );
 
-		// START For Katowice 2019 we are using a pass that lets you play without the stickers.
-		// Just going to set it to false.
-		// var notOwned = PickemCommon.ShowPickItemNotOwnedWarning(
-		// 	elPanel._oPickemData.oTournamentData.sections[ activeSectionIdx ].isactive,
-		// 	oGroupData,
-		// 	oItemIdData,
-		// 	elPick.FindChildInLayoutFile( 'id-pickem-not-owned' ),
-		// 	oGroupData.picks[i].localid 
-		// );
-		//END
+		                                                                                       
+		                                 
+		                                                           
+		   	                                                                           
+		   	           
+		   	            
+		   	                                                      
+		   	                            
+		     
+		     
 		var notOwned = false;
 
 		oGroupInfoForUpdate.oGroupData.picks[0].storedefindex = notOwned ? 
@@ -173,7 +173,7 @@ var PickEmBracket = ( function()
 			_ShowIfPickIsSaved( oGroupInfoForUpdate.oGroupData, elPick );
 		}
 
-		// Since each pickem game has differnt rules for applying we pass functions that specify those rules
+		                                                                                                    
 		PickemCommon.UpdateActionBarBtns( elPickemPanel, _GetListOfPicksWithNoOwnedItems, _MakePicksParams, _EnableApply );
 	};
 
@@ -242,8 +242,8 @@ var PickEmBracket = ( function()
 
 	var _GetListOfPicksWithNoOwnedItems = function( elPickemPanel )
 	{
-		// Since you use the same sticker in all the section you just need to check the first section of picks
-		// for items you do not own.
+		                                                                                                      
+		                            
 		var startIndex = elPickemPanel._oPickemData.oInitData.sectionindex;
 		var oSectionData = elPickemPanel._oPickemData.oTournamentData.sections[ startIndex ];
 		var groupsCount = oSectionData.groups.length;
@@ -282,7 +282,7 @@ var PickEmBracket = ( function()
 
 				if ( groupsList[ j ].picks[ 0 ].localid )
 				{	
-					// empty string to clear, or ItemID string to assign
+					                                                    
 					var oItemIdData = PickemCommon.GetYourPicksItemIdData( 
 						tournamentId, 
 						groupsList[j].picks[0].localid
@@ -296,7 +296,7 @@ var PickEmBracket = ( function()
 					}
 				}
 
-				args.push( groupId, 0, strStickerItemId ); // Add 3 params for this pick
+				args.push( groupId, 0, strStickerItemId );                              
 			}
 		}
 
@@ -333,19 +333,19 @@ var PickEmBracket = ( function()
 			for ( var j = 0; j < groupsCount; j++ )
 			{
 				if ( !groupsList[j].picks[0].storedefindex )
-				{	// Normalize null/undefined/zero as zeroes for comparison checking
+				{	                                                                  
 					var idLocal = groupsList[j].picks[0].localid;
 					var idSaved = groupsList[j].picks[0].savedid;
 					if ( !idLocal ) idLocal = 0;
 					if ( !idSaved ) idSaved = 0;
 					if ( !idLocal && !strErrorString )
 					{
-						$.Msg( '_EnableAppy returning error because #' + i + '->' + j + ' local pick has not been placed!' );
+						                                                                                                     
 						strErrorString = '#pickem_apply_emptyslots';
 					}
 					if( !bFoundDifferenceToApply && idLocal !== idSaved )
 					{
-						$.Msg( '_EnableAppy found difference to apply because #' + i + '->' + j + ' local ' + groupsList[j].picks[0].localid + ' != ' +groupsList[j].picks[0].savedid );
+						                                                                                                                                                                
 						bFoundDifferenceToApply = true;
 					}
 				}
@@ -510,7 +510,7 @@ var PickEmBracket = ( function()
 		{
 			elDragTarget.AddClass( 'dragenter' );
 
-			//Store the active drag target so when we drop the draggable we know what we dropped it on.
+			                                                                                           
 			elPickemPanel._odraggableData.dragtarget = elDragTarget;
 		};
 
@@ -537,8 +537,8 @@ var PickEmBracket = ( function()
 				elPick,
 				function( dispayId, elDisplay )
 				{
-					// $.Msg( 'dispayId' + dispayId );
-					// $.Msg( 'DragDrop' + elDisplay.id );
+					                                  
+					                                      
 		
 					_PlaceTempPick( elPickemPanel, elDisplay );
 			
@@ -630,7 +630,7 @@ var PickEmBracket = ( function()
 
 	var _UpdatePrediction = function( elPickemPanel )
 	{
-		$.Msg( 'Bracket Prediction Updated' );
+		                                      
 
 		if( !elPickemPanel._oPickemData.oTournamentData )
 		{

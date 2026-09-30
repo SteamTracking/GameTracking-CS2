@@ -6,7 +6,6 @@
 /// <reference path="popup_inspect_async-bar.ts" />
 var CapabilityCanKeychain;
 (function (CapabilityCanKeychain) {
-    //--------------------------------------------------------------------------------------------------
     function ResetPos() {
         const m_pos = 0;
         const m_prevCameraSlot = 0;

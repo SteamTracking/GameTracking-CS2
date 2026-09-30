@@ -23,10 +23,9 @@ var Leaderboard;
     let m_NameLockEventHandler;
     let m_leaderboardName = '';
     let m_onlyAvailableSeasonLeaderboard = '';
-    const IS_NEW_SEASON = false; // when we are in early season, some features are disabled
-    const IS_AROUND_PLAYER = true; // when we are showing other players around me then UI looks differently
+    const IS_NEW_SEASON = false;
+    const IS_AROUND_PLAYER = true;
     function RegisterEventHandlers() {
-        $.Msg('[p.leaderboard] RegisterEventHandlers');
         if (!m_bEventsRegistered) {
             m_LeaderboardsDirtyEventHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Leaderboards_Dirty', OnLeaderboardDirty);
             m_LeaderboardsStateChangeEventHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Leaderboards_StateChange', OnLeaderboardStateChange);
@@ -41,7 +40,6 @@ var Leaderboard;
     }
     Leaderboard.RegisterEventHandlers = RegisterEventHandlers;
     function UnregisterEventHandlers() {
-        $.Msg('[p.leaderboard] UnregisterEventHandlers');
         if (m_bEventsRegistered) {
             $.UnregisterForUnhandledEvent('PanoramaComponent_Leaderboards_Dirty', m_LeaderboardsDirtyEventHandler);
             $.UnregisterForUnhandledEvent('PanoramaComponent_Leaderboards_StateChange', m_LeaderboardsStateChangeEventHandler);
@@ -56,15 +54,13 @@ var Leaderboard;
     }
     Leaderboard.UnregisterEventHandlers = UnregisterEventHandlers;
     function _Init() {
-        $.Msg('[p.leaderboard] init');
         m_lbType = $.GetContextPanel().GetAttributeString('lbtype', '');
-        RegisterEventHandlers(); // this is also done in ReadyForDisplay which will fire later (but we make sure to not double-register)
+        RegisterEventHandlers();
         _SetTitle();
         _InitNavPanels();
         _UpdateLeaderboardName();
         if (m_lbType === 'party') {
             _UpdatePartyList();
-            // check local players display name
             if (LeaderboardsAPI.DoesTheLocalPlayerNeedALeaderboardSafeNameSet()) {
                 _AutomaticLeaderboardNameLockPopup();
             }
@@ -85,7 +81,6 @@ var Leaderboard;
         $.GetContextPanel().SetDialogVariable('leaderboard-title', $.Localize('#leaderboard_title_' + String(m_lbType)));
     }
     function _InitSeason() {
-        // SEASON
         m_onlyAvailableSeasonLeaderboard = LeaderboardsAPI.GetCurrentSeasonPremierLeaderboard();
         let elSeason = $.GetContextPanel().FindChildTraverse('jsNavSeason');
         elSeason.text = $.Localize('#' + m_onlyAvailableSeasonLeaderboard + '_name');
@@ -93,22 +88,19 @@ var Leaderboard;
     let _LastRegionList = '';
     function _MaybeRefreshRegionsDropdown() {
         if (m_lbType === 'party')
-            return; // party leaderboard doesn't use regions selector
+            return;
         let currentRegionList = '(friends)';
         const arrLBsOfInterest = LeaderboardsAPI.GetPremierLeaderboardsOfInterest();
         for (let i = 0; i < arrLBsOfInterest.length; i++) {
             currentRegionList = currentRegionList + '(' + arrLBsOfInterest[i] + ')';
         }
         if (_LastRegionList === currentRegionList) {
-            $.Msg('leaderboard.ts: Regions Dropdown Unchanged: ' + currentRegionList);
             return;
         }
-        $.Msg('leaderboard.ts: Refreshing Regions Dropdown: ' + currentRegionList);
         _LastRegionList = currentRegionList;
-        _InitLocationDropdown(); // re-initialize location dropdown because regions could have changed
+        _InitLocationDropdown();
     }
     function _InitLocationDropdown() {
-        // LOCATION
         let elLocationDropdown = $('#jsNavLocation');
         elLocationDropdown.visible = true;
         elLocationDropdown.RemoveAllOptions();
@@ -120,8 +112,6 @@ var Leaderboard;
         for (let i = 0; i < regions.length; i++) {
             const szRegion = regions[i];
             const bCurrentRegion = _FindLocalPlayerInRegion(szRegion);
-            // don't make dropdowns for different regions when player is not in those regions (including World)
-            // if ( IS_AROUND_PLAYER && !bCurrentRegion && ( szRegion != 'Friends') && ( szRegion != 'World') ) continue;
             if (IS_AROUND_PLAYER && !bCurrentRegion && (szRegion != 'Friends'))
                 continue;
             const elEntry = $.CreatePanel('Label', elLocationDropdown, szRegion);
@@ -145,8 +135,6 @@ var Leaderboard;
             elEntry.text = $.Localize('#leaderboard_region_' + szRegion);
             elLocationDropdown.AddOption(elEntry);
         }
-        // Always set default region to "Friends"
-        // if ( MyPersonaAPI.GetLauncherType() === "perfectworld" )
         {
             defaultRegion = 'friends';
         }
@@ -178,7 +166,6 @@ var Leaderboard;
         return false;
     }
     function _UpdateLeaderboardName() {
-        // Note: if you want the leaderboard filtered to just friends, add ".friends" to the name.
         if (m_lbType === 'general') {
             let elLocationDropdown = $('#jsNavLocation');
             let elregion = elLocationDropdown.GetSelected();
@@ -196,7 +183,6 @@ var Leaderboard;
         else if (m_lbType === 'party') {
             m_leaderboardName = LeaderboardsAPI.GetCurrentSeasonPremierLeaderboard() + '.party';
         }
-        $.Msg('[p.leaderboard] ' + m_leaderboardName);
         return m_leaderboardName;
     }
     function _UpdateNameLockButton() {
@@ -280,11 +266,9 @@ var Leaderboard;
         }
     }
     function UpdateLeaderboardList() {
-        $.Msg('[p.leaderboard] -------------- UpdateLeaderboardList ' + m_leaderboardName);
         _UpdateGoToMeButton();
         let count = LeaderboardsAPI.GetCount(m_leaderboardName);
         let status = LeaderboardsAPI.GetState(m_leaderboardName);
-        $.Msg('[p.leaderboard] ' + status + '');
         let seasonName = $.Localize('#' + m_onlyAvailableSeasonLeaderboard + '_name');
         $.GetContextPanel().SetDialogVariable('season_name', seasonName);
         if ("ready" == status && count !== 0) {
@@ -292,9 +276,7 @@ var Leaderboard;
         }
         if (1 <= LeaderboardsAPI.HowManyMinutesAgoCached(m_leaderboardName)) {
             LeaderboardsAPI.Refresh(m_leaderboardName);
-            $.Msg('[p.leaderboard] leaderboard status: requested');
         }
-        // friends
         if (m_leaderboardName.includes('friends')) {
             if (count == 0) {
                 _ShowNewSeasonFriends();
@@ -310,7 +292,7 @@ var Leaderboard;
         else {
             if (("none" == status) || ("ready" == status && count == 0)) {
                 if (IS_AROUND_PLAYER)
-                    _ShowNewSeasonFriends(); // always show the message about "you need to establish a rating"
+                    _ShowNewSeasonFriends();
                 else
                     _ShowNoData();
             }
@@ -337,7 +319,6 @@ var Leaderboard;
             function _AddOpenPlayerCardAction(elPanel, xuid) {
                 function openCard() {
                     if (xuid && (xuid !== 0)) {
-                        // Tell the sidebar to stay open and ignore its on mouse event while the context menu is open
                         $.DispatchEvent('SidebarContextMenuActive', true);
                         let contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, () => $.DispatchEvent('SidebarContextMenuActive', false));
                         contextMenuPanel.AddClass("ContextMenu_NoArrow");
@@ -363,13 +344,10 @@ var Leaderboard;
             }
             _AddOpenPlayerCardAction(elEntry, oPlayer.XUID);
             let options;
-            // set the cs rating explicitly if from the leaderboard,
             if (m_lbType === 'party') {
                 options =
                     {
                         root_panel: elRatingEmblem,
-                        //	xuid: oPlayer.XUID!,
-                        //	api: 'partylist',
                         rating_type: 'Premier',
                         do_fx: true,
                         leaderboard_details: oPlayer,
@@ -449,11 +427,9 @@ var Leaderboard;
                     return null;
                 let xuid = members[machine].player0.xuid;
                 oPlayer = LeaderboardsAPI.GetEntryDetailsObjectByXuid(m_leaderboardName, xuid);
-                // party member isn't on the leaderboards
                 if (!oPlayer.XUID) {
                     oPlayer.XUID = xuid;
                 }
-                // ... and always use the most up-to-date data from the party for the fields we can use
                 if (PartyListAPI.GetFriendCompetitiveRankType(xuid) === "Premier") {
                     let partyScore = PartyListAPI.GetFriendCompetitiveRank(xuid);
                     let partyWins = PartyListAPI.GetFriendCompetitiveWins(xuid);
@@ -461,7 +437,6 @@ var Leaderboard;
                         oPlayer.score = PartyListAPI.GetFriendCompetitiveRank(xuid);
                         oPlayer.matchesWon = PartyListAPI.GetFriendCompetitiveWins(xuid);
                         oPlayer.rankWindowStats = PartyListAPI.GetFriendCompetitivePremierWindowStatsObject(xuid);
-                        $.Msg('[p.leaderboard] PartyList player ' + xuid + ' score=' + oPlayer.score + ' wins=' + oPlayer.matchesWon + ' data={' + JSON.stringify(oPlayer) + '}');
                     }
                 }
                 return oPlayer;
@@ -481,14 +456,12 @@ var Leaderboard;
         }
     }
     function OnLeaderboardDirty(type) {
-        $.Msg('[p.leaderboard] OnLeaderboardDirty');
         if (m_leaderboardName && m_leaderboardName === type) {
             _MaybeRefreshRegionsDropdown();
             LeaderboardsAPI.Refresh(m_leaderboardName);
         }
     }
     function ReadyForDisplay() {
-        $.Msg("[p.leaderboard] ReadyForDisplay");
         RegisterEventHandlers();
         _MaybeRefreshRegionsDropdown();
         if (m_leaderboardName) {
@@ -497,7 +470,6 @@ var Leaderboard;
     }
     Leaderboard.ReadyForDisplay = ReadyForDisplay;
     function UnReadyForDisplay() {
-        $.Msg("[p.leaderboard] UnReadyForDisplay");
         UnregisterEventHandlers();
     }
     Leaderboard.UnReadyForDisplay = UnReadyForDisplay;
@@ -514,7 +486,6 @@ var Leaderboard;
     }
     function _FillOutEntries() {
         let nPlayers = LeaderboardsAPI.GetCount(m_leaderboardName);
-        $.Msg('[p.leaderboard] ' + nPlayers + ' accounts found.');
         const elList = $.GetContextPanel().FindChildInLayoutFile('id-leaderboard-entries');
         elList.SetLoadListItemFunction((parent, nPanelIdx, reusePanel) => {
             let oPlayer = LeaderboardsAPI.GetEntryDetailsObjectByIndex(m_leaderboardName, nPanelIdx);
@@ -533,8 +504,6 @@ var Leaderboard;
             GoToTop();
     }
     function OnLeaderboardStateChange(type) {
-        $.Msg('[p.leaderboard] OnLeaderboardStateChange');
-        $.Msg('[p.leaderboard] leaderboard status: received');
         if (m_leaderboardName === type) {
             if (m_lbType === 'party') {
                 _UpdatePartyList();
@@ -546,7 +515,6 @@ var Leaderboard;
         }
     }
     Leaderboard.OnLeaderboardStateChange = OnLeaderboardStateChange;
-    // called when we change one of the dropdowns and want a different leaderboard
     function OnLeaderboardChange() {
         _UpdateLeaderboardName();
         UpdateLeaderboardList();
@@ -554,20 +522,15 @@ var Leaderboard;
     Leaderboard.OnLeaderboardChange = OnLeaderboardChange;
     function GoToSelf() {
         let myIndex = LeaderboardsAPI.GetIndexByXuid(m_leaderboardName, m_myXuid);
-        $.Msg('leaderboards.ts: GoToSelf: ' + m_leaderboardName + ' (' + m_myXuid + ') --> ' + myIndex);
         const elList = $.GetContextPanel().FindChildInLayoutFile('id-leaderboard-entries');
         $.DispatchEvent('ScrollToDelayLoadListItem', elList, myIndex, 'center', true);
     }
     Leaderboard.GoToSelf = GoToSelf;
     function GoToTop() {
-        $.Msg('leaderboards.ts: GoToTop: ' + m_leaderboardName);
         const elList = $.GetContextPanel().FindChildInLayoutFile('id-leaderboard-entries');
         $.DispatchEvent('ScrollToDelayLoadListItem', elList, 0, 'topleft', true);
     }
     Leaderboard.GoToTop = GoToTop;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), Leaderboard.ReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), Leaderboard.UnReadyForDisplay);

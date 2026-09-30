@@ -38661,7 +38661,7 @@
 			name = "RenderingPipelineCsgoManifestDeveloperModeOnly"
 			group = "RenderingPipelineCsgoDeveloperMode"
 			source_file = "src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo.cpp"
-			source_line = 179
+			source_line = 178
 			resources = 
 			[
 				resource_name:"materials/dev/visualize_quad_overdraw.vmat",
@@ -38675,7 +38675,7 @@
 			name = "RenderingPipelineCsgoManifest"
 			group = "GameStartup"
 			source_file = "src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo.cpp"
-			source_line = 128
+			source_line = 127
 			resources = 
 			[
 				resource_name:"materials/dev/visualize_depth.vmat",
@@ -38956,8 +38956,8 @@
 		{
 			name = ""
 			group = "GameStartup"
-			source_file = "src/game/client/cstrike15/panorama/csgo_crosshair_preview.cpp"
-			source_line = 55
+			source_file = "src/game/client/cstrike15/panorama/csgo_crosshair.cpp"
+			source_line = 222
 			resources = 
 			[
 				resource_name:"materials/dev/csgo_crosshair.vmat",
@@ -39090,7 +39090,7 @@
 			name = "ClientModeCSNormalPostProcessing"
 			group = "GameStartup"
 			source_file = "src/game/client/cstrike15/clientmode_csnormal.cpp"
-			source_line = 148
+			source_line = 147
 			resources = 
 			[
 				resource_name:"lighting/postprocessing/correction/cc_freeze_ct.vpost",
@@ -39118,7 +39118,7 @@
 			name = "PlantedC4Effects_client"
 			group = "GameSessionManifest_client"
 			source_file = "src/game/client/cstrike15/c_plantedc4.cpp"
-			source_line = 36
+			source_line = 31
 			resources = 
 			[
 				resource_name:"particles/explosions_fx/c4_timer_light_trigger.vpcf",

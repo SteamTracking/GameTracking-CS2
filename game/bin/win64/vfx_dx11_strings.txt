@@ -216,6 +216,7 @@ $Globals
 .?AVIHlslParserCallbacks@@
 .?AVIStreamRewriter@@
 .?AVIVfx@@
+.eBx
 // BDA $Globals Pushconstant\n
 // BDA $Globals\n
 // End $Globals\n

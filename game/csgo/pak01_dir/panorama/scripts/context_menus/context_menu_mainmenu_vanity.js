@@ -27,7 +27,6 @@ var MainMenuVanityContextMenu;
             MakeMapBtns();
     }
     MainMenuVanityContextMenu.Init = Init;
-    // Function that creates buttons in popup context menu
     function fnAddVanityPopupMenuItem(idString, strItemNameString, fnOnActivate) {
         let elContextMenuBodyNoScroll = $.GetContextPanel().FindChildTraverse('ContextMenuBodyNoScroll');
         let elItem = $.CreatePanel('Button', elContextMenuBodyNoScroll, idString);
@@ -39,15 +38,8 @@ var MainMenuVanityContextMenu;
     }
     ;
     function MakeCatBtns(team) {
-        // Switch displayed agent to another team
-        // Precache the other team so that when you switch to the other loadout it was mostly composited
         let elContextMenuBodyNoScroll = $.GetContextPanel().FindChildTraverse('ContextMenuBodyNoScroll');
         elContextMenuBodyNoScroll.RemoveAndDeleteChildren();
-        //DEVONLY{
-        fnAddVanityPopupMenuItem('DebugLobbyOfFive', '#mainmenu_debug_lobby_of_five', () => {
-            $.DispatchEvent("DebugLobbyOfFive");
-        }).AddClass('BottomSeparator');
-        //}DEVONLY
         fnAddVanityPopupMenuItem('ChangeVanityMap', '#mainmenu_change_vanity_map', () => {
             const elVanityContextMenu = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('id-vanity-contextmenu-maps', '', 'file://{resources}/layout/context_menus/context_menu_mainmenu_vanity.xml', 'type=maps', () => $.DispatchEvent('ContextMenuEvent', ''));
             elVanityContextMenu.AddClass('ContextMenu_NoArrow');
@@ -64,14 +56,10 @@ var MainMenuVanityContextMenu;
             $.DispatchEvent('ContextMenuEvent', '');
         })
             .AddClass('BottomSeparator');
-        // Go to your agent loadout
         fnAddVanityPopupMenuItem('GoToLoadout', '#mainmenu_go_to_character_loadout', () => {
             $.DispatchEvent("MainMenuGoToCharacterLoadout", team);
             $.DispatchEvent('ContextMenuEvent', '');
         });
-        //
-        // Precache the other team when this menu pops up
-        //
         let otherTeamCharacterItemID = LoadoutAPI.GetItemID(strOtherTeamToPrecache, 'customplayer');
         let settingsForOtherTeam = ItemInfo.GetOrUpdateVanityCharacterSettings(otherTeamCharacterItemID);
         ItemInfo.PrecacheVanityCharacterSettings(settingsForOtherTeam);

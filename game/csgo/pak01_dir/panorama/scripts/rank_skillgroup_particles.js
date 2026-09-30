@@ -1,9 +1,5 @@
 "use strict";
 /// <reference path="csgo.d.ts" />
-//--------------------------------------------------------------------------------------------------
-// Particle Controls
-//--------------------------------------------------------------------------------------------------
-// UTILITY FUNCTIONS
 var RankSkillgroupParticles;
 (function (RankSkillgroupParticles) {
     function GetRankParticleSettings(nRank) {
@@ -22,42 +18,35 @@ var RankSkillgroupParticles;
             { particleName: sParticlelevel1, cpNumber: 3, cpValue: [3, 3, 1], playEndcap: false },
             { particleName: sParticlelevel1, cpNumber: 3, cpValue: [4, 4, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [5, 5, 1], playEndcap: false },
-            //5-10
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [1, 6, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [2, 7, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [3, 8, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [4, 9, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [5, 10, 1], playEndcap: false },
-            //10-20
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [1, 11, 1], playEndcap: false },
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [2, 12, 1], playEndcap: false },
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [3, 13, 1], playEndcap: false },
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [4, 14, 1], playEndcap: false },
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [5, 15, 1], playEndcap: false },
-            //16-20
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [1, 16, 1], playEndcap: false },
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [2, 17, 1], playEndcap: false },
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [3, 18, 1], playEndcap: false },
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [4, 19, 1], playEndcap: false },
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [5, 20, 1], playEndcap: false },
-            //21-25
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [1, 21, 1], playEndcap: false },
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [2, 22, 1], playEndcap: false },
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [3, 23, 1], playEndcap: false },
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [4, 24, 1], playEndcap: false },
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [5, 25, 1], playEndcap: false },
-            //26-30
             { particleName: sParticlelevel6, cpNumber: 3, cpValue: [1, 26, 1], playEndcap: false },
             { particleName: sParticlelevel6, cpNumber: 3, cpValue: [2, 27, 1], playEndcap: false },
             { particleName: sParticlelevel6, cpNumber: 3, cpValue: [3, 28, 1], playEndcap: false },
             { particleName: sParticlelevel6, cpNumber: 3, cpValue: [4, 29, 1], playEndcap: false },
             { particleName: sParticlelevel6, cpNumber: 3, cpValue: [5, 30, 1], playEndcap: false },
-            //31-34
             { particleName: sParticlelevel7, cpNumber: 3, cpValue: [1, 31, 1], playEndcap: false },
             { particleName: sParticlelevel7, cpNumber: 3, cpValue: [2, 32, 1], playEndcap: false },
             { particleName: sParticlelevel7, cpNumber: 3, cpValue: [3, 33, 1], playEndcap: false },
             { particleName: sParticlelevel7, cpNumber: 3, cpValue: [4, 34, 1], playEndcap: false },
-            //35-40
             { particleName: sParticlelevel8, cpNumber: 3, cpValue: [0, 35, 1], playEndcap: false },
             { particleName: sParticlelevel8, cpNumber: 3, cpValue: [1, 36, 1], playEndcap: false },
             { particleName: sParticlelevel8, cpNumber: 3, cpValue: [2, 37, 1], playEndcap: false },
@@ -139,30 +128,23 @@ var RankSkillgroupParticles;
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [5, 5, 1], playEndcap: false },
             { particleName: sParticlelevel6, cpNumber: 3, cpValue: [6, 6, 1], playEndcap: false },
             { particleName: sParticlelevel7, cpNumber: 3, cpValue: [7, 7, 1], playEndcap: false },
-            //particleName: cpNumber: cpValue: playEndcap:
             { particleName: sParticlelevel8, cpNumber: 3, cpValue: [1, 8, 1], playEndcap: false },
             { particleName: sParticlelevel9, cpNumber: 3, cpValue: [2, 9, 1], playEndcap: false },
             { particleName: sParticlelevel10, cpNumber: 3, cpValue: [3, 10, 1], playEndcap: false },
             { particleName: sParticlelevel11, cpNumber: 3, cpValue: [4, 11, 1], playEndcap: false },
-            //particleName: cpNumber:playEndcap:
             { particleName: sParticlelevel12, cpNumber: 3, cpValue: [6, 12, 1], playEndcap: false },
             { particleName: sParticlelevel13, cpNumber: 3, cpValue: [6, 13, 1], playEndcap: false },
             { particleName: sParticlelevel14, cpNumber: 3, cpValue: [6, 14, 1], playEndcap: false },
-            //particleName: cpNumber:cpValue: []playEndcap
             { particleName: sParticlelevel15, cpNumber: 3, cpValue: [6, 15, 1], playEndcap: false },
             { particleName: sParticlelevel16, cpNumber: 3, cpValue: [6, 16, 1], playEndcap: false },
-            //particleName: cpNumber:cpValue: []playEndcap
             { particleName: sParticlelevel17, cpNumber: 3, cpValue: [6, 17, 1], playEndcap: false },
-            //particleName: cpNumber:cpValue: []playEndcap
             { particleName: sParticlelevel18, cpNumber: 3, cpValue: [6, 18, 1], playEndcap: false },
-            //particleName: cpNumber:cpValue: []playEndcap
             { particleName: sParticlelevel18, cpNumber: 3, cpValue: [6, 19, 1], playEndcap: false },
         ];
         return aSkillGroup[Math.min(nSkillGroup, aSkillGroup.length - 1)];
     }
     RankSkillgroupParticles.GetSkillGroupSettings = GetSkillGroupSettings;
     function GetSkillGroupAmbientSettings(nSkillGroup, SkillGroupType) {
-        // These are dupes from GetRankParticleSettings for now with the expectation that they would be differnt particles
         let sParticlelevel0 = 'particles/ui/skillgroups/ui_skillgroup_rear_1.vpcf';
         let sParticlelevel1 = 'particles/ui/skillgroups/ui_skillgroup_rear_1.vpcf';
         let sParticlelevel2 = 'particles/ui/skillgroups/ui_skillgroup_rear_2.vpcf';
@@ -193,24 +175,18 @@ var RankSkillgroupParticles;
             { particleName: sParticlelevel1, cpNumber: 3, cpValue: [4, 4, 1], playEndcap: false },
             { particleName: sParticlelevel1, cpNumber: 3, cpValue: [5, 5, 1], playEndcap: false },
             { particleName: sParticlelevel1, cpNumber: 3, cpValue: [6, 6, 1], playEndcap: false },
-            // cpNumber:cpalue: [ ] playEndcap:
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [1, 7, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [2, 8, 1], playEndcap: false },
             { particleName: sParticlelevel2, cpNumber: 3, cpValue: [3, 9, 1], playEndcap: false },
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [4, 10, 1], playEndcap: false },
             { particleName: sParticlelevel3, cpNumber: 3, cpValue: [5, 11, 1], playEndcap: false },
-            // cpNumber:cpalue: [ ] playEndcap:
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [1, 12, 1], playEndcap: false },
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [2, 13, 1], playEndcap: false },
             { particleName: sParticlelevel4, cpNumber: 3, cpValue: [3, 14, 1], playEndcap: false },
-            // particleName: cpNumber:cpalue: [ ] playEndcap:
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [1, 15, 1], playEndcap: false },
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [2, 16, 1], playEndcap: false },
-            // cpNumber:cpalue: [ ] playEndcap:
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [6, 17, 1], playEndcap: false },
-            // cpNumber:cpalue: [ ] playEndcap:
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [1, 18, 1], playEndcap: false },
-            // cpNumber:cpalue: [ ] playEnd cap:
             { particleName: sParticlelevel5, cpNumber: 3, cpValue: [2, 19, 1], playEndcap: false },
         ];
         return aSkillGroup[Math.min(nSkillGroup, aSkillGroup.length - 1)];

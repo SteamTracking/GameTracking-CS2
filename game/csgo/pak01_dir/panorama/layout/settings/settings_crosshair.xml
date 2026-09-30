@@ -15,9 +15,9 @@
 			<Panel class="SettingsBackground">
 				<Panel class="crosshair-editor">
 					<Panel id="XhairBkg" bkg-id="0" class="map-background" />
-					<CSGOCrosshairPreview id="CrosshairEditorPreview" preview="true">
+					<CSGOCrosshair id="CrosshairEditorPreview" preview="true">
 						<CrosshairPreviewControls crosshair="CrosshairEditorPreview" />
-					</CSGOCrosshairPreview>
+					</CSGOCrosshair>
 					<Panel class="vertical-center full-width">
 						<Button class="PaginationArrow Left horizontal-align-left" onactivate="SettingsMenuShared.ChangeBackground(-1)" />
 						<Button class="PaginationArrow Right horizontal-align-right" onactivate="SettingsMenuShared.ChangeBackground(1)" />
@@ -36,7 +36,6 @@
 							<Label text="#GameUI_CrosshairStyle3" id="crosshairstyle3" value="3" />
 							<Label text="#GameUI_CrosshairStyle8" id="crosshairstyle8" value="8" />
 							<Label text="#GameUI_CrosshairStyle6" id="crosshairstyle6" value="6" />
-							<Label text="#GameUI_CrosshairStyle9" id="crosshairstyle9" value="9" />
 							<Label text="#GameUI_CrosshairStyle0" id="crosshairstyle0" value="0" />
 							<Label text="#GameUI_CrosshairStyle1" id="crosshairstyle1" value="1" />
 							<Label text="#GameUI_CrosshairStyle2" id="crosshairstyle2" value="2" />
@@ -54,22 +53,15 @@
 					<Panel class="horizontal-separator" />
 					<Panel id="XhairOutline" class="SettingsMenuDropdownContainer">
 						<Label text="#GameUI_CrosshairOutline" class="half-width" />
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_crosshair_drawoutline" ondropdownselectionchanged="SettingsMenuCrosshairSettings.OnCrosshairStyleChange()">
-							<Label text="#GameUI_CrosshairOutline_Full" value="1" id="crosshairoutline1" />
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_crosshair_drawoutline">
+							<Label text="#GameUI_CrosshairOutline_Full" value="1" id="crosshairoutline0" />
 							<Label text="#GameUI_CrosshairOutline_Half" value="2" id="crosshairoutline2" />
-							<Label text="#GameUI_CrosshairOutline_None" value="0" id="crosshairoutline0" />
+							<Label text="#GameUI_CrosshairOutline_None" value="0" id="crosshairoutline1" />
 						</CSGOSettingsEnumDropDown>
 					</Panel>
 					<Panel class="horizontal-separator" />
-					<Panel id="XhairOutlineColorPicker" class="SettingsMenuDropdownContainer">
-						<Label id="Title" text="#GameUI_CrosshairOutlineColor" class="half-width" />
-						<Button id="XhairOutlineColorDisplay" class="crosshair-editor__color-btn">
-							<Panel id="XhairOutlineColorDisplayBox" class="crosshair-editor__color-btn__color" />
-						</Button>
-					</Panel>
-					<Panel id="XhairOutlineColorPickerSeparator" class="horizontal-separator" />
 					<Panel id="XhairThickness" class="SettingsMenuDropdownContainer">
-						<CSGOSettingsSlider text="#GameUI_CrosshairThickness" displayprecision="0" max="32" min="0" convar="cl_crosshair_thickness" />
+						<CSGOSettingsSlider text="#GameUI_CrosshairThickness" displayprecision="0" max="31" min="0" convar="cl_crosshair_thickness" />
 					</Panel>
 					<Panel class="horizontal-separator" />
 					<Panel id="XhairCenterDot" class="SettingsMenuDropdownContainer">
@@ -88,24 +80,18 @@
 						<CSGOSettingsSlider text="#GameUI_CrosshairGap" displayprecision="0" min="0.0" max="128.0" convar="cl_crosshair_gap" />
 					</Panel>
 					<Panel id="XhairGapSeparator" class="horizontal-separator" />
-					<Panel id="XhairClassicGap" class="SettingsMenuDropdownContainer">
-						<CSGOSettingsSlider text="#GameUI_CrosshairGap" displayprecision="0" min="-10.0" max="128.0" convar="cl_crosshair_gap" />
-					</Panel>
-					<Panel id="XhairClassicGapSeparator" class="horizontal-separator" />
 					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#GameUI_DynamicSpreadDistanceLimit_Tooltip" id="XhairDynamicSpreadDist">
 						<CSGOSettingsSlider text="#GameUI_DynamicSpreadDistanceLimit" max="255" min="0" displayprecision="0" convar="cl_crosshair_dynamic_spread_limit" />
 					</TooltipPanel>
 					<Panel id="XhairDynamicSpreadDistSeparator" class="horizontal-separator" />
-					<CSGOSettingsSlider id="XhairClassicSplitDist" text="#GameUI_SplitDist" max="127" min="0" displayprecision="0" convar="cl_crosshair_dynamic_splitdist" />
-					<Panel id="XhairClassicSplitDistSeparator" class="horizontal-separator" />
-					<CSGOSettingsSlider id="XhairClassicSplitInnerAlpha" text="#GameUI_SplitInnerAlpha" displayprecision="2" step="0.01" max="1.0" min="0.0" convar="cl_crosshair_dynamic_splitalpha_innermod" />
-					<Panel id="XhairClassicSplitInnerAlphaSeparator" class="horizontal-separator" />
-					<CSGOSettingsSlider id="XhairClassicSplitOuterAlpha" text="#GameUI_SplitOuterAlpha" displayprecision="2" step="0.01" max="1.0" min="0.3" convar="cl_crosshair_dynamic_splitalpha_outermod" />
-					<Panel id="XhairClassicSplitOuterAlphaSeparator" class="horizontal-separator" />
-					<CSGOSettingsSlider id="XhairClassicSplitRatio" text="#GameUI_SplitRatio" displayprecision="2" step="0.01" max="1.0" min="0.0" convar="cl_crosshair_dynamic_maxdist_splitratio" />
-					<Panel id="XhairClassicSplitRatioSeparator" class="horizontal-separator" />
-					<CSGOSettingsSlider id="XhairStaticQuadSplitRatio" text="#GameUI_StaticQuadSplitRatio" displayprecision="2" step="0.01" max="1.0" min="0.0" convar="cl_crosshair_dynamic_maxdist_splitratio" />
-					<Panel id="XhairStaticQuadSplitRatioSeparator" class="horizontal-separator" />
+					<CSGOSettingsSlider id="XhairLegacySplitDist" text="#GameUI_SplitDist" max="127" min="0" displayprecision="0" convar="cl_crosshair_dynamic_splitdist" />
+					<Panel id="XhairLegacySplitDistSeparator" class="horizontal-separator" />
+					<CSGOSettingsSlider id="XhairLegacySplitInnerAlpha" text="#GameUI_SplitInnerAlpha" displayprecision="2" step="0.05" max="1.0" min="0.0" convar="cl_crosshair_dynamic_splitalpha_innermod" />
+					<Panel id="XhairLegacySplitInnerAlphaSeparator" class="horizontal-separator" />
+					<CSGOSettingsSlider id="XhairLegacySplitOuterAlpha" text="#GameUI_SplitOuterAlpha" displayprecision="2" step="0.05" max="1.0" min="0.3" convar="cl_crosshair_dynamic_splitalpha_outermod" />
+					<Panel id="XhairLegacySplitOuterAlphaSeparator" class="horizontal-separator" />
+					<CSGOSettingsSlider id="XhairLegacySplitRatio" text="#GameUI_SplitRatio" displayprecision="2" max="1.0" min="0.0" convar="cl_crosshair_dynamic_maxdist_splitratio" />
+					<Panel id="XhairLegacySplitRatioSeparator" class="horizontal-separator" />
 					<Panel id="XhairTStyle" class="SettingsMenuDropdownContainer">
 						<Label text="#GameUI_TStyle" class="half-width" />
 						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_crosshair_t">
@@ -114,24 +100,6 @@
 						</CSGOSettingsEnumDropDown>
 					</Panel>
 					<Panel id="XhairTStyleSeparator" class="horizontal-separator" />
-					<Panel id="XhairIronsightColor" class="SettingsMenuDropdownContainer">
-						<Label text="#GameUI_IronsightColor" class="half-width" />
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_ironsight_usecrosshaircolor">
-							<Label text="#GameUI_Yes" value="1" id="crosshairironsightcolor0" />
-							<Label text="#GameUI_No" value="0" id="crosshairironsightcolor1" />
-						</CSGOSettingsEnumDropDown>
-					</Panel>
-					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider id="XhairIronsightScale" text="#GameUI_IronsightScale" step="0.01" displayprecision="2" max="2" min="0.1" convar="cl_ironsight_dot_scale" />
-					<Panel class="horizontal-separator" />
-					<Panel id="XhairRecoil" class="SettingsMenuDropdownContainer">
-						<Label text="#GameUI_CrosshairRecoil" class="half-width" />
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_crosshair_recoil">
-							<Label text="#GameUI_Yes" value="1" id="crosshairrecoil0" />
-							<Label text="#GameUI_No" value="0" id="crosshairrecoil1" />
-						</CSGOSettingsEnumDropDown>
-					</Panel>
-					<Panel class="horizontal-separator" />
 				</Panel>
 				<Panel id="" class="SettingsBackground">
 					<Panel class="SettingsSectionTitleContianer">
@@ -142,6 +110,22 @@
 						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_crosshair_friendly_warning">
 							<Label text="#GameUI_CrosshairFriendlyWarning_Off" id="crosshairfriendlywarning0" value="0" />
 							<Label text="#GameUI_CrosshairFriendlyWarning_On" id="crosshairfriendlywarning2" value="1" />
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+					<Panel class="horizontal-separator" />
+					<Panel id="XhairRecoil" class="SettingsMenuDropdownContainer">
+						<Label text="#GameUI_CrosshairRecoil" class="half-width" />
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_crosshair_recoil">
+							<Label text="#GameUI_Yes" value="1" id="crosshairrecoil0" />
+							<Label text="#GameUI_No" value="0" id="crosshairrecoil1" />
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+					<Panel class="horizontal-separator" />
+					<Panel id="XhairIronsightColor" class="SettingsMenuDropdownContainer">
+						<Label text="#GameUI_IronsightColor" class="half-width" />
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_ironsight_usecrosshaircolor">
+							<Label text="#GameUI_Yes" value="1" id="crosshairironsightcolor0" />
+							<Label text="#GameUI_No" value="0" id="crosshairironsightcolor1" />
 						</CSGOSettingsEnumDropDown>
 					</Panel>
 					<Panel class="horizontal-separator" />
@@ -235,6 +219,8 @@
 						</Panel>
 						<Panel class="horizontal-separator" />
 						<CSGOSettingsSlider id="XhairSniperThickness" text="#GameUI_SniperCrosshairThickness" displayprecision="0" max="6" min="1" convar="cl_crosshair_sniper_width" />
+						<Panel class="horizontal-separator" />
+						<CSGOSettingsSlider id="XhairIronsightScale" text="#GameUI_IronsightScale" displayprecision="2" max="2" min="0.1" convar="cl_ironsight_dot_scale" />
 						<Panel class="horizontal-separator" />
 					</Panel>
 				</Panel>

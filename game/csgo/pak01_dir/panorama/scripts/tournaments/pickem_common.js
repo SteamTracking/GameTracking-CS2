@@ -1,5 +1,5 @@
 
-// Used for groups and bracket layouts.
+                                       
 'use strict';
 
 var PickemCommon = ( function()
@@ -25,7 +25,7 @@ var PickemCommon = ( function()
 		elLoadingStatus.visible = true;
 		elPickemContent.visible = false;
 
-		$.Msg( '*******GetState:******'+ listState );
+		                                             
 
 		if ( listState === 'none' )
         {
@@ -42,8 +42,8 @@ var PickemCommon = ( function()
 			var isLoaded = PredictionsAPI.GetMyPredictionsLoaded( elPanel._oPickemData.oInitData.tournamentid );
 			var sectionsCount = PredictionsAPI.GetEventSectionsCount( elPanel._oPickemData.oInitData.tournamentid );
 
-			$.Msg( 'GetMyPredictionsLoaded: '+ isLoaded );
-			$.Msg( 'GetEventSectionsCount: '+ sectionsCount );
+			                                              
+			                                                  
 		
 			if ( !isLoaded || !sectionsCount || elPanel._oPickemData.oInitData.sectionindex === -1 )
 			{
@@ -57,8 +57,8 @@ var PickemCommon = ( function()
 
 			elPanel._oPickemData.oTournamentData = _MakeTournamentDataObject( elPanel._oPickemData.oInitData.tournamentid );
 
-			// oPickemType is the object that holds layout specific functions. 
-			// Like PickEmGroup in pickem_group.js that operates on pickem_group.xml
+			                                                                   
+			                                                                        
 			elPanel._oPickemData.oInitData.oPickemType.Init( elPanel );
 			PickEmInfoBar.Init( elPanel );
 			elLoadingStatus.visible = false;
@@ -115,8 +115,8 @@ var PickemCommon = ( function()
         {
             var userPickTeamID = PredictionsAPI.GetMyPredictionTeamID( tournamentId, groupId, i );
 
-            // For some reason the first time we get this we get undefined but on update we get 0
-            // So lets assume its 0 if we get undefined.
+                                                                                                 
+                                                        
             userPickTeamID = userPickTeamID === undefined ? 0 : userPickTeamID;
             aPicks.push( {
                 savedid: userPickTeamID,
@@ -168,8 +168,8 @@ var PickemCommon = ( function()
 			_RefreshData.bind( undefined, elPanel )
 		);
 		
-		// oPickemType is the object that holds layout specific functions. 
-		// Like PickEmGroup in pickem_group.js that operates on pickem_group.xml
+		                                                                   
+		                                                                        
 		elPanel._oPickemData.eventhandleprediction = $.RegisterForUnhandledEvent( 
 			'PanoramaComponent_MatchList_PredictionUploaded', 
 			elPanel._oPickemData.oInitData.oPickemType.UpdatePrediction.bind( undefined, elPanel )
@@ -193,22 +193,22 @@ var PickemCommon = ( function()
 
 	var _UnreadyForDisplay = function( elPanel )
 	{
-		// this happens after fade out so its not appropreate for unregirstering events.
-		// For example matchlister is clicked and calls refresh matchlist. This panel since it is not fully faded
-		// will also get that event to it. When the refesh is finshed it will miss the event because now it is faded.
-		// This is what caused it to get stuck in a infinate loading.
+		                                                                                
+		                                                                                                         
+		                                                                                                             
+		                                                             
 	};
 
 	var _UnregisterEvents = function( elPanel )
 	{
-		//_UnregisterEvents is called from mainmenu_watch_tournament.js and is called when we switch panels before drawing the new panel.
+		                                                                                                                                 
 		$.UnregisterForUnhandledEvent( 'PanoramaComponent_MatchList_StateChange', elPanel._oPickemData.eventhandle );
 		$.UnregisterForUnhandledEvent('PanoramaComponent_MatchList_PredictionUploaded', elPanel._oPickemData.eventhandleprediction );
 		$.UnregisterForUnhandledEvent('PanoramaComponent_Store_PurchaseCompleted', elPanel._oPickemData.eventhandlepurchaseUpdate );
 		$.UnregisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', elPanel._oPickemData.eventhandleinventoryUpdate );
 	};
 
-	// Start Helper function 
+	                         
 
 	var _UpdateImageForPick = function( oItemIdData, elItemImage, localTeamId, useSvg = false )
 	{
@@ -370,8 +370,8 @@ var PickemCommon = ( function()
 	{
 		$.DispatchEvent( 'CSGOPlaySoundEffect', 'sticker_applySticker', 'MOUSE' );
 
-		// removed picks get assigned 0 id.
-		// picks that were never made are undefined
+		                                   
+		                                           
 
 		for ( var i = 0; i < oGroupData.picks.length; i++ )
 		{
@@ -414,7 +414,7 @@ var PickemCommon = ( function()
 	{
 		var yourItemId = PredictionsAPI.GetMyPredictionItemIDForTeamID( tournamentId, userPickTeamID, null );
 
-		//You dont' have the item you used to make a pick anymore so lets show you a fake for display
+		                                                                                             
 		if ( !yourItemId || yourItemId === '0' || yourItemId === 0 ||
 			PickemCommon.GetTournamentIdNumFromString( tournamentId ) >= 15 )
 		{
@@ -478,12 +478,12 @@ var PickemCommon = ( function()
 			_MouseOverEventsWithStickersToPurchase( elApplyPicks, 'id-pickem-apply', listStoreIndex );
 		}
 
-		//
-		// Make sure apply button is enabled/disabled appropriately
-		// 0 = apply is disabled (nothing to apply)
-		// 1 = apply is enabled and valid
-		// 2 = apply is enabled because something is dirty, but not all slots have been filled out
-		//
+		  
+		                                                           
+		                                           
+		                                 
+		                                                                                          
+		  
 		var strEnable = _funcEnableApply( elPanel );
 		var bEnable = ( strEnable ? true : false );
 		elApplyPicks.visible = true;
@@ -492,8 +492,8 @@ var PickemCommon = ( function()
 		if( elApplyPicks.enabled !== bEnable )
 			elApplyPicks.TriggerClass( 'popup-capability-update-anim' );
 
-		// var elApplyWarning = elPanel.FindChildInLayoutFile( 'id-pickem-team-actions-bar__warning' );
-		// elApplyWarning.visible = bEnable;
+		                                                                                               
+		                                    
 
 		elApplyPicks.enabled = bEnable;
 
@@ -517,18 +517,18 @@ var PickemCommon = ( function()
 	{
 		var _ShowInpsectPopup = function( id )
 		{
-			// UiToolkitAPI.ShowCustomLayoutPopupParameters(
-			// 	'',
-			// 	'file://{resources}/layout/popups/popup_inventory_inspect.xml',
-			// 	'itemid=' + id
-			// 	+ '&' +
-			// 	'inspectonly=false'
-			// 	+ '&' +
-			// 	'asyncworkitemwarning=no'
-			// 	+ '&' +
-			// 	'storeitemid=' + id,
-			// 	'none'
-			// );
+			                                                
+			   	   
+			   	                                                               
+			   	              
+			   	       
+			   	                   
+			   	       
+			   	                         
+			   	       
+			   	                    
+			   	      
+			     
 
 			$.DispatchEvent( 'ShowTournamentStore' );
 			$.DispatchEvent( 'ShowTournamentStorePassPopup' );
@@ -544,7 +544,7 @@ var PickemCommon = ( function()
 			);
 		};
 
-		// tournament 18 -Show the pass link tile for users to choose what pass they want 
+		                                                                                  
 		var _OpenContextMenu = function()
 		{
 			var usetinynames = true;
@@ -563,15 +563,15 @@ var PickemCommon = ( function()
 
 		elPurchase.visible = false;
 
-		// We check if you have an activated pass which is the same as a coin for the current tournament
+		                                                                                                
 		var id = InventoryAPI.GetActiveTournamentCoinItemId( tournamentNum );
 		if (( !id || id === '0' ) && tournamentNum === g_ActiveTournamentInfo.eventid )
 		{	
-			// No coin so we check if you own a pass that you can activate
+			                                                              
 			id = InventoryAPI.GetActiveTournamentCoinItemId( tournamentNum * -1 );
 			if ( !id || id === '0' )
 			{
-				// Check if pass is an valid item to sell if not hide the panel
+				                                                               
 				id = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( g_ActiveTournamentInfo.itemid_pass, 0 );
 				if ( !StoreAPI.GetStoreItemSalePrice( id, 1, '' ) )
 				{
@@ -580,7 +580,7 @@ var PickemCommon = ( function()
 				}
 				
 				elPurchase.visible = true;
-				// You don't have a pass or a coin so upsell one
+				                                                
 				elPurchase.FindChildInLayoutFile( 'id-pickem-getitems-label' ).text = '#SFUI_ConfirmBtn_GetPassNow';
 				elPurchase.SetPanelEvent( 'onactivate', _OpenContextMenu );
 				return;
@@ -655,7 +655,7 @@ var PickemCommon = ( function()
 				alistTeams.push( element.localid );
 			});
 
-			// Assigning args as an array to popup.
+			                                       
 			var oData = _funcMakePicksParams( elPanel, useFakeItems );
 
 			if ( typeof popup._oPicksData !== 'object' )
@@ -697,5 +697,5 @@ var PickemCommon = ( function()
 
 ( function()
 {
-	// $.RegisterEventHandler( 'ReadyForDisplay', $.GetContextPanel(), PickemCommonOnReadyForDisplay );
+	                                                                                                   
 } )(); 

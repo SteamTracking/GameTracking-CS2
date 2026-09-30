@@ -15,7 +15,6 @@ var PlayerStatsCard;
         elCard.SetHasClass('localplayer', xuid === MockAdapter.GetLocalPlayerXuid());
         let snippet = '';
         switch (MockAdapter.GetGameModeInternalName(false)) {
-            // ffa
             case 'training':
             case 'deathmatch':
                 snippet = 'snippet-banner-dm';
@@ -28,17 +27,14 @@ var PlayerStatsCard;
                 break;
         }
         elCard.FindChildTraverse('JsBanner').BLoadLayoutSnippet(snippet);
-        // Set banner background image
         let elBannerBG = elCard.FindChildTraverse('JsBannerBG');
         elBannerBG.SetImage('file://{images}/stats_cards/stats_card_banner_' + index + '.png');
-        // Set card background
         let elCardBG = elCard.FindChildTraverse('JsCardBG');
         let maxCoord = 100;
         let minCoord = -100;
         let randX = Math.floor(Math.random() * (maxCoord - minCoord) + minCoord);
         let randY = Math.floor(Math.random() * (maxCoord - minCoord) + minCoord);
         elCardBG.style.backgroundPosition = randX + '% ' + randY + '%';
-        // honor icon
         _SetHonorIcon(elCard, xuid);
         return elCard;
     }
@@ -74,7 +70,6 @@ var PlayerStatsCard;
     PlayerStatsCard.SetAvatar = SetAvatar;
     function SetFlair(elCard, xuid) {
         let flairItemId = InventoryAPI.GetFlairItemId(xuid);
-        // We can't access the xuid inventory so we ask for the display item a differnt way
         if (flairItemId === "0" || !flairItemId) {
             const flairDefIdx = FriendsListAPI.GetFriendDisplayItemDefFeatured(xuid);
             flairItemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(flairDefIdx, 0);
@@ -83,18 +78,12 @@ var PlayerStatsCard;
         }
         const imagePath = InventoryAPI.GetItemInventoryImage(flairItemId);
         let elFlairImage = elCard.FindChildTraverse('jsFlairImage');
-        //DEVONLY{
-        if (imagePath === '')
-            throw "Show this to Ido.";
-        //}DEVONLY
         elFlairImage.SetImage('file://{images}' + imagePath + '_small.png');
-        // elCard.SetDialogVariable( 'flair', $.Localize( '#SFUI_XP_RankName_') );
         elCard.SetHasClass('show-flair', true);
     }
     PlayerStatsCard.SetFlair = SetFlair;
     function _UpdateSkillGroup(strSkillgroupData) {
         const oSkillgroupData = JSON.parse(strSkillgroupData);
-        $.Msg(JSON.stringify(oSkillgroupData));
         Object.keys(oSkillgroupData).forEach((xuid, i) => {
             const cardId = 'cardcontainer-' + xuid;
             const elCard = $.GetContextPanel().FindChildTraverse(cardId);
@@ -137,7 +126,6 @@ var PlayerStatsCard;
         };
         const bShowSkillGroup = RatingEmblem.SetXuid(options);
         if (bShowSkillGroup) {
-            // because triggerclass doesn't restart the animation
             elCard.RemoveClass('show-skillgroup');
             $.Schedule(0, () => elCard && elCard.IsValid() ? elCard.AddClass('show-skillgroup') : '');
         }

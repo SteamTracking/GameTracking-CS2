@@ -24,7 +24,6 @@ var PremierMapWinRecord;
             m_LeaderboardHoverPlayerEventHandler = $.RegisterForUnhandledEvent("LeaderboardHoverPlayer", _HighlightPlayer);
             $.RegisterForUnhandledEvent("CSGOHideMainMenu", UnregisterEventHandlers);
             $.RegisterForUnhandledEvent("CSGOShowMainMenu", RegisterEventHandlers);
-            // we never unregister this one
             $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), Draw);
             m_bEventsRegistered = true;
         }
@@ -92,9 +91,8 @@ var PremierMapWinRecord;
             const party = LobbyAPI.GetSessionSettings().members;
             const nPlayers = party.numPlayers;
             let totalWins = 0;
-            let maxWinsInASingleMap = 3; // min 3
+            let maxWinsInASingleMap = 3;
             let mapList = _GetMapsList();
-            // initial pass: find the window stats objects - do all the logic upfront to avoid re-fetching the JSOs
             let wso = [];
             let lbFallbackName = LeaderboardsAPI.GetCurrentSeasonPremierLeaderboard() + '.party';
             for (let p = 0; p < nPlayers; p++) {
@@ -115,7 +113,6 @@ var PremierMapWinRecord;
                     playerObj = PartyListAPI.GetFriendCompetitivePremierWindowStatsObject(xuid);
                 wso.push(playerObj);
             }
-            // first pass: find scale for graph
             for (let p = 0; p < nPlayers; p++) {
                 let RankWindowObject = wso[p];
                 let playerWins = mapList.map((mapName) => { return mapName.startsWith('de_') ? Number(RankWindowObject[mapName] | 0) : 0; });
@@ -124,7 +121,6 @@ var PremierMapWinRecord;
             }
             _DrawGuides(maxWinsInASingleMap);
             _SetTitle(totalWins);
-            // second pass: draw players at scale
             for (let p = 0; p < nPlayers; p++) {
                 let xuid = party['machine' + p].player0.xuid;
                 let RankWindowObject = wso[p];
@@ -154,9 +150,6 @@ var PremierMapWinRecord;
             elMap.SetPositionInPixels(vPos.x, vPos.y, 0);
         }
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         Init();
     }

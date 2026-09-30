@@ -10,9 +10,6 @@ var MuteSpinner;
     }
     function ToggleMute() {
         let elSpinner = $.GetContextPanel().FindChildTraverse('id-mute-spinner');
-        $.Msg("mute: " + m_isMuted);
-        $.Msg("vol: " + m_curVal);
-        $.Msg("spinlock: " + elSpinner.spinlock);
         const elParent = $.GetContextPanel().GetParent();
         if (HasXuid(elParent)) {
             let xuid = elParent.xuid;
@@ -42,7 +39,6 @@ var MuteSpinner;
             if (m_curVal != sNewVal) {
                 GameStateAPI.SetPlayerVoiceVolume(xuid, Number(sNewVal));
                 UpdateVolumeDisplay();
-                // animate the bar
                 let elMuteBar = $.GetContextPanel().FindChildTraverse('id-mute-bar');
                 if (elMuteBar) {
                     elMuteBar.RemoveClass("fade");
@@ -59,8 +55,6 @@ var MuteSpinner;
     }
     function UpdateVolumeDisplay() {
         _GetCurrentValues();
-        $.Msg("mute: " + m_isMuted);
-        $.Msg("vol: " + m_curVal);
         $.GetContextPanel().SetDialogVariable('value', (Number(m_curVal) * 100).toFixed(0));
         let elSpinner = $.GetContextPanel().FindChildTraverse('id-mute-spinner');
         let elSpinnerBar = $.GetContextPanel().FindChildTraverse('id-mute-bar');
@@ -87,9 +81,6 @@ var MuteSpinner;
         elSpinner.spinlock = m_isMuted;
     }
     MuteSpinner.UpdateVolumeDisplay = UpdateVolumeDisplay;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler("SpinnerValueChanged", $.GetContextPanel(), _OnValueChanged);
     }

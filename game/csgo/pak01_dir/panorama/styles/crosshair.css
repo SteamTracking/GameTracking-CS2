@@ -1,9 +1,161 @@
 /* Prettified by Source 2 Viewer - https://valveresourceformat.github.io */
 
+@define CrosshairPanelOffset: translate3d( 0.5px, 0.5px, 0px );
+@define cppPipDefaultOffset: 7;
+@define cppBlackPipDefaultOffset: 2;
+@define cppArcDefaultOffset: 4.0;
+@define arcSize: 9px;
+@define crosshairGreenColor: #a4cc24;
+@define crosshairEnemyColor: #c93121;
+@define crosshairColor1: #a4cc24;
+@define crosshairColor2: #ffdd00;
+@define crosshairColor3: #00ffff;
+@define crosshairColor4: #96ffff;
 .crosshair
 {
 	width: 100%;
 	height: 100%;
+	transform: CrosshairPanelOffset;
+}
+
+.crosshair.crosshair--dothidden
+{
+	transform: none;
+}
+
+.crosshair--hidden
+{
+	visibility: collapse;
+}
+
+.crosshair__pip
+{
+	horizontal-align: center_nopixelsnap;
+	vertical-align: center_nopixelsnap;
+	overflow: noclip;
+}
+
+.crosshair--piphidden .crosshair__pip
+{
+	visibility: collapse;
+}
+
+.crosshair__pip--green
+{
+	-s2-mix-blend-mode: additive;
+	opacity: 0.99;
+}
+
+.crosshair__pip--black
+{
+	wash-color: #000000FF;
+	opacity: 0.67;
+}
+
+.crosshair__arc
+{
+	horizontal-align: center_nopixelsnap;
+	vertical-align: center_nopixelsnap;
+	-s2-mix-blend-mode: additive;
+	overflow: noclip;
+}
+
+.crosshair--archidden .crosshair__arc
+{
+	visibility: collapse;
+}
+
+.crosshair__arc--horizontal
+{
+	width: arcSize;
+	height: 1px;
+}
+
+.crosshair__arc--vertical
+{
+	width: 1px;
+	height: arcSize;
+}
+
+.crosshair__dot
+{
+	width: 1px;
+	height: 1px;
+	horizontal-align: center_nopixelsnap;
+	vertical-align: center_nopixelsnap;
+	overflow: noclip;
+	wash-color: crosshairGreenColor;
+	-s2-mix-blend-mode: additive;
+}
+
+.crosshair--dothidden .crosshair__dot
+{
+	visibility: collapse;
+}
+
+.crosshair__blackcircle
+{
+	horizontal-align: center_nopixelsnap;
+	vertical-align: center_nopixelsnap;
+	overflow: noclip;
+	wash-color: #000000FF;
+	opacity: 0.53 width: 7px;
+	height: 7px;
+}
+
+.crosshair--dothidden .crosshair__blackcircle
+{
+	visibility: collapse;
+}
+
+.crosshair--enemy .crosshair__dot,.crosshair--enemy .crosshair__arc
+{
+	background-color: crosshairEnemyColor;
+}
+
+.crosshair--enemy .crosshair__friend,.crosshair--enemy .crosshair__pip--green
+{
+	wash-color: crosshairEnemyColor;
+}
+
+.crosshair--color1 .crosshair__dot,.crosshair--color1 .crosshair__arc
+{
+	background-color: crosshairColor1;
+}
+
+.crosshair--color1 .crosshair__pip--green
+{
+	wash-color: crosshairColor1;
+}
+
+.crosshair--color2 .crosshair__dot,.crosshair--color2 .crosshair__arc
+{
+	background-color: crosshairColor2;
+}
+
+.crosshair--color2 .crosshair__pip--green
+{
+	wash-color: crosshairColor2;
+}
+
+.crosshair--color3 .crosshair__dot,.crosshair--color3 .crosshair__arc
+{
+	background-color: crosshairColor3;
+}
+
+.crosshair--color3 .crosshair__pip--green
+{
+	wash-color: crosshairColor3;
+}
+
+.crosshair--color4 .crosshair__dot,.crosshair--color4 .crosshair__arc
+{
+	background-color: crosshairColor4;
+}
+
+.crosshair--color4 .crosshair__pip--green
+{
+	wash-color: crosshairColor4;
 }
 
 .crosshair-preview-crontrols

@@ -16,6 +16,34 @@ CSGOHudReticle Label
 	visibility: collapse;
 }
 
+.crosshair__friend
+{
+	wash-color: orange;
+	opacity: 0.2;
+	transform:Scale3d(1, 1, 1);
+	horizontal-align: center_nopixelsnap;
+	vertical-align: center_nopixelsnap;
+	overflow: noclip;
+	-s2-mix-blend-mode: additive;
+}
+
+.crosshair__friend--hidden
+{
+	visibility: collapse;
+}
+
+.crosshair__observer
+{
+	horizontal-align: center;
+	vertical-align: center;
+	-s2-mix-blend-mode: screen;
+}
+
+.crosshair__observer--hidden
+{
+	visibility: collapse;
+}
+
 .targetid
 {
 	horizontal-align: center;

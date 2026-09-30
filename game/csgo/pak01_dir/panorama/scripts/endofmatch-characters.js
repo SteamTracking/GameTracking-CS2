@@ -11,20 +11,17 @@ var EOM_Characters;
     let _m_teamToShow = null;
     const ACCOLADE_START_TIME = 1;
     const DELAY_PER_PLAYER = 0.5;
-    let m_bNoGimmeAccolades = false; // if we show mixed teams, don't show gimmes.
+    let m_bNoGimmeAccolades = false;
     function _GetSnippetForMode(mode) {
         switch (mode) {
-            // 2 x 2
             case 'scrimcomp2v2':
                 return 'snippet-eom-chars__layout--scrimcomp2v2';
-            // team line up
             case 'competitive':
             case 'cooperative':
             case 'casual':
             case 'teamdm':
             case 'rush':
                 return 'snippet-eom-chars__layout--classic';
-            // podium formationa
             case 'training':
             case 'deathmatch':
             case 'ffadm':
@@ -61,7 +58,6 @@ var EOM_Characters;
                     if (MockAdapter.GetMockData() != undefined) {
                         arrPlayerXuids = ['1', '2', '3'];
                     }
-                    // manually create the array to preserve the order of the players.
                     arrPlayerList[0] = _m_arrAllPlayersMatchDataJSO.filter(o => o['xuid'] == arrPlayerXuids[0])[0];
                     arrPlayerList[1] = _m_arrAllPlayersMatchDataJSO.filter(o => o['xuid'] == arrPlayerXuids[1])[0];
                     arrPlayerList[2] = _m_arrAllPlayersMatchDataJSO.filter(o => o['xuid'] == arrPlayerXuids[2])[0];
@@ -94,7 +90,6 @@ var EOM_Characters;
                     arrPlayerList = _CollectPlayersOfTeam(_m_teamToShow);
                     arrPlayerList = arrPlayerList.sort(_SortByScoreFn);
                     m_bNoGimmeAccolades = false;
-                    // force local player into the front (if localplayer is shown)
                     if (_m_localPlayer) {
                         arrPlayerList = arrPlayerList.filter(player => player['xuid'] != _m_localPlayer['xuid']);
                         arrPlayerList.splice(0, 0, _m_localPlayer);
@@ -143,9 +138,7 @@ var EOM_Characters;
     }
     function GetModeForEndOfMatchPurposes() {
         let mode = MockAdapter.GetGameModeInternalName(false);
-        // We want to differentiate the different deathmatch modes but aren't sure this needs to be done outside of this scope.
         if (mode == 'deathmatch') {
-            // FFA
             if (GameInterfaceAPI.GetSettingString('mp_teammates_are_enemies') !== '0') {
                 mode = 'ffadm';
             }
@@ -157,7 +150,6 @@ var EOM_Characters;
     }
     EOM_Characters.GetModeForEndOfMatchPurposes = GetModeForEndOfMatchPurposes;
     function ShowWinningTeam(mode) {
-        // always show your own team
         return false;
     }
     EOM_Characters.ShowWinningTeam = ShowWinningTeam;
@@ -185,7 +177,6 @@ var EOM_Characters;
         else {
             if (oMatchEndData)
                 teamNumToShow = oMatchEndData['winning_team_number'];
-            // if we are supposed to show the winner but there was a tie
             if (!teamNumToShow && localPlayer) {
                 _m_localPlayer = localPlayer;
                 teamNumToShow = _m_localPlayer['teamnumber'];
@@ -194,16 +185,13 @@ var EOM_Characters;
         if (teamNumToShow == 2) {
             _m_teamToShow = 'TERRORIST';
         }
-        else // if team to show is CT or unknown, show CT
-         {
+        else {
             _m_teamToShow = 'CT';
         }
         _SetupPanel(mode);
         let arrPlayerList = _CollectPlayersForMode(mode);
         arrPlayerList = _SortPlayers(mode, arrPlayerList);
-        // add the player models
-        let cheerSet = new Set(); // only allow unique cheers to play once;
-        // claim the fun cheer for the local player
+        let cheerSet = new Set();
         let localPlayerCheer = '';
         if (_m_localPlayer) {
             let arrLocalPlayer = _m_localPlayer.hasOwnProperty('items') ? _m_localPlayer.items.filter(oItem => ItemInfo.IsCharacter(oItem.itemid)) : [];
@@ -272,7 +260,6 @@ var EOM_Characters;
     ;
     function _DisplayPlayerStatsCard(elCardContainer, index, nPlayerCount) {
         let elEndOfMatch = $.GetContextPanel();
-        // Evenly divide middle 4:3 (1440x1080 in panel space) along the x-axis.
         let w = elEndOfMatch.actuallayoutwidth;
         let h = elEndOfMatch.actuallayoutheight;
         let xMin = 1080 * (w / h) * 0.5 - 720;
@@ -284,7 +271,6 @@ var EOM_Characters;
             elCardContainer.AddClass('reveal');
             $.Schedule(0.3, () => PlayerStatsCard.RevealStats(elCard));
         }
-        // only play sfx if characters are visible
         if (!$.GetContextPanel().BAscendantHasClass('scoreboard-visible')) {
             $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.stats_reveal', 'MOUSE');
         }
@@ -313,15 +299,12 @@ var EOM_Characters;
                 elCardContainer.AddClass('player-stats-card-container');
                 elCardContainer.style.zIndex = (index * 10).toString();
                 let elCard = PlayerStatsCard.Init(elCardContainer, xuid, index);
-                // ACCOLADE
-                // we don't know what the value type is so stuff it in all the ways and let the string use the correct one, e.g. accolade_livetime_desc
                 let accName = GameStateAPI.GetAccoladeLocalizationString(Number(oTitle.eaccolade));
                 let showAccolade = !(bNoGimmes && accName.includes('gimme_'));
                 if (showAccolade) {
                     let accValue = oTitle.value.toString();
                     let accPosition = oTitle.position.toString();
                     PlayerStatsCard.SetAccolade(elCard, accValue, accName, accPosition);
-                    $.Msg('EOM Accolade UI display: ' + xuid + ' ' + accPosition + ' ' + accName + ' ' + accValue);
                 }
                 PlayerStatsCard.SetStats(elCard, xuid, arrBestStats);
                 PlayerStatsCard.SetFlair(elCard, xuid);
@@ -331,7 +314,6 @@ var EOM_Characters;
                 $.Schedule(ACCOLADE_START_TIME + (index * DELAY_PER_PLAYER), _DisplayPlayerStatsCard.bind(undefined, elCardContainer, index, nPlayerCount));
             }
             else {
-                $.Msg('EOM Accolade UI display: ' + oPlayer.xuid + ' is missing from accolades.');
             }
         }
         for (let oBest of arrBestStats) {
@@ -370,12 +352,10 @@ var EOM_Characters;
             case 'scrimcomp2v2':
                 arrPlayerList.sort(_SortByTeamFn);
                 break;
-            // put local player in center.
             case 'no longer used but force local player to the middle':
                 if (_m_localPlayer &&
                     _m_localPlayer.hasOwnProperty('xuid') &&
                     (arrPlayerList.filter(p => p.xuid == _m_localPlayer.xuid).length > 0)) {
-                    // move local player to center of display
                     midpoint = Math.floor(arrPlayerList.length / 2);
                     arrPlayerList = arrPlayerList.filter(player => player['xuid'] != _m_localPlayer['xuid']);
                     arrPlayerList.splice(midpoint, 0, _m_localPlayer);
@@ -383,7 +363,6 @@ var EOM_Characters;
                 break;
             case 'no longer used but force player to have a spot':
                 if (_m_localPlayer && arrPlayerList.includes(_m_localPlayer)) {
-                    // guarantee local player a position on the board
                     localPlayerPosition = Math.min(arrPlayerList.indexOf(_m_localPlayer), 7);
                     arrPlayerList = arrPlayerList.filter(player => player['xuid'] != _m_localPlayer['xuid']);
                     arrPlayerList.splice(localPlayerPosition, 0, _m_localPlayer);
@@ -423,9 +402,6 @@ var EOM_Characters;
         $('#id-eom-characters-root').RemoveAndDeleteChildren();
     }
     EOM_Characters.Shutdown = Shutdown;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('GameState_RankRevealAll', _RankRevealAll);
     }

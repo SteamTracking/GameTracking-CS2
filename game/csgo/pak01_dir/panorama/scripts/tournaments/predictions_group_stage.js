@@ -5,11 +5,8 @@ var PredictionsGroup;
 (function (PredictionsGroup) {
     let _m_foundTarget = false;
     const _m_targetNamePrefix = "id-pickem-pick-";
-    // Current version of how groups stages work.
     function Init() {
         let oPageData = PopupMajorHub.GetActivePageData();
-        // Doesn't re-fetch saved picks for display the picks when you are just browsing tabs in the major hub
-        // So picks do not change user the user.
         if (!oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
             _UpdateDragTargets(oPageData);
             _UpdateDragSourceTeams(oPageData);
@@ -34,7 +31,6 @@ var PredictionsGroup;
         elClearBtn.visible = isActiveSection && canPick;
         if (isActiveSection && !oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
             elRandomBtn.SetPanelEvent('onactivate', () => {
-                // _UpdateDragTargets( oPageData, false );
                 _UpdateDragSourceTeams(oPageData);
                 _FillOutPicksRandom();
                 elRandomBtn.enabled = false;
@@ -72,14 +68,12 @@ var PredictionsGroup;
             if (teamId !== 0 && teamId && !PredictionsAPI.GetFakeItemIDToRepresentTeamID(oPageData.tournamentId, teamId))
                 teamId = 0;
             let elTeam = oPageData.panel.FindChildInLayoutFile(sourceNamePrefix + teamId);
-            $.Msg('teamId' + teamId);
             if (teamId !== 0 && teamId) {
                 if (!elTeam) {
                     elTeam = $.CreatePanel("Panel", elParent, sourceNamePrefix + teamId);
                     elTeam.BLoadLayoutSnippet("team-draggable");
                     elTeam.Data().teamId = teamId;
                     elTeam.Data().isSource = true;
-                    // prevents adding multiple events
                     if (isActiveSection && !oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
                         _AddDragSourceEvents(elTeam);
                         _ShowHideTeamTooltip(elTeam);
@@ -96,7 +90,6 @@ var PredictionsGroup;
                 else {
                     elTeam.SwitchClass('team-state', '');
                 }
-                //Prevents hover states and any unintentional dragging
                 elTeam.hittest = !isLocalPick;
                 elTeam.hittestchildren = !isLocalPick;
                 elTeam.SetDraggable((isActiveSection && canPick) && !isLocalPick);
@@ -177,7 +170,6 @@ var PredictionsGroup;
             let elTarget = oPageData.panel.FindChildInLayoutFile(_m_targetNamePrefix + i);
             if (bAllowEmptySlots) {
                 aPicks.push({ teamId: elTarget.Data().teamId, group: oPageData.groupId, groupIndex: i });
-                // aPicks.push( elTarget.Data().teamId )
             }
             else if (elTarget.Data().teamId) {
                 aPicks.push({ teamId: elTarget.Data().teamId, group: oPageData.groupId, groupIndex: i });
@@ -197,8 +189,6 @@ var PredictionsGroup;
         return null;
     }
     function OnDragStart(elDragSource, drag) {
-        // Parent to $.GetContextPanel() instead of elDragSource.
-        // Parenting to elDragSource results in item images getting stuck in weird places for some reason.
         PopupMajorHub.DeleteDragItem();
         let elDragImage = $.CreatePanel('ItemImage', $.GetContextPanel(), '', {
             class: 'group-stage-drag-icon',
@@ -221,9 +211,6 @@ var PredictionsGroup;
     function OnDragEnd(elDragImage) {
         elDragImage.AddClass('drag-end');
         PopupMajorHub.DeleteDragItem();
-        // Drop event fires before EndDrag.
-        // If user did not successfully drop and are not from the source icons then remove the pick from the slot
-        // User dragged out into empty space
         if (!_m_foundTarget && !elDragImage.Data().isSource) {
             let elOldTarget = _GetLocalPickPanel(elDragImage.Data().teamId);
             _UpdateDropTarget(elOldTarget, null);
@@ -245,7 +232,6 @@ var PredictionsGroup;
                 let savedTeamId = PredictionsAPI.GetMyPredictionTeamID(oPageData.tournamentId, oPageData.groupId, i);
                 let LocalTeamId = elTarget.Data().teamId;
                 _UpdateDropTarget(elTarget, (savedTeamId ? savedTeamId : LocalTeamId ? LocalTeamId : null));
-                // prevents adding multiple events
                 if (isActiveSection && !oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
                     _ItemDragTargetEvents(elTarget);
                     _AddDragSourceEvents(elTarget.FindChildInLayoutFile('id-team-panel'));
@@ -255,8 +241,7 @@ var PredictionsGroup;
                     if (PopupMajorHub.CheckIfPickIsCorrect(sCorrectPicks, savedTeamId) && savedTeamId) {
                         elTarget.SwitchClass('correct-state', 'is-correct');
                     }
-                    else if (savedTeamId && !isActiveSection) // only add the correct-state if user made a pick
-                     {
+                    else if (savedTeamId && !isActiveSection) {
                         elTarget.SwitchClass('correct-state', 'is-incorrect');
                     }
                     else {
@@ -305,7 +290,6 @@ var PredictionsGroup;
         _m_foundTarget = true;
     }
     function _UpdateDropTarget(elTarget, teamId) {
-        // Null clears out the slot
         if (elTarget && elTarget.IsValid()) {
             let oPageData = PopupMajorHub.GetActivePageData();
             let isActiveSection = PredictionsAPI.GetSectionIsActive(oPageData.tournamentId, oPageData.sectionId);
@@ -328,9 +312,8 @@ var PredictionsGroup;
     }
     function _FillOutPicksRandom() {
         let oPageData = PopupMajorHub.GetActivePageData();
-        let aLocalPicks = _GetLocalSetPicks(oPageData, true); // does not filter for unfilled slots
+        let aLocalPicks = _GetLocalSetPicks(oPageData, true);
         let aTeams = [];
-        // Get available teams
         let nTeams = PredictionsAPI.GetGroupTeamsCount(oPageData.tournamentId, oPageData.groupId);
         for (let i = 0; i < nTeams; ++i) {
             aTeams.push(PredictionsAPI.GetGroupTeamIDByIndex(oPageData.tournamentId, oPageData.groupId, i));
@@ -340,7 +323,6 @@ var PredictionsGroup;
             return;
         }
         let aUnpickedTeams = aTeams.filter((value, index) => !aLocalPicks.find(p => p.teamId == value));
-        //shuffle
         let top = aUnpickedTeams.length;
         while (--top) {
             var current = Math.floor(Math.random() * (top + 1));
@@ -365,18 +347,11 @@ var PredictionsGroup;
         });
         $.Schedule(nDelay, () => { _UpdateDragSourceTeams(oPageData); });
     }
-    //
-    // Data and methods for match lister presentation
-    //
     let _m_elSections = {};
     let _m_elPlacements = {};
     function InitializeMatchLister(oPageData) {
-        // Must have a stable match list before updating any data in our UI
         if (MatchListAPI.GetState(oPageData.tournamentId) !== 'ready')
             return;
-        //
-        // Find all the sections and fully reset them to default presentation
-        //
         for (let numWs = 0; numWs <= 2; ++numWs) {
             for (let numLs = 0; numLs <= 2; ++numLs) {
                 let strMatchups = 'matchups-' + numWs + '-' + numLs;
@@ -405,9 +380,6 @@ var PredictionsGroup;
                 _m_elSections[strMatchups] = { matches: arrTeamPairs, results: 0 };
             }
         }
-        //
-        // Find all the placement tiles
-        //
         for (let numWs = 0; numWs <= 3; ++numWs) {
             for (let numLs = 0; numLs <= 3; ++numLs) {
                 if (numWs != 3 && numLs != 3)
@@ -419,7 +391,7 @@ var PredictionsGroup;
                 let arrSlots = [];
                 elContainer.Children().forEach(el => {
                     if (el.BHasClass('placeholder-team-icon'))
-                        return; // placeholders are not valid teams
+                        return;
                     if (el.GetChildCount() == 0) {
                         arrSlots.push(el);
                     }
@@ -434,12 +406,9 @@ var PredictionsGroup;
                 _m_elPlacements[strID] = { slots: arrSlots, results: 0 };
             }
         }
-        //
-        // Dictionary of current team states
-        //
         let numBestOf1Rounds = ((g_ActiveTournamentInfo.eventid >= 26)
             && (oPageData.sectionIndex >= g_ActiveTournamentInfo.num_stages_with_swiss - 1))
-            ? 0 : 2; // how many best-of-1 rounds before teams start playing best-of-3 matchups (starting with Cologne 2026 Major we play Stage III all best-of-3)
+            ? 0 : 2;
         let teamStates = {};
         function GetTeamState(teamid) {
             if (!teamStates.hasOwnProperty(teamid)) {
@@ -476,12 +445,7 @@ var PredictionsGroup;
                 ++state.loss;
             }
         }
-        //
-        // Let's roll through the match lister
-        //
-        // let nCount:number = MatchListAPI.GetCount( oPageData.tournamentId );
         let nCount = PredictionsAPI.GetSectionMatchesCount(oPageData.tournamentId, oPageData.sectionId);
-        $.Msg('InitializeMatchLister has ' + nCount + ' matches');
         for (let idxMatch = nCount; idxMatch-- > 0;) {
             let umid = PredictionsAPI.GetSectionMatchByIndex(oPageData.tournamentId, oPageData.sectionId, idxMatch);
             let team0 = MatchInfoAPI.GetMatchTournamentTeamTag(umid, 0);
@@ -492,10 +456,8 @@ var PredictionsGroup;
             let keyteam = (team0 < team1) ? team0 : team1;
             let steam = GetTeamState(keyteam);
             let matchup = 'matchups-' + steam.wins + '-' + steam.loss;
-            $.Msg('   ' + team0 + '-vs-' + team1 + ' in ' + matchup + ' UMID:' + umid + ' res=' + res);
             if (!_m_elSections[matchup].hasOwnProperty(keyteam)) {
                 _m_elSections[matchup][keyteam] = _m_elSections[matchup].results;
-                $.Msg('      added matchup key for ' + keyteam + ' = ' + _m_elSections[matchup].results + ' out of ' + _m_elSections[matchup].matches.length);
                 ++_m_elSections[matchup].results;
             }
             if (_m_elSections[matchup][keyteam] < _m_elSections[matchup].matches.length) {
@@ -509,11 +471,11 @@ var PredictionsGroup;
                     : ((team0 == keyteam) ? true : false);
                 let nLeftScore = 0;
                 let nRightScore = 0;
-                if (steam.wins >= numBestOf1Rounds || steam.loss >= numBestOf1Rounds) { // BEST-OF-3 scores show "2:0" or "2:1"
+                if (steam.wins >= numBestOf1Rounds || steam.loss >= numBestOf1Rounds) {
                     nLeftScore = (omatch.keyteam_wins >= omatch.keyteam_loss) ? omatch.keyteam_wins : omatch.keyteam_loss;
                     nRightScore = (omatch.keyteam_wins < omatch.keyteam_loss) ? omatch.keyteam_wins : omatch.keyteam_loss;
                 }
-                else { // BEST-OF-1 shows actual match score
+                else {
                     nLeftScore = MatchInfoAPI.GetMatchRoundScoreForTeam(umid, bSwap01 ? 1 : 0);
                     nRightScore = MatchInfoAPI.GetMatchRoundScoreForTeam(umid, bSwap01 ? 0 : 1);
                 }
@@ -534,10 +496,9 @@ var PredictionsGroup;
                 AddLoss(GetTeamState((team0 == winteam) ? team1 : team0));
             }
         }
-        // Set known team placements here
         for (let teamtag in teamStates) {
             if (teamStates[teamtag].wins < 3 && teamStates[teamtag].loss < 3)
-                continue; // this team state is unknown
+                continue;
             let strID = 'placement-' + teamStates[teamtag].wins + '-' + teamStates[teamtag].loss;
             let idx = _m_elPlacements[strID].results++;
             if (idx >= _m_elPlacements[strID].slots.length)
@@ -562,6 +523,5 @@ var PredictionsGroup;
                 elParent.SetHasClass('actual-result-green-check', bCorrectActualPick);
             }
         }
-        $.Msg('InitializeMatchLister finished processing ' + nCount + ' matches');
     }
 })(PredictionsGroup || (PredictionsGroup = {}));

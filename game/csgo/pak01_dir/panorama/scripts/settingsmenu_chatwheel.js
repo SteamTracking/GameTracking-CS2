@@ -2,7 +2,6 @@
 /// <reference path="csgo.d.ts" />
 var SettingsMenuChatwheel;
 (function (SettingsMenuChatwheel) {
-    //When editing these options, also have to add corresponding entries to csgo_radial_radio.cpp
     let m_options = [
         { text: "#Chatwheel_section_prepare", title: 1 },
         { text: "#Chatwheel_requestecoround", radio: "CW.EcoRound", icon: "icons/ui/chatwheel_requestecoround.svg" },
@@ -183,7 +182,6 @@ var SettingsMenuChatwheel;
         }
     }
     SettingsMenuChatwheel.SearchChanged = SearchChanged;
-    //Setup
     _PopulateSegments();
     _PopulateSettingsList();
 })(SettingsMenuChatwheel || (SettingsMenuChatwheel = {}));

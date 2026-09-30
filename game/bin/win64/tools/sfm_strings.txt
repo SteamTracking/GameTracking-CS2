@@ -4485,8 +4485,6 @@ $prefix_element$
 2\n?doItemsLayout@QListView@@UEAAXXZ
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vp4
-2\vpT
 2aboutToHide()
 2aboutToShow()
 2accepted()
@@ -6959,7 +6957,9 @@ $prefix_element$
 ?waitForFinished@QProcess@@QEAA_NH@Z
 ?waitForReadyRead@QProcess@@UEAA_NH@Z
 @#?write@QTableWidgetItem@@UEBAXAEAVQDataStream@@@Z
-@08N
+@08ND
+@HPX`hv`
+@HVp
 @Integer overflow in %s
 @\v?event@QFrame@@MEAA_NPEAVQEvent@@@Z
 @control_point
@@ -7229,7 +7229,7 @@ Async Outflow (Child Cursor) C%d:I%d
 At Bookmarks
 At least one sound clip must be selected to extract phonemes.
 Ate : upper-mid front unrounded vowel
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach IK Rig
 Attach Spline Rig
 Attack Time MS
@@ -7262,7 +7262,6 @@ Autosaving...
 B channel not found!\n
 B-Spline
 B>X?L7I>
-BSceneSystem
 BUTTON
 B\f?focusWidget@QApplication@@SAPEAVQWidget@@XZ
 B\nP\t0
@@ -9545,8 +9544,8 @@ Fldb Noise Gate Threshold
 Float Control Slider Menu
 Float To Game Time
 FloatBitMap_t: Error loading %s\n
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
 Floating Modification Layer Enabled
@@ -9730,7 +9729,7 @@ Help
 Help : breathy-voiced glottal fricative
 Help : voiceless glottal fricative
 Help...
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Helpers
 Hero
 HeroViewer
@@ -10998,7 +10997,7 @@ Overwrite With Current
 P'?SetBoolProp@FbxIOSettings@fbxsdk@@QEAAXPEBD_N@Z
 P08@J
 P08J
-P08N
+P08ND
 P4 Operation failed
 P4InteractionDialog
 P4OpenFilesDialog
@@ -11366,11 +11365,9 @@ RMouse
 RMouseDoubleClick
 RW?restore@QPainter@@QEAAXXZ
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
-R\fpT
-R\n04
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vp4
+R\vpl
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Rad2 Deg
@@ -13230,7 +13227,6 @@ ZpI)
 \f\n?deselect@QLineEdit@@QEAAXXZ
 \f\r?heightForWidth@QFormLayout@@UEBAHH@Z
 \f\t?beginReadArray@QSettings@@QEAAHAEBVQString@@@Z
-\fp\vPh
 \game\
 \n ?textValue@QInputDialog@@QEBA?AVQString@@XZ
 \n***ASSERT FAILED*** Image data section has too many channels (%d).
@@ -13498,6 +13494,7 @@ a?windowText@QPalette@@QEBAAEBVQBrush@@XZ
 a?write@QStandardItem@@UEBAXAEAVQDataStream@@@Z
 a?x@QMouseEvent@@QEBAHXZ
 a?y@QMouseEvent@@QEBAHXZ
+aBvD
 aC=H
 aTR>7
 aZure : voiced postalveolar fricative
@@ -15086,8 +15083,9 @@ overrideShutterSpeedValue
 ownerelement
 ownerlog
 p"?value@QSpinBox@@QEBAHXZ
-p08@H^
+p08@H^D
 p4win
+p4}R
 p?L7
 p?X94<
 p?vO
@@ -15232,8 +15230,7 @@ quaternion_array
 quiet
 r>TR'>O
 rQ?lineTo@QPainterPath@@QEAAXNN@Z
-r\vp4
-r\vpT
+r\fpl
 r_dota_wind_min_high_freq_strength
 rad2deg
 radiusScale

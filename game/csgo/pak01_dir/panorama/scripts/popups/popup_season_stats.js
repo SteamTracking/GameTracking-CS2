@@ -12,7 +12,6 @@ var PopupSeasonStats;
     let _m_elSelectedMap;
     let _m_selectedGridStat;
     function Init() {
-        // Set Event id for the hub since you can eventually open it for past events
         let seasonid = $.GetContextPanel().GetAttributeString('seasonid', '') ? parseInt($.GetContextPanel().GetAttributeString('seasonid', '')) : -1;
         if (seasonid < 1) {
             ClosePopup();
@@ -22,14 +21,12 @@ var PopupSeasonStats;
     }
     PopupSeasonStats.Init = Init;
     function _ReadyForDisplay() {
-        $.Msg('PopupSeasonStats ReadyForDisplay: ' + _m_cp.id);
         if (!MyPersonaAPI.IsConnectedToGC()) {
             ClosePopup();
             return;
         }
         let seasonid = $.GetContextPanel().GetAttributeString('seasonid', '') ? parseInt($.GetContextPanel().GetAttributeString('seasonid', '')) : -1;
         if (seasonid < 1) {
-            //Don't  close.  the Init fires on panel load a little later.
             return;
         }
         _m_seasonId = seasonid;
@@ -43,16 +40,12 @@ var PopupSeasonStats;
         }
         let seasonData = TournamentsAPI.GetPremierSeasonSummaryJSO(seasonid);
         if (!seasonData) {
-            // start timer
             _CancelWaitForCallBack();
             _m_timeoutHandle = $.Schedule(5, () => {
-                // do loading styles in here
                 _TimeoutPopup();
-                $.Msg('loading');
             });
         }
         else {
-            // Cancel timer
             _CancelWaitForCallBack();
             _SetModelPanel();
             _SetGlobalStats(seasonData);
@@ -61,11 +54,9 @@ var PopupSeasonStats;
             _SetUpSpiderGraph(seasonData);
             _SetRank(seasonData);
             $.Schedule(.25, () => { _m_cp.SetHasClass('stats-loaded', true); });
-            $.Msg('loaded');
         }
     }
     function _UnreadyForDisplay() {
-        $.Msg('PopupSeasonStats UnReadyForDisplay: ' + _m_cp.id);
     }
     function ClosePopup() {
         $.DispatchEvent('CSGOPlaySoundEffect', 'inventory_inspect_close', 'MOUSE');
@@ -80,7 +71,6 @@ var PopupSeasonStats;
         if (_m_timeoutHandle) {
             $.CancelScheduled(_m_timeoutHandle);
             _m_timeoutHandle = null;
-            $.Msg('CancelScheduled');
         }
     }
     ;
@@ -122,19 +112,15 @@ var PopupSeasonStats;
         };
         Object.entries(oTotals_data_for_display).forEach(([key, value]) => {
             if (_IsSimpleStat(key, value)) {
-                $.Msg('stat: ' + key);
                 let total = 0;
                 seasonData.data_per_map.forEach(dataPerMap => {
                     let stat = dataPerMap[key];
                     total = stat + total;
-                    // $.Msg( '_SetGlobalStats-'+dataPerMap.map_name +': ' +  key +', stat: ' + stat + ', total:' + total );
                 });
                 oTotals_data_for_display[key] = total;
-                // Set all the stats that map directly to the global stats
                 _SetSimpleStat(key, 'id-global-stat-', total);
             }
         });
-        //Set calculated stats
         _SetKDRatio(_m_cp.FindChildInLayoutFile('id-global-stat-k-d'), oTotals_data_for_display.kills, oTotals_data_for_display.deaths);
         _SetKillPerRound(_m_cp.FindChildInLayoutFile('id-global-stat-kpr'), oTotals_data_for_display.kills, oTotals_data_for_display.rounds);
         _SetMatchesPlayed(_m_cp.FindChildInLayoutFile('id-global-stat-matches-played'), oTotals_data_for_display.wins, oTotals_data_for_display.losses, oTotals_data_for_display.ties);
@@ -214,11 +200,8 @@ var PopupSeasonStats;
     function _PositionTiesLabel(elTies, elTiesBar, nTies) {
         elTies.visible = nTies > 0;
         if (nTies > 0) {
-            // let elParent = elTiesBar.GetParent();
-            // let parentWidth = elParent.actuallayoutwidth / elParent.actualuiscale_x;
             let nXPos = Math.floor(elTiesBar.actualxoffset / elTiesBar.actualuiscale_x);
-            if (nXPos > 1920 || nXPos <= 0) // wider then the screen then just don't show
-             {
+            if (nXPos > 1920 || nXPos <= 0) {
                 elTies.visible = false;
                 return;
             }
@@ -269,9 +252,7 @@ var PopupSeasonStats;
             map_id: 0,
             map_name: ''
         };
-        // no btns exist
         if (elBtns.Children().length < 1) {
-            // Create headers for grid view before we loop through per map data
             let elHeaderRow = $.CreatePanel('Panel', elRows, 'id-stat-map-row-header');
             elHeaderRow.BLoadLayoutSnippet('grid-row');
             elHeaderRow.SetHasClass('row-header', true);
@@ -354,7 +335,6 @@ var PopupSeasonStats;
         });
     }
     function _MakeMapStatsRow(elRows, mapName, map) {
-        // make rows for grid since we are iterating over the same data
         let elRow = $.CreatePanel('Panel', elRows, 'id-stat-map-row-' + mapName);
         elRow.BLoadLayoutSnippet('grid-row');
         _FillOutMapRow(elRow, map);
@@ -362,7 +342,6 @@ var PopupSeasonStats;
     function _FillOutPerMapStats(elPanel, mapData) {
         Object.entries(mapData).forEach(([key, value]) => {
             if (_IsSimpleStat(key, value)) {
-                // Set all the stats that map directly to the global stats
                 _SetSimpleStat(key, 'id-map-stat-', value, elPanel);
             }
         });
@@ -436,7 +415,6 @@ var PopupSeasonStats;
                 elRow.Data().isEmpty = true;
                 return;
             }
-            // Value is saved on entry when we calculate this specific stats.
             _SetMatchesPlayed(elRow.FindChildInLayoutFile('id-row-stat-matches-played'), mapData.wins, mapData.losses, mapData.ties);
             _SetWinPercentStat(elRow.FindChildInLayoutFile('id-row-stat-win-percent'), mapData.wins, mapData.losses, mapData.ties);
             _SetKDRatio(elRow.FindChildInLayoutFile('id-row-stat-k-d'), mapData.kills, mapData.deaths);
@@ -444,7 +422,6 @@ var PopupSeasonStats;
             _SetHeadshotPercentStat(elRow.FindChildInLayoutFile('id-row-stat-hs-percent'), mapData.headshots, mapData.kills);
         }
         else {
-            // Header titles.
             elRow.FindChild('id-row-stat-matches-played').SetDialogVariable('stat-value', $.Localize('#season_stat_title_matches_played'));
             elRow.FindChild('id-row-stat-win-percent').SetDialogVariable('stat-value', $.Localize('#season_stat_title_win_percent'));
             elRow.FindChild('id-row-stat-k-d').SetDialogVariable('stat-value', $.Localize('#season_stat_title_kd'));
@@ -526,7 +503,6 @@ var PopupSeasonStats;
                 }
                 else {
                     elRow?.MoveChildAfter(elRow.FindChild('id-row-stat-' + aOrder[i]), elRow.FindChild('id-row-stat-' + aOrder[i - 1]));
-                    $.Msg('MoveChildAfter:' + i + '-1:' + aOrder[i - 1]);
                 }
             }
         }
@@ -552,7 +528,6 @@ var PopupSeasonStats;
             playerWins[dataPerMap.map_name] = dataPerMap.wins;
         });
         _DrawSpiderGraphGuides(maxWins, aMapList.length);
-        // make sure to add zero for maps that we don't have data for
         let winsForDisplay = aMapList.map((map_name) => { return map_name.startsWith('de_') ? Number(playerWins[map_name] | 0) : 0; });
         _DrawSpiderGraphPlayerPlot(winsForDisplay, maxWins);
         _MakeSpiderGraphMapPanels(aMapList);
@@ -617,10 +592,8 @@ var PopupSeasonStats;
         let maxRank = 0;
         aDataPerWeek.forEach((week, idx) => {
             aRankData.push(week.rank_id);
-            // spoof all points: aRankData.push( ( week.rank_id > 0 ) ? week.rank_id : 5000 + ( idx + 1 ) * 100 );
             aWeeks.push(idx);
             aWeekNames.push(week.week_name);
-            // keep track of min/max
             if (week.rank_id > 0) {
                 if (minRank <= 0)
                     minRank = week.rank_id;
@@ -632,10 +605,8 @@ var PopupSeasonStats;
                     maxRank = week.rank_id;
             }
         });
-        // Make sure that "minRank" is on the 5,000 boundary below the lowest value
         if (minRank > 0)
             minRank = Math.floor(minRank / 5000) * 5000;
-        // Make sure that "maxRank" is on the 5,000 boundary above the highest value
         maxRank = Math.ceil(maxRank / 5000) * 5000;
         if (maxRank <= minRank) {
             if (minRank > 0)
@@ -643,15 +614,6 @@ var PopupSeasonStats;
             else
                 maxRank += 5000;
         }
-        // Make sure that the halfway line will go at proper 5,000 increment
-        // if ( ( maxRank - minRank ) % 10000 != 0 )
-        // {
-        //     if ( minRank > 0 ) minRank -= 5000;
-        //     else maxRank += 5000;
-        // }
-        //
-        // Build the graph
-        //
         const xvals = aWeeks;
         const yvals = aRankData;
         const options = {
@@ -680,7 +642,6 @@ var PopupSeasonStats;
     }
     function _AddYAxisRanks(lineGraph) {
         const guidelineYPositions = lineGraph.GetGuidelinePositions();
-        // const graphY = lineGraph.actualyoffset / lineGraph.actualuiscale_y;
         guidelineYPositions.forEach((posData, index) => {
             let elParent = _m_cp.FindChildInLayoutFile('id-line-graph-y-axis');
             let elRating = $.CreatePanel('Panel', elParent, 'id-rating-y-' + posData.x);
@@ -700,7 +661,6 @@ var PopupSeasonStats;
     }
     function _MakeDots(lineGraph, aWeekNames, aWeeks, aRanks) {
         const pointPositions = lineGraph.GetDataPointPositions();
-        $.Msg(pointPositions);
         let highestRank = Math.max(...aRanks);
         pointPositions.forEach((posData, index) => {
             let elPoint = $.CreatePanel('Panel', lineGraph, 'id-point-' + index, { class: 'stats-rank-line-graph-dot' });
@@ -748,10 +708,6 @@ var PopupSeasonStats;
             }
         });
     }
-    // min 20 total wins, min  lowest map 10  // 1/7
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', _ReadyForDisplay);
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_UpdateConnectionToGC', _ReadyForDisplay);

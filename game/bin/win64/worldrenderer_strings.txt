@@ -67,8 +67,8 @@
 .?AVIWorldRendererMgr@@
 .?AVIWorldVPKReference@@
 .vwnod
-2\vpL[
-2\vpt=
+2\vp4:
+2\vp\fX
 9>-memory-
 <<NULL ENTITY LUMP>>
 <no classname>
@@ -213,6 +213,7 @@ WorldRenderer/GrassQuadSize
 \tWorld: %s
 \t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\v\n\v\n\v\n\v\n\v\n\v\n\v\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\f\r\f\r\f\r\f\r\f\r\f\r\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
 \t\t\tWorld Node Loaded: %s\n
+\vPhA
 an attr
 ati_compress_wrapper.dll
 attributes

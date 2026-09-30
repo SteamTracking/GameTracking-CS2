@@ -10,9 +10,7 @@ var ShoppingCart;
         items = [];
         totalItems = 0;
         totalPrice = 0;
-        // The list of panels listening for events
         subscribers = [];
-        // Forces the use of getInstance() or allocTempCart()
         constructor() { }
         static mapTempCarts = {};
         static findOrCreateTempCart(id, bCreateNew) {
@@ -31,27 +29,19 @@ var ShoppingCart;
             }
             return GlobalCart.instance;
         }
-        // Panels call this to listen for cart updates.
         subscribeToUpdates(panel, key, callback) {
             this.subscribers = this.subscribers.filter(sub => sub.panel.IsValid());
-            // Check if this exact panel is already in the list
             const existingIndex = this.subscribers.findIndex(sub => sub.panel === panel && sub.key === key);
             if (existingIndex !== -1) {
-                // Overwrite the old callback with the new one.
-                // IsValid() returns true for dynamic lister tiles since they are never destroyed but reused
                 this.subscribers[existingIndex].callback = callback;
             }
             else {
                 this.subscribers.push({ panel, key, callback });
             }
-            // Set initial state
             callback();
         }
-        // The cart calls this internally whenever data changes.      
         broadcastUpdate() {
-            // Remove any panels that were destroyed 
             this.subscribers = this.subscribers.filter(sub => sub.panel.IsValid());
-            // Valid panels update themselves
             for (const sub of this.subscribers) {
                 sub.callback();
             }
@@ -67,13 +57,11 @@ var ShoppingCart;
             this.totalPrice = totalPrice;
             this.broadcastUpdate();
         }
-        // Accessors
         addItem(product, quantity = 1) {
             if (this.totalItems >= 100) {
                 return;
             }
             const existingItem = this.items.find(item => item.id === product.id);
-            $.Msg('add item - name: ' + product.name);
             if (existingItem) {
                 const newQuantity = existingItem.quantity + quantity;
                 existingItem.quantity = Math.min(newQuantity, this.MAX_PER_ITEM);
@@ -93,11 +81,9 @@ var ShoppingCart;
             if (item) {
                 item.quantity -= amount;
                 if (item.quantity <= 0) {
-                    // If it hits zero, reuse our existing method to wipe it out entirely
                     this.removeItem(productId);
                 }
                 else {
-                    // Otherwise, just recalculate the new totals
                     this.calculateTotals();
                 }
             }
@@ -138,28 +124,21 @@ var ShoppingCart;
         getTotalPrice() {
             return this.totalPrice;
         }
-        //Syncs all items in the cart against the upto date prices incase we update outside cart.
-        //Pass in a lookup function that returns the true current price of an itemid.
         syncPrices(getPriceById) {
             let pricesChanged = false;
             for (const item of this.items) {
                 const livePrice = getPriceById(item.id);
-                // If the price is different from our cached price
                 if (livePrice !== undefined && item.price !== undefined) {
-                    //Save old price
                     item.oldPrice = item.price;
-                    $.Msg('Price in cart Updated: ' + item.name);
                     item.price = livePrice;
                     pricesChanged = item.price !== item.oldPrice;
                 }
             }
-            // Only recalculate and update if something changed
             if (pricesChanged) {
                 this.calculateTotals();
             }
         }
     }
-    // Export the single instance globally
     ShoppingCart.cart = GlobalCart.getInstance();
     function findOrCreateTempCart(id, bCreateNew) { return GlobalCart.findOrCreateTempCart(id, bCreateNew); }
     ShoppingCart.findOrCreateTempCart = findOrCreateTempCart;

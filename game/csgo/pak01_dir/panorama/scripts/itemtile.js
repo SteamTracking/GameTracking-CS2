@@ -24,17 +24,12 @@ var ItemTile;
         _SetRentalTime(id);
         _SetIsRentable(id);
         _SetOriginalOwner(id);
-        // When not used in a Invetorylister we need to load the image.
-        // If the panel has this attribute then load the image.
         let loadImage = $.GetContextPanel().GetAttributeString('loadimage', '');
         if (loadImage) {
             _SetImage(id);
         }
     }
     ;
-    //--------------------------------------------------------------------------------------------------
-    // Funtions that set item Tile info. Show and hide appropriate elements
-    //--------------------------------------------------------------------------------------------------
     function _SetItemName(id) {
         let fmtName = ItemInfo.GetFormattedName(id);
         fmtName.SetOnLabel($('#JsItemName'));
@@ -119,7 +114,6 @@ var ItemTile;
         elParentKeychains.RemoveAndDeleteChildren();
         let listStickers = ItemInfo.GetitemStickerList(id);
         for (let entry of listStickers) {
-            $.Msg('Stickers' + entry.image);
             $.CreatePanel('Image', elParentStickers, 'ItemImage' + entry.image, {
                 src: 'file://{images}' + entry.image + '.png',
                 scaling: 'stretch-to-fit-preserve-aspect',
@@ -129,7 +123,6 @@ var ItemTile;
         elParentStickers.SetHasClass('hidden', listStickers.length <= 0 || listStickers === undefined);
         let listKeychains = ItemInfo.GetitemKeychainList(id);
         for (let entry of listKeychains) {
-            $.Msg('Keychains' + entry.image);
             $.CreatePanel('Image', elParentKeychains, 'ItemImage' + entry.image, {
                 src: 'file://{images}' + entry.image + '.png',
                 scaling: 'stretch-to-fit-preserve-aspect',
@@ -143,7 +136,6 @@ var ItemTile;
         let elLabel = $.GetContextPanel().FindChildInLayoutFile('JsRecent');
         let unProtectedEscrowValue = InventoryAPI.GetItemAttributeValue(id, '{uint32}trade protected escrow date');
         if ((unProtectedEscrowValue !== undefined) && (unProtectedEscrowValue == 0)) {
-            // This item is listed on the market and you can "play while selling it"
             elLabel.RemoveClass('hidden');
             elLabel.text = $.Localize('#inv_session_prop_marketlisting');
             return;
@@ -158,7 +150,7 @@ var ItemTile;
                     locString = strItemPickupMethod;
                 }
             }
-            else { // Otherwise this item is not new, just "updated"
+            else {
                 locString = 'updated';
             }
             elLabel.RemoveClass('hidden');
@@ -221,7 +213,6 @@ var ItemTile;
     function OnActivate() {
         HideTooltip();
         let id = $.GetContextPanel().GetAttributeString('itemid', '0');
-        $.Msg('_OnActivate for item: ' + id);
         if ($.GetContextPanel().FindAncestor("id-popup-select-item-list") != null) {
             $.DispatchEvent("OnItemTileActivated", $.GetContextPanel(), id);
             return;
@@ -238,13 +229,11 @@ var ItemTile;
             InventoryAPI.RemoveCraftIngredient(id);
             return;
         }
-        // filter context menu entires based on the lister panel
         let filterValue = $.GetContextPanel().GetAttributeString('context_menu_filter', '');
         let filterForContextMenuEntries = filterValue ? '&populatefiltertext=' + filterValue : '';
         let contextmenuparam = '';
         if ($.GetContextPanel().GetAttributeString('filter_category', '') === 'inv_graphic_art')
             contextmenuparam = '&contextmenuparam=graffiti';
-        // If you are browsing the inventory
         let contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_inventory_item.xml', 'itemid=' + id + filterForContextMenuEntries + contextmenuparam, () => { });
         contextMenuPanel.AddClass("ContextMenu_NoArrow");
         contextMenuPanel.AddClass("ContextMenuCursorTopLeft");
@@ -264,7 +253,6 @@ var ItemTile;
                 UiToolkitAPI.UnregisterJSCallback(updateItemListCallback);
             }
             updateItemListCallback = UiToolkitAPI.RegisterJSCallback(SelectItemForCapability.UpdateSort);
-            $.Msg('View item ' + id + ' inside casket ' + oCapabilityInfo.initialItemId);
             const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml');
             let oSettings = {
                 item_id: id,
@@ -341,9 +329,6 @@ var ItemTile;
     }
     ItemTile.HideTooltip = HideTooltip;
     ;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         $.RegisterEventHandler('CSGOInventoryItemLoaded', $.GetContextPanel(), _OnTileUpdated);
         $.RegisterEventHandler('UpdateItemTile', $.GetContextPanel(), _OnTileUpdated);

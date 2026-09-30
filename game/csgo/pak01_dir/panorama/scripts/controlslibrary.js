@@ -4,13 +4,8 @@
 /// <reference path="hud/hudwinpanel_background_map.ts" />
 /// <reference path="generated/items_event_current_generated_store.d.ts" />
 /// <reference path="generated/items_event_current_generated_store.ts" />
-//--------------------------------------------------------------------------------------------------
-// Nav bar
-//--------------------------------------------------------------------------------------------------
 var controlsLibActiveTab = null;
 function ControlsLibNavigateToTab(tab, msg) {
-    $.Msg(tab);
-    $.Msg(msg);
     if (controlsLibActiveTab) {
         controlsLibActiveTab.RemoveClass('Active');
     }
@@ -20,7 +15,6 @@ function ControlsLibNavigateToTab(tab, msg) {
     }
 }
 function CloseControlsLib() {
-    //Deletes the panel after a small delay to insure the animation for the panel hiding has finished.
     $.GetContextPanel().DeleteAsync(.3);
     var controlsLibPanel = $.GetContextPanel();
     controlsLibPanel.RemoveClass("Active");
@@ -29,9 +23,6 @@ function OpenControlsLib() {
     var controlsLibPanel = $.GetContextPanel();
     controlsLibPanel.AddClass("Active");
 }
-//--------------------------------------------------------------------------------------------------
-// Popups
-//--------------------------------------------------------------------------------------------------
 var jsPopupCallbackHandle = null;
 var jsPopupLoadingBarCallbackHandle = null;
 var popupLoadingBarLevel = 0;
@@ -39,7 +30,6 @@ function ClearPopupsText() {
     $('#ControlsLibPopupsText').text = '--';
 }
 function OnControlsLibPopupEvent(msg) {
-    $.Msg('OnControlsLibPopupEvent: You pressed ' + msg + '\n');
     $('#ControlsLibPopupsText').text = msg;
 }
 function OnPopupCustomLayoutParamsPressed() {
@@ -78,11 +68,6 @@ function OnPopupCustomLayoutMajorStore() {
 function OnPopupCustomLayoutCaseConfirm() {
     UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_container_open_confirm.xml', 'none');
 }
-//DEVONLY{
-function OnPopupCustomLayoutArmsDealOffers() {
-    UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_collection_offers.xml', 'none');
-}
-//}DEVONLY
 function OnPopupCustomLayoutLoadingScreen() {
     ClearPopupsText();
     UiToolkitAPI.ShowCustomLayoutPopup('teams', 'file://{resources}/layout/teamselectmenu.xml');
@@ -93,15 +78,11 @@ function OnControlsLibPopupLoadingBarEvent() {
         popupLoadingBarLevel = 1.0;
     }
 }
-//--------------------------------------------------------------------------------------------------
-// Context menus
-//--------------------------------------------------------------------------------------------------
 var jsContextMenuCallbackHandle = null;
 function ClearContextMenuText() {
     $('#ControlsLibContextMenuText').text = '--';
 }
 function OnControlsLibContextMenuEvent(msg) {
-    $.Msg('OnControlsLibContextMenuEvent: You pressed ' + msg + '\n');
     $('#ControlsLibContextMenuText').text = msg;
 }
 function OnSimpleContextMenu() {
@@ -116,9 +97,6 @@ function OnContextMenuCustomLayoutParamsPressed() {
     ClearContextMenuText();
     UiToolkitAPI.ShowCustomLayoutContextMenuParameters('', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml', 'test=123456&callback=' + jsContextMenuCallbackHandle);
 }
-//--------------------------------------------------------------------------------------------------
-// Videos
-//--------------------------------------------------------------------------------------------------
 var g_VideoNumTrailers = 2;
 var g_VideoCurrentTrailer = 0;
 function VideoPlayNextTrailer() {
@@ -128,11 +106,7 @@ function VideoPlayNextTrailer() {
     videoPlayer.SetTitle("Trailer " + g_VideoCurrentTrailer);
     videoPlayer.Play();
 }
-//--------------------------------------------------------------------------------------------------
-// Scene
-//--------------------------------------------------------------------------------------------------
 function InitScenePanel() {
-    // Setting up camera playback speed slider
     var playbackSpeedSlider = $('#PlaybackSpeedSlider');
     playbackSpeedSlider.min = -2;
     playbackSpeedSlider.max = 2;
@@ -144,7 +118,6 @@ function SceneCameraPlaybackSpeedSliderChanged() {
     var vanityPanel = $('#MapForVanity');
     playbackSpeedText.text = playbackSpeedSlider.value.toFixed(3);
     vanityPanel.SetCameraPlaybackSpeed(playbackSpeedSlider.value);
-    //$.Msg( "SceneCameraPlaybackSpeedSliderChanged callback called" );
 }
 function SceneCameraPlaybackSpeedTextChanged() {
     var playbackSpeedText = $('#PlaybackSpeedText');
@@ -152,15 +125,10 @@ function SceneCameraPlaybackSpeedTextChanged() {
     if (!isNaN(value)) {
         var playbackSpeedSlider = $('#PlaybackSpeedSlider');
         playbackSpeedSlider.value = value;
-        //$.Msg( "SceneCameraPlaybackSpeedTextChanged callback called" );
     }
     else {
-        $.Msg("SceneCameraPlaybackSpeedTextChanged - INVALID VALUE");
     }
 }
-//--------------------------------------------------------------------------------------------------
-// Dialog Variables
-//--------------------------------------------------------------------------------------------------
 var g_DialogVarCount = 0;
 function UpdateParentDialogVariablesFromTextEntry() {
     var varStr = $("#ParentDialogVarTextEntry").text;
@@ -177,10 +145,7 @@ function InitDialogVariables() {
     $("#ControlsLibDiagVars").SetDialogVariable("cam_key", "%jump%");
     $("#ControlsLibDiagVars").SetDialogVariable("np_key", "%attack%");
     $("#ControlsLibDiagVars").SetDialogVariable("sp_key", "%radio%");
-    //$.GetContextPanel().SetDialogVariableInt( "count", g_DialogVarCount );
-    // dynamically setting the text of the label
     $("#DiagVarLabel").text = $.Localize("\tDynamic Label Count: {d:r:count}", $("#ControlsLibDiagVars"));
-    // Increment "count" every second
     $.Schedule(1.0, UpdateDialogVariables);
     $("#ParentDialogVarTextEntry").RaiseChangeEvents(true);
     $("#ChildDialogVarTextEntry").RaiseChangeEvents(true);
@@ -190,17 +155,12 @@ function InitDialogVariables() {
 function UpdateDialogVariables() {
     g_DialogVarCount++;
     $("#ControlsLibDiagVars").SetDialogVariableInt("count", g_DialogVarCount);
-    //$.GetContextPanel().SetDialogVariableInt( "count", g_DialogVarCount );
     $.Schedule(1.0, UpdateDialogVariables);
 }
 function InitCaseTest() {
     $("#CaseTest").SetDialogVariable("casetest", "iİıI");
 }
-//--------------------------------------------------------------------------------------------------
-// Panels tab
-//--------------------------------------------------------------------------------------------------
 function OnImageFailLoad() {
-    $.Msg('ControlsLib javascript - Unable to load image, falling back to file://{images}/icons/knife.psd.');
     $("#ControlsLibPanelImageFallback").SetImage("file://{images}/icons/knife.psd");
 }
 function InitPanels() {
@@ -209,14 +169,10 @@ function InitPanels() {
     $.CreatePanel('Label', parent, '', { class: 'fontSize-l fontWeight-Bold', style: 'color:#558927;', text: 'Label, with text and class properties, created dynamically from js.' });
     $.CreatePanel('TextButton', parent, '', { class: 'PopupButton', text: "Output to console", onactivate: "$.Msg('Panel tab - Button pressed !!!')" });
     $.CreatePanel('ControlLibTestPanel', $.FindChildInContext('#ControlsLibPanelsJS'), '', { MyCustomProp: 'Created dynamically from javascript', CreatedFromJS: 1 });
-    // image fallback
     $.RegisterEventHandler('ImageFailedLoad', $("#ControlsLibPanelImageFallback"), OnImageFailLoad);
     $("#ControlsLibPanelImageFallback").SetImage("file://{images}/unknown2.vtf");
     $("#ImageApngtest").SetImage("file://{resources}/videos/test/apngtestnoext");
 }
-//--------------------------------------------------------------------------------------------------
-// BlendBlur tab
-//--------------------------------------------------------------------------------------------------
 function TransitionBlurPanel() {
     $("#MyBlendBlurFitParent").RemoveClass("TheBlurAnimOut");
     $("#MyBlendBlurFitParent").RemoveClass("TheBlurAnimIn");
@@ -238,13 +194,11 @@ function GetRssFeed() {
     BlogAPI.RequestRSSFeed();
 }
 function OnRssFeedReceived(feed) {
-    //$.Msg( "Received RSS Feed." + JSON.stringify( feed ) );
     var RSSFeedPanel = $("#RSSFeed");
     if (RSSFeedPanel == null) {
         return;
     }
     RSSFeedPanel.RemoveAndDeleteChildren();
-    // Assume success for now
     for (const item of feed.items) {
         var itemPanel = $.CreatePanel('Panel', RSSFeedPanel, '', { acceptsinput: true });
         itemPanel.AddClass('RSSFeed__Item');
@@ -257,11 +211,7 @@ function OnRssFeedReceived(feed) {
         itemPanel.SetPanelEvent("onactivate", SteamOverlayAPI.OpenURL.bind(SteamOverlayAPI, item.link));
     }
 }
-//--------------------------------------------------------------------------------------------------
-// Bugs tab
-//--------------------------------------------------------------------------------------------------
 function JSReadyReset() {
-    $.Msg('Ready for display reset.');
     var elParent = $('#ControlsLibBugsReadyParent');
     var elBtnAddChild = $('#ControlsLibBugsReadyButtonAddChild');
     var elBtnAddBgImg = $('#ControlsLibBugsReadyButtonAddBgImg');
@@ -269,9 +219,6 @@ function JSReadyReset() {
     elParent.SetReadyForDisplay(false);
     elBtnAddChild.enabled = true;
     elBtnAddBgImg.enabled = false;
-    //var elChild = $('#ControlsLibBugsReadyChild');
-    //elChild.RemoveClass( 'ControlLibBugs__ReadyChild--Ready' );
-    //elChild.RegisterForReadyEvents( false );
 }
 function JSReadyAddChild() {
     var elParent = $('#ControlsLibBugsReadyParent');
@@ -295,9 +242,7 @@ function JSTestTransition() {
     var Delay = 0.2;
     function _reveal(panelId) {
         $(panelId).AddClass('TestTransition');
-        $.Msg("Reveal ", panelId);
     }
-    $.Msg("Schedule reveal ", Delay, "seconds");
     $.Schedule(Delay, () => _reveal("#RepaintBugGrandchild"));
     $.Schedule(Delay * 2.0, () => _reveal("#RepaintBugChild"));
 }
@@ -343,10 +288,8 @@ function JSPanelSetParticlesName(name, particleName) {
     }
 }
 function ShowHideWinPanel(bshow, teamOverride = 2, mode = 'casual') {
-    $.Msg(' ShowHideWinPanel ');
     let elPanel = $.GetContextPanel().FindChildInLayoutFile('ZooWinPanel');
     elPanel.RemoveClass('WinPanelRoot--Win--T');
-    // We are setting this on the panel for debug. These are actually passed in from code when you play the game.
     elPanel.Data().teamOverride = teamOverride;
     elPanel.Data().gameModeOverride = mode;
     elPanel.SetHasClass('winpanel-basic-round-result-visible', bshow);
@@ -358,8 +301,6 @@ function ShowHideWinPanel(bshow, teamOverride = 2, mode = 'casual') {
     elPanel.SetDialogVariable('winpanel-title', $.Localize('#WinPanel_RoundWon'));
     let elAvatar = elPanel.FindChildInLayoutFile('MVPAvatar');
     elAvatar.PopulateFromSteamID(MyPersonaAPI.GetXuid());
-    // let elReason = elPanel.FindChildInLayoutFile( 'MVP__WinnerName' ) as Label_t;
-    // elReason.text = $.Localize( '#Panorama_winpanel_mvp_award_bombplant' );
     let musicKitId = LoadoutAPI.GetItemID('noteam', 'musickit');
     let elKitName = elPanel.FindChildInLayoutFile('MVPMusicKitName');
     elKitName.text = InventoryAPI.GetItemName(musicKitId);
@@ -402,7 +343,6 @@ function CtrlLib_CreateSpiderGraph() {
     }
     for (let s = 0; s < spokesCount; s++) {
         let vPos = spiderGraph.GraphPositionToUIPosition(s, 1.0);
-        $.Msg("Canvas relative spoke position " + s + ": " + vPos.x + ',' + vPos.y);
     }
 }
 function gen_graph_data(i, max) {
@@ -431,13 +371,8 @@ function CtrlLib_CreateLineGraph() {
     lineGraph.SetData(xvals, yvals);
     lineGraph.Show();
     const guidelineYPositions = lineGraph.GetGuidelinePositions();
-    $.Msg(guidelineYPositions);
     const pointPositions = lineGraph.GetDataPointPositions();
-    $.Msg(pointPositions);
 }
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created
-//--------------------------------------------------------------------------------------------------
 (function () {
     OpenControlsLib();
     ControlsLibNavigateToTab('ControlLibStyleGuide', 'init');

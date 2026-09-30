@@ -2,8 +2,6 @@
 /// <reference path="csgo.d.ts" />
 var DigitPanelFactory;
 (function (DigitPanelFactory) {
-    // because this setup might happen before layout, we can't get or infer the size of the container so we
-    // require that the height and width be specified in the maker
     function MakeDigitPanel(elParent, nDigits, suffix = undefined, duration = 0.5, digitStringToken = "#digitpanel_digits", timingFunc = 'cubic-bezier( 0.9, 0.01, 0.1, 1 )') {
         elParent.RemoveAndDeleteChildren();
         const elContainer = $.CreatePanel('Panel', elParent, 'DigitPanel');
@@ -21,7 +19,6 @@ var DigitPanelFactory;
     }
     DigitPanelFactory.MakeDigitPanel = MakeDigitPanel;
     function _UpdateSuffix(elContainer) {
-        // if we passed in any suffix then we want to replace whatever is there
         if (elContainer.m_suffix != undefined) {
             let elSuffixLabel = elContainer.FindChildTraverse('DigitPanel-Suffix');
             if (!elSuffixLabel) {
@@ -44,13 +41,12 @@ var DigitPanelFactory;
         else {
             const ParentHeight = Math.floor(elParent.actuallayoutheight / elParent.actualuiscale_y);
             elContainer.style.height = ParentHeight + 'px';
-            // elContainer.style.paddingRight = '5px';
             for (let i = 0; i < elContainer.m_nDigits; i++) {
                 const elDigit = $.CreatePanel('Panel', elContainer, 'DigitPanel-Digit-' + i);
                 elDigit.style.flowChildren = 'down';
                 elDigit.AddClass("digitpanel__digit");
                 elDigit.style.transitionProperty = 'transform, position';
-                elDigit.m_duration = elContainer.m_duration + 's'; // we store the duration so we can make instant transitions and revert to non-instant.
+                elDigit.m_duration = elContainer.m_duration + 's';
                 elDigit.style.transitionDuration = elContainer.m_duration + 's';
                 elDigit.style.transitionTimingFunction = elContainer.m_timingFunc;
                 const arrSymbols = $.Localize(elContainer.m_strDigitsToken).split("");
@@ -74,7 +70,6 @@ var DigitPanelFactory;
             $.Schedule(0.1, () => _SetWidth(elContainer));
         }
         else {
-            // set the width
             const dig0 = elContainer.FindChildTraverse('DigitPanel-Digit-0');
             const nDigitWidth = Math.ceil(dig0.actuallayoutwidth / dig0.actualuiscale_x);
             let width = elContainer.m_nDigits * nDigitWidth;
@@ -97,7 +92,6 @@ var DigitPanelFactory;
         }
         bInstant ||= elContainer.m_bPendingSetStringInstant;
         if (elContainer.GetChildCount() === 0) {
-            // $.Msg( "Postpone _SetDigitPanelString until digit panels have been created for " + elParent.id );
             elContainer.m_pendingSetStringHandle = $.Schedule(0.1, () => {
                 elContainer.m_pendingSetStringHandle = null;
                 SetDigitPanelString(elParent, string, bInstant);
@@ -122,9 +116,7 @@ var DigitPanelFactory;
                 const index = arrSymbols.indexOf(symbol);
                 elDigit.visible = d < arrDigits.length;
                 if (index >= 0) {
-                    //	elDigit.style.position = ri * 25 + "% " + -Number( number ) + "00% 0px";
                     elDigit.style.transitionDuration = bInstant ? '0s' : elDigit.m_duration;
-                    // we schedule this out a fraction so that we can pick up the transition duration change above.
                     $.Schedule(0.01, () => {
                         if (elDigit && elDigit.IsValid()) {
                             elDigit.style.transform = "translate3D( " + d + "%," + -Number(index) * 100 + "%, 0px);";

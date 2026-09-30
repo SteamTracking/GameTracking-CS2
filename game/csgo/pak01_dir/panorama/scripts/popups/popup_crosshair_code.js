@@ -15,9 +15,7 @@ var PopupCrosshairCode;
             UiToolkitAPI.ShowTextTooltip('Copy', 'Copied your code to clipboard');
             elTextEntry.text = code;
         });
-        // Set submit button disabled by default.
         elApplyCode.enabled = false;
-        // Set found friends messages hiddenby default.
         elNotFoundLabel.visible = false;
     }
     PopupCrosshairCode.Init = Init;

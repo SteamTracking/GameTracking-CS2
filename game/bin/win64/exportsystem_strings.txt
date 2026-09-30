@@ -93,8 +93,6 @@ $prefix_element$
 (?SetNodeAttribute@FbxNode@fbxsdk@@QEAAPEAVFbxNodeAttribute@2@PEAV32@@Z
 (?SetNormals@FbxLayer@fbxsdk@@QEAAXPEAVFbxLayerElementNormal@2@@Z
 (?SetOriginalUpAxis@FbxGlobalSettings@fbxsdk@@QEAAXAEBVFbxAxisSystem@2@@Z
-(IA3
-(mA3
 )?SetSecondDouble@FbxTime@fbxsdk@@QEAAXN@Z
 )?SetShadingMode@FbxNode@fbxsdk@@QEAAXW4EShadingMode@12@@Z
 )?SetSkeletonType@FbxSkeleton@fbxsdk@@QEAAXW4EType@12@@Z
@@ -807,7 +805,6 @@ $prefix_element$
 1\f%1t
 2(?SetFrame@FbxTime@fbxsdk@@QEAAX_JW4EMode@12@@Z
 2\nP!E
-2\vpX
 4-byte data pool
 5sfm_v8
 64 283 0
@@ -818,7 +815,6 @@ $prefix_element$
 <,?setTime@FbxDateTime@fbxsdk@@QEAAXHHHH@Z
 <UNKNOWN_EXPORT_TYPE>
 <\v??BFbxString@fbxsdk@@QEBAPEBDXZ
-<h80
 ='?SetAxisSystem@FbxGlobalSettings@fbxsdk@@QEAAXAEBVFbxAxisSystem@2@@Z
 >"?IsValid@FbxProperty@fbxsdk@@QEBA_NXZ
 ??0FbxAMatrix@fbxsdk@@QEAA@AEBV01@@Z
@@ -1450,12 +1446,14 @@ GenericType
 GetClipboardData
 GetProfile_ultrafast
 GlobalSize
-H5>3
+HI=3
+HI?3
 Hammer temp export
 HemiOctAnisoRoughness_RG_BA
 HemiOctIsoRoughness_RG_B
 HemiOctNormal
 Hold
+Hq<3
 I(?SetGlobalTimeMode@FbxTime@fbxsdk@@SAXW4EMode@12@N@Z
 IExportSystem
 IKV3TransferInterface_ResourceSave
@@ -1468,7 +1466,6 @@ Integer overflow writing large exr: %ix%i %ibpp\n
 Invalid DmElementHandle_t after Unserialize
 Invalid argument for SaveEXRImageToMemory
 Invalid format for element ID encountered for attribute "%s"
-Ir?3
 JawD
 JawH
 JawV
@@ -1594,7 +1591,6 @@ Preset File
 Procedural
 PropWorldOrigin
 QAngle
-R\fpX
 Radius Random
 Random Cull
 Randomly Flip Yaw
@@ -1709,6 +1705,7 @@ WipeUndo '%s'\n
 World Files
 World Node Files
 X)?SetRotationActive@FbxNode@fbxsdk@@QEAAX_N@Z
+XA>3
 Z%?RemoveElementUV@FbxGeometryBase@fbxsdk@@QEAA_NPEAVFbxLayerElementUV@2@@Z
 ZFP compression is not supported in this build
 [%d] Aborting undo '%s'\n
@@ -1756,7 +1753,7 @@ _selfillummask_
 _specexp_
 _specmask_
 _texcoordNames
-`mC3
+`1A3
 activeBookmarkSet
 adding layer %d to stack\n
 addlayer: log %p lc[%d], layer %p
@@ -2302,7 +2299,6 @@ qangle_array
 quadraticAttenuation
 quaternion log
 quaternion_array
-r\vpX
 radiusScale
 radius_random
 radius_scale

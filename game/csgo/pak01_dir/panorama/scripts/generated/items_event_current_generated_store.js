@@ -1,13 +1,5 @@
 "use strict";
 /// <reference path="items_event_current_generated_store.d.ts" />
-//
-// CONFIGURATION HAS BEEN AUTO-GENERATED
-// Script:    ..\..\..\..\..\..\src\gc_csgo\devtools\bin\template_process.pl
-// Config:    items_event_cologne2026_generated_script.cfg /cpp
-//
-//
-// Cologne 2026 tournament globals for JavaScript
-//
 var g_ActiveTournamentInfo = {
     eventid: 26,
     credits_id: 12,
@@ -37,13 +29,9 @@ var g_ActiveTournamentInfo = {
     souvenir_cost: 1,
     num_global_offerings: 1,
     num_stages_with_swiss: 3,
-    active: false,
+    active: true,
 };
-//
-// Cologne 2026 JavaScript store entries for team items
-//
 var g_ActiveTournamentTeams = [
-    // Vitality
     {
         teamid: 89,
         team: 'vita',
@@ -144,7 +132,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Natus Vincere
     {
         teamid: 12,
         team: 'navi',
@@ -245,7 +232,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Falcons
     {
         teamid: 139,
         team: 'fal',
@@ -407,7 +393,6 @@ var g_ActiveTournamentTeams = [
             },
         ],
     },
-    // The Mongolz
     {
         teamid: 122,
         team: 'mngz',
@@ -508,7 +493,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // PARIVISION
     {
         teamid: 142,
         team: 'pari',
@@ -609,7 +593,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Aurora
     {
         teamid: 134,
         team: 'aura',
@@ -710,7 +693,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // FURIA
     {
         teamid: 85,
         team: 'furi',
@@ -811,7 +793,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // MOUZ
     {
         teamid: 106,
         team: 'mouz',
@@ -912,7 +893,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // FUT
     {
         teamid: 145,
         team: 'fut',
@@ -1013,7 +993,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Team Spirit
     {
         teamid: 81,
         team: 'spir',
@@ -1114,7 +1093,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Astralis
     {
         teamid: 60,
         team: 'astr',
@@ -1215,7 +1193,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // G2 esports
     {
         teamid: 59,
         team: 'g2',
@@ -1316,7 +1293,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Legacy
     {
         teamid: 126,
         team: 'lgcy',
@@ -1417,7 +1393,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // paiN Gaming
     {
         teamid: 102,
         team: 'pain',
@@ -1518,7 +1493,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Monte
     {
         teamid: 119,
         team: 'mont',
@@ -1619,7 +1593,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // 9z Team
     {
         teamid: 112,
         team: 'nine',
@@ -1720,7 +1693,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // GamerLegion
     {
         teamid: 115,
         team: 'gl',
@@ -1821,7 +1793,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // B8
     {
         teamid: 135,
         team: 'b8',
@@ -1922,7 +1893,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // HEROIC
     {
         teamid: 95,
         team: 'hero',
@@ -2023,7 +1993,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // BetBoom
     {
         teamid: 137,
         team: 'bb',
@@ -2124,7 +2093,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // BIG
     {
         teamid: 69,
         team: 'big',
@@ -2225,7 +2193,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // M80
     {
         teamid: 140,
         team: 'm80',
@@ -2326,7 +2293,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // MIBR
     {
         teamid: 80,
         team: 'mibr',
@@ -2427,7 +2393,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // SINNERS
     {
         teamid: 147,
         team: 'sinn',
@@ -2528,7 +2493,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // NRG
     {
         teamid: 87,
         team: 'nrg',
@@ -2629,7 +2593,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // TYLOO
     {
         teamid: 74,
         team: 'tyl',
@@ -2730,7 +2693,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Sharks Esports
     {
         teamid: 104,
         team: 'shrk',
@@ -2831,7 +2793,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Gaimin Gladiators
     {
         teamid: 146,
         team: 'gaim',
@@ -2932,7 +2893,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Team Liquid
     {
         teamid: 48,
         team: 'liq',
@@ -3033,7 +2993,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // Lynn Vision
     {
         teamid: 127,
         team: 'lynn',
@@ -3134,7 +3093,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // THUNDERdOWNUNDER
     {
         teamid: 148,
         team: 'thun',
@@ -3235,7 +3193,6 @@ var g_ActiveTournamentTeams = [
         ],
         champions: [],
     },
-    // FlyQuest
     {
         teamid: 132,
         team: 'fq',
@@ -3337,11 +3294,7 @@ var g_ActiveTournamentTeams = [
         champions: [],
     },
 ];
-//
-// Cologne 2026 JavaScript store entries for team items
-//
 var g_ActiveTournamentHighlights = [
-    // Highlights group 1
     {
         itemid_dynamic_shop: 5323,
         group_id: 1,
@@ -3439,7 +3392,6 @@ var g_ActiveTournamentHighlights = [
             },
         ]
     },
-    // Highlights group 2
     {
         itemid_dynamic_shop: 5324,
         group_id: 2,
@@ -3537,7 +3489,6 @@ var g_ActiveTournamentHighlights = [
             },
         ]
     },
-    // Highlights group 3
     {
         itemid_dynamic_shop: 5325,
         group_id: 3,
@@ -3635,7 +3586,6 @@ var g_ActiveTournamentHighlights = [
             },
         ]
     },
-    // Highlights group 4
     {
         itemid_dynamic_shop: 5326,
         group_id: 4,
@@ -3733,7 +3683,6 @@ var g_ActiveTournamentHighlights = [
             },
         ]
     },
-    // Highlights group 5
     {
         itemid_dynamic_shop: 5327,
         group_id: 5,
@@ -3831,7 +3780,6 @@ var g_ActiveTournamentHighlights = [
             },
         ]
     },
-    // Highlights group 6
     {
         itemid_dynamic_shop: 5328,
         group_id: 6,
@@ -3939,9 +3887,6 @@ var g_ActiveTournamentHighlights = [
         ]
     },
 ];
-//
-// Cologne 2026 JavaScript store entries for various capsules
-//
 var g_ActiveTournamentStoreLayout = [
     [
         g_ActiveTournamentInfo.itemid_pass,
@@ -3953,29 +3898,14 @@ var g_ActiveTournamentPasses = [
     g_ActiveTournamentInfo.itemid_pass,
     g_ActiveTournamentInfo.itemid_pack,
 ];
-//
-// Cologne 2026 -- all dynamic shops so that JavaScript could subscribe for all volatile containers at once
-//
 var g_ActiveTournamentDynamicContainers = [
-    // Dynamic sticker shop
     5316,
-    // Champions
     5329,
-    // Rankings
     4040,
-    // Highlights group 1
     5323,
-    // Highlights group 2
     5324,
-    // Highlights group 3
     5325,
-    // Highlights group 4
     5326,
-    // Highlights group 5
     5327,
-    // Highlights group 6
     5328,
 ];
-//
-// --- End of Cologne 2026 JavaScript store entries
-//

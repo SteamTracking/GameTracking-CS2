@@ -7,21 +7,17 @@ var MainMenuMajorTile;
 (function (MainMenuMajorTile) {
     const _m_cp = $.GetContextPanel();
     function _Init() {
-        // HACK: Cologne 2026 pass/pack are no longer sold but the generated config still says active,
-        // so force the main-menu major tile hidden until the next event ships.
         const bForceHidden = true;
         let bVisible = !bForceHidden;
-        $.Msg('MainMenuMajorTile::_Init active=' + g_ActiveTournamentInfo.active);
         if (!MyPersonaAPI.IsConnectedToGC())
-            bVisible = false; // not connected to GC
+            bVisible = false;
         else if (LicenseUtil.GetCurrentLicenseRestrictions())
-            bVisible = false; // "no CS2 ownership"
+            bVisible = false;
         else if (!g_ActiveTournamentInfo.active)
-            bVisible = false; // items are no longer available in the store
+            bVisible = false;
         _m_cp.SetHasClass('hidden', !bVisible);
         if (!bVisible)
             return;
-        // Request that volatile shop prices get downloaded, but only if they have never been downloaded again
         StoreAPI.VolatileShopSubscribe(g_ActiveTournamentInfo.itemid_rankings_stickers, false);
         _m_cp.FindChildInLayoutFile('id-img-open-major-hub').SetPanelEvent('onactivate', OpenMajorHub);
         _m_cp.SetHasClass('major-' + g_ActiveTournamentInfo.eventid.toString(), true);
@@ -39,23 +35,15 @@ var MainMenuMajorTile;
                 const weeklyPctReductionFromHigh = (cHigh > cPrice) ? ((cHigh - cPrice) * 100.0 / cHigh) : 0.0;
                 arrSorted.push({ discount: weeklyPctReductionFromHigh, price: cPrice, fauxid: fauxId });
             };
-            //
-            // Build a mapping of weekly discount tiers to stickers
-            //
             g_ActiveTournamentTeams.forEach((tt) => {
-                // ranked Series
                 tt.players.forEach((tp) => tp.rankingids.forEach(fnStickerKit));
-                // event Series
-                // tt.stickerids.forEach( fnStickerKit );
             });
             g_ActiveTournamentInfo.rankingids.forEach(fnStickerKit);
-            // shuffle ( O(N) ) and sort ( O( N logN ) )
             for (let i = arrSorted.length; i-- > 0;) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [arrSorted[i], arrSorted[j]] = [arrSorted[j], arrSorted[i]];
             }
             arrSorted.sort((a, b) => b.price - a.price);
-            // determine which discount we will show
             const nBaseIndex = Math.floor(Math.random() * (arrSorted.length / 10));
             let elParent = $.GetContextPanel().FindChildInLayoutFile('id-major-mini-store-carousel');
             const _m_numMiniStoreItemsToShow = 10;
@@ -88,9 +76,6 @@ var MainMenuMajorTile;
     function OpenMajorHub() {
         UiToolkitAPI.ShowCustomLayoutPopupParameters('id-popup-major-hub', 'file://{resources}/layout/popups/popup_major_hub.xml', 'eventid=' + (g_ActiveTournamentInfo.eventid));
     }
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         _Init();
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', _Init);

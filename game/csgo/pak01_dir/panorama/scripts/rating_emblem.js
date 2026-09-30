@@ -57,7 +57,6 @@ var RatingEmblem;
         let rank = undefined;
         let pct = undefined;
         let bFullDetails = options.hasOwnProperty('full_details') ? options.full_details : false;
-        //		let source = options.api;
         let do_fx = options.do_fx;
         let rating_type = options.rating_type;
         let root_panel = _GetMainPanel(options.root_panel);
@@ -67,22 +66,17 @@ var RatingEmblem;
         if (debug_wins) {
             wins = Math.floor(Math.random() * 20);
         }
-        // values were pushed down
         rating = options.leaderboard_details.score;
         wins = options.leaderboard_details.matchesWon;
         rank = options.leaderboard_details.rank;
         pct = options.leaderboard_details.pct;
-        // DISPLAY
-        ///////////
-        $.Msg('[p.rating] ' + rating_type + root_panel.id);
         root_panel.SwitchClass('type', rating_type);
         if (bFullDetails) {
-            $.Msg('[p.rating] making strings');
             root_panel.SetDialogVariable('rating_type', rating_type);
         }
         let elSkillGroupImage = null;
         let imagePath = '';
-        let winsNeededForRank = SessionUtil ? SessionUtil.GetNumWinsNeededForRank(rating_type) : 10; // a fancy of way of saying 10
+        let winsNeededForRank = SessionUtil ? SessionUtil.GetNumWinsNeededForRank(rating_type) : 10;
         let isloading = (rating === undefined || rating < 0);
         let bRatingExpired = !isloading && rating === 0;
         let bTooFewWins = wins === undefined || wins < winsNeededForRank;
@@ -95,11 +89,6 @@ var RatingEmblem;
         let introText = '';
         let promotionState = '';
         let winCountText = '';
-        //DEVONLY{
-        $.Msg('[p.rating] \n\n');
-        $.Msg('[p.rating] rating: ' + rating);
-        $.Msg('[p.rating] wins:   ' + wins + '\n\n');
-        //}DEVONLY
         if (!wins || wins < 0) {
             wins = 0;
         }
@@ -107,7 +96,6 @@ var RatingEmblem;
             ratingDesc = $.Localize('#SFUI_LOADING');
         }
         root_panel.SetDialogVariableInt("wins", wins);
-        // WINGMAN or COMPETITIVE
         if (rating_type === 'Wingman' || rating_type === 'Competitive') {
             elSkillGroupImage = root_panel.FindChildTraverse('jsRating-' + rating_type);
             let locTypeModifer = rating_type === 'Competitive' ? '' : rating_type.toLowerCase();
@@ -116,7 +104,6 @@ var RatingEmblem;
             elCompWinsNeeded.visible = !isloading && bTooFewWins && options.local_player;
             if (bTooFewWins || isloading) {
                 elSkillGroupImage.SetImage('file://{images}/icons/skillgroups/' + imagePath + '_none.svg');
-                // if we don't have enough wins show the num wins required IF this is the local player
                 if (!isloading && options.local_player) {
                     const winsneeded = Math.max(0, winsNeededForRank - wins);
                     elSkillGroupImage.SetDialogVariableInt('wins', wins);
@@ -128,16 +115,14 @@ var RatingEmblem;
                     }
                 }
             }
-            else if (bRatingExpired) // expired
-             {
+            else if (bRatingExpired) {
                 elSkillGroupImage.SetImage('file://{images}/icons/skillgroups/' + imagePath + '_expired.svg');
                 if (bFullDetails) {
                     ratingDesc = $.Localize('#skillgroup_expired' + locTypeModifer);
                     tooltipText = $.Localize('#tooltip_skill_group_expired' + locTypeModifer);
                 }
             }
-            else // has a rating
-             {
+            else {
                 elSkillGroupImage.SetImage('file://{images}/icons/skillgroups/' + imagePath + rating + '.svg');
                 if (bFullDetails) {
                     ratingDesc = $.Localize('#skillgroup_' + rating);
@@ -145,7 +130,6 @@ var RatingEmblem;
                 }
             }
         }
-        // PREMIER
         else if (rating_type === 'Premier') {
             let elPremierRating = root_panel.FindChildTraverse('jsPremierRating');
             let presentation = options.presentation ? options.presentation : 'simple';
@@ -154,10 +138,8 @@ var RatingEmblem;
             let majorRating = '';
             let minorRating = '';
             root_panel.SwitchClass('tier', 'tier-0');
-            // background
             _SetPremierBackgroundImage(root_panel, rating);
-            if (rating && rating > 0) // has a rating
-             {
+            if (rating && rating > 0) {
                 let clampedRating = GetClampedRating(rating);
                 root_panel.SwitchClass('tier', 'tier-' + clampedRating);
                 colorClassName = 'tier-' + clampedRating;
@@ -181,7 +163,6 @@ var RatingEmblem;
                     else {
                         ratingDesc = $.Localize('#cs_rating_generic');
                     }
-                    // relegation or promotion
                     if (arrRating[2] === '2') {
                         tooltipExtraText = $.Localize('#cs_rating_relegation_nextmatch');
                         introText = $.Localize('#cs_rating_relegation_match');
@@ -217,8 +198,7 @@ var RatingEmblem;
                             ratingDesc = $.Localize('#cs_rating_none');
                         }
                     }
-                    else if (bRatingExpired) // expired
-                     {
+                    else if (bRatingExpired) {
                         ratingDesc = $.Localize('#cs_rating_expired');
                         tooltipText = $.Localize('#tooltip_cs_rating_expired');
                         eomDescText = $.Localize('#eom-skillgroup-expired-premier', root_panel);
@@ -233,7 +213,6 @@ var RatingEmblem;
             if (tooltipExtraText !== '') {
                 tooltipText = tooltipText + '<br><br>' + tooltipExtraText;
             }
-            // set text fields
             if (wins) {
                 root_panel.SetDialogVariableInt('wins', wins);
                 let winText = $.Localize('#tooltip_skill_group_wins:f', root_panel);
@@ -266,7 +245,6 @@ var RatingEmblem;
         root_panel.FindChildInLayoutFile('JsDigitPanels').SwitchClass('emblemstyle', options.eom_digipanel_class_override ? options.eom_digipanel_class_override : '');
     }
     function _SetPremierRatingValue(root_panel, major, minor, premierPresentation) {
-        // set premier values
         root_panel.SetDialogVariable('rating-major', major);
         root_panel.SetDialogVariable('rating-minor', minor);
         if (premierPresentation === 'digital') {
@@ -286,10 +264,10 @@ var RatingEmblem;
         let matchType = '0';
         if (rating === 5000 || rating === 10000 || rating === 15000 ||
             rating === 20000 || rating === 25000 || rating === 30000)
-            matchType = '2'; // relegation
+            matchType = '2';
         else if (rating === 5000 - 1 || rating === 10000 - 1 || rating === 15000 - 1 ||
             rating === 20000 - 1 || rating === 25000 - 1 || rating === 30000 - 1)
-            matchType = '1'; // promotion
+            matchType = '1';
         rating = rating / 1000.00;
         let strRating = (String((rating).toFixed(3))).padStart(6, '0');
         let major = strRating.slice(0, 2);
@@ -318,15 +296,12 @@ var RatingParticleControls;
     }
     function ColorConvert(tier) {
         let rarityColors = [
-            //["default", 106, 97, 86],
             ["common", 176, 195, 217],
             ["uncommon", 94, 152, 217],
             ["rare", 75, 105, 255],
             ["mythical", 136, 71, 255],
             ["legendary", 211, 44, 230],
             ["ancient", 235, 75, 75],
-            //["immortal", 228, 174, 57],
-            //["strange", 207, 106, 50],
             ["unusual", 255, 215, 0],
         ];
         if (tier < 0 || tier >= rarityColors.length)

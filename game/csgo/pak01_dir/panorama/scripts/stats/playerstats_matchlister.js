@@ -8,7 +8,7 @@ var MatchLister = ( function ()
 		$.RegisterEventHandler( 'ScrolledIntoView', elPanel.FindChildTraverse( 'MatchContainer' ), _OnScrollIntoView );
 		$.RegisterEventHandler( 'ScrolledOutOfView', elPanel.FindChildTraverse( 'MatchContainer' ), _OnScrollOutOfView );
 
-		$.Msg( 'matchlister init ', elPanel.id );
+		                                         
 
 		elPanel.AddClass( 'no-data' );
 		elPanel.AddClass( 'stats-loading' );
@@ -42,14 +42,14 @@ var MatchLister = ( function ()
 
 	function _OnScrollIntoView ( elPanelId )
 	{
-		// if ( elPanelId == _m_mostRecentMatchDay )
-		// 	_ToggleGoToMostRecentButton( false );
+		                                            
+		   	                                     
 	}
 
 	function _OnScrollOutOfView ( elPanelId )
 	{
-		// if ( elPanelId == _m_mostRecentMatchDay )
-		// 	_ToggleGoToMostRecentButton( true );
+		                                            
+		   	                                    
 	}
 
 	function _SortTimeDescending_f ( a, b )
@@ -65,7 +65,7 @@ var MatchLister = ( function ()
 	
 		var elLister = elPanel.FindChildTraverse( 'MatchContainer' );
 
-				// Scroll to the desired date
+				                             
 		var elDay = elLister.FindChildTraverse( strDateKey );
 		if ( elDay )
 		{
@@ -115,16 +115,16 @@ var MatchLister = ( function ()
 		if ( !elPanel || !elPanel.IsValid() )
 			return;
 		
-		$.Msg( 'Matchlister.Update', " ", $.GetContextPanel().id );
+		                                                           
 
 		Scheduler.Cancel( 'MATCHES' );	
 
 		var elLister = elPanel.FindChildTraverse( 'MatchContainer' );
 
-		// clear the lister if the range is shorter
+		                                           
 		if ( !elPanel.m_nDays || ( nDays < elPanel.m_nDays && nDays != -1 ) || elPanel.m_nDays == -1 || ( nMode != elPanel.m_nMode ))
 		{
-			// we have some data, so clear the lister. Otherwise leave the dummy matches alone
+			                                                                                  
 			if ( !elPanel.m_hasDummyMatches )
 				elLister.RemoveAndDeleteChildren();
 			
@@ -140,14 +140,14 @@ var MatchLister = ( function ()
 
 		elPanel.SetHasClass( 'stats-loading', oDeepStats.status != 'complete' );
 
-		// we have no matches but we're not done checking. keep asking.
+		                                                               
 		if ( ( !arrMatches || arrMatches.length == 0 ) && oDeepStats.status != 'complete' )
 		{
 			Scheduler.Schedule( 1.0, _Populate.bind( this, elPanel, nDays, nMode, sortStat ), 'MATCHES' );
 			return;
 		}
 
-		// we have no matches and we're done checking. populate with blanks
+		                                                                   
 		if ( !arrMatches || arrMatches.length == 0 && oDeepStats.status == 'complete' )
 		{
 			if ( !elPanel.m_hasDummyMatches )
@@ -158,7 +158,7 @@ var MatchLister = ( function ()
 			return;
 		}
 
-		// only clear the panels if they're dummy matches
+		                                                 
 		if ( elPanel.m_hasDummyMatches )
 		{
 			elLister.RemoveAndDeleteChildren();
@@ -169,15 +169,15 @@ var MatchLister = ( function ()
 
 		elPanel.SetHasClass( 'no-data', false );
 
-		// create the match panels
+		                          
 
-		$.Msg( "------------MATCHLISTER: days: ", nDays, " num matches: ", arrMatches.length );
+		                                                                                       
 
 		arrMatches.forEach( function( oMatch, index )
 		{
 			var timestamp = DeepStatsAPI.MatchIDToLocalTime( oMatch.match_id );
 
-			// skip matches we already have
+			                               
 			if ( elLister.FindChildTraverse( oMatch.match_id ))
 				return;
 
@@ -185,8 +185,8 @@ var MatchLister = ( function ()
 
 			var dateKey = _GetDateKeyFromTimestamp( timestamp );
 
-			// put the match in the panel for the day of the match
-			// or, if it doesn't exist it, create it and sort it into the day panels
+			                                                      
+			                                                                        
 			var elDayContainer = elLister.FindChildTraverse( dateKey );
 			if ( !elDayContainer )
 			{
@@ -198,7 +198,7 @@ var MatchLister = ( function ()
 
 				DateUtil.PopulateDateFormatStrings( elDayTitle, matchDate );
 
-				// SORT THE DAY INTO PLACE
+				                          
 				var arrChildren = elLister.Children();
 				var numChildren = arrChildren.length;
 				var idx = 0;
@@ -216,26 +216,26 @@ var MatchLister = ( function ()
 				}
 			}
 
-	//		$.Msg( DateUtil.UUU_dd( matchDate ), " ", numMatchesForTheDay );
+	  		                                                                
 
-			// Create the match panel
+			                         
 			var elMatch = $.CreatePanel( "Button", elDayContainer, oMatch.match_id );
 			elMatch.BLoadLayoutSnippet( 'snippet-match' );
 
-			// sort the match into place in descending order
+			                                                
 			{
 				var arrChildren = elDayContainer.Children();
 				var numChildren = arrChildren.length;
 
-				// js comparison tests
-				// var num = parseInt( elMatch.id );
-				// var a = "aa";
-				// var b = "b";
-				// var sum = a < b;
-				// a = "c";
-				// sum = a < b;
+				                      
+				                                    
+				                
+				               
+				                   
+				           
+				               
 
-				var idx = 1; // SKIP THE DAY TITLE
+				var idx = 1;                      
 				while ( idx < numChildren && arrChildren[ idx ] && elMatch.id < arrChildren[ idx ].id )
 					idx++;
 
@@ -279,20 +279,20 @@ var MatchLister = ( function ()
 					'blur_dismiss' );
 			}
 
-			// match details page
+			                     
 			var elMatchDetails = elMatch.FindChildTraverse( 'Details' );
 			elMatchDetails.SetPanelEvent( 'onactivate', onActivate_f.bind( this, oMatch.match_id ) );
 
-			// TOOLTIP /////////////////////////
-			//////////////////////////////////////
+			                                    
+			                                      
 			var parms = "class=" + 'mode' + nMode + "&matchdata=" + JSON.stringify( oMatch );
 			var xmlsrc = 'file://{resources}/layout/tooltips/stats/tooltip_playerstats_matchlister_matchstats.xml';
 
-			// FOR DEBUGGING TIME
-			// var xmlsrc = 'file://{resources}/layout/tooltips/stats/tooltip_playerstats_generic.xml';
-			// var time = new Date();
-			// time.setTime( DeepStatsAPI.MatchIDToLocalTime( oMatch.match_id ) * 1000 );
-			// var parms = "&text=" + time;
+			                     
+			                                                                                           
+			                         
+			                                                                             
+			                               
 
 			
 			var ttid = 'tt_' + elMatch.id;
@@ -301,18 +301,18 @@ var MatchLister = ( function ()
 
 			elMatch.SetPanelEvent( 'onmouseover', onDayHoverOn_f );
 			elMatch.SetPanelEvent( 'onmouseout', onDayHoverOff_f );
-			//////////////////////////////// END TOOLTIP
+			                                            
 
 		} );
 
-		// // Scroll to the desired date
-		// var elDay = elPanel.FindChildTraverse(  );
-		// if ( elDay )
-		// {
-		// 	elDay.ScrollParentToMakePanelFit( 1, false );
-		// 	if ( bHighlight )
-		// 		elDay.TriggerClass( 'highlight' );
-		// }
+		                                
+		                                             
+		               
+		    
+		   	                                             
+		   	                 
+		   		                                  
+		    
 
 		if ( oDeepStats.status != 'complete' )
 		{
@@ -321,7 +321,7 @@ var MatchLister = ( function ()
 		}
 		else
 		{
-			$.Msg( "------------MATCHLISTER: COMPLETE. days: ", nDays, " num matches: ", arrMatches.length );
+			                                                                                                 
 
 			}
 	}
@@ -366,9 +366,9 @@ var MatchLister = ( function ()
 	 };
 })();
 
-//--------------------------------------------------------------------------------------------------
-// Entry point called when panel is created
-//--------------------------------------------------------------------------------------------------
+                                                                                                    
+                                           
+                                                                                                    
 (function()
 {
 })();

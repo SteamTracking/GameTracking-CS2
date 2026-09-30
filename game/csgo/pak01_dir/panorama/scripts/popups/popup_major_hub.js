@@ -51,12 +51,9 @@ var PopupMajorHub;
             '&' + 'points-title=#tournament_coin_completed_challenges' +
             '&' + 'popup-style=major-hub-popup-leaderboard' +
             '&' + 'eventid=' + _m_eventId);
-        // '&' + 'titleoverride=#CSGO_official_leaderboard_pickem_cph2024_team' +
-        // '&' + 'showglobaloverride=false' +
     }
     PopupMajorHub.LeaderboardPopup = LeaderboardPopup;
     function Init() {
-        // Set Event id for the hub since you can eventually open it for past events
         let eventId = $.GetContextPanel().GetAttributeString('eventid', '') ? parseInt($.GetContextPanel().GetAttributeString('eventid', '')) : -1;
         if (eventId < 0) {
             ClosePopup();
@@ -66,26 +63,20 @@ var PopupMajorHub;
     }
     PopupMajorHub.Init = Init;
     function ReadyForDisplay() {
-        $.Msg('PopupMajorHub ReadyForDisplay: ' + _m_cp.id);
         if (!MyPersonaAPI.IsConnectedToGC()) {
-            // _m_cp.SetHasClass( 'Hidden', true );
             ClosePopup();
             return;
         }
         let restrictions = LicenseUtil.GetCurrentLicenseRestrictions();
         if (restrictions) {
-            // _m_cp.SetHasClass( 'Hidden', true );
             ClosePopup();
             return;
         }
-        // Expensive event handlers here
         if (!_m_inventoryUpdatedHandler) {
             _m_inventoryUpdatedHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdated);
         }
-        // Set Event id for the hub since you can eventually open it for past events
         let eventId = $.GetContextPanel().GetAttributeString('eventid', '') ? parseInt($.GetContextPanel().GetAttributeString('eventid', '')) : -1;
         if (eventId < 0) {
-            //Don't  close.  the Init fires on panel load a little later.
             return;
         }
         _m_eventId = eventId;
@@ -97,7 +88,6 @@ var PopupMajorHub;
         SetUpHubBasedOnEventId();
     }
     function UnreadyForDisplay() {
-        $.Msg('PopupMajorHub UnReadyForDisplay: ' + _m_cp.id);
         if (_m_inventoryUpdatedHandler) {
             $.UnregisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', _m_inventoryUpdatedHandler);
             _m_inventoryUpdatedHandler = null;
@@ -120,7 +110,7 @@ var PopupMajorHub;
     function SetUpTournamentControlRoom() {
         var elBtn = _m_cp.FindChildInLayoutFile('JsTournamentOperatorBtn');
         var bCanControl = false;
-        if (MyPersonaAPI.GetMyOfficialTournamentName() && // my account has tournament, and this is active event
+        if (MyPersonaAPI.GetMyOfficialTournamentName() &&
             g_ActiveTournamentInfo.eventid === _m_eventId) {
             bCanControl = true;
             elBtn.SetPanelEvent('onactivate', function () {
@@ -132,7 +122,6 @@ var PopupMajorHub;
         elBtn.SetHasClass('hidden', !bCanControl);
     }
     function InitializeEmbeddedLeaderboard() {
-        // Initialize the embedded leaderboard
         let elLeaderboard = _m_cp.FindChildInLayoutFile('id-leaderboard');
         if (elLeaderboard && elLeaderboard.BHasClass('hidden')) {
             elLeaderboard.SetAttributeString("type", 'official_leaderboard_pickem_' + g_ActiveTournamentInfo.location + '_team.friends');
@@ -168,7 +157,6 @@ var PopupMajorHub;
             $.DispatchEvent("Activated", elLastActiveSection, "mouse");
         }
         else {
-            // All sections were false so assume the tournament is over
             let elNavBtn = _m_cp.FindChildInLayoutFile('id-pickem-nav-stage' + g_ActiveTournamentInfo.num_stages_with_swiss);
             $.DispatchEvent("Activated", elNavBtn, "mouse");
         }
@@ -221,21 +209,10 @@ var PopupMajorHub;
             UiToolkitAPI.ShowCustomLayoutPopup('id-popup-major-store', 'file://{resources}/layout/popups/popup_major_store.xml');
             $.DispatchEvent("CSGOPlaySoundEffect", "UIPanorama.tab_mainmenu_shop", "MOUSE");
         });
-        // const allStickerIds = g_ActiveTournamentTeams.flatMap( team => [
-        //     ...team.stickerids,
-        //     ...team.players.flatMap(player => player.stickerids)
-        // ]);
         const elStore = _m_cp.FindChildInLayoutFile('id-major-store-banner');
         const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
         const numStickers = 10;
         for (let i = 0; i < numStickers; i++) {
-            // Event Series
-            //const stickerIndex = g_ActiveTournamentTeams[ getRandomInt( 0, g_ActiveTournamentTeams.length - 1 ) ].players[ getRandomInt( 0, 4 ) ].stickerids[ getRandomInt( 0, 3 ) ] ;
-            // Champions and EVent Series 
-            //const stickerIndex = ( i == 4 || i == 5 || i == 8 ) ? 
-            // g_ActiveTournamentTeams.filter( team => team.champions.length > 1 )[0].champions[ getRandomInt( 0, 4 )].stickerids[ getRandomInt( 0, 3 ) ]  :
-            // g_ActiveTournamentTeams[ getRandomInt( 0, g_ActiveTournamentTeams.length - 1 ) ].players[ getRandomInt( 0, 4 ) ].rankingids[ getRandomInt( 0, 2 ) ] ;
-            // Ranked Series
             const stickerIndex = g_ActiveTournamentTeams[getRandomInt(0, g_ActiveTournamentTeams.length - 1)].players[getRandomInt(0, 4)].rankingids[getRandomInt(0, 2)];
             const itemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxStickerItem, stickerIndex);
             let elDisplay;
@@ -271,27 +248,10 @@ var PopupMajorHub;
             }
             itemId = InventoryAPI.GetInventoryItemIDByIndex(getRandomInt(0, maxInclusiveIndex));
         }
-        // If we don't own any relevant weapons, then fall back to something default
         if (!itemId) {
-            /*
-            let randomItems:string[] = [];
-            [ 'set_timed_drops_warm', 'set_timed_drops_exuberant', 'set_timed_drops_cool' ]
-            .forEach( (szLootlist)=>{
-                const llname = 'lootlist:'+szLootlist;
-                const llcount = InventoryAPI.GetLootListItemsCount( llname );
-                for ( let ill = 0; ill < llcount; ++ ill )
-                {
-                    const llitem = InventoryAPI.GetLootListItemIdByIndex( llname, ill );
-                    if ( InventoryAPI.GetLoadoutCategory( llitem ) === 'rifle' )
-                        randomItems.push( llitem );
-                }
-            } );
-            itemId = randomItems[ getRandomInt( 0, randomItems.length-1 ) ];
-            */
             const randomRifles = [7, 8, 9, 10, 11, 13, 16, 40, 60];
             itemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(randomRifles[getRandomInt(0, randomRifles.length - 1)], 0);
         }
-        // Now that we have ItemID, feed it into the souvenir process
         if (itemId) {
             const halfTeams = Math.floor(g_ActiveTournamentTeams.length / 2);
             const fauxSouvenirItemId = InventoryAPI.CreateTempCombinedItemWithTool(itemId, 'craft_souvenir:faux_' + g_ActiveTournamentInfo.eventid + '_'
@@ -322,31 +282,23 @@ var PopupMajorHub;
     function _UpdateChallenges() {
         let tournamentCoinItemId = InventoryAPI.GetActiveTournamentCoinItemId(_m_eventId);
         let bHasActiveCoin = true;
-        // no coin so use a fake one to get the challenges
         if (!tournamentCoinItemId || tournamentCoinItemId === '0') {
             bHasActiveCoin = false;
             tournamentCoinItemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_coins[0], 0);
         }
-        $.Msg("tournamentCoinItemId = " + tournamentCoinItemId);
         let nCampaignID = InventoryAPI.GetItemAttributeValue(tournamentCoinItemId, "campaign id");
-        $.Msg("Campaign ID = " + nCampaignID);
         let numTotalChallenges = InventoryAPI.GetCampaignNodeCount(nCampaignID);
-        $.Msg("Total challenges = " + numTotalChallenges);
         let nPointsEarned = 0;
         let arrMissions = [];
         for (let i = 0; i < numTotalChallenges; ++i) {
             let nMissionNodeID = InventoryAPI.GetCampaignNodeIDbyIndex(nCampaignID, i);
-            // Is this mission completed?
             let strNodeState = InventoryAPI.GetCampaignNodeState(nCampaignID, nMissionNodeID, tournamentCoinItemId, true);
             nPointsEarned = strNodeState === "complete" ? ++nPointsEarned : nPointsEarned;
-            // Information about the mission
             let nQuestID = InventoryAPI.GetCampaignNodeQuestID(nCampaignID, nMissionNodeID);
             ;
             let strFauxQuestItem = InventoryAPI.GetQuestItemIDFromQuestID(nQuestID);
             let strQuestIcon = InventoryAPI.GetQuestIcon(strFauxQuestItem);
             let strQuestName = InventoryAPI.GetItemName(strFauxQuestItem);
-            // Add it to the journal table of missions
-            $.Msg("  mission #" + i + " questid=" + nQuestID + " (" + strQuestName + ") = " + strNodeState);
             let oChallenge = {
                 idx: i,
                 text: strQuestName,
@@ -395,7 +347,6 @@ var PopupMajorHub;
         if (!elChallenge) {
             elChallenge = $.CreatePanel("Panel", elList, 'id-major-challenge-' + oChallenge.idx);
             elChallenge.BLoadLayoutSnippet("major-challenge");
-            // elList.AddBlurPanel( elChallenge );
         }
         _UpdateChallenge(elChallenge, oChallenge);
     }
@@ -426,11 +377,11 @@ var PopupMajorHub;
     var _RedemptionChargesRemaining = function (tournamentCoinItemId) {
         let coinLevel = parseInt(InventoryAPI.GetItemAttributeValue(tournamentCoinItemId, "upgrade level"));
         let coinRedeemsPurchased = parseInt(InventoryAPI.GetItemAttributeValue(tournamentCoinItemId, "operation drops awarded 1"));
-        if (coinRedeemsPurchased) // also support legacy fan coin that didn't have purchased drop souvenirs
+        if (coinRedeemsPurchased)
             coinLevel += coinRedeemsPurchased;
         let redeemed = parseInt(InventoryAPI.GetItemAttributeValue(tournamentCoinItemId, "operation drops awarded 0"));
         m_redeemAvailable = coinLevel - redeemed;
-        if (_m_eventId >= 26) // Starting with Cologne 2026 Major there are no "redeemable souvenirs", rather you "Make Your Own Souvenirs"
+        if (_m_eventId >= 26)
             m_redeemAvailable = 0;
         _m_cp.SetDialogVariableInt('redeems', m_redeemAvailable);
         let elPanel = _m_cp.FindChildInLayoutFile('id-coin-status-charges');
@@ -441,10 +392,8 @@ var PopupMajorHub;
     };
     var _SetPassBtnAction = function () {
         let btn = _m_cp.FindChildInLayoutFile('id-pass-upsell-btn');
-        // No coin so we check if you own a pass that you can activate.  For sum reason we multiply by -1.
         let passItemId = InventoryAPI.GetActiveTournamentCoinItemId(_m_eventId * -1);
-        if ((!passItemId || passItemId === '0')) // We don't have a pass so try to sell one.
-         {
+        if ((!passItemId || passItemId === '0')) {
             let bCanPurchasePass = (g_ActiveTournamentInfo.eventid === _m_eventId) &&
                 ('' !== StoreAPI.GetStoreItemSalePrice(InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentStoreLayout[0][0], 0), 1, ''));
             if (bCanPurchasePass) {
@@ -463,8 +412,7 @@ var PopupMajorHub;
                 });
             }
         }
-        else // We have a pass but its not active 
-         {
+        else {
             btn.text = '#SFUI_ConfirmBtn_ActivatePassNow';
             btn.SetPanelEvent('onactivate', () => {
                 InventoryAPI.UseTool(passItemId, '');
@@ -478,14 +426,12 @@ var PopupMajorHub;
             return;
         }
         let tournamentCoinItemId = InventoryAPI.GetActiveTournamentCoinItemId(_m_eventId);
-        // Graffiti cannot be selected if the event is no longer active or the user does not own the tournament coin
         if (!tournamentCoinItemId || tournamentCoinItemId === '0' || g_ActiveTournamentInfo.eventid !== _m_eventId || !g_ActiveTournamentInfo.active) {
             elParent.SetHasClass('graffiti-panel-visible', false);
             return;
         }
         var elImage = $.GetContextPanel().FindChildInLayoutFile('id-tournament-journal-spray');
         elImage.itemid = ItemInfo.GetFauxReplacementItemID(tournamentCoinItemId, 'graffiti');
-        $.Msg('_SetUpSpray' + elImage.itemid);
         var elIBtn = $.GetContextPanel().FindChildInLayoutFile('id-tournament-journal-selectspray-btn');
         elIBtn.SetPanelEvent('onactivate', function () {
             UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_tournament_select_spray.xml', 'journalid=' + tournamentCoinItemId +
@@ -499,8 +445,6 @@ var PopupMajorHub;
         elPage?.SetHasClass('hidden', m_selectedPage === elPage);
         m_selectedPage?.SetHasClass('hidden', m_selectedPage !== elPage);
         let sectionId = PredictionsAPI.GetEventSectionIDByIndex(_m_tournamentId, sectionIndex);
-        // Each section locks all the groups at the same time.  We use to have many group that locked at different times. 
-        // The get by index still supports that
         let groupId = PredictionsAPI.GetSectionGroupIDByIndex(_m_tournamentId, sectionId, 0);
         m_selectedPage = elPage;
         m_oPageData.panel = elPage;
@@ -510,7 +454,6 @@ var PopupMajorHub;
         m_oPageData.groupId = groupId;
         m_oPageData.sectionIndex = sectionIndex;
         PredictionsTimer.UpdateTimer();
-        // Set up pages for first 2 stages. These are the same so they share logic
         if ((sectionIndex < g_ActiveTournamentInfo.num_stages_with_swiss) && elPage) {
             PredictionsGroup.Init();
         }
@@ -533,7 +476,6 @@ var PopupMajorHub;
     function LoadPickEmData() {
         let listState = MatchListAPI.GetState(_m_tournamentId);
         let elLoadingPanel = _m_cp.FindChildInLayoutFile('id-pickem-loading-status');
-        $.Msg('MatchListAPIGetState: ' + listState);
         if (listState === 'none') {
             MatchListAPI.Refresh(_m_tournamentId);
             _CancelMatchStatsLoadedTimeout();
@@ -553,10 +495,8 @@ var PopupMajorHub;
                 });
                 return;
             }
-            $.Msg('GetMyPredictionsLoaded: ' + isLoaded);
             _CancelMatchStatsLoadedTimeout();
             _m_cp.SetHasClass('loading', false);
-            // Delay since we have frames in frames. 
             if (!m_setDefaultTab) {
                 $.Schedule(.15, SetDefaultTab);
             }
@@ -604,7 +544,6 @@ var PopupMajorHub;
         SavePicksButton.ShowHideNoActivePassWarning(m_oPageData, false);
     }
     function RefreshActivePage() {
-        // timer already checks for what panel is active to update its self
         PredictionsTimer.UpdateTimer();
         if (m_oPageData.sectionIndex < g_ActiveTournamentInfo.num_stages_with_swiss) {
             PredictionsGroup.UpdateFromPredictionUploadedEvent();
@@ -623,19 +562,6 @@ var PopupMajorHub;
             OpenPassActivate(itemId);
             return;
         }
-        /*
-        Object.entries(nSouvenir.souvenirs).forEach( element => {
-            let defName = InventoryAPI.GetItemDefinitionName( InventoryAPI.GetFauxItemIDFromDefAndPaintIndex( element[1], 0 )) as string;
-            if( defName === newItemDefName )
-            {
-                // PopupMajorHub.ClosePopup();
-                $.DispatchEvent( 'ShowAcknowledgePopup', '', '' );
-                $.DispatchEvent( 'HideStoreStatusPanel' );
-
-                return;
-            }
-        });
-        */
     }
     function OpenPassActivate(itemId) {
         const elPanel = UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_capability_decodable.xml');
@@ -651,9 +577,6 @@ var PopupMajorHub;
         }
     }
     PopupMajorHub.DeleteDragItem = DeleteDragItem;
-    //--------------------------------------------------------------------------------------------------
-    // Entry point called when panel is created
-    //--------------------------------------------------------------------------------------------------
     {
         ReadyForDisplay();
         $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_GcLogonNotificationReceived', ReadyForDisplay);
@@ -683,7 +606,6 @@ var SavePicksButton;
             let elToggleBtn = oPageData.panel.FindChildInLayoutFile('id-predictions-apply-btn').FindChild('id-toggle-correct-btn');
             elToggleBtn.visible = true;
             elToggleBtn.SetPanelEvent('onactivate', () => {
-                $.Msg('oPageData.panel.id = ' + oPageData.panel.id);
                 oPageData.panel.SetHasClass('show-all-correct-picks', !oPageData.panel.BHasClass('show-all-correct-picks'));
             });
             elToggleBtn.checked = bThisSectionIsNoLongerActive;
@@ -712,7 +634,6 @@ var SavePicksButton;
             elBtn.SetDialogVariable('save-btn-text', bPicksDifferent ?
                 $.Localize('#pickem_save_all') :
                 $.Localize('#pickem_saved'));
-            // elBtn!.SetHasClass( 'saved', !bPicksDifferent );
             elBtn.SwitchClass('btn_state', !bPicksDifferent ? 'saved' : '');
             if (bPicksDifferent) {
                 _SetPicks(elBtn, oPageData, nCount, aLocalPicks);
@@ -739,8 +660,8 @@ var SavePicksButton;
     function _SetPicks(elBtn, oPageData, nCount, aLocalPicks) {
         if (elBtn.enabled) {
             var args = [oPageData.tournamentId];
-            for (var i = 0; i < nCount; ++i) { // Add my prediction per each slot into the batch (3 params per each pick)
-                args.push(aLocalPicks[i].group.toString(), aLocalPicks[i].groupIndex.toString(), PredictionsAPI.GetFakeItemIDToRepresentTeamID(oPageData.tournamentId, aLocalPicks[i].teamId)); // Add 3 params for this pick
+            for (var i = 0; i < nCount; ++i) {
+                args.push(aLocalPicks[i].group.toString(), aLocalPicks[i].groupIndex.toString(), PredictionsAPI.GetFakeItemIDToRepresentTeamID(oPageData.tournamentId, aLocalPicks[i].teamId));
             }
             elBtn.SetPanelEvent('onactivate', () => {
                 let tournamentCoinItemId = InventoryAPI.GetActiveTournamentCoinItemId(oPageData.eventId);

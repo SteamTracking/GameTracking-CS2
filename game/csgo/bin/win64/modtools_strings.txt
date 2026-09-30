@@ -9158,6 +9158,8 @@ $modelname$_surface
 2DBlend
 2DBlendEditor
 2DBlendFromAnimation
+2\vpL
+2\vpX
 2_BONE_IK
 4096
 4\r54t
@@ -9194,9 +9196,9 @@ $modelname$_surface
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
-@08Nx
 @@CNmGraphDocIDEventPercentageThroughNode
 @Faces
+@HPX`hv
 @Integer overflow in %s
 @m_nParticle
 @unnamed_%d
@@ -9522,7 +9524,7 @@ Assigns a floating point value to a material attribute over a frame range.
 Assigns all vertex weights to the specified bone.
 Associates a semantic identifier with an animgraph2 used by this model.
 Atlas Dimension
-AtlasToVolumeTextureConversion(3586): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attach Point
 Attach To Bone ID
 Attach to Morphing Base Mesh
@@ -11103,8 +11105,6 @@ Expand Existing Selection
 Expand face selection to all contiguous faces.
 Expand point with eight additional vertices in a box shape.
 Expand point with six additional vertices in a tetrahedron shape.
-Expand point with sixteen additional vertices on an inscribed eight-sided cylinder.
-Expand point with twelve additional vertices on an inscribed six-sided cylinder.
 Expand selection to named mesh id component.
 Expand the selection to all faces contiguous with the ones the loop touched.
 Expand the selection to the named mesh id components the loop touched.
@@ -11314,9 +11314,9 @@ Float Range Check
 Float Remap
 Float Spring
 Float Switch
-FloatBitMap_t::LoadFromFile(3778): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2727): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 Floating Comment
 Floating point "Predictor" not supported with %d data format
 Floats
@@ -11475,11 +11475,10 @@ Height Target
 Height Tolerance
 Height of the primitive to project normals from.
 Helper for previewing how a model may attach to the given attachment. Does NOT affect the compiled model.
-HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hemisphere
 Hemisphere: Captures only the upper hemisphere. Less texture memory cost but model might not appear correct when viewed from below. Full Sphere: Captures the model from all angles, but has a higher memory cost.
 Hertz
-Hexagonal Cylinder
 Hidden
 Hide Materialgroup in Tools
 Hide Render Color in Tools
@@ -12348,7 +12347,6 @@ ORIENT
 O\tV_expd
 Object
 Object Rotation
-Octagonal Cylinder
 Offset Angle
 Offset Angles
 Offset Axis of Rotation
@@ -12455,7 +12453,6 @@ Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
 P08@J u
 P08Jpu
-P08Nx
 P2 u
 PARENT
 PF\n%d %d\n-1.000000\n
@@ -12765,10 +12762,13 @@ R8G8_UNORM
 R8_SINT
 R8_SNORM
 R8_TYPELESS
+R8_UNORM
 R9G9B9E5_SHAREDEXP
 RBF Based Anim Constraint
 ROTATION
+R\fpL
 R\vp!y
+R\vpX
 R_T5Y
 Radial Basis Function Type
 Radius Params CP ( Prop Group Smallest Radius / Prop Group Largest Radius / Number of Avg Objects )
@@ -13903,7 +13903,6 @@ _temp_tangent
 _volumeatlas_
 _wjb
 _zero
-aBvx
 absolute
 accent
 accent_frame
@@ -14623,7 +14622,6 @@ help text for Struct Array!
 help text for Test Enum!
 help text for Translation!
 hemisphere
-hex_cyl
 hidden_in_tools
 hide_if_child_selected
 hide_materialgroup_in_tools
@@ -15107,7 +15105,6 @@ numframes
 numsides_key
 o KPBf
 oY.o<
-oct_cyl
 offset_angles
 offset_origin
 offset_rotation
@@ -15150,7 +15147,6 @@ overridesound
 overwrite_existing
 overwrite_existing_flags_only
 owns_polymorphic_data
-p08@H^x
 p0jp6
 p2 u
 pCachedPoseBuffer->m_ID.IsValid()
@@ -15295,6 +15291,7 @@ pushout_strength
 quad
 quad_bend_tolerance
 quadratic
+r\vpL
 radius0_key
 radius1_key
 radius_key

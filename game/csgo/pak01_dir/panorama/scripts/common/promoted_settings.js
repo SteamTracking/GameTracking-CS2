@@ -1,24 +1,7 @@
 "use strict";
 /// <reference path="../csgo.d.ts" />
-// Bump version when you want the entire array below to appear new or if the viewed setting bookkeeping changes enough to warrant it.
 var g_PromotedSettingsVersion = 1;
 var g_PromotedSettings = [
-    /*
-        // Data about settings to show in the promoted settings menu.
-        // Will make panels with a link to take user to the new setting.
-        // These entries are in the order they will appear in the menu.
-        // New entries can be put anywhere in the array.
-        //
-        // Required keys to populate snippets:
-        id: ID of element in a settings menu to promote to the front tab for easier visibility.
-        loc_name: Loc string to show in the new settings tab.
-        loc_desc: Description of the settings being promoted.
-        section: ID of Settings section panel where the 'id' above is a child panel.
-        start_date: Date when this setting is added to the promoted setting menu (approx). Will show main menu indicator to users
-                    whose local timestamp is before this date.
-        end_date: Will no longer populate in the new setting menu after this date. Entries with a end_date in the past
-                    are safe to remove from the array.
-    */
     {
         id: "BuyMenuDonationKey",
         loc_name: "#SFUI_Settings_BuyWheelDonateKey",
@@ -37,8 +20,6 @@ var g_PromotedSettings = [
     },
     {
         id: "SettingsCommunicationSettings",
-        //loc_name: "#settings_comm_binds_section",
-        //loc_desc: "#settings_comm_binds_info",
         loc_name: "#SFUI_Settings_FilterText_Title",
         loc_desc: "#SFUI_Settings_FilterText_Title_Tooltip",
         section: "GameSettings",
@@ -268,34 +249,13 @@ var g_PromotedSettings = [
 var PromotedSettingsUtil;
 (function (PromotedSettingsUtil) {
     function GetUnacknowledgedPromotedSettings() {
-        // const settingsInfo = GameInterfaceAPI.GetSettingString( "cl_promoted_settings_acknowledged" ).split( ':' );
-        // const version = parseInt( settingsInfo.shift()! );
-        // // Dont do any acknowledging for initial CS2 launch
-        // if ( version === g_PromotedSettingsVersion )
-        // {
-        // 	const arrNewSettings: PromotedSetting_t[] = [];
-        // 	// Second value is date last viewed a new setting
-        // 	const timeLastViewed = new Date( parseInt( settingsInfo.shift()! ) );
-        // 	for ( const setting of g_PromotedSettings )
-        // 	{
-        // 		const now = new Date();
-        // 		if ( setting.start_date > timeLastViewed && setting.start_date <= now )
-        // 			arrNewSettings.push( setting );
-        // 	}
-        // 	return arrNewSettings;
-        // }
-        // else
         {
-            // Convar not up to date with code. Fix up old version if possible, otherwise
-            // just show every setting in a valid date range.
             const now = new Date();
             return g_PromotedSettings.filter(setting => setting.start_date <= now && setting.end_date > now);
         }
     }
     PromotedSettingsUtil.GetUnacknowledgedPromotedSettings = GetUnacknowledgedPromotedSettings;
-    // Update notification on main menu settings button when settings are viewed, then unregister.
     const hPromotedSettingsViewedEvt = $.RegisterForUnhandledEvent("MainMenu_PromotedSettingsViewed", () => {
-        // Save dismissal
         GameInterfaceAPI.SetSettingString("cl_promoted_settings_acknowledged", "" + g_PromotedSettingsVersion + ":" + Date.now());
         $.UnregisterForUnhandledEvent("MainMenu_PromotedSettingsViewed", hPromotedSettingsViewedEvt);
     });

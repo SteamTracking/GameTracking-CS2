@@ -72,9 +72,9 @@ var PickEmInfoBar = ( function()
 	var _UpdateTimer = function( elPanel, optbFromScheduledEvent )
 	{
 		if ( optbFromScheduledEvent && elPanel._oPickemData.oInitData.schPickEmInfoBarUpdateTimer )
-		{	// when called from scheduled event mark it as "triggered" so that we could reschedule
+		{	                                                                                      
 			elPanel._oPickemData.oInitData.schPickEmInfoBarUpdateTimer = null;
-			// $.Msg( '_UpdateTimer on ' + elPanel._oPickemData.oInitData.sectionindex );
+			                                                                             
 		}
 
 		var activeSectionIdx = elPanel._oPickemData.oInitData.sectionindex;
@@ -93,14 +93,14 @@ var PickEmInfoBar = ( function()
 
 		if ( !isActive && canPick )
 		{
-			// The day is not active but you can pick so show the "come back later" message.
+			                                                                                
 			elIcon.SetImage( 'file://{images}/icons/ui/locked.svg' );
 			elStatus.text = $.Localize( '#pickem_timer_inactive' );
 		   
 		}
 		else if ( canPick && secRemaining > 0 )
 		{
-			// day is active and you can make picks and we have a timer so update the time.
+			                                                                               
 			elIcon.SetImage( 'file://{images}/icons/ui/clock.svg' );
 			elStatus.SetDialogVariable( 'time', FormatText.SecondsToSignificantTimeString( secRemaining ) );
 			elStatus.text = $.Localize( '#pickem_timer', elStatus );
@@ -114,13 +114,13 @@ var PickEmInfoBar = ( function()
 		}
 		else if ( !canPick )
 		{
-			//picks are locked so show locked message and stop timer.
+			                                                         
 			elIcon.SetImage( 'file://{images}/icons/ui/locked.svg' );
 			elStatus.text = $.Localize( '#pickem_timer_locked' );
 		}
 		else
 		{
-			//timer has run out but picks are not locked
+			                                            
 			elIcon.SetImage( 'file://{images}/icons/ui/clock.svg' );
 			elStatus.SetDialogVariable( 'time', FormatText.SecondsToSignificantTimeString( 60 ) );
 			elStatus.text = $.Localize( '#pickem_timer', elStatus );
@@ -130,7 +130,7 @@ var PickEmInfoBar = ( function()
 
 	var _UpdateScore = function( elPanel )
 	{
-		// prediction points are not shown for the new tournaments that use challenges to get points
+		                                                                                            
 		if ( PickemCommon.GetTournamentIdNumFromString( elPanel._oPickemData.oInitData.tournamentid ) >= 15 )
 			return;
 		
@@ -211,7 +211,7 @@ var PickEmInfoBar = ( function()
 		var elBtn = elParent.FindChildInLayoutFile( 'JsTournamentLiveMatch' );
 		var matchId = GetLiveMatchId( elPanel._oPickemData.oInitData.tournamentid );
 
-		// Don't show live match button if we can't watch
+		                                                 
 		var bIsMinimalMatchInfo = MatchInfoAPI.IsServerLogTournamentMatch( matchId ); 
 		if ( bIsMinimalMatchInfo )
 			matchId = '';
