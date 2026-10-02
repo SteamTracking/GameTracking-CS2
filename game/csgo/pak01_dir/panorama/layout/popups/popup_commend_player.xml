@@ -10,7 +10,7 @@
 	</scripts>
 	<PopupCustomLayout class="PopupPanel Hidden" useglobalcontext="true" popupbackground="dim" onload="PopupCommendPlayer.Init();">
 		<Label class="PopupTitle" text="#SFUI_PlayerDetails_Commend_TargetPlayer" html="true" />
-		<Label id="id-commend-status" class="PopupMessage" text="wtf" html="true" />
+		<Label id="id-commend-status" class="PopupMessage" text="" html="true" />
 		<Panel id="id-commend" class="PopupDimVerticalButtonContainer">
 			<ToggleButton id="id-commend-friendly" data-category="friendly" class="PopupButton Row">
 				<Label text="#SFUI_PlayerDetails_IsFriendly" />

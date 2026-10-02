@@ -638,7 +638,8 @@ var PopupPetPhotoBooth;
         }
         else {
             let selectedBtn = _m_cp.FindChildInLayoutFile('id-photo-settings-team').Children()[0].GetSelectedButton();
-            let charId = LoadoutAPI.GetItemID(selectedBtn.GetAttributeString('data-type', 'ct'), 'customplayer');
+            const team = selectedBtn.GetAttributeString('data-type', 'ct');
+            let charId = LoadoutAPI.GetItemID(team, 'customplayer');
             const settings = ItemInfo.GetOrUpdateVanityCharacterSettings(charId);
             settings.panel = elPanel;
             settings.petItemId = _m_petId;
@@ -646,6 +647,7 @@ var PopupPetPhotoBooth;
             let model = ItemInfo.GetModelPlayer(charId);
             elPanel.SetPlayerCharacterItemID(charId);
             elPanel.SetPlayerModel(model);
+            elPanel.EquipPlayerWithItem(LoadoutAPI.GetItemID(team, 'clothing_hands'));
             elPanel.SetPetPlacement(!!_m_petId && Number(_m_petId) != 0 ? 'origin' : 'none');
             elPanel.EquipPlayerWithPet(_m_petId);
             elPanel.PlayChickSnapshotAnimation(Number(pose.name));

@@ -126,8 +126,8 @@
  (%lu = 0x%lx)\n
  (%u = 0x%x)\n
  (+%d more due to usercommand delivery)
- (08@HPXbP*(
- (0X`hpzP*(
+ (08@HPXb *(
+ (0X`hpz *(
  (DEFAULT)
  (Dirty Animation)
  (INVALID PSS PARAMETERS)\n
@@ -2198,6 +2198,7 @@ $taser_charge
 %lu: Row out of range, max %lu
 %lu: Sample out of range, max %lu
 %lu:%s:%s:%d:%s\n
+%n4H
 %p Load from %s\n
 %p Load from memory size %d\n
 %p OnFreeAudioMainThread\n
@@ -2990,7 +2991,7 @@ $taser_charge
 ).CPlayer_GetPerFriendPreferences_Response"M
 ).CPlayer_SetCommunityPreferences_Response"+
 ).CPlayer_SetPerFriendPreferences_Response"G
-)24X
+)24x
 )4?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@2@H@Z
 )A service for accessing Steam player dataB
 )App Id this file is being published FROM.
@@ -3176,7 +3177,6 @@ $taser_charge
 ,\n\nsv_interp1
 ,\n\vvictim_slot
 ,ar_monastery
-,d;4x
 ,fQM(
 ,h11]
 ,hmQ#
@@ -3184,7 +3184,7 @@ $taser_charge
 ,kj8\te
 ,name:
 ,oYR
-,sK3
+,sK3 
 ,section=
 ,value:
 - "%s" = "%.2f"\n
@@ -11197,7 +11197,6 @@ $taser_charge
 0123456789ABCDEF#
 02V8[
 05=k
-08@JP*(
 08bX
 09,h
 0;Q5[
@@ -11309,7 +11308,6 @@ $taser_charge
 20.0
 20.CUserMessageRemoteServerResponse.ECommandResult
 200 200 200 196
-201)
 2020 CS:GO Regional Major Rankings
 2023-09-27
 2023-10-04
@@ -11498,7 +11496,7 @@ $taser_charge
 2\n\nline_items
 2\n\vpreferences
 2\rlhp
-2\vpT
+2\vpX
 2^pV
 2a"l
 2bT~
@@ -12016,15 +12014,14 @@ $taser_charge
 ?uWS
 ?x29
 @!@%@+@1@?@C@E@]@a@g@m@
-@08N
+@08Nd
 @0pp
-@60g
+@60m
 @?SlowGetInternalField@Object@v8@@AEAA?AV?$Local@VData@v8@@@2@H@Z
 @@CNmFloatCurveEvent
 @BH]f
 @C_IncendiaryGrenade
 @DebugIndividualStyle
-@HV0
 @Integer overflow in %s
 @MfKZ
 @Pgl
@@ -21037,7 +21034,7 @@ JSDelayLoadList
 JSValueFromKeyValue failed to package parameter %s (type %d)\n
 JSValueFromKeyValues3 failed to package parameter (type %d)\n
 JS_!0
-JY30
+JY3P
 JZIX
 J\nHBF
 J`KL
@@ -21177,7 +21174,7 @@ LOG_MESSAGE
 LONG
 LONG_C2I
 LPVIndex
-LS&\nK8U
+LS&\nKXU
 LT[N
 LT_txt
 LXKQ
@@ -22613,15 +22610,12 @@ P-224
 P-256
 P-384
 P-521
-P08@JP*(
 P08J
-P08N
+P08Nd
 P1\t98"
 P2P ping to "%s". Timed out after %.2fms\n
-P2P*(
 P5[1
-P6 M
-P6`g
+P60g
 PAGN_4
 PANORAMA_LAYOUTFILE
 PARALYZE
@@ -23177,7 +23171,7 @@ PersonalStore
 Pet definition %s: missing "name"
 Pet definition %s: name must be a positive integer
 PetHasAchievement
-Pf`T
+Pf0T
 Phoenix Compound
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
@@ -23345,7 +23339,7 @@ Playsoundscape %s:Unknown command %s\n
 Please specify 0 or 1 with the -stream Parameter\n
 Pm8A?
 PmR"H?
-Pn`U
+Pn0U
 Point entity.
 PointsAnim
 Policy Qualifier CPS
@@ -23590,6 +23584,7 @@ Pushes an identifier used to group overlays. Deletes all existing overlays using
 Pushes an identifier used to group overlays. Overlays marked with this identifier can be deleted in a big batch.
 Pyramid
 P|iC\r
+Q$4H
 Q(Optional) If supplied, the resulting published file's Id is appended to the URI.
 Q*hd
 Q/xtJ2
@@ -23819,10 +23814,10 @@ RT %dx%d %s %s : %d Bytes\n
 RT_txt
 RTime32
 RULESHERE
+R\fpX
 R\n\rincludekvtags
 R\r1>Vp
 R\vp!y
-R\vpT
 R]Di
 R_T5Y
 Rad2 Deg
@@ -27799,7 +27794,6 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
-\fp\vPLq
 \ful2
 \fy&3Gl
 \l:ArR
@@ -28762,7 +28756,6 @@ Z~wl
 \v\vTSG
 \vj0k
 \vjC7
-\vpLq
 ]1h=bfz
 ]FhSD}
 ]GT7]
@@ -28871,6 +28864,8 @@ _xU`u
 _}eOk
 `28)fk
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
+`6Pn
+`6po
 `:zQF
 `D$daM-l
 `DZG
@@ -28902,6 +28897,7 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
+aBvd
 aD/x
 aDSS
 aECDH
@@ -33474,7 +33470,6 @@ hour
 hours
 houseIdentifier
 hover
-hpzP*(
 hr_H
 href="
 hscroll
@@ -34715,7 +34710,7 @@ lC57
 lDcW
 lM2p
 l\n\fexcludedtags
-l`w4H
+l`w4h
 label_token
 ladder
 ladder_angle_yaw
@@ -36790,9 +36785,9 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^
+p08@H^d
+p0j0\r#
 p250
-p2P*(
 p2p_ping could not convert "%s" to a CPeerToPeerAddress\n
 p2p_ping could not ping "%s" because they are an unknown peer\n
 p2p_ping requires a destination address\n
@@ -36811,7 +36806,7 @@ pD4t
 pData->GetDataDescMap() == pTemplateDataMap
 pDescription
 pDest
-pFPX
+pF X
 pFilter
 pG_*h
 pIp 
@@ -37792,6 +37787,7 @@ rZPM
 r\n\vstart_index
 r\vDi
 r\vp!K
+r\vpX
 r_2PassBuildDraw 0
 r_2PassBuildDraw 1
 r_csm_fast_path 0

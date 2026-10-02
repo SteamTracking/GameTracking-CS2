@@ -9,7 +9,7 @@ var PopupCommendPlayer;
         m_elStatus = $("#id-commend-status");
         m_elCommend = $("#id-commend");
         let xuid = $.GetContextPanel().GetAttributeString("xuid", "");
-        $.GetContextPanel().SetDialogVariable("target_player", $.HTMLEscape(GameStateAPI.GetPlayerName(xuid)));
+        $.GetContextPanel().SetDialogVariable("target_player", GameStateAPI.GetPlayerName(xuid));
         _Update();
     }
     PopupCommendPlayer.Init = Init;
