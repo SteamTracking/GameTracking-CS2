@@ -1,5 +1,7 @@
 import "networkbasetypes.proto";
 
+option additional_includes = "basetypes.h";
+
 enum EHitGroup {
 	EHG_Generic = 0;
 	EHG_Head = 1;
@@ -74,7 +76,7 @@ message MLWeaponState {
 
 message MLPlayerState {
 	optional int32 account_id = 1;
-	optional int32 player_slot = 2 [default = -1];
+	optional int32 player_slot = 2 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 	optional int32 entindex = 3;
 	optional string name = 4;
 	optional string clan = 5;

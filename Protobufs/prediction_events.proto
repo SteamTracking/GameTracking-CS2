@@ -1,5 +1,8 @@
 import "networkbasetypes.proto";
 
+option additional_includes = "basetypes.h";
+option additional_includes = "entityhandle.h";
+
 enum EBasePredictionEvents {
 	BPE_StringCommand = 128;
 	BPE_Teleport = 130;

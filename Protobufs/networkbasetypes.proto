@@ -2,6 +2,9 @@ import "valveextensions.proto";
 import "google/protobuf/descriptor.proto";
 import "network_connection.proto";
 
+option additional_includes = "schemasystem/schema_enable_defines.h";
+option additional_includes = "entityhandle.h";
+
 extend .google.protobuf.MessageOptions {
 	optional int32 maximum_size_bytes = 50000;
 }
@@ -106,7 +109,7 @@ message CMsgPlayerInfo {
 }
 
 message CEntityMsg {
-	optional uint32 target_entity = 1 [default = 16777215];
+	optional uint32 target_entity = 1 [default = 16777215, boxed_type = "CEHandleNetworkableInt", synthetic_default = "16777215"];
 }
 
 message CMsg_CVars {
@@ -201,7 +204,7 @@ message CNETMsg_SpawnGroup_Load {
 	optional string localnamefixup = 12;
 	optional string parentnamefixup = 13;
 	optional int32 manifestloadpriority = 14;
-	optional uint32 worldgroupid = 15;
+	optional uint32 worldgroupid = 15 [boxed_type = "WorldGroupId_t"];
 	optional uint32 creationsequence = 16;
 	optional string savegamefilename = 17;
 	optional uint32 spawngroupparenthandle = 18;

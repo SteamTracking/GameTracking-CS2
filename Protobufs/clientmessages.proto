@@ -1,3 +1,5 @@
+option additional_includes = "basetypes.h";
+
 enum EBaseClientMessages {
 	CM_CustomGameEvent = 280;
 	CM_CustomGameEventBounce = 281;
@@ -22,7 +24,7 @@ message CClientMsg_CustomGameEvent {
 message CClientMsg_CustomGameEventBounce {
 	optional string event_name = 1;
 	optional bytes data = 2;
-	optional int32 player_slot = 3 [default = -1];
+	optional int32 player_slot = 3 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 }
 
 message CClientMsg_ClientUIEvent {

@@ -1,6 +1,8 @@
 import "networkbasetypes.proto";
 import "cstrike15_gcmessages.proto";
 
+option additional_includes = "basetypes.h";
+
 enum ECstrike15UserMessages {
 	CS_UM_VGUIMenu = 301;
 	CS_UM_Geiger = 302;
@@ -163,7 +165,7 @@ message CCSUsrMsg_SendAudio {
 
 message CCSUsrMsg_RawAudio {
 	optional int32 pitch = 1;
-	optional int32 entidx = 2 [default = -1];
+	optional int32 entidx = 2 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 	optional float duration = 3;
 	optional string voice_filename = 4;
 }
@@ -181,12 +183,12 @@ message CCSUsrMsg_VoiceMask {
 message CCSUsrMsg_Damage {
 	optional int32 amount = 1;
 	optional .CMsgVector inflictor_world_pos = 2;
-	optional int32 victim_entindex = 3 [default = -1];
+	optional int32 victim_entindex = 3 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 }
 
 message CCSUsrMsg_RadioText {
 	optional int32 msg_dst = 1;
-	optional int32 client = 2 [default = -1];
+	optional int32 client = 2 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 	optional string msg_name = 3;
 	repeated string params = 4;
 }
@@ -201,7 +203,7 @@ message CCSUsrMsg_KeyHintText {
 
 message CCSUsrMsg_ProcessSpottedEntityUpdate {
 	message SpottedEntityUpdate {
-		optional int32 entity_idx = 1 [default = -1];
+		optional int32 entity_idx = 1 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 		optional int32 class_id = 2;
 		optional int32 origin_x = 3;
 		optional int32 origin_y = 4;
@@ -222,11 +224,11 @@ message CCSUsrMsg_SendPlayerItemDrops {
 
 message CCSUsrMsg_SendPlayerItemFound {
 	optional .CEconItemPreviewDataBlock iteminfo = 1;
-	optional int32 playerslot = 2 [default = -1];
+	optional int32 playerslot = 2 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 }
 
 message CCSUsrMsg_ReloadEffect {
-	optional int32 entidx = 1 [default = -1];
+	optional int32 entidx = 1 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 	optional int32 actanim = 2;
 	optional float origin_x = 3;
 	optional float origin_y = 4;
@@ -234,7 +236,7 @@ message CCSUsrMsg_ReloadEffect {
 }
 
 message CCSUsrMsg_WeaponSound {
-	optional int32 entidx = 1 [default = -1];
+	optional int32 entidx = 1 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 	optional float origin_x = 2;
 	optional float origin_y = 3;
 	optional float origin_z = 4;
@@ -244,20 +246,20 @@ message CCSUsrMsg_WeaponSound {
 }
 
 message CCSUsrMsg_WeaponMagDrop {
-	optional int32 entidx = 1 [default = -1];
+	optional int32 entidx = 1 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 	optional int32 secondary_data = 2;
 	optional bool server_event = 3;
 }
 
 message CCSUsrMsg_UpdateScreenHealthBar {
-	optional int32 entidx = 1 [default = -1];
+	optional int32 entidx = 1 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 	optional float healthratio_old = 2;
 	optional float healthratio_new = 3;
 	optional int32 style = 4;
 }
 
 message CCSUsrMsg_EntityOutlineHighlight {
-	optional int32 entidx = 1 [default = -1];
+	optional int32 entidx = 1 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 	optional bool removehighlight = 2;
 }
 
@@ -274,8 +276,8 @@ message CCSUsrMsg_ReportHit {
 
 message CCSUsrMsg_KillCam {
 	optional int32 obs_mode = 1;
-	optional int32 first_target = 2 [default = -1];
-	optional int32 second_target = 3 [default = -1];
+	optional int32 first_target = 2 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
+	optional int32 second_target = 3 [default = -1, boxed_type = "CEntityIndex", synthetic_default = "-1"];
 }
 
 message CCSUsrMsg_DesiredTimescale {
@@ -347,13 +349,13 @@ message CCSUsrMsg_CallVoteFailed {
 
 message CCSUsrMsg_VoteStart {
 	optional int32 team = 1;
-	optional int32 player_slot = 2 [default = -1];
+	optional int32 player_slot = 2 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 	optional int32 vote_type = 3;
 	optional string disp_str = 4;
 	optional string details_str = 5;
 	optional string other_team_str = 6;
 	optional bool is_yes_no_vote = 7;
-	optional int32 player_slot_target = 8 [default = -1];
+	optional int32 player_slot_target = 8 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 }
 
 message CCSUsrMsg_VotePass {
@@ -481,7 +483,7 @@ message CCSUsrMsg_EndOfMatchAllPlayersData {
 	}
 
 	message PlayerData {
-		optional int32 slot = 1 [default = -1];
+		optional int32 slot = 1 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 		optional uint64 xuid = 2;
 		optional string name = 3;
 		optional int32 teamnumber = 4;
@@ -499,7 +501,7 @@ message CCSUsrMsg_RoundEndReportData {
 	message RerEvent {
 		message Victim {
 			optional int32 team_number = 1;
-			optional int32 playerslot = 2 [default = -1];
+			optional int32 playerslot = 2 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 			optional uint64 xuid = 3;
 			optional int32 color = 4;
 			optional bool is_bot = 5;
@@ -511,7 +513,7 @@ message CCSUsrMsg_RoundEndReportData {
 		}
 
 		message Damage {
-			optional int32 other_playerslot = 1 [default = -1];
+			optional int32 other_playerslot = 1 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 			optional uint64 other_xuid = 2;
 			optional int32 health_removed = 3;
 			optional int32 num_hits = 4;
@@ -629,11 +631,11 @@ message CCSUsrMsg_SendPlayerLoadout {
 	}
 
 	repeated .CCSUsrMsg_SendPlayerLoadout.LoadoutItem loadout = 1;
-	optional int32 playerslot = 2 [default = -1];
+	optional int32 playerslot = 2 [default = -1, boxed_type = "CPlayerSlot", synthetic_default = "-1"];
 }
 
 message CCSUsrMsg_CustomHudClicked {
-	optional uint32 custom_hud_layout = 1 [default = 16777215];
+	optional uint32 custom_hud_layout = 1 [default = 16777215, boxed_type = "CEHandleNetworkableInt", synthetic_default = "16777215"];
 	optional string button_id = 2;
 }
 
