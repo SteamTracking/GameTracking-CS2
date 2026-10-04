@@ -1,0 +1,22 @@
+Content Manifest for Depot 2347774 
+
+Manifest ID / date     : 6845003340509320862 / 09/30/2026 21:02:18 
+Total number of files  : 12 
+Total number of chunks : 1125 
+Total bytes on disk    : 1142065743 
+Total bytes compressed : 950016288 
+
+
+          Size Chunks File SHA                                 Flags Name
+     124278274    128 13db588f0f27d656f3446cd21c33f8f58b48a838     0 game\csgo_lv\pak01_000.vpk
+     104888320    101 5b065f2bfd9fdd9a47781d05d7ebfb4dc58b57f0     0 game\csgo_lv\pak01_001.vpk
+     104829712    100 3a28722d2b041bf03cec57d0769792580a6a1c4e     0 game\csgo_lv\pak01_002.vpk
+     104861808    101 efc8a0de092a2c872aa11245c6f68ffb6a924649     0 game\csgo_lv\pak01_003.vpk
+     104887468    101 3de870b4614a1db505e50795bfa222aa16d2b3d8     0 game\csgo_lv\pak01_004.vpk
+     104872092    101 20ff34646c70495100ae0cb6647ceac000fe2a0c     0 game\csgo_lv\pak01_005.vpk
+     105094986    101 3873481af8f2747685b34a1001fc5d8c8b3f7cc5     0 game\csgo_lv\pak01_006.vpk
+     103583133    108 e7fd8196f3d3f970a922e9ff13e3a6914b5cec8c     0 game\csgo_lv\pak01_007.vpk
+     100657049    102 796f964574834c63e84a074f15bead13c1ff65ad     0 game\csgo_lv\pak01_008.vpk
+     116960134    116 1fa2828fc3c7cb264b058fd9ec93aa931f9ec521     0 game\csgo_lv\pak01_009.vpk
+      66834116     67 8f6b5f1f704575813dd4a3ea7c8cf75587afb1d7     0 game\csgo_lv\pak01_010.vpk
+        318651      1 303d421ab63931013871e23990f87ac3f7f431d4     0 game\csgo_lv\pak01_dir.vpk

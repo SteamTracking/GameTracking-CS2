@@ -1,4 +1,0 @@
-materials/dev/placeholder.vmat
-materials/default/default_ao_tga_559f1ac6.vtex
-materials/dev/graygrid_color_tga_c7c95e0a.vtex
-materials/dev/placeholder_tga_83440f2a.vtex

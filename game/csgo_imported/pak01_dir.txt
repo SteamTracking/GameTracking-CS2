@@ -1,4 +1,0 @@
-materials/default/default_ao_tga_559f1ac6.vtex_c CRC:003855ceac size:2136
-materials/dev/graygrid_color_tga_c7c95e0a.vtex_c CRC:0060305589 size:46849
-materials/dev/placeholder.vmat_c CRC:007f3824b9 size:3456
-materials/dev/placeholder_tga_83440f2a.vtex_c CRC:00e879c061 size:2288

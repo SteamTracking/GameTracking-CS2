@@ -1,0 +1,11 @@
+Content Manifest for Depot 2347772 
+
+Manifest ID / date     : 4427303554736365309 / 10/05/2023 23:51:36 
+Total number of files  : 1 
+Total number of chunks : 1 
+Total bytes on disk    : 9276 
+Total bytes compressed : 1696 
+
+
+          Size Chunks File SHA                                 Flags Name
+          9276      1 9db0899f31e058b853c69694dab81e73045a8e26     0 game\csgo\bin\legacy\csgo_legacy_app_osx64
