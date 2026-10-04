@@ -11844,7 +11844,6 @@ parse_error
 pass-remarks
 pass-remarks-analysis
 pass-remarks-missed
-pattern
 pc.altivec.crypto.v
 pc.altivec.crypto.vncipherlast
 pc.altivec.crypto.vsbox

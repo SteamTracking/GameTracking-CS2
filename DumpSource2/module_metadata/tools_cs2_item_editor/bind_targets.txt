@@ -1,0 +1,32 @@
+CCS2ItemEditorSession : CCS2ItemEditorSession // src/tools/cs2_item_editor/cs2_item_editor_session.cpp
+	BindCmd_Copy
+	BindCmd_Create
+	BindCmd_Inspect
+	BindCmd_Preview
+	BindCmd_Redo
+	BindCmd_Save
+	BindCmd_SaveAs
+	BindCmd_Undo
+
+GlobalHotkeys : CGlobalHotkeyCommands // src/qcontrols/inputglobalhotkeys.cpp
+	DebugWidgetActiveWindow
+	DebugWidgetUnderMouse
+	DebugWidgetWithFocus
+	DummyNoOp
+	FocusChainDebug_Back
+	FocusChainDebug_Forward
+	FocusChainDebug_Less
+	FocusChainDebug_More
+	FocusChainDebug_Toggle
+	ShowAllCommandsPopup
+	ShowConsole
+	ShowFullHelpForBindableCommandUnderMouse
+	ShowInputDebugger
+	ShowWidgetDebugger
+	SwitchToEngineWindow
+
+SessionCycleWidget : CQSessionCycleWidget // src/tools/toolutils2/qbaseeditorwnd.cpp
+	KeepActive
+	NextSession
+	PreviousSession
+

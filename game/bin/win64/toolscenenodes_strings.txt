@@ -12200,7 +12200,6 @@ align
 alignToAxis
 allflags
 allow_scale
-allow_sst_generation
 allowed_api_features
 allowed_requirements
 alpha_fade
@@ -12234,7 +12233,6 @@ animations
 animflags
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 ansi-X9-62
 anyExtendedKeyUsage
@@ -12284,9 +12282,6 @@ associated_key
 ati_compress_wrapper.dll
 attached_prop_physics
 attempt to reuse session in different context
-attenuation0
-attenuation1
-attenuation2
 attr_custom_commands
 attr_factory
 attrib
@@ -12420,7 +12415,6 @@ bakeLightingDoubleSided
 bakeToWorld
 bakeambientocclusion
 bakedLigthtingMode
-baked_light_indexing
 bakedlighting
 bakelightdoublesided
 bakelighting
@@ -12658,11 +12652,7 @@ cant check dh key
 cant pack structure
 capsule
 capsule_height
-capsule_length
 capsule_radius
-cascadecrossfade
-cascadedistancefade
-cascaderenderstaticobj
 caseIgnoreIA5StringSyntax
 cast5-cbc
 cast5-cfb
@@ -13743,8 +13733,6 @@ focalDistance
 fogFlowMap
 fogFlowMapValues
 fogOpacity
-fog_lighting
-fogcontributionstrength
 fontfamily
 fontstyle
 fopen
@@ -14361,7 +14349,6 @@ initial_mass
 initialization error
 initialized
 initials
-innerconeangle
 input not initialized
 input not reduced
 inputName
@@ -14776,8 +14763,6 @@ loadAtRuntime
 loadIfNested
 loading cert dir
 loading defaults
-local.angles
-local.origin
 localKeyID
 local_point
 local_vector
@@ -15272,7 +15257,6 @@ navlinkclass
 navplace.db
 nbio connect error
 ne[9
-nearclipplane
 need new setup values
 need one signer
 need organization and numbers
@@ -15485,7 +15469,6 @@ num_collision_sides
 num_path_points
 num_values
 number=%d, address=%08lX\n
-numcascades
 nyYn
 o KPBf
 o$g31\f
@@ -15594,8 +15577,6 @@ originating_linenumber
 originator
 originatorInfo
 originatorSignatureValue
-ortholightheight
-ortholightwidth
 os.length <= (int)sizeof(ret->session_id)
 osM@\vQ}
 oscillate_scalar
@@ -15614,7 +15595,6 @@ othername:<unsupported>
 out of memory
 outTangent
 outTangentType
-outerconeangle
 outputFormat
 outputName
 outputs
@@ -15681,11 +15661,9 @@ parameterID
 parameterValues
 parameters
 parentAttachment
-parentAttachmentName
 parentBindRotation
 parentConstraint
 parent_cursor_id
-parentname
 parse error
 parse tlsext
 participates_in_undo
@@ -15722,7 +15700,6 @@ pathclass
 pathlen
 pathnode
 pathnodeclass
-pattern
 payload + padding <= 16381
 payload_path_marker
 payment gateway capabilities
@@ -15876,7 +15853,6 @@ pp&c
 ppBasis
 pqualid
 pre mac length too long
-precomputedmaxrange
 precomputedminrange
 prefabRuntimeEntity
 prefab_has_runtime_entity_by_default
@@ -16104,10 +16080,7 @@ renderToCubemaps
 renderVerts
 renderWithDynamic
 render_as_world_but_physics_as_entity
-renderdiffuse
 renderorder
-renderspecular
-rendertransmissive
 renderwithdynamic
 renegotiate ext too long
 renegotiation encoding err
@@ -16264,7 +16237,6 @@ sbgp-ipAddrBlock
 sbgp-routerIdentifier
 scale_bone_relative
 scale_world
-scales
 scanline
 scene
 screenWindowCenter
@@ -16287,7 +16259,6 @@ sdsiCertificate
 searchGuide
 second number too large
 second_sequence_random
-secondary_color
 secondary_material
 secp112r1
 secp112r2
@@ -16567,18 +16538,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowcascadedistance0
-shadowcascadedistance1
-shadowcascadedistance2
-shadowcascadedistance3
-shadowcascaderesolution0
-shadowcascaderesolution1
-shadowcascaderesolution2
-shadowcascaderesolution3
-shadowfademaxdist
-shadowfademindist
-shadowtextureheight
-shadowtexturewidth
 shapeReferences
 shapeType != CMapChoreoLocatorShapeType_t::LINE
 shapeType != CMapChoreoLocatorShapeType_t::RADIUS
@@ -16642,12 +16601,9 @@ skewBrightnessValues
 skewStrength
 skewVariance
 skinned_physics_mesh_key_name
-skyambientbounce
 skybouncescale
 skyboxMapPath%i
 skybox_map
-skycolor
-skyintensity
 skytexture
 skytexturescale
 slave
@@ -17372,9 +17328,7 @@ use for thumbnail
 use srtp not negotiated
 useBaseNormals
 useEdgeInfo
-useLocalOffset
 useTargetNameAsPrefix
-use_secondary_color
 usecurvetypes
 usedefaultvalue
 useedgeinfo
@@ -17535,7 +17489,6 @@ volumefogenabled
 volumetric_fog_controller
 vparams
 vphzc
-vpost
 vqw0\nU
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
@@ -17543,7 +17496,6 @@ vsUtils.py
 vscale
 vsky
 vsutils_py
-vtex
 vv == NULL
 vvtx
 vwnod

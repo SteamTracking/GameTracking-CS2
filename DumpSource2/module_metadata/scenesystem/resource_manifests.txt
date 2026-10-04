@@ -1,0 +1,111 @@
+GameStartup "AggregateSceneObjectManifest" // src/scenesystem/aggregatedesc.cpp
+	materials/dev/cull_aggregate_fragments.vmat
+	materials/dev/compact_indirect_draws.vmat
+	materials/dev/sum_aggregate_cull_stats.vmat
+	materials/dev/visualize_aggregate.vmat
+
+GameStartup "AggregateRTProxySceneObjectManifest" // src/scenesystem/aggregatertproxydesc.cpp
+	materials/dev/visualize_rtproxy.vmat
+
+"" "AoProxyManifest" // src/scenesystem/ambientocclusionproxy.cpp
+	materials/dev/aoproxy_splat.vmat
+
+GameStartup "ImGuiRendererManifest" // src/scenesystem/imgui_render.cpp
+	materials/dev/imgui.vmat
+
+GameStartup "InstancedMeshSceneObjectManifest" // src/scenesystem/instancedmeshdesc.cpp
+	materials/dev/cull_instanced_meshes.vmat
+	materials/dev/visualize_instanced.vmat
+
+GpuLightBinnerManifest "GpuLightBinnerStartupManifest" // src/scenesystem/lightbinner_gpu.cpp
+	materials/dev/compute_tile_cullbits.vmat
+	materials/dev/compute_depthbin_cullbits.vmat
+	materials/dev/visualize_depth.vmat
+
+GameStartup "RenderingPipelineForwardManifest" // src/scenesystem/renderingpipelineforward.cpp
+	textures/dev/ggx_integrate_brdf_lut_schlick.vtex
+
+GameStartup "" // src/scenesystem/scenegfxresources.cpp
+	TonemapManifest
+	VolumetricFogManifest
+	WindControllerManifest
+	materials/dev/skinning_cs.vmat
+	materials/dev/meshlet_refit_cs.vmat
+	materials/dev/compute_smooth_normals_cs.vmat
+	materials/dev/cs_parallel_sort.vmat
+	materials/dev/cs_parallel_sort_onesweep.vmat
+	materials/tools/copy_texture_with_gamma.vmat
+	materials/rendertargetops/copydepth.vmat
+
+GameStartup "SceneSystemInit" // src/scenesystem/scenegfxresources.cpp
+	materials/dev/debug_wireframe.vmat
+	materials/dev/debug_solid.vmat
+	materials/dev/debug_wireframe_2d.vmat
+	materials/dev/debug_show_texture.vmat
+	materials/tools/copy_to_backbuffer.vmat
+	materials/dev/downsample.vmat
+	materials/dev/debug_ui.vmat
+	materials/dev/morphcomposite.vmat
+	materials/dev/occlusionproxy.vmat
+	materials/dev/occlusionproxy_countdraw.vmat
+	materials/dev/occlusionproxy_debugdraw.vmat
+	materials/dev/primary_white.vmat
+	materials/dev/primary_white.vmat
+	materials/dev/primary_white_trans.vmat
+	materials/dev/primary_white_trans.vmat
+	materials/dev/reflectivity_90.vmat
+	materials/dev/generalfilter.vmat
+	materials/dev/luminaire.vmat
+
+SubsurfaceProfilesManifest "SubsurfaceProfilesManifest" // src/scenesystem/scenegfxresources.cpp
+	materials/subsurface_profiles.vdata
+
+ToolsStartup_RayTracing "" // src/scenesystem/scenegfxresources.cpp
+	materials/dev/rtx/binlights.vmat
+	materials/dev/rtx/hitgroup_default_opaque.vmat
+	materials/dev/rtx/hitgroup_default_transparent.vmat
+	materials/dev/rtx/generate_scrambled_halton_samples.vmat
+	textures/dev/brdf_lut.vtex
+	textures/dev/brdf_multiscatter_lut.vtex
+
+GameStartup "" // src/scenesystem/scenelpvdebuggrid.cpp
+	materials/dev/lpv_debug_grid.vmat
+
+"" "BaseSceneObjectManifest" // src/scenesystem/sceneobjectdescs.cpp
+	materials/dev/cull_scene_objects.vmat
+
+"" "SparseShadowTreeManifest" // src/scenesystem/sparseshadowtree.cpp
+	materials/dev/sst_cs.vmat
+	materials/dev/sst_depth_copy.vmat
+
+GameStartup "CharacterDecalRendererManifest" // src/scenesystem/utils/characterdecalrenderer.cpp
+	materials/dev/generate_decal_normals.vmat
+
+"" "HairRendererManifest" // src/scenesystem/utils/hairrenderer.cpp
+	materials/dev/hair_processing_cs.vmat
+	materials/dev/hair_shading_cs.vmat
+	materials/dev/hair_render_volume.vmat
+	materials/dev/hair_render_ao_volume.vmat
+	materials/dev/deferred_hair_shadowtile_compute.vmat
+	materials/dev/hair_sim_cs.vmat
+	materials/dev/hair_composite.vmat
+	materials/dev/hair_noise_lut.vtex
+
+GameStartup "SSAOManifest" // src/scenesystem/utils/scalable_ambient_obscurance.cpp
+	materials/dev/ssao_convert_depth.vmat
+	materials/dev/ssao_downsample_depth.vmat
+	materials/dev/ssao_scalable_ao.vmat
+	materials/dev/ssao_blur.vmat
+
+"" "VirtualTextureMgrManifest" // src/scenesystem/utils/virtualtexturemanager.cpp
+	materials/dev/vt_cs.vmat
+	materials/dev/vt_debug_imgui.vmat
+
+"" "VolumetricFogManifest" // src/scenesystem/utils/volumetricfog.cpp
+	materials/dev/cs_volumetric_fog.vmat
+	textures/dev/blue_noise_256.vtex
+
+"" "WindControllerManifest" // src/scenesystem/utils/windcontroller.cpp
+	materials/dev/wind_update_cs.vmat
+	materials/dev/wind_noise_cs.vmat
+

@@ -935,7 +935,6 @@ parsing aborted
 parsing finished
 partial character
 patelt
-pattern
 pattern 
 pixelsize
 pkgkit

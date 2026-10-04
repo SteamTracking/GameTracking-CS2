@@ -1111,7 +1111,6 @@ allowed_variable_keys_types
 ang2vec
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 anyflags
 arg1

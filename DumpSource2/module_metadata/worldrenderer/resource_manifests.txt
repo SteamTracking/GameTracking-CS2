@@ -1,0 +1,3 @@
+GameStartup "GrassTileInit" // src/worldrenderer/grasstilesceneobject.cpp
+	materials/grass/grasstile.vmat
+

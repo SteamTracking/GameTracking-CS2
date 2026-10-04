@@ -1,0 +1,20 @@
+GameStartup "DspPresetModifiers" // src/soundsystem/dsp_preset_soundgroup_mix.cpp
+	soundstacks/dsp_mix_modifiers.vdata
+
+SosStartup "SoundSystemBeatPatternManifest" // src/soundsystem/snd_op_sys/sos_beatpattern_system.cpp
+	soundstacks/beatpattern_manager.vdata
+
+GameStartup "" // src/soundsystem/snd_op_sys/sos_system.cpp
+	soundstacks/soundstacks_manifest.vrman
+	soundevents/soundevents_manifest.vrman
+
+SosStartup "SoundSystemStartupGroupsManifest" // src/soundsystem/snd_op_sys/sos_system.cpp
+	soundstacks/soundeventgroups.vdata
+
+ToolsStartupPreGame "" // src/soundsystem/snd_op_sys/sos_system.cpp
+	soundstacks/soundstacks_manifest_tools.vrman
+	soundevents/soundevents_manifest_tools.vrman
+
+VMixStartup "SoundsystemVMixLoader" // src/soundsystem/vmix.cpp
+	soundstacks/dsp_core.vdsp
+

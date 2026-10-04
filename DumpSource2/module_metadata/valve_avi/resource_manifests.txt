@@ -1,0 +1,3 @@
+GameStartup "" // src/avi/avi.cpp
+	dev/avi/renderavi.vmat
+

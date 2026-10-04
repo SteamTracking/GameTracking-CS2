@@ -1,0 +1,103 @@
+2DCanvasCamera : C2DCanvasCamera // src/qcontrols/q2dcanvas.cpp
+	DebugUnlockZoom
+	MouseZoom
+	PanCamera
+	RecenterView
+	ZoomIn
+	ZoomOut
+
+AssetBrowserMainWnd : CQAssetBrowserMainWnd // src/assetbrowser/qassetbrowsermainwnd.cpp
+	// commands = null
+
+AssetGraphView : CQAssetGraphView // src/assetbrowser/qasset_graph_view.cpp
+	DecreaseMaxDepth
+	DecreaseMaxLinks
+	Find
+	IncreaseMaxDepth
+	IncreaseMaxLinks
+	NavigateHistoryBack
+	NavigateHistoryForward
+	ResetMaxDepth
+
+Camera : CBindableCamera // src/tools/toolutils2/bindablecamera.cpp
+	// OverideHelpContextName = "SharedToolCommands"
+	CameraLookAtSelection
+	DecreaseMoveSpeed
+	HorizontalStrafeCamera
+	IncreaseMoveSpeed
+	MouseControlCamera
+	MouseControlCamera2D
+	MouseControlCamera3D
+	MouseControlCamera3D_Toggle
+	MouseLook3D
+	MoveCameraBackward3D
+	MoveCameraDown3D
+	MoveCameraForward3D
+	MoveCameraLeft3D
+	MoveCameraRight3D
+	MoveCameraUp3D
+	PanCamera3D
+	PitchCameraDown
+	PitchCameraUp
+	ResetMoveSpeed
+	RotateAboutTarget3D
+	SnapCameraToSelection
+	ToggleLockCameraHeight
+	VerticalStrafeCamera
+	YawCameraLeft
+	YawCameraRight
+	ZoomAllCamerasIn
+	ZoomAllCamerasOut
+	ZoomCameraIn
+	ZoomCameraOut
+	ZoomForwardBack2D
+	ZoomForwardBack3D
+
+GlobalHotkeys : CGlobalHotkeyCommands // src/qcontrols/inputglobalhotkeys.cpp
+	DebugWidgetActiveWindow
+	DebugWidgetUnderMouse
+	DebugWidgetWithFocus
+	DummyNoOp
+	FocusChainDebug_Back
+	FocusChainDebug_Forward
+	FocusChainDebug_Less
+	FocusChainDebug_More
+	FocusChainDebug_Toggle
+	ShowAllCommandsPopup
+	ShowConsole
+	ShowFullHelpForBindableCommandUnderMouse
+	ShowInputDebugger
+	ShowWidgetDebugger
+	SwitchToEngineWindow
+
+GraphCanvasDebugger : CQGraphCanvasDebugger // src/qcontrols/qgraphcanvas_debugger.cpp
+	PerfRefresh
+	PerfShowGatherStyles
+	PerfShowLayout
+	PerfShowResolveStyles
+
+GraphCanvasViewMiniMap : CQGraphCanvasViewMiniMap // src/qcontrols/qgraphcanvas_minimap.cpp
+	PanCameraFromMiniMap
+	ZoomInFromMiniMap
+	ZoomOutFromMiniMap
+
+GraphSceneView : CQGraphCanvasView // src/qcontrols/qgraphcanvas_view.cpp
+	DebugCanvasItemUnderMouse
+	DoubleClick
+	Drag
+	FitAllInView
+	ForceRelayoutOfAllScenes
+	Select
+	SelectionAddModifier
+	SelectionRemoveModifier
+	ShowContextMenu
+
+LightingControl : CLightingControlRig // src/tools/toolscene/lightingcontrolrig.cpp
+	ReloadLightRigDefinitions
+	RotateLights
+	ToggleLights
+
+ToolSceneWidget : CQToolSceneWidget // src/tools/toolscene/qtoolscenewidget.cpp
+	DebugToolScene
+	DefaultPreviewCamera
+

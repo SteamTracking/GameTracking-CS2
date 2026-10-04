@@ -1448,7 +1448,6 @@ alert_attr
 alert_func
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 applicable_to
 assetTag
@@ -1703,9 +1702,7 @@ visgroupfilter
 vmap
 vmesh
 vphzc
-vpost
 vsky
-vtex
 w\n?connectImpl@QObject@@CA?AVConnection@QMetaObject@@PEBV1@PEAPEAX01PEAVQSlotObjectBase@QtPrivate@@W4ConnectionType@Qt@@PEBHPEBU3@@Z
 w\n?dragLeaveEvent@QLineEdit@@MEAAXPEAVQDragLeaveEvent@@@Z
 workshop_items

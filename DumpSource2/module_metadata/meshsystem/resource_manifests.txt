@@ -1,0 +1,6 @@
+"" "VModelError" // src/meshsystem/meshsystem.cpp
+	models/dev/error.vmdl
+
+GameStartup "" // src/meshsystem/meshutils.cpp
+	materials/tools/show_skeleton.vmat
+

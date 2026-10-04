@@ -3427,7 +3427,6 @@ anim_data_block
 animationsystem.dll
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 animgraphlib
 animlib
@@ -3767,7 +3766,6 @@ criteria
 cross
 current_status
 curvature
-cycle
 deg2rad
 detach_from_owner
 domain_scope

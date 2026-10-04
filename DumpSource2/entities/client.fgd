@@ -14,11 +14,27 @@
 // C_BaseEntity
 @BaseClass base(root) = C_BaseEntity
 [
+	// component CScriptComponent
+	// component CBodyComponent
+		// m_pSceneNode (CGameSceneNode)
+			local.origin(vector) // FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_VECTOR m_vecOrigin
+			local.angles(angle) // FIELD_QANGLE m_angRotation
+			origin(vector) // FIELD_POSITION_VECTOR m_vecAbsOrigin
+			angles(angle) // FIELD_QANGLE_WORLDSPACE m_angAbsRotation
+			parentAttachmentName(string) // FIELD_UTLSTRINGTOKEN m_hierarchyAttachName
+			parentname(target_destination) // FIELD_EHANDLE
+			useLocalOffset(boolean) // FIELD_BOOLEAN
+			useParentRenderBounds(boolean) // FIELD_BOOLEAN
+			positionInLocalSpace(boolean) // FIELD_BOOLEAN
+			scales(vector) // FIELD_VECTOR
+			local.scales(vector) // FIELD_VECTOR
+			scale(float) // FIELD_FLOAT32
+			ModelScale(float) // FIELD_FLOAT32
 	// component CBodyComponent: CBodyComponentPoint
 	renderWithViewModels(boolean) // FIELD_BOOLEAN m_bRenderWithViewModels
 	spawnflags(integer) // FIELD_UINT32 m_spawnflags
 	health(integer) // FIELD_INT32 m_iHealth
-	vscripts(string) // FIELD_STRING m_iszPrivateVScripts
+	vscripts(string) // FIELD_STRING m_iszPrivateVScripts, ADDED_KEYFIELD
 	velocity(vector) // FIELD_NETWORK_QUANTIZED_VECTOR m_vecVelocity
 	avelocity(angle) // FIELD_QANGLE m_vecAngVelocity
 	owner(target_destination) // FIELD_EHANDLE m_hOwnerEntity
@@ -79,7 +95,15 @@
 // C_BaseModelEntity
 @PointClass base(C_BaseEntity) = basemodelentity
 [
+	// component CRenderComponent
+	// component CHitboxComponent
 	// component CBodyComponent: CBodyComponentBaseModelEntity
+		// CBodyComponentSkeletonInstance
+		// m_skeletonInstance (CSkeletonInstance)
+			hitboxset(integer) // FIELD_UINT8 m_nHitboxSet
+			velocity(vector) // FIELD_VECTOR
+			rotationAxis(vector) // FIELD_VECTOR
+			rotationSpeed(float) // FIELD_FLOAT32
 	rendercolor(color255) // FIELD_COLOR32 m_clrRender
 	renderfx(intchoices) : "renderfx" : : "" = // FIELD_UINT8 m_nRenderFX (RenderFx_t)
 	[
@@ -290,6 +314,9 @@
 @PointClass base(basemodelentity) = baseanimgraph
 [
 	// component CBodyComponent: CBodyComponentBaseAnimGraph
+		// m_animationController (CBaseAnimGraphController)
+			playbackrate(float) // FIELD_NETWORK_QUANTIZED_FLOAT m_flPlaybackRate
+			animgraph2_identifier(string) // FIELD_GLOBALSYMBOL m_sAnimGraph2Identifier
 	initially_populate_interp_history(boolean) // FIELD_BOOLEAN m_bInitiallyPopulateInterpHistory
 	suppress_anim_event_sounds(boolean) // FIELD_BOOLEAN m_bSuppressAnimEventSounds
 	input DisableAnimEventSounds(boolean) // PVAL_BOOL param
@@ -326,12 +353,14 @@
 // CBaseProp
 @PointClass base(baseanimgraph) = base_prop
 [
+	health(remove_key) // FIELD_VOID
 	propdata_override(string) // FIELD_STRING
 ]
 
 // C_BreakableProp
 @BaseClass base(base_prop) = breakable_prop
 [
+	// component CPropDataComponent
 	ExplodeDamage(float) // FIELD_FLOAT32 m_explodeDamage
 	ExplodeRadius(float) // FIELD_FLOAT32 m_explodeRadius
 	minhealthdmg(integer) // FIELD_INT32 m_iMinHealthDmg
@@ -1153,7 +1182,7 @@
 // C_GlobalLight, ECF_ALWAYS_SPAWN_ON_CLIENT
 @PointClass base(C_BaseEntity) = env_global_light
 [
-	// CGlobalLightBase (CGlobalLightBase)
+	// CGlobalLightBase (CGlobalLightBase, ADDITIONAL_FIELDS, EXPLICIT_BASE)
 		specularpower(float) // FIELD_FLOAT32 m_flSpecularPower
 		specularindependence(float) // FIELD_FLOAT32 m_flSpecularIndependence
 		specularcolor(color255) // FIELD_COLOR32 m_SpecularColor
@@ -1966,6 +1995,84 @@
 // C_LightEntity
 @PointClass base(basemodelentity) = light_omni
 [
+	// component CLightComponent
+		color(color255) // FIELD_COLOR32 m_Color
+		secondary_color(color255) // FIELD_COLOR32 m_SecondaryColor
+		brightness(float) // FIELD_FLOAT32 m_flBrightness
+		brightnessscale(float) // FIELD_FLOAT32 m_flBrightnessScale
+		range(float) // FIELD_FLOAT32 m_flRange
+		falloff(float) // FIELD_FLOAT32 m_flFalloff
+		attenuation0(float) // FIELD_FLOAT32 m_flAttenuation0
+		attenuation1(float) // FIELD_FLOAT32 m_flAttenuation1
+		attenuation2(float) // FIELD_FLOAT32 m_flAttenuation2
+		innerconeangle(float) // FIELD_FLOAT32 m_flTheta
+		outerconeangle(float) // FIELD_FLOAT32 m_flPhi
+		lightcookie(resource:texture) // FIELD_HRENDERTEXTURE m_hLightCookie
+		numcascades(integer) // FIELD_INT32 m_nCascades
+		cascaderenderstaticobj(integer) // FIELD_INT32 m_nCascadeRenderStaticObjects
+		cascadecrossfade(float) // FIELD_FLOAT32 m_flShadowCascadeCrossFade
+		cascadedistancefade(float) // FIELD_FLOAT32 m_flShadowCascadeDistanceFade
+		shadowcascadedistance0(float) // FIELD_FLOAT32 m_flShadowCascadeDistance0
+		shadowcascadedistance1(float) // FIELD_FLOAT32 m_flShadowCascadeDistance1
+		shadowcascadedistance2(float) // FIELD_FLOAT32 m_flShadowCascadeDistance2
+		shadowcascadedistance3(float) // FIELD_FLOAT32 m_flShadowCascadeDistance3
+		shadowcascaderesolution0(integer) // FIELD_INT32 m_nShadowCascadeResolution0
+		shadowcascaderesolution1(integer) // FIELD_INT32 m_nShadowCascadeResolution1
+		shadowcascaderesolution2(integer) // FIELD_INT32 m_nShadowCascadeResolution2
+		shadowcascaderesolution3(integer) // FIELD_INT32 m_nShadowCascadeResolution3
+		castshadows(integer) // FIELD_INT32 m_nCastShadows
+		shadowtexturewidth(integer) // FIELD_INT32 m_nShadowWidth
+		shadowtextureheight(integer) // FIELD_INT32 m_nShadowHeight
+		baked_light_indexing(boolean) // FIELD_BOOLEAN m_bUsesBakedShadowing
+		shadowpriority(integer) // FIELD_INT32 m_nShadowPriority
+		bakedshadowindex(integer) // FIELD_INT32 m_nBakedShadowIndex
+		light_path_uniqueid(integer) // FIELD_INT32 m_nLightPathUniqueId
+		light_map_uniqueid(integer) // FIELD_INT32 m_nLightMapUniqueId
+		renderdiffuse(boolean) // FIELD_BOOLEAN m_bRenderDiffuse
+		renderspecular(integer) // FIELD_INT32 m_nRenderSpecular
+		rendertransmissive(boolean) // FIELD_BOOLEAN m_bRenderTransmissive
+		ortholightwidth(float) // FIELD_FLOAT32 m_flOrthoLightWidth
+		ortholightheight(float) // FIELD_FLOAT32 m_flOrthoLightHeight
+		style(integer) // FIELD_INT32 m_nStyle
+		pattern(string) // FIELD_UTLSTRING m_Pattern
+		directlight(integer) // FIELD_INT32 m_nDirectLight
+		bouncelight(integer) // FIELD_INT32 m_nBounceLight
+		bouncescale(float) // FIELD_FLOAT32 m_flBounceScale
+		fademindist(float) // FIELD_FLOAT32 m_flFadeMinDist
+		fademaxdist(float) // FIELD_FLOAT32 m_flFadeMaxDist
+		shadowfademindist(float) // FIELD_FLOAT32 m_flShadowFadeMinDist
+		shadowfademaxdist(float) // FIELD_FLOAT32 m_flShadowFadeMaxDist
+		enabled(boolean) // FIELD_BOOLEAN m_bEnabled
+		rendertocubemaps(boolean) // FIELD_BOOLEAN m_bRenderToCubemaps
+		flicker(boolean) // FIELD_BOOLEAN m_bFlicker
+		precomputedfieldsvalid(boolean) // FIELD_BOOLEAN m_bPrecomputedFieldsValid
+		precomputedboundsmins(vector) // FIELD_POSITION_VECTOR m_vPrecomputedBoundsMins
+		precomputedboundsmaxs(vector) // FIELD_POSITION_VECTOR m_vPrecomputedBoundsMaxs
+		precomputedmaxrange(float) // FIELD_FLOAT32 m_flPrecomputedMaxRange
+		precomputedobborigin(vector) // FIELD_POSITION_VECTOR m_vPrecomputedOBBOrigin
+		precomputedobbangles(angle) // FIELD_QANGLE_WORLDSPACE m_vPrecomputedOBBAngles
+		precomputedobbextent(vector) // FIELD_VECTOR m_vPrecomputedOBBExtent
+		fog_lighting(integer) // FIELD_INT32 m_nFogLightingMode
+		fogcontributionstrength(float) // FIELD_FLOAT32 m_flFogContributionStength
+		nearclipplane(float) // FIELD_FLOAT32 m_flNearClipPlane
+		skycolor(color255) // FIELD_COLOR32 m_SkyColor
+		skyintensity(float) // FIELD_FLOAT32 m_flSkyIntensity
+		skyambientbounce(color255) // FIELD_COLOR32 m_SkyAmbientBounce
+		use_secondary_color(boolean) // FIELD_BOOLEAN m_bUseSecondaryColor
+		capsule_length(float) // FIELD_FLOAT32 m_flCapsuleLength
+		mixedshadows(boolean) // FIELD_BOOLEAN m_bMixedShadows
+		minroughness(float) // FIELD_FLOAT32 m_flMinRoughness
+		ambient_occlusion_proxy_override(boolean) // FIELD_BOOLEAN m_bAmbientOcclusionProxyOverride
+		ambient_occlusion_proxy_strength_0(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyStrength0
+		ambient_occlusion_proxy_strength_1(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyStrength1
+		ambient_occlusion_proxy_strength_2(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyStrength2
+		ambient_occlusion_proxy_strength_3(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyStrength3
+		ambient_occlusion_proxy_ambient_strength(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyAmbientStrength
+		ambient_occlusion_proxy_cone_angle_0(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyConeAngle0
+		ambient_occlusion_proxy_cone_angle_1(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyConeAngle1
+		ambient_occlusion_proxy_cone_angle_2(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyConeAngle2
+		ambient_occlusion_proxy_cone_angle_3(float) // FIELD_FLOAT32 m_flAmbientOcclusionProxyConeAngle3
+		allow_sst_generation(boolean) // FIELD_BOOLEAN m_bAllowSSTGeneration
 	input SetAppearance(integer) // PVAL_INT param
 	input SetCustomAppearance(string) // PVAL_STRING param
 	input SetLightBrightness(float) // PVAL_FLOAT param
@@ -2116,6 +2223,7 @@
 // CPathSimple
 @PointClass base(C_BaseEntity) = path_simple
 [
+	// component CPathQueryComponent
 	closed_loop(boolean) // FIELD_BOOLEAN m_bClosedLoop
 	input GetClosestDirToEntity(target_destination) : "Compute the closest direction along the path relative to the entity provided. (world space vector)" // PVAL_EHANDLE hEntity, returns PVAL_VEC3 retval, Pulse node
 	input GetClosestPosToEntity(target_destination) : "Compute the closest position on the path relative to the entity provided. (world space vector)" // PVAL_EHANDLE hEntity, returns PVAL_VEC3 retval, Pulse node
@@ -2184,9 +2292,9 @@
 @PointClass base(point_camera) = point_camera_vertical_fov
 [
 	VerticalFOV(float) // FIELD_FLOAT32 m_flVerticalFOV
-	dof_far_crisp(float) // FIELD_FLOAT32 m_flDofFarCrisp
-	dof_far_blurry(float) // FIELD_FLOAT32 m_flDofFarBlurry
-	dof_tilt_to_ground(float) // FIELD_FLOAT32 m_flDofTiltToGround
+	dof_far_crisp(float) // FIELD_FLOAT32 m_flDofFarCrisp, ADDED_KEYFIELD
+	dof_far_blurry(float) // FIELD_FLOAT32 m_flDofFarBlurry, ADDED_KEYFIELD
+	dof_tilt_to_ground(float) // FIELD_FLOAT32 m_flDofTiltToGround, ADDED_KEYFIELD
 ]
 
 // CPointChildModifier
@@ -2457,7 +2565,7 @@
 // C_PhysPropClientside
 @PointClass base(breakable_prop) = prop_physics
 [
-	physdamagescale(float) // FIELD_FLOAT32 m_impactEnergyScale
+	physdamagescale(float) // FIELD_FLOAT32 m_impactEnergyScale, ADDED_KEYFIELD
 	forcemotiondisabled(boolean) // FIELD_BOOLEAN
 	phys_start_asleep(boolean) // FIELD_BOOLEAN
 	fademaxdist(float) // FIELD_FLOAT32
@@ -3066,5 +3174,36 @@
 // C_WorldModelGloves
 @PointClass base(baseanimgraph) = worldmodel_gloves
 [
+]
+
+// Datamaps that no entity class has, like modifiers and structs that only code fills
+
+@BaseClass = CNetworkedSequenceOperation
+[
+	cycle(float) // FIELD_FLOAT32 m_flCycle
+	sequenceName(string) // FIELD_UTLSTRING
+	sequence(integer) // FIELD_INT32
+]
+
+@BaseClass = HullFlags_t
+[
+	aihull_human(boolean) // FIELD_BOOLEAN m_bHull_Human
+	aihull_small_centered(boolean) // FIELD_BOOLEAN m_bHull_SmallCentered
+	aihull_wide_human(boolean) // FIELD_BOOLEAN m_bHull_WideHuman
+	HullDesc_tiny(boolean) // FIELD_BOOLEAN m_bHull_Tiny
+	aihull_medium(boolean) // FIELD_BOOLEAN m_bHull_Medium
+	HullDesc_tiny_centered(boolean) // FIELD_BOOLEAN m_bHull_TinyCentered
+	aihull_large(boolean) // FIELD_BOOLEAN m_bHull_Large
+	aihull_large_centered(boolean) // FIELD_BOOLEAN m_bHull_LargeCentered
+	aihull_medium_tall(boolean) // FIELD_BOOLEAN m_bHull_MediumTall
+	aihull_small(boolean) // FIELD_BOOLEAN m_bHull_Small
+]
+
+@BaseClass = hudtextparms_t
+[
+	channel(integer) // FIELD_UINT8 channel
+	effect(integer) // FIELD_UINT8 effect
+	x(float) // FIELD_FLOAT32 x
+	y(float) // FIELD_FLOAT32 y
 ]
 

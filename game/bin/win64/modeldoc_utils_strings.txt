@@ -14026,7 +14026,6 @@ animevents
 animflags
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_additive
 animgraph_attribute
 animgraph_compatibility_check
@@ -14071,9 +14070,6 @@ attachment_name
 attachment_point
 attachment_point_cp1
 attachment_type_cp1
-attenuation0
-attenuation1
-attenuation2
 attr
 attr_factory
 attr_name_match
@@ -14111,7 +14107,6 @@ backgroundMap
 background_color
 bad partition length
 bad_weak_ptr
-baked_light_indexing
 bakedin
 balance
 balance$0
@@ -14526,7 +14521,6 @@ customorigin_follow
 cut_max
 cut_min
 cutoff_radius
-cycle
 cycle pose parameter: %s, without cyclepose on cmd sequence: %s\n
 cycle_type
 cyclepose without cycle pose parameter on cmd sequence: %s\n
@@ -14895,8 +14889,6 @@ floating point predictor
 fltx4
 fluorescent_flicker
 focalDistance
-fog_lighting
-fogcontributionstrength
 folder_name
 foliage
 foliageanimation
@@ -15154,7 +15146,6 @@ initial_particles
 initial_value
 initial_value_src
 initializers
-innerconeangle
 input_axis
 input_stream_name
 inside_out_sort
@@ -16027,7 +16018,6 @@ name_mode
 name_prompt
 navlink
 navlinkclass
-nearclipplane
 neg_scale
 negative frame (%d) specified\n
 negative frame(%d) specified\n
@@ -16123,14 +16113,11 @@ original_bone_name
 originating_classname
 originating_filename
 originating_linenumber
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
 outFrame
 out_frame
 outbound
-outerconeangle
 outliner_icon
 output is scalar of current value
 output is scalar of initial random range
@@ -16205,7 +16192,6 @@ path_trajectory
 pathclass
 pathnode
 pathnodeclass
-pattern
 peak
 peak_attr
 peak_cycle
@@ -16546,7 +16532,6 @@ scale_set
 scale_source_node
 scale_world
 scale_xyz
-scales
 scanline
 scene
 schemaObjTitle
@@ -16632,8 +16617,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowtextureheight
-shadowtexturewidth
 shape_list
 shapes
 shared
@@ -16674,8 +16657,6 @@ skin_to_bones
 skip_edge_rendering
 skip_face_rendering
 skip_vertex_rendering
-skycolor
-skyintensity
 slave
 slaveOffsets
 slave_axis
@@ -17451,7 +17432,6 @@ vortex_count
 vortex_max_speed_mph
 voume_random_min_scale
 vphzc
-vpost
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
 vsUtils.py
@@ -17459,7 +17439,6 @@ vscale
 vsky
 vstFlexSlider
 vsutils_py
-vtex
 vvtx
 vwnod
 vwrld

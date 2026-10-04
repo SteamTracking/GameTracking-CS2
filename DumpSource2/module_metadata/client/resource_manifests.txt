@@ -1,0 +1,749 @@
+GameStartup "" // src/game/client/base_world_panel.cpp
+	dev/panorama_world_panel_default.vmat
+	dev/panorama_world_panel_opaque.vmat
+	dev/panorama_world_panel_lit_default.vmat
+	dev/panorama_world_panel_lit_opaque.vmat
+	dev/panorama_world_panel_no_depth.vmat
+	dev/panorama_world_panel_no_backface.vmat
+	dev/panorama_world_panel_lit_no_depth.vmat
+	dev/panorama_world_panel_lit_no_backface.vmat
+
+GameSessionManifest_client "PrecacheWaterWake_client" // src/game/client/c_basecombatcharacter.cpp
+	// resources = null
+
+GameStartup "_BaseEntity" // src/game/client/c_baseentity.cpp
+	materials/tools/show_collision_geometry_wire.vmat
+	materials/tools/show_collision_geometry_wire.vmat
+
+GameSessionManifest_client "PrecacheEffectBuild_client" // src/game/client/c_entitydissolve.cpp
+	materials/effects/tesla_glow_noz.vmat
+	materials/effects/spark.vmat
+	materials/effects/combinemuzzle2.vmat
+
+LoopModeGameStartup "GlassImpact_global_client" // src/game/client/c_impact_effects.cpp
+	// resources = null
+
+GameSessionManifest_client "PrecacheRopes_client" // src/game/client/c_rope.cpp
+	materials/cable/rope_shadowdepth.vmat
+
+LoopModeGameStartup "ShakeRopes_global_client" // src/game/client/c_rope.cpp
+	// resources = null
+
+LoopModeGameStartup "Error_global_client" // src/game/client/c_te_effect_dispatch.cpp
+	particles/error/error.vpcf
+
+GameSessionManifest_client "PrecacheEffectMuzzleFlash_client" // src/game/client/c_te_legacytempents.cpp
+	materials/effects/combinemuzzle1.vmat
+	materials/effects/combinemuzzle2.vmat
+	materials/effects/combinemuzzle1_noz.vmat
+	materials/effects/combinemuzzle2_noz.vmat
+	materials/effects/muzzleflash1.vmat
+	materials/effects/muzzleflash2.vmat
+	materials/effects/muzzleflash3.vmat
+	materials/effects/muzzleflash4.vmat
+	materials/effects/muzzleflash1_noz.vmat
+	materials/effects/muzzleflash2_noz.vmat
+	materials/effects/muzzleflash3_noz.vmat
+	materials/effects/muzzleflash4_noz.vmat
+
+GameSessionManifest_client "PrecacheGlowAssets_client" // src/game/client/clientglowproperty.cpp
+	materials/dev/glowproperty.vmat
+
+GameStartup "" // src/game/client/compositematerials/compositematerialgamesystem.cpp
+	materials/dev/compositematerials_prewarm/custom_glove_prewarm.vmat
+	materials/dev/compositematerials_prewarm/custom_weapon_prewarm.vmat
+	materials/dev/compositematerials_prewarm/composite_inputs_prewarm.vmat
+	materials/dev/compositematerials_prewarm/composite_generic_prewarm.vmat
+	materials/dev/compositematerials_prewarm/composite_height_to_normal_prewarm.vmat
+
+GameSessionManifest_client "AnnotationsEffects_client" // src/game/client/cstrike15/c_cs_map_annotations.cpp
+	particles/ui/annotation/ui_annotation_ground.vpcf
+	particles/ui/annotation/ui_annotation_aim.vpcf
+	particles/ui/annotation/ui_annotation_line_segment.vpcf
+	particles/ui/annotation/ui_annotation_line_segment_arrow.vpcf
+	particles/ui/annotation/ui_annotation_stand_here.vpcf
+	particles/ui/annotation/ui_annotation_grenade_destination.vpcf
+
+GameStartup "" // src/game/client/cstrike15/c_cs_map_annotations.cpp
+	materials/dev/annotation_worldtext_background.vmat
+
+GameSessionManifest_client "c_cs_observer_for_precache_client" // src/game/client/cstrike15/c_cs_observer_pawn.cpp
+	c_cs_observer_for_precache.ventr
+
+GameSessionManifest_client "c_cs_player_for_precache_client" // src/game/client/cstrike15/c_cs_player_pawn.cpp
+	c_cs_player_for_precache.ventr
+
+LoopModeGameStartup "CSPlayerManifest_global_client" // src/game/client/cstrike15/c_cs_player_pawn_base.cpp
+	materials/effects/lightcookies.vtex
+
+GameStartup "CSGOPreviewModel" // src/game/client/cstrike15/c_cs_previewmodel.cpp
+	agents/models/ctm_sas/ctm_sas.vmdl
+	agents/models/tm_phoenix/tm_phoenix.vmdl
+	models/editor/axis_helper.vmdl
+	models/editor/axis_helper_thick.vmdl
+	models/tools/green_plane/green_plane.vmdl
+	models/editor/arrow.vmdl
+	models/editor/spot.vmdl
+	materials/models/sprays/spray_plane.vmat
+
+GameSessionManifest_client "PlantedC4Effects_client" // src/game/client/cstrike15/c_plantedc4.cpp
+	particles/explosions_fx/c4_timer_light_trigger.vpcf
+	particles/explosions_fx/c4_timer_light.vpcf
+
+GameSessionManifest_client "PrecachePlayerSprayDecal_client" // src/game/client/cstrike15/c_playerspraydecal.cpp
+	materials/decals/sprays/playerspraydecal.vmat
+
+GameStartup "ClientModeCSNormalPostProcessing" // src/game/client/cstrike15/clientmode_csnormal.cpp
+	lighting/postprocessing/correction/cc_freeze_ct.vpost
+	lighting/postprocessing/correction/cc_freeze_t.vpost
+	lighting/postprocessing/effects/in_buy_menu.vpost
+	lighting/postprocessing/effects/round_end_via_bombing.vpost
+	lighting/postprocessing/effects/death_cam_phase1.vpost
+	lighting/postprocessing/effects/death_cam_phase1_low_violence.vpost
+	lighting/postprocessing/effects/death_cam_phase2.vpost
+	lighting/postprocessing/effects/hltv_replay_fade.vpost
+	lighting/postprocessing/effects/hltv_replay.vpost
+
+GameSessionManifest_client "PrecachePlayerVisibilityAssets_client" // src/game/client/cstrike15/cs_player_visibility_helpers.cpp
+	materials/dev/player_visibility_datacolor.vmat
+	materials/dev/player_visibility_stencil_proxy.vmat
+
+GameSessionManifest_client "PrecacheSmokeVolumeAssets_client" // src/game/client/cstrike15/cs_smoke_volume_visual.cpp
+	materials/dev/smoke_volume.vmat
+	materials/dev/smoke_volume_mask.vmat
+	materials/dev/smoke_volume_depth.vmat
+	materials/dev/smoke_volume_lpv.vmat
+
+GameStartup "" // src/game/client/cstrike15/effects/c_chicken.cpp
+	models/nest/nest.vmdl
+	models/chicken_feed/chicken_feed.vmdl
+
+GameSessionManifest_client "InfernoMaterials_client" // src/game/client/cstrike15/effects/clientinferno.cpp
+	materials/sprites/white.vmat
+
+GameSessionManifest_client "PrecacheFireAssets_client" // src/game/client/cstrike15/effects/cs_inferno_visual.cpp
+	materials/dev/inferno.vmat
+
+GameSessionManifest_client "PrecacheEffectCSBloodSpray_client" // src/game/client/cstrike15/fx_cs_blood.cpp
+	particles/blood_impact/blood_impact_high.vpcf
+	particles/blood_impact/blood_impact_med.vpcf
+	particles/blood_impact/blood_impact_low.vpcf
+	particles/blood_impact/blood_impact_friendly.vpcf
+	particles/blood_impact/blood_impact_localplayer.vpcf
+	particles/blood_impact/blood_impact_localKillShot.vpcf
+	particles/blood_impact/blood_impact_localrearhit.vpcf
+	particles/blood_impact/blood_impact_localfrontenemy.vpcf
+	particles/blood_impact/blood_impact_localfrontsimple.vpcf
+	particles/blood_impact/blood_impact_basic.vpcf
+	particles/blood_impact/blood_impact_light.vpcf
+	particles/blood_impact/blood_impact_medium.vpcf
+	particles/blood_impact/blood_impact_heavy.vpcf
+	particles/blood_impact/blood_impact_light_headshot.vpcf
+
+LoopModeGameStartup "csblood_global_client" // src/game/client/cstrike15/fx_cs_blood.cpp
+	// resources = null
+
+LoopModeGameStartup "csshocked_global_client" // src/game/client/cstrike15/fx_cs_blood.cpp
+	// resources = null
+
+LoopModeGameStartup "cstaserrope_global_client" // src/game/client/cstrike15/fx_cs_blood.cpp
+	// resources = null
+
+LoopModeGameStartup "Impact_global_client" // src/game/client/cstrike15/fx_cs_impacts.cpp
+	// resources = null
+
+LoopModeGameStartup "KnifeSlash_global_client" // src/game/client/cstrike15/fx_cs_knifeslash.cpp
+	// resources = null
+
+GameStartup "GrenadeTrajectoryStartup" // src/game/client/cstrike15/grenade_tracer.cpp
+	models/dev/grenade_trajectory/grenade_target.vmdl
+
+GameStartup "InventoryImageDataManifest" // src/game/client/cstrike15/panorama/3dpanels/cs_iconscene.cpp
+	items/inventory_image_data.vdata
+
+GameSessionManifest_client "CCSGraphicsSettings_Minimal_client" // src/game/client/cstrike15/panorama/3dpanels/csgo_graphicssettings_3dpanel.cpp
+	weapons/models/hkp2000/weapon_pist_hkp2000.vmdl
+	weapons/models/m249/weapon_mach_m249.vmdl
+	weapons/models/g3sg1/weapon_snip_g3sg1.vmdl
+	weapons/models/ak47/weapon_rif_ak47.vmdl
+	weapons/models/deagle/weapon_pist_deagle.vmdl
+	weapons/models/hkp2000/weapon_pist_hkp2000.vmdl
+	agents/models/shared/arms/glove_hardknuckle/glove_hardknuckle.vmdl
+
+GameSessionManifest_client "CSGOItemPreview_Stattrack_client" // src/game/client/cstrike15/panorama/3dpanels/csgo_item_3dpanel.cpp
+	weapons/models/shared/stattrak/stattrak_module_knife.vmdl
+	weapons/models/shared/stattrak/stattrak_module.vmdl
+
+GameStartup "CSGOVanityPanels" // src/game/client/cstrike15/panorama/3dpanels/csgo_vanity_3dpanel.cpp
+	materials/loading_logo.vmat
+	materials/loading_bk.vmat
+
+GameStartup "CSColorPicker" // src/game/client/cstrike15/panorama/cs_ui_color_picker.cpp
+	materials/ui/color_picker.vmat
+
+GameStartup "" // src/game/client/cstrike15/panorama/csgo_crosshair_preview.cpp
+	materials/dev/csgo_crosshair.vmat
+
+GameStartup "EndOfMatchManifest" // src/game/client/cstrike15/panorama/csgo_endofmatch.cpp
+	models/inventory_items/skillgroups/skillgroup1.vmdl
+	models/inventory_items/skillgroups/skillgroup1.vmdl
+	models/inventory_items/skillgroups/skillgroup10.vmdl
+	models/inventory_items/skillgroups/skillgroup11.vmdl
+	models/inventory_items/skillgroups/skillgroup12.vmdl
+	models/inventory_items/skillgroups/skillgroup13.vmdl
+	models/inventory_items/skillgroups/skillgroup14.vmdl
+	models/inventory_items/skillgroups/skillgroup15.vmdl
+	models/inventory_items/skillgroups/skillgroup16.vmdl
+	models/inventory_items/skillgroups/skillgroup17.vmdl
+	models/inventory_items/skillgroups/skillgroup18.vmdl
+	models/inventory_items/skillgroups/skillgroup2.vmdl
+	models/inventory_items/skillgroups/skillgroup3.vmdl
+	models/inventory_items/skillgroups/skillgroup4.vmdl
+	models/inventory_items/skillgroups/skillgroup5.vmdl
+	models/inventory_items/skillgroups/skillgroup6.vmdl
+	models/inventory_items/skillgroups/skillgroup7.vmdl
+	models/inventory_items/skillgroups/skillgroup8.vmdl
+	models/inventory_items/skillgroups/skillgroup9.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone1.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone10.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone11.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone12.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone13.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone14.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone15.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone2.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone3.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone4.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone5.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone6.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone7.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone8.vmdl
+	models/inventory_items/skillgroups/skillgroup_dangerzone9.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman1.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman10.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman11.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman12.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman13.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman14.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman15.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman16.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman17.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman18.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman2.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman3.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman4.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman5.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman6.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman7.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman8.vmdl
+	models/inventory_items/skillgroups/skillgroup_wingman9.vmdl
+
+GameSessionManifest_client "CS2Hud_client" // src/game/client/cstrike15/panorama/hud/csgo_hud.cpp
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_spectator_1.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_spectator_2.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_spectator_3.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_spectator_4.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_spectator_5.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_spectator_many.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_1.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_2.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_3.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_4.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_5.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_streaks_many.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_sc_blast.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_sc_burn.vpcf
+	particles/ui/ammohealthcenter/ui_hud_kill_sc_shock.vpcf
+	particles/dev/empty.vpcf
+
+"" "CsgoPostProcessManifest" // src/game/client/cstrike15/renderingpipeline/cs_postprocess.cpp
+	materials/dev/post_process.vmat
+	materials/dev/csgo_glow_blur.vmat
+	materials/dev/bicubicfilter_invalphablended.vmat
+	materials/dev/generalfilter_alphablended.vmat
+	materials/dev/upsample_fsr.vmat
+	materials/dev/upsample_rcas.vmat
+	materials/dev/downsample_outlineglows.vmat
+
+GameStartup "CsgoRenderingPipelinePostProcessManifest" // src/game/client/cstrike15/renderingpipeline/cs_postprocess.cpp
+	CsgoPostProcessManifest
+
+GameStartup "RenderingPipelineCsgoFlashbangOverlayManifest" // src/game/client/cstrike15/renderingpipeline/cs_render_flashbang.cpp
+	materials/effects/flashbang_overlay/csgo_flashbang_overlay.vmat
+
+GameStartup "RenderingPipelineCsgoManifest" // src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo.cpp
+	materials/dev/visualize_depth.vmat
+	textures/dev/brdf_lut.vtex
+	textures/dev/blue_noise_256.vtex
+	materials/dev/water_droplets.vtex
+	materials/dev/water_waves.vtex
+	materials/dev/water_flowing.vtex
+	materials/dev/snow_sparkle.vtex
+	materials/dev/rain_ripples.vtex
+	materials/dev/custom_cubemap_001.vtex
+	materials/dev/overlay_smoke.vmat
+	materials/effects/healthboost.vmat
+	materials/dev/player_visibility.vmat
+	materials/dev/deferred_particle_shadows.vmat
+	materials/dev/denoise_blur.vmat
+	materials/dev/denoise_blur_cs.vmat
+	materials/dev/upsample.vmat
+	materials/dev/msaa_resolve.vmat
+	materials/dev/nonmsaa_resolve.vmat
+	materials/dev/downsample_bloomthreshold.vmat
+	materials/dev/mboitfinal.vmat
+	materials/dev/mboitmixedcombine.vmat
+	materials/dev/mboitmixedupsample.vmat
+	materials/dev/depthtolineardepth.vmat
+	materials/dev/cmaa2_cs.vmat
+	materials/dev/downsample_depth_cs.vmat
+	materials/dev/reconstruct_normals.vmat
+	materials/dev/write_smoke_depth_water_reflection.vmat
+	materials/effects/grenade_camera.vmat
+	materials/dev/screenparticlescombine.vmat
+	materials/effects/legacy_sniper_scope.vmat
+	materials/dev/downsample_depth.vmat
+	materials/dev/bloom_cs.vmat
+	materials/dev/histogram_cs.vmat
+	materials/dev/copy_rt.vmat
+	materials/dev/dof2.vmat
+	materials/dev/pano_alpha.vmat
+	materials/dev/gpu_debug_draw2d.vmat
+	materials/dev/gpu_debug_draw3d.vmat
+	materials/effects/fade_to_black.vmat
+	materials/effects/bomb_blast.vmat
+	materials/effects/skybox_blur.vmat
+	materials/dev/csgo_crosshair.vmat
+
+RenderingPipelineCsgoDeveloperMode "RenderingPipelineCsgoManifestDeveloperModeOnly" // src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo.cpp
+	materials/dev/visualize_quad_overdraw.vmat
+	materials/dev/imgui_srgb.vmat
+	textures/dev/albedo_chart.vtex
+	textures/dev/reflectivity_scale.vtex
+	materials/dev/visualize_depth_cull_holes.vmat
+
+GameStartup "RenderingPipelineCsgoHelpersManifest" // src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo_helpers.cpp
+	materials/dev/glow_health_color.vmat
+
+"" "CS2RenderingPipelineShadowsManifest" // src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo_shadows.cpp
+	materials/dev/update_visnode_visibility.vmat
+
+CS2RenderingPipelineShadowsStartup "CS2RenderingPipelineShadowsGroup" // src/game/client/cstrike15/renderingpipeline/renderingpipeline_csgo_shadows.cpp
+	CS2RenderingPipelineShadowsManifest
+
+LoopModeGameStartup "MuzzleFlash_global_client" // src/game/client/fx.cpp
+	// resources = null
+
+GameSessionManifest_client "PrecacheEffectBloodSpray_client" // src/game/client/fx_blood.cpp
+	// resources = null
+
+LoopModeGameStartup "BloodImpact_global_client" // src/game/client/fx_blood.cpp
+	// resources = null
+
+LoopModeGameStartup "bloodspray_global_client" // src/game/client/fx_blood.cpp
+	// resources = null
+
+GameSessionManifest_client "PrecacheEffectExplosion_client" // src/game/client/fx_explosion.cpp
+	particles/entity/env_explosion/explosion_default.vpcf
+
+LoopModeGameStartup "Explosion_global_client" // src/game/client/fx_explosion.cpp
+	// resources = null
+
+LoopModeGameStartup "ParticleTracer_global_client" // src/game/client/fx_tracer.cpp
+	// resources = null
+
+LoopModeGameStartup "TracerSound_global_client" // src/game/client/fx_tracer.cpp
+	// resources = null
+
+LoopModeGameStartup "Tracer_global_client" // src/game/client/fx_tracer.cpp
+	materials/effects/spark.vmat
+
+GameSessionManifest_client "PrecacheEffectSplash_client" // src/game/client/fx_water.cpp
+	particles/water_impact/water_splash_01.vpcf
+	particles/water_impact/water_splash_02.vpcf
+	particles/water_impact/water_splash_03.vpcf
+
+LoopModeGameStartup "gunshotsplash_global_client" // src/game/client/fx_water.cpp
+	// resources = null
+
+LoopModeGameStartup "watersplash_global_client" // src/game/client/fx_water.cpp
+	// resources = null
+
+PanoramaUIStartup "CloseCaptionPanoramaResources" // src/game/client/hud_closecaption.cpp
+	// resources = null
+
+GameStartup "" // src/game/client/panorama/ui_canvas.cpp
+	materials/vgui/white_no_stencil.vmat
+	materials/dev/msaa_resolve.vmat
+
+GameStartup "GaussianBloomBlurManifestClient" // src/game/client/renderingpipeline/gaussian_bloom_blur.cpp
+	materials/dev/gaussian_bloom_blur.vmat
+
+GameStartup "ResponseRulesManifest_global_client" // src/game/shared/ai_responsesystem.cpp
+	scripts/talker/response_rules.vrr
+
+GameStartup "BeamManifest" // src/game/shared/beam_shared.cpp
+	particles/beams/default_beam.vpcf
+
+GameStartup "GrenadeProjectiles_global_client" // src/game/shared/cstrike15/basecsgrenade_projectile.cpp
+	weapons/models/grenade/decoy/weapon_decoy.vmdl
+	weapons/models/grenade/flashbang/weapon_flashbang.vmdl
+	weapons/models/grenade/hegrenade/weapon_hegrenade.vmdl
+	weapons/models/grenade/molotov/weapon_molotov.vmdl
+	weapons/models/grenade/incendiary/weapon_incendiarygrenade.vmdl
+	weapons/models/grenade/smokegrenade/weapon_smokegrenade.vmdl
+	weapons/models/grenade/decoy/weapon_decoy.vmdl
+	weapons/models/grenade/flashbang/weapon_flashbang.vmdl
+	weapons/models/grenade/hegrenade/weapon_hegrenade.vmdl
+	weapons/models/grenade/molotov/weapon_molotov.vmdl
+	weapons/models/grenade/incendiary/weapon_incendiarygrenade.vmdl
+	weapons/models/grenade/smokegrenade/weapon_smokegrenade.vmdl
+	particles/entity/spectator_utility_trail.vpcf
+	particles/weapons/cs_weapon_fx/weapon_decoy_ground_effect_shot.vpcf
+	particles/explosions_fx/explosion_basic_water.vpcf
+	particles/explosions_fx/explosion_hegrenade_brief.vpcf
+	particles/explosions_fx/explosion_hegrenade_dirt.vpcf
+	particles/explosions_fx/explosion_hegrenade_snow.vpcf
+	particles/explosions_fx/explosion_basic.vpcf
+	particles/weapons/cs_weapon_fx/weapon_molotov_thrown.vpcf
+	particles/weapons/cs_weapon_fx/weapon_molotov_held.vpcf
+	particles/weapons/cs_weapon_fx/weapon_incend_held_fps.vpcf
+	particles/weapons/cs_weapon_fx/weapon_incend_thrown.vpcf
+	particles/inferno_fx/explosion_molotov_air.vpcf
+	particles/inferno_fx/explosion_incend_air.vpcf
+	particles/explosions_fx/explosion_smokegrenade.vpcf
+	particles/explosions_fx/explosion_flashbang.vpcf
+
+GameStartup "" // src/game/shared/cstrike15/broken_glass_trap.cpp
+	weapons/models/grenade/molotov/weapon_molotov_broken_glass.vmdl
+	particles/impact_fx/molotov_broken_glass.vpcf
+
+GameStartup "" // src/game/shared/cstrike15/cash_stack.cpp
+	models/gameplay/cash_stack/cash_stack.vmdl
+	models/gameplay/cash_stack/cash_stack_pickup.vpcf
+
+GameStartup "" // src/game/shared/cstrike15/cs_observer_pawn_shared.cpp
+	characters/models/shared/observer/cs_observer.vmdl
+
+GameStartup "" // src/game/shared/cstrike15/cs_player_weapontiminggraph.cpp
+	animation/graphs/viewmodel/viewmodel.vnmgraph
+
+GameStartup "" // src/game/shared/cstrike15/cs_shareddefs.cpp
+	agents/models/shared/arms/glove_cloth_collision/glove_cloth_collision.vmdl
+	agents/models/shared/arms/glove_bloodhound/glove_bloodhound.vmdl
+	agents/models/shared/arms/glove_brokenfang/glove_brokenfang.vmdl
+	agents/models/shared/arms/glove_fingerless/glove_fingerless.vmdl
+	agents/models/shared/arms/glove_fullfinger/glove_fullfinger.vmdl
+	agents/models/shared/arms/glove_handwrap/glove_handwrap.vmdl
+	agents/models/shared/arms/glove_hardknuckle/glove_hardknuckle.vmdl
+	agents/models/shared/arms/glove_hydra/glove_hydra.vmdl
+	agents/models/shared/arms/glove_motorcycle/glove_motorcycle.vmdl
+	agents/models/shared/arms/glove_slick/glove_slick.vmdl
+	agents/models/shared/arms/glove_specialist/glove_specialist.vmdl
+	agents/models/shared/arms/glove_sporty/glove_sporty.vmdl
+	agents/models/ctm_diver/ctm_diver_varianta.vmdl
+	agents/models/ctm_diver/ctm_diver_variantb.vmdl
+	agents/models/ctm_diver/ctm_diver_variantc.vmdl
+	agents/models/ctm_fbi/ctm_fbi.vmdl
+	agents/models/ctm_fbi/ctm_fbi_varianta.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantb.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantc.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantd.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variante.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantf.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantg.vmdl
+	agents/models/ctm_fbi/ctm_fbi_varianth.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_varianta.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variantb.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variantc.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variantd.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variante.vmdl
+	agents/models/ctm_sas/ctm_sas.vmdl
+	agents/models/ctm_sas/ctm_sas_variantf.vmdl
+	agents/models/ctm_sas/ctm_sas_variantg.vmdl
+	agents/models/ctm_st6/ctm_st6_variante.vmdl
+	agents/models/ctm_st6/ctm_st6_variantg.vmdl
+	agents/models/ctm_st6/ctm_st6_varianti.vmdl
+	agents/models/ctm_st6/ctm_st6_variantj.vmdl
+	agents/models/ctm_st6/ctm_st6_variantk.vmdl
+	agents/models/ctm_st6/ctm_st6_variantl.vmdl
+	agents/models/ctm_st6/ctm_st6_variantm.vmdl
+	agents/models/ctm_st6/ctm_st6_variantn.vmdl
+	agents/models/ctm_swat/ctm_swat_variante.vmdl
+	agents/models/ctm_swat/ctm_swat_variantf.vmdl
+	agents/models/ctm_swat/ctm_swat_variantg.vmdl
+	agents/models/ctm_swat/ctm_swat_varianth.vmdl
+	agents/models/ctm_swat/ctm_swat_varianti.vmdl
+	agents/models/ctm_swat/ctm_swat_variantj.vmdl
+	agents/models/ctm_swat/ctm_swat_variantk.vmdl
+	agents/models/tm_balkan/tm_balkan_variantf.vmdl
+	agents/models/tm_balkan/tm_balkan_variantg.vmdl
+	agents/models/tm_balkan/tm_balkan_varianth.vmdl
+	agents/models/tm_balkan/tm_balkan_varianti.vmdl
+	agents/models/tm_balkan/tm_balkan_variantj.vmdl
+	agents/models/tm_balkan/tm_balkan_variantk.vmdl
+	agents/models/tm_balkan/tm_balkan_variantl.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_varianta.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantb2.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantb.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantc.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantd.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variante.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantf2.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantf.vmdl
+	agents/models/tm_leet/tm_leet_varianta.vmdl
+	agents/models/tm_leet/tm_leet_variantb.vmdl
+	agents/models/tm_leet/tm_leet_variantc.vmdl
+	agents/models/tm_leet/tm_leet_variantd.vmdl
+	agents/models/tm_leet/tm_leet_variante.vmdl
+	agents/models/tm_leet/tm_leet_variantf.vmdl
+	agents/models/tm_leet/tm_leet_variantg.vmdl
+	agents/models/tm_leet/tm_leet_varianth.vmdl
+	agents/models/tm_leet/tm_leet_varianti.vmdl
+	agents/models/tm_leet/tm_leet_variantj.vmdl
+	agents/models/tm_leet/tm_leet_variantk.vmdl
+	agents/models/tm_phoenix/tm_phoenix.vmdl
+	agents/models/tm_phoenix/tm_phoenix_varianta.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantb.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantc.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantd.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantf.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantg.vmdl
+	agents/models/tm_phoenix/tm_phoenix_varianth.vmdl
+	agents/models/tm_phoenix/tm_phoenix_varianti.vmdl
+	agents/models/tm_professional/tm_professional_varf1.vmdl
+	agents/models/tm_professional/tm_professional_varf2.vmdl
+	agents/models/tm_professional/tm_professional_varf3.vmdl
+	agents/models/tm_professional/tm_professional_varf4.vmdl
+	agents/models/tm_professional/tm_professional_varf5.vmdl
+	agents/models/tm_professional/tm_professional_varf.vmdl
+	agents/models/tm_professional/tm_professional_varg.vmdl
+	agents/models/tm_professional/tm_professional_varh.vmdl
+	agents/models/tm_professional/tm_professional_vari.vmdl
+	agents/models/tm_professional/tm_professional_varj.vmdl
+
+GameSessionManifest_client "DecoyProjectileEffects_client" // src/game/shared/cstrike15/decoy_projectile.cpp
+	particles/weapons/cs_weapon_fx/weapon_decoy_ground_effect.vpcf
+
+GameSessionManifest_client "flashbang_projectile_client" // src/game/shared/cstrike15/flashbang_projectile.cpp
+	flashbang_projectile.ventr
+
+GameSessionManifest_client "hegrenade_projectile_client" // src/game/shared/cstrike15/hegrenade_projectile.cpp
+	hegrenade_projectile.ventr
+
+GameSessionManifest_client "item_dogtags_client" // src/game/shared/cstrike15/item_dogtags.cpp
+	item_dogtags.ventr
+
+GameSessionManifest_client "weapon_healthshot_client" // src/game/shared/cstrike15/item_healthshot.cpp
+	weapon_healthshot.ventr
+
+GameStartup "C4Precache" // src/game/shared/cstrike15/weapon_c4.cpp
+	weapons/models/c4/weapon_c4.vmdl
+	particles/weapons/cs_weapon_fx/weapon_confetti_balloons.vpcf
+	particles/explosions_fx/explosion_c4_500.vpcf
+	particles/explosions_fx/c4_train_ground_effect.vpcf
+	particles/explosions_fx/c4_timer_light_dropped.vpcf
+	particles/explosions_fx/c4_holstered_light.vpcf
+	weapons/models/c4/defuse_multimeter.vmdl
+	models/props/de_overpass/balloon.vmdl
+
+GameStartup "NametagModule" // src/game/shared/cstrike15/weapon_csbase.cpp
+	weapons/models/shared/nametag/nametag_module.vmdl
+
+GameStartup "StattrakModule" // src/game/shared/cstrike15/weapon_csbase.cpp
+	weapons/models/shared/stattrak/stattrak_module.vmdl
+	weapons/models/shared/stattrak/stattrak_module_knife.vmdl
+
+GameSessionManifest_client "weapon_ak47_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_ak47.ventr
+
+GameSessionManifest_client "weapon_aug_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_aug.ventr
+
+GameSessionManifest_client "weapon_awp_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_awp.ventr
+
+GameSessionManifest_client "weapon_bizon_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_bizon.ventr
+
+GameSessionManifest_client "weapon_famas_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_famas.ventr
+
+GameSessionManifest_client "weapon_fiveseven_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_fiveseven.ventr
+
+GameSessionManifest_client "weapon_g3sg1_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_g3sg1.ventr
+
+GameSessionManifest_client "weapon_galilar_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_galilar.ventr
+
+GameSessionManifest_client "weapon_glock_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_glock.ventr
+
+GameSessionManifest_client "weapon_hkp2000_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_hkp2000.ventr
+
+GameSessionManifest_client "weapon_m249_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_m249.ventr
+
+GameSessionManifest_client "weapon_m4a1_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_m4a1.ventr
+
+GameSessionManifest_client "weapon_m4a1_silencer_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_m4a1_silencer.ventr
+
+GameSessionManifest_client "weapon_mac10_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mac10.ventr
+
+GameSessionManifest_client "weapon_mag7_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mag7.ventr
+
+GameSessionManifest_client "weapon_mp5sd_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mp5sd.ventr
+
+GameSessionManifest_client "weapon_mp7_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mp7.ventr
+
+GameSessionManifest_client "weapon_mp9_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mp9.ventr
+
+GameSessionManifest_client "weapon_negev_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_negev.ventr
+
+GameSessionManifest_client "weapon_p250_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_p250.ventr
+
+GameSessionManifest_client "weapon_p90_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_p90.ventr
+
+GameSessionManifest_client "weapon_revolver_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_revolver.ventr
+
+GameSessionManifest_client "weapon_scar20_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_scar20.ventr
+
+GameSessionManifest_client "weapon_sg556_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_sg556.ventr
+
+GameSessionManifest_client "weapon_ssg08_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_ssg08.ventr
+
+GameSessionManifest_client "weapon_tec9_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_tec9.ventr
+
+GameSessionManifest_client "weapon_ump45_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_ump45.ventr
+
+GameSessionManifest_client "weapon_usp_silencer_client" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_usp_silencer.ventr
+
+GameSessionManifest_client "weapon_nova_client" // src/game/shared/cstrike15/weapon_csbaseshotgun.cpp
+	weapon_nova.ventr
+
+GameSessionManifest_client "weapon_sawedoff_client" // src/game/shared/cstrike15/weapon_csbaseshotgun.cpp
+	weapon_sawedoff.ventr
+
+GameSessionManifest_client "weapon_xm1014_client" // src/game/shared/cstrike15/weapon_csbaseshotgun.cpp
+	weapon_xm1014.ventr
+
+GameSessionManifest_client "weapon_cz75a_client" // src/game/shared/cstrike15/weapon_cz75a.cpp
+	weapon_cz75a.ventr
+
+GameSessionManifest_client "weapon_elite_client" // src/game/shared/cstrike15/weapon_elite.cpp
+	weapon_elite.ventr
+
+GameStartup "IronSight" // src/game/shared/cstrike15/weapon_ironsightcontroller.cpp
+	materials/models/weapons/shared/scope/scope.vmat
+	materials/models/weapons/shared/scope/scope_filter.vmat
+
+GameSessionManifest_client "weapon_knife_client" // src/game/shared/cstrike15/weapon_knife.cpp
+	weapon_knife.ventr
+
+GameSessionManifest_client "CMolotovGrenade_client" // src/game/shared/cstrike15/weapon_molotov.cpp
+	particles/weapons/cs_weapon_fx/weapon_molotov_held.vpcf
+
+GameSessionManifest_client "weapon_incgrenade_client" // src/game/shared/cstrike15/weapon_molotov.cpp
+	weapon_incgrenade.ventr
+
+GameSessionManifest_client "weapon_molotov_client" // src/game/shared/cstrike15/weapon_molotov.cpp
+	weapon_molotov.ventr
+
+GameSessionManifest_client "weapon_taser_client" // src/game/shared/cstrike15/weapon_taser.cpp
+	weapon_taser.ventr
+
+GameStartup "CS2CharacterDecalRendererManifest" // src/game/shared/decalgamesystem.cpp
+	materials/blood/blood_default_color.vtex
+	materials/blood/blood_default_normal.vtex
+	materials/blood/blood_default_impact.vtex
+
+GameStartup "ExplosionTypesManifest_global_client" // src/game/shared/explosiontypes.cpp
+	scripts/explosion_types.vdata
+
+GameStartup "" // src/game/shared/func_shatterglass.cpp
+	materials/glass/shatterglass.vmat
+
+"" "LoopModeGame_client" // src/game/shared/loopmodegame.cpp
+	// resources = null
+
+GameStartup "NoiseStreamsManifest_global_client" // src/game/shared/noisestreams_vdata.cpp
+	scripts/noise_presets.vdata
+
+LoopModeGameStartup "ParticleEffectStop_global_client" // src/game/shared/particle_system.cpp
+	// resources = null
+
+LoopModeGameStartup "ParticleEffect_global_client" // src/game/shared/particle_system.cpp
+	// resources = null
+
+GameSessionManifest_client "PhysFrictionEffectPrecache_client" // src/game/shared/physics_shared.cpp
+	// resources = null
+
+"" "PhysicsGameSystemManifest_client" // src/game/shared/physicsgamesystem.cpp
+	materials/tools/show_collision_geometry_wire_nodepth.vmat
+	materials/physics/wireframe_basic.vmat
+	materials/physics/wireframe_hidden.vmat
+	materials/physics/flat_basic.vmat
+
+GameStartup "" // src/game/shared/point_clientui_world_text_panel.cpp
+	dev/panorama_world_panel_hint_ui.vmat
+
+GameStartup "" // src/game/shared/point_worldtext.cpp
+	dev/point_worldtext_default.vmat
+	dev/point_worldtext_translucent.vmat
+	dev/point_worldtext_fullbright.vmat
+	dev/point_worldtext_translucent_fullbright.vmat
+	dev/point_worldtext_default_background.vmat
+
+GameStartup "CPropDataManifest_global_client" // src/game/shared/props_shared.cpp
+	scripts/propdata.vdata
+
+GameSessionManifest_client "PrecacheEffectBubbles_client" // src/game/shared/te/te_bubbles.cpp
+	// resources = null
+
+GameSessionManifest_client "PrecacheEffectBubbleTrail_client" // src/game/shared/te/te_bubbletrail.cpp
+	// resources = null
+
+GameSessionManifest_client "PrecacheEffectEnergySplash_client" // src/game/shared/te/te_energysplash.cpp
+	// resources = null
+
+GameSessionManifest_client "CTEFizz_client" // src/game/shared/te/te_fizz.cpp
+	// resources = null
+
+GameSessionManifest_client "CTEGlowSprite_client" // src/game/shared/te/te_glowsprite.cpp
+	// resources = null
+
+GameSessionManifest_client "CTELargeFunnel_client" // src/game/shared/te/te_largefunnel.cpp
+	// resources = null
+
+GameSessionManifest_client "TE_MuzzleFlash_client" // src/game/shared/te/te_muzzleflash.cpp
+	// resources = null
+
+GameSessionManifest_client "PrecacheTESmoke_client" // src/game/shared/te/te_smoke.cpp
+	// resources = null
+
+GameStartup "VoiceStatusManifest_global_client" // src/game/shared/voice_status.cpp
+	// resources = null
+
+GameStartup "LightStylesManifest_Client" // src/public/game/shared/lightstyles2.cpp
+	scripts/light_styles.vdata
+

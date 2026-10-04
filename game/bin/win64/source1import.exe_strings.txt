@@ -9059,7 +9059,6 @@ all revision(s) already integrated
 allflags
 allow_linking
 allow_scale
-allow_sst_generation
 allowed_api_features
 allowed_requirements
 alpha_fade
@@ -9107,7 +9106,6 @@ animations
 animflags
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 animgraphcontroller
 anisotropic
@@ -9142,9 +9140,6 @@ attach_type
 attached_particlesystem
 attached_prop_physics
 attenuation
-attenuation0
-attenuation1
-attenuation2
 attr_custom_commands
 attr_factory
 attribute
@@ -9175,7 +9170,6 @@ bakeLightDoubleSided
 bakeLightingDoubleSided
 bakeToWorld
 bakedLigthtingMode
-baked_light_indexing
 bakedlighting
 bakelightdoublesided
 bakelighting
@@ -9310,10 +9304,6 @@ cannot parse segment header
 cannot read TIFF_ANY type %d for field "%s"
 cannotgravitygrab
 cannotgravitypunt
-capsule_length
-cascadecrossfade
-cascadedistancefade
-cascaderenderstaticobj
 castShadows
 catmullrom
 catmullrom_normalize
@@ -9986,8 +9976,6 @@ focalDistance
 fogFlowMap
 fogFlowMapValues
 fogOpacity
-fog_lighting
-fogcontributionstrength
 for "ReferenceBlackWhite" array
 for "StripByteCounts" array
 for Group 3/4 run arrays
@@ -10428,7 +10416,6 @@ initial_mass
 initial_particles
 initialized
 initializers
-innerconeangle
 input2
 input2[*]
 input4
@@ -10633,8 +10620,6 @@ loadIfNested
 loading_screen
 loadingscreens/
 local
-local.angles
-local.origin
 local_point
 local_vector
 localaxis
@@ -11140,7 +11125,6 @@ navlink
 navlink_type
 navlinkclass
 navplace.db
-nearclipplane
 nested keys: %s
 nestedKeys
 newVariable
@@ -11218,7 +11202,6 @@ num_to_emit
 num_to_emit_minimum
 num_values
 numbrushes
-numcascades
 numchannels
 o KPBf
 oOffset
@@ -11288,14 +11271,11 @@ origin  {   "x" "%f"  "y" "%f"  "z" "%f" }
 originating_classname
 originating_filename
 originating_linenumber
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
 outTangent
 outTangentType
 outbound
-outerconeangle
 output is scalar of current value
 output is scalar of initial random range
 outputFormat
@@ -11374,11 +11354,9 @@ parameterValues
 parameters
 parent
 parentAttachment
-parentAttachmentName
 parentBindRotation
 parentConstraint
 parent_cursor_id
-parentname
 participates_in_undo
 particleSnapshotSpacing
 particleSystemDefinitions
@@ -11429,7 +11407,6 @@ path_trajectory
 pathclass
 pathnode
 pathnodeclass
-pattern
 payload_path_marker
 pc5@
 pcj@
@@ -11542,7 +11519,6 @@ powf
 poy@
 pp7@
 ppY@
-precomputedmaxrange
 precomputedminrange
 prefab
 prefabRuntimeEntity
@@ -11703,10 +11679,7 @@ render_rope
 render_screen_velocity_rotate
 render_sprite_trail
 render_sprites
-renderdiffuse
 renderers
-renderspecular
-rendertransmissive
 renderwithdynamic
 reorientCamera
 replace
@@ -11802,7 +11775,6 @@ scale texture by CP distance
 scale_bias
 scale_bone_relative
 scale_world
-scales
 scalesettings
 scanline
 scene
@@ -11838,7 +11810,6 @@ scripts\items\unencrypted\items.txt
 scripts\vscripts\animation\items\
 second sequence animation rate
 second_sequence_random
-secondary_color
 secondary_material
 selectable
 selectedControls
@@ -11919,20 +11890,8 @@ shadow_scale_day
 shadow_scale_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowcascadedistance0
-shadowcascadedistance1
-shadowcascadedistance2
-shadowcascadedistance3
-shadowcascaderesolution0
-shadowcascaderesolution1
-shadowcascaderesolution2
-shadowcascaderesolution3
 shadowdepth
 shadowdepthnocache
-shadowfademaxdist
-shadowfademindist
-shadowtextureheight
-shadowtexturewidth
 shapeReferences
 shapeType != CMapChoreoLocatorShapeType_t::LINE
 shapeType != CMapChoreoLocatorShapeType_t::RADIUS
@@ -11971,12 +11930,9 @@ skin override CP
 skinned_physics_mesh_key_name
 skip_import
 sky.vfx
-skyambientbounce
 skybouncescale
 skybox
 skyboxMapPath%i
-skycolor
-skyintensity
 skytexture
 skytexturescale
 slave
@@ -12411,10 +12367,8 @@ use highest supplied end point
 use parent particles for emission scaling
 useBaseNormals
 useEdgeInfo
-useLocalOffset
 useTargetNameAsPrefix
 use_entity_position
-use_secondary_color
 usecurvetypes
 usedefaultvalue
 useedgeinfo
@@ -12558,7 +12512,6 @@ vp_parallel
 vp_parallel_oriented
 vp_parallel_upright
 vphzc
-vpost
 vr_simple.vfx
 vr_simple_2way_blend.vfx
 vr_standard.vfx
@@ -12570,7 +12523,6 @@ vsky
 vsnd%i
 vsnd_files
 vsutils_py
-vtex
 vvtx
 vwnod
 vwrld

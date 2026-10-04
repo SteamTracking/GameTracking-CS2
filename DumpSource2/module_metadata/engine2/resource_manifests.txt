@@ -1,0 +1,18 @@
+"" "LoopModeConsole" // src/engine2/loopmodeconsole.cpp
+	materials/console_background.vmat
+
+"" "LoopModeInGameUI" // src/engine2/loopmodeingameui.cpp
+	materials/console_background.vmat
+
+"" "LoopModeLevelLoad" // src/engine2/loopmodelevelload.cpp
+	materials/loading_background.vmat
+
+"" "LoopModeMainMenu" // src/engine2/loopmodemainmenu.cpp
+	materials/console_background.vmat
+
+"" "LoopModeRemoteConnect" // src/engine2/loopmoderemoteconnect.cpp
+	materials/loading_background.vmat
+
+GameStartup "AdditiveFilterManifest" // src/engine2/renderingworld.cpp
+	materials/dev/generalfilter_additive.vmat
+

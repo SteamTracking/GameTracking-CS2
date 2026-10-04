@@ -1,0 +1,389 @@
+GameStartup "BaseEntity" // src/game/server/baseentity.cpp
+	materials/tools/show_collision_geometry_wire.vmat
+	materials/tools/show_collision_geometry.vmat
+	materials/tools/show_collision_geometry_depthtest.vmat
+
+GameSessionManifest_server "ClientPrecacheRegistry_server" // src/game/server/client.cpp
+	// resources = null
+
+GameSessionManifest_server "ClientGamePrecache_server" // src/game/server/cstrike15/cs_client.cpp
+	materials/sprites/white.vmat
+	materials/sprites/physbeam.vmat
+
+GameSessionManifest_server "observer_server" // src/game/server/cstrike15/cs_observer_pawn.cpp
+	observer.ventr
+
+GameSessionManifest_server "CCSPlayerPawn_Minimal_server" // src/game/server/cstrike15/cs_player_pawn.cpp
+	agents/models/ctm_sas/ctm_sas.vmdl
+
+GameSessionManifest_server "player_server" // src/game/server/cstrike15/cs_player_pawn.cpp
+	player.ventr
+
+GameSessionManifest_server "chicken_server" // src/game/server/cstrike15/effects/chicken.cpp
+	chicken.ventr
+
+GameSessionManifest_server "fire_cracker_blast_server" // src/game/server/cstrike15/effects/inferno.cpp
+	fire_cracker_blast.ventr
+
+GameSessionManifest_server "inferno_server" // src/game/server/cstrike15/effects/inferno.cpp
+	inferno.ventr
+
+GameSessionManifest_server "hostage_carriable_prop_server" // src/game/server/cstrike15/hostage/cs_simple_hostage.cpp
+	hostage_carriable_prop.ventr
+
+GameSessionManifest_server "item_defuser_server" // src/game/server/cstrike15/item_defuser.cpp
+	item_defuser.ventr
+
+GameSessionManifest_server "entityflame_server" // src/game/server/entityflame.cpp
+	entityflame.ventr
+
+GameStartup "ResponseRulesManifest_global_server" // src/game/shared/ai_responsesystem.cpp
+	scripts/talker/response_rules.vrr
+
+GameStartup "GrenadeProjectiles_global_server" // src/game/shared/cstrike15/basecsgrenade_projectile.cpp
+	weapons/models/grenade/decoy/weapon_decoy.vmdl
+	weapons/models/grenade/flashbang/weapon_flashbang.vmdl
+	weapons/models/grenade/hegrenade/weapon_hegrenade.vmdl
+	weapons/models/grenade/molotov/weapon_molotov.vmdl
+	weapons/models/grenade/incendiary/weapon_incendiarygrenade.vmdl
+	weapons/models/grenade/smokegrenade/weapon_smokegrenade.vmdl
+	weapons/models/grenade/decoy/weapon_decoy.vmdl
+	weapons/models/grenade/flashbang/weapon_flashbang.vmdl
+	weapons/models/grenade/hegrenade/weapon_hegrenade.vmdl
+	weapons/models/grenade/molotov/weapon_molotov.vmdl
+	weapons/models/grenade/incendiary/weapon_incendiarygrenade.vmdl
+	weapons/models/grenade/smokegrenade/weapon_smokegrenade.vmdl
+	particles/entity/spectator_utility_trail.vpcf
+	particles/weapons/cs_weapon_fx/weapon_decoy_ground_effect_shot.vpcf
+	particles/explosions_fx/explosion_basic_water.vpcf
+	particles/explosions_fx/explosion_hegrenade_brief.vpcf
+	particles/explosions_fx/explosion_hegrenade_dirt.vpcf
+	particles/explosions_fx/explosion_hegrenade_snow.vpcf
+	particles/explosions_fx/explosion_basic.vpcf
+	particles/weapons/cs_weapon_fx/weapon_molotov_thrown.vpcf
+	particles/weapons/cs_weapon_fx/weapon_molotov_held.vpcf
+	particles/weapons/cs_weapon_fx/weapon_incend_held_fps.vpcf
+	particles/weapons/cs_weapon_fx/weapon_incend_thrown.vpcf
+	particles/inferno_fx/explosion_molotov_air.vpcf
+	particles/inferno_fx/explosion_incend_air.vpcf
+	particles/explosions_fx/explosion_smokegrenade.vpcf
+	particles/explosions_fx/explosion_flashbang.vpcf
+
+GameStartup "" // src/game/shared/cstrike15/broken_glass_trap.cpp
+	weapons/models/grenade/molotov/weapon_molotov_broken_glass.vmdl
+	particles/impact_fx/molotov_broken_glass.vpcf
+
+GameStartup "" // src/game/shared/cstrike15/cash_stack.cpp
+	models/gameplay/cash_stack/cash_stack.vmdl
+	models/gameplay/cash_stack/cash_stack_pickup.vpcf
+
+GameStartup "" // src/game/shared/cstrike15/cs_observer_pawn_shared.cpp
+	characters/models/shared/observer/cs_observer.vmdl
+
+GameStartup "" // src/game/shared/cstrike15/cs_player_weapontiminggraph.cpp
+	animation/graphs/viewmodel/viewmodel.vnmgraph
+
+GameStartup "" // src/game/shared/cstrike15/cs_shareddefs.cpp
+	agents/models/shared/arms/glove_cloth_collision/glove_cloth_collision.vmdl
+	agents/models/shared/arms/glove_bloodhound/glove_bloodhound.vmdl
+	agents/models/shared/arms/glove_brokenfang/glove_brokenfang.vmdl
+	agents/models/shared/arms/glove_fingerless/glove_fingerless.vmdl
+	agents/models/shared/arms/glove_fullfinger/glove_fullfinger.vmdl
+	agents/models/shared/arms/glove_handwrap/glove_handwrap.vmdl
+	agents/models/shared/arms/glove_hardknuckle/glove_hardknuckle.vmdl
+	agents/models/shared/arms/glove_hydra/glove_hydra.vmdl
+	agents/models/shared/arms/glove_motorcycle/glove_motorcycle.vmdl
+	agents/models/shared/arms/glove_slick/glove_slick.vmdl
+	agents/models/shared/arms/glove_specialist/glove_specialist.vmdl
+	agents/models/shared/arms/glove_sporty/glove_sporty.vmdl
+	agents/models/ctm_diver/ctm_diver_varianta.vmdl
+	agents/models/ctm_diver/ctm_diver_variantb.vmdl
+	agents/models/ctm_diver/ctm_diver_variantc.vmdl
+	agents/models/ctm_fbi/ctm_fbi.vmdl
+	agents/models/ctm_fbi/ctm_fbi_varianta.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantb.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantc.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantd.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variante.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantf.vmdl
+	agents/models/ctm_fbi/ctm_fbi_variantg.vmdl
+	agents/models/ctm_fbi/ctm_fbi_varianth.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_varianta.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variantb.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variantc.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variantd.vmdl
+	agents/models/ctm_gendarmerie/ctm_gendarmerie_variante.vmdl
+	agents/models/ctm_sas/ctm_sas.vmdl
+	agents/models/ctm_sas/ctm_sas_variantf.vmdl
+	agents/models/ctm_sas/ctm_sas_variantg.vmdl
+	agents/models/ctm_st6/ctm_st6_variante.vmdl
+	agents/models/ctm_st6/ctm_st6_variantg.vmdl
+	agents/models/ctm_st6/ctm_st6_varianti.vmdl
+	agents/models/ctm_st6/ctm_st6_variantj.vmdl
+	agents/models/ctm_st6/ctm_st6_variantk.vmdl
+	agents/models/ctm_st6/ctm_st6_variantl.vmdl
+	agents/models/ctm_st6/ctm_st6_variantm.vmdl
+	agents/models/ctm_st6/ctm_st6_variantn.vmdl
+	agents/models/ctm_swat/ctm_swat_variante.vmdl
+	agents/models/ctm_swat/ctm_swat_variantf.vmdl
+	agents/models/ctm_swat/ctm_swat_variantg.vmdl
+	agents/models/ctm_swat/ctm_swat_varianth.vmdl
+	agents/models/ctm_swat/ctm_swat_varianti.vmdl
+	agents/models/ctm_swat/ctm_swat_variantj.vmdl
+	agents/models/ctm_swat/ctm_swat_variantk.vmdl
+	agents/models/tm_balkan/tm_balkan_variantf.vmdl
+	agents/models/tm_balkan/tm_balkan_variantg.vmdl
+	agents/models/tm_balkan/tm_balkan_varianth.vmdl
+	agents/models/tm_balkan/tm_balkan_varianti.vmdl
+	agents/models/tm_balkan/tm_balkan_variantj.vmdl
+	agents/models/tm_balkan/tm_balkan_variantk.vmdl
+	agents/models/tm_balkan/tm_balkan_variantl.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_varianta.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantb2.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantb.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantc.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantd.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variante.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantf2.vmdl
+	agents/models/tm_jungle_raider/tm_jungle_raider_variantf.vmdl
+	agents/models/tm_leet/tm_leet_varianta.vmdl
+	agents/models/tm_leet/tm_leet_variantb.vmdl
+	agents/models/tm_leet/tm_leet_variantc.vmdl
+	agents/models/tm_leet/tm_leet_variantd.vmdl
+	agents/models/tm_leet/tm_leet_variante.vmdl
+	agents/models/tm_leet/tm_leet_variantf.vmdl
+	agents/models/tm_leet/tm_leet_variantg.vmdl
+	agents/models/tm_leet/tm_leet_varianth.vmdl
+	agents/models/tm_leet/tm_leet_varianti.vmdl
+	agents/models/tm_leet/tm_leet_variantj.vmdl
+	agents/models/tm_leet/tm_leet_variantk.vmdl
+	agents/models/tm_phoenix/tm_phoenix.vmdl
+	agents/models/tm_phoenix/tm_phoenix_varianta.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantb.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantc.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantd.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantf.vmdl
+	agents/models/tm_phoenix/tm_phoenix_variantg.vmdl
+	agents/models/tm_phoenix/tm_phoenix_varianth.vmdl
+	agents/models/tm_phoenix/tm_phoenix_varianti.vmdl
+	agents/models/tm_professional/tm_professional_varf1.vmdl
+	agents/models/tm_professional/tm_professional_varf2.vmdl
+	agents/models/tm_professional/tm_professional_varf3.vmdl
+	agents/models/tm_professional/tm_professional_varf4.vmdl
+	agents/models/tm_professional/tm_professional_varf5.vmdl
+	agents/models/tm_professional/tm_professional_varf.vmdl
+	agents/models/tm_professional/tm_professional_varg.vmdl
+	agents/models/tm_professional/tm_professional_varh.vmdl
+	agents/models/tm_professional/tm_professional_vari.vmdl
+	agents/models/tm_professional/tm_professional_varj.vmdl
+
+GameSessionManifest_server "decoy_projectile_server" // src/game/shared/cstrike15/decoy_projectile.cpp
+	decoy_projectile.ventr
+
+GameSessionManifest_server "flashbang_projectile_server" // src/game/shared/cstrike15/flashbang_projectile.cpp
+	flashbang_projectile.ventr
+
+GameSessionManifest_server "hegrenade_projectile_server" // src/game/shared/cstrike15/hegrenade_projectile.cpp
+	hegrenade_projectile.ventr
+
+GameSessionManifest_server "item_dogtags_server" // src/game/shared/cstrike15/item_dogtags.cpp
+	item_dogtags.ventr
+
+GameSessionManifest_server "weapon_healthshot_server" // src/game/shared/cstrike15/item_healthshot.cpp
+	weapon_healthshot.ventr
+
+GameSessionManifest_server "molotov_projectile_server" // src/game/shared/cstrike15/molotov_projectile.cpp
+	molotov_projectile.ventr
+
+GameSessionManifest_server "smokegrenade_projectile_server" // src/game/shared/cstrike15/smokegrenade_projectile.cpp
+	smokegrenade_projectile.ventr
+
+GameSessionManifest_server "planted_c4_server" // src/game/shared/cstrike15/weapon_c4.cpp
+	planted_c4.ventr
+
+GameSessionManifest_server "weapon_c4_server" // src/game/shared/cstrike15/weapon_c4.cpp
+	weapon_c4.ventr
+
+GameStartup "C4Precache" // src/game/shared/cstrike15/weapon_c4.cpp
+	weapons/models/c4/weapon_c4.vmdl
+	particles/weapons/cs_weapon_fx/weapon_confetti_balloons.vpcf
+	particles/explosions_fx/explosion_c4_500.vpcf
+	particles/explosions_fx/c4_train_ground_effect.vpcf
+	particles/explosions_fx/c4_timer_light_dropped.vpcf
+	particles/explosions_fx/c4_holstered_light.vpcf
+	weapons/models/c4/defuse_multimeter.vmdl
+	models/props/de_overpass/balloon.vmdl
+
+GameSessionManifest_server "weapon_ak47_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_ak47.ventr
+
+GameSessionManifest_server "weapon_aug_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_aug.ventr
+
+GameSessionManifest_server "weapon_awp_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_awp.ventr
+
+GameSessionManifest_server "weapon_bizon_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_bizon.ventr
+
+GameSessionManifest_server "weapon_famas_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_famas.ventr
+
+GameSessionManifest_server "weapon_fiveseven_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_fiveseven.ventr
+
+GameSessionManifest_server "weapon_g3sg1_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_g3sg1.ventr
+
+GameSessionManifest_server "weapon_galilar_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_galilar.ventr
+
+GameSessionManifest_server "weapon_glock_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_glock.ventr
+
+GameSessionManifest_server "weapon_hkp2000_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_hkp2000.ventr
+
+GameSessionManifest_server "weapon_m249_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_m249.ventr
+
+GameSessionManifest_server "weapon_m4a1_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_m4a1.ventr
+
+GameSessionManifest_server "weapon_m4a1_silencer_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_m4a1_silencer.ventr
+
+GameSessionManifest_server "weapon_mac10_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mac10.ventr
+
+GameSessionManifest_server "weapon_mag7_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mag7.ventr
+
+GameSessionManifest_server "weapon_mp5sd_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mp5sd.ventr
+
+GameSessionManifest_server "weapon_mp7_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mp7.ventr
+
+GameSessionManifest_server "weapon_mp9_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_mp9.ventr
+
+GameSessionManifest_server "weapon_negev_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_negev.ventr
+
+GameSessionManifest_server "weapon_p250_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_p250.ventr
+
+GameSessionManifest_server "weapon_p90_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_p90.ventr
+
+GameSessionManifest_server "weapon_revolver_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_revolver.ventr
+
+GameSessionManifest_server "weapon_scar20_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_scar20.ventr
+
+GameSessionManifest_server "weapon_sg556_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_sg556.ventr
+
+GameSessionManifest_server "weapon_ssg08_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_ssg08.ventr
+
+GameSessionManifest_server "weapon_tec9_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_tec9.ventr
+
+GameSessionManifest_server "weapon_ump45_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_ump45.ventr
+
+GameSessionManifest_server "weapon_usp_silencer_server" // src/game/shared/cstrike15/weapon_csbasegun.cpp
+	weapon_usp_silencer.ventr
+
+GameSessionManifest_server "weapon_nova_server" // src/game/shared/cstrike15/weapon_csbaseshotgun.cpp
+	weapon_nova.ventr
+
+GameSessionManifest_server "weapon_sawedoff_server" // src/game/shared/cstrike15/weapon_csbaseshotgun.cpp
+	weapon_sawedoff.ventr
+
+GameSessionManifest_server "weapon_xm1014_server" // src/game/shared/cstrike15/weapon_csbaseshotgun.cpp
+	weapon_xm1014.ventr
+
+GameSessionManifest_server "weapon_cz75a_server" // src/game/shared/cstrike15/weapon_cz75a.cpp
+	weapon_cz75a.ventr
+
+GameSessionManifest_server "weapon_elite_server" // src/game/shared/cstrike15/weapon_elite.cpp
+	weapon_elite.ventr
+
+GameSessionManifest_server "weapon_knife_server" // src/game/shared/cstrike15/weapon_knife.cpp
+	weapon_knife.ventr
+
+GameSessionManifest_server "weapon_incgrenade_server" // src/game/shared/cstrike15/weapon_molotov.cpp
+	weapon_incgrenade.ventr
+
+GameSessionManifest_server "weapon_molotov_server" // src/game/shared/cstrike15/weapon_molotov.cpp
+	weapon_molotov.ventr
+
+GameSessionManifest_server "weapon_taser_server" // src/game/shared/cstrike15/weapon_taser.cpp
+	weapon_taser.ventr
+
+GameStartup "ExplosionTypesManifest_global_server" // src/game/shared/explosiontypes.cpp
+	scripts/explosion_types.vdata
+
+GameStartup "" // src/game/shared/func_shatterglass.cpp
+	materials/glass/shatterglass.vmat
+
+"" "LoopModeGame_server" // src/game/shared/loopmodegame.cpp
+	// resources = null
+
+GameStartup "NoiseStreamsManifest_global_server" // src/game/shared/noisestreams_vdata.cpp
+	scripts/noise_presets.vdata
+
+GameSessionManifest_server "PhysFrictionEffectPrecache_server" // src/game/shared/physics_shared.cpp
+	// resources = null
+
+"" "PhysicsGameSystemManifest_server" // src/game/shared/physicsgamesystem.cpp
+	materials/tools/show_collision_geometry_wire_nodepth.vmat
+	materials/physics/wireframe_basic.vmat
+	materials/physics/wireframe_hidden.vmat
+	materials/physics/flat_basic.vmat
+
+GameStartup "" // src/game/shared/point_clientui_world_text_panel.cpp
+	dev/panorama_world_panel_hint_ui.vmat
+
+"" "PrecacheTest2" // src/game/shared/precache_register.cpp
+	// resources = null
+
+"" "PrecacheTest3" // src/game/shared/precache_register.cpp
+	// resources = null
+
+PrecacheTest_server "PrecacheTest" // src/game/shared/precache_register.cpp
+	PrecacheTest2
+	precacheTest3.vrnmd
+	entityflame.ventr
+
+GameStartup "CPropDataManifest_global_server" // src/game/shared/props_shared.cpp
+	scripts/propdata.vdata
+
+GameSessionManifest_server "PrecacheEffectBubbles_server" // src/game/shared/te/te_bubbles.cpp
+	// resources = null
+
+GameSessionManifest_server "PrecacheEffectBubbleTrail_server" // src/game/shared/te/te_bubbletrail.cpp
+	// resources = null
+
+GameSessionManifest_server "PrecacheEffectEnergySplash_server" // src/game/shared/te/te_energysplash.cpp
+	// resources = null
+
+GameSessionManifest_server "CTEFizz_server" // src/game/shared/te/te_fizz.cpp
+	// resources = null
+
+GameSessionManifest_server "CTEGlowSprite_server" // src/game/shared/te/te_glowsprite.cpp
+	// resources = null
+
+GameSessionManifest_server "CTELargeFunnel_server" // src/game/shared/te/te_largefunnel.cpp
+	// resources = null
+
+GameSessionManifest_server "PrecacheTESmoke_server" // src/game/shared/te/te_smoke.cpp
+	// resources = null
+
+GameStartup "LightStylesManifest_Server" // src/public/game/shared/lightstyles2.cpp
+	scripts/light_styles.vdata
+

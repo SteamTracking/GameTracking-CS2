@@ -1,0 +1,274 @@
+Camera : CBindableCamera // src/tools/toolutils2/bindablecamera.cpp
+	// OverideHelpContextName = "SharedToolCommands"
+	CameraLookAtSelection
+	DecreaseMoveSpeed
+	HorizontalStrafeCamera
+	IncreaseMoveSpeed
+	MouseControlCamera
+	MouseControlCamera2D
+	MouseControlCamera3D
+	MouseControlCamera3D_Toggle
+	MouseLook3D
+	MoveCameraBackward3D
+	MoveCameraDown3D
+	MoveCameraForward3D
+	MoveCameraLeft3D
+	MoveCameraRight3D
+	MoveCameraUp3D
+	PanCamera3D
+	PitchCameraDown
+	PitchCameraUp
+	ResetMoveSpeed
+	RotateAboutTarget3D
+	SnapCameraToSelection
+	ToggleLockCameraHeight
+	VerticalStrafeCamera
+	YawCameraLeft
+	YawCameraRight
+	ZoomAllCamerasIn
+	ZoomAllCamerasOut
+	ZoomCameraIn
+	ZoomCameraOut
+	ZoomForwardBack2D
+	ZoomForwardBack3D
+
+GamePreviewTool_Grab : CModelDocEditorTool_GamePreviewTool_Grab // src/tools/modeldoc_editor/modeldoc_game_preview_tool_grab.cpp
+	Grab
+	GrabModifierRigid
+
+GamePreviewTool_Shoot : CModelDocEditorTool_GamePreviewTool_Shoot // src/tools/modeldoc_editor/modeldoc_game_preview_tool_shoot.cpp
+	Shoot
+
+GamePreviewTool_Spawn : CModelDocEditorTool_GamePreviewTool_Spawn // src/tools/modeldoc_editor/modeldoc_game_preview_tool_spawn.cpp
+	Spawn
+
+GlobalHotkeys : CGlobalHotkeyCommands // src/qcontrols/inputglobalhotkeys.cpp
+	DebugWidgetActiveWindow
+	DebugWidgetUnderMouse
+	DebugWidgetWithFocus
+	DummyNoOp
+	FocusChainDebug_Back
+	FocusChainDebug_Forward
+	FocusChainDebug_Less
+	FocusChainDebug_More
+	FocusChainDebug_Toggle
+	ShowAllCommandsPopup
+	ShowConsole
+	ShowFullHelpForBindableCommandUnderMouse
+	ShowInputDebugger
+	ShowWidgetDebugger
+	SwitchToEngineWindow
+
+LightingControl : CLightingControlRig // src/tools/toolscene/lightingcontrolrig.cpp
+	ReloadLightRigDefinitions
+	RotateLights
+	ToggleLights
+
+ModelDocBoneMergeTool : CQModelDocEditorBoneMergeTool // src/tools/modeldoc_editor/qmodeldoc_editor_bonemergetool.cpp
+	Delete
+	Redo
+	Undo
+
+ModelDocEditorApp : CModelDocEditorApp // src/tools/modeldoc_editor/modeldoc_editor_app.cpp
+	ActivateNextEditorSession
+	ActivatePreviousEditorSession
+	ClearRecentFiles
+	ExportAs
+	FileClose
+	FileNew
+	FileOpen
+	FileReload
+	FileSave
+	FileSaveAs
+	ImportCollision
+	ImportConstraints
+	ImportFromFBX
+	ImportFromVMDL
+	ImportFromVMDLWithBoneFlags
+	NewEditorWindow
+	NextSession
+	OpenSelectedPrefabs
+	PreviousSession
+	SaveAndCompileIfNeeded
+	SaveAndForceCompile
+	VersionControlAdd
+	VersionControlCheckIn
+	VersionControlCheckInAll
+	VersionControlCheckOut
+	VersionControlStatus
+
+ModelDocEditorDebugger : CQModelDocEditorCompileDebugger // src/tools/modeldoc_editor/qmodeldoc_editor_compiledebugger.cpp
+	EndDebugging
+	StartDebugging
+	StepBack
+	StepForward
+	ToggleDebugging
+
+ModelDocEditorSession : CModelDocEditorSession // src/tools/modeldoc_editor/modeldoc_editor_session.cpp
+	AddPrefabReference
+	CollapseSelectedPrefabs
+	CopySelectedNodes
+	CreateNewAnimGraph
+	CreateNewAnimGraph2
+	CreateNmClips
+	CreateOneOfEveryNode
+	CreatePrefabFromSelection
+	CutSelectedNodes
+	DefaultLightingMode
+	DeleteSelectedNodes
+	DisableToolsVisMode
+	DuplicateSelectedNodes
+	EnlargeGizmo
+	FindAndReplaceStringAttrVals
+	ListFileReferences
+	NextLightingMode
+	NextToolsVisMode
+	PasteNodes
+	Playback_Faster
+	Playback_JumpToEnd
+	Playback_JumpToStart
+	Playback_Pause
+	Playback_Play
+	Playback_Restart
+	Playback_Slower
+	Playback_StepBack
+	Playback_StepForward
+	Playback_Toggle
+	PrevLightingMode
+	PrevtoolsVisMode
+	Redo
+	SanityCheckCompileState
+	SetCameraDistanceBasedOnLODSwitchThreshold
+	SetEditorCameraFromViewport
+	SetEditorCameraPreset_n1n1
+	SetEditorCameraPreset_n1p1
+	SetEditorCameraPreset_p1n1
+	SetEditorCameraPreset_p1p1
+	SetLODSwitchThresholdFromCameraDistance
+	SetManipulationMode_Rotate
+	SetManipulationMode_Scale
+	SetManipulationMode_Selection
+	SetManipulationMode_Translate
+	SetManipulationSpace_Local
+	SetManipulationSpace_World
+	SetViewportFromEditorCamera
+	ShowAddNodeDialog
+	ShowAnimGraph2Editor
+	ShowAnimGraphEditor
+	ShowErrors
+	ShrinkGizmo
+	ToggleAbsoluteFrameNumbers
+	ToggleCloth
+	ToggleClothDisplay
+	ToggleDeltaAnimOverBindPose
+	ToggleDocumentPreview
+	ToggleForceBindPose
+	ToggleForceUpdatesDuringManipulation
+	ToggleGroundAndAxis
+	ToggleLassoSelectIntersecting
+	ToggleLimitPlayback
+	ToggleLoopAnimation
+	ToggleManipulationSpace
+	TogglePhysics
+	TogglePhysicsSelected
+	TogglePreviewAnimEvents
+	ToggleRenderBentNormals
+	ToggleRenderNormals
+	ToggleRenderTangents
+	ToggleSelectSubobjects
+	ToggleShowModifierWarnings
+	ToggleSkeletonDisplay
+	ToggleStreamVisualization
+	ToggleUVMapView
+	Undo
+	UnlockEventFromPreviewCycle
+	ViewMode_Back
+	ViewMode_Bottom
+	ViewMode_Front
+	ViewMode_Left
+	ViewMode_Perspective
+	ViewMode_Right
+	ViewMode_Top
+
+ModelDocEditorTimeline : CQModelDocEditorTimeline // src/tools/modeldoc_editor/qmodeldoc_editor_timeline.cpp
+	ScrubEnd
+	ScrubHome
+	ScrubOneFrameLeft
+	ScrubOneFrameRight
+
+ModelDocEditorWnd : CQModelDocEditorWnd // src/tools/modeldoc_editor/qmodeldoc_editor_wnd.cpp
+	NewNodeEditor
+	NewNodeOutliner
+	NewNodeWorksheet
+	ResetLayout
+	ToggleDockWidgets
+
+ModelDocOutliner : CQModelDocEditorOutliner // src/tools/modeldoc_editor/qmodeldoc_editor_outliner.cpp
+	DebugRefreshOutliner
+	RenameSelectedNode
+
+ModelDocPreviewToolSceneWidget : CQModelDocEditorPreviewToolSceneWidget // src/tools/modeldoc_editor/qmodeldoc_editor_preview_window.cpp
+	ShowContextMenu
+	ViewMode_Back
+	ViewMode_Bottom
+	ViewMode_Front
+	ViewMode_Left
+	ViewMode_Perspective
+	ViewMode_Right
+	ViewMode_Top
+
+ModelDocSceneWidget : CQModelDocEditorSceneWidget // src/tools/modeldoc_editor/qmodeldoc_editor_scenewidget.cpp
+	FocusCameraOnCursor
+	PropertyManipulation
+	PropertyManipulation_Fast
+	PropertyManipulation_Slow
+	ResetModelrotation
+	RotateModel
+	ShowContextMenu
+
+MultiTimeline : CQMultiTimelineWidget // src/qcontrols/qmultitimelinewidget.cpp
+	ActivateItem
+	Drag
+	MultiSelectModifier
+	PanTimeline
+	ShowContextMenu
+	ToggleSelectModifier
+	UnlockCycleFromFrameModifier
+	ZoomIn
+	ZoomOut
+
+MultiTimelineHeader : CQMultiTimelineHeaderWidget // src/qcontrols/qmultitimeline_headerwidget.cpp
+	Scrub
+	UnlockCycleFromFrameModifier
+
+MutliTimelineGroupHeader : CQMutliTimelineGroupHeaderWidget // src/qcontrols/qmultitimeline_groupwidget.cpp
+	ToggleExpanded
+
+SessionCycleWidget : CQSessionCycleWidget // src/tools/toolutils2/qbaseeditorwnd.cpp
+	KeepActive
+	NextSession
+	PreviousSession
+
+Tool_Picker : CModelDocEditorTool_Picker // src/tools/modeldoc_editor/modeldoc_editor_tool_picker.cpp
+	CancelPick
+	LassoPick
+	Pick
+
+Tool_Selection : CModelDocEditorTool_Selection // src/tools/modeldoc_editor/modeldoc_editor_tool_selection.cpp
+	BoxSelect
+	DeselectAll
+	LassoSelect
+	MoveManipulator
+	MoveManipulatorModifier
+	Select
+	SelectionAddModifier
+	SelectionRemoveModifier
+
+Tool_VertexAttachment : CModelDocEditorTool_VertexAttachment // src/tools/modeldoc_editor/modeldoc_editor_tool_vertexattachment.cpp
+	Cancel
+	CreateAtVertex
+
+ToolSceneWidget : CQToolSceneWidget // src/tools/toolscene/qtoolscenewidget.cpp
+	DebugToolScene
+	DefaultPreviewCamera
+

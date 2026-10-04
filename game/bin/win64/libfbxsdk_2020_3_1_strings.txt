@@ -19501,7 +19501,6 @@ parsing complete
 parsing new buffer: out of memory\n
 partial IO
 particle is NULL
-pattern
 pb p
 pb0G
 pbp-\t

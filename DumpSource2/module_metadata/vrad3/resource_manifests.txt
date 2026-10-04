@@ -1,0 +1,17 @@
+"" "VRAD3" // src/utils/vrad3/vrad3_gpu.cpp
+	materials/dev/vrad3/lightmap_rasterize.vmat
+	materials/dev/vrad3/lightmap_generate_small_chart_samples.vmat
+	materials/dev/vrad3/mark_occupied_voxels.vmat
+	materials/dev/vrad3/farfield_metrics.vmat
+	materials/dev/vrad3/farfield_raytrace.vmat
+	materials/dev/vrad3/lightmap_test_converged.vmat
+	materials/dev/vrad3/lpv_test_converged.vmat
+	materials/dev/vrad3/vertexlight_test_converged.vmat
+	materials/dev/vrad3/lightmap_raytrace.vmat
+	materials/dev/vrad3/vertexlight_raytrace.vmat
+	materials/dev/vrad3/lightmap_vertexlight_reduce.vmat
+	materials/dev/vrad3/lightmap_sample_validation.vmat
+	materials/dev/vrad3/lpv_raytrace.vmat
+	materials/dev/rtx/pathtracer.vmat
+	materials/dev/rtx/debug_visualization.vmat
+

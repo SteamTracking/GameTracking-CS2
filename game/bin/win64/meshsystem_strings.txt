@@ -443,7 +443,6 @@ anim_data_block
 anim_graph_resource
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 bOwnVBAndIB == m_bOwnVBAndIB && m_pFixedMeshDataOverride
 bShaderBlended

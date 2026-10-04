@@ -1,0 +1,36 @@
+ToolsStartupPreGame "" // src/modeldoc_lib/modeldoc_texture_generator.cpp
+	materials/dev/texture_generators/texture_generator_positionmap.vmat
+	materials/dev/texture_generators/texture_generator_objectspacenormal.vmat
+	materials/dev/texture_generators/texture_generator_facevertexcolor.vmat
+
+ToolsStartup "" // src/toolrenderutils/toolmatsysutils.cpp
+	materials/tools/wireframe_vertex_color.vmat
+	materials/tools/wireframe_vertex_color_translucent.vmat
+	materials/tools/fill_vertex_color.vmat
+	materials/tools/vertex_color_translucent.vmat
+	materials/tools/selection_overlay.vmat
+	materials/tools/selection_overlay_nocull.vmat
+	materials/tools/handle_square.vmat
+	materials/tools/handle_circle.vmat
+	materials/tools/handle_cross.vmat
+	materials/tools/handle_ring.vmat
+	materials/tools/handle_square_ring.vmat
+	materials/tools/handle_edged_circle.vmat
+	materials/tools/handle_generic.vmat
+	materials/tools/handle_generic_translucent.vmat
+	materials/tools/handle_diamond.vmat
+	materials/tools/handle_diamond_translucent.vmat
+	materials/tools/handle_edged_diamond.vmat
+	materials/tools/handle_edged_diamond_translucent.vmat
+	materials/tools/handle_square_translucent.vmat
+	materials/tools/handle_circle_translucent.vmat
+	materials/tools/handle_cross_translucent.vmat
+	materials/tools/handle_ring_translucent.vmat
+	materials/tools/handle_square_ring_translucent.vmat
+	materials/tools/handle_edged_circle_translucent.vmat
+	materials/tools/grid.vmat
+
+ToolsStartup "" // src/toolrenderutils/toolstandardmodels.cpp
+	models/editor/axis_helper_thick.vmdl
+	models/editor/camera.vmdl
+

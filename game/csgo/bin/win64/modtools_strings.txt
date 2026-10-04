@@ -13997,7 +13997,6 @@ animation/skeletons/weapons/molotov.vnmskel
 animdoclib
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_additive
 animgraph_attribute
 animgraph_enum
@@ -15358,7 +15357,6 @@ scale_set
 scale_source_node
 scale_world
 scale_xyz
-scales
 scanline
 scratch_float
 scratch_vec
@@ -15983,7 +15981,6 @@ visgroupfilter
 vmap
 vmesh
 vnmclip
-vnmgraph
 vnmskel
 volume_randomn_min_scale
 volume_scale
@@ -15995,9 +15992,7 @@ vortex_count
 vortex_max_speed_mph
 voume_random_min_scale
 vphzc
-vpost
 vsky
-vtex
 warnings_as_errors
 wave_amplitude
 wave_length

@@ -1123,7 +1123,6 @@ pango_version
 pangogravity
 pangoversion
 pats->ref_count > 0
-pattern
 pattern != NULL
 pixelsize
 pmcclcolkramkmkmgilr

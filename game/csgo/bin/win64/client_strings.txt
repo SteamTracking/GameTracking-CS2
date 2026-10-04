@@ -12155,11 +12155,8 @@ AES_XTS
 AES_XTS_CIPHER
 AE_CHOREO_LOOP
 AG2 - EvaluateAnimList - Job Execute Func
-AG2_OnAnimGraphDefinitionOrModeChanged
-AG2_OnAnimGraphSerializationContextInvalidated
 AG2_PerformPreReload - %s - %s entity %d (%s) deleted %sgraph instance\n
 AG2_PerformReload   - %s - %s entity %d (%s) to recreate the %sgraph instance\n
-AG2_PoseRecipeChanged
 AG2_PushAnimTransformsToSkeletonInstance
 AGgV
 AIRBOAT
@@ -12458,7 +12455,6 @@ AlertVisible
 All itemsets must have names.
 All lootlists must have names.
 All-Star
-AllPlayersDuringFreezePeriodOrMatchEndOrHalfTime
 AllocGroundLink: failed to allocate groundlink_t.!!!\n
 Allow
 AllowOversized
@@ -13735,7 +13731,6 @@ CCSGO_RetakeLoadout
 CCSGO_Scoreboard::CreatePanels()
 CCSGO_TeamPreviewCharacterPosition_API
 CCSGameModeRules *
-CCSGameRules*
 CCSGraphicsSettings_Minimal_client
 CCSHudWeaponSelection0
 CCSInventoryManager
@@ -14021,7 +14016,6 @@ CDecalGameSystem::UpdateDecals
 CDepthPyramidComputeRenderer::RenderMultiPass
 CDescribeData::DumpEntity
 CDestructiblePartsComponent *
-CDestructiblePartsSystemComponent*
 CDirtySpatialPartitionEntityList::UpdateDirtySpatialPartitionEntities
 CDllVerificationMonitor
 CDownloadWorkshopAddonPrerequisite
@@ -14295,9 +14289,6 @@ CGameSceneNode::StartHierarchicalAttachment: Cannot start hierarchical attachmen
 CGameSceneNode::StartHierarchicalAttachment: Encountered unknown attachment in parent entity "%s" (model "%s")!\n
 CGameSceneNode::StartHierarchicalAttachment: Invalid use of attachment-based hierarchy in non-skeleton instance based entity %s!\n
 CGameSceneNode::StartHierarchicalAttachment: Invalid use of bone-based hierarchy in non-skeleton instance based entity %s!\n
-CGameSceneNode::m_angRotation
-CGameSceneNode::m_hParent
-CGameSceneNode::m_hierarchyAttachName
 CGameSoundEventName
 CGlobalLightBase::UpdateState
 CGlobalSymbol
@@ -16000,7 +15991,6 @@ CUtlStringToken
 CUtlStringToken hash collision between the two fields %s and %s!\n\tRename one of the keyfieldnames to fix the error.
 CUtlSymbol
 CUtlVector< %s >
-CUtlVector< CEconItemAttribute >
 CUtlVector<%s>
 CUtlVector<%s> counts differ (net %d - pred %d) delta( %d)
 CUtlVector<%s> element [%d] missing from net
@@ -16436,7 +16426,6 @@ Clamp Float
 Clamp Int
 Clamp value to range (float)
 Clamp value to range (int)
-ClampHealth
 Clamping dimensions of panorama world panel from %d x %d to %d x %d! (%.1f" x %.1f" @ %.1f DPI, %.1f window scale)\n
 Class does not allow allocation from its schema binding
 Class does not allow construction from its schema binding
@@ -16624,7 +16613,6 @@ ColdLS
 Collapse
 Collapse To Force Point
 Collections
-CollisionAttributeChanged
 Color (%d %d %d %d)
 Color Correction Mgr
 ColorMap
@@ -18784,8 +18772,6 @@ FlushConsoleInputBuffer
 Flute
 Fm{#t
 Focused
-FogController
-FogStateChanged
 Foil
 FolderName
 FolderUpButton
@@ -20437,8 +20423,6 @@ HudWinPanel_Show
 HudWinPanel_ShowRoundEndReport
 HueSelector
 Hull
-HullDesc_tiny
-HullDesc_tiny_centered
 Hurricane
 Husky
 HydroGraphic
@@ -21288,7 +21272,6 @@ LightBinnerCsgo
 LightProbeVolumeToolsSelection_AmbientCube
 LightProbeVolumeToolsSelection_SH2_DC
 LightQueryGameSystem
-LightRenderingChanged
 LightStylesManifest_Client
 Lightmap Query Data unknown version number %d (%s)
 LightmapUV
@@ -21358,16 +21341,10 @@ Local player changed team (or disconnected)...\n
 Local player died...\n
 Local player disconnected...\n
 LocalKeySet
-LocalPlayerAndObserversExclusive
-LocalPlayerAndPredictorsExclusive
 LocalPlayerBuyZoneChange
-LocalPlayerExclusive
-LocalPlayerExclusiveDuringRoundEnd
 LocalScale
-LocalTeamExclusive
 LocalTime
 LocalVector
-LocalWeaponExclusive
 LocalizationChanged
 LocalizeDateCoarsely
 LocalizeRentalDate
@@ -21656,7 +21633,6 @@ Map__Level--Animate-FadeIn
 Map__Level--Animate-FadeOut
 Maple
 Maps
-MarkSurroundingBoundsDirty
 MarketListingForItem
 Marquis
 Mask
@@ -21809,7 +21785,6 @@ MissionsAPI
 Mist
 Mixed Resolution Particles
 MixedResolutionTexture
-MixedShadowsChanged
 MlT8
 Mlt(J
 MnZ/rs
@@ -21823,7 +21798,6 @@ Model '%s' has %d flex controllers but %d flex weights!!!\n
 Model Space Blend
 Model conversion: %d conversions in %.3fsec (%.3fms each)\n
 Model: %s
-ModelScale
 ModelSpaceBlendTask - Trying to perform a model-space blend using an additive pose
 ModelTextureDetail
 Modifier Index: %i
@@ -21976,7 +21950,6 @@ NETSCAPE_SPKAC
 NETSCAPE_SPKI
 NETSCAPE_SPKI_b64_decode
 NETSCAPE_SPKI_b64_encode
-NETWORK_FIELD_CHANGES_OFTEN_PRIORITY
 NEVERGIB
 NEW CERTIFICATE REQUEST
 NIST CURVE: %s\n
@@ -22323,8 +22296,6 @@ Object Signer
 Object Signing
 Object Signing CA
 ObservableNetworkVar
-ObservableRecv_m_iHealth
-ObservableRecv_m_iMaxHealth
 ObserverPawn
 Obtained direct RTT measurements to relays in %d POPs.  Closest %d are:\n
 Occlusion: %.4f\n%s
@@ -22339,161 +22310,71 @@ Old-style LZW codes, convert file
 OldSubfileType
 On Interval
 On True
-OnActiveWeaponChanged
-OnActualHealthRemovedChangedCompat
 OnAddonsChanged
-OnAngChanged
-OnBlackboardStateChanged
-OnCellChanged
-OnCellChangedWS
 OnChangeToNormalLaunch
 OnChangeToSecureLaunch
-OnChoreoComponentPointerChanged
-OnClassNamesChanged
 OnClientInsecureBlocked
 OnClientPureFileStateDirty
-OnClientRagdollChanged
-OnClientRagdollEnabledChanged
 OnClientUntrustedDisallowed
 OnClientUntrustedLaunch
 OnClientUntrustedSystemFiles
 OnCloseBuyMenu
 OnCloseScoreboard
-OnColorChanged
-OnCompTeammateColorChanged
 OnConfirmWriteConfig
 OnConfirmWriteConfig()
-OnConnectionStateChanged
-OnControllerChanged
-OnDamageChangedCompat
-OnDamageListUpdate
-OnDecalDimensionsChanged
-OnDefuserChanged
-OnDialogActivatorChanged
-OnDialogVariableChanged
-OnDisabledHitgroupsChanged
-OnEconGlovesChanged
-OnEffectsChanged
 OnEngineEndGame
 OnEntText
 OnEntityOutputListen( %s, %s )\n
 OnEventBugBugComplete
-OnFlagsChanged
-OnFlashDurationChanged
-OnFlashMaxAlphaChanged
-OnGamePhaseChanged
-OnGlowColorChanged
-OnGlowTypeChanged
-OnGrabberChanged
-OnGravityUpdated
-OnGrenadeStateChanged
-OnHasClassesChanged
-OnHostageStateChanged
-OnInputCaptureEnabledChanged
-OnInterpolationAmountChanged
-OnInterpolationFrameChanged
 OnInterval
 OnInventoryItemSelected
 OnInvite
-OnIsSpottedChanged
 OnItemActivated
 OnItemTileActivated
 OnLatchInterpolatedVariablesHelper
-OnLifeStateChanged
 OnLocalPlayerChangedTeam
-OnMVPCountChanged
 OnMapConfigLoaded
-OnMatchEndCountChanged
 OnMatchPlayerMgrUpdate
 OnMatchSessionUpdate
 OnMouseEnableBinding
 OnMouseMove
-OnMoveTypeChanged
-OnMyWeaponsChanged
-OnNavIgnoreChanged
-OnNetVarTeamNumChanged
-OnNetworkedAnimationChanged
-OnNetworkedDisableChanged
-OnNetworkedSequenceChanged
 OnNewChatEntry
 OnNextStickerButtonPressed
-OnNoClipEnableChanged
-OnObserverModeChanged
-OnObserverTargetChanged
 OnOpen event 
 OnOpenPlayMenu
 OnOpenScoreboard
-OnPanelIdsChanged
 OnPanelStyleChanged
-OnPawnChanged
 OnPawnProcessCommand
-OnPendingTeamChanged
 OnPlayerActivity
 OnPlayerConnectFull
-OnPlayerControllerNameChanged
 OnPlayerDeath: Cannot replay without local player\n
 OnPlayerJoined
 OnPlayerLeaderChanged
-OnPlayerNameComponentChanged
 OnPlayerRemoved
 OnPlayerUpdated
-OnPosChanged
 OnPreDataUpdate: missing ent %d
 OnQuestProgressMade
-OnRagdollStateChangedCompat
 OnReceivedEquippedProfileItems
 OnRecurringMissionsChanged
 OnRecurringMissionsReceived
-OnRenderAttributesChanged
-OnRenderModeChanged
-OnReplayCompat_DamageList
-OnReplayCompat_GameSceneNodeOriginAngles
-OnReserveAmmoChanged
-OnResetClientTime
-OnRetakesOfferingCardChanged
-OnRetakesOfferingChanged
-OnRootBoneOffsetChanged
-OnRootBoneOffsetResetChanged
-OnRoundEndCountChanged
 OnRoundFreezeTimeEnd
 OnRoundMVPShown
 OnRoundStart
-OnRoundStartCountChanged
 OnSOCacheSubscribed
 OnSOCacheUnsubscribed
 OnSale
 OnScreenAnim
-OnSecondarySkeletonsChanged
-OnServerVelocityChanged
 OnShow
 OnShowTimeScaleContextMenu
 OnSimulate
-OnSimulationChanged
-OnSimulationTimeChanged
-OnSmokeLightProbeRegenChanged
 OnSource1Source1LegacyGameEvent: Early event sv %d / cl %d. Total in queue %d.\n
-OnSpriteScaleChanged
 OnStartForcedNewUserTraining
-OnSteamIDChanged
 OnSteamOverlayCall::LobbyJoin
 OnStyleEvent%u
-OnSubclassIDChanged
 OnSysSigninChange
 OnSysStorageDevicesChanged
-OnTeamIntroPeriodChanged
-OnThrowStrengthChanged
-OnTransformChanged
 OnTrustedLaunchFailed
-OnUpdateCapsule
-OnUpdateEnablePhysics
-OnUpdateOBB
-OnUpdateSolidFlags
-OnUpdateSolidType
-OnViewOffsetChanged
 OnWatchInfoUpdate
-OnWaterLevelChangeNetworked
-OnWeaponBurstModeNetworkChange
-OnWearablesChanged
 One of the client procedures is NULL pointer.
 Online
 Only Destroy When Gibbing
@@ -22602,7 +22483,6 @@ OverwatchAPI
 Ow!y
 OwnGameplayInfo
 OwnerContext
-OwningSlotOnlyRecipientsFilter
 P!bxo
 P(UH 
 P-192
@@ -23283,7 +23163,6 @@ PlayerCountInsteadOfAvatars
 PlayerDeath
 PlayerDecalDigitalSignature
 PlayerEquipmentChange
-PlayerFogController
 PlayerGhost
 PlayerHealthGlow
 PlayerID
@@ -23326,7 +23205,6 @@ PlayerStats_PopupSingleMatch
 PlayerTeamChanged
 PlayerVisibility
 PlayerVisibilityDataColor
-PlayerVisibilityStateChanged
 PlayerVisibilityStencil
 PlayerVisibilityStencilProxy
 Player_Death
@@ -23938,18 +23816,12 @@ Recipe definition %d: Missing required field "input_items"
 Recipe definition %d: Missing required field "output_items"
 Recipe definition index %d must be greater than or equal to zero
 Reciprocoal square root (1/sqrt)
-RecomputeSprings
 ReconstructNormals
 Record##AG2
 Recurring mission cycle period schedule has an invalid entry: %s
 Recurring mission cycle period schedule has an invalid range: %s
 Recurring mission cycle period schedule is invalid
 RecurringSubscription
-RecvProxy_Jumped
-RecvProxy_PatchEconIndices
-RecvProxy_Rescued
-RecvProxy_VoteOption
-RecvProxy_VoteType
 ReductionMatrix1
 ReductionMatrix2
 Reference Pose Task
@@ -24069,7 +23941,6 @@ RenderGameSystem
 RenderPanel
 RenderSystem/VulkanSteamShaderCacheReplay
 RenderTime %8.3f %8.2f
-RenderingChanged
 RenderingPipelineCsgoDeveloperMode
 RenderingPipelineCsgoFlashbangOverlayManifest
 RenderingPipelineCsgoHelpersManifest
@@ -24870,7 +24741,6 @@ Seek error at scanline %lu
 Select All
 Select None
 SelectAll
-SelectOnObservableRecipientsFilter
 Selected
 Selected Attribute Types
 SelectedPanelName
@@ -24885,7 +24755,6 @@ Selector: Failed to select a valid option!
 SellbackButton
 Semifinal
 Send a string to the console as a client command
-SendProxyNeverSend_RecipientsFilter
 SendToConsole
 Sending ping request %d/4.
 Sent BugBug message to server\n
@@ -25510,7 +25379,6 @@ Skipping save of procedural resource handle %s\n
 Skirmish mode %d cannot use gamemode: %s\n
 Skirmish mode %d references a non-existant gamemode: %s\n
 Skull
-SkyStateChanged
 Skybox
 Skybox Blur
 SkyboxBlur
@@ -25703,7 +25571,6 @@ Specifies which properties should transition smoothly to new values if a class/p
 Spectated player changed...\n
 SpectatorAvatar
 SpectatorVol
-SpectatorsAndObserversExclusive
 SphereBase_t
 SpiderGraph
 Spinner
@@ -25797,7 +25664,6 @@ StatSelectionRadio
 Stat_average_%d
 State: %s
 State=%s
-StateChanged
 Static - MBOIT Pass %d
 Static AlphaTest Forward
 Static Opaque Forward
@@ -25844,7 +25710,6 @@ Steamworks Stats: %s Received %s session id: %llu\n
 Steamworks Stats: %s Requesting session id.\n
 Steamworks Stats: %s session id not available.\n
 StencilClear
-StepSimulationFuncRotatingAnglesSerializer
 Stick_Pri
 Stick_Snd
 Sticker
@@ -25913,7 +25778,6 @@ Stuck
 Studio
 Stump
 StyleBlock
-StyleChanged
 StyleClassesChanged
 StyleFlagsChanged
 StyleLink
@@ -26221,7 +26085,6 @@ TeamLargeT
 TeamLogo
 TeamResFail
 TeamSelect
-TeammateAndSpectatorExclusive
 TeammateInventory
 TeammatesAPI
 Teleport to %s
@@ -27272,7 +27135,6 @@ Weapon:%s
 Weapon:knife
 WeaponC4
 WeaponDefuser
-WeaponGameplayAnimStateNetworkChangeCallback
 WeaponGrenades
 WeaponIcon
 WeaponIcon--ArmsRace
@@ -29225,14 +29087,6 @@ agents/models/tm_professional/tm_professional_varj.vmdl
 aggregate
 aggregation_position
 ai`UJ4\f
-aihull_human
-aihull_large
-aihull_large_centered
-aihull_medium
-aihull_medium_tall
-aihull_small
-aihull_small_centered
-aihull_wide_human
 aim instructions
 aim_angle_pitch
 aim_angle_yaw
@@ -29277,7 +29131,6 @@ allgrenades_v1
 alligator
 allocated
 allow_direct_return
-allow_sst_generation
 allowed_api_features
 allowed_requirements
 allowed_values
@@ -29305,20 +29158,10 @@ always_known
 alwaysrepaint
 amazing
 ambientLight
-ambient_occlusion_proxy_ambient_strength
-ambient_occlusion_proxy_cone_angle_0
-ambient_occlusion_proxy_cone_angle_1
-ambient_occlusion_proxy_cone_angle_2
-ambient_occlusion_proxy_cone_angle_3
-ambient_occlusion_proxy_override
 ambient_occlusion_proxy_position_0
 ambient_occlusion_proxy_position_1
 ambient_occlusion_proxy_position_2
 ambient_occlusion_proxy_position_3
-ambient_occlusion_proxy_strength_0
-ambient_occlusion_proxy_strength_1
-ambient_occlusion_proxy_strength_2
-ambient_occlusion_proxy_strength_3
 ambient_shadow_amount
 ambientangles
 ambientangles_vector
@@ -29344,12 +29187,10 @@ ang: (%f, %f, %f)\n
 ang_x
 ang_y
 ang_z
-angle_normalize_positive
 angle_y
 angles_vector
 angular_velocity_cp
 anim
-animTimeSerializer
 anim_class
 anim_layer
 anim_slot
@@ -29382,7 +29223,6 @@ animdebugger
 animgraph2_clip
 animgraph2_editor
 animgraph2_graph
-animgraph2_identifier
 animgraph_choreo_control_state
 animgraph_enum
 animgraph_public_name
@@ -29583,9 +29423,6 @@ attackerinair
 attempt to reuse session in different context
 attempting to create unknown particle system %s
 attenuation
-attenuation0
-attenuation1
-attenuation2
 attr: %s
 attr_factory
 attrib
@@ -29776,7 +29613,6 @@ bad write retry
 bad x509 filetype
 badger
 badges
-baked_light_indexing
 balance
 ban_list_group_id
 bank_unique_id
@@ -29907,7 +29743,6 @@ bn pubkey error
 bn to asn1 integer error
 bn_expand2
 boar
-bodyGroupChoiceChanged
 body_collection
 body_substring_keys
 body_substring_values
@@ -30262,7 +30097,6 @@ capability_multistatus_hover
 capability_multistatus_selected
 capslockwarn
 capsule
-capsule_length
 captions
 card
 card-bonus
@@ -30281,9 +30115,6 @@ carousel_nav_enabled
 carouselid
 carried
 cart_updated
-cascadecrossfade
-cascadedistancefade
-cascaderenderstaticobj
 caseIgnoreIA5StringSyntax
 caseid
 caseurl
@@ -30329,9 +30160,6 @@ cell
 cell: (%d, %d, %d)\n
 cell_info
 celloffset: (%f, %f, %f)\n
-cellx
-celly
-cellz
 center_follow
 center_nopixelsnap
 center_on_damage_point
@@ -30917,7 +30745,6 @@ coop_fall
 coop_kasbah
 cooperative
 coopmission
-coord
 coordinates out of range
 copper
 copy
@@ -31178,7 +31005,6 @@ cuxG
 cvar_getf
 cvar_setf
 cyan
-cycle
 cycle_class
 cycle_classes
 cylinder
@@ -31993,7 +31819,6 @@ ecsgosteamuserstat
 edge
 edit
 edit_box_text
-effectStateChanged
 effect_alive
 effect_amplitude
 effect_bloodpool
@@ -32585,9 +32410,6 @@ firstbombs_incoming_warning
 firstkills
 firstperson_default
 firstperson_hide_default_gloves
-fish_pos_x
-fish_pos_y
-fish_pos_z
 fit-children
 fiveseven
 fixed
@@ -32661,7 +32483,6 @@ flexible_loadout_default
 flexible_loadout_group
 flexible_loadout_group:spray0
 flexible_loadout_slot
-flicker
 flinch
 flinch_body_arm_left
 flinch_body_arm_right
@@ -32716,10 +32537,8 @@ focus-z-offset
 focus_change
 focus_change_fail
 fog_flow_map_texture
-fog_lighting
 fog_maxs
 fog_mins
-fogcontributionstrength
 foil
 folder
 folder_name
@@ -32826,7 +32645,6 @@ fuchsia
 fullname
 fullpos
 func(%lu)
-funcRotatingSimulationTimeSerializer
 function
 functionality not supported
 funfact-d1
@@ -32934,13 +32752,6 @@ game:server
 game:state
 game:xptrail
 gameModes
-gameSceneNode
-gameSceneNodeHierarchyAttachmentChanged
-gameSceneNodeHierarchyParentChanged
-gameSceneNodeLocalAnglesChanged
-gameSceneNodeLocalOriginChanged
-gameSceneNodeLocalScaleChanged
-gameSceneNodeStepSimulationAnglesSerializer
 gameSceneNodeStepSimulationOriginSerializer
 gameTypes
 game_display_type
@@ -33401,7 +33212,6 @@ hitboxes-container-priority-high
 hitboxes-container-priority-low
 hitboxes-container-priority-medium
 hitboxes-container-priority-none
-hitboxset
 hitgroup
 hitmode
 hits_given
@@ -34088,7 +33898,6 @@ initialselection
 initiator_steam_id
 initpredictable
 inmemory
-innerconeangle
 innermost
 inposition
 input not initialized
@@ -34944,9 +34753,6 @@ local
 local ang : (%f, %f, %f)\n
 local pos : (%f, %f, %f)\n
 local scale : (%f)\n
-local.angles
-local.origin
-local.scales
 localKeyID
 local_amplitude
 local_gravity_cp
@@ -35023,7 +34829,6 @@ m\ta=\ruWb
 m_16ByteOrLessStack out of space, falling through after %d entries, consider upping NETWORKFIELDSCRATCHDATA_16BYTE_COUNT\n
 m_BaseClasses
 m_Classes
-m_DamageList.*
 m_DefaultKV3
 m_DependentObservableBlackboardReferences
 m_DependentObservableTempVars
@@ -35053,14 +34858,11 @@ m_SerializerName
 m_Stops
 m_TagValue
 m_UserDefinedSerializerLookup
-m_aPawns
-m_animationController.m_flPlaybackRate
 m_bAllowNodrawTarget
 m_bBumpWithTimeoutWhenLearned
 m_bCanOpenWhenDead
 m_bCanTimeoutWhileInactive
 m_bChildCursorsShouldInherit
-m_bClientRagdoll
 m_bConditionValue
 m_bCustom
 m_bFirstEvaluate
@@ -35074,10 +34876,8 @@ m_bSendHandle: %d, m_Handle.Get: 0x%p\n
 m_bShowInUI
 m_bShowWhenOccluded
 m_bUseSeparateEyeRamp
-m_bUsesIndexedBakedLighting
 m_bUsingCommandQueue=%d
 m_bUsingLegacyDefault
-m_baseLayer.m_hSequence
 m_blockHeader
 m_bmaxs
 m_bmins
@@ -35098,7 +34898,6 @@ m_flLoopPlaybackRate
 m_flMaxEyeWeight
 m_flMaxHeadWeight
 m_flOutroPlaybackRate
-m_flPoseParameter
 m_flRelativeUpOffset
 m_flSimplePlaybackRate
 m_flSlopeIncoming
@@ -35108,7 +34907,6 @@ m_flViewFrustumAspect
 m_flViewFrustumFOV
 m_flViewmodelSSTScale
 m_flWorldUnitsPerTexel
-m_flexWeight
 m_hCursor
 m_hCursorOnOtherGraph
 m_hDef
@@ -35120,11 +34918,9 @@ m_hIconTarget
 m_hLocalPlayer
 m_hPrewarmPanoramaManifest != RESOURCE_MANIFEST_HANDLE_INVALID
 m_hWorldOffsetReferenceClip
-m_iActualHealthRemoved
 m_iGameDisplayType
 m_iInteger1
 m_iInteger2
-m_iRawValue32
 m_iValue
 m_iv_Transforms[ %d ]
 m_nCascade
@@ -35137,16 +34933,11 @@ m_nHeaderDimHeight
 m_nHeaderDimWidth
 m_nLegacyDefaultInt
 m_nLoopCount
-m_nMaxCPULevel
-m_nMaxGPULevel
-m_nModelIndex
-m_nNewSequenceParity
 m_nOutputHeight
 m_nOutputWidth
 m_nParamIndex < 0
 m_nPixelSSTHeight
 m_nPixelSSTWidth
-m_nResetEventsParity
 m_nStackDepthWhenAdded
 m_nVertCount
 m_nYieldToken
@@ -35161,7 +34952,6 @@ m_params.m_nNumBonesInChain < 8
 m_rgbColor
 m_shadowViewToProj
 m_shadowWorldToView
-m_skeletonInstance\.m_vecOrigin\..*|
 m_sphere
 m_stringReplaceKey
 m_szBinding
@@ -35799,7 +35589,6 @@ minpropscreenwidth
 minscale
 minsize=
 mintcream
-minusone
 minutes played
 minutes_played
 minutes_played_forever
@@ -35857,7 +35646,6 @@ missions
 missions_completed
 mistyrose
 miter
-mixedshadows
 mmF->CloseSession
 mmamammmmammamamaaamammma
 mmday
@@ -36182,7 +35970,6 @@ ncg:
 ne-resize
 ne[9
 nearby
-nearclipplane
 nearlyempty
 neck_0
 need new setup values
@@ -36502,7 +36289,6 @@ num_wins
 num_wins_to_clinch
 num_wins_to_clinch_this_period
 number=%d, address=%08lX\n
-numcascades
 numeric
 numericpassword
 nux-recommended
@@ -36715,8 +36501,6 @@ origin_ws
 originator
 originatorInfo
 originatorSignatureValue
-ortholightheight
-ortholightwidth
 os.length <= (int)sizeof(ret->session_id)
 osM@\vQ}
 ostrich
@@ -36739,7 +36523,6 @@ othername:<unsupported>
 otter
 out of memory
 outbound
-outerconeangle
 outline
 outofdate
 outofdate_subscribed_caches
@@ -36758,7 +36541,6 @@ outputdepth
 outputid
 over
 overhead_follow
-overlay_vars
 override list for game has grown to %d entries, consider using sorted list or other data structure!\n
 override of field %s::%s, flags changed from %s to %s in optimized map\n
 overrideTint: <
@@ -36951,20 +36733,17 @@ parameter
 parameter encoding error
 parameter_type
 parameters
-parametersChanged
 params
 params_data_driven
 parent
 parent %d
 parent-relative
 parentAttachment
-parentAttachmentName
 parent_cursor_id
 parent_piece
 parent_relay_count
 parentdisabled
 parenthesize_nicknames
-parentname
 parrot
 parse error
 parse tlsext
@@ -37128,7 +36907,6 @@ pathclass
 pathlen
 pathnodeclass
 patronizing
-pattern
 pattern_offset_x_end
 pattern_offset_x_start
 pattern_offset_y_end
@@ -37256,7 +37034,6 @@ pilotObjectClass
 pilotOrganization
 pilotPerson
 pin-fov
-pinStateChanged
 pings
 pink
 pip-type
@@ -37313,7 +37090,6 @@ playback_speed
 playback_tick
 playback_time
 playback_volume
-playbackrate
 playcast 
 playcast "%s"\n
 playcast "%s/%llui%d";\n
@@ -37331,7 +37107,6 @@ player-sound-footstep
 player-sound-max
 player-team-ct
 player-team-t
-playerEyeAnglesChanged
 player_activate
 player_animation_extension
 player_attachment_0
@@ -37492,7 +37267,6 @@ pos: (%f, %f, %f)\n
 pos_x
 pos_y
 pos_z
-positionInLocalSpace
 position_gravity_bias_cp
 position_objectspace
 position_relative
@@ -37513,10 +37287,7 @@ postnetworkdata
 postprocess
 postprocess_target
 posttime
-posx
 posxyz
-posy
-posz
 potentialVotes
 potential_issues
 powderblue
@@ -37531,7 +37302,6 @@ pre_match_data
 pre_pos
 pre_vel
 precomputed_vis_clusters
-precomputedmaxrange
 pred %d:%d
 predictable
 predictedRankingIfLoss
@@ -37717,7 +37487,6 @@ qOy*o
 qPq2k
 qTm_fC=
 qUN1
-qangle_precise
 qcStatements
 qf`ny
 quad_coverage.vtex
@@ -37807,7 +37576,6 @@ radial-select-hover
 radial_quickinventory.txt
 radialradio
 radialradio2
-ragEnabledChanged
 rand
 rand2
 random
@@ -37957,16 +37725,13 @@ render_tick_count
 render_tick_frac
 render_tick_fraction
 render_translucent_after_depth_of_field
-renderdiffuse
 rendering
 renderorigin_follow
-renderspecular
 rendertarget_ssao_depth_%d_%d
 rendertask
 rendertask.dem
 rendertask.info
 rendertask.tmp
-rendertransmissive
 renegotiate ext too long
 renegotiation encoding err
 renegotiation mismatch
@@ -38163,8 +37928,6 @@ rotatex
 rotatey
 rotatez
 rotating
-rotationAxis
-rotationSpeed
 rotation_limit_x
 rotation_limit_y
 round
@@ -38342,7 +38105,6 @@ sbgp-routerIdentifier
 scale3d
 scale3d( 
 scale: (%f)\n
-scales
 scalex
 scaley
 scalez
@@ -38447,7 +38209,6 @@ secondary3
 secondary4
 secondary5
 secondary_ammo
-secondary_color
 secondary_data
 secondary_empty
 seconds
@@ -38528,8 +38289,6 @@ seq_trans
 sequence length mismatch
 sequence not constructed
 sequence or set needs config
-sequenceName
-sequenceOpSequenceChanged
 sequence[%d] %s
 sequence_is_public
 sequence_max
@@ -38812,18 +38571,6 @@ sha512WithRSAEncryption
 shaWithRSAEncryption
 shaders
 shadow_light_texture
-shadowcascadedistance0
-shadowcascadedistance1
-shadowcascadedistance2
-shadowcascadedistance3
-shadowcascaderesolution0
-shadowcascaderesolution1
-shadowcascaderesolution2
-shadowcascaderesolution3
-shadowfademaxdist
-shadowfademindist
-shadowtextureheight
-shadowtexturewidth
 shakes
 shallow
 shared
@@ -38909,7 +38656,6 @@ silver
 simpleSecurityObject
 simple_cubic
 simulation
-simulationTimeSerializer
 single
 singleExtensions
 singleLevelQuality
@@ -38918,10 +38664,6 @@ single_player_pause
 single_shot
 single_shot_accurate
 singlematch
-skeletonMaterialGroupChanged
-skeletonMeshGroupMaskChanged
-skeletonModelChanged
-skeletonMotionTypeChanged
 skew
 skew( 
 skewx
@@ -38941,11 +38683,8 @@ skirmishmode
 skulltype
 sky_camera_volume_target (scale %d)
 sky_urb01
-skyambientbounce
 skyblue
 skybox
-skycolor
-skyintensity
 slateblue
 slategray
 slategrey
@@ -40599,9 +40338,7 @@ usage_capabilities
 use after date
 use srtp not negotiated
 use target is
-useLocalOffset
 useMapCamera
-useParentRenderBounds
 useSmoothPaths
 use_binding
 use_block_solver
@@ -40614,7 +40351,6 @@ use_normal
 use_oriented_effect
 use_pedestal_display_model
 use_per_class_bodygroups
-use_secondary_color
 use_string
 used_by_classes
 user too long
@@ -40823,7 +40559,6 @@ vmt://stickerpreview_
 vmt_overrides
 vmt_path
 vnmclip
-vnmgraph
 vnotify_ui
 vo_prefix
 voice

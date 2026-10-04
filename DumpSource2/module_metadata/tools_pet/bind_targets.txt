@@ -1,0 +1,126 @@
+Camera : CBindableCamera // src/tools/toolutils2/bindablecamera.cpp
+	// OverideHelpContextName = "SharedToolCommands"
+	CameraLookAtSelection
+	DecreaseMoveSpeed
+	HorizontalStrafeCamera
+	IncreaseMoveSpeed
+	MouseControlCamera
+	MouseControlCamera2D
+	MouseControlCamera3D
+	MouseControlCamera3D_Toggle
+	MouseLook3D
+	MoveCameraBackward3D
+	MoveCameraDown3D
+	MoveCameraForward3D
+	MoveCameraLeft3D
+	MoveCameraRight3D
+	MoveCameraUp3D
+	PanCamera3D
+	PitchCameraDown
+	PitchCameraUp
+	ResetMoveSpeed
+	RotateAboutTarget3D
+	SnapCameraToSelection
+	ToggleLockCameraHeight
+	VerticalStrafeCamera
+	YawCameraLeft
+	YawCameraRight
+	ZoomAllCamerasIn
+	ZoomAllCamerasOut
+	ZoomCameraIn
+	ZoomCameraOut
+	ZoomForwardBack2D
+	ZoomForwardBack3D
+
+CurveEditor : CQCurveEditorWidget // src/qcontrols/qcurveeditor.cpp
+	DeleteSelection
+	EditPoint
+	FrameCurve
+	ModifierAxisLock
+	ModifierInsertPoint
+	ModifierSelectToggle
+	MovePoint
+	Noop
+	PanView
+	SelectPoint
+	ShowMenu
+	ZoomIn
+	ZoomOut
+
+GlobalHotkeys : CGlobalHotkeyCommands // src/qcontrols/inputglobalhotkeys.cpp
+	DebugWidgetActiveWindow
+	DebugWidgetUnderMouse
+	DebugWidgetWithFocus
+	DummyNoOp
+	FocusChainDebug_Back
+	FocusChainDebug_Forward
+	FocusChainDebug_Less
+	FocusChainDebug_More
+	FocusChainDebug_Toggle
+	ShowAllCommandsPopup
+	ShowConsole
+	ShowFullHelpForBindableCommandUnderMouse
+	ShowInputDebugger
+	ShowWidgetDebugger
+	SwitchToEngineWindow
+
+LightingControl : CLightingControlRig // src/tools/toolscene/lightingcontrolrig.cpp
+	ReloadLightRigDefinitions
+	RotateLights
+	ToggleLights
+
+ParticlePreview : CQParticlePreview // src/tools/pet/qparticlepreview.cpp
+	GizmoRotate
+	GizmoTranslate
+	HideGizmo
+
+PetApp : CPetApp // src/tools/pet/petapp.cpp
+	ActivateNextEditorSession
+	ActivatePreviousEditorSession
+	ClearRecentFiles
+	FileClose
+	FileCloseAll
+	FileNew
+	FileOpen
+	FileOpenDir
+	FileReload
+	FileSave
+	FileSaveAll
+	FileSaveAs
+	NextSession
+	PreviousSession
+	ResetLayout
+	RestartGlobal
+	RestartPreview
+	StopSim
+	StopSimWithEndcap
+	VersionControlAdd
+	VersionControlCheckIn
+	VersionControlCheckInAll
+	VersionControlCheckOut
+	VersionControlStatus
+
+PetSession : CPetSession // src/tools/pet/petsession.cpp
+	AddChild
+	AddFunction
+	AddNewChild
+	Copy
+	Cut
+	Delete
+	Paste
+	Redo
+	Toggle
+	Undo
+
+SessionCycleWidget : CQSessionCycleWidget // src/tools/toolutils2/qbaseeditorwnd.cpp
+	KeepActive
+	NextSession
+	PreviousSession
+
+ToolSceneGizmo : CToolSceneGizmoLibGizmo // src/tools/toolscene/toolscene_gizmolib_gizmo.cpp
+	Drag
+
+ToolSceneWidget : CQToolSceneWidget // src/tools/toolscene/qtoolscenewidget.cpp
+	DebugToolScene
+	DefaultPreviewCamera
+

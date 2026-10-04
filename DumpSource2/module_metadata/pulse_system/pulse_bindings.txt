@@ -1,0 +1,2514 @@
+// scope_name = pulse_system.dll
+
+BaseDomain
+{
+	// m_FriendlyName = "Base Pulse Domain"
+	// m_nClassType = "baseclass"
+	// is_pulse_domain
+	// debugger_can_create_instance = false
+	// is_game_blackboard = false
+	// hidden_in_tool
+	class BaseDomain;
+}
+
+// fingerprint = 3525226864
+CPulseArraylib
+{
+	// m_FriendlyName = "Array Append"
+	// m_Description = "Copy 'element' to the end of 'a', increasing its count by one."
+	// a: metadata = {"polymorphic_arg":true}
+	// element: metadata = {"polymorphic_dependent_arg":"a:typeparam"}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayAppend(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_VARIANT element "element") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Concatenate"
+	// m_Description = "Add the array 'b' to the end of 'a'."
+	// a: metadata = {"polymorphic_arg":true}
+	// b: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayConcatenate(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_ARRAY:PVAL_UNKNOWN b "b") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Count"
+	// m_Description = "Return the number of elements in the array."
+	// a: metadata = {"polymorphic_arg":true}
+	function ArrayCount(PVAL_ARRAY:PVAL_UNKNOWN a "a") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Array Find Element Matching"
+	// m_Description = "Find first element 'a' which compare equal to 'element' and return its index. Returns -1 if not found."
+	// a: metadata = {"polymorphic_arg":true}
+	// element: metadata = {"polymorphic_dependent_arg":"a:typeparam"}
+	function ArrayFindElementMatching(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_VARIANT element "element") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Array First N Elements"
+	// m_Description = "Returns up to the maximum requested elements. Never grows the array (unlike SetCount)."
+	// a: metadata = {"polymorphic_arg":true}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayFirstNElements(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_INT nMaxElements "Max Elements" = 1) -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Has Element Matching"
+	// m_Description = "Check if any element of 'a' compares equal to 'element'."
+	// a: metadata = {"polymorphic_arg":true}
+	// element: metadata = {"polymorphic_dependent_arg":"a:typeparam"}
+	function ArrayHasElementMatching(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_VARIANT element "element") -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Array Insert"
+	// m_Description = "Insert 'element' in the given index in 'a', increasing its count by one and moving the elements after index."
+	// a: metadata = {"polymorphic_arg":true}
+	// element: metadata = {"polymorphic_dependent_arg":"a:typeparam"}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayInsert(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_INT nIndex "Index", PVAL_VARIANT element "element") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Remove Element Matching"
+	// m_Description = "Remove all elements from 'a' which compare equal to 'element'."
+	// a: metadata = {"polymorphic_arg":true}
+	// element: metadata = {"polymorphic_dependent_arg":"a:typeparam"}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayRemoveElementMatching(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_VARIANT element "element") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Remove Index"
+	// m_Description = "Remove the element at the given index in 'a', decreasing its count by one and moving the elements after index."
+	// a: metadata = {"polymorphic_arg":true}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayRemoveIndex(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_INT nIndex "Index") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Remove Invalid Elements"
+	// m_Description = "Remove all elements from 'a' which are invalid instances."
+	// a: metadata = {"polymorphic_arg":true}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayRemoveInvalidElements(PVAL_ARRAY:PVAL_UNKNOWN a "a") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Set Count"
+	// m_Description = "Set the number of elements in the array."
+	// a: metadata = {"polymorphic_arg":true}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArraySetCount(PVAL_ARRAY:PVAL_UNKNOWN a "a", PVAL_INT nCount "Count") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+
+	// m_FriendlyName = "Array Shuffle"
+	// m_Description = "Randomizes the order of items in the array (Knuth/Fisher-Yates Shuffle)"
+	// a: metadata = {"polymorphic_arg":true}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"a:fulltype"}
+	function ArrayShuffle(PVAL_ARRAY:PVAL_UNKNOWN a "a") -> (PVAL_ARRAY:PVAL_UNKNOWN retval "Result");
+}
+
+CPulseCell_Base
+{
+	// m_nClassType = ""
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	class CPulseCell_Base;
+}
+
+CPulseCell_BaseFlow
+{
+	// m_BaseClasses = ["CPulseCell_Base"]
+	// m_nClassType = ""
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	class CPulseCell_BaseFlow;
+}
+
+// fingerprint = 0
+CPulseCell_BaseLerp
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_nClassType = "baseclass"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// pulse_outflows = {"name":"m_WakeResume","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wake Resume","description":""}
+	// pulse_inflows = default
+	class CPulseCell_BaseLerp;
+}
+
+CPulseCell_BaseRequirement
+{
+	// m_BaseClasses = ["CPulseCell_Base"]
+	// m_nClassType = ""
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 7
+	// requirement_pass = 1
+	// requirement_summary_expr = ""
+	class CPulseCell_BaseRequirement;
+}
+
+// fingerprint = 0
+CPulseCell_BaseState
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_nClassType = "baseclass"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow = false
+	// generic_node_category = 5
+	// is_state_cell
+	// standard_yielding_flow
+	// header_icon = "tools/images/pulse_editor/inflow_statecell.png"
+	// pulse_inflows = default
+	class CPulseCell_BaseState;
+}
+
+CPulseCell_BaseValue
+{
+	// m_BaseClasses = ["CPulseCell_Base"]
+	// m_nClassType = ""
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	class CPulseCell_BaseValue;
+}
+
+// fingerprint = 3311802875
+CPulseCell_BaseYieldingInflow
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_nClassType = "baseclass"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	class CPulseCell_BaseYieldingInflow;
+}
+
+// fingerprint = 1295793995
+CPulseCell_BooleanSwitchState
+{
+	// m_BaseClasses = ["CPulseCell_BaseState"]
+	// m_FriendlyName = "Monitor Observable"
+	// m_Description = "While active, manage child cursors based on the results of a boolean condition. When the observable result changes, the prior cursor will be canceled and the appropriate outflow will fire a new child cursor. Will monitor continuously until externally canceled."
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow = false
+	// generic_node_category = 5
+	// is_state_cell
+	// standard_yielding_flow
+	// header_icon = "tools/images/pulse_editor/inflow_statecell.png"
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Activate","friendly_name":"Activate","description":"Begin testing a condition composed of Observable values. Continues checking until canceled.","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_BooleanSwitchState"
+	// editor_canvas_item_spec = {"className":"IsStateNode","item_factory":"BooleanSwitchState"}
+	// pulse_node_custom_attributes = [{"field_name":"m_Condition","attr_factory":"CPulseObservableExpression","friendly_name":"Observable","description":"Condition to evaluate when any of its dependent values change.","args":{"expression_type":"PVAL_BOOL"}}]
+	// pulse_outflows = {"name":"m_WhenTrue","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"While True","description":"Fired when the observable boolean is true, and killed when false."}, {"name":"m_WhenFalse","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"While False","description":"Fired when the observable boolean is false, and killed when true."}
+	class CPulseCell_BooleanSwitchState(null);
+}
+
+// fingerprint = 717294393
+CPulseCell_CursorQueue
+{
+	// m_BaseClasses = ["CPulseCell_WaitForCursorsWithTagBase"]
+	// m_FriendlyName = "Cursor Queue"
+	// m_Description = "Causes each execution cursor to wait for the completion of all prior cursors that have visited this node. Use this to safely support multiple triggers to areas of the graph that take time to complete."
+	// m_Variables[] = {"m_Name":"m_nCursorsAllowedToWait","m_FullType":"integer","m_LongName":"Cursors Allowed To Wait","m_Description":"Any extra waiting cursors will be terminated. -1 for infinite cursors.","m_bUsingLegacyDefault":false,"m_DefaultKV3":-1,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// m_Variables[] = {"m_Name":"m_nCursorsAllowedToRunParallel","m_FullType":"integer","m_LongName":"Cursors Allowed To Run Parallel","m_Description":"Any cursors above this count will wait, up to the limit.","m_bUsingLegacyDefault":false,"m_DefaultKV3":1,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode"}
+	// pulse_outflows = {"name":"m_WaitComplete","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wait Complete","description":""}
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Wait","friendly_name":"Wait","description":"","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_CursorQueue"
+	// header_icon = "tools/images/pulse_editor/cursor_wait_zone.png"
+	class CPulseCell_CursorQueue(null);
+}
+
+// fingerprint = 1486452097
+CPulseCell_ExampleCriteria
+{
+	// m_BaseClasses = ["CPulseCell_BaseRequirement"]
+	// m_FriendlyName = "Example Criteria"
+	// m_Description = "An example of requirement data with ports"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 7
+	// requirement_pass = 1
+	// requirement_summary_expr = ""
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"CheckRequirement","friendly_name":"Check Requirement","description":"","yields":false,"terminates":false,"is_default_inflow":false,"requirement_check":true,"requirement_commit":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_ExampleCriteria"
+	class CPulseCell_ExampleCriteria(PVAL_FLOAT m_flFloatValue1 "Float Value1", PVAL_FLOAT m_flFloatValue2 "Float Value2", PVAL_BOOL m_bMyBool "My Bool");
+}
+
+// fingerprint = 2001098527
+CPulseCell_ExampleSelector
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Select Example Criteria"
+	// m_Description = "Evaluate the requirements of each connected node"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow = false
+	// generic_node_category = 5
+	// is_state_cell = false
+	// allowed_requirements = {"CPulseCell_IsRequirementValid":true,"CPulseCell_ExampleCriteria":true,"CPulseCell_LimitCount":true}
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"ProcessSelector","friendly_name":"Process Selector","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_ExampleSelector"
+	// header_icon = "tools/images/pulse_editor/requirements.png"
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode","create_special_outflows_section":true}
+	// is_selector
+	// pulse_node_custom_attributes = [{"field_name":"m_OutflowList","attr_factory":"PulseSelectorOutflowList_t","friendly_name":"Outflow List","description":""}]
+	class CPulseCell_ExampleSelector(null);
+}
+
+// fingerprint = 3452528170
+CPulseCell_Inflow_Wait
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "Wait"
+	// m_Description = "Causes each execution cursor to pause at this node for a fixed period of time. Each cursor will wake up and resume execution when the time expires, unless aborted or early-woken."
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Wait","friendly_name":"Wait","description":"Pause the cursor at this point.","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Inflow_Wait"
+	// header_icon = "tools/images/pulse_editor/inflow_wait.png"
+	// editor_canvas_item_spec = {"className":"IsWaitNode IsControlFlowNode","item_factory":"InflowWait"}
+	// pulse_outflows = {"name":"m_WakeResume","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wake Resume","description":""}
+	class CPulseCell_Inflow_Wait(PVAL_FLOAT flDurationSec "Duration Sec");
+}
+
+// fingerprint = 2476493328
+CPulseCell_InlineNodeSkipSelector
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "InlineNodeSkipSelector"
+	// m_Variables[] = {"m_Name":"m_nFlowNodeID","m_FullType":"integer","m_LongName":"Flow Node ID","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":-1,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// m_Variables[] = {"m_Name":"m_bAnd","m_FullType":"boolean","m_LongName":"And","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":false,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// allowed_requirements = {"CPulseCell_IsRequirementValid":true,"CPulseCell_LimitCount":true}
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"ProcessSelector","friendly_name":"Process Selector","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_InlineNodeSkipSelector"
+	// is_selector
+	// pulse_node_custom_attributes = [{"field_name":"m_PassOutflow","attr_factory":"PulseSelectorOutflowList_t","friendly_name":"Pass Outflow","description":""}]
+	// pulse_outflows = {"name":"m_FailOutflow","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Fail Outflow","description":""}
+	class CPulseCell_InlineNodeSkipSelector(null);
+}
+
+// fingerprint = 1789125561
+CPulseCell_IntervalTimer
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "Interval Timer"
+	// m_Description = "Wait for a duration, firing a child cursor at regular (or randomized) intervals"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Start","friendly_name":"Start","description":"Start a timer with the specified duration, fire the OnInterval output ","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_IntervalTimer"
+	// header_icon = "tools/images/pulse_editor/node_timer.png"
+	// editor_canvas_item_spec = {"item_factory":"IntervalTimer"}
+	// pulse_outflows = {"name":"m_Completed","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Completed","description":"Called when timer reaches the duration OR is stopped. NOTE: This will run a little while AFTER the last interval fires unless they line up perfectly."}, {"name":"m_OnInterval","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"On Interval","description":"New child cursor starts here every time the wait interval elapses"}
+	// flDuration: description = "This is the overall duration. If -1 timer will continue forever. During this duration, we will fire a new child cursor at each Interval."
+	// flDuration: advanced_view
+	// flWaitInterval: advanced_view
+	// flWaitIntervalHigh: description = "If specified, each wait interval will vary randomly between WaitInterval this value"
+	// flWaitIntervalHigh: advanced_view
+	// flElapsed: description = "Time since the start of the timer"
+	// flElapsed: advanced_view
+	// flElapsed: associated_outflow_name = "m_OnInterval"
+	// flPercentage: description = "Value 0-1 how far along duration (always 0 if duration is -1)"
+	// flPercentage: advanced_view
+	// flPercentage: associated_outflow_name = "m_OnInterval"
+	class CPulseCell_IntervalTimer(PVAL_FLOAT flDuration "Duration" = -1.0, PVAL_FLOAT flWaitInterval "Wait Interval" = 1.0, PVAL_FLOAT flWaitIntervalHigh "Wait Interval High" = -1.0) -> (PVAL_FLOAT flElapsed "Elapsed", PVAL_FLOAT flPercentage "Percentage");
+}
+
+// fingerprint = 3165042484
+CPulseCell_LimitCount
+{
+	// m_BaseClasses = ["CPulseCell_BaseRequirement"]
+	// m_FriendlyName = "Limit Count"
+	// m_Description = "Skip this node after the limit. Check Type does not apply, the limit will always be checked."
+	// m_Variables[] = {"m_Name":"m_nLimitCount","m_FullType":"integer","m_LongName":"Limit Count","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":1,"m_KV3Metadata":{"hidden":false,"propattr_flatten_into_parent_row":true},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 7
+	// requirement_pass = 0
+	// requirement_summary_expr = "\"Limit Count: \" + m_nLimitCount"
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"CheckRequirement","friendly_name":"Check Requirement","description":"","yields":false,"terminates":false,"is_default_inflow":false,"requirement_check":true,"requirement_commit":false}, {"name":"CommitStep","friendly_name":"Commit Step","description":"","yields":false,"terminates":false,"is_default_inflow":false,"requirement_check":false,"requirement_commit":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_LimitCount"
+	class CPulseCell_LimitCount(null);
+}
+
+// fingerprint = 874680987
+CPulseCell_Outflow_TestExplicitYesNo
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "[Test] Explicit Yes/No Outflow"
+	// m_Description = "Test node that picks between two outflows as specified in the test domain."
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Outflow_TestExplicitYesNo"
+	// pulse_outflows = {"name":"m_Yes","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Yes","description":""}, {"name":"m_No","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"No","description":""}
+	class CPulseCell_Outflow_TestExplicitYesNo(null);
+}
+
+// fingerprint = 1043254935
+CPulseCell_Outflow_TestRandomYesNo
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "[Test] Random Yes/No Outflow"
+	// m_Description = "Test node that randomly picks between two outflows."
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Outflow_TestRandomYesNo"
+	// pulse_outflows = {"name":"m_Yes","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Yes","description":"Randomly taken half of the time"}, {"name":"m_No","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"No","description":"Randomly taken half of the time"}
+	class CPulseCell_Outflow_TestRandomYesNo(null);
+}
+
+// fingerprint = 252227061
+CPulseCell_PickBestOutflowSelector
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Select Best Exit"
+	// m_Description = "Evaluate the requirements of each connected node"
+	// m_Variables[] = {"m_Name":"m_nCheckType","m_FullType":"choices","m_LongName":"Check Type","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":"SORT_BY_NUMBER_OF_VALID_CRITERIA","m_KV3Metadata":{"hidden":false},"m_pItemSet":{"m_eType":"choices","m_Items":[{"m_iValue":0,"m_Value":"SORT_BY_NUMBER_OF_VALID_CRITERIA","m_FriendlyName":"Choose Best","m_bDefault":false,"m_bCustom":false,"m_Description":"Choose the best outflow with all rules passing, as determined by number of passing rules (specificity)."},{"m_iValue":0,"m_Value":"SORT_BY_OUTFLOW_INDEX","m_FriendlyName":"Choose First","m_bDefault":false,"m_bCustom":false,"m_Description":"Choose the first outflow with all rules passing, from left to right"}]}}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity
+	// expect_default_outflow = false
+	// generic_node_category = 5
+	// is_state_cell = false
+	// allowed_requirements = {"CPulseCell_IsRequirementValid":true,"CPulseCell_LimitCount":true}
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"ProcessSelector","friendly_name":"Process Selector","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_PickBestOutflowSelector"
+	// header_icon = "tools/images/pulse_editor/requirements.png"
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode","create_special_outflows_section":true}
+	// is_selector
+	// pulse_node_custom_attributes = [{"field_name":"m_OutflowList","attr_factory":"PulseSelectorOutflowList_t","friendly_name":"Outflow List","description":""}]
+	class CPulseCell_PickBestOutflowSelector(null);
+}
+
+// fingerprint = 3098106077
+CPulseCell_Step_TestDomainCreateFakeEntity
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Spawn Fake Entity"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Step_TestDomainCreateFakeEntity"
+	// pulse_outflows = default {"allow_direct_return":true}
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Run"
+	class CPulseCell_Step_TestDomainCreateFakeEntity(PVAL_STRING pName "Name", PVAL_STRING pClass "Class") -> (PVAL_TEST_HANDLE retval "Result");
+}
+
+// fingerprint = 2749340185
+CPulseCell_Step_TestDomainDestroyFakeEntity
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Destroy Fake Entity"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Step_TestDomainDestroyFakeEntity"
+	// pulse_outflows = default {"allow_direct_return":true}
+	class CPulseCell_Step_TestDomainDestroyFakeEntity(PVAL_TEST_HANDLE hEntity "Entity");
+}
+
+// fingerprint = 599064015
+CPulseCell_Step_TestDomainEntFire
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Fake Ent-Fire"
+	// m_Variables[] = {"m_Name":"m_Input","m_FullType":"string","m_LongName":"Input","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":"","m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Step_TestDomainEntFire"
+	// header_text = "Fire input {m_Input}"
+	// pulse_outflows = default {"allow_direct_return":true}
+	class CPulseCell_Step_TestDomainEntFire(PVAL_TEST_HANDLE pEnt "Ent", PVAL_STRING pParam "Param");
+}
+
+// fingerprint = 491339793
+CPulseCell_Step_TestDomainTracepoint
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Tracepoint"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":false,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Step_TestDomainTracepoint"
+	// pulse_outflows = default {"allow_direct_return":true}
+	class CPulseCell_Step_TestDomainTracepoint(PVAL_STRING pTraceString "Trace String");
+}
+
+// fingerprint = 3968509157
+CPulseCell_Test_MultiInflow_NoDefault
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Test_MultiInflow_NoDefault"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"InflowA","friendly_name":"Inflow A","description":"","yields":false,"terminates":true,"is_default_inflow":false}, {"name":"InflowB","friendly_name":"Inflow B","description":"","yields":false,"terminates":true,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Test_MultiInflow_NoDefault"
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTraceStringB: associated_inflow_name = "InflowB"
+	class CPulseCell_Test_MultiInflow_NoDefault(PVAL_STRING pTraceStringA "Trace String A", PVAL_STRING pTraceStringB "Trace String B");
+}
+
+// fingerprint = 1187710888
+CPulseCell_Test_MultiInflow_WithDefault
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Test_MultiInflow_WithDefault"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"InflowA","friendly_name":"Inflow A","description":"","yields":false,"terminates":false,"is_default_inflow":true}, {"name":"InflowB","friendly_name":"Inflow B","description":"","yields":false,"terminates":true,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Test_MultiInflow_WithDefault"
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTraceStringB: associated_inflow_name = "InflowB"
+	class CPulseCell_Test_MultiInflow_WithDefault(PVAL_STRING pTraceStringA "Trace String A", PVAL_STRING pTraceStringB "Trace String B");
+}
+
+// fingerprint = 1146619215
+CPulseCell_Test_MultiOutflow_WithParams
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Test_MultiOutflow_WithParams"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"InflowA","friendly_name":"Inflow A","description":"","yields":false,"terminates":false,"is_default_inflow":true}, {"name":"InflowB","friendly_name":"Inflow B","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Test_MultiOutflow_WithParams"
+	// pulse_outflows = {"name":"m_Out1","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Out1","description":""}, {"name":"m_Out2","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Out2","description":""}
+	// nWhichOutflowB: associated_inflow_name = "InflowB"
+	// pTraceB: associated_inflow_name = "InflowB"
+	// nRetValue: associated_outflow_name = "m_Out1"
+	// nRetValue2: associated_outflow_name = "m_Out1"
+	// pRetName: associated_outflow_name = "m_Out2"
+	class CPulseCell_Test_MultiOutflow_WithParams(PVAL_INT nWhichOutflowA "Which Outflow A", PVAL_STRING pTraceA "Trace A", PVAL_INT nWhichOutflowB "Which Outflow B", PVAL_STRING pTraceB "Trace B") -> (PVAL_INT nRetValue "Ret Value", PVAL_FLOAT nRetValue2 "Ret Value2", PVAL_STRING pRetName "Ret Name");
+}
+
+// fingerprint = 282249292
+CPulseCell_Test_MultiOutflow_WithParams_Yielding
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "Test_MultiOutflow_WithParams_Yielding"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Start","friendly_name":"Start","description":"","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Test_MultiOutflow_WithParams_Yielding"
+	// pulse_outflows = {"name":"m_Out1","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Out1","description":""}, {"name":"m_AsyncChild1","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Async Child1","description":""}, {"name":"m_AsyncChild2","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Async Child2","description":""}, {"name":"m_YieldResume1","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Yield Resume1","description":""}, {"name":"m_YieldResume2","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Yield Resume2","description":""}
+	// nRetValue: associated_outflow_name = "m_Out1"
+	// nAsyncRet1: associated_outflow_name = "m_AsyncChild1"
+	// pAsyncRet2: associated_outflow_name = "m_AsyncChild2"
+	// nYieldArg1: associated_outflow_name = "m_YieldResume1"
+	// pYieldArg2: associated_outflow_name = "m_YieldResume2"
+	class CPulseCell_Test_MultiOutflow_WithParams_Yielding(null) -> (PVAL_INT nRetValue "Ret Value", PVAL_INT nAsyncRet1 "Async Ret1", PVAL_STRING pAsyncRet2 "Async Ret2", PVAL_INT nYieldArg1 "Yield Arg1", PVAL_STRING pYieldArg2 "Yield Arg2");
+}
+
+// fingerprint = 0
+CPulseCell_Test_NoInflow
+{
+	// m_BaseClasses = ["CPulseCell_BaseFlow"]
+	// m_FriendlyName = "Test_NoInflow"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	class CPulseCell_Test_NoInflow;
+}
+
+// fingerprint = 209794526
+CPulseCell_TestEnums
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Test Enums"
+	// m_Variables[] = {"m_Name":"m_nReferenceColor","m_FullType":"choices","m_LongName":"Reference Color","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":"BLACK","m_KV3Metadata":{"hidden":false},"m_pItemSet":{"m_eType":"choices","m_Items":[{"m_iValue":0,"m_Value":"BLACK","m_FriendlyName":"Black","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"WHITE","m_FriendlyName":"White","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"RED","m_FriendlyName":"Red","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"GREEN","m_FriendlyName":"Green","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"BLUE","m_FriendlyName":"Blue","m_bDefault":false,"m_bCustom":false,"m_Description":""}]}}
+	// m_Variables[] = {"m_Name":"m_nReferenceFlags","m_FullType":"flagchoices","m_LongName":"Reference Flags","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":"","m_KV3Metadata":{"hidden":false},"m_pItemSet":{"m_eType":"flagchoices","m_Items":[{"m_iValue":0,"m_Value":"FIRST","m_FriendlyName":"First","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"SECOND","m_FriendlyName":"Second","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"THIRD","m_FriendlyName":"Third","m_bDefault":false,"m_bCustom":false,"m_Description":""}]}}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"CompareValues","friendly_name":"Compare Values","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_TestEnums"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "CompareValues"
+	class CPulseCell_TestEnums(PVAL_SCHEMA_ENUM:PulseTestEnumColor_t nColor "Color", PVAL_SCHEMA_ENUM:PulseTestEnumFlags_t nFlags "Flags") -> (PVAL_BOOL retval "Result");
+}
+
+// fingerprint = 1664417737
+CPulseCell_TestWaitWithAutoTracepoints
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "Wait and Trace"
+	// m_Variables[] = {"m_Name":"m_TracePrefix","m_FullType":"string","m_LongName":"Trace Prefix","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":"","m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Wait","friendly_name":"Wait","description":"","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_TestWaitWithAutoTracepoints"
+	// pulse_outflows = {"name":"m_WakeResume","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wake Resume","description":""}
+	class CPulseCell_TestWaitWithAutoTracepoints(PVAL_FLOAT flDurationSec "Duration Sec");
+}
+
+// fingerprint = 2674571404
+CPulseCell_TestWaitWithCursorState
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "TestWaitWithCursorState"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Wait","friendly_name":"Wait","description":"Pause the cursor at this point.","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_TestWaitWithCursorState"
+	// pulse_outflows = {"name":"m_WakeResume","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wake Resume","description":""}, {"name":"m_WakeFail","is_default_outflow":false,"backed_by_variable":true,"friendly_name":"Wake Fail","description":""}
+	class CPulseCell_TestWaitWithCursorState(PVAL_FLOAT flDurationSec "Duration Sec" = 10.0, PVAL_BOOL bFail "Fail" = false);
+}
+
+// fingerprint = 322175843
+CPulseCell_TestYieldForever
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "TestYieldForever"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow = false
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_TestYieldForever"
+	class CPulseCell_TestYieldForever(null);
+}
+
+// fingerprint = 869312600
+CPulseCell_TestYieldWithObservables
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "TestYieldWithObservables"
+	// m_Variables[] = {"m_Name":"m_flWatchForFloatValue","m_FullType":"float","m_LongName":"Watch For Float Value","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":0.0,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// m_Variables[] = {"m_Name":"m_WatchForStringValue","m_FullType":"string","m_LongName":"Watch For String Value","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":"","m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Run","friendly_name":"Run","description":"","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_TestYieldWithObservables"
+	// pulse_node_custom_attributes = [{"field_name":"m_LiveFloatValue","attr_factory":"CPulseObservableExpression","friendly_name":"Live Float Value","description":"","args":{"expression_type":"PVAL_FLOAT"}},{"field_name":"m_LiveStringValue","attr_factory":"CPulseObservableExpression","friendly_name":"Live String Value","description":"","args":{"expression_type":"PVAL_STRING"}}]
+	// pulse_outflows = {"name":"m_WakeResume","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wake Resume","description":""}
+	class CPulseCell_TestYieldWithObservables(null);
+}
+
+// fingerprint = 1963384413
+CPulseCell_Val_TestDomainFindEntityByName
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Find Fake Entity"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Val_TestDomainFindEntityByName"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Val_TestDomainFindEntityByName(PVAL_STRING pName "Name") -> (PVAL_TEST_HANDLE retval "Result");
+}
+
+// fingerprint = 789060903
+CPulseCell_Val_TestDomainGetEntityName
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Get Fake Entity Name"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Val_TestDomainGetEntityName"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Val_TestDomainGetEntityName(PVAL_TEST_HANDLE hEntity "Entity") -> (PVAL_STRING retval "Result");
+}
+
+// fingerprint = 975032352
+CPulseCell_Value_Curve
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Curve"
+	// m_Variables[] = {"m_Name":"m_Curve","m_FullType":"curve","m_LongName":"Curve","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":{"m_spline":[],"m_tangents":[],"m_vDomainMins":[0.0,0.0],"m_vDomainMaxs":[0.0,0.0]},"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"Evaluate the curve at the specified input position","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Value_Curve"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Value_Curve(PVAL_FLOAT t "t") -> (PVAL_FLOAT retval "Result");
+}
+
+// fingerprint = 2092843331
+CPulseCell_Value_Gradient
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Gradient"
+	// m_Variables[] = {"m_Name":"m_Gradient","m_FullType":"kv3","m_LongName":"Gradient","m_Description":"","m_bUsingLegacyDefault":false,"m_DefaultKV3":{"m_Stops":[]},"m_KV3Metadata":{"hidden":false,"editor":"Gradient()"},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"Evaluate the gradient at a position between 0 and 1","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Value_Gradient"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Value_Gradient(PVAL_FLOAT t "t") -> (PVAL_COLOR_RGB retval "Result");
+}
+
+// fingerprint = 326640291
+CPulseCell_Value_RandomFloat
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Random Float"
+	// m_Description = "Generate a random float between min and max (inclusive)"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Value_RandomFloat"
+	// header_icon = "tools/images/pulse_editor/exit_cycle_random.png"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Value_RandomFloat(PVAL_FLOAT flMin "Min", PVAL_FLOAT flMax "Max") -> (PVAL_FLOAT retval "Result");
+}
+
+// fingerprint = 393431413
+CPulseCell_Value_RandomInt
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "Random Integer"
+	// m_Description = "Generate a random integer between min and max (inclusive)"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Value_RandomInt"
+	// header_icon = "tools/images/pulse_editor/exit_cycle_random.png"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Value_RandomInt(PVAL_INT nMin "Min", PVAL_INT nMax "Max") -> (PVAL_INT retval "Result");
+}
+
+// fingerprint = 399151736
+CPulseCell_Value_TestValue50
+{
+	// m_BaseClasses = ["CPulseCell_BaseValue"]
+	// m_FriendlyName = "[Test] Int Value 50"
+	// m_Description = "Test node that just generates the integer 50. Nothing to see here!"
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 4
+	// supported_domains = {"TestDomain":true}
+	// pulse_inflows = {"name":"Eval","friendly_name":"Eval","description":"","yields":false,"terminates":false,"is_default_inflow":false}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_Value_TestValue50"
+	// retval: associated_outflow_name = "OutDefault"
+	// retval: direct_return_value_for = "Eval"
+	class CPulseCell_Value_TestValue50(null) -> (PVAL_INT retval "Result");
+}
+
+// fingerprint = 860342186
+CPulseCell_WaitForCursorsWithTag
+{
+	// m_BaseClasses = ["CPulseCell_WaitForCursorsWithTagBase"]
+	// m_FriendlyName = "Wait For Cursors With Tag"
+	// m_Description = "Causes this execution cursor to wait for the completion of other cursors with the given tag. Can optionally kill the tag while waiting."
+	// m_Variables[] = {"m_Name":"m_nCursorsAllowedToWait","m_FullType":"integer","m_LongName":"Cursors Allowed To Wait","m_Description":"Any extra waiting cursors will be terminated. -1 for infinite cursors.","m_bUsingLegacyDefault":false,"m_DefaultKV3":-1,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// m_Variables[] = {"m_Name":"m_bTagSelfWhenComplete","m_FullType":"boolean","m_LongName":"Tag Self When Complete","m_Description":"Apply the same tag we're waiting on to the resulting cursor upon wait completion. Can be used to wait on our result cursor with the same tag.","m_bUsingLegacyDefault":false,"m_DefaultKV3":false,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// m_Variables[] = {"m_Name":"m_nDesiredKillPriority","m_FullType":"choices","m_LongName":"Desired Kill Priority","m_Description":"When we start waiting, how should we handle existing cursors?","m_bUsingLegacyDefault":false,"m_DefaultKV3":"None","m_KV3Metadata":{"hidden":false},"m_pItemSet":{"m_eType":"choices","m_Items":[{"m_iValue":0,"m_Value":"None","m_FriendlyName":"Keep running normally.","m_bDefault":false,"m_bCustom":false,"m_Description":""},{"m_iValue":0,"m_Value":"CancelOnSucceeded","m_FriendlyName":"Kill After.","m_bDefault":false,"m_bCustom":false,"m_Description":"Do not stop the current yielding node, but do not continue to the next node afterwards."},{"m_iValue":0,"m_Value":"SoftCancel","m_FriendlyName":"Kill Elegantly.","m_bDefault":false,"m_bCustom":false,"m_Description":"Request elegant wind-down of any associated work (e.g. vcd interrupt)."},{"m_iValue":0,"m_Value":"HardCancel","m_FriendlyName":"Kill Immediately.","m_bDefault":false,"m_bCustom":false,"m_Description":"Stop without any wind-down."}]}}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode"}
+	// pulse_outflows = {"name":"m_WaitComplete","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wait Complete","description":""}
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Wait","friendly_name":"Wait","description":"","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_WaitForCursorsWithTag"
+	// header_icon = "tools/images/pulse_editor/cursor_tag.png"
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	class CPulseCell_WaitForCursorsWithTag(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]]);
+}
+
+CPulseCell_WaitForCursorsWithTagBase
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_nClassType = ""
+	// m_Variables[] = {"m_Name":"m_nCursorsAllowedToWait","m_FullType":"integer","m_LongName":"Cursors Allowed To Wait","m_Description":"Any extra waiting cursors will be terminated. -1 for infinite cursors.","m_bUsingLegacyDefault":false,"m_DefaultKV3":-1,"m_KV3Metadata":{"hidden":false},"m_pItemSet":null}
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode"}
+	// pulse_outflows = {"name":"m_WaitComplete","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"Wait Complete","description":""}
+	// pulse_inflows = default
+	class CPulseCell_WaitForCursorsWithTagBase;
+}
+
+// fingerprint = 1630411852
+CPulseCell_WaitForObservable
+{
+	// m_BaseClasses = ["CPulseCell_BaseYieldingInflow"]
+	// m_FriendlyName = "Wait Until"
+	// m_Description = "All values connected to this node must be 'observable'. Variables on this graph will be automatically promoted to observable. Other value nodes must take an explicit context, look for those nodes with a corresponding icon."
+	// MVDataNodeType = 0
+	// MVDataOverlayType = 0
+	// hidden_in_tool = false
+	// selector_has_specificity = false
+	// expect_default_outflow
+	// generic_node_category = 5
+	// is_state_cell = false
+	// standard_yielding_flow
+	// supported_domains = {"BaseDomain":true}
+	// pulse_inflows = {"name":"Start","friendly_name":"Start","description":"Begin testing a condition composed of Observable variable references. Continues checking until true.","yields":true,"terminates":false,"is_default_inflow":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseCell_WaitForObservable"
+	// header_icon = "tools/images/pulse_editor/observable_variable_listener.png"
+	// pulse_node_custom_attributes = [{"field_name":"m_Condition","attr_factory":"CPulseObservableExpression","friendly_name":"Observable","description":"Condition to evaluate when any of its dependent values change.","args":{"expression_type":"PVAL_BOOL"}}]
+	// pulse_outflows = {"name":"m_OnTrue","is_default_outflow":true,"backed_by_variable":true,"friendly_name":"On True","description":""}
+	class CPulseCell_WaitForObservable(null);
+}
+
+// fingerprint = 2994080292
+CPulseCursorFuncs
+{
+	// m_FriendlyName = "Any Other Cursors Have Tag"
+	// m_Description = "Check if any yielded cursors on the graph already have the given tag."
+	// header_icon = "tools/images/pulse_editor/cursor_tag.png"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	function AnyOtherCursorsHaveTag(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]]) -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Cursor Has Tag"
+	// m_Description = "Check if the cursor already has the given tag."
+	// header_icon = "tools/images/pulse_editor/cursor_tag.png"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	function CursorHasTag(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]]) -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Kill All Other Cursors"
+	// m_Description = "Find all the yielded cursors on this graph and cancel them."
+	// header_icon = "tools/images/pulse_editor/cursor_kill.png"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// nKillPriority: advanced_view
+	function KillAllOtherCursors(PVAL_SCHEMA_ENUM:PulseCursorCancelPriority_t nKillPriority "Kill Priority" = "HardCancel");
+
+	// m_FriendlyName = "Kill Cursors With Tag"
+	// m_Description = "Find all the yielded cursors on this graph with the matching tag and cancel them."
+	// header_icon = "tools/images/pulse_editor/kill_cursor_with_tag.png"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	// nKillPriority: advanced_view
+	function KillCursorsWithTag(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]], PVAL_SCHEMA_ENUM:PulseCursorCancelPriority_t nKillPriority "Kill Priority" = "HardCancel");
+
+	// m_FriendlyName = "Remove Tag From Cursor"
+	// m_Description = "Remove the given tag from this cursor. If other cursors are waiting on us, they will resume."
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode"}
+	// header_icon = "tools/images/pulse_editor/cursor_tag.png"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	function RemoveTagFromCursor(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]]);
+
+	// m_FriendlyName = "Tag Cursor"
+	// m_Description = "Save a named value of any type on the cursor."
+	// editor_canvas_item_spec = {"className":"IsControlFlowNode"}
+	// header_icon = "tools/images/pulse_editor/cursor_tag.png"
+	// adds_cursor_tag
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	// bInherit: description = "If this cursor spawns other work via Fire And Forget, should this Tag be inherited?"
+	// bInherit: advanced_view
+	function TagCursor(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]], PVAL_BOOL bInherit "Inherit" = false);
+
+	// m_FriendlyName = "Wake Cursors With Tag"
+	// m_Description = "Find all the yielded cursors on this graph with the matching tag and wake them."
+	// header_icon = "tools/images/pulse_editor/kill_cursor_with_tag.png"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pTagName: description = "A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them."
+	// tagValue: description = "Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is responsible for this Cursor. The Tag is defined by the unique combination of Name and Value."
+	// tagValue: advanced_view
+	function WakeCursorsWithTag(PVAL_STRING pTagName "Tag Name", PVAL_VARIANT tagValue "Tag Value" = ["PVAL_VARIANT",["PVAL_STRING",""]], PVAL_SCHEMA_ENUM:PulseCursorWakePriority_t nWakePriority "Wake Priority" = "WakeElegantly");
+}
+
+// fingerprint = 1916837592
+CPulseEnumlib
+{
+	// m_FriendlyName = "Add Flags"
+	// m_Description = "Add flags to the given value."
+	// value: metadata = {"polymorphic_arg":true}
+	// flags: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"value:fulltype"}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"value:fulltype"}
+	function AddFlags(PVAL_SCHEMA_ENUM value "value", PVAL_SCHEMA_ENUM flags "flags") -> (PVAL_SCHEMA_ENUM retval "Result");
+
+	// m_FriendlyName = "Has All Flags"
+	// m_Description = "Whether value has ALL of the specified flags set (it may have other flags.)"
+	// expr_alias = "allflags"
+	// expr_alias_info = "allflags( Schema Enum value, Schema Enum flags )"
+	// value: metadata = {"polymorphic_arg":true}
+	// flags: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"value:fulltype"}
+	function HasAllFlags(PVAL_SCHEMA_ENUM value "value", PVAL_SCHEMA_ENUM flags "flags") -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Has Any Flags"
+	// m_Description = "Whether value has ANY of the specified flags set (it may have other flags.)"
+	// expr_alias = "anyflags"
+	// expr_alias_info = "anyflags( Schema Enum value, Schema Enum flags )"
+	// value: metadata = {"polymorphic_arg":true}
+	// flags: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"value:fulltype"}
+	function HasAnyFlags(PVAL_SCHEMA_ENUM value "value", PVAL_SCHEMA_ENUM flags "flags") -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Remove Flags"
+	// m_Description = "Remove flags from the given value."
+	// value: metadata = {"polymorphic_arg":true}
+	// flags: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"value:fulltype"}
+	// retval: metadata = {"polymorphic_arg":true,"polymorphic_dependent_arg":"value:fulltype"}
+	function RemoveFlags(PVAL_SCHEMA_ENUM value "value", PVAL_SCHEMA_ENUM flags "flags") -> (PVAL_SCHEMA_ENUM retval "Result");
+}
+
+// fingerprint = 4056096240
+CPulseGraphInstance_TestDomain
+{
+	// m_FriendlyName = "GenerateInt"
+	// m_Description = "External system requesting an int from the test graph"
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseGraphInstance_TestDomain"
+	// expected_return_type = "PVAL_INT"
+	// is_pulse_hook
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	// nParam: associated_inflow_name = "CPulseGraphInstance_TestDomain::GenerateInt"
+	class GenerateInt -> (PVAL_INT nParam "Param");
+
+	// m_FriendlyName = "GenerateIntWithResult"
+	// m_Description = "External system requesting an int from the test graph (variant)"
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseGraphInstance_TestDomain"
+	// expected_return_type = "PVAL_INT"
+	// is_pulse_hook
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	class GenerateIntWithResult -> (null);
+
+	// m_FriendlyName = "GenerateVector"
+	// m_Description = "External system requesting a vector from the test graph"
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseGraphInstance_TestDomain"
+	// expected_return_type = "PVAL_VEC3"
+	// is_pulse_hook
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	class GenerateVector -> (null);
+
+	// m_FriendlyName = "HandleInt"
+	// m_Description = "External system providing an int for the test graph to consume"
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseGraphInstance_TestDomain"
+	// expected_return_type = "PVAL_VOID"
+	// is_pulse_hook
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	// nValue: associated_inflow_name = "CPulseGraphInstance_TestDomain::HandleInt"
+	class HandleInt -> (PVAL_INT nValue "Value");
+}
+
+// fingerprint = 2810664148
+CPulseGraphInstance_TestDomain_Derived
+{
+	// m_FriendlyName = "Get Instance Value X"
+	// m_Description = "Get the 'ValueX' number off the graph instance."
+	// supported_domains = {"TestDomain_Derived":true}
+	function GetInstanceValueX(null) -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "HandleIntDerived"
+	// m_Description = "Derived"
+	// supported_domains = {"TestDomain_Derived":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseGraphInstance_TestDomain_Derived"
+	// expected_return_type = "PVAL_VOID"
+	// is_pulse_hook
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	// nValue: associated_inflow_name = "CPulseGraphInstance_TestDomain_Derived::HandleIntDerived"
+	class HandleIntDerived -> (PVAL_INT nValue "Value");
+
+	// m_FriendlyName = "Set Instance Value X"
+	// m_Description = "Set the 'ValueX' number on the graph instance."
+	// supported_domains = {"TestDomain_Derived":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetInstanceValueX(PVAL_INT nValue "Value");
+}
+
+// fingerprint = 3115190533
+CPulseGraphInstance_TurtleGraphics
+{
+	// m_FriendlyName = "Go"
+	// m_Description = "Called to invoke the graph"
+	// supported_domains = {"TurtleGraphics":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseGraphInstance_TurtleGraphics"
+	// expected_return_type = "PVAL_VOID"
+	// is_pulse_hook
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	class Go -> (null);
+}
+
+// fingerprint = 1311878972
+CPulseMathlib
+{
+	// m_FriendlyName = "Abs Float"
+	// m_Description = "Absolute value (float)"
+	// expr_alias = "abs"
+	// expr_alias_info = "abs( Float x )"
+	// has_observable_context
+	// is_pure_value
+	function AbsFloat(PVAL_FLOAT x "x") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Abs Int"
+	// m_Description = "Absolute value (int)"
+	// expr_alias = "abs"
+	// expr_alias_info = "abs( Integer x )"
+	// has_observable_context
+	// is_pure_value
+	function AbsInt(PVAL_INT x "x") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Arc Cos"
+	// m_Description = "Arc Cosine of input value. Input must be -1.0, 1.0 range. Output in radians, from 0 to pi"
+	// expr_alias = "acos"
+	// expr_alias_info = "acos( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function ArcCos(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Arc Sin"
+	// m_Description = "Arc Sine of input value. Input must be -1.0, 1.0 range. Output in radians, from -pi/2 to pi/2"
+	// expr_alias = "asin"
+	// expr_alias_info = "asin( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function ArcSin(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Arc Tan"
+	// m_Description = "Arc Tangent of input value. Input can be any real number. Output in radians, from -pi/2 to pi/2"
+	// expr_alias = "atan"
+	// expr_alias_info = "atan( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function ArcTan(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Ceiling Float"
+	// m_Description = "Ceiling - round float up to nearest integer)"
+	// expr_alias = "ceil"
+	// expr_alias_info = "ceil( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function CeilingFloat(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Clamp Float"
+	// m_Description = "Clamp value to range (float)"
+	// expr_alias = "clamp"
+	// expr_alias_info = "clamp( Float x, Float flMin, Float flMax )"
+	// has_observable_context
+	// is_pure_value
+	function ClampFloat(PVAL_FLOAT x "x", PVAL_FLOAT flMin "Min", PVAL_FLOAT flMax "Max") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Clamp Int"
+	// m_Description = "Clamp value to range (int)"
+	// expr_alias = "clamp"
+	// expr_alias_info = "clamp( Integer x, Integer nMin, Integer nMax )"
+	// has_observable_context
+	// is_pure_value
+	function ClampInt(PVAL_INT x "x", PVAL_INT nMin "Min", PVAL_INT nMax "Max") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Compose Angles"
+	// m_Description = "Applies B in A's local space."
+	// expr_alias = "composeAngles"
+	// expr_alias_info = "composeAngles( Angle AngleA, Angle AngleB )"
+	// has_observable_context
+	// is_pure_value
+	function ComposeAngles(PVAL_QANGLE AngleA "Angle A", PVAL_QANGLE AngleB "Angle B") -> (PVAL_QANGLE retval "Result");
+
+	// m_FriendlyName = "Compose Transforms"
+	// m_Description = "Applies 'Local' on top of 'Base'. Inverse of 'Get Relative Transform'"
+	// expr_alias = "composeTransforms"
+	// expr_alias_info = "composeTransforms( World Transform Base, Transform Local )"
+	// has_observable_context
+	// is_pure_value
+	function ComposeTransforms(PVAL_TRANSFORM_WORLDSPACE Base "Base", PVAL_TRANSFORM Local "Local") -> (PVAL_TRANSFORM_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Cos"
+	// m_Description = "Cosine of angle. Input in radians, output in radians"
+	// expr_alias = "cos"
+	// expr_alias_info = "cos( Float flRadians )"
+	// has_observable_context
+	// is_pure_value
+	function Cos(PVAL_FLOAT flRadians "Radians") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Cross Product Vector"
+	// m_Description = "Cross Product of Vector a x Vector b"
+	// expr_alias = "cross"
+	// expr_alias_info = "cross( Vector a, Vector b )"
+	// has_observable_context
+	// is_pure_value
+	function CrossProductVector(PVAL_VEC3 a "a", PVAL_VEC3 b "b") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Deg2 Rad"
+	// m_Description = "Convert degrees (0-180) to radians (0-pi)"
+	// expr_alias = "deg2rad"
+	// expr_alias_info = "deg2rad( Float flDegrees )"
+	// has_observable_context
+	// is_pure_value
+	function Deg2Rad(PVAL_FLOAT flDegrees "Degrees") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Dot Product Vector"
+	// m_Description = "Dot Product of Vector a • Vector b"
+	// expr_alias = "dot"
+	// expr_alias_info = "dot( Vector a, Vector b )"
+	// has_observable_context
+	// is_pure_value
+	function DotProductVector(PVAL_VEC3 a "a", PVAL_VEC3 b "b") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Exp"
+	// m_Description = "Computes e ( 2.71...) raised to a power"
+	// expr_alias = "exp"
+	// expr_alias_info = "exp( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Exp(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Exp2"
+	// m_Description = "Computes 2 raised to a power"
+	// expr_alias = "exp2"
+	// expr_alias_info = "exp2( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Exp2(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Float To Game Time"
+	// m_Description = "Convert from a raw floating-point time to a Game Time that will be saved/loaded appropriately"
+	// has_observable_context
+	// is_pure_value
+	function FloatToGameTime(PVAL_FLOAT flFloat "Float") -> (PVAL_GAMETIME retval "Result");
+
+	// m_FriendlyName = "Floor Float"
+	// m_Description = "Floor - round float down to nearest integer"
+	// expr_alias = "floor"
+	// expr_alias_info = "floor( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function FloorFloat(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Frac"
+	// m_Description = "Fractional component (ie. returns 0.34 for 12.34)"
+	// expr_alias = "frac"
+	// expr_alias_info = "frac( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Frac(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Game Time To Float"
+	// m_Description = "Convert from a Game Time a raw floating-point time that will NOT fixed up - use with caution!"
+	// has_observable_context
+	// is_pure_value
+	function GameTimeToFloat(PVAL_GAMETIME flTime "Time") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Get Relative Transform"
+	// m_Description = "Returns a local transform that you could put back into 'Compose Transforms' to recover 'Offset'"
+	// expr_alias = "getRelativeTransform"
+	// expr_alias_info = "getRelativeTransform( World Transform Base, World Transform Offset )"
+	// has_observable_context
+	// is_pure_value
+	function GetRelativeTransform(PVAL_TRANSFORM_WORLDSPACE Base "Base", PVAL_TRANSFORM_WORLDSPACE Offset "Offset") -> (PVAL_TRANSFORM retval "Result");
+
+	// m_FriendlyName = "Integer Divide"
+	// m_Description = "Integer division - unlike the divide (/) node, this will truncate any remainder (floor) and return an integer."
+	// expr_alias = "idiv"
+	// expr_alias_info = "idiv( Integer nNumerator, Integer nDenominator )"
+	// has_observable_context
+	// is_pure_value
+	function IntegerDivide(PVAL_INT nNumerator "Numerator", PVAL_INT nDenominator "Denominator") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Inverse Rotate Vector"
+	// m_Description = "Rotate a vector by the inverse of a local transform, not including position or scale. Inverse of 'Rotate Vector'."
+	// expr_alias = "inverseRotateVector"
+	// expr_alias_info = "inverseRotateVector( Transform Transform, Vector Vector )"
+	// has_observable_context
+	// is_pure_value
+	function InverseRotateVector(PVAL_TRANSFORM Transform "Transform", PVAL_VEC3 Vector "Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Inverse Transform Vector"
+	// m_Description = "Transform a vector by the inverse of a local transform, including position and scale. Inverse of 'Transform Vector'."
+	// expr_alias = "inverseTransformVector"
+	// expr_alias_info = "inverseTransformVector( Transform Transform, Vector Vector )"
+	// has_observable_context
+	// is_pure_value
+	function InverseTransformVector(PVAL_TRANSFORM Transform "Transform", PVAL_VEC3 Vector "Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Is Valid Vector"
+	// m_Description = "Returns true if the Vector is valid"
+	// has_observable_context
+	// is_pure_value
+	function IsValidVector(PVAL_VEC3 a "a") -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Is Valid World Vector"
+	// m_Description = "Returns true if the World Vector is valid"
+	// has_observable_context
+	// is_pure_value
+	function IsValidWorldVector(PVAL_VEC3_WORLDSPACE a "a") -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Length Vector"
+	// m_Description = "Length (magnitude) of Vector"
+	// expr_alias = "length3d"
+	// expr_alias_info = "length3d( Vector a )"
+	// has_observable_context
+	// is_pure_value
+	function LengthVector(PVAL_VEC3 a "a") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Length Vector2 D"
+	// m_Description = "Length (magnitude) of Vector2D"
+	// expr_alias = "length2d"
+	// expr_alias_info = "length2d( Vector2D a )"
+	// has_observable_context
+	// is_pure_value
+	function LengthVector2D(PVAL_VEC2 a "a") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Lerp Angle"
+	// m_Description = "Returns interpolated value between A and B based on frac 0.0 - 1.0 (angle)"
+	// expr_alias = "lerp"
+	// expr_alias_info = "lerp( Float flFrac, Angle AngleA, Angle AngleB )"
+	// has_observable_context
+	// is_pure_value
+	function LerpAngle(PVAL_FLOAT flFrac "Frac", PVAL_QANGLE AngleA "Angle A", PVAL_QANGLE AngleB "Angle B") -> (PVAL_QANGLE retval "Result");
+
+	// m_FriendlyName = "Lerp Float"
+	// m_Description = "Returns interpolated value between A and B based on frac 0.0 - 1.0 (float)"
+	// expr_alias = "lerp"
+	// expr_alias_info = "lerp( Float flFrac, Float flValueA, Float flValueB )"
+	// has_observable_context
+	// is_pure_value
+	function LerpFloat(PVAL_FLOAT flFrac "Frac", PVAL_FLOAT flValueA "Value A", PVAL_FLOAT flValueB "Value B") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Lerp Transform"
+	// m_Description = "Returns interpolated value between A and B based on frac 0.0 - 1.0 (transform)"
+	// expr_alias = "lerp"
+	// expr_alias_info = "lerp( Float flFrac, Transform TransformA, Transform TransformB )"
+	// has_observable_context
+	// is_pure_value
+	function LerpTransform(PVAL_FLOAT flFrac "Frac", PVAL_TRANSFORM TransformA "Transform A", PVAL_TRANSFORM TransformB "Transform B") -> (PVAL_TRANSFORM retval "Result");
+
+	// m_FriendlyName = "Lerp Vector"
+	// m_Description = "Returns interpolated value between A and B based on frac 0.0 - 1.0 (vector)"
+	// expr_alias = "lerp"
+	// expr_alias_info = "lerp( Float flFrac, Vector vecValueA, Vector vecValueB )"
+	// has_observable_context
+	// is_pure_value
+	function LerpVector(PVAL_FLOAT flFrac "Frac", PVAL_VEC3 vecValueA "Value A", PVAL_VEC3 vecValueB "Value B") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Lerp World Transform"
+	// m_Description = "Returns interpolated value between A and B based on frac 0.0 - 1.0 (world transform)"
+	// expr_alias = "lerp"
+	// expr_alias_info = "lerp( Float flFrac, World Transform TransformA, World Transform TransformB )"
+	// has_observable_context
+	// is_pure_value
+	function LerpWorldTransform(PVAL_FLOAT flFrac "Frac", PVAL_TRANSFORM_WORLDSPACE TransformA "Transform A", PVAL_TRANSFORM_WORLDSPACE TransformB "Transform B") -> (PVAL_TRANSFORM_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Lerp World Vector"
+	// m_Description = "Returns interpolated value between A and B based on frac 0.0 - 1.0 (world vector)"
+	// expr_alias = "lerp"
+	// expr_alias_info = "lerp( Float flFrac, World Vector vecValueA, World Vector vecValueB )"
+	// has_observable_context
+	// is_pure_value
+	function LerpWorldVector(PVAL_FLOAT flFrac "Frac", PVAL_VEC3_WORLDSPACE vecValueA "Value A", PVAL_VEC3_WORLDSPACE vecValueB "Value B") -> (PVAL_VEC3_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Log"
+	// m_Description = "Natural logarithm (base e)"
+	// expr_alias = "log"
+	// expr_alias_info = "log( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Log(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Log10"
+	// m_Description = "Base-10 logarithm"
+	// expr_alias = "log10"
+	// expr_alias_info = "log10( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Log10(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Log2"
+	// m_Description = "Base-2 logarithm"
+	// expr_alias = "log2"
+	// expr_alias_info = "log2( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Log2(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Make Angle"
+	// m_Description = "Make an Angle from component parts"
+	// expr_alias = "ang"
+	// expr_alias_info = "ang( Float flPitch, Float flYaw, Float flRoll )"
+	// has_observable_context
+	// is_pure_value
+	function MakeAngle(PVAL_FLOAT flPitch "Pitch", PVAL_FLOAT flYaw "Yaw", PVAL_FLOAT flRoll "Roll") -> (PVAL_QANGLE retval "Result");
+
+	// m_FriendlyName = "Make Angle From Forward Vector"
+	// m_Description = "Make an Angle from a Forward Vector"
+	// expr_alias = "vec2ang"
+	// expr_alias_info = "vec2ang( Vector vForward )"
+	// has_observable_context
+	// is_pure_value
+	function MakeAngleFromForwardVector(PVAL_VEC3 vForward "Forward") -> (PVAL_QANGLE retval "Result");
+
+	// m_FriendlyName = "Make Color"
+	// m_Description = "Make a Color from component parts"
+	// expr_alias = "color"
+	// expr_alias_info = "color( Integer r, Integer g, Integer b )"
+	// has_observable_context
+	// is_pure_value
+	function MakeColor(PVAL_INT r "r", PVAL_INT g "g", PVAL_INT b "b") -> (PVAL_COLOR_RGB retval "Result");
+
+	// m_FriendlyName = "Make Transform"
+	// m_Description = "Make a Transform from component parts."
+	// expr_alias = "xform"
+	// expr_alias_info = "xform( Vector origin, Angle angle, Float flScale )"
+	// has_observable_context
+	// is_pure_value
+	// flScale: advanced_view
+	function MakeTransform(PVAL_VEC3 origin "origin", PVAL_QANGLE angle "angle", PVAL_FLOAT flScale "Scale" = 1.0) -> (PVAL_TRANSFORM retval "Result");
+
+	// m_FriendlyName = "Make Vector"
+	// m_Description = "Make a Vector from component parts."
+	// expr_alias = "vec"
+	// expr_alias_info = "vec( Float x, Float y, Float z )"
+	// has_observable_context
+	// is_pure_value
+	function MakeVector(PVAL_FLOAT x "x", PVAL_FLOAT y "y", PVAL_FLOAT z "z") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Make Vector2 D"
+	// m_Description = "Make a Vector2D from component parts."
+	// expr_alias = "vec2"
+	// expr_alias_info = "vec2( Float x, Float y )"
+	// has_observable_context
+	// is_pure_value
+	function MakeVector2D(PVAL_FLOAT x "x", PVAL_FLOAT y "y") -> (PVAL_VEC2 retval "Result");
+
+	// m_FriendlyName = "Make Vector4 D"
+	// m_Description = "Make a Vector from component parts."
+	// expr_alias = "vec4"
+	// expr_alias_info = "vec4( Float x, Float y, Float z, Float w )"
+	// has_observable_context
+	// is_pure_value
+	function MakeVector4D(PVAL_FLOAT x "x", PVAL_FLOAT y "y", PVAL_FLOAT z "z", PVAL_FLOAT w "w") -> (PVAL_VEC4 retval "Result");
+
+	// m_FriendlyName = "Make Vector From Angle"
+	// m_Description = "Make a Vector from an Angle"
+	// expr_alias = "ang2vec"
+	// expr_alias_info = "ang2vec( Angle angles )"
+	// has_observable_context
+	// is_pure_value
+	function MakeVectorFromAngle(PVAL_QANGLE angles "angles") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Make World Transform"
+	// m_Description = "Make a Transform from component parts."
+	// expr_alias = "wxform"
+	// expr_alias_info = "wxform( World Vector origin, Angle angle, Float flScale )"
+	// has_observable_context
+	// is_pure_value
+	// flScale: advanced_view
+	function MakeWorldTransform(PVAL_VEC3_WORLDSPACE origin "origin", PVAL_QANGLE angle "angle", PVAL_FLOAT flScale "Scale" = 1.0) -> (PVAL_TRANSFORM_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Make World Vector"
+	// m_Description = "Make a World Vector from component parts."
+	// expr_alias = "wvec"
+	// expr_alias_info = "wvec( Float x, Float y, Float z )"
+	// has_observable_context
+	// is_pure_value
+	function MakeWorldVector(PVAL_FLOAT x "x", PVAL_FLOAT y "y", PVAL_FLOAT z "z") -> (PVAL_VEC3_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Max Float"
+	// m_Description = "Maximum of two values (float)"
+	// expr_alias = "max"
+	// expr_alias_info = "max( Float x, Float y )"
+	// has_observable_context
+	// is_pure_value
+	function MaxFloat(PVAL_FLOAT x "x", PVAL_FLOAT y "y") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Max Int"
+	// m_Description = "Maximum of two values (int)"
+	// expr_alias = "max"
+	// expr_alias_info = "max( Integer x, Integer y )"
+	// has_observable_context
+	// is_pure_value
+	function MaxInt(PVAL_INT x "x", PVAL_INT y "y") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Min Float"
+	// m_Description = "Minimum of two values (float)"
+	// expr_alias = "min"
+	// expr_alias_info = "min( Float x, Float y )"
+	// has_observable_context
+	// is_pure_value
+	function MinFloat(PVAL_FLOAT x "x", PVAL_FLOAT y "y") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Min Int"
+	// m_Description = "Minimum of two values (int)"
+	// expr_alias = "min"
+	// expr_alias_info = "min( Integer x, Integer y )"
+	// has_observable_context
+	// is_pure_value
+	function MinInt(PVAL_INT x "x", PVAL_INT y "y") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Normalize Vector"
+	// m_Description = "Normalize Vector a"
+	// expr_alias = "normalize"
+	// expr_alias_info = "normalize( Vector a )"
+	// has_observable_context
+	// is_pure_value
+	function NormalizeVector(PVAL_VEC3 a "a") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Pi"
+	// m_Description = "Returns the constant pi (3.14...)"
+	// expr_alias = "pi"
+	// expr_alias_info = "pi()"
+	// has_observable_context
+	// is_pure_value
+	function Pi(null) -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Pow"
+	// m_Description = "X to the Y power"
+	// expr_alias = "pow"
+	// expr_alias_info = "pow( Float flValue, Float flExponent )"
+	// has_observable_context
+	// is_pure_value
+	function Pow(PVAL_FLOAT flValue "Value", PVAL_FLOAT flExponent "Exponent") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Rad2 Deg"
+	// m_Description = "Convert radians (0-pi) to degrees (0-180)"
+	// expr_alias = "rad2deg"
+	// expr_alias_info = "rad2deg( Float flRadians )"
+	// has_observable_context
+	// is_pure_value
+	function Rad2Deg(PVAL_FLOAT flRadians "Radians") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Random World Position"
+	// m_Description = "Returns a random position centered on vCenter with random min and max radius"
+	// expr_alias = "random_position"
+	// expr_alias_info = "random_position( World Vector vCenter, Float flMinRadius, Float flMaxRadius )"
+	function RandomWorldPosition(PVAL_VEC3_WORLDSPACE vCenter "Center", PVAL_FLOAT flMinRadius "Min Radius", PVAL_FLOAT flMaxRadius "Max Radius") -> (PVAL_VEC3_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Remap Clamped Float"
+	// m_Description = "Remap and clamp input value from input range to output range (float)"
+	// expr_alias = "remap"
+	// expr_alias_info = "remap( Float flVal, Float flInputA, Float flInputB, Float flOutputA, Float flOutputB )"
+	// has_observable_context
+	// is_pure_value
+	function RemapClampedFloat(PVAL_FLOAT flVal "Val", PVAL_FLOAT flInputA "Input A", PVAL_FLOAT flInputB "Input B", PVAL_FLOAT flOutputA "Output A", PVAL_FLOAT flOutputB "Output B") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Rotate Vector"
+	// m_Description = "Rotate a relative vector by a local transform, not including position or scale."
+	// expr_alias = "rotateVector"
+	// expr_alias_info = "rotateVector( Transform Transform, Vector LocalVector )"
+	// has_observable_context
+	// is_pure_value
+	function RotateVector(PVAL_TRANSFORM Transform "Transform", PVAL_VEC3 LocalVector "Local Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Rotate Vector To World"
+	// m_Description = "Rotate a relative vector into a world direction, not including position or scale."
+	// expr_alias = "rotateVectorToWorld"
+	// expr_alias_info = "rotateVectorToWorld( World Transform Transform, Vector LocalVector )"
+	// has_observable_context
+	// is_pure_value
+	function RotateVectorToWorld(PVAL_TRANSFORM_WORLDSPACE Transform "Transform", PVAL_VEC3 LocalVector "Local Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Rotate World Vector To Local"
+	// m_Description = "Rotate a world direction vector into a local direction, not including position or scale."
+	// expr_alias = "rotateVectorToLocal"
+	// expr_alias_info = "rotateVectorToLocal( World Transform Transform, Vector WorldVector )"
+	// has_observable_context
+	// is_pure_value
+	function RotateWorldVectorToLocal(PVAL_TRANSFORM_WORLDSPACE Transform "Transform", PVAL_VEC3 WorldVector "World Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Round Float"
+	// m_Description = "Round - round float up or down to integer"
+	// expr_alias = "round"
+	// expr_alias_info = "round( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function RoundFloat(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "R Sqrt"
+	// m_Description = "Reciprocoal square root (1/sqrt)"
+	// expr_alias = "rsqrt"
+	// expr_alias_info = "rsqrt( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function RSqrt(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Saturate"
+	// m_Description = "Saturate (clamps float between 0 and 1)"
+	// expr_alias = "saturate"
+	// expr_alias_info = "saturate( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Saturate(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Sign Float"
+	// m_Description = "Returns -1.0 or 0.0 or 1.0 based on the sign of the argument"
+	// expr_alias = "sign"
+	// expr_alias_info = "sign( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function SignFloat(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Sign Int"
+	// m_Description = "Returns -1 or 0 or 1 based on the sign of the argument"
+	// expr_alias = "sign"
+	// expr_alias_info = "sign( Integer nValue )"
+	// has_observable_context
+	// is_pure_value
+	function SignInt(PVAL_INT nValue "Value") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Sin"
+	// m_Description = "Sine of angle. Input in radians, output in radians"
+	// expr_alias = "sin"
+	// expr_alias_info = "sin( Float flRadians )"
+	// has_observable_context
+	// is_pure_value
+	function Sin(PVAL_FLOAT flRadians "Radians") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Split Angle"
+	// m_Description = "Split an Angle into component parts."
+	// has_observable_context
+	// is_pure_value
+	function SplitAngle(PVAL_QANGLE angle "angle") -> (PVAL_FLOAT Pitch "Pitch", PVAL_FLOAT Yaw "Yaw", PVAL_FLOAT Roll "Roll");
+
+	// m_FriendlyName = "Split Color"
+	// m_Description = "Split a Color into component parts."
+	// has_observable_context
+	// is_pure_value
+	function SplitColor(PVAL_COLOR_RGB color "color") -> (PVAL_INT R "R", PVAL_INT G "G", PVAL_INT B "B");
+
+	// m_FriendlyName = "Split Transform"
+	// m_Description = "Split a Transform into component parts."
+	// has_observable_context
+	// is_pure_value
+	// Scale: advanced_view
+	function SplitTransform(PVAL_TRANSFORM transform "transform") -> (PVAL_VEC3 Origin "Origin", PVAL_QANGLE Angle "Angle", PVAL_FLOAT Scale "Scale");
+
+	// m_FriendlyName = "Split Vector"
+	// m_Description = "Split a Vector into component parts."
+	// has_observable_context
+	// is_pure_value
+	function SplitVector(PVAL_VEC3 vecValue "Value") -> (PVAL_FLOAT X "X", PVAL_FLOAT Y "Y", PVAL_FLOAT Z "Z");
+
+	// m_FriendlyName = "Split Vector2 D"
+	// m_Description = "Split a Vector2D into component parts."
+	// has_observable_context
+	// is_pure_value
+	function SplitVector2D(PVAL_VEC2 vecValue "Value") -> (PVAL_FLOAT X "X", PVAL_FLOAT Y "Y");
+
+	// m_FriendlyName = "Split Vector4 D"
+	// m_Description = "Split a Vector into component parts."
+	// has_observable_context
+	// is_pure_value
+	function SplitVector4D(PVAL_VEC4 vecValue "Value") -> (PVAL_FLOAT X "X", PVAL_FLOAT Y "Y", PVAL_FLOAT Z "Z", PVAL_FLOAT W "W");
+
+	// m_FriendlyName = "Split World Transform"
+	// m_Description = "Split a Transform into component parts."
+	// has_observable_context
+	// is_pure_value
+	// Scale: advanced_view
+	function SplitWorldTransform(PVAL_TRANSFORM_WORLDSPACE transform "transform") -> (PVAL_VEC3_WORLDSPACE Origin "Origin", PVAL_QANGLE Angle "Angle", PVAL_FLOAT Scale "Scale");
+
+	// m_FriendlyName = "Split World Vector"
+	// m_Description = "Split a World Vector into component parts."
+	// has_observable_context
+	// is_pure_value
+	function SplitWorldVector(PVAL_VEC3_WORLDSPACE vecValue "Value") -> (PVAL_FLOAT X "X", PVAL_FLOAT Y "Y", PVAL_FLOAT Z "Z");
+
+	// m_FriendlyName = "Sqr Float"
+	// m_Description = "Square"
+	// expr_alias = "sqr"
+	// expr_alias_info = "sqr( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function SqrFloat(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Sqr Int"
+	// m_Description = "Square"
+	// expr_alias = "sqr"
+	// expr_alias_info = "sqr( Integer nValue )"
+	// has_observable_context
+	// is_pure_value
+	function SqrInt(PVAL_INT nValue "Value") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Sqrt"
+	// m_Description = "Square root"
+	// expr_alias = "sqrt"
+	// expr_alias_info = "sqrt( Float flValue )"
+	// has_observable_context
+	// is_pure_value
+	function Sqrt(PVAL_FLOAT flValue "Value") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Tan"
+	// m_Description = "Tangent of angle. Input in radians, output in radians"
+	// expr_alias = "tan"
+	// expr_alias_info = "tan( Float flRadians )"
+	// has_observable_context
+	// is_pure_value
+	function Tan(PVAL_FLOAT flRadians "Radians") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Transform Inverse"
+	// m_Description = "Returns the inverse of a transform."
+	// expr_alias = "transformInverse"
+	// expr_alias_info = "transformInverse( Transform Transform )"
+	// has_observable_context
+	// is_pure_value
+	function TransformInverse(PVAL_TRANSFORM Transform "Transform") -> (PVAL_TRANSFORM retval "Result");
+
+	// m_FriendlyName = "Transform Vector"
+	// m_Description = "Transform a relative vector by a local transform, including position and scale."
+	// expr_alias = "transformVector"
+	// expr_alias_info = "transformVector( Transform Transform, Vector LocalVector )"
+	// has_observable_context
+	// is_pure_value
+	function TransformVector(PVAL_TRANSFORM Transform "Transform", PVAL_VEC3 LocalVector "Local Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Transform Vector To World"
+	// m_Description = "Transform a relative vector into worldspace, including position and scale."
+	// expr_alias = "transformVectorToWorld"
+	// expr_alias_info = "transformVectorToWorld( World Transform Transform, Vector LocalVector )"
+	// has_observable_context
+	// is_pure_value
+	function TransformVectorToWorld(PVAL_TRANSFORM_WORLDSPACE Transform "Transform", PVAL_VEC3 LocalVector "Local Vector") -> (PVAL_VEC3_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "Transform World Vector To Local"
+	// m_Description = "Transform a worldspace vector into a relative vector, including position and scale."
+	// expr_alias = "transformVectorToLocal"
+	// expr_alias_info = "transformVectorToLocal( World Transform Transform, World Vector WorldVector )"
+	// has_observable_context
+	// is_pure_value
+	function TransformWorldVectorToLocal(PVAL_TRANSFORM_WORLDSPACE Transform "Transform", PVAL_VEC3_WORLDSPACE WorldVector "World Vector") -> (PVAL_VEC3 retval "Result");
+
+	// m_FriendlyName = "Vector To World Vector"
+	// m_Description = "Convert from a local-space to a world-space vector"
+	// expr_alias = "vec2wvec"
+	// expr_alias_info = "vec2wvec( Vector vecValue )"
+	// has_observable_context
+	// is_pure_value
+	function VectorToWorldVector(PVAL_VEC3 vecValue "Value") -> (PVAL_VEC3_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "World Transform Inverse"
+	// m_Description = "Returns the inverse of a world transform."
+	// expr_alias = "worldTransformInverse"
+	// expr_alias_info = "worldTransformInverse( World Transform Transform )"
+	// has_observable_context
+	// is_pure_value
+	function WorldTransformInverse(PVAL_TRANSFORM_WORLDSPACE Transform "Transform") -> (PVAL_TRANSFORM_WORLDSPACE retval "Result");
+
+	// m_FriendlyName = "World Vector To Vector"
+	// m_Description = "Convert from a world-space to local-space vector"
+	// expr_alias = "wvec2vec"
+	// expr_alias_info = "wvec2vec( World Vector vecValue )"
+	// has_observable_context
+	// is_pure_value
+	function WorldVectorToVector(PVAL_VEC3_WORLDSPACE vecValue "Value") -> (PVAL_VEC3 retval "Result");
+}
+
+// fingerprint = 1343543655
+CPulseStringlib
+{
+	// m_FriendlyName = "Format1"
+	// m_Description = "Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>\"Hello {} my name is {}\"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>\"Hello {0} my name is {1}\"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>"
+	// expr_alias = "fmt"
+	// expr_alias_info = "fmt( String strFormat, String value0 )"
+	// has_observable_context
+	// is_pure_value
+	function Format1(PVAL_STRING strFormat "Format", PVAL_STRING value0 "value0") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Format2"
+	// m_Description = "Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>\"Hello {} my name is {}\"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>\"Hello {0} my name is {1}\"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>"
+	// expr_alias = "fmt"
+	// expr_alias_info = "fmt( String strFormat, String value0, String value1 )"
+	// has_observable_context
+	// is_pure_value
+	function Format2(PVAL_STRING strFormat "Format", PVAL_STRING value0 "value0", PVAL_STRING value1 "value1") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Format3"
+	// m_Description = "Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>\"Hello {} my name is {}\"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>\"Hello {0} my name is {1}\"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>"
+	// expr_alias = "fmt"
+	// expr_alias_info = "fmt( String strFormat, String value0, String value1, String value2 )"
+	// has_observable_context
+	// is_pure_value
+	function Format3(PVAL_STRING strFormat "Format", PVAL_STRING value0 "value0", PVAL_STRING value1 "value1", PVAL_STRING value2 "value2") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Format4"
+	// m_Description = "Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>\"Hello {} my name is {}\"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>\"Hello {0} my name is {1}\"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>"
+	// expr_alias = "fmt"
+	// expr_alias_info = "fmt( String strFormat, String value0, String value1, String value2, String value3 )"
+	// has_observable_context
+	// is_pure_value
+	function Format4(PVAL_STRING strFormat "Format", PVAL_STRING value0 "value0", PVAL_STRING value1 "value1", PVAL_STRING value2 "value2", PVAL_STRING value3 "value3") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Format5"
+	// m_Description = "Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>\"Hello {} my name is {}\"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>\"Hello {0} my name is {1}\"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>"
+	// expr_alias = "fmt"
+	// expr_alias_info = "fmt( String strFormat, String value0, String value1, String value2, String value3, String value4 )"
+	// has_observable_context
+	// is_pure_value
+	function Format5(PVAL_STRING strFormat "Format", PVAL_STRING value0 "value0", PVAL_STRING value1 "value1", PVAL_STRING value2 "value2", PVAL_STRING value3 "value3", PVAL_STRING value4 "value4") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Format Duration String From Seconds"
+	// m_Description = "Turn a time in seconds into a display string. NOT localized."
+	// has_observable_context
+	// is_pure_value
+	// nRemainderNoiseDigits: description = "After the real remainder, how many additional digits should we continue to append to create additional visual movement?"
+	// nRemainderNoiseDigits: advanced_view
+	function FormatDurationStringFromSeconds(PVAL_FLOAT flSeconds "Seconds", PVAL_SCHEMA_ENUM:PulseDurationStringFormat_t nFormat "Format" = "MM_SS_LEADING_ZERO", PVAL_INT nRemainderDigits "Remainder Digits" = 0, PVAL_INT nRemainderNoiseDigits "Remainder Noise Digits" = 0) -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "String Length"
+	// m_Description = "Count the number of codepoints in the string (unicode-aware). If you want rendered glyphs, you probably want to consider using Panorama."
+	// has_observable_context
+	// is_pure_value
+	function StringLength(PVAL_STRING strValue "Value") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Strings Are Equal Case Sensitive"
+	// m_Description = "Compare strings with case sensitivity, in contrast to normal string equality which is case-insensitive."
+	// has_observable_context
+	// is_pure_value
+	function StringsAreEqualCaseSensitive(PVAL_STRING a "a", PVAL_STRING b "b") -> (PVAL_BOOL retval "Result");
+}
+
+// fingerprint = 2306211623
+CPulseTestFuncs_LibraryA
+{
+	// m_FriendlyName = "AGreaterThan5"
+	// m_Description = "Fired when A exceeds 5."
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseTestFuncs_LibraryA"
+	// is_pulse_global_event
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	class AGreaterThan5 -> (null);
+
+	// m_FriendlyName = "AValueChanged"
+	// m_Description = "Fired whenever the global A value changes."
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseTestFuncs_LibraryA"
+	// is_pulse_global_event
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	// nValue: associated_inflow_name = "CPulseTestFuncs_LibraryA::AValueChanged"
+	class AValueChanged -> (PVAL_INT nValue "Value");
+
+	// m_FriendlyName = "AZeroed"
+	// m_Description = "Fired when A becomes 0 from any other number."
+	// supported_domains = {"TestDomain":true}
+	// fingerprint = "@lib:pulse_system.dll!CPulseTestFuncs_LibraryA"
+	// is_pulse_global_event
+	// is_spontaneous
+	// generic_node_category = 5
+	// pulse_outflows = default
+	class AZeroed -> (null);
+
+	// m_FriendlyName = "Get Enum Color Value"
+	// m_Description = "Get the global color enum value."
+	// supported_domains = {"TestDomain":true}
+	function GetEnumColorValue(null) -> (PVAL_SCHEMA_ENUM:PulseTestEnumColor_t retval "Result");
+
+	// m_FriendlyName = "Get Enum Flags Value"
+	// m_Description = "Get the global flags enum value."
+	// supported_domains = {"TestDomain":true}
+	function GetEnumFlagsValue(null) -> (PVAL_SCHEMA_ENUM:PulseTestEnumFlags_t retval "Result");
+
+	// m_FriendlyName = "Get Enum Shape Value"
+	// m_Description = "Get the global shape enum value."
+	// supported_domains = {"TestDomain":true}
+	function GetEnumShapeValue(null) -> (PVAL_SCHEMA_ENUM:PulseTestEnumShape_t retval "Result");
+
+	// m_FriendlyName = "Get Float Value"
+	// m_Description = "Get the global float value."
+	// supported_domains = {"TestDomain":true}
+	function GetFloatValue(null) -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Get Int Value"
+	// m_Description = "Get the global int value."
+	// supported_domains = {"TestDomain":true}
+	function GetIntValue(null) -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Get String Value"
+	// m_Description = "Get the global string value."
+	// supported_domains = {"TestDomain":true}
+	function GetStringValue(null) -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Get String With Default"
+	// m_Description = "Return the input string, use the code default if none was supplied."
+	// supported_domains = {"TestDomain":true}
+	function GetStringWithDefault(PVAL_STRING pString "String" = "Default echo string.") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Get Vector Length With Ref"
+	// supported_domains = {"TestDomain":true}
+	function GetVectorLengthWithRef(PVAL_VEC3 testRef "Test Ref") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Library Destroy Fake Entity"
+	// m_Description = "Destroy a fake entity from a static library function."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function LibraryDestroyFakeEntity(PVAL_TEST_HANDLE nHandle "Handle");
+
+	// m_FriendlyName = "Library Find Fake Entity By Name"
+	// m_Description = "Find a spawned entity by name."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function LibraryFindFakeEntityByName(PVAL_STRING pName "Name") -> (PVAL_TEST_HANDLE retval "Result");
+
+	// m_FriendlyName = "Library Spawn Fake Entity"
+	// m_Description = "Spawn a fake entity from a static library function."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function LibrarySpawnFakeEntity(PVAL_STRING pName "Name", PVAL_STRING pClass "Class" = "") -> (PVAL_TEST_HANDLE retval "Result");
+
+	// m_FriendlyName = "Print String With Editor Suggestions"
+	// m_Description = "Print string with suggestions from editor code."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pValue: metadata = {"suggestion_name":"pulse_test_example_suggestion"}
+	function PrintStringWithEditorSuggestions(PVAL_STRING pValue "Value");
+
+	// m_FriendlyName = "Print String With Leaf Suggestions"
+	// m_Description = "Print string with suggestions from leaf code."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// pValue: metadata = {"suggestion_name":"RegisterChoice_CPulseTestFuncs_LibraryA_PrintStringWithLeafSuggestions"}
+	function PrintStringWithLeafSuggestions(PVAL_STRING pValue "Value");
+
+	// m_FriendlyName = "Set Enum Color"
+	// m_Description = "Set the global color enum value."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetEnumColor(PVAL_SCHEMA_ENUM:PulseTestEnumColor_t color "color" = "BLACK");
+
+	// m_FriendlyName = "Set Enum Flags"
+	// m_Description = "Set the global color flags value."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetEnumFlags(PVAL_SCHEMA_ENUM:PulseTestEnumFlags_t flags "flags" = "");
+
+	// m_FriendlyName = "Set Enum Shape"
+	// m_Description = "Set the global color shape value."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetEnumShape(PVAL_SCHEMA_ENUM:PulseTestEnumShape_t shape "shape" = "CIRCLE");
+
+	// m_FriendlyName = "Set Float Value"
+	// m_Description = "Set the global float value."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetFloatValue(PVAL_FLOAT flValue "Value");
+
+	// m_FriendlyName = "Set Float Value Optional"
+	// m_Description = "Set the global float value (with default)."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetFloatValueOptional(PVAL_FLOAT flValue "Value" = 1.0);
+
+	// m_FriendlyName = "Set Int Value"
+	// m_Description = "Set the global int value."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetIntValue(PVAL_INT nValue "Value");
+
+	// m_FriendlyName = "Set String Value"
+	// m_Description = "Set the global string value."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetStringValue(PVAL_STRING pValue "Value");
+
+	// m_FriendlyName = "Set String Value Optional"
+	// m_Description = "Set the global string value (with default)."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetStringValueOptional(PVAL_STRING pValue "Value" = "A default string (set)");
+
+	// m_FriendlyName = "Test Array Array Access"
+	// supported_domains = {"TestDomain":true}
+	// vec: metadata = {"polymorphic_arg":true}
+	function TestArrayArrayAccess(PVAL_ARRAY:PVAL_ARRAY:PVAL_INT vec "vec", PVAL_INT x "x", PVAL_INT y "y") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Test Array Int Shuffle"
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// vec: metadata = {"polymorphic_arg":true}
+	// retval: metadata = {"polymorphic_arg":true}
+	function TestArrayIntShuffle(PVAL_ARRAY:PVAL_INT vec "vec") -> (PVAL_ARRAY:PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Test Array Int Sum"
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	// vec: metadata = {"polymorphic_arg":true}
+	function TestArrayIntSum(PVAL_ARRAY:PVAL_INT vec "vec") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Test Compiled Params  After Type Changes"
+	// m_Description = "Function signature which has been replaced after compilation."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestCompiledParams_AfterTypeChanges(PVAL_INT arg1 "arg1", PVAL_FLOAT arg2 "arg2", PVAL_STRING arg3 "arg3") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Test Compiled Params  Before Type Changes"
+	// m_Description = "Function signature which has been replaced after compilation."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestCompiledParams_BeforeTypeChanges(PVAL_FLOAT arg1 "arg1", PVAL_INT arg2 "arg2", PVAL_BOOL arg3 "arg3", PVAL_STRING arg4 "arg4") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Test Function Renamed   With Args  New"
+	// supported_domains = {"TestDomain":true}
+	// legacy_names = ["CPulseTestFuncs_LibraryA::TestFunctionRenamed_WithArgs_Old_Internal"]
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestFunctionRenamed__WithArgs_New(PVAL_INT a "a", PVAL_INT b "b");
+
+	// m_FriendlyName = "Test Function Renamed  New"
+	// supported_domains = {"TestDomain":true}
+	// legacy_names = ["CPulseTestFuncs_LibraryA::TestFunctionRenamed_Old_Internal"]
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestFunctionRenamed_New(null);
+
+	// m_FriendlyName = "Test Function Renamed  Old"
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestFunctionRenamed_Old(null);
+
+	// legacy_name_replacement = "CPulseTestFuncs_LibraryA::TestFunctionRenamed_New"
+	class TestFunctionRenamed_Old_Internal;
+
+	// m_FriendlyName = "Test Function Renamed  With Args  Old"
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestFunctionRenamed_WithArgs_Old(PVAL_INT x "x", PVAL_INT y "y");
+
+	// legacy_name_replacement = "CPulseTestFuncs_LibraryA::TestFunctionRenamed__WithArgs_New"
+	class TestFunctionRenamed_WithArgs_Old_Internal;
+
+	// m_FriendlyName = "Test Observable False"
+	// m_Description = "<br><br>This node can appear in Observable contexts."
+	// supported_domains = {"TestDomain":true}
+	// expr_alias = "observable_false"
+	// expr_alias_info = "observable_false()"
+	// has_observable_context
+	function TestObservableFalse(null) -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Test Observable True"
+	// m_Description = "<br><br>This node can appear in Observable contexts."
+	// supported_domains = {"TestDomain":true}
+	// expr_alias = "observable_true"
+	// expr_alias_info = "observable_true()"
+	// has_observable_context
+	function TestObservableTrue(null) -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Test Optional Parameters  After Defaults Added"
+	// m_Description = "Function signature which has been replaced after compilation."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestOptionalParameters_AfterDefaultsAdded(PVAL_BOOL bValue "Value" = true, PVAL_INT nValue "Value" = 2, PVAL_FLOAT flValue "Value" = 3.0, PVAL_STRING pString "String" = "Foo", PVAL_COLOR_RGB color "color" = ["PVAL_COLOR_RGB",[100,200,50]], PVAL_SCHEMA_ENUM:PulseTestEnumColor_t nColor "Color" = "RED", PVAL_SCHEMA_ENUM:PulseTestEnumShape_t nShape "Shape" = "TRIANGLE");
+
+	// m_FriendlyName = "Test Optional Parameters  After Reorder Sparse Defaults"
+	// m_Description = "Function signature which has been replaced after compilation."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestOptionalParameters_AfterReorderSparseDefaults(PVAL_SCHEMA_ENUM:PulseTestEnumShape_t nShape "Shape", PVAL_SCHEMA_ENUM:PulseTestEnumColor_t nColor "Color", PVAL_COLOR_RGB color "color", PVAL_STRING pString "String", PVAL_INT nValue "Value", PVAL_BOOL bValue "Value", PVAL_FLOAT flValue "Value");
+
+	// m_FriendlyName = "Test Optional Parameters  Before Defaults Added"
+	// m_Description = "Function signature which will be replaced after compilation."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestOptionalParameters_BeforeDefaultsAdded(null);
+
+	// m_FriendlyName = "Test Optional Parameters  Before Reorder Sparse Defaults"
+	// m_Description = "Function signature which has been replaced after compilation."
+	// supported_domains = {"TestDomain":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestOptionalParameters_BeforeReorderSparseDefaults(PVAL_STRING pString "String" = "Foo", PVAL_COLOR_RGB color "color" = ["PVAL_COLOR_RGB",[100,200,50]], PVAL_SCHEMA_ENUM:PulseTestEnumColor_t nColor "Color" = "RED", PVAL_SCHEMA_ENUM:PulseTestEnumShape_t nShape "Shape");
+}
+
+// fingerprint = 1396807546
+CPulseTestScriptLib
+{
+	// m_FriendlyName = "Assert True"
+	// m_Description = "Indicates a test failure if Value is false."
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function AssertTrue(PVAL_BOOL bValue "Value", PVAL_STRING pDescription "Description");
+
+	// m_FriendlyName = "Indicate Test Failure"
+	// m_Description = "Used to flag a test as having failed."
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function IndicateTestFailure(PVAL_STRING pDescription "Description");
+
+	// m_FriendlyName = "Is In Test Mode"
+	// m_Description = "Are we currently running unit tests?"
+	function IsInTestMode(null) -> (PVAL_BOOL retval "Result");
+
+	// m_FriendlyName = "Register Test Checkpoint"
+	// m_Description = "Indicate that a checkpoint has been reached."
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function RegisterTestCheckpoint(PVAL_STRING pCheckpointName "Checkpoint Name");
+
+	// m_FriendlyName = "Test Mode Assert True"
+	// m_Description = "Indicates a test failure if value is false; only tested when running unit tests"
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function TestModeAssertTrue(PVAL_BOOL bValue "Value", PVAL_STRING pDescription "Description");
+}
+
+// fingerprint = 1515886733
+CPulseTurtleGraphicsCursor
+{
+	// m_FriendlyName = "Move"
+	// m_Description = "Move forward in the facing direction"
+	// supported_domains = {"TurtleGraphics":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function Move(PVAL_FLOAT flDistance "Distance");
+
+	// m_FriendlyName = "Pen Down"
+	// m_Description = "Lower pen."
+	// supported_domains = {"TurtleGraphics":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function PenDown(null);
+
+	// m_FriendlyName = "Pen Up"
+	// m_Description = "Raise pen."
+	// supported_domains = {"TurtleGraphics":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function PenUp(null);
+
+	// m_FriendlyName = "Set Color"
+	// m_Description = "Set the current color"
+	// supported_domains = {"TurtleGraphics":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetColor(PVAL_COLOR_RGB color "color");
+
+	// m_FriendlyName = "Turn"
+	// m_Description = "Adjust heading (positive = right, negative = left)"
+	// supported_domains = {"TurtleGraphics":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function Turn(PVAL_FLOAT flDegrees "Degrees");
+}
+
+// fingerprint = 1726847264
+CTestDomainDerived_Cursor
+{
+	// m_FriendlyName = "Get Cursor Value A"
+	// m_Description = "Get the 'ValueA' number off the cursor."
+	// supported_domains = {"TestDomain_Derived":true}
+	function GetCursorValueA(null) -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Get Cursor Value B"
+	// m_Description = "Get the 'ValueB' number off the cursor."
+	// supported_domains = {"TestDomain_Derived":true}
+	function GetCursorValueB(null) -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Set Cursor Value A"
+	// m_Description = "Set the 'ValueA' number on the cursor."
+	// supported_domains = {"TestDomain_Derived":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetCursorValueA(PVAL_INT nValue "Value");
+
+	// m_FriendlyName = "Set Cursor Value B"
+	// m_Description = "Set the 'ValueB' number on the cursor."
+	// supported_domains = {"TestDomain_Derived":true}
+	// generic_node_category = 5
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	function SetCursorValueB(PVAL_INT nValue "Value");
+}
+
+FakeEntity_t_DomainSubType
+{
+	// m_BaseClasses = ["TestDomainEntity"]
+	// m_FriendlyName = "Fake Entity"
+	// m_Description = "This is the description of the fake entity sub-domain"
+	// m_nClassType = ""
+	// debugger_can_create_instance = false
+	// is_game_blackboard = false
+	// hidden_in_tool
+	// domain_scope = "pulse_system.dll"
+	// allowed_api_features = "AF_FAKE_ENTITIES"
+	// self_type = "PVAL_TEST_HANDLE"
+	// is_pulse_domain_subtype
+	class FakeEntity_t_DomainSubType;
+}
+
+// fingerprint = 3690219950
+FakeEntity_tAPI
+{
+	// m_FriendlyName = "Basic Function"
+	// m_Description = "Record that the function was called"
+	// pulse_feature_tag = 16
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	input BasicFunction(PVAL_TEST_HANDLE _Target "Test Handle");
+
+	// m_FriendlyName = "Get Float Value"
+	// m_Description = "Get the test value as a float"
+	// pulse_feature_tag = 16
+	// generic_node_category = 4
+	input GetFloatValue(PVAL_TEST_HANDLE _Target "Test Handle") -> (PVAL_FLOAT retval "Result");
+
+	// m_FriendlyName = "Get Int Value"
+	// m_Description = "Get the test value as an int"
+	// pulse_feature_tag = 16
+	// generic_node_category = 4
+	input GetIntValue(PVAL_TEST_HANDLE _Target "Test Handle") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Get Name"
+	// m_Description = "Get the name the entity was created with."
+	// pulse_feature_tag = 16
+	// generic_node_category = 4
+	input GetName(PVAL_TEST_HANDLE _Target "Test Handle") -> (PVAL_STRING retval "Result");
+
+	// m_FriendlyName = "Multiple Return Test"
+	// m_Description = "Multiple pointer returns"
+	// pulse_feature_tag = 16
+	// generic_node_category = 4
+	input MultipleReturnTest(PVAL_TEST_HANDLE _Target "Test Handle") -> (PVAL_TEST_HANDLE A "A", PVAL_TEST_HANDLE B "B");
+
+	// m_FriendlyName = "Set And Get Int Value"
+	// m_Description = "Test step with return value"
+	// pulse_feature_tag = 16
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	input SetAndGetIntValue(PVAL_TEST_HANDLE _Target "Test Handle", PVAL_INT nValue "Value") -> (PVAL_INT retval "Result");
+
+	// m_FriendlyName = "Set Int Value"
+	// m_Description = "Set the test value as an int"
+	// pulse_feature_tag = 16
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	input SetIntValue(PVAL_TEST_HANDLE _Target "Test Handle", PVAL_INT nValue "Value");
+}
+
+// fingerprint = 2847959649
+FakeEntityDerivedA_tAPI
+{
+	// m_FriendlyName = "Derived Func A"
+	// pulse_feature_tag = 16
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	input DerivedFuncA(PVAL_TEST_HANDLE:fake_derived_a _Target "fake_derived_a") -> (PVAL_BOOL retval "Result");
+}
+
+FakeEntityDerivedB_tAPI
+{
+	// legacy_name_replacement = "FakeEntityDerivedB_tAPI_NEW_NAME::DerivedFuncB"
+	class DerivedFuncB;
+}
+
+// fingerprint = 596087073
+FakeEntityDerivedB_tAPI_NEW_NAME
+{
+	// m_FriendlyName = "Derived Func B"
+	// pulse_feature_tag = 16
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	input DerivedFuncB(PVAL_TEST_HANDLE:fake_derived_b _Target "fake_derived_b") -> (PVAL_BOOL retval "Result");
+}
+
+// fingerprint = 4189019600
+TestComponent_tAPI
+{
+	// m_FriendlyName = "Component Func"
+	// component_inclusion_types = ["PVAL_TEST_HANDLE:fake_derived_a"]
+	// pulse_feature_tag = 16
+	// pulse_inflows = default
+	// pulse_outflows = default {"allow_direct_return":true}
+	input ComponentFunc(PVAL_TEST_HANDLE _Target "Test Handle");
+}
+
+TestDomain
+{
+	// m_BaseClasses = ["BaseDomain"]
+	// m_FriendlyName = "Test Domain"
+	// m_Description = "A testing-only domain that doesn't correspond to any in-engine use case."
+	// is_pulse_domain
+	// debugger_can_create_instance
+	// is_game_blackboard = false
+	// hidden_in_tool = false
+	// domain_scope = "pulse_system.dll"
+	// allowed_variable_keys_types = {"CPP":true}
+	// allowed_api_features = "AF_FAKE_ENTITIES"
+	class TestDomain;
+}
+
+TestDomain_Derived
+{
+	// m_BaseClasses = ["TestDomain"]
+	// m_FriendlyName = "TestDomain_Derived"
+	// is_pulse_domain
+	// debugger_can_create_instance = false
+	// is_game_blackboard = false
+	// hidden_in_tool
+	// domain_scope = "pulse_system.dll"
+	// allowed_variable_keys_types = {"CPP":true}
+	// allowed_api_features = "AF_FAKE_ENTITIES"
+	class TestDomain_Derived;
+}
+
+TestDomainEntity
+{
+	// m_BaseClasses = ["BaseDomain"]
+	// m_FriendlyName = "Test Domain Entity"
+	// m_Description = "A testing-only domain for target-owned graphs."
+	// is_pulse_domain
+	// debugger_can_create_instance = false
+	// is_game_blackboard = false
+	// hidden_in_tool
+	// domain_scope = "pulse_system.dll"
+	// allowed_api_features = "AF_FAKE_ENTITIES"
+	// domain_subtype_info = ["FakeEntity_t_DomainSubType"]
+	class TestDomainEntity;
+}
+
+TestDomainReadOnlyBlackboardConsumer
+{
+	// m_BaseClasses = ["TestDomain"]
+	// m_FriendlyName = "TestDomain_UseReadOnlyBlackboardView"
+	// is_pulse_domain
+	// debugger_can_create_instance = false
+	// is_game_blackboard = false
+	// hidden_in_tool
+	// domain_scope = "pulse_system.dll"
+	// allowed_variable_keys_types = {"CPP":true}
+	// allowed_api_features = "AF_FAKE_ENTITIES"
+	class TestDomainReadOnlyBlackboardConsumer;
+}
+
+TurtleGraphics
+{
+	// m_BaseClasses = ["BaseDomain"]
+	// m_FriendlyName = "Turtle Graphics Domain"
+	// m_Description = "A testing-only domain that draws on a 2D canvas with a LOGO-like 'turtle' cursor."
+	// is_pulse_domain
+	// debugger_can_create_instance
+	// is_game_blackboard = false
+	// hidden_in_tool = false
+	// domain_scope = "pulse_system.dll"
+	class TurtleGraphics;
+}
+
+// Fingerprints of libraries and types without bindings
+@lib:pulse_system.dll!CPulseCell_FireCursors = 824535693
+@lib:pulse_system.dll!CPulseCell_Inflow_EntOutputHandler = 0
+@lib:pulse_system.dll!CPulseCell_Inflow_EventHandler = 0
+@lib:pulse_system.dll!CPulseCell_Inflow_GraphHook = 0
+@lib:pulse_system.dll!CPulseCell_Inflow_Method = 0
+@lib:pulse_system.dll!CPulseCell_Inflow_ObservableVariableListener = 0
+@lib:pulse_system.dll!CPulseCell_Inflow_Yield = 955696098
+@lib:pulse_system.dll!CPulseCell_IsRequirementValid = 931326599
+@lib:pulse_system.dll!CPulseCell_Outflow_CycleOrdered = 4001330057
+@lib:pulse_system.dll!CPulseCell_Outflow_CycleRandom = 4259677353
+@lib:pulse_system.dll!CPulseCell_Outflow_CycleShuffled = 2434550510
+@lib:pulse_system.dll!CPulseCell_RaceCursors = 3041539765
+@lib:pulse_system.dll!CPulseCell_ReturnValues = 2637216531
+@lib:pulse_system.dll!CPulseCell_Step_CallExternalMethod = 1549135810
+@lib:pulse_system.dll!CPulseCell_Step_DebugLog = 3575830881
+@lib:pulse_system.dll!CPulseCell_Step_PublicOutput = 861796290
+@lib:pulse_system.dll!CPulseCell_Timeline = 3988269055
+@lib:pulse_system.dll!CPulseGraphInstance_TestDomain_FakeEntityOwner = 0
+@lib:pulse_system.dll!CPulseGraphInstance_TestDomain_UseReadOnlyBlackboardView = 0
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseCursorCancelPriority_t = 627611872
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseCursorWakePriority_t = 2889899724
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseDurationStringFormat_t = 1531666510
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseTestEnumColor_t = 2024739640
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseTestEnumFlags_t = 1052309794
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseTestEnumFlagsAlt_t = 1426389268
+@type:pulse_system.dll!PVAL_SCHEMA_ENUM:PulseTestEnumShape_t = 2237060283

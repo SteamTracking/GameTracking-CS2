@@ -23703,7 +23703,6 @@ allow_none
 allow_nonmatching_bones
 allow_rotation
 allow_scale
-allow_sst_generation
 allowed_api_features
 allowed_requirements
 along_damping
@@ -23767,7 +23766,6 @@ animations
 animflags
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_additive
 animgraph_attribute
 animgraph_compatibility_check
@@ -23825,9 +23823,6 @@ attached_prop_physics
 attached_soundevents
 attachment_key
 attachment_name
-attenuation0
-attenuation1
-attenuation2
 attr
 attr_custom_commands
 attr_factory
@@ -23909,7 +23904,6 @@ bakeLightDoubleSided
 bakeLightingDoubleSided
 bakeToWorld
 bakedLigthtingMode
-baked_light_indexing
 bakedin
 bakedlighting
 bakelightdoublesided
@@ -24101,14 +24095,10 @@ cannot read TIFF_ANY type %d for field "%s"
 cannotgravitygrab
 cannotgravitypunt
 capsule
-capsule_length
 capsulepos1
 capsulepos2
 capture_region
 capture_renderdoc
-cascadecrossfade
-cascadedistancefade
-cascaderenderstaticobj
 castShadows
 catmullrom
 catmullrom_normalize
@@ -24903,7 +24893,6 @@ customVisGroup
 custom_editor_widget
 cut_max
 cut_min
-cycle
 cycle_type
 cyclestart
 cylinder
@@ -25383,8 +25372,6 @@ focalDistance
 fogFlowMap
 fogFlowMapValues
 fogOpacity
-fog_lighting
-fogcontributionstrength
 folder_name
 follow_the_lead
 follower_bone
@@ -25751,7 +25738,6 @@ initial_mass
 initial_value
 initial_value_src
 initialized
-innerconeangle
 inputName
 input_axis
 input_stream_name
@@ -25979,8 +25965,6 @@ linear_only
 loadAtRuntime
 loadIfNested
 local
-local.angles
-local.origin
 local_attach_point_offset
 local_attachment_offset_name
 local_axis_rotation_offset
@@ -26652,7 +26636,6 @@ navlink
 navlink_type
 navlinkclass
 navplace.db
-nearclipplane
 neg_scale
 negative frame (%d) specified\n
 nested keys: %s
@@ -26726,7 +26709,6 @@ num_path_points
 num_points
 num_samples
 num_values
-numcascades
 numframes
 numsides_key
 o KPBf
@@ -26790,15 +26772,12 @@ original_bone_name
 originating_classname
 originating_filename
 originating_linenumber
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
 outTangent
 outTangentType
 out_frame
 outbound
-outerconeangle
 outliner_icon
 outputFormat
 outputName
@@ -26855,7 +26834,6 @@ parameters
 params
 parent to constrained
 parentAttachment
-parentAttachmentName
 parentBindRotation
 parentConstraint
 parent_attachment
@@ -26869,7 +26847,6 @@ parent_node_name
 parent_picker
 parent_reaction
 parent_requires_alignment
-parentname
 part_name
 participates_in_undo
 particleSnapshotSpacing
@@ -26906,7 +26883,6 @@ path_trajectory
 pathclass
 pathnode
 pathnodeclass
-pattern
 payload_path_marker
 peak
 peak_attr
@@ -27025,7 +27001,6 @@ preMerge face 0
 preMerge face 1
 precision_degrees
 precomputed_transmission
-precomputedmaxrange
 precomputedminrange
 prefabRuntimeEntity
 prefab_has_runtime_entity_by_default
@@ -27182,10 +27157,7 @@ render_mesh_name
 render_mode
 render_res
 render_resolution
-renderdiffuse
 rendermesh_node_name
-renderspecular
-rendertransmissive
 renderwithdynamic
 reorientCamera
 replace_specific_bodys_joints
@@ -27278,7 +27250,6 @@ scale_set
 scale_source_node
 scale_world
 scale_xyz
-scales
 scanline
 scene
 schemaObjTitle
@@ -27307,7 +27278,6 @@ scriptsToRun
 searchable_key
 searchable_key_fields
 second_sequence_random
-secondary_color
 secondary_material
 segments_horizontal
 segments_per_strand
@@ -27349,7 +27319,6 @@ self_handle
 semanticIndex
 semanticName
 sequenceList
-sequenceName
 sequence_number1
 sequence_random
 sequence_tag_spans
@@ -27413,18 +27382,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowcascadedistance0
-shadowcascadedistance1
-shadowcascadedistance2
-shadowcascadedistance3
-shadowcascaderesolution0
-shadowcascaderesolution1
-shadowcascaderesolution2
-shadowcascaderesolution3
-shadowfademaxdist
-shadowfademindist
-shadowtextureheight
-shadowtexturewidth
 shapeReferences
 shapeType != CMapChoreoLocatorShapeType_t::LINE
 shapeType != CMapChoreoLocatorShapeType_t::RADIUS
@@ -27478,12 +27435,9 @@ skinned_physics_mesh_key_name
 skip_edge_rendering
 skip_face_rendering
 skip_vertex_rendering
-skyambientbounce
 skybouncescale
 skybox
 skyboxMapPath%i
-skycolor
-skyintensity
 skytexture
 skytexturescale
 slave
@@ -28203,7 +28157,6 @@ up_vector
 use for thumbnail
 useBaseNormals
 useEdgeInfo
-useLocalOffset
 useSmoothPaths
 useTargetNameAsPrefix
 use_block_solver
@@ -28221,7 +28174,6 @@ use_mass_center_override
 use_new_pole_vector_for_axis
 use_per_node_local_force_and_rotation
 use_render_mesh_list
-use_secondary_color
 use_single_material
 use_uv2_for_charts
 usecurvetypes
@@ -28387,7 +28339,6 @@ vortex_count
 vortex_max_speed_mph
 voume_random_min_scale
 vphzc
-vpost
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
 vsUtils.py
@@ -28397,7 +28348,6 @@ vscale
 vsky
 vsubgrph
 vsutils_py
-vtex
 vvtx
 vwnod
 vwrld

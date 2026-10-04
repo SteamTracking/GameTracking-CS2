@@ -582,7 +582,6 @@ NETWORK_FIELD_CHANGED_REPLAY_COMPAT
 NETWORK_FIELD_CHANGED_TAG
 NETWORK_FIELD_CHANGED_TYPE_NONE
 NETWORK_FIELD_CHANGED_WITH_VALUE
-NETWORK_FIELD_CHANGES_OFTEN_PRIORITY
 NETWORK_FIELD_CHANGES_OFTEN_PRIORITY_TOPOOGICAL
 NETWORK_FIELD_CHANGES_OFTEN_PRIORITY_TOPOOGICAL_SORTLOWER
 NETWORK_FIELD_DEFAULT_PRIORITY
@@ -860,7 +859,6 @@ client_update_rate
 closed by peer
 cmd_info
 context(0x%p) 
-coord
 coord_integral
 create_poll_group
 data_bits
@@ -979,7 +977,6 @@ pri(%s%+d=%u)
 pri(%u)
 problem detected locally
 qangle_pitch_yaw
-qangle_precise
 records
 regex
 regex_error

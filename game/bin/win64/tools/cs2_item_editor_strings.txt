@@ -6948,7 +6948,6 @@ anim_class
 anim_slot
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 announcement_title
 app_assets_basename
@@ -8059,7 +8058,6 @@ patches
 pathclass
 pathnode
 pathnodeclass
-pattern
 pattern_offset_x_end
 pattern_offset_x_start
 pattern_offset_y_end
@@ -8685,10 +8683,8 @@ vote_phase_length
 vote_phase_start
 vote_starting_side
 vphzc
-vpost
 vsky
 vsncheck_account_id_sessions
-vtex
 w\n?connectImpl@QObject@@CA?AVConnection@QMetaObject@@PEBV1@PEAPEAX01PEAVQSlotObjectBase@QtPrivate@@W4ConnectionType@Qt@@PEBHPEBU3@@Z
 w\n?dragLeaveEvent@QLineEdit@@MEAAXPEAVQDragLeaveEvent@@@Z
 waiting_account_id_sessions

@@ -6823,7 +6823,6 @@ parseRegions
 parsec
 pascal
 past
-pattern
 patterns
 pebi
 per-

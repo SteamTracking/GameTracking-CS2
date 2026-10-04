@@ -1147,7 +1147,6 @@ vdata
 very_fast
 vmap
 vnmclip
-vnmgraph
 vnotify_ui
 volumematcheseventramp
 vrr1

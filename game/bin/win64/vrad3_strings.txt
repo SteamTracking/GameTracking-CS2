@@ -1856,9 +1856,6 @@ animflags
 aoB>"
 ati_compress_wrapper.dll
 attached_prop_physics
-attenuation0
-attenuation1
-attenuation2
 attribute_count
 attributes
 audioTarget
@@ -1869,7 +1866,6 @@ back to tangent space
 background
 backgroundMap
 bad partition length
-baked_light_indexing
 baked_twosided
 balance
 balance$0
@@ -2070,8 +2066,6 @@ float log
 float_array
 floating point predictor 
 fluorescent_flicker
-fog_lighting
-fogcontributionstrength
 for "ReferenceBlackWhite" array
 for "StripByteCounts" array
 for Group 3/4 run arrays
@@ -2124,7 +2118,6 @@ indirectlight
 init_camera_from_scene: camera %s not found!\n
 initialMass
 initial_mass
-innerconeangle
 instance_file
 instance_parm
 instance_variable
@@ -2304,7 +2297,6 @@ n$Kx
 nDataSize > 0
 nLayoffState
 name_delta
-nearclipplane
 no composite (not saved with Maximize Compatibility)
 no memory during frame initialization.
 no_collapse
@@ -2354,11 +2346,8 @@ operators
 opqMU
 or?wb
 orientationChannel
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
-outerconeangle
 ownerlog
 p0v"
 pEnd->x <= g_LightProbeGrid.NumCellsX()
@@ -2379,7 +2368,6 @@ path_trace_triangles_gpu
 path_trace_triangles_gpu_init
 path_trace_triangles_gpu_shutdown
 path_trajectory
-pattern
 pc64 Sep 30 2026 11:55:41
 physicsSimplificationError
 physicsSimplificationOverride
@@ -2494,8 +2482,6 @@ shadow_color_night
 shadow_cull_mode
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowtextureheight
-shadowtexturewidth
 sharc
 sharc accumulation
 sharc hash entries
@@ -2513,8 +2499,6 @@ simulationTime
 simulationTimeScale
 skeleton
 sketchup
-skycolor
-skyintensity
 slow_pulse_nofade
 slow_strobe
 slow_strong_pulse
@@ -2649,7 +2633,6 @@ vmesh
 vmks
 volumefogenabled
 vphzc
-vpost
 vrad3
 vrad3.dll
 vrad3_raytrace_scene_world
@@ -2660,7 +2643,6 @@ vsUtils.py
 vsky
 vsutils_py
 vt %.9g %.9g\n
-vtex
 vvtx
 vwnod
 vwrld

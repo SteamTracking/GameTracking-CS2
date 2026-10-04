@@ -1,0 +1,16 @@
+"" "GpuImplicitRendererManifest" // src/particles/gpu_implicit_renderer.cpp
+	materials/dev/implicit_surface.vmat
+	materials/dev/visualize_implicit.vmat
+	materials/dev/visualize_implicit_wireframe.vmat
+
+"" "GPUParticleRequiredResources" // src/particles/particlesystemmgr.cpp
+	materials/dev/gpu_particles_initialize.vmat
+	materials/dev/gpu_particles_simulate.vmat
+
+"" "ParticleSystemRequiredResources" // src/particles/particlesystemmgr.cpp
+	particles/error/error.vpcf
+	materials/dev/roomwalls_white.vmat
+	materials/particle/base_projected.vmat
+	materials/particle/base_sprite.vtex
+	particles/dev/dev_cables_preview_material.vmat
+

@@ -1,0 +1,43 @@
+CurveEditor : CQCurveEditorWidget // src/qcontrols/qcurveeditor.cpp
+	DeleteSelection
+	EditPoint
+	FrameCurve
+	ModifierAxisLock
+	ModifierInsertPoint
+	ModifierSelectToggle
+	MovePoint
+	Noop
+	PanView
+	SelectPoint
+	ShowMenu
+	ZoomIn
+	ZoomOut
+
+GlobalHotkeys : CGlobalHotkeyCommands // src/qcontrols/inputglobalhotkeys.cpp
+	DebugWidgetActiveWindow
+	DebugWidgetUnderMouse
+	DebugWidgetWithFocus
+	DummyNoOp
+	FocusChainDebug_Back
+	FocusChainDebug_Forward
+	FocusChainDebug_Less
+	FocusChainDebug_More
+	FocusChainDebug_Toggle
+	ShowAllCommandsPopup
+	ShowConsole
+	ShowFullHelpForBindableCommandUnderMouse
+	ShowInputDebugger
+	ShowWidgetDebugger
+	SwitchToEngineWindow
+
+PropertyEditor : CQPropertyEditor // src/propertyeditor/qpropertyeditor.cpp
+	ClearSelection
+	CopySelectedAttributes
+	PasteSelectedAttributes
+	PropertyManipulation
+	PropertyManipulation_Fast
+	PropertyManipulation_Slow
+	SelectAll
+	SelectionAddToggleModifier
+	SelectionMultipleModifier
+

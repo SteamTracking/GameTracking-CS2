@@ -727,16 +727,12 @@ animationTime
 animations
 animflags
 attached_prop_physics
-attenuation0
-attenuation1
-attenuation2
 audioTarget
 autoTime
 auto_time
 axisSystem
 background
 backgroundMap
-baked_light_indexing
 balance
 balance$0
 balance$0Indices
@@ -874,8 +870,6 @@ flipVCoordinates
 float log
 float_array
 fluorescent_flicker
-fog_lighting
-fogcontributionstrength
 forwardParity
 frameRate
 fromAttribute
@@ -899,7 +893,6 @@ houdini
 indirectlight
 initialMass
 initial_mass
-innerconeangle
 instance_file
 instance_parm
 instance_variable
@@ -980,7 +973,6 @@ multi_%s
 multilevel
 multilevelchannel
 nLayoffState
-nearclipplane
 nodeID
 node_dest
 node_id_List
@@ -998,11 +990,8 @@ offseTime
 offsetTime
 operators
 orientationChannel
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
-outerconeangle
 ownerlog
 p4lib
 parentConstraint
@@ -1013,7 +1002,6 @@ path_node_generic
 path_node_particle_rope
 path_node_trajectory
 path_trajectory
-pattern
 physicsSimplificationError
 physicsSimplificationOverride
 pinEnabled
@@ -1102,8 +1090,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowtextureheight
-shadowtexturewidth
 shared
 showAmbientOcclusion
 showCameraFrustum
@@ -1117,8 +1103,6 @@ simulationTime
 simulationTimeScale
 skeleton
 sketchup
-skycolor
-skyintensity
 slow_pulse_nofade
 slow_strobe
 slow_strong_pulse
@@ -1212,13 +1196,11 @@ vmesh
 vmks
 volumefogenabled
 vphzc
-vpost
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
 vsUtils.py
 vsky
 vsutils_py
-vtex
 vvtx
 vwnod
 vwrld

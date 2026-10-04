@@ -1,0 +1,4 @@
+"" "AssetTagsManifest" // src/assetsystem/assettags.cpp
+	scripts/tools/game_asset_tags.vdata
+	scripts/tools/core_asset_tags.vdata
+

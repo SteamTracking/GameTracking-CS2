@@ -5720,9 +5720,6 @@ associatedName
 ati_compress_wrapper.dll
 attached_prop_physics
 attempt to reuse session in different context
-attenuation0
-attenuation1
-attenuation2
 attrib
 attributes
 audioTarget
@@ -5836,7 +5833,6 @@ bad value
 bad version number
 bad write retry
 bad x509 filetype
-baked_light_indexing
 balance
 balance$0
 balance$0Indices
@@ -6790,8 +6786,6 @@ float log
 float_array
 floating point predictor 
 fluorescent_flicker
-fog_lighting
-fogcontributionstrength
 folder.vtest
 folder/.vtest
 folder/consumer.vtest
@@ -7303,7 +7297,6 @@ initialMass
 initial_mass
 initialization error
 initials
-innerconeangle
 input not initialized
 input not reduced
 input_deps
@@ -7866,7 +7859,6 @@ nameConstraints
 named_curve
 nbio connect error
 ne[9
-nearclipplane
 need new setup values
 need one signer
 need organization and numbers
@@ -8129,8 +8121,6 @@ orig_len >= md_size
 originator
 originatorInfo
 originatorSignatureValue
-ortholightheight
-ortholightwidth
 os.length <= (int)sizeof(ret->session_id)
 osM@\vQ}
 oscillate_scalar
@@ -8147,7 +8137,6 @@ othername
 othername error
 othername:<unsupported>
 out of memory
-outerconeangle
 ownerlog
 p is not prime
 p not prime
@@ -8272,7 +8261,6 @@ path_trajectory
 pathlen
 pathsExclude
 pathsInclude
-pattern
 payload + padding <= 16381
 payment gateway capabilities
 pbeWithMD2AndDES-CBC
@@ -8944,8 +8932,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowtextureheight
-shadowtexturewidth
 shared
 shared info error
 shared-NEW
@@ -8992,8 +8978,6 @@ singleLevelQuality
 singleRequestExtensions
 skeleton
 sketchup
-skycolor
-skyintensity
 slot full
 slow_pulse_nofade
 slow_strobe
@@ -9739,7 +9723,6 @@ vnotify_ui
 volumefogenabled
 vparams
 vphzc
-vpost
 vqw0\nU
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
@@ -9747,7 +9730,6 @@ vsUtils.py
 vsky
 vsutils_py
 vtest_asset
-vtex
 vv == NULL
 vvtx
 vwnod

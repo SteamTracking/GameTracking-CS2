@@ -6994,7 +6994,6 @@ ModelBodyGroupName()
 ModelBoneName()
 ModelInput
 ModelMaterialGroupName()
-ModelScale
 Models
 ModifierAxisLock
 ModifierInsertPoint
@@ -9343,7 +9342,6 @@ animclip_is_looping
 animclip_public_name
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_enum
 animgraph_public_name
 animsequence_public_name
@@ -10527,7 +10525,6 @@ self_type
 self_with_wearables
 separator
 seqName
-sequenceName
 sequence_is_public
 sequence_key
 setMaximum
@@ -10789,15 +10786,12 @@ vmesh
 vmix
 vmt_templates
 vnmclip
-vnmgraph
 vnotify_ui
 voice
 voice_persona_1
 vphzc
-vpost
 vrman
 vsky
-vtex
 w"?valueFromText@QDoubleSpinBox@@UEBANAEBVQString@@@Z
 w\n?connectImpl@QObject@@CA?AVConnection@QMetaObject@@PEBV1@PEAPEAX01PEAVQSlotObjectBase@QtPrivate@@W4ConnectionType@Qt@@PEBHPEBU3@@Z
 w\n?dragLeaveEvent@QLineEdit@@MEAAXPEAVQDragLeaveEvent@@@Z

@@ -11612,7 +11612,6 @@ animations
 animflags
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_additive
 animgraph_attribute
 animgraph_compatibility_check
@@ -11651,9 +11650,6 @@ attached_prop_physics
 attached_soundevents
 attachment_key
 attachment_name
-attenuation0
-attenuation1
-attenuation2
 attr
 attr_name_match
 attribute
@@ -11684,7 +11680,6 @@ backgroundFXClip
 backgroundMap
 background_color
 bad partition length
-baked_light_indexing
 bakedin
 balance
 balance$0
@@ -12305,8 +12300,6 @@ floatchoices choice
 floating point predictor 
 fluorescent_flicker
 focalDistance
-fog_lighting
-fogcontributionstrength
 folder_name
 follow_the_lead
 follower_bone
@@ -12526,7 +12519,6 @@ initialMass
 initial_mass
 initial_value
 initial_value_src
-innerconeangle
 input_axis
 input_stream_name
 inside_out_sort
@@ -13017,7 +13009,6 @@ name_prompt
 navclip
 navlink
 navlinkclass
-nearclipplane
 neg_scale
 new_bone_name
 new_name
@@ -13089,13 +13080,10 @@ original_bone_name
 originating_classname
 originating_filename
 originating_linenumber
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
 out_frame
 outbound
-outerconeangle
 outliner_icon
 output_A
 output_B
@@ -13162,7 +13150,6 @@ path_trajectory
 pathclass
 pathnode
 pathnodeclass
-pattern
 peak
 peak_attr
 peak_cycle
@@ -13411,7 +13398,6 @@ scale_set
 scale_source_node
 scale_world
 scale_xyz
-scales
 scanline
 scene
 scratch_float
@@ -13489,8 +13475,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowtextureheight
-shadowtexturewidth
 shape_list
 shapes
 shared
@@ -13528,8 +13512,6 @@ skin_to_bones
 skip_edge_rendering
 skip_face_rendering
 skip_vertex_rendering
-skycolor
-skyintensity
 slave
 slaveOffsets
 slave_axis
@@ -14212,14 +14194,12 @@ vortex_count
 vortex_max_speed_mph
 voume_random_min_scale
 vphzc
-vpost
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
 vsUtils.py
 vscale
 vsky
 vsutils_py
-vtex
 vvtx
 vwnod
 vwrld

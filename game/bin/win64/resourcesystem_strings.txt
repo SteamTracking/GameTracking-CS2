@@ -295,7 +295,6 @@ vnmgraphvnmclip
 vnmskel
 vpdi
 vphys
-vpost
 vptest
 vrman
 vseq
@@ -304,7 +303,6 @@ vsndevts
 vsndstck
 vsurf
 vsvg
-vtex
 vvis
 vwnod
 vwrld

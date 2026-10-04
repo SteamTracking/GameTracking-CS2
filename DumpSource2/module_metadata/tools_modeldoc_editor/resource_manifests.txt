@@ -1,0 +1,92 @@
+ToolsStartupPreGame "" // src/modeldoc_lib/modeldoc_texture_generator.cpp
+	materials/dev/texture_generators/texture_generator_positionmap.vmat
+	materials/dev/texture_generators/texture_generator_objectspacenormal.vmat
+	materials/dev/texture_generators/texture_generator_facevertexcolor.vmat
+
+ToolsStartup "" // src/toolrenderutils/toolmatsysutils.cpp
+	materials/tools/wireframe_vertex_color.vmat
+	materials/tools/wireframe_vertex_color_translucent.vmat
+	materials/tools/fill_vertex_color.vmat
+	materials/tools/vertex_color_translucent.vmat
+	materials/tools/selection_overlay.vmat
+	materials/tools/selection_overlay_nocull.vmat
+	materials/tools/handle_square.vmat
+	materials/tools/handle_circle.vmat
+	materials/tools/handle_cross.vmat
+	materials/tools/handle_ring.vmat
+	materials/tools/handle_square_ring.vmat
+	materials/tools/handle_edged_circle.vmat
+	materials/tools/handle_generic.vmat
+	materials/tools/handle_generic_translucent.vmat
+	materials/tools/handle_diamond.vmat
+	materials/tools/handle_diamond_translucent.vmat
+	materials/tools/handle_edged_diamond.vmat
+	materials/tools/handle_edged_diamond_translucent.vmat
+	materials/tools/handle_square_translucent.vmat
+	materials/tools/handle_circle_translucent.vmat
+	materials/tools/handle_cross_translucent.vmat
+	materials/tools/handle_ring_translucent.vmat
+	materials/tools/handle_square_ring_translucent.vmat
+	materials/tools/handle_edged_circle_translucent.vmat
+	materials/tools/grid.vmat
+
+GameStartup "" // src/toolrenderutils/toolrenderable_groundplane.cpp
+	materials/tools/hlmv_ground.vmat
+
+ToolsStartup "" // src/toolrenderutils/toolstandardmodels.cpp
+	models/editor/axis_helper_thick.vmdl
+	models/editor/camera.vmdl
+
+GameStartup "" // src/tools/modeldoc_editor/model_preview_root.cpp
+	materials/tools/show_normals.vmat
+	materials/tools/show_tangent_space.vmat
+	materials/tools/show_bent_normals.vmat
+
+ClothPreviewMaterials "ClothPreviewMaterials" // src/tools/modeldoc_editor/modeldoc_editor_physicsrender.cpp
+	materials/dev/debug_cloth.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldoc_editor_session.cpp
+	materials/dev/color_purple.vmat
+	materials/dev/highlight_green.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldoc_game_preview_tool_spawn.cpp
+	materials/dev/debug_ghost_translucent.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldoc_uvmap_renderable.cpp
+	materials/tools/modeldoc_texture_generator_preview.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldochelper_clothshapesdf.cpp
+	materials/tools/static_overlay_base.vmat
+	materials/tools/static_overlay_helper.vmat
+	materials/dev/debug_cloth.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldochelper_handpose.cpp
+	materials/editor/hand_pose_default.vmat
+	materials/editor/hand_pose_inactive.vmat
+	materials/editor/hand_pose_active.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldochelper_meshfilereference.cpp
+	materials/tools/modeldoc_default_mesh.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldochelper_physicspreview.cpp
+	materials/tools/modeldoc_default_mesh.vmat
+
+ToolsStartup "" // src/tools/modeldoc_editor/modeldochelper_texture_generator.cpp
+	materials/tools/modeldoc_texture_generator_preview.vmat
+
+ToolsStartup "MotionAnalysisSettings" // src/tools/modeldoc_editor/modeldocwizard_motion_analysis.cpp
+	scripts/tools/modeldoc_motion_analysis.vdata
+
+GameStartup "" // src/tools/toolscene/toolscene_hitboxes.cpp
+	materials/tools/show_hitboxes.vmat
+
+GameStartup "" // src/tools/toolscene/toolscene_sky.cpp
+	materials/tools/light_probe.vmat
+
+ToolsStartup "" // src/tools/toolutils2/toolrenderutils.cpp
+	materials/tools/wireframe_vertex_color.vmat
+	materials/tools/vertex_color_solid.vmat
+	materials/tools/vertex_color_translucent.vmat
+	materials/tools/handle_circle.vmat
+	materials/dev/tools_2d_generic.vmat
+

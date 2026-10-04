@@ -1,0 +1,63 @@
+AssetPreviewToolScene : CAssetPreviewToolScene // src/assetpreview/assetpreviewsystem.cpp
+	// commands = null
+
+Camera : CBindableCamera // src/tools/toolutils2/bindablecamera.cpp
+	// OverideHelpContextName = "SharedToolCommands"
+	CameraLookAtSelection
+	DecreaseMoveSpeed
+	HorizontalStrafeCamera
+	IncreaseMoveSpeed
+	MouseControlCamera
+	MouseControlCamera2D
+	MouseControlCamera3D
+	MouseControlCamera3D_Toggle
+	MouseLook3D
+	MoveCameraBackward3D
+	MoveCameraDown3D
+	MoveCameraForward3D
+	MoveCameraLeft3D
+	MoveCameraRight3D
+	MoveCameraUp3D
+	PanCamera3D
+	PitchCameraDown
+	PitchCameraUp
+	ResetMoveSpeed
+	RotateAboutTarget3D
+	SnapCameraToSelection
+	ToggleLockCameraHeight
+	VerticalStrafeCamera
+	YawCameraLeft
+	YawCameraRight
+	ZoomAllCamerasIn
+	ZoomAllCamerasOut
+	ZoomCameraIn
+	ZoomCameraOut
+	ZoomForwardBack2D
+	ZoomForwardBack3D
+
+GlobalHotkeys : CGlobalHotkeyCommands // src/qcontrols/inputglobalhotkeys.cpp
+	DebugWidgetActiveWindow
+	DebugWidgetUnderMouse
+	DebugWidgetWithFocus
+	DummyNoOp
+	FocusChainDebug_Back
+	FocusChainDebug_Forward
+	FocusChainDebug_Less
+	FocusChainDebug_More
+	FocusChainDebug_Toggle
+	ShowAllCommandsPopup
+	ShowConsole
+	ShowFullHelpForBindableCommandUnderMouse
+	ShowInputDebugger
+	ShowWidgetDebugger
+	SwitchToEngineWindow
+
+LightingControl : CLightingControlRig // src/tools/toolscene/lightingcontrolrig.cpp
+	ReloadLightRigDefinitions
+	RotateLights
+	ToggleLights
+
+ToolSceneWidget : CQToolSceneWidget // src/tools/toolscene/qtoolscenewidget.cpp
+	DebugToolScene
+	DefaultPreviewCamera
+

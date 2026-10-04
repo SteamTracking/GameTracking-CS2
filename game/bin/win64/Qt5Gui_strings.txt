@@ -30867,7 +30867,6 @@ StandardNotation
 Standby
 StarWine
 State changed:
-StateChanged
 Statement
 StaticText
 StatusBar
@@ -34497,8 +34496,6 @@ png_start_read_image/png_read_update_info: duplicate call
 png_write_info was never called before png_write_row
 point=
 positionsInBuffer
-posx
-posy
 pound
 powderblue
 powf

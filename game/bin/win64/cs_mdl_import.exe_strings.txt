@@ -13244,7 +13244,6 @@ animations
 animflags
 animgraph2_clip
 animgraph2_graph
-animgraph2_identifier
 animgraph_additive
 animgraph_attribute
 animgraph_compatibility_check
@@ -13288,9 +13287,6 @@ attachment_name
 attachment_point
 attachment_point_cp1
 attachment_type_cp1
-attenuation0
-attenuation1
-attenuation2
 attr
 attr_factory
 attr_name_match
@@ -13324,7 +13320,6 @@ backgroundFXClip
 backgroundMap
 background_color
 bad partition length
-baked_light_indexing
 bakedin
 balance
 balance$0
@@ -14078,8 +14073,6 @@ floating point predictor
 fltx4
 fluorescent_flicker
 focalDistance
-fog_lighting
-fogcontributionstrength
 folder_name
 followParent
 followTheLead
@@ -14330,7 +14323,6 @@ initial_particles
 initial_value
 initial_value_src
 initializers
-innerconeangle
 input_axis
 input_stream_name
 inside_out_sort
@@ -14921,7 +14913,6 @@ name_prompt
 name_remap_table
 navlink
 navlinkclass
-nearclipplane
 neg_scale
 new_bone_name
 new_name
@@ -15009,13 +15000,10 @@ original_bone_name
 originating_classname
 originating_filename
 originating_linenumber
-ortholightheight
-ortholightwidth
 oscillate_scalar
 oscillate_vector
 out_frame
 outbound
-outerconeangle
 outliner_icon
 output is scalar of current value
 output is scalar of initial random range
@@ -15128,7 +15116,6 @@ path_trajectory
 pathclass
 pathnode
 pathnodeclass
-pattern
 pb4@
 pc4@
 pd3@
@@ -15468,7 +15455,6 @@ scale_set
 scale_source_node
 scale_world
 scale_xyz
-scales
 scanline
 scene
 schemasystem
@@ -15552,8 +15538,6 @@ shadow_color_day
 shadow_color_night
 shadow_secondary_color_day
 shadow_secondary_color_night
-shadowtextureheight
-shadowtexturewidth
 shape_list
 shapes
 shared
@@ -15593,8 +15577,6 @@ skin_to_bones
 skip_edge_rendering
 skip_face_rendering
 skip_vertex_rendering
-skycolor
-skyintensity
 slave
 slaveOffsets
 slave_axis
@@ -16347,14 +16329,12 @@ vortex_count
 vortex_max_speed_mph
 voume_random_min_scale
 vphzc
-vpost
 vsDmxIO SketchUpScene
 vsDmxIO houdiniSceneIO
 vsUtils.py
 vscale
 vsky
 vsutils_py
-vtex
 vvtx
 vwnod
 vwrld
