@@ -1,5 +1,6 @@
 import "networkbasetypes.proto";
 import "cstrike15_gcmessages.proto";
+import "google/protobuf/descriptor.proto";
 
 option additional_includes = "basetypes.h";
 

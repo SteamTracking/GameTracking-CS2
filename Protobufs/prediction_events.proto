@@ -1,4 +1,5 @@
 import "networkbasetypes.proto";
+import "google/protobuf/descriptor.proto";
 
 option additional_includes = "basetypes.h";
 option additional_includes = "entityhandle.h";

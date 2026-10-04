@@ -1,5 +1,6 @@
 import "networkbasetypes.proto";
 import "source2_steam_stats.proto";
+import "google/protobuf/descriptor.proto";
 
 option additional_includes = "basetypes.h";
 

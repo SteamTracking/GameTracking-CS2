@@ -1,4 +1,5 @@
 import "networkbasetypes.proto";
+import "google/protobuf/descriptor.proto";
 
 enum EBaseGameEvents {
 	GE_VDebugGameSessionIDEvent = 200;
