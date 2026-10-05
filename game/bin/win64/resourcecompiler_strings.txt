@@ -927,11 +927,14 @@ $prefix_element$
 &AK(h
 &V6J
 &Ylb
+'%s' cannot be listed, because it is the default source.
 '%s' cannot be referenced via VPDI, use item resource compiler instead.\n
 '%s' cannot read from link to '%s'. You need to change your graph to guarantee that the source happens before the destination!
 '%s' follows '%s'
+'%s' is listed more than once.
 '%s' is not a known input
 '%s' is not a known output
+'%s' is not a valid language.
 '%s' is not a valid variable type
 '()+,-./:=?
 '5'7'M'S'U'_'k'm's'w'
@@ -21426,7 +21429,6 @@ $prefix_element$
 09,h
 0;Q5[
 0<cz
-0@Rw
 0M2~@p
 0W/5
 0Z@q
@@ -21437,7 +21439,6 @@ $prefix_element$
 0e\r8
 0pp@5tqE?|sO541
 0tU+xc:
-0vD\f
 0x%llx
 0}dV
 1 component
@@ -21449,12 +21450,12 @@ $prefix_element$
 1!1'1-191C1E1K1]1a1g1m1s1
 1.0 - FractionalPart( A ) 
 1024
-11:59:42
 11nN
 12'0
 1280x720
 12v)
 14 (default)
+14:02:06
 15\tr\
 16-byte data pool
 1:1: Tokens : ( PLUS | MINUS | MUL | DIV | COMMA | LPAREN | RPAREN | EQUALS | PERCENT | INT | FLOAT | ID | ML_COMMENT | SL_COMMENT | NL | WS );
@@ -21512,7 +21513,7 @@ $prefix_element$
 2\fWQx
 2\rE2h
 2\rlhp
-2\vp4
+2\vpT
 2^pV
 2_BONE_IK
 2a"l
@@ -21526,7 +21527,7 @@ $prefix_element$
 2prB
 3%3+3/353A3G3[3_3g3k3s3y3
 31tPR
-333?p
+333?
 35-w
 37LQ
 3D Skybox
@@ -21872,7 +21873,7 @@ $prefix_element$
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
-@08ND\f
+@08N
 @0pp
 @@C:\buildworker\csgo_rel_win64\build\src\animlib\animpose.cpp
 @@CNmGraphDocIDEventPercentageThroughNode
@@ -21880,6 +21881,7 @@ $prefix_element$
 @BH]f
 @CMapLocator
 @CMixControlAutomatic
+@HPX`hv@
 @Integer overflow in %s
 @MfKZ
 @Pgl
@@ -29883,6 +29885,7 @@ InvViewportSize
 Invalid "location" "%s" in category "%s"\n
 Invalid %s specified: '%s' - no entry with that name.\n
 Invalid %s: %s
+Invalid 'languages' attribute "%s"; %s
 Invalid .rts channel label "%s", expecting <prefix>.<suffix>
 Invalid Attribute Name!
 Invalid Bone
@@ -31844,6 +31847,7 @@ Occlusion path ratio of direct path over shortest path between the source and se
 Occlusion value between the source and selected probe.
 OcclusionCullingBoundsExpand
 OcclusionCullingBoundsScale
+Oct  5 2026
 Octagonal Cylinder
 Offset Angle
 Offset Angles
@@ -32084,7 +32088,7 @@ P-384
 P-521
 P08@J
 P08J
-P08ND\f
+P08N
 P1\t98"
 P5[1
 PAGN_4
@@ -32345,6 +32349,7 @@ PairedSeq:m_hSequence
 PanSpeed
 Panel
 Panel '%s' (%s)
+Panel of type '%s' defines attribute '%s', which is generated from its 'languages' attribute.
 Panel of type '%s' has duplicate definition for attribute '%s'.
 PanelID
 Panorama Compiler Conditionals Fingerprint
@@ -33119,9 +33124,10 @@ RT Proxy albedo: %s verts / %s.  %i/%i instances with unique data.\n
 RT Proxy emissive: %s of data.\n
 RT Proxy geometry: %s verts / %s, %s indices / %s.  Duplicated %i verts due to partitions\n
 RT60 for low, mid, and high frequency bands for the probe.
-R\fp4
 R\r1>Vp
 R\vp!y
+R\vp0
+R\vpT
 R]Di
 R_T5Y
 Race Child Cursors
@@ -35084,6 +35090,7 @@ TextureSheetData
 TextureSize
 TextureWrapModes
 The 'Hammer' settings section of gameinfo.gi was not found. No game entities will be available for creation.
+The 'languages' attribute requires a 'src' attribute with a 'file://' image source.
 The <b>Parent</b> animation constraint is a little different in that it expects the bone to be constrained along with any offset to be specified directly on the node itself rather than via an output child node.  Also to note is that the rotation offset on the node is specified as an Euler rotation in degrees in XYZ order rather than the QAngle everywhere else.  If the <b>Constrained Bone</b> field is empty and there is an output child node, the first output node will be used.  If the <b>Constrained Bone</b> field is not empty, all output child nodes will be ignored.
 The Impostor LOD Group takes another Source LOD Group as input. Generating an impostor will output mesh and texture content files and set up the ModelDoc document to use them.\n\nImpostors need to be manually re-generated when any source content changes.
 The Morph Shape For This Incremental Morph
@@ -36706,6 +36713,7 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
+\fp\vP8
 \ful2
 \fy&3Gl
 \l:ArR
@@ -36951,7 +36959,6 @@ Z~wl
 \t\t\t\t"m_stringArg" "string" ""\n
 \t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n
 \t\t\t\t\n\n\n\n\n\n\n\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tP
 \tbody_groups = %s\n
 \tmaterial_group = "%s"\n
 \toRE
@@ -37191,7 +37198,6 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
-aBvD\f
 aD/x
 aDSS
 aECDH
@@ -40116,6 +40122,7 @@ expand on static bignum data
 expand_existing_selection
 expand_to_element
 expand_to_meshid
+expected a comma-separated list of language names, found an empty value.
 expected a section name
 expected an integer or the name of a #define
 expected an integer, got "%.*s" ( #define names can be used in combo declarations and rules, but not in FEATURES )
@@ -40724,7 +40731,6 @@ g|FeW\v
 g|MT
 h&eC
 h*Ax
-h+\n0l
 h0XB
 h2Wl
 h2n_\
@@ -41741,6 +41747,8 @@ lame_enc.dll
 landmark_%s
 lang
 language
+languages
+languagesrc-
 large
 lasso_loop
 lasso_world_to_proj
@@ -43688,7 +43696,7 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^D\f
+p08@H^
 p2{l
 p4Z3
 p4lib
@@ -44014,7 +44022,6 @@ playerclip
 playoverscript
 playresponse
 plugTypes
-pnD\f
 point
 point arithmetic failure
 point at infinity
@@ -44331,8 +44338,8 @@ rRfKR
 rX&O0
 rZ1VwGf5
 rZPM
+r\fp0
 r\vDi
-r\vp4
 rad2deg
 radians
 radius0_key

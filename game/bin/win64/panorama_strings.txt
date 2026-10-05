@@ -10,14 +10,15 @@
     Signature Algorithm: 
    %60s: %6d (pending %6d)\n
   ##%%&&))**,,//1122447788;;==>>@@CCEEFFIIJJLLOOQQRRTTWWXX[[]]^^aabbddgghhkkmmnnppssuuvvyyzz||
- !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
  !"#$%%&'()*+,-../0123456789:;<=>?@ABCDEFGHIJKLLMNOPQRSTUVWXY[]_`bdefhjlnprtvz|~
  %4hf
  %s%lu (%s0x%lx)\n
  ' ) - 3 G M Q _ c e i w } 
  (%ld unused bits)\n
- (08@HPXbP@#
- (0X`hpzP@#
+ (08@HPXb
+ (08@HR
+ (0X`hpz
  (INVALID PSS PARAMETERS)\n
  (Negative)
  (derived from %s)
@@ -247,6 +248,9 @@ $hRh
 &V6J
 &Ylb
 &lt;Needs a description&gt;
+'%s' cannot be listed, because it is the default source.
+'%s' is listed more than once.
+'%s' is not a valid language.
 '()+,-./:=?
 '5'7'M'S'U'_'k'm's'w'
 '6J~U\fm
@@ -262,49 +266,63 @@ $hRh
 (!(1(=(?(I(Q([(](a(g(u(
 ((long)msg_hdr->msg_len) > 0
 (0'yX
-(1nQ
+(1BQ
+(1yQ
 (4?NewFromUnsigned@Integer@v8@@SA?AV?$Local@VInteger@v8@@@2@PEAVIsolate@2@I@Z
-(54Q
 (5Me
 (5jP
-(95Q
-(ARQ
+(AbQ
 (BZq
 (D4D
-(EGQ
 (I?Value@External@v8@@QEBAPEAXXZ
-(ITQ
-(ImQ
-(IpQ
-(IsQ
+(IAQ
+(IVQ
+(IXS
+(IiQ
+(ItQ
+(MKQ
+(MTQ
 (NONE)
-(Q6Q
-(QBQ
+(QCQ
+(QHQ
+(QUQ
+(U0Q
 (U1h
-(YJQ
+(UFQ
+(UcQ
+(UsQ
+(UxQ
+(YEQ
+(YGQ
 (ZdOt\n&
 (_Assert)
+(aLQ
+(aSQ
 (anonymous)
 (d4t8
 (down)
-(eEQ
-(exQ
+(enQ
 (fS{ggRcjh
 (h`H1pqA
 (i/Al
+(iOQ
+(iYQ
+(iaQ
 (jvg;
-(mUQ
+(mDQ
+(mIQ
+(mQQ
 (memory)
-(q7Q
-(q9Q
-(qAQ
-(qLQ
+(q1Q
+(qfQ
+(quQ
+(u5Q
+(uXQ
 (undefined)
 (unset)
 (unset) w/parent: %s
 (vQF
 (wMww
-(ydQ
 )!)#)?)G)])e)i)o)u)
 )4?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@2@H@Z
 )Ck?B
@@ -980,7 +998,7 @@ $hRh
 0123456789
 02V8[
 05=k
-08@JP@#
+08@J
 08bX
 09,h
 0;Q5[
@@ -1019,6 +1037,7 @@ $hRh
 2)252Y2]2c2k2o2u2w2{2
 2)Ab`
 2+~,@\r;Zj09
+207 
 20t\f
 24U\n
 27;C
@@ -1028,14 +1047,11 @@ $hRh
 2:pS
 2?Message@TryCatch@v8@@QEBA?AV?$Local@VMessage@v8@@@2@XZ
 2I y)
-2PF$
-2Pt%
 2Tm=#
 2Uiwp"9
 2Zq)
 2\fWQx
 2\rlhp
-2\vpt
 2^pV
 2a"l
 2bT~
@@ -1045,6 +1061,7 @@ $hRh
 2nIg
 2p"6
 2prB
+2pt#
 3%3+3/353A3G3[3_3g3k3s3y3
 31tPR
 35-w
@@ -1073,7 +1090,6 @@ $hRh
 4Ch;
 4F0I
 4Mv8
-4PC 
 4Zis
 4\fPl
 4f h
@@ -1109,6 +1125,7 @@ $hRh
 6?NumberValue@Value@v8@@QEBA?AV?$Maybe@N@2@V?$Local@VContext@v8@@@2@@Z
 6H,N
 6O|T%
+6P\vD
 6Qd=
 6_wEX
 6afD
@@ -1160,7 +1177,6 @@ $hRh
 8GZS
 8SIffK5W
 8TZvrv<
-8YeQ
 8\v8!83858A8G8K8S8W8_8e8o8q8}8
 8]Vc2
 8ca1
@@ -1168,7 +1184,6 @@ $hRh
 8pe7?
 8q-S*]X
 8sOy
-8}XQ
 9#9%9)9/9=9A9M9[9k9y9}9
 9)PF
 9)jx
@@ -1333,10 +1348,12 @@ $hRh
 ?valveextensions.proto
 ?x29
 @!@%@+@1@?@C@E@]@a@g@m@
-@08N`
+@08N
 @0pp
 @?SlowGetInternalField@Object@v8@@AEAA?AV?$Local@VData@v8@@@2@H@Z
 @BH]f
+@HPX`hvP
+@HVp
 @MfKZ
 @Pgl
 @Pu\rm
@@ -1367,7 +1384,6 @@ A<fP
 A>x8
 A?StackTrace@TryCatch@v8@@QEBA?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@@Z
 AA Compromise
-AA:p
 AACompromise
 AC2,h
 ACCESS_DESCRIPTION
@@ -3017,6 +3033,7 @@ GoXis
 Go^ldg
 Gz,J
 G{Ol
+H-ZS
 H.aR
 H0+G+R
 H5gRR-
@@ -3024,6 +3041,7 @@ H8,2
 H8xp
 H=`HY
 H@H9xqI
+HA[S
 HB=\nHB
 HBJ\nTRF
 HEAD 
@@ -3039,7 +3057,6 @@ HO8?
 HTMLEscape
 HU>mA$_E*
 HWyn
-HY;S
 Hash Algorithm: 
 HbAta
 Hc S
@@ -3052,6 +3069,8 @@ Heap32Next
 Hg>?S
 Hhr+g
 Hide unless error/warning occurs
+HmYS
+Hm[S
 Hofw
 Hold Instruction Call Issuer
 Hold Instruction Code
@@ -3138,6 +3157,7 @@ Internal error occurred
 Internal failure creating panel in panorama
 InternalLambdaEvent
 International Organizations
+Invalid 'languages' attribute "%s"; %s
 Invalid @keyframe name (missing quotes or empty)
 Invalid Panel ID "%s"; %s
 Invalid XML format: %s
@@ -3219,6 +3239,7 @@ KDF failed
 KFz"
 KISA
 KMBo8[
+KP-E
 KQSlB
 KRB5
 KSV<
@@ -3568,11 +3589,9 @@ P-224
 P-256
 P-384
 P-521
-P08@JP@#
-P08J
-P08N`
+P08@J
+P08N
 P1\t98"
-P2P@#
 P5[1
 PAGN_4
 PARAMETERS
@@ -3783,6 +3802,7 @@ Paint
 PaintEmptyFrameAndForceLaterRepaint
 Panel
 Panel %s is reloading layout %s\n
+Panel of type '%s' defines attribute '%s', which is generated from its 'languages' attribute.
 Panel of type '%s' has duplicate definition for attribute '%s'.
 PanelImageSource
 PanelLayoutInvalidated
@@ -3989,7 +4009,6 @@ RSA_verify
 RSA_verify_ASN1_OCTET_STRING
 RSA_verify_PKCS1_PSS
 RSA_verify_PKCS1_PSS_mgf1
-R\fpt
 R\r1>Vp
 R]Di
 R_T5Y
@@ -4521,6 +4540,7 @@ TextEntryFocusChange(): Set for %s\n
 TextEntryInvalid(): Cleared for %s\n
 TextInputFinished
 TextInputHandlerStateChange
+The 'languages' attribute requires a 'src' attribute with a 'file://' image source.
 The following file has been changed on disk but is also edited in memory. Would you like to throw out in memory changes?\n\nFile:\n%s
 Third argument to RegisterEventHandler is not a valid callback function
 Third argument to RegisterKeyBind is not a valid callback function or event name
@@ -4906,6 +4926,7 @@ XWY]
 XYD%
 X\tQo
 Xd3h
+XeZS
 XfJ7
 XjfR
 XqgA+
@@ -4913,7 +4934,6 @@ Xuub
 XwA0
 Xz"7
 Y-Ny
-Y2<S
 Y4i%
 Y93a=7c@
 Y;C;8V
@@ -5004,6 +5024,7 @@ Z~wl
 \n%12s%s
 \n5a=Z
 \n:82H
+\nCvQ
 \nJS(%s:%d:%d)\n%s\n%s\n
 \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
 \n\tIPSec/IKE/Oakley curve #3 over a 155 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
@@ -5082,6 +5103,7 @@ _jPo
 _wjb
 _xU`u
 _}eOk
+`207 
 `28)fk
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
 `:zQF
@@ -5089,6 +5111,7 @@ _}eOk
 `DZG
 `F?ToLocalEmpty@api_internal@v8@@YAXXZ
 `H(hqA1p
+`I5Q
 `ITS
 `VX:H
 `fPw.\vM
@@ -5107,7 +5130,6 @@ a5<p
 a;Tg
 a@XZ
 aA0k
-aBv`
 aD/x
 aDSS
 aECDH
@@ -6531,6 +6553,7 @@ excluded subtree violation
 excludedSubtrees
 expand on static bignum data
 expanded
+expected a comma-separated list of language names, found an empty value.
 expected a section name
 expecting a boolean
 expecting a dh key
@@ -6773,7 +6796,6 @@ horizontal-align
 hotpink
 houseIdentifier
 hover
-hpzP@#
 hr_H
 hscroll
 hsv-transform
@@ -7531,6 +7553,8 @@ lC57
 lDcW
 lM2p
 language
+languages
+languagesrc-
 last octet invalid
 last-child
 lastModifiedBy
@@ -7771,6 +7795,7 @@ n < (int)sizeof(ctx->enc_data)
 n does not equal p q
 n-resize
 n0?X
+n0\nD
 n1Z 
 n5cM
 n6j/
@@ -8111,8 +8136,8 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^`
-p2P@#
+p08@H^
+p0j0G$
 p2{l
 p4Z3
 p5Z3
@@ -8446,7 +8471,6 @@ rX&O0
 rZ1VwGf5
 rZPM
 r\vDi
-r\vpt
 radial
 radial( 
 radialGradient

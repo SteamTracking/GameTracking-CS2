@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CWeaponBaseItem : public CCSWeaponBase
 {
 	bool m_bSequenceInProgress;

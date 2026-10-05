@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CEntityInstance
 {
 	CUtlSymbolLarge m_iszPrivateVScripts;

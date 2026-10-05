@@ -1,4 +1,4 @@
- !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$h'$
+ !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
  (08@HPX`jPb
  (08@HPXb
  (08@HPZPb
@@ -99,6 +99,9 @@
 &lt;Needs a description&gt;
 &nbsp
 &rlm
+'%s' cannot be listed, because it is the default source.
+'%s' is listed more than once.
+'%s' is not a valid language.
 'align' cue-setting already used
 'align' cue-setting must have a value of either 'start', 'middle', or 'end'
 'line' cue-setting already used
@@ -113,6 +116,8 @@
 (IImageSource)
 (memory)
 )4?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@2@H@Z
+**** Failed to parse panel property languages: %s; %s\n
+**** No %s image source compiled for %s\n
 *.log
 *?IsNumber@Value@v8@@QEBA_NXZ
 *?IsObject@Value@v8@@QEBA_NXZ
@@ -446,7 +451,8 @@
 08@J
 08BPb
 0x%4.4x 
-2\vpl
+2\vp4
+2\vp4t
 3?New@Number@v8@@SA?AV?$Local@VNumber@v8@@@2@PEAVIsolate@2@N@Z
 3?New@Object@v8@@SA?AV?$Local@VObject@v8@@@2@PEAVIsolate@2@@Z
 5butt
@@ -667,6 +673,7 @@ CloseConsole
 CloseDebuggerWindow
 ColdLS
 Comma separated list of images or movies to draw in the background. Can specify "none" to not draw a background layer. Combined with background-position, background-size, background-texture-size and background-repeat values.<br><br><b>Example:</b><pre>background-image: url("file://{images}/default.tga"), url( "file://{movies}/Background1080p.webm" );</pre>
+Comma-separated list of the languages that src has localized flavors for, named by suffixing the source file name with the language, e.g. languages="russian,french" alongside src="file://{images}/foo.png" uses "foo_french.png" when the game is running in French. English is implied by src itself and cannot be listed
 Command List Bytes Size
 ComputedMeasurementsHeader
 ComputedMiscHeader
@@ -1186,7 +1193,7 @@ PropertySection
 PropertyTransitionEnd
 RBLegend
 RT_txt
-R\vpl
+R\fp4
 RadioBox
 RadioButton
 RadioSelected
@@ -1608,6 +1615,7 @@ Y_txt
 [ScrollBar
 [object@%p]
 \n_V_AppendSlash
+\n_V_StringAfterPrefixCaseSensitive
 \n_V_strcspn
 \tV_UTF8ToUTF32
 \tV_iswspace
@@ -1836,6 +1844,7 @@ evenodd
 event:
 ew-resize
 expanded
+expected a comma-separated list of language names, found an empty value.
 expected newline
 expected webvtt-cuetime-separator `-->'
 expected webvtt-timestamp
@@ -1912,7 +1921,6 @@ gray
 green
 greenyellow
 grey
-hYS$
 hardlight
 has-tooltip-target-position
 hasNotches
@@ -1970,6 +1978,8 @@ k>?Set@Object@v8@@QEAA?AV?$Maybe@_N@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v
 keyboard
 khaki
 lang
+languages
+languagesrc-
 lastactivate
 lavender
 lavenderblush
@@ -2203,6 +2213,7 @@ pre-transform-rotate2d
 pre-transform-scale2d
 program
 purple
+r\vp4
 radial
 radial( 
 rebeccapurple

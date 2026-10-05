@@ -233,6 +233,63 @@
 	flow-children: right-wrap;
 }
 
+.workshop-tile-actions
+{
+	horizontal-align: right;
+	vertical-align: top;
+	flow-children: right;
+	margin: 8px;
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: .15s;
+	transition-timing-function: ease-in-out;
+}
+
+.map-selection-btn:hover .workshop-tile-actions
+{
+	opacity: 1;
+}
+
+.workshop-tile-actions__btn
+{
+	width: 32px;
+	height: 32px;
+	margin-left: 4px;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 3px;
+	transition-property: background-color;
+	transition-duration: .15s;
+	transition-timing-function: ease-in-out;
+}
+
+.workshop-tile-actions__btn Image
+{
+	horizontal-align: center;
+	vertical-align: center;
+	wash-color: white;
+}
+
+.workshop-tile-actions__btn:hover
+{
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+.workshop-tile-actions__btn:disabled
+{
+	opacity: 0.35;
+}
+
+.map-selection-btn--workshop-installed .map-selection-info__new
+{
+	background-color: rgba(90, 90, 90, 0.9);
+}
+
+.map-selection-btn--workshop-unplayable .map-selection-btn
+{
+	saturation: 0.3;
+	brightness: 0.6;
+}
+
 .map-selection-list-coop
 {
 	width: 80%;

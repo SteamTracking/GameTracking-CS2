@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CCSWeaponBase : public CBasePlayerWeapon
 {
 	bool m_bRemoveable;

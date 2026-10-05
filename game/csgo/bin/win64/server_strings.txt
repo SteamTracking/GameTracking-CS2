@@ -9398,11 +9398,11 @@ $tH@T\tI
 :\n6GAME_PARTICLE_MANAGER_EVENT_FREEZE_TRANSITION_OVERRIDE
 :\n6GAME_PARTICLE_MANAGER_EVENT_SET_CONTROL_POINT_SNAPSHOT
 :\ng_nConfigMaxCoord
+:ambient_generic
 :cwd|
 :eaI
 :gN(dq
 :mIR
-:m_vecRenderAttributes
 :parsed on tick %d of %d got %d new commands through command number %d [%s]\n
 :w4v
 ;!;#;-;9;E;S;Y;_;q;{;
@@ -9546,6 +9546,7 @@ $tH@T\tI
 ?Exit@Context@v8@@QEAAXXZ
 ?Exit@Isolate@v8@@QEAAXXZ
 ?ExternalAnimGraphHandle_t
+?GameEvent_RegisterHookupGameSystem
 ?Get@Object@v8@@QEAA?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@I@Z
 ?Get@Object@v8@@QEAA?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@@Z
 ?GetCurrent@Isolate@v8@@SAPEAV12@XZ
@@ -9578,12 +9579,12 @@ $tH@T\tI
 ?d86L
 ?dt]X
 ?expf
-?fSpinUpTime
 ?fff?
 ?ffffff
 ?gwL
 ?jOb
 ?m_Stops
+?movement_stats_debug_draw
 ?srJO
 ?tya
 ?uWS
@@ -9599,7 +9600,7 @@ $tH@T\tI
 @Aff
 @BH]f
 @BoneSetup
-@CSceneEntity_API::ScriptPlayerDeath
+@CSceneEntity_API
 @MfKZ
 @Pgl
 @Pu\rm
@@ -9613,7 +9614,7 @@ $tH@T\tI
 @\n\tPlacement
 @\n\vserver_type
 @dKb]
-@de_mirage
+@de_dust2
 @fTZk
 @fff>fff>fff>fff>
 @i1V
@@ -10093,6 +10094,7 @@ Assert True
 AssetBrowse( %s )
 AssetBrowse()
 Associated Player Pawn
+Asv_force_team_intro_variant
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Async%llu
@@ -10187,6 +10189,7 @@ BAsyncSendProto
 BC (default)
 BCBtActionMoveTo
 BCPulseCell_Outflow_PlayDynamicVCD::Run
+BDelay player slowdown when damaged by # ticks to reduce misprediction effects
 BEOS_BIND_FUNC
 BEOS_BIND_VAR
 BEOS_LOAD
@@ -10299,7 +10302,6 @@ BOOSTS
 BOUNDARY
 BREAKABLE
 BRouteMsgToJob
-BScalar for first person view punch when getting hit.
 BT5f
 BT_ACTION_MOVETO_FASTEST_ROUTE
 BT_ACTION_MOVETO_RUN
@@ -13533,7 +13535,6 @@ CSceneEntity::GenerateSceneForSequence:  Be careful! Requested a looping sequenc
 CSceneEntity::GenerateSceneForSequence:  Couldn't determine duration of %s\n
 CSceneEntity::GenerateSceneForSequence:  Failed to allocated new scene!!!\n
 CSceneEntity::GenerateSceneForSound: Couldn't determine duration of %s\n
-CSceneEntity_API
 CSceneEntity_API::Cancel
 CSceneEntity_API::CancelAtNextInterrupt
 CSceneEntity_API::InterjectResponse
@@ -13541,6 +13542,7 @@ CSceneEntity_API::Pause
 CSceneEntity_API::PauseAtNextInterrupt
 CSceneEntity_API::PitchShift
 CSceneEntity_API::Resume
+CSceneEntity_API::ScriptPlayerDeath
 CSceneEntity_API::SetTarget1
 CSceneEntity_API::SetTarget2
 CSceneEntity_API::Start
@@ -16332,7 +16334,6 @@ Game is paused but no pause start tick?\n
 Game paused time showing up negative (rt %f pausestart %f)\n
 GameConfigServerV001
 GameDebugVisualizer
-GameEvent_RegisterHookupGameSystem
 GameFrame
 GameHeader
 GameInit - PreCache - Finish
@@ -25168,7 +25169,6 @@ de_debris
 de_depot
 de_dogtown
 de_dust
-de_dust2
 de_edin
 de_eldorado
 de_elysion
@@ -25196,6 +25196,7 @@ de_marquis
 de_memento
 de_mikla
 de_mills
+de_mirage
 de_mirage_scrimmagemap
 de_mist
 de_mocha
@@ -25994,6 +25995,7 @@ fP;y
 fPitch
 fRoll
 fSpinDownTime
+fSpinUpTime
 fTZk
 fUnh\
 fValue
@@ -28799,6 +28801,7 @@ p4Z3
 p5Z3
 p5\nL,
 p618
+p87|
 p>?Set@Template@v8@@QEAAXV?$Local@VName@v8@@@2@V?$Local@VData@v8@@@2@W4PropertyAttribute@2@@Z
 p>TZk
 p@0pqE5tsO?|1
@@ -28868,7 +28871,6 @@ pText
 pU>\AL
 pUpdateData->m_updateType == updateType
 pValue
-pX7|
 p\rP\f0!h
 p^i9
 pa end %f
@@ -32183,7 +32185,6 @@ z(ov
 z/B,9d
 z<d2
 z>Hz
-zCsv_force_team_intro_variant
 zF):O4
 zG2m8
 zRXU 

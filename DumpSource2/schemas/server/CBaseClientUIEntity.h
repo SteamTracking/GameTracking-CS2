@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CBaseClientUIEntity : public CBaseModelEntity
 {
 	bool m_bEnabled;

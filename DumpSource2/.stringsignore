@@ -4769,6 +4769,7 @@ CharacterDecalRenderer
 Chase cam's ideal distance from target
 ChatIgnoreType_t
 Cheat to test regenerative health systems
+Check declared engine message size limit, and either warn or reject.  Note that this is ignored in -tools mode.  0=ignore, 1=warn/log, 2=warn/assert, 3=reject
 Check game code serializers
 Check serializer meta for duplication, add verbose to command for full spew
 CheckCough
@@ -5873,6 +5874,8 @@ Draws line between two 3D Points.\n\tGreen if no collision\n\tRed is collides wi
 Draws the current weapon's true inaccuracy + spread radius around the crosshair
 Draws the overview map
 Drive (dB)
+Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
+Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Drop defuser on player death
 Drop every Nth fragment
 Drop healthshot on player death
@@ -8030,8 +8033,6 @@ If nonzero, bots will stay in idle mode and not attack.
 If nonzero, bots with high co-op may automatically follow a nearby human player.
 If not using a fixed up direction, provides an initial up direction which will be used to determine the orientation of first element on the path, after that the elements will incrementally update to follow the path and may not match this direction. If Use Fixed Up direction is specified, then all elements will use this direction to deterime their up direction.
 If nothing in a radial menu is selected, and the button engaging the radial menu is released within this duration, fallback on the radial's tap functionality
-If processing messages from a client takes more than N ms, drop them
-If processing messages from a client takes more than N ms, warn
 If r_csgo_gpu_culling_shadows is true, this defines min cascade for which gpu culling is used
 If set > 0, overrides how long the decay time is on all mix graphs (in seconds).\n
 If set then server will save all played rounds information to files filename_date_time_team1_team2_mapname_roundnum_score1_score2.txt
@@ -15914,6 +15915,8 @@ Walk
 Warmup time to use when all players have connected. 0 to disable.
 Warmup time to use when the match will be cancelled (eg. due to a live VAC ban).
 Warn if lag compensated head hitbox position doesn't match that on client.
+Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
+Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Warp Orientation
 Warp Position
 Warp Section Tag
@@ -20783,7 +20786,6 @@ kill radius
 kill the NPC, running all appropriate AI.
 kill unused
 killvector
-kind8
 labelled_debug_helper_arc_segments
 labelled_debug_helper_enabled
 labelled_debug_helper_scale
@@ -33550,6 +33552,7 @@ net_log_processing
 net_max_message_process_count
 net_max_message_queue_size
 net_max_polymorphic_spew
+net_message_size_enforce
 net_messageinfo
 net_option
 net_p2p_listen_dedicated
@@ -35061,6 +35064,7 @@ remote console password.
 remove children when particle count lowers
 remove test object
 remove unused resolve
+removeAll
 remove_on_completion
 remove_weapon
 removeid
@@ -36758,8 +36762,10 @@ sv_mover_maxslope
 sv_mover_pogodampingratio
 sv_mover_pogofrequency
 sv_mute_players_with_social_penalties
-sv_net_client_message_process_time_ms_drop
-sv_net_client_message_process_time_ms_warn
+sv_net_client_message_process_time_ms_drop_burst
+sv_net_client_message_process_time_ms_drop_rate
+sv_net_client_message_process_time_ms_warn_burst
+sv_net_client_message_process_time_ms_warn_rate
 sv_netprof_delta_sharing_temp
 sv_networkvar_log_fullchanges
 sv_networkvar_perfieldtracking

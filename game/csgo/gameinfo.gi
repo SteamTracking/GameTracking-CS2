@@ -129,6 +129,9 @@
 		}
 		"r_add_views_in_pre_output"		"1"
 
+		// Limits
+		"sv_recvbuf_messages" "120"
+
 		// Nav fixups
 		"nav_path_fixup_climb_up_segments" "1"
 		"nav_gen_agent_radius_buffer" "0.75"

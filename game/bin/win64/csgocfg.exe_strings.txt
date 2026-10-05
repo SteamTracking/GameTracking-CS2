@@ -221,7 +221,7 @@ $\f?focusNextPrevChild@QWidget@@MEAA_N_N@Z
 .CRT$XIAC
 .fgd
 /e,/select,"
-11:56:15
+14:01:47
 1AcceptIfItemPicked()
 1OnAccept()
 1OnAddonDoubleClicked()
@@ -1168,6 +1168,7 @@ NoRole
 O?inverted@QTransform@@QEBA?AV1@PEA_N@Z
 OP?isNull@QIcon@@QEBA_NXZ
 O\r?hitTestComplexControl@QCommonStyle@@UEBA?AW4SubControl@QStyle@@W4ComplexControl@3@PEBVQStyleOptionComplex@@AEBVQPoint@@PEBVQWidget@@@Z
+Oct  5 2026
 OnAccept
 OnAddonDoubleClicked
 OnAddonSelectionChanged

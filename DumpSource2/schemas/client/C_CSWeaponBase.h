@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class C_CSWeaponBase : public C_BasePlayerWeapon
 {
 	WeaponGameplayAnimState m_iWeaponGameplayAnimState;

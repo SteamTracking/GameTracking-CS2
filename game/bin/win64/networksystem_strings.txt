@@ -18,6 +18,9 @@
   version used : %u.%u\n
  !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
  %dms faster than direct ping of %dms
+ (08@HPXb
+ (08@HR
+ (0X`hpz
  - keeping around as cacheable shared connection
  [+add recip %d]
  [COMPLEX]
@@ -258,11 +261,15 @@
 0 bit issue, spot 2
 0 bit issue, spot 3
 0 bit issue, spot 4
+08@J
+0:PO
+2\vp8
+2\vpl
+2\vpt
 7;eZ
 ::Storage_t
-@08N8
-@HPX`hvp
-@ht0
+@08N
+AA:Py
 Accepting Steam Net connection %s\n
 AckSeqNum
 AddOrUpdateFieldMetadata:  adding/updating %s with invalid array count %d!
@@ -344,7 +351,7 @@ CNetChan::BUF_RELIABLE
 CNetChan::BUF_UNRELIABLE
 CNetChan::BUF_VOICE
 CNetChan::ParseMessages
-CNetChan::ProcessMessages::<lambda_1>::operator ()
+CNetChan::ProcessMessages
 CNetChan::SendNetMessage: SerializeAbstract for message %s failed!\n
 CNetChan::SendNetMessage: Trying to send message %s, which is an invalid category for this channel!\n
 CNetChan::SendNetMessage: Unable to send message %s, buffer is full!\n
@@ -573,6 +580,8 @@ MakeSerializersMatchByMeta failed for %s\n
 MbP?33s?
 Measured RTT to %d SDR points of presence.\n
 Merge
+Message of type (%s) %d size %d exceeded maximum message size %d; allowing as per %s=%d\n
+Message of type (%s) %d size %d exceeded maximum message size %d; rejecting.\n
 Multiple steam net connections from %s\n
 NETWORK_FIELD_CHANGED_ARRAY_NO_VALUE
 NETWORK_FIELD_CHANGED_ARRAY_WITH_VALUE
@@ -589,7 +598,7 @@ NETWORK_FIELD_HIGHEST_PRIORITY
 NETWORK_FIELD_LOWEST_PRIORITY
 Net graph %s\n
 Net status for host %s:\n
-NetChan %s ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
+NetChan %s ProcessMessages has exhausted its CPU time warning budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 NetChanFlowIncomingAck
 NetChanRecv
 NetChanRecvMisdelivery
@@ -637,9 +646,9 @@ Obtained direct RTT measurements to relays in %d POPs.  Closest %d are:\n
 Opened Steam Net Connection on socket '%s' to %s, connection %s\n
 Order,'From','To',Bits\n
 OutSeqNumAck
+P08@J
 P08J
-P08N8
-P60# 
+P08N
 PACKET_STATUS_DROPPED
 PACKET_STATUS_INVALID
 PACKET_STATUS_NORMAL
@@ -647,6 +656,7 @@ PACKET_STATUS_OUT_OF_ORDER
 Path_Remove failed for read only CFieldPath
 Path_RemoveAll failed for read only CFieldPath
 Peer To Peer
+Pf0  
 PlusFour
 PlusN
 PlusOne
@@ -694,6 +704,8 @@ QueueCallback( %s ) '%s' using value type (%s) on struct field, ignoring!\n
 QueueChange
 QueueReplayCompatFieldChange( %s ): can't place MNetworkReplayCompatField callback on a fully fake struct (e.g., a pointed to component or object), game code should move callback on entity %d to a C_BaseEntity derived class!\n
 QueueTimeMS
+R\fp8
+R\vpl
 RadianEuler
 ReadFields
 Recv
@@ -800,7 +812,7 @@ WriteFields
 WriteToBuffer Message %s is not initialized! Probably missing required fields!\n
 Writing %d bits for path %s of serializer %s entity %d, this will fail to parse\n
 [ Net Message Info: %s ]\n
-[%s] DISCONNECTING. ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
+[%s] DISCONNECTING. ProcessMessages has exhausted its CPU time budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 [%s] Queued message count %d exceeds limit of %s=%d.  Allowing due to engine_frametime_warnings_enable=false\n
 [%s] high frame misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping, %.0fms peak jitter\n
 [%s] misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping\n
@@ -823,9 +835,7 @@ Writing %d bits for path %s of serializer %s entity %d, this will fail to parse\
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
 \vInSeqNum
 \vMsgTick
-`20t
-`ht0
-aBv8
+`2Py
 activated
 added
 aggegated
@@ -928,7 +938,6 @@ marked by nobase
 marked by user group
 matrix3x4_t
 matrix3x4a_t
-max_size
 nIndex != m_priorityToOrderMap.InvalidIndex()
 nPriority != NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY
 name,type,offset
@@ -940,7 +949,6 @@ net_option %s = %s\n
 net_option settings will not apply to loopback listenservers. To run a listenserver without loopback. Select your map with "map foo loopback=0"\n
 net_permutation_info 
 net_validatemessages = %d\n
-netmessage
 networking/%04d_%02d_%02d_%02d_%02d_%02d
 networksystem.dll
 next state only
@@ -958,7 +966,8 @@ out-of-order
 outgoing_data_bytespersecond
 outgoing_sequence
 outgoing_sequence_start
-p08@H^8
+p08@H^
+p0jPo
 p\rP\f0!h
 packet_status
 parallel
@@ -977,6 +986,7 @@ pri(%s%+d=%u)
 pri(%u)
 problem detected locally
 qangle_pitch_yaw
+r\vp8
 records
 regex
 regex_error
@@ -1005,7 +1015,6 @@ server_framerate_stddev
 showing permutations for %s\n
 shutdown
 single permutation
-size_exceeded_max
 skip
 steamappid
 string_t_table

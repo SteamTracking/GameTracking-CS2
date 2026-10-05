@@ -53,6 +53,25 @@
 				<Label class="map-selection-no-subscriptions-label stratum-medium-tf" html="true" text="#CSGO_Workshop_No_Maps" />
 			</Panel>
 		</snippet>
+		<snippet name="WorkshopMapTileActions">
+			<Panel class="workshop-tile-actions">
+				<TooltipPanel tooltip="#CSGO_Workshop_ViewPage">
+					<Button id="WorkshopViewPageBtn" class="workshop-tile-actions__btn">
+						<Image texturewidth="20" textureheight="20" src="s2r://panorama/images/icons/ui/link.vsvg" />
+					</Button>
+				</TooltipPanel>
+				<TooltipPanel id="WorkshopUnsubscribe" tooltip="#CSGO_Workshop_Unsubscribe">
+					<Button id="WorkshopUnsubscribeBtn" class="workshop-tile-actions__btn">
+						<Image texturewidth="20" textureheight="20" src="s2r://panorama/images/icons/ui/remove.vsvg" />
+					</Button>
+				</TooltipPanel>
+				<TooltipPanel id="WorkshopRemoveInstalled" tooltip="#CSGO_Workshop_Remove_Installed">
+					<Button id="WorkshopRemoveInstalledBtn" class="workshop-tile-actions__btn">
+						<Image texturewidth="20" textureheight="20" src="s2r://panorama/images/icons/ui/trash.vsvg" />
+					</Button>
+				</TooltipPanel>
+			</Panel>
+		</snippet>
 		<snippet name="QuickSelectionSetButtonSnippet">
 			<Button class="map-selection__quick-selection-set preset-button">
 				<Label text="{s:quick-selection-set-name}" />

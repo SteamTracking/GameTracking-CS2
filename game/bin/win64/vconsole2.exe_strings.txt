@@ -934,10 +934,10 @@ $t5\tEi\fo
 0z7@
 1"?updateGeometry@QWidget@@QEAAXXZ
 1&im*
-11:55:56
-11:56:10
 127.0.0.0
 127.0.0.1:%d
+14:02:01
+14:02:06
 16];h
 16yd
 172.16.0.0
@@ -4701,6 +4701,7 @@ O\fyW
 O\r?hitTestComplexControl@QCommonStyle@@UEBA?AW4SubControl@QStyle@@W4ComplexControl@3@PEBVQStyleOptionComplex@@AEBVQPoint@@PEBVQWidget@@@Z
 O\tV_expd
 Oa?width@QImage@@QEBAHXZ
+Oct  5 2026
 Old-style JPEG
 Old-style LZW codes, convert file
 OldSubfileType

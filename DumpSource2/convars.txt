@@ -6594,6 +6594,9 @@ net_max_message_queue_size 0 (developmentonly defensive)
 net_max_polymorphic_spew 5 (developmentonly defensive)
 	Max polymorphic variants to spew when spewing a flattened serializer.
 
+net_message_size_enforce 1 (release)
+	Check declared engine message size limit, and either warn or reject.  Note that this is ignored in -tools mode.  0=ignore, 1=warn/log, 2=warn/assert, 3=reject
+
 net_p2p_listen_dedicated false (developmentonly defensive)
 	Should dedicated server listen for new-style P2P?
 
@@ -11445,11 +11448,17 @@ sv_mover_pogofrequency 10 (developmentonly gamedll clientdll notify replicated d
 sv_mute_players_with_social_penalties true (developmentonly gamedll defensive)
 	<no description>
 
-sv_net_client_message_process_time_ms_drop 200 (developmentonly defensive)
-	If processing messages from a client takes more than N ms, drop them
+sv_net_client_message_process_time_ms_drop_burst 200 (developmentonly defensive)
+	Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
 
-sv_net_client_message_process_time_ms_warn 50 (developmentonly defensive)
-	If processing messages from a client takes more than N ms, warn
+sv_net_client_message_process_time_ms_drop_rate 20 (developmentonly defensive)
+	Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
+
+sv_net_client_message_process_time_ms_warn_burst 50 (developmentonly defensive)
+	Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
+
+sv_net_client_message_process_time_ms_warn_rate 5 (developmentonly defensive)
+	Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 
 sv_netprof_delta_sharing_temp false (release)
 	Temp counter for measuring performance impact of some network changes. To be removed by the end of Sept 2026

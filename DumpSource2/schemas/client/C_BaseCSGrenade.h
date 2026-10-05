@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class C_BaseCSGrenade : public C_CSWeaponBase
 {
 	bool m_bClientPredictDelete;

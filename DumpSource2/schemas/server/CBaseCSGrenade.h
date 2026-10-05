@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CBaseCSGrenade : public CCSWeaponBase
 {
 	bool m_bRedraw;

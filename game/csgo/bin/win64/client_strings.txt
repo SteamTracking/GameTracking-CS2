@@ -126,8 +126,9 @@
  (%lu = 0x%lx)\n
  (%u = 0x%x)\n
  (+%d more due to usercommand delivery)
- (08@HPXb *(
- (0X`hpz *(
+ (08@HPXb
+ (08@HR
+ (0X`hpz
  (DEFAULT)
  (Dirty Animation)
  (INVALID PSS PARAMETERS)\n
@@ -2198,7 +2199,6 @@ $taser_charge
 %lu: Row out of range, max %lu
 %lu: Sample out of range, max %lu
 %lu:%s:%s:%d:%s\n
-%n4H
 %p Load from %s\n
 %p Load from memory size %d\n
 %p OnFreeAudioMainThread\n
@@ -2632,6 +2632,9 @@ $taser_charge
 '%s' -> '%s' has malformed string (leading or trailing space)\n
 '%s' can't follow '%s' in the same input event. Ignoring command.\n
 '%s' can't follow '%s' in the same input event. Ignoring input.\n
+'%s' cannot be listed, because it is the default source.
+'%s' is listed more than once.
+'%s' is not a valid language.
 '()+,-./:=?
 '(Optional) Title of the published file.
 '.CPlayer_GetFriendsGameplayInfo_Request
@@ -2991,7 +2994,7 @@ $taser_charge
 ).CPlayer_GetPerFriendPreferences_Response"M
 ).CPlayer_SetCommunityPreferences_Response"+
 ).CPlayer_SetPerFriendPreferences_Response"G
-)24x
+)248
 )4?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@2@H@Z
 )A service for accessing Steam player dataB
 )App Id this file is being published FROM.
@@ -3030,6 +3033,8 @@ $taser_charge
 ** Invalid ID **
 *** Sending RequestRecurringMissionSchedule\n
 *** Test failure: "%s"
+**** Failed to parse panel property languages: %s; %s\n
+**** No %s image source compiled for %s\n
 ******************************************************************\n
 *,vJEd
 *.COAuthToken_ImplicitGrantNoPrompt_Request
@@ -3177,6 +3182,7 @@ $taser_charge
 ,\n\nsv_interp1
 ,\n\vvictim_slot
 ,ar_monastery
+,d;4X
 ,fQM(
 ,h11]
 ,hmQ#
@@ -3184,7 +3190,7 @@ $taser_charge
 ,kj8\te
 ,name:
 ,oYR
-,sK3 
+,sK3
 ,section=
 ,value:
 - "%s" = "%.2f"\n
@@ -4072,6 +4078,7 @@ $taser_charge
 .?AV?$CCallResult@VCUiComponent_Overwatch@@UHTTPRequestCompleted_t@@@@
 .?AV?$CCallResult@VCUiComponent_Streams@@UHTTPRequestCompleted_t@@@@
 .?AV?$CCallResult@VCUiComponent_Tournaments@@UHTTPRequestCompleted_t@@@@
+.?AV?$CCallResult@VCUiComponent_Workshop@@URemoteStorageUnsubscribePublishedFileResult_t@@@@
 .?AV?$CCallResult@VCUiComponent_Workshop@@USteamUGCQueryCompleted_t@@@@
 .?AV?$CCallResult@VCUiComponent_WorkshopAnnotation@@USteamUGCQueryCompleted_t@@@@
 .?AV?$CCallback@UPendingDownload_t@CUiComponent_MatchInfo@@UHTTPRequestDataReceived_t@@$0A@@@
@@ -4145,8 +4152,8 @@ $taser_charge
 .?AV?$CCoJobLambda@V<lambda_1>@?1??WorkshopMtxItemSubmit@@YAXXZ@@@
 .?AV?$CCoJobLambda@V<lambda_1>@?4??UpdateReviewerInfo@CUiComponent_VacNet@@QEAAXXZ@@@
 .?AV?$CCoJobLambda@V<lambda_1>@?9??UpdateStatus@CDownloadWorkshopAddonPrerequisite@@AEAAXXZ@@@
-.?AV?$CCoJobLambda@V<lambda_1>@?BC@??Steam_OnQueryItems@CUiComponent_Workshop@@AEAAXPEAUSteamUGCQueryCompleted_t@@_N@Z@@@
 .?AV?$CCoJobLambda@V<lambda_1>@?BC@??Steam_OnQueryItems@CUiComponent_WorkshopAnnotation@@AEAAXPEAUSteamUGCQueryCompleted_t@@_N@Z@@@
+.?AV?$CCoJobLambda@V<lambda_1>@?BI@??Steam_OnQueryItems@CUiComponent_Workshop@@AEAAXPEAUSteamUGCQueryCompleted_t@@_N@Z@@@
 .?AV?$CComponentPredictionCopyDataOps@VCBodyComponentBaseAnimGraph@@@@
 .?AV?$CComponentPredictionCopyDataOps@VCBodyComponentBaseModelEntity@@@@
 .?AV?$CComponentPredictionCopyDataOps@VCBodyComponentPoint@@@@
@@ -11197,6 +11204,7 @@ $taser_charge
 0123456789ABCDEF#
 02V8[
 05=k
+08@J
 08bX
 09,h
 0;Q5[
@@ -11472,6 +11480,7 @@ $taser_charge
 2Array of text tags to apply to the published file.
 2I y)
 2If true, return vote data in the returned details.
+2PK(
 2Set of published file Ids to retrieve details for.
 2Tm=#
 2Uiwp"9
@@ -11496,7 +11505,8 @@ $taser_charge
 2\n\nline_items
 2\n\vpreferences
 2\rlhp
-2\vpX
+2\vp4
+2\vph
 2^pV
 2a"l
 2bT~
@@ -11718,6 +11728,7 @@ $taser_charge
 8<pl
 8= zp
 8A6j
+8B H)
 8C:\buildworker\csgo_rel_win64\build\src\panorama\layout\stylepropertyfactory.cpp
 8Client ID for which to count the number of issued tokens"
 8GZS
@@ -11795,6 +11806,7 @@ $taser_charge
 :9\n\tkey_field
 :BAD OBJECT
 :Blowfish part of OpenSSL 1.0.2j  26 Sep 2016
+:CBodyComponentBaseAnimGraph
 :EXTERNAL TYPE %s\n
 :LBN
 :NAy
@@ -11817,7 +11829,7 @@ $taser_charge
 ;"lY7
 ;5jNf
 ;83\v\nHBJ7
-;<}\v<}\v<}\v<}\vCEnvVolumetricFogController_API::EnableIndirect
+;<}\v<}\v<}\v<}\vCEnvVolumetricFogController_API::SetToDefaults
 ;Enable close captioning.
 ;LGEW
 ;Qo0
@@ -11967,7 +11979,6 @@ $taser_charge
 ?CarouselNav
 ?CreateHandle@HandleScope@v8@@KAPEA_KPEAVIsolate@internal@2@_K@Z
 ?DisposeGlobal@api_internal@v8@@YAXPEA_K@Z
-?Dump entity list to console.
 ?Enter@Context@v8@@QEAAXXZ
 ?Enter@Isolate@v8@@QEAAXXZ
 ?Eternalize@api_internal@v8@@YAPEA_KPEAVIsolate@2@PEAVValue@2@@Z
@@ -11988,6 +11999,7 @@ $taser_charge
 ?HasCaught@TryCatch@v8@@QEBA_NXZ
 ?IronSightQuarterRes2
 ?LatchVariables
+?Lists all entities
 ?MapItemPreviewPanel SetModel
 ?Movie
 ?NmFrameSnapEventMode_t
@@ -12014,9 +12026,8 @@ $taser_charge
 ?uWS
 ?x29
 @!@%@+@1@?@C@E@]@a@g@m@
-@08Nd
+@08Nt
 @0pp
-@60m
 @?SlowGetInternalField@Object@v8@@AEAA?AV?$Local@VData@v8@@@2@H@Z
 @@CNmFloatCurveEvent
 @BH]f
@@ -12041,6 +12052,7 @@ $taser_charge
 @dKb]
 @fff>fff>fff>fff>
 @ffffff
+@htp
 @i1V
 @icon_camera
 @icon_character
@@ -12776,6 +12788,7 @@ B-409
 B-571
 B-Spline
 B.z\85p
+B0:0
 B2B2B2
 B2I_DSS
 B2I_RSA
@@ -12924,7 +12937,6 @@ BOOL ABSENT
 BOOLEAN
 BOOSTS
 BPIN_txt
-BPanoramaComponent_GlobalGame_StateChange
 BPublic
 BReadyForDisplay
 BRouteMsgToJob
@@ -14177,12 +14189,12 @@ CEnvSoundscape_API::ToggleEnabled
 CEnvVolumetricFogController_API
 CEnvVolumetricFogController_API::Disable
 CEnvVolumetricFogController_API::Enable
+CEnvVolumetricFogController_API::EnableIndirect
 CEnvVolumetricFogController_API::ForceRefresh
 CEnvVolumetricFogController_API::SetAnisotropy
 CEnvVolumetricFogController_API::SetDrawDistance
 CEnvVolumetricFogController_API::SetFadeSpeed
 CEnvVolumetricFogController_API::SetFogStrength
-CEnvVolumetricFogController_API::SetToDefaults
 CEnvVolumetricFogVolume_API
 CEnvVolumetricFogVolume_API::Disable
 CEnvVolumetricFogVolume_API::Enable
@@ -16627,6 +16639,7 @@ ComboBoxButton.ArrowColor
 ComboBoxButton.BgColor
 ComboBoxButton.DisabledBgColor
 Comma separated list of images or movies to draw in the background. Can specify "none" to not draw a background layer. Combined with background-position, background-size, background-texture-size and background-repeat values.<br><br><b>Example:</b><pre>background-image: url("file://{images}/default.tga"), url( "file://{movies}/Background1080p.webm" );</pre>
+Comma-separated list of the languages that src has localized flavors for, named by suffixing the source file name with the language, e.g. languages="russian,french" alongside src="file://{images}/foo.png" uses "foo_french.png" when the game is running in French. English is implied by src itself and cannot be listed
 Command List Bytes Size
 Command line parameter '-nosteam' can only be used in insecure mode ('-insecure').
 Command not allowed
@@ -18535,7 +18548,7 @@ Failed to find ui preference '%s'\n
 Failed to generate PNG buffer for %s.\n
 Failed to generate matchmaking data for quest %d (invalid gametype/map/mapgroup)\n
 Failed to generate new item: %s\n
-Failed to get details for subscribed file [%llu] @ %d (E:%d)\n
+Failed to get details for %s file [%llu] @ %d (E:%d)\n
 Failed to get details for subscribed file\n
 Failed to get details for ugc map [%llu] (E:%d)\n
 Failed to get details for ugc map"%llu" with map (%d)\n
@@ -18546,6 +18559,7 @@ Failed to init camera of type '%u'\n
 Failed to init mission quest from server!\n
 Failed to initate client-side item purchase for: %s\n
 Failed to initialize sticker kit ID %d '%s'
+Failed to initiate details query for installed UGC items\n
 Failed to initiate query for UGC annotations\n
 Failed to initiate query for UGC items\n
 Failed to intitiate match download based on full match info!\n
@@ -18591,6 +18605,7 @@ Failed to setup search data
 Failed to sign VPK; RSA failure.\n
 Failed to sign vpk; signature is unexpected size.\n
 Failed to submit workshop annotation.\n
+Failed to unsubscribe from workshop item %llu result = %d\n
 Failed to update web resource from %s\n
 Failed to update web resource: HTTP status %d fetching %s\n
 Failed to update web resource: couldn't fetch %s\n
@@ -18813,6 +18828,7 @@ Format5
 Format: ent_find substring [substring...] [-exclude_substring...] \n
 Format: ent_find_index <index>\n
 Format: ent_text_filter <list of flags to toggle, or all/none, parsed in order>\n
+Found %d installed items not covered by the subscribed query\n
 Found %d matches.\n
 Found no entity at %d.\n
 Found soundscape entity "%s" with no soundscape name.\n
@@ -21018,7 +21034,6 @@ JSDelayLoadList
 JSValueFromKeyValue failed to package parameter %s (type %d)\n
 JSValueFromKeyValues3 failed to package parameter (type %d)\n
 JS_!0
-JY3P
 JZIX
 J\nHBF
 J`KL
@@ -21158,7 +21173,7 @@ LOG_MESSAGE
 LONG
 LONG_C2I
 LPVIndex
-LS&\nKXU
+LS&\nK
 LT[N
 LT_txt
 LXKQ
@@ -21238,6 +21253,7 @@ LeftMargin
 LeftMouseScrollRegion
 LeftOfFocus%d
 Legacy Sniper Scope
+Legacy workshop item %llu is installed without a subscription; this is not expected\n
 LegacyConsoleInput
 LegacyModel
 Length (magnitude) of Vector
@@ -21633,6 +21649,7 @@ Map__Level--Animate-FadeIn
 Map__Level--Animate-FadeOut
 Maple
 Maps
+Mark an installed (unsubscribed) workshop item as unused so Steam deletes it
 MarketListingForItem
 Marquis
 Mask
@@ -22171,6 +22188,7 @@ Not expecting FIELD_EMBEDDED in flattened list (%s)
 Not logged in
 Not safe to 'new' this class due to alignment requirements
 Not signing; keys not set.\n
+Not subscribed to workshop item %llu, nothing to unsubscribe\n
 Not using save-in-memory path!\n
 NotEligible
 NotReloading
@@ -22490,12 +22508,12 @@ P-224
 P-256
 P-384
 P-521
-P08J
-P08Nd
+P08@J
+P08J0`#
+P08Nt
 P1\t98"
 P2P ping to "%s". Timed out after %.2fms\n
 P5[1
-P60g
 PAGN_4
 PANORAMA_LAYOUTFILE
 PARALYZE
@@ -22865,6 +22883,7 @@ PanoramaComponent_FriendsList_ProfileUpdated_LEGACY
 PanoramaComponent_FriendsList_RebuildFriendsList
 PanoramaComponent_GC_Hello
 PanoramaComponent_GameInterface_EngineSoundSystemsRunning
+PanoramaComponent_GlobalGame_StateChange
 PanoramaComponent_IngameDraft_DraftUpdate
 PanoramaComponent_Inventory_CraftIngredientAdded
 PanoramaComponent_Inventory_CraftIngredientRemoved
@@ -23051,7 +23070,6 @@ PersonalStore
 Pet definition %s: missing "name"
 Pet definition %s: name must be a positive integer
 PetHasAchievement
-Pf0T
 Phoenix Compound
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
@@ -23217,7 +23235,6 @@ Playsoundscape %s:Unknown command %s\n
 Please specify 0 or 1 with the -stream Parameter\n
 Pm8A?
 PmR"H?
-Pn0U
 Point entity.
 PointsAnim
 Policy Qualifier CPS
@@ -23462,7 +23479,6 @@ Pushes an identifier used to group overlays. Deletes all existing overlays using
 Pushes an identifier used to group overlays. Overlays marked with this identifier can be deleted in a big batch.
 Pyramid
 P|iC\r
-Q$4H
 Q(Optional) If supplied, the resulting published file's Id is appended to the URI.
 Q*hd
 Q/xtJ2
@@ -23608,6 +23624,7 @@ RO%s.
 ROTATION_OFFSET
 ROUNDDOWNTIME
 RP;e!
+RPK(
 RSA Data Security, Inc.
 RSA Data Security, Inc. PKCS
 RSA PRIVATE KEY
@@ -23692,10 +23709,11 @@ RT %dx%d %s %s : %d Bytes\n
 RT_txt
 RTime32
 RULESHERE
-R\fpX
+R\fph
 R\n\rincludekvtags
 R\r1>Vp
 R\vp!y
+R\vp4
 R]Di
 R_T5Y
 Rad2 Deg
@@ -23912,6 +23930,7 @@ RemoveClasses
 RemoveCraftIngredient
 RemoveDuplicates
 RemoveExpiredTimedStyles
+RemoveInstalledItem
 RemoveItemFromCart
 RemoveItemFromFavorites
 RemoveItemModel
@@ -25805,6 +25824,7 @@ Submitting item through workshop_annotation_submit.
 Submitting item through workshop_item_submit.
 Suboptimal
 Subscribed
+Subscribed item %llu was not returned by the subscribed query (missing %s tag?)\n
 SubscribedType
 Subscribing
 Subzero
@@ -26650,6 +26670,10 @@ Unregister a javascript calloback previously registered with RegisterJSCallback.
 UnregisterJSCallback
 Unserialization error: %s\n
 Unspecified
+Unsubscribe from a workshop item
+UnsubscribeItem
+Unsubscribed from workshop item %llu\n
+Unsubscribing from workshop item %llu\n
 Unsupported KeyValue type for key "%s" (type %s) when parsing connections\n
 Unsupported MSAA sample count for custom MSAA resolve\n
 Unsupported SpawnKeyType_t for entity "%s" class "%s" field "%s": %s (%d)
@@ -27228,6 +27252,8 @@ Woodpecker
 Work Item for Work Pool %s completed but job no longer existed to notify\n
 WorkgroupCounterBuffer
 Workout
+Workshop item %llu is installed but contains no maps\n
+Workshop item %llu is still subscribed, unsubscribe before removing\n
 WorkshopAPI
 WorkshopAnnotationAPI
 WorkshopAnnotationMgr001
@@ -28412,6 +28438,7 @@ Z~wl
 \rKT8v
 \rLAM
 \rMinghuaQu\f
+\rSource2/Composite Material Debug
 \rTxL
 \rUHz4Z}\r
 \rWhO
@@ -28726,8 +28753,6 @@ _xU`u
 _}eOk
 `28)fk
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
-`6Pn
-`6po
 `:zQF
 `D$daM-l
 `DZG
@@ -28759,7 +28784,7 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
-aBvd
+aBvt
 aD/x
 aDSS
 aECDH
@@ -32064,6 +32089,7 @@ exit_effect
 exp2
 expand on static bignum data
 expanded
+expected a comma-separated list of language names, found an empty value.
 expected a section name
 expected newline
 expected webvtt-cuetime-separator `-->'
@@ -33923,6 +33949,7 @@ inspect_turn
 inspect_turn_angle
 inspect_variation
 install_dlc_workshoptools
+installed
 instance_data
 instance_file
 instance_parm
@@ -34512,6 +34539,7 @@ kw.6#
 kyxsan
 k~Rz
 l <= sizeof(c->iv)
+l&+3p
 l&rB6
 l4Ot
 l7@J
@@ -34519,7 +34547,7 @@ lC57
 lDcW
 lM2p
 l\n\fexcludedtags
-l`w4h
+l`w4(
 label_token
 ladder
 ladder_angle_yaw
@@ -34529,6 +34557,8 @@ land
 land_%s
 lang
 language
+languages
+languagesrc-
 large
 lark
 last history
@@ -36567,8 +36597,8 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^d
-p0j0\r#
+p08@H^t
+p2 H)
 p250
 p2p_ping could not convert "%s" to a CPeerToPeerAddress\n
 p2p_ping could not ping "%s" because they are an unknown peer\n
@@ -36588,7 +36618,6 @@ pD4t
 pData->GetDataDescMap() == pTemplateDataMap
 pDescription
 pDest
-pF X
 pFilter
 pG_*h
 pIp 
@@ -37556,7 +37585,7 @@ rZPM
 r\n\vstart_index
 r\vDi
 r\vp!K
-r\vpX
+r\vph
 r_2PassBuildDraw 0
 r_2PassBuildDraw 1
 r_csm_fast_path 0
@@ -39259,6 +39288,7 @@ subject_item_id
 submachinegun
 submitted
 subs
+subscribed
 subscription
 subscription1
 subtick_duration

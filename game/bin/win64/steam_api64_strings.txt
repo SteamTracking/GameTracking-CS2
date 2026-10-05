@@ -49,7 +49,6 @@ RegOpenKeyExW
 RegQueryValueExW
 SHELL32.dll
 STEAMTIMELINE_INTERFACE_V004
-STEAMUGC_INTERFACE_VERSION021
 STEAMVIDEO_INTERFACE_V007
 SetEnvironmentVariableA
 Setting breakpad minidump AppID = %u\n

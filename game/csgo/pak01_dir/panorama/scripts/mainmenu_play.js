@@ -1921,22 +1921,35 @@ var PlayMenu;
         });
         container.AddClass('map-selection-list--workshop');
         m_mapSelectionButtonContainers[panelId] = container;
-        const arrMaps = WorkshopAPI.GetAvailableWorkshopMaps();
+        const arrMaps = WorkshopAPI.GetAvailableWorkshopMaps().filter((mapInfo) => typeof mapInfo === 'object');
+        const _SortRank = (mapInfo) => (mapInfo.ready === false ? 2 : 0) + (mapInfo.subscribed ? 0 : 1);
+        arrMaps.sort((a, b) => _SortRank(a) - _SortRank(b));
         for (let idxMap = 0; idxMap < arrMaps.length; ++idxMap) {
             const mapInfo = arrMaps[idxMap];
-            if (typeof mapInfo !== 'object') {
-                continue;
-            }
-            const p = $.CreatePanel('RadioButton', container, panelId + '_' + idxMap);
+            const bReady = mapInfo.ready !== false;
+            const bInstalledOnly = !!mapInfo.installed && !mapInfo.subscribed;
+            const p = $.CreatePanel(bReady ? 'RadioButton' : 'Panel', container, panelId + '_' + idxMap);
             p.BLoadLayoutSnippet('MapGroupSelection');
-            p.SetAttributeString('group', 'radiogroup_' + panelId);
             if (!mapInfo.hasOwnProperty('imageUrl') || !mapInfo.imageUrl)
                 mapInfo.imageUrl = 'file://{images}/map_icons/screenshots/360p/random.png';
-            p.SetAttributeString('mapname', '@workshop/' + mapInfo.workshop_id + '/' + mapInfo.map);
+            if (bReady) {
+                p.SetAttributeString('group', 'radiogroup_' + panelId);
+                p.SetAttributeString('mapname', '@workshop/' + mapInfo.workshop_id + '/' + mapInfo.map);
+                p.SetPanelEvent('onactivate', () => _OnActivateMapOrMapGroupButton(p));
+            }
+            else {
+                p.AddClass('map-selection-btn--workshop-unplayable');
+            }
             p.SetAttributeString('addon', mapInfo.workshop_id);
-            p.SetPanelEvent('onactivate', () => _OnActivateMapOrMapGroupButton(p));
             p.FindChildInLayoutFile('ActiveGroupIcon').visible = false;
             p.FindChildInLayoutFile('MapGroupName').text = mapInfo.name;
+            if (bInstalledOnly || mapInfo.legacy) {
+                p.AddClass('map-selection-btn--workshop-installed');
+                const elBadge = p.FindChildInLayoutFile('MapGroupNewTag');
+                elBadge.text = $.Localize(mapInfo.legacy ? '#CSGO_Workshop_Legacy_Badge' : '#CSGO_Workshop_Installed_Badge');
+                elBadge.RemoveClass('hidden');
+            }
+            _AddWorkshopTileActions(p, mapInfo, bInstalledOnly);
             const mapImage = $.CreatePanel('Panel', p.FindChildInLayoutFile('MapGroupImagesCarousel'), 'MapSelectionScreenshot0');
             mapImage.AddClass('map-selection-btn__screenshot');
             mapImage.style.backgroundImage = 'url("' + mapInfo.imageUrl + '")';
@@ -1952,6 +1965,30 @@ var PlayMenu;
         }
         _UpdateWorkshopMapFilter();
         return panelId;
+    }
+    function _AddWorkshopTileActions(elTile, mapInfo, bInstalledOnly) {
+        const elTileBtn = elTile.FindChildrenWithClassTraverse('map-selection-btn')[0] ?? elTile;
+        const elActions = $.CreatePanel('Panel', elTileBtn, undefined);
+        elActions.BLoadLayoutSnippet('WorkshopMapTileActions');
+        const strFileId = mapInfo.workshop_id;
+        const strTitle = mapInfo.name;
+        const elViewBtn = elActions.FindChildInLayoutFile('WorkshopViewPageBtn');
+        elViewBtn.enabled = SteamOverlayAPI.IsEnabled();
+        elViewBtn.SetPanelEvent('onactivate', () => $.DispatchEvent('CSGOOpenSteamWorkshop', strFileId));
+        elActions.FindChildInLayoutFile('WorkshopUnsubscribe').visible = !bInstalledOnly;
+        elActions.FindChildInLayoutFile('WorkshopRemoveInstalled').visible = bInstalledOnly;
+        const elRemoveBtn = elActions.FindChildInLayoutFile(bInstalledOnly ? 'WorkshopRemoveInstalledBtn' : 'WorkshopUnsubscribeBtn');
+        elRemoveBtn.SetPanelEvent('onactivate', () => _ConfirmWorkshopItemRemoval(strFileId, strTitle, bInstalledOnly));
+    }
+    function _ConfirmWorkshopItemRemoval(strFileId, strTitle, bInstalledOnly) {
+        const strPrefix = bInstalledOnly ? '#CSGO_Workshop_Remove_Confirm' : '#CSGO_Workshop_Unsubscribe_Confirm';
+        $.GetContextPanel().SetDialogVariable('workshop_item_name', strTitle);
+        UiToolkitAPI.ShowGenericPopupOkCancel($.Localize(strPrefix + '_Title'), $.Localize(strPrefix + '_Text', $.GetContextPanel()), '', () => {
+            if (bInstalledOnly)
+                WorkshopAPI.RemoveInstalledItem(strFileId);
+            else
+                WorkshopAPI.UnsubscribeItem(strFileId);
+        }, () => { });
     }
     function _SwitchToWorkshopTab(isEnabled) {
         const panelId = _LazyCreateWorkshopTab();

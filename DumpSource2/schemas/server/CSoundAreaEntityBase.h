@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CSoundAreaEntityBase : public CBaseEntity
 {
 	bool m_bDisabled;

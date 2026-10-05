@@ -1416,7 +1416,7 @@ CFuncBrush
 
 CFuncConveyor
 	include by name: m_fFlags
-	overrides: CBaseEntity::m_fFlags kind8 , CNetworkOriginCellCoordQuantizedVector::m_vecX bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecY bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecZ bitCount 32, CGameSceneNode::m_angRotation bitCount 32
+	overrides: CBaseEntity::m_fFlags removeAll , CNetworkOriginCellCoordQuantizedVector::m_vecX bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecY bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecZ bitCount 32, CGameSceneNode::m_angRotation bitCount 32
 	Vector m_vecMoveDirEntitySpace
 	float32 m_flTargetSpeed
 	GameTick_t m_nTransitionStartTick (sent as: int32)
@@ -1453,7 +1453,7 @@ CFuncMonitor
 
 CFuncMoveLinear
 	include by name: m_fFlags, m_vecVelocity
-	overrides: CBaseEntity::m_fFlags kind8 
+	overrides: CBaseEntity::m_fFlags removeAll 
 
 CFuncMoveLinearAlias_momentary_door
 

@@ -1,3 +1,4 @@
+// MConstructibleClassBase
 class CMarkupVolumeTagged : public CMarkupVolume
 {
 	CUtlVector< CGlobalSymbol > m_GroupNames;
