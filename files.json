@@ -1,7 +1,7 @@
 {
     "2347770": // cs2 content
 	[
-		"vpk:txt,lua,kv3,db,gameevents,vcss_c,vjs_c,vts_c,vxml_c,vsndevts_c,vsndstck_c,vpulse_c,vdata_c",
+		"pak01_dir.vpk:regex:\\.(txt|lua|kv3|db|gameevents|vcss_c|vjs_c|vts_c|vxml_c|vsndevts_c|vsndstck_c|vpulse_c|vdata_c)$",
 		"regex:.+?\\.(kv3|txt|jpg|png|gif|inf|gi|fgd|dll|cfg|vcfg)",
 		"regex:.+?_dir\\.vpk",
 		"regex:.+?shaders_vulkan_[0-9]+\\.vpk",

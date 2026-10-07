@@ -17,7 +17,7 @@ while IFS= read -r -d '' file
 do
 	echo " $file"
 
-	# When updating vpk_extensions, also update "vpk:..." in files.json
+	# When updating vpk_extensions, also update "pak01_dir.vpk:..." in files.json, since only those entries are downloaded
 	"$VRF_PATH" \
 		--input "$file" \
 		--output "$(echo "$file" | sed -e 's/\.vpk$/\//g')" \
