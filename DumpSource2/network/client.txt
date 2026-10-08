@@ -1322,6 +1322,7 @@ C_CSPlayerPawn
 	CEntityIndex m_nLastKillerIndex (sent as: int32)
 	GameTime_t m_fImmuneToGunGameDamageTime (sent as: float32)
 	bool m_bGunGameImmunity
+	float m_flModifier0
 	float m_fMolotovDamageTime
 	CWrappedInterpolatedVar< QAngle > m_angEyeAngles (encoder: qangle_precise; priority: 32; change callbacks: playerEyeAnglesChanged)
 

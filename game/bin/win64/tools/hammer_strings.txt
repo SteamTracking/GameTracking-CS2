@@ -72,7 +72,7 @@
   Repeats: 
   Top-level Mesh Op '%s' returning a cached result.\n
   V%d: '%s' (%s)\n
- !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P1
  !"#$%%&'()*+,-../0123456789:;<=>?@ABCDEFGHIJKLLMNOPQRSTUVWXY[]_`bdefhjlnprtvz|~
  #?windowFrameSectionAt@QGraphicsWidget@@MEBA?AW4WindowFrameSection@Qt@@AEBVQPointF@@@Z
  %.2f %.2f %.2f %.2f %.2f %.2f ;
@@ -93,10 +93,12 @@
  (%ld unused bits)\n
  (%lu = 0x%lx)\n
  (%u = 0x%x)\n
- (08@HPXb CB
- (08@HR CB
- (08@J CB
- (0X`hpz CB
+ (08@HPX`j0
+ (08@HPXb`CB
+ (08@HPZ0
+ (08@HR`CB
+ (08@J`CB
+ (0X`hpz`CB
  (Driven by choice group '%1')
  (INVALID PSS PARAMETERS)\n
  (Negative)
@@ -1206,8 +1208,7 @@ $worldspacetype
 ....................
 ../src/devtools/bin/certificates/game/
 ..uR5&m
-.0Df
-.0Kf
+.06f
 .4bb
 .97yY
 .?AUBufferedImpulseResponse_t@@
@@ -1914,6 +1915,7 @@ $worldspacetype
 .?AUCAttr_m_bStaticOnly@?1??GetStaticAttributes@CModelDocAnimModifier_DiscardChannels@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStereo@?1??GetStaticAttributes@CModelDocMorphControl@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopOnSequenceChange@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_bStripAll@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpStripMorphs@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressCreationOnDeath@?1??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressJointWeightCountWarnings@?1??GetStaticAttributes@CModelDocRenderMeshMarkup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressMissingWarnings@?1??GetStaticAttributes@CModelDocBodyGroup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -4302,6 +4304,7 @@ $worldspacetype
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -5192,6 +5195,7 @@ $worldspacetype
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -6226,6 +6230,7 @@ $worldspacetype
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@X@@
+.?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@X@@
@@ -7155,6 +7160,7 @@ $worldspacetype
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -7861,6 +7867,7 @@ $worldspacetype
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@@@
+.?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@@@
@@ -9373,6 +9380,7 @@ $worldspacetype
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -11274,6 +11282,7 @@ $worldspacetype
 .?AVCModelDocMeshModifier_MeshOpSlice@@
 .?AVCModelDocMeshModifier_MeshOpSliceBox@@
 .?AVCModelDocMeshModifier_MeshOpStack@@
+.?AVCModelDocMeshModifier_MeshOpStripMorphs@@
 .?AVCModelDocMeshModifier_MeshOpTransformBindposeBone@@
 .?AVCModelDocMeshModifier_MeshOpUVMapBox@@
 .?AVCModelDocMeshModifier_MeshOpUVMapCylinder@@
@@ -12572,7 +12581,7 @@ $worldspacetype
 .?AVStockSpike@@
 .APARTICLE_EHANDLE__
 .HCK\v
-.P2f
+.P5f
 .P6AXPEAVCQBindableCommandPushButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEAVCQBindableCommandToolButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEAVGameData@@@Z
@@ -12587,10 +12596,9 @@ $worldspacetype
 .P6AXPEAVQToolBar@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEAVQToolButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@Z
 .P6AXPEBDPEAVCBufferString@@@Z
-.P7f
-.PAf
-.PIf
-.PKf
+.P6f
+.P9f
+.PBf
 .Q.Ol
 .R?matches@QKeyEvent@@QEBA_NW4StandardKey@QKeySequence@@@Z
 .[?setRed@QColor@@QEAAXH@Z
@@ -12864,8 +12872,7 @@ $worldspacetype
 .mp3
 .nav
 .navdbg
-.p1f
-.pAf
+.p9f
 .pfm
 .png
 .pp@0
@@ -12916,13 +12923,13 @@ $worldspacetype
 0123456789
 02V8[
 05=k
-08@J CB
+08@HR0
+08@J`CB
+08B0
 08bX
 09,h
 0;Q5[
 0<cz
-0>I`f
-0H?Y
 0M2~@p
 0W/5
 0Z@q
@@ -12931,11 +12938,10 @@ $worldspacetype
 0\fU04i
 0\r%0t
 0\r0#0)070;0U0Y0[0g0q0y0}0
-0d1Y
 0e\r8
+0lFY
 0pp@5tqE?|sO541
 0tU+xc:
-0v<%Y
 0x%1
 0x%llx
 0x%p = %s '%s'
@@ -13654,14 +13660,12 @@ $worldspacetype
 1update()
 1xT$
 1}oP
-2 CB
 2%hd
 2(?SetFrame@FbxTime@fbxsdk@@QEAAX_JW4EMode@12@@Z
 2)252Y2]2c2k2o2u2w2{2
 2)Ab`
 2+~,@\r;Zj09
 2048
-20W=
 20t\f
 24U\n
 27;C
@@ -13750,11 +13754,10 @@ $worldspacetype
 2\rlhp
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
 2\vp!J
-2\vpH?Y
-2\vpd
+2\vplFY
 2^pV
 2_BONE_IK
-2`JB
+2`CB
 2a"l
 2aboutToShow()
 2accepted()
@@ -13814,6 +13817,7 @@ $worldspacetype
 2nIg
 2nd most active material around a probe.
 2p"6
+2pW=
 2prB
 2rangeChanged( int, int )
 2rejected()
@@ -13857,7 +13861,6 @@ $worldspacetype
 333333
 35-w
 37LQ
-3@pt
 3D Skybox
 3D Views
 3DES
@@ -13943,29 +13946,33 @@ $worldspacetype
 5sfm_v8
 5t?F
 5~EW
-6 Kf
 6#6165676;6M6O6S6Y6a6k6m6
 6#RDP#
 6%vi
 6,2K
 6-zeZ
-60\ff
+60Bf
+60Lf
+60Wf
 62$|S)6f
 64 283 0
 64CK\vH
 666666666666666666666666666666666666666666666666\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.\ssl\s3_enc.c
 6666666666666666jjjjjjjjjjjjjjjj[
 67-s
-6@Hf
+6@0f
+6@Kf
 6FaceSkyBox
 6H,N
 6O|T%
+6PSf
 6Qd=
 6[?setRenderHint@QPainter@@QEAAXW4RenderHint@1@_N@Z
 6\ng_flConfigMaxCoord
 6\v?createNode@QMapDataBase@@QEAAPEAUQMapNodeBase@@HHPEAU2@_N@Z
 6\v?event@QComboBox@@UEAA_NPEAVQEvent@@@Z
 6_wEX
+6`Ef
 6afD
 6bX+
 6c&0|vvX
@@ -13973,7 +13980,8 @@ $worldspacetype
 6l13
 6lkc
 6myY;
-6p/f
+6pFf
+6p_f
 6qo~
 6r-m_v
 6r1ij
@@ -14018,8 +14026,9 @@ $worldspacetype
 851Pe
 8<pl
 8= zp
+8@J0
 8A6j
-8B0[=
+8Bp[=
 8GZS
 8SIffK5W
 8TZvrv<
@@ -14083,7 +14092,6 @@ $worldspacetype
 :eaI
 :gN(dq
 :mIR
-:pCC
 :w4v
 ; tris:
 ;!;#;-;9;E;S;Y;_;q;{;
@@ -14186,6 +14194,8 @@ $worldspacetype
 > (After)
 >"?IsValid@FbxProperty@fbxsdk@@QEBA_NXZ
 >#>)>/>3>A>W>c>e>w>
+>0Rf
+>0Vf
 >333>
 >4|6eXg_e
 >7^0g
@@ -16668,13 +16678,13 @@ $worldspacetype
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
-@08N<%Y
+@08N
 @0pp
-@>PCf
+@6P"f
+@6P$f
 @@CNmFloatCurveEvent
 @BH]f
 @C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlsortvector.h
-@HV 6f
 @Integer overflow in %s
 @MfKZ
 @Pgl
@@ -19161,6 +19171,7 @@ CModelDocMeshModifier_MeshOpSelectionInvert
 CModelDocMeshModifier_MeshOpSlice
 CModelDocMeshModifier_MeshOpSliceBox
 CModelDocMeshModifier_MeshOpStack
+CModelDocMeshModifier_MeshOpStripMorphs
 CModelDocMeshModifier_MeshOpTransformBindposeBone
 CModelDocMeshModifier_MeshOpUVMapBox
 CModelDocMeshModifier_MeshOpUVMapCylinder
@@ -23232,6 +23243,7 @@ ExtrudeVertex
 ExtrudeVertices
 Extrudes the profile shape along the path from the current location of the profile shape.
 Extrudes the profile shape using the local space of the object, such that the origin of the object will be placed on the path.
+F Cf
 F#bgn?MwN|%
 F'pY
 F+Zb
@@ -23242,6 +23254,7 @@ F6tr
 F7!z
 F9q'
 F<mb
+F@Af
 FBX (*.fbx)
 FBX Export failed: %s\n
 FBX Export failed: Couldn't create FBX manager: "%s"\n
@@ -25836,7 +25849,6 @@ Maximum of two values (int)
 Maximum projection angle
 Maximum radius for created lights
 Maximum segment length %
-MbP?`m
 Mc]T=
 MdiArea
 Merge
@@ -26108,6 +26120,7 @@ MorphRule
 MorphRule Conflict :: %s\n                   == %s\n                   == %s
 MorphRule ConflictA:: %s\n                   == %s\n                   == %s
 MorphStereoControl
+Morphs
 Most active material around a probe.
 Motion Bias
 Motion Type
@@ -27527,18 +27540,16 @@ P-224
 P-256
 P-384
 P-521
-P08@J CB
-P08JpCC
-P08N<%Y
+P08@J`CB
+P08J
+P08N
 P1\t98"
-P2 CB
+P2`CB
 P4CopyFile
 P4CopyFile: Couldn't copy "%s" to "%s"\n
 P4CopyFile: Couldn't deduce depot path for source file "%s"\n
 P5[1
-P6 "f
-P60Hf
-P: CB
+P:`CB
 P?isValid@QColor@@QEBA_NXZ
 P?isValid@QTextCharFormat@@QEBA_NXZ
 P?item@QStandardItemModel@@QEBAPEAVQStandardItem@@HH@Z
@@ -27938,7 +27949,6 @@ Pathing coefficients for 1st order Ambisonics.
 Pause Game
 PauseGame
 PauseGameOnActivate
-Pd1Y
 Peak Cycle
 Peak Frame
 Peak Frame Number
@@ -28103,6 +28113,7 @@ Pivot Tool
 PivotPaint
 PivotToolSnapToBBox
 PixarLog
+PlFY
 Place
 Place Locator
 Place Locator Tool
@@ -28145,6 +28156,7 @@ Please make sure you deleted history on the mesh before exporting.\nThe mesh app
 Please move your current gameinfo.gi agent settings to a %s file and create a %s file with a 'default' entry containing all the nav nulls. Then add "NavHullsPreset" "default" to your gameinfo.gi file. For now we'll continue to load the agent settings but this path is deprecated ( antonioc@ ).
 Pm8A?
 PmR"H?
+Pn@Zf
 Point 0
 Point 1
 Point Bones At
@@ -28761,14 +28773,12 @@ RSA_verify_PKCS1_PSS_mgf1
 RT60 for low, mid, and high frequency bands for the probe.
 RW?restore@QPainter@@QEAAXXZ
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
-R\fpH?Y
 R\n?background@QPainter@@QEBAAEBVQBrush@@XZ
 R\r1>Vp
 R\r?hitTestComplexControl@QProxyStyle@@UEBA?AW4SubControl@QStyle@@W4ComplexControl@3@PEBVQStyleOptionComplex@@AEBVQPoint@@PEBVQWidget@@@Z
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpd
-R\vpd1Y
+R\vplFY
 R]Di
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
@@ -29060,6 +29070,7 @@ Remove key '%s'
 Remove layer
 Remove map variable '%s'
 Remove markup attribute
+Remove morph/delta data from the selected components, or from the entire mesh when Strip All is set. Each selection type strips only the morph data owned by that component type: selected vertices strip vertex morphs (shape/position deltas), selected faces strip face morphs and the per-face-vertex morphs of those faces (normal/UV deltas), and selected edges strip edge morphs. A vertex selection alone will not remove per-face-vertex morphs; select the faces to reach those.
 Remove object
 Remove property from tileset
 Remove selected from all sets
@@ -31127,6 +31138,10 @@ String parameter that will be passed through implicitly.
 String value for CTransform only had %u components\n
 StringArrayArray
 Strings Are Equal Case Sensitive
+Strip All (Ignore Selection)
+Strip All Morphs
+Strip Morphs
+Strip Morphs [from selection]
 Strip of quads
 StripByteCounts
 StripOffsets
@@ -32595,6 +32610,7 @@ VNotify Abandoned (Not enabled)\n
 VNotify Sent\n
 VNotify StartProcess failed!\n
 VNotify: %s\n
+VP f
 VPK Age
 VPK Size
 VPK directory for '%s' corrupt
@@ -32617,6 +32633,7 @@ VZ#-DLU[3=h
 V\rKk
 V\v?event@QProgressBar@@MEAA_NPEAVQEvent@@@Z
 V_a|I
+V`Uf
 Va?width@QPixmap@@QEBAHXZ
 Valid Content Absolute Path
 Valid External Path
@@ -33288,9 +33305,9 @@ XZP%c %d
 X\r?horizontalHeader@QTableView@@QEBAPEAVQHeaderView@@XZ
 X\tQo
 X\v?event@QPushButton@@MEAA_NPEAVQEvent@@@Z
+X`hr0
 Xd3h
 XfJ7
-XfP:f
 XjfR
 XqgA+
 Xuub
@@ -33363,7 +33380,6 @@ You need to read the OpenSSL FAQ, http://www.openssl.org/support/faq.html
 You need to remap old vertex data onto new versions of the meshes.\nSelect a mesh instance to the left to start,\nor click a button in the top left to handle them all.
 Ys/MA
 Z (Blue  / Up)
-Z CB
 Z axis scaling Scalar field
 Z"T-47\f8
 Z#Pe
@@ -33407,6 +33423,7 @@ Z\f?convertFromImage@QPixmap@@QEAA_NAEBVQImage@@V?$QFlags@W4ImageConversionFlag@
 Z\r?horizontalHeaderItem@QTableWidget@@QEBAPEAVQTableWidgetItem@@H@Z
 Z\v?event@QRubberBand@@MEAA_NPEAVQEvent@@@Z
 Z]?sort@QStandardItemModel@@UEAAXHW4SortOrder@Qt@@@Z
+Z`CB
 Zd[w
 Ze2Zh@
 Zero Pose Task
@@ -33519,7 +33536,6 @@ Z~wl
 \f"?update@QWidget@@QEAAXXZ
 \f$?ParseForGlobalSettings@FbxImporter@fbxsdk@@QEAAX_N@Z
 \f%\f/\f1\fA\f[\f_\fa\fm\fs\fw\f
-\f0tI
 \f7ig
 \f<<0A1pq
 \f?createObject@QTextDocument@@MEAAPEAVQTextObject@@AEBVQTextFormat@@@Z
@@ -33599,6 +33615,10 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
+\fp\v`\n0lFY
+\fp\v`lFY
+\fplFY
+\fptI
 \ful2
 \fy&3Gl
 \game
@@ -33703,7 +33723,7 @@ Z~wl
 \nIf the map is built without these entities it will not function correctly in game.\nContinue with build anyway?
 \nNo game entities will be available for creation.\n
 \nOld Param: %s\nSingle Compat Param: %s
-\nPd1Y
+\nPtI
 \nRead only files which will NOT be saved:\n
 \nS?moveTo@QPainterPath@@QEAAXAEBVQPointF@@@Z
 \nThe following required entities are missing:
@@ -33721,7 +33741,6 @@ Z~wl
 \n_V_binarytohex
 \ndummyfilename.tif
 \ng default\n
-\npCC
 \nqYu
 \ntM(ie-V
 \particles
@@ -33778,7 +33797,6 @@ Z~wl
 \rModelDoc
 \rN?grabWindow@QScreen@@QEAA?AVQPixmap@@_KHHHH@Z
 \rO?initPainter@QPaintDevice@@MEBAXPEAVQPainter@@@Z
-\rPBf
 \rTxL
 \rUHz4Z}\r
 \rWhO
@@ -33791,6 +33809,8 @@ Z~wl
 \ri1I
 \rjwB\t
 \roKK
+\rp\f`\v0lFY
+\rp\f`\vPlFY
 \rrCj
 \rtext
 \sG7tPD
@@ -33873,6 +33893,7 @@ Z~wl
 \tmaterial_group = "%s"\n
 \toRE
 \toverlap %i: [%s @ %.1f %.1f %.1f] slot %i\n
+\tpVf
 \ttqE5
 \t}BzJ88
 \v#\v)\v-\v?\vG\vQ\vW\v]\ve\vo\v{\v
@@ -33927,8 +33948,7 @@ Z~wl
 \v\vTSG
 \vj0k
 \vjC7
-\vpH?Y
-\vpd1Y
+\vplFY
 ]1h=bfz
 ]?sharedPainter@QPaintDevice@@MEBAPEAVQPainter@@XZ
 ]?staticMetaObject@QTextDocument@@2UQMetaObject@@B
@@ -34093,8 +34113,9 @@ _xU`u
 _zero
 _zero_percent_distance
 _}eOk
-`2 CB
 `28)fk
+`2`CB
+`6 6f
 `:zQF
 `?validate@QDoubleValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?validate@QIntValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
@@ -34109,12 +34130,11 @@ _}eOk
 `VX:H
 `\f?foreground@QTableWidgetItem@@QEBA?AVQBrush@@XZ
 `\r?entryInfoList@QDir@@QEBA?AV?$QList@VQFileInfo@@@@V?$QFlags@W4Filter@QDir@@@@V?$QFlags@W4SortFlag@QDir@@@@@Z
-`\rP\f0d1Y
 `\v?event@QSpinBox@@MEAA_NPEAVQEvent@@@Z
 `anonymous-namespace'::FlipEdges(), C:\buildworker\csgo_rel_win64\build\src\meshutils\remesh.cpp:2834
-`d1Y
 `fPw.\vM
 `h9T~
+`lFY
 `o_je
 `yNT
 a null shared library handle was used
@@ -34134,7 +34154,6 @@ a?worldTransform@QPainter@@QEBAAEBVQTransform@@XZ
 a?write@QStandardItem@@UEBAXAEAVQDataStream@@@Z
 a@XZ
 aA0k
-aBv<%Y
 aD/x
 aDSS
 aECDH
@@ -35652,7 +35671,6 @@ d.usernotice
 d.v1AttrCert
 d.v2AttrCert
 d.x400Address
-d/\vLE
 d/rRw
 d2i ecpkparameters failure
 d2i ts resp int failed
@@ -36523,8 +36541,10 @@ f&dy
 f1cK%
 f45\r
 f>KZ}
+f?tf
 fBB\fy
 fC\tc
+fKtf
 fL\ri
 fP;y
 fUnh\
@@ -37622,7 +37642,7 @@ horizontal_pose_param_name
 hotkey
 houdini
 houseIdentifier
-hpz CB
+hpz`CB
 hr_H
 http request
 https proxy request
@@ -38302,7 +38322,6 @@ iv too large
 i~wKVA\
 j <= (int)sizeof(ctx->key)
 j <= sizeof(c->iv)
-j CB
 j"MRX
 j&LQ
 j0ksJ
@@ -38323,6 +38342,7 @@ j\n?dragEnterEvent@QGraphicsTextItem@@MEAAXPEAVQGraphicsSceneDragDropEvent@@@Z
 j\v??HFbxVector4@fbxsdk@@QEBA?AV01@AEBV01@@Z
 j\v?event@QTextBrowser@@MEAA_NPEAVQEvent@@@Z
 j\vIP{s
+j`CB
 janetMailbox
 jb:5
 jcn,T,>
@@ -39520,6 +39540,7 @@ n6j/
 n:2C[
 n<}\v<}\v<}\v<}\v
 n?9a
+n@Nf
 n@PK
 nAction
 nAlpha
@@ -39553,6 +39574,9 @@ nNumBuffersChecked < NmCachedPoseID_t::s_nMaxNumberOfCachedPoses
 nNumSteps
 nOption
 nOptionIndex
+nPJf
+nPPf
+nP^f
 nPos
 nPrevCol
 nPrevRow
@@ -39818,6 +39842,7 @@ note
 noticeNumbers
 noticenos
 noticeref
+npAf
 npc_ability_name
 npc_combinedropship
 npc_dota_barracks
@@ -40100,17 +40125,16 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^<%Y
-p0jp
-p2 CB
-p20[=
+p08@H^
+p2`CB
+p2p[=
 p2{l
 p4 fstat -Op %s
 p4Z3
 p5Z3
 p5\nL,
 p618
-p>u_f
+p6PHf
 p@0pqE5tsO?|1
 pAction
 pAsset
@@ -40127,9 +40151,9 @@ pDescription
 pElement
 pEntity
 pEvent
+pF &f
 pFilter
 pG_*h
-pH?Y
 pIp 
 pLightRigButton
 pMapNode
@@ -40155,6 +40179,7 @@ pWidget
 pWindow
 p\n?dragLeaveEvent@QAbstractItemView@@MEAAXPEAVQDragLeaveEvent@@@Z
 p\r0\fP!K
+p\r`\fPlFY
 p\v?event@QWidget@@MEAA_NPEAVQEvent@@@Z
 p^i9
 p`?type@QStandardItem@@UEBAHXZ
@@ -40267,7 +40292,6 @@ pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
 pcPathLengthConstraint
-pd1Y
 peak
 peak_attr
 peak_cycle
@@ -40389,6 +40413,7 @@ pkey
 pkeyalg
 pkix
 pkparameters2group failure
+plFY
 place_on_floor
 placementOrigin
 placementattachment
@@ -40406,7 +40431,6 @@ playerclip
 plugId0
 plugId1
 plugTypes
-pn<%Y
 point
 point arithmetic failure
 point at infinity
@@ -40691,7 +40715,6 @@ quiet
 qx(q
 r$0I
 r-IE
-r0W=
 r184
 r3A~
 r<\rND
@@ -40708,10 +40731,8 @@ rRfKR
 rX&O0
 rZ1VwGf5
 rZPM
-r\fpd1Y
 r\n?dragLeaveEvent@QGraphicsItem@@MEAAXPEAVQGraphicsSceneDragDropEvent@@@Z
 r\vDi
-r\vpH?Y
 r_dota_wind_min_high_freq_strength
 rad2deg
 radius0_key
@@ -41005,6 +41026,7 @@ row_fixed_blend_val
 row_pose_param_name
 row_weight_list
 rowspan
+rpW=
 rsa not implemented
 rsa operations not supported
 rsa routines
@@ -42010,6 +42032,7 @@ string_string_string
 string_to_hex
 stringmap
 strip
+strip_all
 strips
 strlen(objstr) + 23 + 2 * enc->iv_len + 13 <= sizeof buf
 struct
@@ -42601,6 +42624,7 @@ tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slice.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slicebox.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_smooth_vertex_normals.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_stack.png
+tools/images/modeldoc_editor/outliner_icon_parametric_meshop_strip_morphs.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_transform_bindpose_bone.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_duplicate.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_offset.png
@@ -43291,7 +43315,6 @@ vortex_max_speed_mph
 voume_random_min_scale
 voxel_size
 voxelize
-vp)f
 vparams
 vphzc
 vqw0\nU
@@ -43537,7 +43560,6 @@ yf2)
 yield_token
 yyen
 yz@% 4d, % 4d
-z CB
 z(ov
 z)?SetScale@FbxTexture@fbxsdk@@QEAAXNN@Z
 z/B,9d
@@ -43552,6 +43574,7 @@ z\n?dragLeaveEvent@QTextEdit@@MEAAXPEAVQDragLeaveEvent@@@Z
 z\r?hoverMoveEvent@QGraphicsItem@@MEAAXPEAVQGraphicsSceneHoverEvent@@@Z
 z\v?customEvent@QObject@@MEAAXPEAVQEvent@@@Z
 z\v?eventFilter@QDialog@@MEAA_NPEAVQObject@@PEAVQEvent@@@Z
+z`CB
 zero dir
 zero sized document
 zero_unselected

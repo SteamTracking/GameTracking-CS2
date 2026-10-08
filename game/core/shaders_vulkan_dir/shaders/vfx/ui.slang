@@ -146,7 +146,7 @@ PS
 	RenderState(ColorWriteEnable0, F_ALPHA_ONLY ? A : All);
 	RenderState(DstBlend, F_ADDITIVE ? One : InvSrcAlpha);
 	RenderState(SrcBlend, F_ADDITIVE ? One : SrcAlpha);
-	RenderState(StencilRef, vguistencilref);
+	RenderState(StencilRef, VguiStencilRef);
 	Texture2D g_tColor < Channel(RGBA, None(Texture), Srgb); OutputFormat(DXT5); SrgbRead(true); >;
 	
 	// Color

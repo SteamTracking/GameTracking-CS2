@@ -116,11 +116,11 @@ PS
 	Texture2D g_tDirt < Channel(RGB, None(TextureDirt), Linear); OutputFormat(DXT1); SrgbRead(false); >;
 	Texture2D g_tNoise < Channel(RGB, None(TextureNoise), Linear); OutputFormat(DXT1); SrgbRead(false); >;
 	Texture2D g_tQuarterResUnthresholdedBlur < Attribute("QuarterResUnthresholdedBlurredTexture"); SrgbRead(false); >;
-	float4 g_vBloomUvScaleClamp < UiType(VectorText); Expression(bloombufferscaleclamp); >;
-	float3 g_vNormalizedBloomStrengths < UiType(VectorText); Expression(float3(normalizedadditivebloomstrength,normalizedscreenbloomstrength,normalizedblurbloomstrength)); >;
-	float2 g_vNormalizedUvToColorBufferUv < UiType(VectorText); Expression(normalizeduvtocolorbufferuv); >;
-	float4 g_vQuarterResBlurredUnthresholdedScaleClamp < UiType(VectorText); Expression(quarterresunthresholdedblurredscaleclamp); >;
-	float3 g_vUnNormalizedBloomStrengths < UiType(VectorText); Expression(float3(additivebloomstrength,screenbloomstrength,blurbloomstrength)); >;
+	float4 g_vBloomUvScaleClamp < UiType(VectorText); Expression(bloomBufferScaleClamp); >;
+	float3 g_vNormalizedBloomStrengths < UiType(VectorText); Expression(float3(normalizedAdditiveBloomStrength,normalizedScreenBloomStrength,normalizedBlurBloomStrength)); >;
+	float2 g_vNormalizedUvToColorBufferUv < UiType(VectorText); Expression(normalizedUvToColorBufferUv); >;
+	float4 g_vQuarterResBlurredUnthresholdedScaleClamp < UiType(VectorText); Expression(quarterResUnthresholdedBlurredScaleClamp); >;
+	float3 g_vUnNormalizedBloomStrengths < UiType(VectorText); Expression(float3(additiveBloomStrength,screenBloomStrength,blurBloomStrength)); >;
 	float4 g_vViewFadeColor < Attribute("ScreenFadeColor"); UiType(VectorText); >;
 	
 	// Lens Dirt

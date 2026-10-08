@@ -11448,16 +11448,16 @@ sv_mover_pogofrequency 10 (developmentonly gamedll clientdll notify replicated d
 sv_mute_players_with_social_penalties true (developmentonly gamedll defensive)
 	<no description>
 
-sv_net_client_message_process_time_ms_drop_burst 200 (developmentonly defensive)
+sv_net_client_message_process_time_ms_drop_burst 500 (release)
 	Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
 
-sv_net_client_message_process_time_ms_drop_rate 20 (developmentonly defensive)
+sv_net_client_message_process_time_ms_drop_rate 200 (release)
 	Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 
-sv_net_client_message_process_time_ms_warn_burst 50 (developmentonly defensive)
+sv_net_client_message_process_time_ms_warn_burst 50 (release)
 	Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
 
-sv_net_client_message_process_time_ms_warn_rate 5 (developmentonly defensive)
+sv_net_client_message_process_time_ms_warn_rate 5 (release)
 	Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 
 sv_netprof_delta_sharing_temp false (release)

@@ -1421,9 +1421,9 @@
 					},
 					{
 						m_mixgroup = "Weapons"
-						m_flModifier = 0.7
+						m_flModifier = 1.0
 						m_flListenerReverbModifierWhenSourceReverbIsActive = 0.0
-						m_flSourceModifier = 0
+						m_flSourceModifier = -1.0
 						m_flModifierMin = 0.4
 					},
 					{

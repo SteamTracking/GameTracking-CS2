@@ -269,7 +269,7 @@ PS
 	
 	RenderState(BackStencilPassOp, Replace);
 	RenderState(BlendEnable, true);
-	RenderState(DepthEnable, exists(shadervar_wireframedepthenable) ? shadervar_wireframedepthenable : true);
+	RenderState(DepthEnable, exists(ShaderVar_WireframeDepthEnable) ? ShaderVar_WireframeDepthEnable : true);
 	RenderState(DepthWriteEnable, false);
 	RenderState(DstBlend, F_ADDITIVE_BLEND ? One : InvSrcAlpha);
 	RenderState(StencilEnable, true);

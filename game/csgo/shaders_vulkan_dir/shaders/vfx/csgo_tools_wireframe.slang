@@ -184,17 +184,17 @@ VS
 PS
 {
 	
-	RenderState(BlendEnable, exists(shadervar_wireframeblendenable) ? shadervar_wireframeblendenable : false);
+	RenderState(BlendEnable, exists(ShaderVar_WireframeBlendEnable) ? ShaderVar_WireframeBlendEnable : false);
 	RenderState(CullMode, F_RENDER_BACKFACES ? None : Back);
 	RenderState(DepthBiasClamp, 0);
-	RenderState(DepthEnable, exists(shadervar_wireframedepthenable) ? shadervar_wireframedepthenable : true);
-	RenderState(DepthWriteEnable, exists(shadervar_wireframedepthwriteenable) ? shadervar_wireframedepthwriteenable : false);
+	RenderState(DepthEnable, exists(ShaderVar_WireframeDepthEnable) ? ShaderVar_WireframeDepthEnable : true);
+	RenderState(DepthWriteEnable, exists(ShaderVar_WireframeDepthWriteEnable) ? ShaderVar_WireframeDepthWriteEnable : false);
 	RenderState(FillMode, Wireframe);
 	RenderState(SlopeScaleDepthBias, 0);
 	RenderState(StencilEnable, true);
 	RenderState(StencilFunc, NotEqual);
 	RenderState(StencilRef, 1);
-	float4 g_flOverrideColor < UiType(VectorText); Expression(exists(shadervar_wireframeoverridecolor) ? shadervar_wireframeoverridecolor : float4(1,1,1,-1)); >;
+	float4 g_flOverrideColor < UiType(VectorText); Expression(exists(ShaderVar_WireframeOverrideColor) ? ShaderVar_WireframeOverrideColor : float4(1,1,1,-1)); >;
 	[[layer_constant]] ExternalDescriptorSet g_globalLateBoundBindlessSet < Source(ExternalDescSet); Attribute("g_globalLateBoundBindlessSet"); >;
 	[[layer_constant]] ExternalDescriptorSet g_lightBinnerGpuSet < Source(ExternalDescSet); Attribute("g_lightBinnerGpuSet"); >;
 	

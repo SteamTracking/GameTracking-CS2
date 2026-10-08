@@ -94,11 +94,11 @@ PS
 	Texture2D g_tSource2 < Attribute("SourceTexture2"); SrgbRead(true); >;
 	Texture2D g_tSourceMsaa < Attribute("SourceTextureMSAA"); SrgbRead(false); >;
 	float4 g_vCombineUVScaleAndClamp < UiType(VectorText); Expression(uvscaleclamp); >;
-	float4 g_vCombineUVScaleAndClamp2 < UiType(VectorText); Expression(uvscaleclamp2); >;
+	float4 g_vCombineUVScaleAndClamp2 < UiType(VectorText); Expression(UVScaleClamp2); >;
 	float3 g_vCurrMipBlurTint < UiType(VectorText); Expression(currmipblurtint); >;
 	float3 g_vPrevMipBlurTint < UiType(VectorText); Expression(prevmipblurtint); >;
-	float4 g_vTexelSize < UiType(VectorText); Expression(texelsize); >;
-	float3 g_vThresholdParams < UiType(VectorText); Expression(float3(-bloomthreshold/bloomthresholdwidth,1/bloomthresholdwidth,skyboxbloomstrength)); >;
+	float4 g_vTexelSize < UiType(VectorText); Expression(TexelSize); >;
+	float3 g_vThresholdParams < UiType(VectorText); Expression(float3(-bloomThreshold/bloomThresholdWidth,1/bloomThresholdWidth,skyboxBloomStrength)); >;
 	
 	
 	// Variant parameters

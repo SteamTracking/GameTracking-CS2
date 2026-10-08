@@ -227,7 +227,7 @@ PS
 	DynamicComboRule( Allow1( S_MODE_TOOLS_WIREFRAME, D_SUN_SHADOW_CASCADE_SIZE ) );
 	DynamicComboRule( Allow1( S_MODE_TOOLS_WIREFRAME, D_VERTEX_LIGHTING ) );
 	
-	RenderState(DepthEnable, exists(shadervar_wireframedepthenable) ? shadervar_wireframedepthenable : true);
+	RenderState(DepthEnable, exists(ShaderVar_WireframeDepthEnable) ? ShaderVar_WireframeDepthEnable : true);
 	float g_flAlphaTestThreshold < Default(0.3); UiType(Slider); >;
 	Texture2D g_tGrassQuadArray < Attribute("GrassQuadArray"); SrgbRead(true); >;
 	

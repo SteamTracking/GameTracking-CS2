@@ -210,7 +210,9 @@
  (%ld unused bits)\n
  (%lu = 0x%lx)\n
  (%u = 0x%x)\n
+ (08@HPX`j@
  (08@HPXb
+ (08@HPZ@
  (08@HR
  (0X`hpz
  (Bad Remap %d)
@@ -939,6 +941,7 @@ $prefix_element$
 '()+,-./:=?
 '5'7'M'S'U'_'k'm's'w'
 '6J~U\fm
+'7PO
 'DAE
 'O6n
 'OverrideClass' was specified but class '%s' has not been previously defined.\n
@@ -967,7 +970,7 @@ $prefix_element$
 ((long)msg_hdr->msg_len) > 0
 (0'yX
 (3 Independent Floats)
-(400\r
+(4p0\r
 (5Me
 (5jP
 (Advanced Feature) Used to specify special interaction rules or exclusions. References a name in scripts/collision_properties.txt.
@@ -2617,6 +2620,7 @@ $prefix_element$
 .?AUCAttr_m_bStopWhenGraphEnds@?1??GetAttributeTable_Impl@CAudioAnimTag@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopWhenTagEnds@?1??GetAttributeTable_Impl@CAudioAnimTag@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopWhenTagEnds@?1??GetAttributeTable_Impl@CParticleAnimTag@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_bStripAll@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpStripMorphs@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressCreationOnDeath@?1??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressJointWeightCountWarnings@?1??GetStaticAttributes@CModelDocRenderMeshMarkup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressMissingWarnings@?1??GetStaticAttributes@CModelDocBodyGroup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -7173,6 +7177,7 @@ $prefix_element$
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -8843,6 +8848,7 @@ $prefix_element$
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -10782,6 +10788,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@X@@
+.?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@X@@
@@ -12646,6 +12653,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -13360,6 +13368,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@@@
+.?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@@@
@@ -16373,6 +16382,7 @@ $prefix_element$
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -19748,6 +19758,7 @@ $prefix_element$
 .?AVCModelDocMeshModifier_MeshOpSlice@@
 .?AVCModelDocMeshModifier_MeshOpSliceBox@@
 .?AVCModelDocMeshModifier_MeshOpStack@@
+.?AVCModelDocMeshModifier_MeshOpStripMorphs@@
 .?AVCModelDocMeshModifier_MeshOpTransformBindposeBone@@
 .?AVCModelDocMeshModifier_MeshOpUVMapBox@@
 .?AVCModelDocMeshModifier_MeshOpUVMapCylinder@@
@@ -21424,7 +21435,9 @@ $prefix_element$
 0123456789)"
 02V8[
 05=k
+08@HR@
 08@J
+08B@
 08bX
 09,h
 0;Q5[
@@ -21439,6 +21452,7 @@ $prefix_element$
 0e\r8
 0pp@5tqE?|sO541
 0tU+xc:
+0vT.
 0x%llx
 0}dV
 1 component
@@ -21454,8 +21468,8 @@ $prefix_element$
 12'0
 1280x720
 12v)
+13:41:41
 14 (default)
-14:02:06
 15\tr\
 16-byte data pool
 1:1: Tokens : ( PLUS | MINUS | MUL | DIV | COMMA | LPAREN | RPAREN | EQUALS | PERCENT | INT | FLOAT | ID | ML_COMMENT | SL_COMMENT | NL | WS );
@@ -21484,7 +21498,6 @@ $prefix_element$
 2)252Y2]2c2k2o2u2w2{2
 2)Ab`
 2+~,@\r;Zj09
-200:
 2048
 20t\f
 241:1: FLOAT : ( ( MINUS )? ( DIGIT )+ '.' ( DIGIT )* ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? '.' ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? );
@@ -21513,7 +21526,8 @@ $prefix_element$
 2\fWQx
 2\rE2h
 2\rlhp
-2\vpT
+2\vp8,
+2\vpD
 2^pV
 2_BONE_IK
 2a"l
@@ -21524,10 +21538,11 @@ $prefix_element$
 2nIg
 2nd most active material around a probe.
 2p"6
+2p0:
 2prB
 3%3+3/353A3G3[3_3g3k3s3y3
 31tPR
-333?
+333?p
 35-w
 37LQ
 3D Skybox
@@ -21791,6 +21806,7 @@ $prefix_element$
 =!=-=3=7=?=C=o=s=u=y={=
 =&sf9
 =,c'?VcY>\U:?
+=3Xx
 == %s building deformable geometry.\n
 == %s skipped building deformable geometry (already built).\n
 == %s skipped building deformable geometry (by user request)\n
@@ -21873,7 +21889,7 @@ $prefix_element$
 @%s_lookFrame_0
 @%s_lookFrame_1
 @%s_lookFrame_2
-@08N
+@08NT.
 @0pp
 @@C:\buildworker\csgo_rel_win64\build\src\animlib\animpose.cpp
 @@CNmGraphDocIDEventPercentageThroughNode
@@ -21881,7 +21897,6 @@ $prefix_element$
 @BH]f
 @CMapLocator
 @CMixControlAutomatic
-@HPX`hv@
 @Integer overflow in %s
 @MfKZ
 @Pgl
@@ -21897,7 +21912,7 @@ $prefix_element$
 @define
 @define 
 @fff>fff>fff>fff>
-@ht00\r
+@htp0\r
 @i1V
 @import
 @keyframes
@@ -24221,6 +24236,7 @@ CModelDocMeshModifier_MeshOpSelectionInvert
 CModelDocMeshModifier_MeshOpSlice
 CModelDocMeshModifier_MeshOpSliceBox
 CModelDocMeshModifier_MeshOpStack
+CModelDocMeshModifier_MeshOpStripMorphs
 CModelDocMeshModifier_MeshOpTransformBindposeBone
 CModelDocMeshModifier_MeshOpUVMapBox
 CModelDocMeshModifier_MeshOpUVMapCylinder
@@ -26116,7 +26132,6 @@ D(n%6
 D*64
 D.Hog^
 D.]ppM
-D00\r
 D16_UNORM
 D24_UNORM_S8_UINT
 D2I_ASN1_BIT_STRING
@@ -26136,6 +26151,7 @@ D32_FLOAT_S8X24_UINT
 D4tp
 D514p
 D@D/lcO+hcK
+DA@J
 DAE!
 DAL\fL@
 DANGER! Running partial map compile (-world,-vis,etc) in a full force-build. You should use -fshallow.\n
@@ -26866,6 +26882,7 @@ DotaTileGrid
 DoubleSided
 Down
 Downsample
+Dp0\r
 Dq;n
 Drag
 Draw Boxes
@@ -29454,6 +29471,7 @@ I2nC
 I9xq
 I;b_b
 I?Utf8Length@String@v8@@QEBAHPEAVIsolate@2@@Z
+I@L[w
 IA5STRING
 IANA
 IC'W
@@ -31192,6 +31210,7 @@ MorphRule Conflict :: %s\n                   == %s\n                   == %s
 MorphRule ConflictA:: %s\n                   == %s\n                   == %s
 MorphSetData_t
 MorphStereoControl
+Morphs
 Most active material around a probe.
 Motion Bias
 Motion Graph %s has more than %i parameters
@@ -31847,7 +31866,7 @@ Occlusion path ratio of direct path over shortest path between the source and se
 Occlusion value between the source and selected probe.
 OcclusionCullingBoundsExpand
 OcclusionCullingBoundsScale
-Oct  5 2026
+Oct  8 2026
 Octagonal Cylinder
 Offset Angle
 Offset Angles
@@ -32088,7 +32107,7 @@ P-384
 P-521
 P08@J
 P08J
-P08N
+P08NT.
 P1\t98"
 P5[1
 PAGN_4
@@ -33124,10 +33143,10 @@ RT Proxy albedo: %s verts / %s.  %i/%i instances with unique data.\n
 RT Proxy emissive: %s of data.\n
 RT Proxy geometry: %s verts / %s, %s indices / %s.  Duplicated %i verts due to partitions\n
 RT60 for low, mid, and high frequency bands for the probe.
+R\fpD
 R\r1>Vp
 R\vp!y
-R\vp0
-R\vpT
+R\vp8,
 R]Di
 R_T5Y
 Race Child Cursors
@@ -33287,6 +33306,7 @@ Remove all elements from 'a' which compare equal to 'element'.
 Remove all values from the list
 Remove bones that are not present in this allow-list.
 Remove flags from the given value.
+Remove morph/delta data from the selected components, or from the entire mesh when Strip All is set. Each selection type strips only the morph data owned by that component type: selected vertices strip vertex morphs (shape/position deltas), selected faces strip face morphs and the per-face-vertex morphs of those faces (normal/UV deltas), and selected edges strip edge morphs. A vertex selection alone will not remove per-face-vertex morphs; select the faces to reach those.
 Remove the element at the given index in 'a', decreasing its count by one and moving the elements after index.
 Remove the given tag from this cursor. If other cursors are waiting on us, they will resume.
 Remove vertices behind the slice plane.
@@ -34688,6 +34708,10 @@ StringArg
 StringArrayArray
 Strings Are Equal Case Sensitive
 Strings that have localization requirements must follow a path of named members. To support localization in an array, a mod must override ISource2ModTools::BVDataLocAdjustNamedPath to define the correct behavior.
+Strip All (Ignore Selection)
+Strip All Morphs
+Strip Morphs
+Strip Morphs [from selection]
 Strip of quads
 StripByteCounts
 StripOffsets
@@ -36544,6 +36568,7 @@ XY warp curve blowout detected! Falling back to LERP!
 XYD%
 XYZ, Luv
 X\tQo
+X`hr@
 Xd3h
 XfJ7
 XjfR
@@ -36713,7 +36738,6 @@ Z~wl
 \f]ne3
 \fdhWTh
 \fiaR
-\fp\vP8
 \ful2
 \fy&3Gl
 \l:ArR
@@ -36959,6 +36983,7 @@ Z~wl
 \t\t\t\t"m_stringArg" "string" ""\n
 \t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n
 \t\t\t\t\n\n\n\n\n\n\n\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tP(
 \tbody_groups = %s\n
 \tmaterial_group = "%s"\n
 \toRE
@@ -37166,8 +37191,8 @@ _wjb
 _xU`u
 _zero
 _}eOk
-`200:
 `28)fk
+`2p0:
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
 `:zQF
 `=IhC?zm6>
@@ -37180,7 +37205,7 @@ _}eOk
 `anonymous-namespace'::FlipEdges(), C:\buildworker\csgo_rel_win64\build\src\meshutils\remesh.cpp:2834
 `fPw.\vM
 `h9T~
-`ht00\r
+`htp0\r
 `o_je
 `yNT
 a null shared library handle was used
@@ -37198,6 +37223,7 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
+aBvT.
 aD/x
 aDSS
 aECDH
@@ -43696,7 +43722,7 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^
+p08@H^T.
 p2{l
 p4Z3
 p4lib
@@ -43878,7 +43904,7 @@ pbeWithSHA1And40BitRC2-CBC
 pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
-pc64 Sep 30 2026 11:59:44
+pc64 Oct  8 2026 13:41:41
 pcPathLengthConstraint
 peak
 peak_attr
@@ -44022,6 +44048,7 @@ playerclip
 playoverscript
 playresponse
 plugTypes
+pnT.
 point
 point arithmetic failure
 point at infinity
@@ -44338,8 +44365,8 @@ rRfKR
 rX&O0
 rZ1VwGf5
 rZPM
-r\fp0
 r\vDi
+r\vpD
 rad2deg
 radians
 radius0_key
@@ -45688,6 +45715,7 @@ string_list
 string_to_hex
 stringmap
 strip
+strip_all
 strips
 strlen(objstr) + 23 + 2 * enc->iv_len + 13 <= sizeof buf
 struct
@@ -45772,7 +45800,6 @@ t+RW
 t0;?ZlP*m
 t2U 
 t4O_
-t4\nP
 t80z
 tA`KO/3G!\n7h=
 tBCPhysSurfacePropertiesAudio
@@ -46243,6 +46270,7 @@ tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slice.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slicebox.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_smooth_vertex_normals.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_stack.png
+tools/images/modeldoc_editor/outliner_icon_parametric_meshop_strip_morphs.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_transform_bindpose_bone.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_duplicate.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_offset.png

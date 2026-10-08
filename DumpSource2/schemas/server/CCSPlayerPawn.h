@@ -105,6 +105,7 @@ class CCSPlayerPawn : public CCSPlayerPawnBase
 	bool m_wasNotKilledNaturally;
 	GameTime_t m_fImmuneToGunGameDamageTime;
 	bool m_bGunGameImmunity;
+	float32 m_flModifier0;
 	float32 m_fMolotovDamageTime;
 	QAngle m_angEyeAngles;
 };

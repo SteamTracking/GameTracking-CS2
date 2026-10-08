@@ -325,7 +325,7 @@ PS
 	CreateInputTexture2D(TextureRoughnessSticker0, Linear, 8, "Inverse", "_rough", "Sticker0 / Lighting / 2", "materials/default/stickers/default_rough.tga");
 	CreateInputTexture2D(TextureWearMaskSticker0, Srgb, 8, "", "", "Sticker0 / Color / 2", "materials/default/stickers/default_wearmask.tga");
 	float g_flSfxColorBoostSticker0 < Default(1); Range(0, 64); UiType(Slider); UiGroup("Sticker0 / SFX / 2"); >;
-	float g_flSticker0Wear < UiType(Slider); UiGroup("Sticker0 / Wear / 2"); Expression(exists(sticker0wear) ? sticker0wear : this); >;
+	float g_flSticker0Wear < UiType(Slider); UiGroup("Sticker0 / Wear / 2"); Expression(exists(Sticker0Wear) ? Sticker0Wear : this); >;
 	CreateInputTexture2D(TextureHoloMaskSticker0, Linear, 8, "", "_holomask", "Sticker0 / SFX / 3", "materials/default/stickers/default_holomask.tga");
 	float g_flColorBoostSticker0 < Default(1); Range(0, 64); UiType(Slider); UiGroup("Sticker0 / Color / 3"); >;
 	float2 g_vWearBiasSticker0 < Default2(1, 1); Range2(0.001, -4, 4, 4); UiType(VectorText); UiGroup("Sticker0 / Wear / 3"); >;

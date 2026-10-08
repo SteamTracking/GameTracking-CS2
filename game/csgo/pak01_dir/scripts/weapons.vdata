@@ -1889,7 +1889,7 @@
 		m_flInaccuracyJumpApex = 0.0
 		m_flInaccuracyReload = 0.0
 		m_flDeployDuration = 1.16667
-		m_flDisallowAttackAfterReloadStartDuration = 3.766667
+		m_flDisallowAttackAfterReloadStartDuration = 3.2
 		m_nSpreadSeed = 0
 		m_flRecoveryTimeCrouch = 0.30552
 		m_flRecoveryTimeStand = 0.429727
@@ -6107,7 +6107,7 @@
 		m_flInaccuracyJumpApex = 0.0
 		m_flInaccuracyReload = 0.0
 		m_flDeployDuration = 1.16667
-		m_flDisallowAttackAfterReloadStartDuration = 3.766667
+		m_flDisallowAttackAfterReloadStartDuration = 3.2
 		m_nSpreadSeed = 0
 		m_flRecoveryTimeCrouch = 0.30552
 		m_flRecoveryTimeStand = 0.429727
@@ -13363,7 +13363,7 @@
 		m_flInaccuracyJumpApex = 0.0
 		m_flInaccuracyReload = 0.0
 		m_flDeployDuration = 1.16667
-		m_flDisallowAttackAfterReloadStartDuration = 3.766667
+		m_flDisallowAttackAfterReloadStartDuration = 3.2
 		m_nSpreadSeed = 0
 		m_flRecoveryTimeCrouch = 0.30552
 		m_flRecoveryTimeStand = 0.429727

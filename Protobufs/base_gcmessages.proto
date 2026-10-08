@@ -190,21 +190,6 @@ message CMsgApplyStatTrakSwap {
 	optional uint64 item_2_item_id = 3;
 }
 
-message CMsgApplyStrangePart {
-	optional uint64 strange_part_item_id = 1;
-	optional uint64 item_item_id = 2;
-}
-
-message CMsgApplyPennantUpgrade {
-	optional uint64 upgrade_item_id = 1;
-	optional uint64 pennant_item_id = 2;
-}
-
-message CMsgApplyEggEssence {
-	optional uint64 essence_item_id = 1;
-	optional uint64 egg_item_id = 2;
-}
-
 message CSOEconItemAttribute {
 	optional uint32 def_index = 1;
 	optional uint32 value = 2;
@@ -239,6 +224,22 @@ message CSOEconItem {
 
 message CMsgSortItems {
 	optional uint32 sort_type = 1;
+}
+
+message CMsgDeleteItem {
+	optional uint64 item_id = 1;
+}
+
+message CMsgModifyItemStringAttr {
+	optional uint64 tool_item_id = 1;
+	optional uint64 subject_item_id = 2;
+	optional uint32 attr_def = 3;
+	optional string attr_value = 4;
+}
+
+message CMsgCraftItemsRequest {
+	optional uint32 recipe_def = 1;
+	repeated uint64 craft_items = 2;
 }
 
 message CSOEconClaimCode {
@@ -278,7 +279,6 @@ message CMsgUseItem {
 	optional uint64 item_id = 1;
 	optional fixed64 target_steam_id = 2;
 	repeated uint32 gift__potential_targets = 3;
-	optional uint32 duel__class_lock = 4;
 	optional fixed64 initiator_steam_id = 5;
 }
 
@@ -334,13 +334,6 @@ message CMsgGCNameItemNotification {
 	optional string item_name_custom = 3;
 }
 
-message CMsgGCClientDisplayNotification {
-	optional string notification_title_localization_key = 1;
-	optional string notification_body_localization_key = 2;
-	repeated string body_substring_keys = 3;
-	repeated string body_substring_values = 4;
-}
-
 message CMsgGCShowItemsPickedUp {
 	optional fixed64 player_steamid = 1;
 }
@@ -372,10 +365,6 @@ message CSOEconItemEventTicket {
 	optional uint32 account_id = 1;
 	optional uint32 event_id = 2;
 	optional uint64 item_id = 3;
-}
-
-message CMsgGCItemPreviewItemBoughtNotification {
-	optional uint32 item_def_index = 1;
 }
 
 message CMsgGCStorePurchaseCancel {
@@ -437,11 +426,6 @@ message CMsgGCToGCDirtySDOCache {
 message CMsgGCToGCDirtyMultipleSDOCache {
 	optional uint32 sdo_type = 1;
 	repeated uint64 key_uint64 = 2;
-}
-
-message CMsgGCCollectItem {
-	optional uint64 collection_item_id = 1;
-	optional uint64 subject_item_id = 2;
 }
 
 message CMsgSDONoMemcached {

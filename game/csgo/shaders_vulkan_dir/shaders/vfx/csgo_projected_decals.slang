@@ -1241,11 +1241,11 @@ PS
 	
 	// PSRS
 	
-	RenderState(BackStencilFunc, (exists(dynamicdecal) && dynamicdecal) ? Equal : NotEqual);
+	RenderState(BackStencilFunc, (exists(DynamicDecal) && DynamicDecal) ? Equal : NotEqual);
 	RenderState(DepthFunc, GreaterEqual);
 	RenderState(DepthWriteEnable, false);
 	RenderState(StencilEnable, true);
-	RenderState(StencilFunc, (exists(dynamicdecal) && dynamicdecal) ? Equal : NotEqual);
+	RenderState(StencilFunc, (exists(DynamicDecal) && DynamicDecal) ? Equal : NotEqual);
 	RenderState(StencilReadMask, 2);
 	RenderState(StencilRef, 2);
 	Texture2D g_tColor < Channel(RGB, Box(TextureColor), Linear); Channel(A, Box(TextureTranslucency), Linear); OutputFormat(BC7); SrgbRead(false); >;

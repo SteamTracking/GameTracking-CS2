@@ -194,7 +194,7 @@
 				<Button id="id-pet-take-picture-instant" class="photo-booth-take-photo-btn" onactivate="PopupPetPhotoBooth.TakePhoto();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pet-take-picture-instant&apos;, &apos;#take_picture&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 					<Panel class="photo-booth-take-photo-btn__inner" />
 				</Button>
-				<ToggleButton id="id-pet-take-picture" class="photo-booth-timer-toggle" onactivate="PopupPetPhotoBooth.ToggleTimerMode();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pet-take-picture&apos;, &apos;Toggle 3 second countdown&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<ToggleButton id="id-pet-take-picture" class="photo-booth-timer-toggle" onactivate="PopupPetPhotoBooth.ToggleTimerMode();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pet-take-picture&apos;, &apos;#pet_countdown_timer_toggle&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 					<Image src="s2r://panorama/images/icons/ui/timer.vsvg" textureheight="26" texturewidth="-1" />
 				</ToggleButton>
 			</Panel>

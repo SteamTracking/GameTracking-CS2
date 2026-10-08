@@ -2,6 +2,8 @@
 {
 	m_Bindings =
 	[
+		{ m_Context = "AssetBrowserMainWnd" 	m_Command = "ExploreToSelectedAsset"	m_Input = "Ctrl+Shift+S"	},
+
 		{ m_Context = "AssetGraphView" 		m_Command = "IncreaseMaxDepth"		m_Input = "="			},
 		{ m_Context = "AssetGraphView" 		m_Command = "IncreaseMaxDepth"		m_Input = "NumAdd"		},
 		{ m_Context = "AssetGraphView" 		m_Command = "DecreaseMaxDepth"		m_Input = "-"			},

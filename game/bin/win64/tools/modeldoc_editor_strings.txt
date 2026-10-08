@@ -41,8 +41,10 @@
  (%d %d %d)
  (%lu = 0x%lx)\n
  (%u = 0x%x)\n
- (08@HPXb 
- (0X`hpz 
+ (08@HPX`j )\n
+ (08@HPXb`
+ (08@HPZ )\n
+ (0X`hpz`
  (Crouch)
  (Pitch)
  (Roll)
@@ -81,6 +83,7 @@
  ?timerEvent@QAbstractSlider@@MEAAXPEAVQTimerEvent@@@Z
  ?timerEvent@QAbstractSpinBox@@MEAAXPEAVQTimerEvent@@@Z
  ?write@QMetaProperty@@QEBA_NPEAVQObject@@AEBVQVariant@@@Z
+ AxmW
  Box Lasso Select
  CCD
  Click to inherit.
@@ -577,6 +580,7 @@ $prefix_element$
 (%d tracks)
 (? Queued)
 (?!\d)[\w_]*
+(@8OQ
 (Advanced Feature) Used to specify special interaction rules or exclusions. References a name in scripts/collision_properties.txt.
 (Anonymous)
 (Cannot dynamically spawn a prop_static)
@@ -610,7 +614,6 @@ $prefix_element$
 (export) %d %s %d %s\n
 (layer %d)
 (no-compile)
-(q9g
 ) ?timerEvent@QTableView@@MEAAXPEAVQTimerEvent@@@Z
 )\f?focusOutEvent@QAbstractItemView@@MEAAXPEAVQFocusEvent@@@Z
 )\n?displayText@QStyledItemDelegate@@UEBA?AVQString@@AEBVQVariant@@AEBVQLocale@@@Z
@@ -1291,6 +1294,7 @@ $prefix_element$
 .?AUCAttr_m_bStereo@?1??GetStaticAttributes@CModelDocMorphControl@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopImmediately@?1??GetAttributeTable_Impl@CNmClipDocEvent_Particle@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopOnSequenceChange@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_bStripAll@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpStripMorphs@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressCreationOnDeath@?1??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressJointWeightCountWarnings@?1??GetStaticAttributes@CModelDocRenderMeshMarkup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressMissingWarnings@?1??GetStaticAttributes@CModelDocBodyGroup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -3916,6 +3920,7 @@ $prefix_element$
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -4965,6 +4970,7 @@ $prefix_element$
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -6159,6 +6165,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@X@@
+.?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@X@@
@@ -7297,6 +7304,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -8098,6 +8106,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@@@
+.?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@@@
@@ -9505,6 +9514,7 @@ $prefix_element$
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -10888,6 +10898,7 @@ $prefix_element$
 .?AVCModelDocMeshModifier_MeshOpSlice@@
 .?AVCModelDocMeshModifier_MeshOpSliceBox@@
 .?AVCModelDocMeshModifier_MeshOpStack@@
+.?AVCModelDocMeshModifier_MeshOpStripMorphs@@
 .?AVCModelDocMeshModifier_MeshOpTransformBindposeBone@@
 .?AVCModelDocMeshModifier_MeshOpUVMapBox@@
 .?AVCModelDocMeshModifier_MeshOpUVMapCylinder@@
@@ -12207,8 +12218,7 @@ $prefix_element$
 /select,
 0.000
 0000``
-08@J 
-0>PK
+08@J`
 0\r%0h
 0\r%0t
 0x%1
@@ -12869,9 +12879,6 @@ $prefix_element$
 2\n?doItemsLayout@QListView@@UEAAXXZ
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vp$s
-2\vpDp
-2\vpX
 2_BONE_IK
 2aboutToShow()
 2accepted()
@@ -12965,7 +12972,6 @@ $prefix_element$
 4\n?doItemsLayout@QTreeView@@UEAAXXZ
 4\r54t
 4\r?hidePopup@QComboBox@@UEAAXXZ
-4pT&
 58h\n
 5;FJ$,XEK4<
 5?Invalid vertex map alias %s\n
@@ -12987,6 +12993,7 @@ $prefix_element$
 8&Kx
 8-byte data pool
 8192
+8Mx]
 8\f?focusOutEvent@QTextBrowser@@MEAAXPEAVQFocusEvent@@@Z
 8\v?event@QCompleter@@MEAA_NPEAVQEvent@@@Z
 8]?size@QPixmap@@QEBA?AVQSize@@XZ
@@ -13760,7 +13767,6 @@ $prefix_element$
 ?getAndRef@ExternalRefCountData@QtSharedPointer@@SAPEAU12@PEBVQObject@@@Z
 ?getHsv@QColor@@QEBAXPEAH000@Z
 ?getRgb@QColor@@QEBAXPEAH000@Z
-?hQm
 ?hasChildren@QSortFilterProxyModel@@UEBA_NAEBVQModelIndex@@@Z
 ?hasColor@QMimeData@@QEBA_NXZ
 ?hasFormat@QMimeData@@UEBA_NAEBVQString@@@Z
@@ -13771,6 +13777,7 @@ $prefix_element$
 ?hasShrunk@QHashData@@QEAAXXZ
 ?hasText@QMimeData@@QEBA_NXZ
 ?headerData@QSortFilterProxyModel@@UEBA?AVQVariant@@HW4Orientation@Qt@@H@Z
+?hqm
 ?ik_debug_chain_to_filter_by
 ?index@QSortFilterProxyModel@@UEBA?AVQModelIndex@@HHAEBV2@@Z
 ?indexIn@QRegExp@@QEBAHAEBVQString@@HW4CaretMode@1@@Z
@@ -14982,14 +14989,14 @@ $prefix_element$
 @%s_lookFrame_2
 @08N
 @AuthPhysCollisionAttributesModeEnum_t
-@HPX`hvPf
-@HV`t
 @Integer overflow in %s
 @ModelDocEvent_ShowAbsoluteFrameNumbersChanged_t
 @\v?event@QFrame@@MEAA_NPEAVQEvent@@@Z
 @bonemerge
 @cl_aggregate_particles
 @fff>fff>fff>fff>
+@iXg
+@pqX
 @spawn
 @unnamed_%d
 A bone named %s already exists.
@@ -16356,6 +16363,7 @@ CModelDocMeshModifier_MeshOpSelectionInvert
 CModelDocMeshModifier_MeshOpSlice
 CModelDocMeshModifier_MeshOpSliceBox
 CModelDocMeshModifier_MeshOpStack
+CModelDocMeshModifier_MeshOpStripMorphs
 CModelDocMeshModifier_MeshOpTransformBindposeBone
 CModelDocMeshModifier_MeshOpUVMapBox
 CModelDocMeshModifier_MeshOpUVMapCylinder
@@ -18897,7 +18905,6 @@ Extrude Radius
 Extrude Sides
 Extrude Twist
 ExtrudeReplaceHull failed to build new convex hull with extrusion %f\n
-F(TW
 FAILED TO LOAD (#0) '%s': %s\n
 FAILED TO Load (#1): %s\n
 FAILED TO SAVE (#1): %s\n
@@ -19467,8 +19474,7 @@ Grow or Shrink
 Grow or shrink a selection
 Grow the selection by adding contiguous components to the selection.
 HAC K  Unused Binding
-HE6g
-HE8g
+HAXg
 HELPER_BONE
 HSLA
 HSLA\t
@@ -19596,7 +19602,6 @@ How quickly the elasticity target pose changes to match the current pose
 How sensitive the setting thresholds for 'stationary' should be - a value of 1 means use the vdata settings directly.
 How should the bodies, created by these shapes, be ordered in the final model
 How the end effector should be rotated after the solve.
-Hu5g
 Hud Settings
 Hull
 Hull Count
@@ -19606,6 +19611,7 @@ Hull Too Complex for Runtime (%d verts, %d edges, %d faces)
 HullPerElement
 HullPerMesh
 Hybrid
+H}Yg
 I ?toggleViewAction@QDockWidget@@QEBAPEAVQAction@@XZ
 IAsset*
 IAssetFileListener
@@ -22035,10 +22041,9 @@ Overwrite With Current
 Overwrite all bone data
 Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
-P08@J 
-P08Jp
+P08@J`
+P08J
 P08N
-P6@L
 P?isValid@QColor@@QEBA_NXZ
 P?isValid@QTextCharFormat@@QEBA_NXZ
 P?item@QStandardItemModel@@QEBAPEAVQStandardItem@@HH@Z
@@ -22640,11 +22645,8 @@ RT Proxy Triangles: %d\n
 RT Proxy Vertices: %d\n
 RW?restore@QPainter@@QEAAXXZ
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
-R\fp$s
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vpDp
-R\vpX
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 R_T5Y
 Rad2 Deg
@@ -22785,6 +22787,7 @@ Remove all values from the list
 Remove bones that are not present in this allow-list.
 Remove flags from the given value.
 Remove material from group
+Remove morph/delta data from the selected components, or from the entire mesh when Strip All is set. Each selection type strips only the morph data owned by that component type: selected vertices strip vertex morphs (shape/position deltas), selected faces strip face morphs and the per-face-vertex morphs of those faces (normal/UV deltas), and selected edges strip edge morphs. A vertex selection alone will not remove per-face-vertex morphs; select the faces to reach those.
 Remove remap from material group
 Remove the element at the given index in 'a', decreasing its count by one and moving the elements after index.
 Remove the given tag from this cursor. If other cursors are waiting on us, they will resume.
@@ -23793,6 +23796,10 @@ String Length
 String or substring to find in resource name
 StringArrayArray
 Strings Are Equal Case Sensitive
+Strip All (Ignore Selection)
+Strip All Morphs
+Strip Morphs
+Strip Morphs [from selection]
 Strip of quads
 StripByteCounts
 StripOffsets
@@ -24826,7 +24833,6 @@ X24_TYPELESS_G8_UINT
 X32_TYPELESS_G8X24_UINT
 X:%.2f Y:%.2f Z:%.2f
 X;nL4=nL4=nL4=nL4=
-X=7g
 X?setBrush@QPainter@@QEAAXAEBVQBrush@@@Z
 X?setBrush@QPainter@@QEAAXW4BrushStyle@Qt@@@Z
 X?setBrush@QPalette@@QEAAXW4ColorGroup@1@W4ColorRole@1@AEBVQBrush@@@Z
@@ -24848,6 +24854,7 @@ XResolution
 XY warp curve blowout detected! Falling back to LERP!
 XYZ, Luv
 X\r?horizontalHeader@QTableView@@QEBAPEAVQHeaderView@@XZ
+X\tZg
 X\v?event@QPushButton@@MEAA_NPEAVQEvent@@@Z
 Y (Green / Left)
 Y - Left
@@ -24877,6 +24884,7 @@ YClipPathUnits
 YO?insertColumns@QStandardItemModel@@UEAA_NHHAEBVQModelIndex@@@Z
 YPosition
 YResolution
+YVZg
 YY?setDropAction@QDropEvent@@QEAAXW4DropAction@Qt@@@Z
 Y\v?event@QRadioButton@@MEAA_NPEAVQEvent@@@Z
 Yaw Bounce
@@ -25060,7 +25068,7 @@ ZoomOut
 \f\n?cmp@QVariant@@QEBA_NAEBV1@@Z
 \f\n?deselect@QLineEdit@@QEAAXXZ
 \f\r?heightForWidth@QFormLayout@@UEBAHH@Z
-\fpDp
+\fp\vPdc
 \n   Size: L: <%i, %i>   A: <%i, %i>   Scale: %0.2f\n   Geometry: %s\n   Virtual Geometry: %s\n   Available Geometry: %s\n   Orientation: %s\n
 \n***ASSERT FAILED*** Image data section has too many channels (%d).
 \n***ASSERT FAILED*** Pointer is null.
@@ -25124,6 +25132,7 @@ ZoomOut
 \n_V_StringAfterPrefixCaseSensitive
 \n_V_StripLastDir
 \ng default\n
+\nqZg
 \prefabs
 \r?darker@QColor@@QEBA?AV1@H@Z
 \r?data@QStandardItem@@UEBA?AVQVariant@@H@Z
@@ -25177,6 +25186,7 @@ ZoomOut
 \r[WRN] %d crossing edges detected - unfixed\n
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
+\rtext
 \s*([+-*/])\s*=\s*([\-0-9.e]*)
 \t"?update@QWidget@@QEAAXAEBVQRect@@@Z
 \t?addPixmap@QIcon@@QEAAXAEBVQPixmap@@W4Mode@1@W4State@1@@Z
@@ -25249,9 +25259,8 @@ ZoomOut
 \v?fixup@QSpinBox@@MEBAXAEAVQString@@@Z
 \v?flags@QTreeWidgetItem@@QEBA?AV?$QFlags@W4ItemFlag@Qt@@@@XZ
 \v?focusChanged@QApplication@@QEAAXPEAVQWidget@@0@Z
-\vPhN
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\vpDp
+\vpdc
 ]?sharedPainter@QPaintDevice@@MEBAPEAVQPainter@@XZ
 ]?start@QMovie@@QEAAXXZ
 ]?staticMetaObject@QTextDocument@@2UQMetaObject@@B
@@ -25373,7 +25382,6 @@ _zero
 `?validate@QRegularExpressionValidator@@UEBA?AW4State@QValidator@@AEAVQString@@AEAH@Z
 `?value@QColor@@QEBAHXZ
 `?valueF@QColor@@QEBANXZ
-`Q9g
 `Q?lightnessF@QColor@@QEBANXZ
 `V?queryKeyboardModifiers@QGuiApplication@@SA?AV?$QFlags@W4KeyboardModifier@Qt@@@@XZ
 `\r?entryInfoList@QDir@@QEBA?AV?$QList@VQFileInfo@@@@V?$QFlags@W4Filter@QDir@@@@V?$QFlags@W4SortFlag@QDir@@@@@Z
@@ -26730,7 +26738,6 @@ group_title
 grow_or_shrink
 guide_hair_count
 hAttachmentCamera
-hMk_
 hResource
 h\r?horizontalScrollbarAction@QTreeView@@MEAAXH@Z
 h\v?event@QTabWidget@@MEAA_NPEAVQEvent@@@Z
@@ -26815,7 +26822,7 @@ horizontalStretch
 horizontal_header
 horizontal_header_labels
 horizontal_pose_param_name
-hpz 
+hpz`
 hsequence_id
 hud_skin
 hull
@@ -27735,7 +27742,6 @@ overwrite_existing_flags_only
 owns_polymorphic_data
 p"?value@QSpinBox@@QEBAHXZ
 p08@H^
-p0jp@/
 pAction
 pActionObject
 pAsset
@@ -27752,6 +27758,7 @@ pDockWidget
 pEditor
 pEvent
 pEvent != nullptr
+pF`d
 pFilter
 pFrom
 pLabel
@@ -27774,7 +27781,6 @@ pVoidWizard
 pWidget
 p\n?dragLeaveEvent@QAbstractItemView@@MEAAXPEAVQDragLeaveEvent@@@Z
 p\r0\fP!K
-p\r`\fPDp
 p\v?event@QWidget@@MEAA_NPEAVQEvent@@@Z
 p`?type@QStandardItem@@UEBAHXZ
 panorama_image
@@ -27974,8 +27980,6 @@ quad_bend_tolerance
 quadratic
 quaternion_array
 quiet
-r> VW
-r\vp$s
 rad2deg
 radiant
 radiant_creeps
@@ -28388,6 +28392,7 @@ string_array
 string_instanced
 stringmap
 strip
+strip_all
 strips
 struct
 subclass_choice
@@ -28415,7 +28420,6 @@ swing_offset_angle
 swing_relax
 switch_threshold
 system_state
-tBh(8
 tW?rotate@QPainter@@QEAAXN@Z
 t\n?beginEditBlock@QTextCursor@@QEAAXXZ
 t\n?connect@QObject@@SA?AVConnection@QMetaObject@@PEBV1@AEBVQMetaMethod@@01W4ConnectionType@Qt@@@Z
@@ -28827,6 +28831,7 @@ tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slice.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slicebox.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_smooth_vertex_normals.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_stack.png
+tools/images/modeldoc_editor/outliner_icon_parametric_meshop_strip_morphs.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_transform_bindpose_bone.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_duplicate.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_offset.png

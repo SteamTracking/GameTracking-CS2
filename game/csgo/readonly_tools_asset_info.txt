@@ -134877,3 +134877,4 @@ panorama/images/pet_book/page_titles/wanted/wanted_thai_png.vtex
 panorama/images/pet_book/page_titles/wanted/wanted_turkish_png.vtex
 panorama/images/pet_book/page_titles/wanted/wanted_ukrainian_png.vtex
 panorama/images/pet_book/page_titles/wanted/wanted_vietnamese_png.vtex
+materials/dev/placeholder.vmat

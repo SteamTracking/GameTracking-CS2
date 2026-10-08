@@ -6086,6 +6086,7 @@ $zorum.communi
 .?AUCAttr_m_bStereo@?1??GetStaticAttributes@CModelDocMorphControl@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopImmediately@?1??GetAttributeTable_Impl@CNmClipDocEvent_Particle@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopOnSequenceChange@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_bStripAll@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpStripMorphs@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressCreationOnDeath@?1??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressJointWeightCountWarnings@?1??GetStaticAttributes@CModelDocRenderMeshMarkup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressMissingWarnings@?1??GetStaticAttributes@CModelDocBodyGroup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -7784,6 +7785,7 @@ $zorum.communi
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -8527,6 +8529,7 @@ $zorum.communi
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -9324,6 +9327,7 @@ $zorum.communi
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@X@@
+.?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@X@@
@@ -10094,6 +10098,7 @@ $zorum.communi
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -10794,6 +10799,7 @@ $zorum.communi
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@@@
+.?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@@@
@@ -11692,6 +11698,7 @@ $zorum.communi
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -12547,6 +12554,7 @@ $zorum.communi
 .?AVCModelDocMeshModifier_MeshOpSlice@@
 .?AVCModelDocMeshModifier_MeshOpSliceBox@@
 .?AVCModelDocMeshModifier_MeshOpStack@@
+.?AVCModelDocMeshModifier_MeshOpStripMorphs@@
 .?AVCModelDocMeshModifier_MeshOpTransformBindposeBone@@
 .?AVCModelDocMeshModifier_MeshOpUVMapBox@@
 .?AVCModelDocMeshModifier_MeshOpUVMapCylinder@@
@@ -14534,7 +14542,6 @@ $zorum.communi
 008!
 0081
 009!
-00:t
 00;k0i
 00>F0
 00?h0
@@ -14729,6 +14736,7 @@ $zorum.communi
 089!
 08@@B
 08G@H 
+08Qt
 08^,g
 09,g
 09,p
@@ -14807,7 +14815,6 @@ $zorum.communi
 0>KN
 0>Q0
 0>W0
-0>Yt
 0>ir
 0>mi
 0>qg
@@ -18936,8 +18943,6 @@ $zorum.communi
 2\vM\v_\vA\v,\v>\v-
 2\vM\v_\vA\v.\v?\v(\vK\v8\v?\v
 2\v\v\v22\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v
-2\vp0:t
-2\vpH
 2]00
 2]DaDeDiDmDqD
 2^264
@@ -31637,6 +31642,7 @@ CModelDocMeshModifier_MeshOpSelectionInvert
 CModelDocMeshModifier_MeshOpSlice
 CModelDocMeshModifier_MeshOpSliceBox
 CModelDocMeshModifier_MeshOpStack
+CModelDocMeshModifier_MeshOpStripMorphs
 CModelDocMeshModifier_MeshOpTransformBindposeBone
 CModelDocMeshModifier_MeshOpUVMapBox
 CModelDocMeshModifier_MeshOpUVMapCylinder
@@ -42471,6 +42477,7 @@ MorphRule
 MorphRule Conflict :: %s\n                   == %s\n                   == %s
 MorphRule ConflictA:: %s\n                   == %s\n                   == %s
 MorphStereoControl
+Morphs
 Motion Bias
 Motion Type
 Mountain Standard Time (Mexico)
@@ -44488,7 +44495,6 @@ P0!1
 P0!L!
 P0$(W
 P0%:e0
-P0:t
 P0D0Y0
 P0Q!R
 P0QPQ
@@ -44537,6 +44543,7 @@ P7MS
 P7V7\7b7h7
 P7c\vX8_
 P83c
+P8Qt
 P9<9<
 P:Q*c
 P:W(W
@@ -45639,6 +45646,7 @@ Ps4z4@
 Ps^peW[
 Psalter_Pahlavi
 Psni
+Pt2t
 Pt:t:
 PtNtBtFtMtTt
 PtOtQtZK
@@ -46844,8 +46852,7 @@ R\tSES
 R\tScSrS
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
 R\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\vR\v
-R\vp0:t
-R\vpH
+R\vp8Qt
 R]8]8]8]8
 R]IQS]
 R]IQS]j
@@ -47010,6 +47017,7 @@ Remove all elements from 'a' which compare equal to 'element'.
 Remove all values from the list
 Remove bones that are not present in this allow-list.
 Remove flags from the given value.
+Remove morph/delta data from the selected components, or from the entire mesh when Strip All is set. Each selection type strips only the morph data owned by that component type: selected vertices strip vertex morphs (shape/position deltas), selected faces strip face morphs and the per-face-vertex morphs of those faces (normal/UV deltas), and selected edges strip edge morphs. A vertex selection alone will not remove per-face-vertex morphs; select the faces to reach those.
 Remove the element at the given index in 'a', decreasing its count by one and moving the elements after index.
 Remove the given tag from this cursor. If other cursors are waiting on us, they will resume.
 Remove vertices behind the slice plane.
@@ -49194,6 +49202,10 @@ String Length
 String or substring to find in resource name
 StringArrayArray
 Strings Are Equal Case Sensitive
+Strip All (Ignore Selection)
+Strip All Morphs
+Strip Morphs
+Strip Morphs [from selection]
 Strip of quads
 StripByteCounts
 StripOffsets
@@ -57503,6 +57515,7 @@ Z~00
 \nO\tTaS
 \nOaS
 \nOtY
+\nP8Qt
 \nPAGESWASTEBASKET
 \nPRINT SCREEN 
 \nQ\nW\n-\n3\n9\n?\nB\nE\nH\nK\n]\n`\n=6
@@ -58398,7 +58411,6 @@ Z~00
 \rSOO
 \rSUf
 \rSz9
-\rT6l
 \rTAMING
 \rTENSE
 \rTOf
@@ -60744,7 +60756,6 @@ Z~00
 \v.\vM\v*\v?\v_\v0\vM\v
 \v.\vM\v*\vG\v0\v?\v
 \v.\vM\v.\v>\v(\v
-\v0\nPh
 \v0\r00
 \v0\v!\v,\vM\v_\vA\v
 \v0\v(\vG\v8\v?\v
@@ -61511,6 +61522,7 @@ Z~00
 \vmq&N
 \vnoz<
 \vobv
+\vp8Qt
 \vparty.
 \vq\vK\v#\vM\v!\vK\v
 \vshal
@@ -62354,6 +62366,7 @@ _~`Wggg
 `6t5
 `6xF
 `728 
+`8Qt
 `8[@LDK
 `8r9
 `9c'h:h-kemsm
@@ -62449,6 +62462,7 @@ _~`Wggg
 `\nbdbDedfLg
 `\nf&fgf
 `\nqWlIl/Ymg*
+`\rP\f08Qt
 `\r`)`+`\n`?`!`x`y`{`z`B`
 `\r`)`+`\n`?`!`x`y`{`z`B`F
 `\r`)`+`\n`?`!`x`y`{`z`B`j`}`
@@ -69337,7 +69351,6 @@ hull_max_face_count
 hull_vertices
 huta
 huyqx
-hvl<t
 hvppq
 hvvvv
 hw4B
@@ -78950,7 +78963,6 @@ nkrqr
 nl-Title
 nl-am
 nl-t-d0-title
-nl<t
 nl_AW
 nl_BE
 nl_BQ
@@ -79754,7 +79766,6 @@ p.s{s
 p/fy
 p/pPq
 p01"W0D0
-p0:t
 p0;4
 p0D/
 p0D0
@@ -79798,6 +79809,7 @@ p2D0
 p2M0
 p2Q0
 p2W0
+p2`J
 p2a0
 p2q2
 p2x+~
@@ -79818,6 +79830,7 @@ p7\f6
 p7f7>;
 p8(L
 p88.9
+p8Qt
 p8pNq
 p8q8
 p8vtSJ
@@ -80498,6 +80511,7 @@ ps_PK
 pseudo-
 pseudonym
 pt154
+pt2t
 pt\ns
 pt_AO
 pt_CH
@@ -81215,6 +81229,7 @@ rYsHs
 r[pJ
 r\AVj
 r\fAr
+r\fp8Qt
 r\fr\fr\fr\fr\fr\fr\fr\fr\fr\fr\fr\fr\fr\fr\fr\f
 r\rrXr
 r\t3\vt
@@ -82800,6 +82815,7 @@ string_array
 string_instanced
 stringmap
 strip
+strip_all
 strips
 strk10482002
 stroke
@@ -83705,6 +83721,7 @@ tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slice.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slicebox.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_smooth_vertex_normals.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_stack.png
+tools/images/modeldoc_editor/outliner_icon_parametric_meshop_strip_morphs.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_transform_bindpose_bone.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_duplicate.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_offset.png
@@ -85308,7 +85325,6 @@ vkrk
 vkrkrk
 vkuk
 vl1F
-vl<t
 vlab>c
 vlad
 vlb 

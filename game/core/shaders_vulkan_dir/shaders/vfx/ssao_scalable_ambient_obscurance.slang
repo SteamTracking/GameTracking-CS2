@@ -83,8 +83,8 @@ PS
 	Texture2D g_tCameraDepth < Attribute("CameraDepth"); SrgbRead(false); >;
 	Texture2D g_tGBufferNormalWs < Attribute("GBufferNormal"); SrgbRead(false); >;
 	float2 g_vCameraDepthDimensions < Attribute("CameraDepthDimensions"); UiType(VectorText); >;
-	float4 g_vProjInfo < UiType(VectorText); Expression(float4(-2/(screenwidth*p_00),-2/(screenheight*p_11),(1-p_02)/p_00,(1+p_12)/p_11)); >;
-	float4 g_vRadiusConsts < UiType(VectorText); Expression(float4(radius,radius*radius,strength/pow(radius,6),projscale*radius)); >;
+	float4 g_vProjInfo < UiType(VectorText); Expression(float4(-2/(ScreenWidth*p_00),-2/(ScreenHeight*p_11),(1-p_02)/p_00,(1+p_12)/p_11)); >;
+	float4 g_vRadiusConsts < UiType(VectorText); Expression(float4(radius,radius*radius,strength/pow(radius,6),projScale*radius)); >;
 	float4 g_vRadiusConsts2 < UiType(VectorText); Expression(1/pow(radius,2.4)); >;
 	
 	// SPIR-V reflection failed for backend HLSL:

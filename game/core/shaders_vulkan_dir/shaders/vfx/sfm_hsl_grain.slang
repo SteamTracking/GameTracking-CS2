@@ -126,10 +126,10 @@ PS
 {
 	StaticCombo( S_TOOLS_ENABLED, 0, Sys( 1 ) );
 	
-	float g_flGrainSize < UiType(Slider); Expression(grainsize); >;
+	float g_flGrainSize < UiType(Slider); Expression(grainSize); >;
 	float g_flHueNoiseScale < UiType(Slider); Expression(huenoisescale); >;
 	float g_flSatNoiseScale < UiType(Slider); Expression(satnoisescale); >;
-	float g_flTimeOffset < UiType(Slider); Expression(timeoffset); >;
+	float g_flTimeOffset < UiType(Slider); Expression(timeOffset); >;
 	float g_flValNoiseScale < UiType(Slider); Expression(valnoisescale); >;
 	
 	// Source 2 Viewer - https://valveresourceformat.github.io

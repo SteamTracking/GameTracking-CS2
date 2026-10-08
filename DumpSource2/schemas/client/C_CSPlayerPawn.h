@@ -93,6 +93,7 @@ class C_CSPlayerPawn : public C_CSPlayerPawnBase
 	GameTime_t m_fImmuneToGunGameDamageTime;
 	bool m_bGunGameImmunity;
 	GameTime_t m_fImmuneToGunGameDamageTimeLast;
+	float32 m_flModifier0;
 	float32 m_fMolotovDamageTime;
 	ParticleIndex_t m_nPlayerInfernoBodyFx;
 	QAngle m_angEyeAngles;

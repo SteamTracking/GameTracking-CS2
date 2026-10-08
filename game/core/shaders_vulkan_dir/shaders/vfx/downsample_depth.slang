@@ -82,8 +82,8 @@ PS
 	DynamicComboRule( Allow1( D_MINMAX_CHECKER_2X2, D_MAX, D_MIN ) );
 	DynamicComboRule( Requires( D_NON_MSAA_DEPTH, D_MSAA_SAMPLES==0 ) );
 	
-	int g_nDownsampleRatioH < UiType(Slider); Expression(exists(g_ndownsampleratio) ? g_ndownsampleratio : g_ndownsampleratioy); >;
-	int g_nDownsampleRatioW < UiType(Slider); Expression(exists(g_ndownsampleratio) ? g_ndownsampleratio : g_ndownsampleratiox); >;
+	int g_nDownsampleRatioH < UiType(Slider); Expression(exists(g_nDownsampleRatio) ? g_nDownsampleRatio : g_nDownsampleRatioY); >;
+	int g_nDownsampleRatioW < UiType(Slider); Expression(exists(g_nDownsampleRatio) ? g_nDownsampleRatio : g_nDownsampleRatioX); >;
 	Texture2D g_tDepth < Attribute("DepthBuffer"); SrgbRead(false); >;
 	
 	// Source 2 Viewer - https://valveresourceformat.github.io

@@ -53902,6 +53902,7 @@
 		"pet_upgrade_notification_msg_1"		"Look! Your egg is hatching!<br>Time to meet your chick."
 		"pet_upgrade_notification_msg_2"		"Your chick is growing into a pullet.<br>Nearly a real hen."
 		"pet_upgrade_notification_msg_3"		"Your pullet is becoming a hen.<br>Fully grown and fully feathered!"
+		"pet_countdown_timer_toggle" 			"Toggle 3 second countdown"
 
 		"chicken_egg"							"Chicken Egg"
 		"chicken_egg_desc"						""

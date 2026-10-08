@@ -101,7 +101,7 @@ PS
 	Texture2D g_tColorBuffer < Attribute("ColorBuffer"); SrgbRead(true); >;
 	Texture3D g_tColorCorrection < Attribute("ColorCorrectionTex"); SrgbRead(false); >;
 	Texture2D g_tNoise < Channel(RGB, None(TextureNoise), Linear); OutputFormat(DXT1); SrgbRead(false); >;
-	float4 g_vBloomUvScaleClamp < UiType(VectorText); Expression(bloombufferscaleclamp); >;
+	float4 g_vBloomUvScaleClamp < UiType(VectorText); Expression(bloomBufferScaleClamp); >;
 	float4 g_vInvTextureDim < Source(InvTextureDim); SourceArg(g_tColorBuffer) UiType(VectorText); >;
 	float4 g_vViewFadeColor < Attribute("ScreenFadeColor"); UiType(VectorText); >;
 	

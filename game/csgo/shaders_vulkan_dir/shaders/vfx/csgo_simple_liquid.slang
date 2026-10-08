@@ -405,9 +405,9 @@ PS
 	float g_flMaskMinimum < UiType(Slider); UiGroup("Liquid, 100/10"); >;
 	float g_flMaskMaximum < Default(1); UiType(Slider); UiGroup("Liquid, 100/15"); >;
 	float g_flLiquidWobbleSpeed < Default(1); Range(-50, 50); UiType(Slider); UiGroup("Liquid, 100/20"); >;
-	float g_flLiquidWobbleScale < Default(0.01); Range(0, 0.1); UiType(Slider); UiGroup("Liquid, 100/21"); Expression(exists(liquidwobblescale) ? liquidwobblescale : this); >;
+	float g_flLiquidWobbleScale < Default(0.01); Range(0, 0.1); UiType(Slider); UiGroup("Liquid, 100/21"); Expression(exists(LiquidWobbleScale) ? LiquidWobbleScale : this); >;
 	float g_flLiquidWobbleWavelength < Default(1); Range(0, 50); UiType(Slider); UiGroup("Liquid, 100/22"); >;
-	float g_flLiquidLevelHeight < UiType(Slider); UiGroup("Liquid, 100/25"); Expression(exists(liquidlevelheight) ? liquidlevelheight : this); >;
+	float g_flLiquidLevelHeight < UiType(Slider); UiGroup("Liquid, 100/25"); Expression(exists(LiquidLevelHeight) ? LiquidLevelHeight : this); >;
 	float g_flLiquidLevelHeightDelta < Default(0.3); UiType(Slider); UiGroup("Liquid, 100/25"); >;
 	float3 g_vLiquidLevelUpwardsMinMidMax < Default2(-20, 0); Range3(-100, -100, -100, 100, 100, 100); UiType(VectorText); UiGroup("Liquid, 100/30"); >;
 	float3 g_vLiquidLevelDownwardsMinMidMax < Default2(-20, 0); Range3(-100, -100, -100, 100, 100, 100); UiType(VectorText); UiGroup("Liquid, 100/31"); >;

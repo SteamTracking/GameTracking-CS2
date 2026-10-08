@@ -758,6 +758,7 @@ CCSPlayerPawn
 	Color m_GunGameImmunityColor
 	GameTime_t m_fImmuneToGunGameDamageTime (sent as: float32)
 	bool m_bGunGameImmunity
+	float m_flModifier0
 	float m_fMolotovDamageTime
 	QAngle m_angEyeAngles (encoder: qangle_precise; priority: 32)
 

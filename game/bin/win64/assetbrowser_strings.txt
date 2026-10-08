@@ -254,6 +254,7 @@ $\r?end@QString@@QEBAPEBVQChar@@XZ
 .?AV<lambda_1>@?1???$SetFunction@P8CGlobalHotkeyCommands@@EAAXHH@ZHH@CBindableCommand@?$CBindTargetDescriptor@VCGlobalHotkeyCommands@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CGlobalHotkeyCommands@@EAAXHH@ZHH@Z@
 .?AV<lambda_1>@?1???$SetFunction@P8CGlobalHotkeyCommands@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCGlobalHotkeyCommands@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CGlobalHotkeyCommands@@EAAXXZ@Z@
 .?AV<lambda_1>@?1???$SetFunction@P8CLightingControlRig@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCLightingControlRig@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CLightingControlRig@@EAAXXZ@Z@
+.?AV<lambda_1>@?1???$SetFunction@P8CQAssetBrowserMainWnd@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCQAssetBrowserMainWnd@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CQAssetBrowserMainWnd@@EAAXXZ@Z@
 .?AV<lambda_1>@?1???$SetFunction@P8CQAssetGraphView@@EAAXH@ZH@CBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CQAssetGraphView@@EAAXH@ZH@Z@
 .?AV<lambda_1>@?1???$SetFunction@P8CQAssetGraphView@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CQAssetGraphView@@EAAXXZ@Z@
 .?AV<lambda_1>@?1???$SetFunction@P8CQAssetGraphView@@EAAX_N@Z_N@CBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@QEAAAEAV12@W4BindableCommandStage_t@@P8CQAssetGraphView@@EAAX_N@Z1@Z@
@@ -383,6 +384,7 @@ $\r?end@QString@@QEBAPEBVQChar@@XZ
 .?AV?$_Func_base@XPEAVCBindableCamera@@@std@@
 .?AV?$_Func_base@XPEAVCGlobalHotkeyCommands@@@std@@
 .?AV?$_Func_base@XPEAVCLightingControlRig@@@std@@
+.?AV?$_Func_base@XPEAVCQAssetBrowserMainWnd@@@std@@
 .?AV?$_Func_base@XPEAVCQAssetGraphView@@@std@@
 .?AV?$_Func_base@XPEAVCQBindableCommandPushButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@std@@
 .?AV?$_Func_base@XPEAVCQBindableCommandToolButton@@AEBUInitContext_t@CBaseDynamicWidgetFactory@@@std@@
@@ -424,6 +426,7 @@ $\r?end@QString@@QEBAPEBVQChar@@XZ
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CGlobalHotkeyCommands@@EAAXHH@ZHH@CBindableCommand@?$CBindTargetDescriptor@VCGlobalHotkeyCommands@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CGlobalHotkeyCommands@@EAAXHH@ZHH@Z@XPEAV5@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CGlobalHotkeyCommands@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCGlobalHotkeyCommands@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CGlobalHotkeyCommands@@EAAXXZ@Z@XPEAV5@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CLightingControlRig@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCLightingControlRig@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CLightingControlRig@@EAAXXZ@Z@XPEAV5@@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CQAssetBrowserMainWnd@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCQAssetBrowserMainWnd@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CQAssetBrowserMainWnd@@EAAXXZ@Z@XPEAV5@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CQAssetGraphView@@EAAXH@ZH@CBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CQAssetGraphView@@EAAXH@ZH@Z@XPEAV5@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CQAssetGraphView@@EAAXXZ$$V@CBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CQAssetGraphView@@EAAXXZ@Z@XPEAV5@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$SetFunction@P8CQAssetGraphView@@EAAX_N@Z_N@CBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@QEAAAEAV23@W4BindableCommandStage_t@@P8CQAssetGraphView@@EAAX_N@Z1@Z@XPEAV5@@std@@
@@ -461,6 +464,7 @@ $\r?end@QString@@QEBAPEBVQChar@@XZ
 .?AVCBindableCommand@?$CBindTargetDescriptor@VCBindableCamera@@@@
 .?AVCBindableCommand@?$CBindTargetDescriptor@VCGlobalHotkeyCommands@@@@
 .?AVCBindableCommand@?$CBindTargetDescriptor@VCLightingControlRig@@@@
+.?AVCBindableCommand@?$CBindTargetDescriptor@VCQAssetBrowserMainWnd@@@@
 .?AVCBindableCommand@?$CBindTargetDescriptor@VCQAssetGraphView@@@@
 .?AVCBindableCommand@?$CBindTargetDescriptor@VCQGraphCanvasDebugger@@@@
 .?AVCBindableCommand@?$CBindTargetDescriptor@VCQGraphCanvasView@@@@
@@ -1122,7 +1126,7 @@ $\r?end@QString@@QEBAPEBVQChar@@XZ
 2\n?doItemsLayout@QListView@@UEAAXXZ
 2\r?hideEvent@QWidget@@MEAAXPEAVQHideEvent@@@Z
 2\v?event@QAction@@MEAA_NPEAVQEvent@@@Z
-2\vp4
+2\vppr!
 2aboutToShow()
 2accepted()
 2buttonClicked( QAbstractButton* )
@@ -1192,7 +1196,6 @@ $\r?end@QString@@QEBAPEBVQChar@@XZ
 6\v?event@QComboBox@@UEAA_NPEAVQEvent@@@Z
 7\f?focusOutEvent@QPushButton@@MEAAXPEAVQFocusEvent@@@Z
 7\tV_acosd
-7x5.
 8\f?focusOutEvent@QTextBrowser@@MEAAXPEAVQFocusEvent@@@Z
 8\v?event@QCompleter@@MEAA_NPEAVQEvent@@@Z
 8]?size@QPixmap@@QEBA?AVQSize@@XZ
@@ -3716,6 +3719,7 @@ Close the Asset Browser. (Does NOT shut down the engine or other tools.)
 Close the group automatically after a short wait (good for 'success' messages)
 Close the group automatically when the associated parent process exits (good for sticky 'error' messages)
 CloseWorkingSetTab
+Cmd_ExploreToSelectedAsset
 Collapse All
 Color Picker
 Color of the background. Can be specified as hex, [r, g, b, a], or a predefined color.
@@ -3946,6 +3950,7 @@ Expected closing ')'
 Expected eg. [10,20] or 30
 Expected filter term
 Expected filter value
+ExploreToSelectedAsset
 Export
 Export Materials
 Export Model
@@ -4904,7 +4909,6 @@ RW?restore@QPainter@@QEAAXXZ
 R\f?font@QTreeWidgetItem@@QEBA?AVQFont@@H@Z
 R\t?canFetchMore@QAbstractItemModel@@UEBA_NAEBVQModelIndex@@@Z
 R\v?event@QMenuBar@@MEAA_NPEAVQEvent@@@Z
-R\vp4
 R^?supportedDropActions@QStandardItemModel@@UEBA?AV?$QFlags@W4DropAction@Qt@@@@XZ
 Rad2 Deg
 Random World Position

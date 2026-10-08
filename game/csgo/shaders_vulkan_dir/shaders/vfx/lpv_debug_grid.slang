@@ -123,7 +123,7 @@ GS
 	[[layer_constant]] ExternalDescriptorSet g_lightBinnerGpuSet < Source(ExternalDescSet); Attribute("g_lightBinnerGpuSet"); >;
 	
 	// Color
-	float g_flPointSize < Default(4); Range(0, 16); UiType(Slider); UiGroup("Color, 10/25"); Expression(pointsize); >;
+	float g_flPointSize < Default(4); Range(0, 16); UiType(Slider); UiGroup("Color, 10/25"); Expression(PointSize); >;
 	
 	// SPIR-V reflection failed for backend HLSL:
 	// Unsupported shader stage.

@@ -357,7 +357,7 @@ $tIJobs/Coroutines
 18446744073709551615
 1\n,k_EGCMsgGetGamePersonalDataCategoriesRequest
 2\n-k_EGCMsgGetGamePersonalDataCategoriesResponse
-2\vp\M
+2\vplM
 32:B\n
 3\n/k_ECommunityItemAttribute_ProfileModiferEnabled
 4Ccl_session
@@ -379,6 +379,7 @@ $tIJobs/Coroutines
 <\n\ncategories
 >\n\tTypeCache
 @08N
+@HPX`hv0
 @\n\fSingleObject
 @workshop
 APPSYSTEM: In ConnectGameInterfaces(), s_nRegistrationCount is %d!\n
@@ -716,7 +717,7 @@ PlayerLocal::UpdateLeaderboardData for %s finished.\n
 PlayerManager::OnGameUsersChanged\n
 QueueConnect
 RP for %s\n
-R\fp\M
+R\fplM
 Received %d search results.\n
 Received server_pre_shutdown notification - server is shutting down...\n
 Requested join data %.3f sec ago from xuid = %llx\n
@@ -821,7 +822,7 @@ WorkshopItemPaymentRule
 \n0CProductInfo_SetRichPresenceLocalization_Request
 \n1CCommunity_GetGamePersonalDataCategories_Response
 \n1CQuest_PublisherAddCommunityItemsToPlayer_Request
-\nPDB
+\nPTB
 \n\fEGCSystemMsg
 \n\faccount_name
 \n\fcontributors
@@ -870,6 +871,7 @@ WorkshopItemPaymentRule
 \n\vtime_cached
 \tTypeCache for %d (%d objects):\n
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\v\n\v\n\v\n\v\n\v\n\v\n\v\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\f\r\f\r\f\r\f\r\f\r\f\r\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
+\vplM
 _remote_host
 _remote_xuidsrc
 accepted
@@ -1145,7 +1147,7 @@ public_inventory
 public_profile
 queue_position
 quickmatch
-r\vp\M
+r\vplM
 random
 ratelimit
 ready

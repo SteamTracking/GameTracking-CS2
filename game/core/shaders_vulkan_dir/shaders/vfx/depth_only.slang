@@ -165,7 +165,7 @@ PS
 	DynamicCombo( D_DISABLE_TRANSLUCENT_CLIP, 0..1 );
 	DynamicComboRule( Requires( D_DISABLE_TRANSLUCENT_CLIP, S_TRANSLUCENT ) );
 	
-	RenderState(CullMode, F_RENDER_BACKFACES ? None : (exists(cullfront) && cullfront) ? Front : Back);
+	RenderState(CullMode, F_RENDER_BACKFACES ? None : (exists(CullFront) && CullFront) ? Front : Back);
 	RenderState(DepthBias, DepthBias);
 	RenderState(SlopeScaleDepthBias, SlopeScaleDepthBias);
 	Texture2D g_tColor < Channel(RGB, AlphaWeighted(TextureColor, TextureTranslucency), Srgb); Channel(A, PreserveCoverage(TextureTranslucency), Linear); OutputFormat(DXT5); SrgbRead(true); >;

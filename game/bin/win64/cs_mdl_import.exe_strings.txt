@@ -813,6 +813,7 @@ $prefix_element$
 .?AUCAttr_m_bStaticOnly@?1??GetStaticAttributes@CModelDocAnimModifier_DiscardChannels@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStereo@?1??GetStaticAttributes@CModelDocMorphControl@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bStopOnSequenceChange@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_bStripAll@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpStripMorphs@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressCreationOnDeath@?1??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressJointWeightCountWarnings@?1??GetStaticAttributes@CModelDocRenderMeshMarkup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_bSuppressMissingWarnings@?1??GetStaticAttributes@CModelDocBodyGroup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -2376,6 +2377,7 @@ $prefix_element$
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -3062,6 +3064,7 @@ $prefix_element$
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CBaseConcreteToolAttrValue@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -3787,6 +3790,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@X@@
+.?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@X@@
 .?AV?$CConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@X@@
@@ -4491,6 +4495,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CConcreteToolAttrGetSet@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -5191,6 +5196,7 @@ $prefix_element$
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpSlice@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStack@@@@@@
+.?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@@@
 .?AV?$CConcreteToolAttrSaveLoadHelper@V?$CBaseConcreteToolAttr@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@@@
@@ -6126,6 +6132,7 @@ $prefix_element$
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSelectionInvert@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpSlice@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStack@@@@
+.?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpStripMorphs@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpTransformBindposeBone@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapBox@@@@
 .?AV?$CToolAttrGetSetAccess@_NVCModelDocMeshModifier_MeshOpUVMapPlanarCustom@@@@
@@ -6975,6 +6982,7 @@ $prefix_element$
 .?AVCModelDocMeshModifier_MeshOpSlice@@
 .?AVCModelDocMeshModifier_MeshOpSliceBox@@
 .?AVCModelDocMeshModifier_MeshOpStack@@
+.?AVCModelDocMeshModifier_MeshOpStripMorphs@@
 .?AVCModelDocMeshModifier_MeshOpTransformBindposeBone@@
 .?AVCModelDocMeshModifier_MeshOpUVMapBox@@
 .?AVCModelDocMeshModifier_MeshOpUVMapCylinder@@
@@ -7247,65 +7255,73 @@ $prefix_element$
 .vpk:
 .vvd
 .webp
-0(Ta
-00L@
-01P@
-02S@
-02i@
-058@
-061@
-063@
+001@
+00X@
+00Y@
+014@
+024@
+02L@
+02Y@
+03L@
+04Y@
+05X@
+05Y@
+076@
+086@
+089@
 08L@
-08Y@
+091@
+096@
 09L@
-0AL@
-0BN@
-0C2@
-0DL@
-0E5@
-0FR@
-0Fh@
-0Gh@
-0Hh@
-0Ih@
-0Jh@
-0Lh@
-0MR@
-0NE@
-0PQ@
-0UL@
-0VL@
-0Y8@
-0ZQ@
+09Y@
+0>m8
+0B1@
+0BC@
+0BT@
+0BV@
+0CC@
+0CL@
+0CQ@
+0CX@
+0DC@
+0EC@
+0EF@
+0FC@
+0FX@
+0GC@
+0HC@
+0HN@
+0I6@
+0IL@
+0IT@
+0JW@
+0K1@
+0LL@
+0LT@
+0Na@
+0QY@
+0SW@
+0TR@
+0UF@
+0X8@
+0ZL@
 0\r%0t
-0bJ@
-0dh@
-0e2@
-0iJ@
-0iW@
-0jW@
-0kW@
-0lW@
-0lX@
-0lh@
-0mH@
-0mK@
-0mU@
-0mW@
-0mX@
-0nW@
-0oC@
-0oV@
-0pX@
-0ph@
-0qX@
-0sW@
-0tK@
-0v6@
-0v7@
-0vC@
-0vX@
+0a8@
+0aP@
+0bL@
+0cW@
+0eL@
+0hE@
+0i0@
+0j1@
+0jQ@
+0kL@
+0lC@
+0nA@
+0oL@
+0oO@
 0x%llx
+0zA@
 1024
 16-byte data pool
 180_recovery
@@ -7321,10 +7337,11 @@ $prefix_element$
 2DBlend
 2DBlendEditor
 2DBlendFromAnimation
-2\vpt
 2_BONE_IK
 4-byte data pool
 4096
+4Ea@
+4Vc@
 4\r54t
 5;FJ$,XEK4<
 5sfm_v8
@@ -7336,8 +7353,8 @@ $prefix_element$
 8&Kx
 8-byte data pool
 8192
-81c@
-8Aa@
+8Sa@
+8Wc@
 969p
 9>No data
 9\tV_asind
@@ -8466,6 +8483,7 @@ CModelDocMeshModifier_MeshOpSelectionInvert
 CModelDocMeshModifier_MeshOpSlice
 CModelDocMeshModifier_MeshOpSliceBox
 CModelDocMeshModifier_MeshOpStack
+CModelDocMeshModifier_MeshOpStripMorphs
 CModelDocMeshModifier_MeshOpTransformBindposeBone
 CModelDocMeshModifier_MeshOpUVMapBox
 CModelDocMeshModifier_MeshOpUVMapCylinder
@@ -10181,7 +10199,6 @@ Grow or shrink a selection
 Grow the selection by adding contiguous components to the selection.
 HAC K  Unused Binding
 HELPER_BONE
-HHa@
 H\tV_cosd
 HairShader
 Half-Angle
@@ -10556,6 +10573,7 @@ Last two rows as percentage of total size %f %%:\n
 Latency CP
 Latency CP field
 Layer %d:  adding key at time %d [%d -> %d], value 
+Lda@
 Leader Bone
 Leader Type
 Leaf Only
@@ -10999,6 +11017,7 @@ MorphRule
 MorphRule Conflict :: %s\n                   == %s\n                   == %s
 MorphRule ConflictA:: %s\n                   == %s\n                   == %s
 MorphStereoControl
+Morphs
 Motion Bias
 Motion Type
 Move Particles Between 2 Control Points
@@ -11311,33 +11330,37 @@ Overrides the target VSNAP resource (defaults to "particles/models/%model_name%/
 Overwrite all bone data
 Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
-P(Ta
 P0L@
-P1L@
-P1i@
-P2V@
-P48@
-P6T@
-P71@
-P8D@
-P8Y@
+P0Q@
+P11@
+P14@
+P4T@
+P5F@
+P5Y@
+P6Y@
+P7X@
 P9L@
-P9T@
+PAL@
 PARENT
-PDH@
+PC1@
+PCX@
 PDL@
-PDR@
+PFX@
 PF\n%d %d\n-1.000000\n
+PFi@
+PG6@
+PH8@
+PHN@
 PHY Import: Invalid solid index %d in keyvalues\n
 PHY Import: Solid with index %d is defined twice!\n
-PI8@
-PIL@
-PJ0@
-PJA@
-PJE@
-PJa@
-PKh@
-PLL@
+PHi@
+PJL@
+PJV@
+PK7@
+PKO@
+PKY@
+PL1@
+PL8@
 PLUG_TYPE_INPUT
 PLUG_TYPE_OUTPUT
 PLUG_TYPE_RELAY_OMNIDIRECTIONAL_LEGACY
@@ -11345,15 +11368,16 @@ PLUG_TYPE_RELAY_PREFAB_INBOUND
 PLUG_TYPE_RELAY_PREFAB_LOCAL
 PLUG_TYPE_RELAY_PREFAB_OUTBOUND
 PLUG_TYPE_UNKNOWN
-PNQ@
-POL@
+PML@
 POSE_SPACE_BONE
 POSE_SPACE_MORPH
-PRA@
-PSQ@
+PRR@
+PSY@
 PURH
-PXU@
-PYL@
+PV6@
+PWF@
+PYP@
+PZA@
 PZL@
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
@@ -11401,11 +11425,10 @@ Particle system that handles the generated model/snapshot (Must be authored spec
 ParticleCompileBinaryIdenticalHack_underlying_struct
 ParticleParamID_t
 Pass Outflow
-PcC@
-PcT@
-PdX@
+Pb8@
+PbW@
+Pd8@
 Pdh@
-PeR@
 Peak Cycle
 Peak Frame
 Peak Frame Number
@@ -11416,8 +11439,8 @@ Perforce
 Perform a set of parametric mesh modification operations.
 Persistent
 Perturb vertex positions using sine waves.
-PfA@
 Pf\n%d %d\n-1.000000\n
+PhL@
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -11456,7 +11479,6 @@ PhysicsShapeHullPrimitive
 PhysicsShapeList
 PhysicsShapeReplacements
 PhysicsSurfaceProperties
-PiA@
 Pick 3 target cloth nodes
 Pick MeshID '%s'
 Pick Target Cloth Nodes:
@@ -11499,8 +11521,6 @@ Pitch Yaw Roll
 Pitch Yaw Roll Max
 PivotPaint
 PixarLog
-PjU@
-PkA@
 Place On Attachment
 Place On Bone
 Place on Floor
@@ -11516,10 +11536,8 @@ Plane Primitive
 Plastic
 Plasticity
 Play End Cap Effect
-Plh@
-PmX@
-Pmh@
-PoW@
+PnQ@
+PoL@
 Point 0
 Point 1
 Point Bones At
@@ -11568,10 +11586,11 @@ Positions in grid
 PosterSettings
 Posture
 Power scale for applying the supplemental ambient occlusion map.
-PpV@
-Pph@
-PqH@
-PrK@
+Pp8@
+PpR@
+PpT@
+Ppla
+Pr7@
 Pre-Age Noise
 Pre-Clear Selection
 Precision Degrees
@@ -11627,15 +11646,16 @@ Project on World
 Projected Primitive
 PropWorldOrigin
 Prune pieces < error threshold
-PsJ@
+PsL@
 Pull towards control point
 Pulse domain which enables particle content to query leaf code to introspect game state.
 Push Out
 Push mesh faces outward along their local normal. Optionally build shell geometry.
-PvQ@
-Pw6@
-PwC@
-PzJ@
+PwJ@
+Pxh@
+PzA@
+PzC@
+PzD@
 QAngle
 Quad Bend Tolerance
 Quad: A single camera facing quad. Less mesh complexity but more overdraw. Hull: Higher mesh cost but minimized overdraw.
@@ -11848,6 +11868,7 @@ Remove all elements from 'a' which compare equal to 'element'.
 Remove all values from the list
 Remove bones that are not present in this allow-list.
 Remove flags from the given value.
+Remove morph/delta data from the selected components, or from the entire mesh when Strip All is set. Each selection type strips only the morph data owned by that component type: selected vertices strip vertex morphs (shape/position deltas), selected faces strip face morphs and the per-face-vertex morphs of those faces (normal/UV deltas), and selected edges strip edge morphs. A vertex selection alone will not remove per-face-vertex morphs; select the faces to reach those.
 Remove the element at the given index in 'a', decreasing its count by one and moving the elements after index.
 Remove the given tag from this cursor. If other cursors are waiting on us, they will resume.
 Remove vertices behind the slice plane.
@@ -12395,6 +12416,10 @@ String Length
 String or substring to find in resource name
 StringArrayArray
 Strings Are Equal Case Sensitive
+Strip All (Ignore Selection)
+Strip All Morphs
+Strip Morphs
+Strip Morphs [from selection]
 Strip of quads
 StripByteCounts
 StripOffsets
@@ -13038,6 +13063,7 @@ ZIPVSetField
 \n_V_StringAfterPrefixCaseSensitive
 \ndummyfilename.tif
 \ng default\n
+\ntCa
 \prefabs\
 \rModelDoc
 \sound\
@@ -13055,7 +13081,7 @@ ZIPVSetField
 \tV_sscanf_s
 \tV_tand
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\v\n\v\n\v\n\v\n\v\n\v\n\v\n\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\r\f\r\f\r\f\r\f\r\f\r\f\r\f\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
-\vP(Ta
+\vppla
 _CustomCommand
 _CustomCommand%d
 _InFrameSpine
@@ -13734,7 +13760,6 @@ cutoff_radius
 cycle_type
 cyclestart
 cylinder
-d6a@
 d\tV_frexpf
 damage_direction_cp
 damage_position_cp
@@ -14260,7 +14285,6 @@ hop_distance_range
 horizontal differencing 
 horizontal_pose_param_name
 houdini
-hua@
 hull
 hullIvr-0.obj
 hullIvr-1.obj
@@ -14425,6 +14449,7 @@ kochanek
 kochanek_early
 kochanek_late
 l2_regularization
+lNa@
 ladder
 lasso_loop
 lasso_world_to_proj
@@ -15032,50 +15057,50 @@ overwrite_existing
 overwrite_existing_flags_only
 ownerlog
 owns_polymorphic_data
-p(Ta
-p0Q@
-p1L@
-p1Q@
-p1Y@
-p2L@
-p2Q@
-p38@
+p14@
+p21@
+p2K@
+p3L@
 p3Q@
-p46@
-p4Q@
+p3Y@
 p4lib
-p5Q@
-p6Q@
-p7Q@
-p7Y@
-p81@
-p8Q@
-p9Q@
-p9Y@
-pA1@
-pBT@
+p7P@
+p80@
+p86@
+p8F@
+pAY@
+pBL@
+pBO@
 pCheckpointName
+pD1@
+pDQ@
 pDescription
-pET@
-pGL@
-pHh@
-pIh@
-pJL@
-pL5@
+pE6@
+pE9@
+pEA@
+pEL@
+pHA@
+pHN@
+pHT@
+pJ7@
+pKA@
+pKL@
+pKT@
 pL8@
-pLF@
-pML@
-pOP@
-pOQ@
-pRL@
-pSE@
-pSL@
-pTC@
+pM1@
+pNL@
+pNR@
+pQL@
+pRY@
+pTL@
+pTT@
 pTagName
-pVD@
-pWQ@
+pWL@
+pXU@
+pXV@
+pZW@
 p\r0\fP!K
-pa4@
+paW@
 panorama_image
 panorama_layout
 panorama_style
@@ -15116,10 +15141,9 @@ path_trajectory
 pathclass
 pathnode
 pathnodeclass
-pb4@
-pc4@
-pd3@
-pdX@
+pc6@
+pd8@
+pd9@
 peak
 peak_attr
 peak_cycle
@@ -15128,9 +15152,8 @@ per particle
 per_material_options
 permissive
 pervertexlighting
-pfX@
-pg8@
-ph9@
+pgg@
+phL@
 phonememap
 phys
 physicsSimplificationError
@@ -15165,8 +15188,8 @@ pitch_friction
 pitch_stiffness
 pivotOffset
 pixelAspectRatio
-pjX@
-plX@
+pkE@
+plL@
 place_on_floor
 placementOrigin
 placementattachment
@@ -15176,10 +15199,8 @@ plane
 plastic
 plasticity
 playerclip
-pn5@
-pnK@
-poK@
-poX@
+pmC@
+pnP@
 point
 point0_key
 point1_key
@@ -15223,10 +15244,8 @@ posture
 posture_nohands
 posxyz
 powf
-ppn@
-pr1@
-pr8@
-prQ@
+pp8@
+pq9@
 preMerge face 0
 preMerge face 1
 precision_degrees
@@ -15248,7 +15267,6 @@ preview_end_index
 preview_scale
 preview_show_indices
 preview_start_index
-prh@
 primary_associated_entity
 primary_root_bone
 primitive_height
@@ -15274,15 +15292,16 @@ propattr_force_readonly
 propattr_stretch_editor_into_label_column
 propdataname
 prune
-psA@
+psT@
 pseudo-
-puJ@
-puU@
+pu3@
 pulse_node_custom_attributes
 pulse_runtime_lib
 pushout_strength
+pvL@
 pvTarget
-pwW@
+pwL@
+pz3@
 qangle log
 qangle_array
 quad
@@ -15714,6 +15733,7 @@ string_array
 string_instanced
 stringmap
 strip
+strip_all
 strips
 struct
 subClipTrackGroup
@@ -15738,9 +15758,8 @@ swing_offset_angle
 switch_threshold
 syncEngineFramerate
 synched
-t1c@
 tBVsInputSignature_t
-tMa@
+tCX@
 tagValue
 tag_list
 tag_list_dynamic
@@ -15810,6 +15829,7 @@ tint_perc
 tip_mass
 tipoffset
 tipparentbone
+tja@
 to Limit (
 to constrain
 to fetch array of rationals
@@ -16037,6 +16057,7 @@ tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slice.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_slicebox.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_smooth_vertex_normals.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_stack.png
+tools/images/modeldoc_editor/outliner_icon_parametric_meshop_strip_morphs.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_transform_bindpose_bone.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_duplicate.png
 tools/images/modeldoc_editor/outliner_icon_parametric_meshop_uv_offset.png
@@ -16395,6 +16416,7 @@ wvec2vec
 wxform
 wyS]
 x0Ysqx
+xOa@
 xfade
 xform
 yaw_bounce

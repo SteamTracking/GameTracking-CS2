@@ -1069,7 +1069,7 @@ PS
 	// PSRS
 	
 	RenderState(AlphaToCoverageEnable, F_ALPHA_TO_COVERAGE);
-	RenderState(DepthEnable, exists(shadervar_wireframedepthenable) ? shadervar_wireframedepthenable : true);
+	RenderState(DepthEnable, exists(ShaderVar_WireframeDepthEnable) ? ShaderVar_WireframeDepthEnable : true);
 	RenderState(StencilEnable, true);
 	RenderState(StencilFunc, NotEqual);
 	RenderState(StencilReadMask, 1);

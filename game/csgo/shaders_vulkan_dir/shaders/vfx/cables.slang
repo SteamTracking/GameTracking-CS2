@@ -1568,7 +1568,7 @@ PS
 	RenderState(CullMode, F_RENDER_BACKFACES ? None : Back);
 	RenderState(DepthBiasClamp, 0);
 	RenderState(DepthEnable, F_DISABLE_Z_BUFFERING ? false : true);
-	RenderState(DepthEnable, exists(shadervar_wireframedepthenable) ? shadervar_wireframedepthenable : true);
+	RenderState(DepthEnable, exists(ShaderVar_WireframeDepthEnable) ? ShaderVar_WireframeDepthEnable : true);
 	RenderState(DepthWriteEnable, false);
 	RenderState(DepthWriteEnable, F_DISABLE_Z_BUFFERING ? false : true);
 	RenderState(DstBlend, F_ADDITIVE_BLEND ? One : InvSrcAlpha);
@@ -1601,7 +1601,7 @@ PS
 	#endif
 	
 	// Variant parameters
-	RenderState(DepthEnable, exists(shadervar_wireframedepthenable) ? shadervar_wireframedepthenable : true);
+	RenderState(DepthEnable, exists(ShaderVar_WireframeDepthEnable) ? ShaderVar_WireframeDepthEnable : true);
 	RenderState(DepthWriteEnable, F_DISABLE_Z_BUFFERING ? false : true);
 	RenderState(SlopeScaleDepthBias, 0);
 	RenderState(SlopeScaleDepthBias, 0);

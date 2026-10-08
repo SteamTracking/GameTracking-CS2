@@ -262,14 +262,11 @@
 0 bit issue, spot 3
 0 bit issue, spot 4
 08@J
-0:PO
-2\vp8
-2\vpl
-2\vpt
+2\vpH
 7;eZ
 ::Storage_t
 @08N
-AA:Py
+AA:`y
 Accepting Steam Net connection %s\n
 AckSeqNum
 AddOrUpdateFieldMetadata:  adding/updating %s with invalid array count %d!
@@ -656,7 +653,6 @@ PACKET_STATUS_OUT_OF_ORDER
 Path_Remove failed for read only CFieldPath
 Path_RemoveAll failed for read only CFieldPath
 Peer To Peer
-Pf0  
 PlusFour
 PlusN
 PlusOne
@@ -704,8 +700,7 @@ QueueCallback( %s ) '%s' using value type (%s) on struct field, ignoring!\n
 QueueChange
 QueueReplayCompatFieldChange( %s ): can't place MNetworkReplayCompatField callback on a fully fake struct (e.g., a pointed to component or object), game code should move callback on entity %d to a C_BaseEntity derived class!\n
 QueueTimeMS
-R\fp8
-R\vpl
+R\fpH
 RadianEuler
 ReadFields
 Recv
@@ -835,7 +830,6 @@ Writing %d bits for path %s of serializer %s entity %d, this will fail to parse\
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
 \vInSeqNum
 \vMsgTick
-`2Py
 activated
 added
 aggegated
@@ -967,7 +961,7 @@ outgoing_data_bytespersecond
 outgoing_sequence
 outgoing_sequence_start
 p08@H^
-p0jPo
+p0j`o
 p\rP\f0!h
 packet_status
 parallel
@@ -986,7 +980,7 @@ pri(%s%+d=%u)
 pri(%u)
 problem detected locally
 qangle_pitch_yaw
-r\vp8
+r\vpH
 records
 regex
 regex_error

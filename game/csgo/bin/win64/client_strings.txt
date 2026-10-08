@@ -150,6 +150,7 @@
  <-- Retval '%s'
  <b>@import</b> 
  ACTIVE GROUP
+ AXr
  C_PhysPropClientside::Spawn: SetupPhysicsAsModel() failed for %s.\n
  FLK
  FWa
@@ -303,7 +304,6 @@
 "9\n\vCMsgTESmoke
 "; boundary="----%s"%s%s
 "<\n+CMsgGCCStrike15_v2_ClientToGCRequestElevate
-"A\n'CMsgGCItemPreviewItemBoughtNotification
 "B\n,CMsgGCCStrike15_v2_GetEventFavorites_Request
 "CDmeInputTexture"
 "DynamicImages"\n
@@ -648,8 +648,6 @@
 #DecoratedPlayerName_ClanTag:f
 #DecoratedPlayerName_ControllerName:f
 #DecoratedPlayerName_Puppeteer:f
-#DeliverGift
-#ECON_COLLECTION_REWARD
 #Econ_Additional_Crate_Drop
 #Econ_Color
 #Econ_Crate_Locks_Remaining
@@ -1787,7 +1785,6 @@
 #Time_TeamSwitchIn
 #Time_Warmup
 #Time__MapShutdownIn
-#ToolAction_WeddingRing_AcceptReject
 #ToolType
 #ToolType_%s
 #Type_
@@ -1816,7 +1813,6 @@
 #UI_Unknown
 #UI_Yes
 #UniqueString:Generate a string guaranteed to be unique across the life of the script VM, with an optional root string. Useful for adding data to tables when not sure what keys are already in use in that table.
-#UnwrapGift
 #VanityLoadout_WeaponInfo_stock
 #VanityLoadout_WeaponInfo_wear_fill
 #WinPanel_RoundLost
@@ -2120,8 +2116,7 @@ $taser_charge
 %\n k_EGCMsgAccountPhoneNumberChange
 %\n k_EGCMsgAppCheersGetAllowedTypes
 %\n k_EGCMsgGCAccountVacStatusChange
-%\n k_EMsgGCDeliverGiftResponseGiver
-%\n k_EMsgGCRemoveMakersMarkResponse
+%\n k_EMsgGCLookupAccount_DEPRECATED
 %\n k_EMsgGCReplay_UploadedToYouTube
 %\n k_EMsgGCRequestPassportItemGrant
 %\n k_EMsgGCStoreGetUserDataResponse
@@ -2132,7 +2127,6 @@ $taser_charge
 %\n!k_ECommunityItemClass_BoosterPack
 %\n!k_EGCMsgGetAccountDetailsResponse
 %\n!k_ESOMsg_CacheSubscriptionRefresh
-%\n\nEGCItemMsg
 %\n\nbuttons_pb
 %\n\tword_type
 %a, %e %b %Y %H:%M:%S
@@ -2611,9 +2605,6 @@ $taser_charge
 &\n!k_EMsgGCCStrike15_v2_DraftSummary
 &\n!k_EMsgGCCStrike15_v2_Party_Invite
 &\n!k_EMsgGCCStrike15_v2_Party_Search
-&\n!k_EMsgGCClientDisplayNotification
-&\n!k_EMsgGCItemPreviewStatusResponse
-&\n!k_EMsgGCLookupAccountNameResponse
 &\n!k_EMsgGCStorePurchaseInitResponse
 &\n!k_EMsgGCToGCBannedWordListUpdated
 &\n!k_EMsgGCToGCDirtyMultipleSDOCache
@@ -2621,7 +2612,6 @@ $taser_charge
 &\n"GAME_PARTICLE_MANAGER_EVENT_FROZEN
 &\n"GAME_PARTICLE_MANAGER_EVENT_UPDATE
 &\n"k_ECsgoSteamUserStat_XpEarnedGames
-&\n"k_UnlockStyle_Failed_CantLockCache
 &\n\ngc_msg_src
 &amp
 &lrm
@@ -2653,9 +2643,11 @@ $taser_charge
 '\n"k_EGCMsgMasterSetDirectoryResponse
 '\n"k_EMsgGCAddItemToSocket_DEPRECATED
 '\n"k_EMsgGCAddSocketToItem_DEPRECATED
+'\n"k_EMsgGCApplyEggEssence_DEPRECATED
 '\n"k_EMsgGCCStrike15_v2_PrivateQueues
 '\n"k_EMsgGCDev_NewItemRequestResponse
-'\n"k_EMsgGCItemPreviewRequestResponse
+'\n"k_EMsgGCRemoveItemPaint_DEPRECATED
+'\n"k_EMsgGCUnlockItemStyle_DEPRECATED
 '\n#GAME_PARTICLE_MANAGER_EVENT_ADD_FAN
 '\n#GAME_PARTICLE_MANAGER_EVENT_DESTROY
 '\n#GAME_PARTICLE_MANAGER_EVENT_LATENCY
@@ -2731,14 +2723,15 @@ $taser_charge
 (\n#CM_WorldUIControllerHasPanelChanged
 (\n#k_EGCMsgDirectServiceMethodResponse
 (\n#k_EMsgGCAcknowledgeRentalExpiration
+(\n#k_EMsgGCApplyStrangePart_DEPRECATED
 (\n#k_EMsgGCCStrike15_v2_BetaEnrollment
 (\n#k_EMsgGCCStrike15_v2_GotvSyncPacket
 (\n#k_EMsgGCCStrike15_v2_Party_Register
 (\n#k_EMsgGCCStrike15_v2_PlayersProfile
 (\n#k_EMsgGCCStrike15_v2_WatchInfoUsers
-(\n#k_EMsgGCDeliverGiftResponseReceiver
+(\n#k_EMsgGCPaintKitBaseItem_DEPRECATED
 (\n#k_EMsgGCRecurringSubscriptionStatus
-(\n#k_EMsgGCRemoveCustomTextureResponse
+(\n#k_EMsgGCRemoveMakersMark_DEPRECATED
 (\n#k_EMsgGCRemoveSocketItem_DEPRECATED
 (\n#k_EMsgGCStorePurchaseCancelResponse
 (\n#k_EMsgGCToGCBannedWordListBroadcast
@@ -2994,7 +2987,6 @@ $taser_charge
 ).CPlayer_GetPerFriendPreferences_Response"M
 ).CPlayer_SetCommunityPreferences_Response"+
 ).CPlayer_SetPerFriendPreferences_Response"G
-)248
 )4?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@2@H@Z
 )A service for accessing Steam player dataB
 )App Id this file is being published FROM.
@@ -3008,21 +3000,25 @@ $taser_charge
 )\n!penalty_account_id_sessions_green
 )\n$k_EMsgGCCStrike15_v2_ClientPollState
 )\n$k_EMsgGCCStrike15_v2_MatchmakingStop
-)\n$k_EMsgGCCustomizeItemTextureResponse
 )\n$k_EMsgGCDev_SchemaReservationRequest
 )\n$k_EMsgGCItemAcknowledged__DEPRECATED
+)\n$k_EMsgGCItemPreviewExpire_DEPRECATED
+)\n$k_EMsgGCLookupAccountName_DEPRECATED
+)\n$k_EMsgGCPaintItemResponse_DEPRECATED
 )\n$k_EMsgGCRequestAnnouncementsResponse
-)\n$k_EMsgGCServerBrowser_FavoriteServer
+)\n$k_EMsgGCServerRentalsBase_DEPRECATED
 )\n$k_EMsgGCStorePurchaseInit_DEPRECATED
+)\n$k_EMsgGCUnwrapGiftRequest_DEPRECATED
+)\n$k_EMsgGCUsedClaimCodeItem_DEPRECATED
 )\n$k_EMsgGC_IncrementKillCountAttribute
 )\n%GAME_PARTICLE_MANAGER_EVENT_SET_VDATA
 )\n%k_EClientReportingVersion_BetaVersion
 )\n%k_ECommunityItemAttribute_IssueNumber
 )\n%k_ECommunityItemClass_ProfileModifier
-)\n%k_UnlockStyle_Failed_CantAffordAttrib
 )\nNx*\nCh+\n'
 )\nOx*\nDh+\n(
 )\n\nECsgoGCMsg
+)\n\nEGCItemMsg
 )binary_zstd
 )fuG
 )haI
@@ -3052,13 +3048,13 @@ $taser_charge
 *?IsObject@Value@v8@@QEBA_NXZ
 *BaseEntity::CBodyComponent
 *BaseModelEntity::CBodyComponentBaseModelEntity
+*Difference in Z increases toward the middle of the slack ladder.\n
 *Gets the last-played times for the account
 *J\n\tQuestType
 *Returns the player's community preferences
 *UlS
 *Y$ve
 *\fhsD
-*\n"notification_body_localization_key
 *\n%k_EGCMsgGetPartnerAccountLinkResponse
 *\n%k_EMsgGCCStrike15_v2_Client2GCTextMsg
 *\n%k_EMsgGCCStrike15_v2_ClientPerfReport
@@ -3067,10 +3063,9 @@ $taser_charge
 *\n%k_EMsgGCCStrike15_v2_Party_Unregister
 *\n%k_EMsgGCCStrike15_v2_SetEventFavorite
 *\n%k_EMsgGCItemCustomizationNotification
-*\n%k_EMsgGCItemPreviewExpireNotification
-*\n%k_EMsgGCServerBrowser_BlacklistServer
+*\n%k_EMsgGCItemPreviewRequest_DEPRECATED
 *\n%k_EMsgGCStorePurchaseFinalizeResponse
-*\n%k_EMsgGCStorePurchaseQueryTxnResponse
+*\n%k_EMsgGCUnwrapGiftResponse_DEPRECATED
 *\n%k_EMsgGC_RevolvingLootList_DEPRECATED
 *\n&GAME_PARTICLE_MANAGER_EVENT_CAN_FREEZE
 *\n&GAME_PARTICLE_MANAGER_EVENT_REMOVE_FAN
@@ -3091,7 +3086,6 @@ $taser_charge
 *lootlist
 *o\n\teRollType
 *paintkit
-*spawn client glass shards asynchronously during demos or when remotely connected.
 +'+1+3+=+?+K+O+U+i+m+o+{+
 +(#\v&dbF:xrJ'$#
 +(Optional) Filename for the published file.
@@ -3106,13 +3100,14 @@ $taser_charge
 +Sgs
 +Updates information about a published file.
 +\n#dota_spectator_watching_broadcaster
-+\n#notification_title_localization_key
 +\n&k_EGCMsgGetPurchaseTrustStatusResponse
 +\n&k_EGCMsgMasterSetWebAPIRoutingResponse
 +\n&k_EMsgGCAddSocketToBaseItem_DEPRECATED
++\n&k_EMsgGCApplyPennantUpgrade_DEPRECATED
 +\n&k_EMsgGCCStrike15_v2_ClientAuthKeyCode
 +\n&k_EMsgGCCStrike15_v2_SetMyActivityInfo
-+\n&k_EMsgGCRemoveUniqueCraftIndexResponse
++\n&k_EMsgGCMOTDRequestResponse_DEPRECATED
++\n&k_EMsgGCRemoveCustomTexture_DEPRECATED
 +\n'GAME_PARTICLE_MANAGER_EVENT_SHOULD_DRAW
 +\n'k_ECommunityItemClass_ProfileBackground
 +\n'k_ECsgoSteamUserStat_SurvivedDangerZone
@@ -3175,6 +3170,10 @@ $taser_charge
 ,\n'k_EMsgGCCStrike15_v2_ClientPartyWarning
 ,\n'k_EMsgGCCStrike15_v2_ClientReportPlayer
 ,\n'k_EMsgGCCStrike15_v2_ClientReportServer
+,\n'k_EMsgGCCustomizeItemTexture_DEPRECATED
+,\n'k_EMsgGCDev_PaintKitDropItem_DEPRECATED
+,\n'k_EMsgGCGiftWrapItemResponse_DEPRECATED
+,\n'k_EMsgGCPaintKitItemResponse_DEPRECATED
 ,\n(GAME_PARTICLE_MANAGER_EVENT_SKIP_TO_TIME
 ,\n(k_ECommunityItemAttribute_StorePackageID
 ,\n\nentity_idx
@@ -3182,7 +3181,6 @@ $taser_charge
 ,\n\nsv_interp1
 ,\n\vvictim_slot
 ,ar_monastery
-,d;4X
 ,fQM(
 ,h11]
 ,hmQ#
@@ -3236,6 +3234,9 @@ $taser_charge
 -\n(k_EMsgGCCStrike15_v2_ClientCommendPlayer
 -\n(k_EMsgGCCStrike15_v2_ClientNetworkConfig
 -\n(k_EMsgGCCStrike15_v2_ClientRequestOffers
+-\n(k_EMsgGCGoldenWrenchBroadcast_DEPRECATED
+-\n(k_EMsgGCLookupAccountResponse_DEPRECATED
+-\n(k_EMsgGCStorePurchaseQueryTxn_DEPRECATED
 -\n(k_EMsgGCUserTrackTimePlayedConsecutively
 -\n)GAME_PARTICLE_MANAGER_EVENT_DESTROY_NAMED
 -\n)GAME_PARTICLE_MANAGER_EVENT_UPDATE_OFFSET
@@ -4536,12 +4537,6 @@ $taser_charge
 .?AV?$CFixedSizeCircularBuffer@USmokeVolumeHEGrenadeTrail_t@@$04H@@
 .?AV?$CFixedSizeCircularBuffer@VCSGOInputHistoryEntryPB@@$0CA@H@@
 .?AV?$CFixedSizeCircularBuffer@VQAngle@@$0CA@H@@
-.?AV?$CGCMsg@UMsgGCCraft_t@@@GCSDK@@
-.?AV?$CGCMsg@UMsgGCDelete_t@@@GCSDK@@
-.?AV?$CGCMsg@UMsgGCNameBaseItem_t@@@GCSDK@@
-.?AV?$CGCMsg@UMsgGCNameItem_t@@@GCSDK@@
-.?AV?$CGCMsg@UMsgGCRemoveItemName_t@@@GCSDK@@
-.?AV?$CGCMsg@UMsgGCSetItemPosition_t@@@GCSDK@@
 .?AV?$CGCMsg@UMsgGCStandardResponse_t@@@GCSDK@@
 .?AV?$CGameAppSystem@VIClientToolsInfo@@$0A@@@
 .?AV?$CGameAppSystem@VIClientUI@@$0A@@@
@@ -4674,7 +4669,6 @@ $taser_charge
 .?AV?$CGameSystemStaticFactory@VCCompetitiveCvarManager@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCCompositeMaterialGameSystem@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCCustomGameEventManager@@V1@@@
-.?AV?$CGameSystemStaticFactory@VCCustomTextureToolCache@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCDecalEmitterSystem@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCDirtySpatialPartitionEntityList@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCDllVerificationMonitor@@V1@@@
@@ -5682,6 +5676,7 @@ $taser_charge
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinLogExposure@C_PostProcessingVolume@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinRoughness@CLightComponent@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinRoughness@C_BarnLight@@@@
+.?AV?$CNetworkVarBase@MVNetworkVar_m_flModifier0@C_CSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMomentumModifier@C_PointValueRemapper@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flNearClipPlane@CLightComponent@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flNextHoldFrac@C_BaseCSGrenade@@@@
@@ -6506,6 +6501,8 @@ $taser_charge
 .?AV?$CProtoBufMsg@VCMsgClientHello@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgClientWelcome@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgConnectionStatus@@@GCSDK@@
+.?AV?$CProtoBufMsg@VCMsgCraftItemsRequest@@@GCSDK@@
+.?AV?$CProtoBufMsg@VCMsgDeleteItem@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgGCCStrike15_ClientDeepStats@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgGCCStrike15_GotvSyncPacket@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgGCCStrike15_v2_AccountPrivacySettings@@@GCSDK@@
@@ -6584,6 +6581,7 @@ $taser_charge
 .?AV?$CProtoBufMsg@VCMsgGCUserTrackTimePlayedConsecutively@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgLegacySource1ClientWelcome@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgModifyItemAttribute@@@GCSDK@@
+.?AV?$CProtoBufMsg@VCMsgModifyItemStringAttr@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgOpenCrate@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgRecurringMissionSchema@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCMsgRequestRecurringMissionSchedule@@@GCSDK@@
@@ -6614,6 +6612,8 @@ $taser_charge
 .?AV?$CProtoBufMsgMemoryPool@VCMsgClientHello@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgClientWelcome@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgConnectionStatus@@@GCSDK@@
+.?AV?$CProtoBufMsgMemoryPool@VCMsgCraftItemsRequest@@@GCSDK@@
+.?AV?$CProtoBufMsgMemoryPool@VCMsgDeleteItem@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgGCCStrike15_ClientDeepStats@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgGCCStrike15_GotvSyncPacket@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgGCCStrike15_v2_AccountPrivacySettings@@@GCSDK@@
@@ -6692,6 +6692,7 @@ $taser_charge
 .?AV?$CProtoBufMsgMemoryPool@VCMsgGCUserTrackTimePlayedConsecutively@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgLegacySource1ClientWelcome@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgModifyItemAttribute@@@GCSDK@@
+.?AV?$CProtoBufMsgMemoryPool@VCMsgModifyItemStringAttr@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgOpenCrate@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgProtoBufHeader@@@GCSDK@@
 .?AV?$CProtoBufMsgMemoryPool@VCMsgRecurringMissionSchema@@@GCSDK@@
@@ -8114,7 +8115,6 @@ $taser_charge
 .?AVCCsgoResolveProceduralLayerRenderer@@
 .?AVCCsgoVanityResolveProceduralLayerRenderer@@
 .?AVCCustomGameEventManager@@
-.?AVCCustomTextureToolCache@@
 .?AVCCycleButton@panorama@@
 .?AVCDamageRecord@@
 .?AVCDataDrivenCamera@@
@@ -8227,22 +8227,15 @@ $taser_charge
 .?AVCEconRecurringMission@@
 .?AVCEconRentalHistory@@
 .?AVCEconStyleInfo@@
-.?AVCEconTool_BackpackExpander@@
 .?AVCEconTool_Casket@@
-.?AVCEconTool_Collection@@
 .?AVCEconTool_CrateKey@@
-.?AVCEconTool_CustomizeTexture@@
 .?AVCEconTool_Default@@
 .?AVCEconTool_DescTag@@
-.?AVCEconTool_DuelingMinigame@@
 .?AVCEconTool_FanToken@@
 .?AVCEconTool_Gift@@
 .?AVCEconTool_Keychain@@
 .?AVCEconTool_KeychainToolCharges@@
 .?AVCEconTool_NameTag@@
-.?AVCEconTool_Noisemaker@@
-.?AVCEconTool_PaintCan@@
-.?AVCEconTool_PaintKit@@
 .?AVCEconTool_Patch@@
 .?AVCEconTool_Recipe@@
 .?AVCEconTool_SeasonPass@@
@@ -8250,8 +8243,6 @@ $taser_charge
 .?AVCEconTool_Spray@@
 .?AVCEconTool_StatTrakSwap@@
 .?AVCEconTool_Sticker@@
-.?AVCEconTool_WeddingRing@@
-.?AVCEconTool_WrappedGift@@
 .?AVCEconTool_XpGrant@@
 .?AVCEconTool_XpShopTicket@@
 .?AVCEconVolatileItemClaimedRewards@@
@@ -8357,7 +8348,6 @@ $taser_charge
 .?AVCGCMsgAdjustEquipSlotsManualAcknowledged@@
 .?AVCGCMsgAdjustEquipSlotsShuffleAcknowledged@@
 .?AVCGCNameBaseItemResponse@@
-.?AVCGCPaintKitItemResponse@@
 .?AVCGCSOCacheSubscribedJob@GCSDK@@
 .?AVCGCSOCacheSubscriptionCheck@GCSDK@@
 .?AVCGCSOCacheUnsubscribedJob@GCSDK@@
@@ -8569,11 +8559,8 @@ $taser_charge
 .?AVCMsgAcknowledgeRentalExpiration@@
 .?AVCMsgAdjustEquipSlot@@
 .?AVCMsgAdjustEquipSlots@@
-.?AVCMsgApplyEggEssence@@
-.?AVCMsgApplyPennantUpgrade@@
 .?AVCMsgApplyStatTrakSwap@@
 .?AVCMsgApplySticker@@
-.?AVCMsgApplyStrangePart@@
 .?AVCMsgCStrike15Welcome@@
 .?AVCMsgCasketItem@@
 .?AVCMsgClearDecalsForEntityEvent@@
@@ -8588,7 +8575,9 @@ $taser_charge
 .?AVCMsgClothStiffenAnimEvent_t@@
 .?AVCMsgConnectionStatus@@
 .?AVCMsgConsumableExhausted@@
+.?AVCMsgCraftItemsRequest@@
 .?AVCMsgCsgoSteamUserStatChange@@
+.?AVCMsgDeleteItem@@
 .?AVCMsgDevNewItemRequest@@
 .?AVCMsgEffectData@@
 .?AVCMsgGCBannedWord@@
@@ -8697,9 +8686,7 @@ $taser_charge
 .?AVCMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName@@
 .?AVCMsgGCCStrike15_v2_VolatileShopSubscribe@@
 .?AVCMsgGCCStrike15_v2_WatchInfoUsers@@
-.?AVCMsgGCClientDisplayNotification@@
 .?AVCMsgGCClientVersionUpdated@@
-.?AVCMsgGCCollectItem@@
 .?AVCMsgGCCstrike15_v2_ClientRedeemFreeReward@@
 .?AVCMsgGCCstrike15_v2_ClientRedeemMissionReward@@
 .?AVCMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded@@
@@ -8712,7 +8699,6 @@ $taser_charge
 .?AVCMsgGCHVacVerificationChange@@
 .?AVCMsgGCIncrementKillCountResponse@@
 .?AVCMsgGCItemCustomizationNotification@@
-.?AVCMsgGCItemPreviewItemBoughtNotification@@
 .?AVCMsgGCMultiplexMessage@@
 .?AVCMsgGCMultiplexMessage_Response@@
 .?AVCMsgGCNameItemNotification@@
@@ -8759,6 +8745,7 @@ $taser_charge
 .?AVCMsgLegacySource1ClientWelcome@@
 .?AVCMsgLegacySource1ClientWelcome_Location@@
 .?AVCMsgModifyItemAttribute@@
+.?AVCMsgModifyItemStringAttr@@
 .?AVCMsgOpenCrate@@
 .?AVCMsgPartyInviteResponse@@
 .?AVCMsgPlaceDecalEvent@@
@@ -11079,13 +11066,16 @@ $taser_charge
 .\n)k_EGCMsgGetGamePersonalDataEntriesRequest
 .\n)k_EGCMsgMasterSetClientMsgRoutingResponse
 .\n)k_EGCMsgRecurringSubscriptionStatusChange
+.\n)k_EMsgGCApplyConsumableEffects_DEPRECATED
 .\n)k_EMsgGCCStrike15_v2_ClientAccountBalance
 .\n)k_EMsgGCCStrike15_v2_ClientPartyJoinRelay
 .\n)k_EMsgGCCStrike15_v2_ClientReportResponse
 .\n)k_EMsgGCCStrike15_v2_GC2ClientGlobalStats
 .\n)k_EMsgGCCStrike15_v2_GlobalChat_Subscribe
 .\n)k_EMsgGCCStrike15_v2_PremierSeasonSummary
-.\n)k_EMsgGCItemPreviewItemBoughtNotification
+.\n)k_EMsgGCItemPreviewCheckStatus_DEPRECATED
+.\n)k_EMsgGCNameEggEssenceResponse_DEPRECATED
+.\n)k_EMsgGCRemoveUniqueCraftIndex_DEPRECATED
 .\n*GAME_PARTICLE_MANAGER_EVENT_UPDATE_FORWARD
 .\n\ffirst_target
 .\n\rattacker_slot
@@ -11149,7 +11139,7 @@ $taser_charge
 /2x1
 /5dJ
 /?appid=%u
-/Espec_autodirector_cameraman
+/Emp_warmuptime
 /Published file id of the file we'd like update.
 /RIv
 /Removes a friend or ignores a friend suggestion
@@ -11163,6 +11153,8 @@ $taser_charge
 /\n*k_EMsgGCCStrike15_v2_ClientRequestSouvenir
 /\n*k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop
 /\n*k_EMsgGCCStrike15_v2_VolatileShopSubscribe
+/\n*k_EMsgGCUnlockItemStyleResponse_DEPRECATED
+/\n*k_EMsgGCVerifyCacheSubscription_DEPRECATED
 /\n+GAME_PARTICLE_MANAGER_EVENT_UPDATE_FALLBACK
 /\n+k_ECommunityItemAttribute_CommunityItemType
 /\n\rinput_history
@@ -11223,6 +11215,8 @@ $taser_charge
 0\n+k_EMsgGCCStrike15_v2_GlobalChat_Unsubscribe
 0\n+k_EMsgGCCStrike15_v2_MatchEndRunRewardDrops
 0\n+k_EMsgGCCStrike15_v2_RecurringMissionSchema
+0\n+k_EMsgGCDeliverGiftResponseGiver_DEPRECATED
+0\n+k_EMsgGCRemoveMakersMarkResponse_DEPRECATED
 0\n+k_EMsgGCRemoveSocketItemResponse_DEPRECATED
 0\n,GAME_PARTICLE_MANAGER_EVENT_FREEZE_INVOLVING
 0\n,GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM
@@ -11288,6 +11282,9 @@ $taser_charge
 1\n,k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest
 1\n,k_EMsgGCCStrike15_v2_Server2GCClientValidate
 1\n,k_EMsgGCCStrike15_v2_VolatileItemClaimReward
+1\n,k_EMsgGCClientDisplayNotification_DEPRECATED
+1\n,k_EMsgGCItemPreviewStatusResponse_DEPRECATED
+1\n,k_EMsgGCLookupAccountNameResponse_DEPRECATED
 1\n,k_EMsgGCStorePurchaseInitResponse_DEPRECATED
 1\n-GAME_PARTICLE_MANAGER_EVENT_CREATE_SMOKE_GRID
 1\n-GAME_PARTICLE_MANAGER_EVENT_DESTROY_INVOLVING
@@ -11463,6 +11460,7 @@ $taser_charge
 2026-06-24
 2026-07-01
 2048
+20W$
 20t\f
 20x9
 2117-ILZV-2837
@@ -11480,7 +11478,6 @@ $taser_charge
 2Array of text tags to apply to the published file.
 2I y)
 2If true, return vote data in the returned details.
-2PK(
 2Set of published file Ids to retrieve details for.
 2Tm=#
 2Uiwp"9
@@ -11495,6 +11492,7 @@ $taser_charge
 2\n-k_EMsgGCCStrike15_v2_ClientToGCRequestElevate
 2\n-k_EMsgGCCStrike15_v2_FantasyRequestClientData
 2\n-k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse
+2\n-k_EMsgGCItemPreviewRequestResponse_DEPRECATED
 2\n.GAME_PARTICLE_MANAGER_EVENT_CREATE_PHYSICS_SIM
 2\n.GAME_PARTICLE_MANAGER_EVENT_SET_CLUSTER_GROWTH
 2\n.GAME_PARTICLE_MANAGER_EVENT_SET_FOW_PROPERTIES
@@ -11505,8 +11503,7 @@ $taser_charge
 2\n\nline_items
 2\n\vpreferences
 2\rlhp
-2\vp4
-2\vph
+2\vpD|
 2^pV
 2a"l
 2bT~
@@ -11518,6 +11515,7 @@ $taser_charge
 2ndry
 2p"6
 2prB
+2ps'
 2|2;#GameUI_Retake_Card_TakeFive,0,0,weapon_fiveseven|2;#GameUI_Retake_Card_BlindFire,1,0,weapon_p250,grenade0|2;#GameUI_Retake_Card_OnlyTakesOne,0,0,weapon_deagle|2;#GameUI_Retake_Card_SneakyBeakyLike,0,0,weapon_p250,grenade1
 3%3+3/353A3G3[3_3g3k3s3y3
 3(Optional) Preview filename for the published file." \n
@@ -11552,6 +11550,8 @@ $taser_charge
 3\n.k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello
 3\n.k_EMsgGCCStrike15_v2_PlayerOverwatchCaseStatus
 3\n.k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
+3\n.k_EMsgGCDeliverGiftResponseReceiver_DEPRECATED
+3\n.k_EMsgGCRemoveCustomTextureResponse_DEPRECATED
 3\n/GAME_PARTICLE_MANAGER_EVENT_DESTROY_PHYSICS_SIM
 3\n/k_ECommunityItemAttribute_ProfileModiferEnabled
 3\n\fper_map_rank
@@ -11587,6 +11587,8 @@ $taser_charge
 4\n/k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
 4\n/k_EMsgGCCStrike15_v2_GetEventFavorites_Response
 4\n/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
+4\n/k_EMsgGCCustomizeItemTextureResponse_DEPRECATED
+4\n/k_EMsgGCServerBrowser_FavoriteServer_DEPRECATED
 4\n0GAME_PARTICLE_MANAGER_EVENT_SET_OVERRIDE_TEXTURE
 4\n0GAME_PARTICLE_MANAGER_EVENT_SET_SHOULD_CHECK_FOW
 4\vU44
@@ -11594,6 +11596,7 @@ $taser_charge
 4tpD
 4zj@1;IJ
 4|2;#GameUI_Retake_Card_LightEmUp,1,1,rifle1,grenade0|2;#GameUI_Retake_Card_Kobe,1,1,rifle1,grenade2|1;#GameUI_Retake_Card_1g,1,1,rifle1,grenade3|1;#GameUI_Retake_Card_DisappearingAct,1,1,rifle1,grenade1|1;#GameUI_Retake_Card_EyesOnTarget,1,1,weapon_aug
+4~30X
 5'0v2ZP
 5(EWorkshopFileType) Type of Workshop file to publish.
 5(Optional) The number of results, per page to return.
@@ -11622,6 +11625,9 @@ $taser_charge
 5\n0k_EMsgGCCStrike15_v2_ClientRequestPlayersProfile
 5\n0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon
 5\n0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+5\n0k_EMsgGCItemPreviewExpireNotification_DEPRECATED
+5\n0k_EMsgGCServerBrowser_BlacklistServer_DEPRECATED
+5\n0k_EMsgGCStorePurchaseQueryTxnResponse_DEPRECATED
 5\n1GAME_PARTICLE_MANAGER_EVENT_SET_MATERIAL_OVERRIDE
 5\n1GAME_PARTICLE_MANAGER_EVENT_SET_TEXTURE_ATTRIBUTE
 5\n\fplayer_masks
@@ -11665,6 +11671,7 @@ $taser_charge
 6\n1k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo
 6\n1k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing
 6\n1k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
+6\n1k_EMsgGCRemoveUniqueCraftIndexResponse_DEPRECATED
 6\n2GAME_PARTICLE_MANAGER_EVENT_UPDATE_ENTITY_POSITION
 6\n\nvariations
 6\ng_flConfigMaxCoord
@@ -11723,12 +11730,13 @@ $taser_charge
 8192
 8285-YOAZ-6049
 82\n:XPH
+83@W
 851Pe
 8835-KLXV-0292
 8<pl
 8= zp
 8A6j
-8B H)
+8B3`W
 8C:\buildworker\csgo_rel_win64\build\src\panorama\layout\stylepropertyfactory.cpp
 8Client ID for which to count the number of issued tokens"
 8GZS
@@ -11776,6 +11784,7 @@ $taser_charge
 9\n4k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt
 9\n4k_EMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats
 9\n4k_EMsgGCCStrike15_v2_RequestRecurringMissionSchedule
+9\n4k_EMsgGCItemPreviewItemBoughtNotification_DEPRECATED
 9\n\faccess_token
 9\n\vFantasySlot
 9\n\vdiagnostics
@@ -11806,7 +11815,6 @@ $taser_charge
 :9\n\tkey_field
 :BAD OBJECT
 :Blowfish part of OpenSSL 1.0.2j  26 Sep 2016
-:CBodyComponentBaseAnimGraph
 :EXTERNAL TYPE %s\n
 :LBN
 :NAy
@@ -11829,10 +11837,10 @@ $taser_charge
 ;"lY7
 ;5jNf
 ;83\v\nHBJ7
-;<}\v<}\v<}\v<}\vCEnvVolumetricFogController_API::SetToDefaults
-;Enable close captioning.
+;<}\v<}\v<}\v<}\vC_TonemapController2
 ;LGEW
 ;Qo0
+;Subtitles and Captions
 ;\n\nPerMapRank
 ;\n\vrank_update
 ;\tV_atan2d
@@ -11923,6 +11931,7 @@ $taser_charge
 <weapon>
 =!=-=3=7=?=C=o=s=u=y={=
 =&sf9
+=3PW
 == %d Entities Dumped\n
 == PulseGraphDef ==\n
 == false\n
@@ -11999,11 +12008,11 @@ $taser_charge
 ?HasCaught@TryCatch@v8@@QEBA_NXZ
 ?IronSightQuarterRes2
 ?LatchVariables
-?Lists all entities
 ?MapItemPreviewPanel SetModel
 ?Movie
 ?NmFrameSnapEventMode_t
 ?ParseEXRHeaderFromMemory() failed! Error message: %s\n
+?Protobuf: %s(%d): %s\n
 ?Sep 21 2026
 ?The most recent last-played time the client already knows about"
 ?VBH;
@@ -12020,24 +12029,22 @@ $taser_charge
 ?gwL
 ?jOb
 ?referer=csgo_client&steamID=%llu
-?snd_opvar_set_auto_room
 ?srJO
 ?tya
 ?uWS
 ?x29
 @!@%@+@1@?@C@E@]@a@g@m@
-@08Nt
+@08N
 @0pp
 @?SlowGetInternalField@Object@v8@@AEAA?AV?$Local@VData@v8@@@2@H@Z
 @@CNmFloatCurveEvent
 @BH]f
-@C_IncendiaryGrenade
 @DebugIndividualStyle
+@HPX`hv0t
 @Integer overflow in %s
 @MfKZ
 @Pgl
 @Pu\rm
-@Show debug data when players change their loadout.
 @USRLOCAL{pet}
 @Unsupported PSD color mode!\n
 @WE]X
@@ -12052,7 +12059,6 @@ $taser_charge
 @dKb]
 @fff>fff>fff>fff>
 @ffffff
-@htp
 @i1V
 @icon_camera
 @icon_character
@@ -12061,6 +12067,7 @@ $taser_charge
 @keyframes 
 @keyframes '%s'\r\n{\r\n
 @n2w
+@secondary
 @workshop
 @zDSteamUnifiedMessages
 A random value [0.0, 1.0] used to make sure entities are not all in sync
@@ -12199,7 +12206,6 @@ APPEND_EXP
 APPSYSTEM: In ConnectGameInterfaces(), s_nRegistrationCount is %d!\n
 APPSYSTEM: In ConnectGameInterfaces(), tried to use different connection modes!\n
 APPSYSTEM: In ReconnectGameInterface(), tried to use different connection modes!\n
-APlayer's active weapon will never run out of ammo
 ASCII
 ASIDENTIFIERCHOICE_CANONIZE
 ASIDENTIFIERCHOICE_IS_CANONICAL
@@ -12325,7 +12331,6 @@ Account privacy setting %u changed %u->%u\n
 Account privacy setting %u retrieved %u\n
 AccountActivity
 AccountEntries
-Achievement reward %s has no items!
 Achievements disabled: Steam not running.\n
 Achievements disabled: cheats turned on in this app session.\n
 Achievements disabled: demo playing.\n
@@ -12454,6 +12459,7 @@ Age of the entity, aka duration since the entity was created
 Agency
 Aim CS
 AimTargetManager
+Alaunch_training_map
 Albatross
 AlbedoOrReflectivity
 Alert.WarmupTimeoutBeep
@@ -12480,7 +12486,6 @@ Alternate icon definition index %d must be greater than or equal to zero
 Alternate icon definition index '%s' (%llu) must be greater than zero
 AltitudeMax
 AltitudeMin
-Am_hTargetC4
 Ambient %s:Unknown command %s\n
 Ambient Occlusion Proxies
 Ambient Occlusion Proxies Downsample Depth
@@ -12568,7 +12573,6 @@ Any request for a duplicate dispatch/mesh shader primitive in an outputbuffer mu
 AoProxyDebug
 Apollo
 App ID the file belongs to."
-App%u.%s
 AppendAnimations
 AppendCascadeStyles
 AppendElementOpenTag
@@ -12720,7 +12724,6 @@ AudioVolumeFull
 AudioVolumeMuted
 AudioVolumeUnder33
 AudioVolumeUnder66
-AuditData
 Australia
 Austria
 Authority Information Access
@@ -12788,7 +12791,6 @@ B-409
 B-571
 B-Spline
 B.z\85p
-B0:0
 B2B2B2
 B2I_DSS
 B2I_RSA
@@ -12887,6 +12889,7 @@ BLOOM Down
 BLoadLayout
 BLoadLayoutSnippet
 BMPSTRING
+BMatchmaking
 BN lib
 BNRAND
 BN_BLINDING_convert_ex
@@ -13045,6 +13048,7 @@ Basis Type: %s\n
 BayerGreenSplit
 Bazaar
 BcT`
+Bcustom_hud_layout
 Bd]U
 BeamManifest
 BeforeTranslucent
@@ -13108,8 +13112,6 @@ BloomVisualisation
 BlurBackground
 BlurOperationPanel
 BlurPopupPanel
-Bm_iFOV
-Bm_nCashStackValue
 BoX5
 Body Component Scriptdesc
 Body Group Name
@@ -13169,6 +13171,7 @@ Bounce.Shrapnel
 Bounce.Wood
 Box%d
 BoxAngles
+Bplayer_controller
 Breach
 BreakCreateParticle
 BreakPiece
@@ -14001,7 +14004,6 @@ CCrypto::RSASignSHA256
 CCsgoCrosshairTileRenderer
 CCsgoPostProcessRenderer needs to use a layer which has had a render attribute called "ColorBuffer" set!\n
 CCsgoQuadRenderer
-CCustomTextureToolCache
 CD1mB"
 CDataGCCStrike15_v2_MatchInfo
 CDebugLayout::AppendElementOpenTag
@@ -14195,6 +14197,7 @@ CEnvVolumetricFogController_API::SetAnisotropy
 CEnvVolumetricFogController_API::SetDrawDistance
 CEnvVolumetricFogController_API::SetFadeSpeed
 CEnvVolumetricFogController_API::SetFogStrength
+CEnvVolumetricFogController_API::SetToDefaults
 CEnvVolumetricFogVolume_API
 CEnvVolumetricFogVolume_API::Disable
 CEnvVolumetricFogVolume_API::Enable
@@ -14249,7 +14252,6 @@ CGCDev_NewItemRequestResponse
 CGCMsgAdjustEquipSlotsManualAcknowledged
 CGCMsgAdjustEquipSlotsShuffleAcknowledged
 CGCNameBaseItemResponse
-CGCPaintKitItemResponse
 CGCSOCacheSubscribedJob
 CGCSOCacheSubscriptionCheck
 CGCSOCacheUnsubscribedJob
@@ -14420,6 +14422,7 @@ CJobMgr::BFrameFuncResumeSleepingJobs
 CJobMgr::BFrameFuncResumeYieldingJobs
 CJobMgr::BRouteMsgToJob() - continue job
 CJobMgr::BRouteMsgToJob() - job
+CJobMgr::PassMsgToJob() job %s (%llu) ignoring %s message %s from %s (%s mismatch): waiting for %s message %s from %s\n
 CJobMgr::PassMsgToJob() job %s received unexpected message %s when paused for %s\n
 CJobMgr::TimeoutJob
 CJobMgr::m_WorkThreadPool
@@ -14594,8 +14597,8 @@ CMS_stream
 CMS_uncompress
 CMS_verify
 CMapBombDamageGameSystem
-CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:471
-CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:490
+CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:474
+CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:493
 CMapInfo_API
 CMapInfo_API::FireWinCondition
 CMeshPrimitiveOutputBuffer::Next
@@ -14614,11 +14617,8 @@ CMsgAckPetEvent
 CMsgAcknowledgeRentalExpiration
 CMsgAdjustEquipSlot
 CMsgAdjustEquipSlots
-CMsgApplyEggEssence
-CMsgApplyPennantUpgrade
 CMsgApplyStatTrakSwap
 CMsgApplySticker
-CMsgApplyStrangePart
 CMsgCStrike15Welcome
 CMsgCasketItem
 CMsgClearDecalsForEntityEvent
@@ -14632,7 +14632,9 @@ CMsgClothStiffenAnimEvent
 CMsgClothStiffenAnimEvent_t
 CMsgConnectionStatus
 CMsgConsumableExhausted
+CMsgCraftItemsRequest
 CMsgCsgoSteamUserStatChange
+CMsgDeleteItem
 CMsgDevNewItemRequest
 CMsgEffectData
 CMsgGCBannedWord
@@ -14646,9 +14648,7 @@ CMsgGCCStrike15_v2_Party_Invite
 CMsgGCCStrike15_v2_Party_Search
 CMsgGCCStrike15_v2_Predictions
 CMsgGCCStrike15_v2_SetClanId
-CMsgGCClientDisplayNotification
 CMsgGCClientVersionUpdated
-CMsgGCCollectItem
 CMsgGCGiftedItems
 CMsgGCHAccountPhoneNumberChange
 CMsgGCHInviteUserToLobby
@@ -14688,13 +14688,14 @@ CMsgLANServerAvailable
 CMsgLeaveParty"
 CMsgLegacySource1ClientWelcome
 CMsgModifyItemAttribute
+CMsgModifyItemStringAttr
 CMsgPartyInviteResponse
 CMsgPlaceDecalEvent
 CMsgPlayerBulletHit
 CMsgProtoBufHeader
 CMsgRecurringMissionSchema
 CMsgReplayUploadedToYouTube
-CMsgRequestInventoryRefresh"
+CMsgRequestInventoryRefresh"t\n\vCMsgUseItem
 CMsgSDONoMemcached"/\n
 CMsgSOCacheHaveVersion
 CMsgSOCacheSubscribed
@@ -15820,7 +15821,6 @@ CUtlDict<enum ECameraType,class CDefFastCaselessStringLess>::Insert
 CUtlDict<enum LessonFieldType_t,class CDefFastCaselessStringLess>::Insert
 CUtlDict<enum LessonVariable,class CDefFastCaselessStringLess>::Insert
 CUtlDict<short,class CDefFastCaselessStringLess>::Insert
-CUtlDict<struct AchievementAward_t *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CGameEntitySystem::SpawnGroupEntityFilterInfo_t,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CKeyBindingListenerMgr::BindingListeners_t,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CNetworkSerializerCodeGenDatabase::EnumInfo_t,class CDefFastCaselessStringLess>::Insert
@@ -16696,7 +16696,6 @@ Competitive_TeamColor_%d
 Compiling minimap image: %s\n
 Completed
 Complex
-Complex achievement %s must have an Items key or a DefIndex field
 Component %s illegally specified INT_MIN as its priority!\n
 Components
 Compose Angles
@@ -17455,7 +17454,6 @@ DeepStatsReceived
 DeepStatsTimeout
 DeepStatsTimeoutGiveUp
 DefIdx
-DefIndex
 Default Game Description
 Default In
 Default Out
@@ -17609,6 +17607,7 @@ DistanceThreshold
 Div R%d <- R%d / R%d
 Dividing by zero in CNmFloatMathNode
 Dizzy
+Dm_vecMoveDirEntitySpace
 DnRv
 DoAllocateEntity failed\n
 DoAllocateEntity pEntity->m_pInstance != NULL %d\n
@@ -17655,7 +17654,6 @@ Downsample and BloomThreshold
 DownsampleDepth
 DownsampleDepthForWaterEffects
 Downtown
-Dpriority
 Dq;n
 DrBoom
 Draft is fully completed!\n
@@ -17750,7 +17748,6 @@ DropInputFocus
 DropdownMenuFocusChanged
 DroppedBomb
 DsBV
-Dteam_preview_camera
 Duck
 DumpModeDecode: Not enough data for scanline %d
 DumpScriptBindings()
@@ -18423,6 +18420,7 @@ F+Zb
 F,mZq
 F/o4
 F2M+
+F3pW
 F6tr
 F7!z
 F9q'
@@ -18910,6 +18908,7 @@ GAME_DISPLAY_TYPE
 GB=\nHB
 GBd<}v
 GBuffer
+GC or system
 GC sent empty missions list?
 GCHost
 GCUserTrackTimePlayedConsecutively( %u )\n
@@ -20975,7 +20974,6 @@ Item definition %s: Unable to find equip region mask for region named "%s"
 Item definition %s: Unable to find flai0 display rules
 Item definition %s: Unable to set explicit item taxonomy
 Item definition %s: item name cannot contain slashes
-Item definition index %d in achievement reward %s was not found
 Item definition index %d must be greater than or equal to zero
 Item used notification: %u (%s)\n
 Item.Medium
@@ -21425,6 +21423,7 @@ Lunacy
 M'Ezb
 M-laO
 M0 E
+M48[
 MASK:
 MATCH-
 MATCHSTATS\t%s, round %d, value %d\n
@@ -22509,8 +22508,8 @@ P-256
 P-384
 P-521
 P08@J
-P08J0`#
-P08Nt
+P08J 
+P08N
 P1\t98"
 P2P ping to "%s". Timed out after %.2fms\n
 P5[1
@@ -23624,7 +23623,6 @@ RO%s.
 ROTATION_OFFSET
 ROUNDDOWNTIME
 RP;e!
-RPK(
 RSA Data Security, Inc.
 RSA Data Security, Inc. PKCS
 RSA PRIVATE KEY
@@ -23709,11 +23707,10 @@ RT %dx%d %s %s : %d Bytes\n
 RT_txt
 RTime32
 RULESHERE
-R\fph
 R\n\rincludekvtags
 R\r1>Vp
 R\vp!y
-R\vp4
+R\vpD|
 R]Di
 R_T5Y
 Rad2 Deg
@@ -25507,7 +25504,6 @@ Source1LegacyListenEvents_t
 Source2 HTML
 Source2EntitySystem
 Source2EntitySystemDeallocator
-SourceAppID
 South
 SouthAmerica
 Sparrow
@@ -27028,6 +27024,7 @@ W'6S`
 W2Q=
 W3fp
 W3i+,
+W4X[
 W>peSp>9
 WAITING FOR VSCRIPT DEBUGGER CONNECTION -- '-vscriptdebug' was provided on the command line.\n
 WARNING: Attempted to send a steamworks gamestats row when the steamworks interface was not available!
@@ -27804,6 +27801,7 @@ Z~wl
 \n2CMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats
 \n3CMsgGCCStrike15_v2_ServerNotificationForUserPenalty
 \n3CPlayer_GetMutualFriendsForIncomingInvites_Response
+\n3hV
 \n5a=Z
 \n7CMsgGCCStrike15_v2_MatchmakingServerReservationResponse
 \n:82H
@@ -27825,7 +27823,6 @@ Z~wl
 \n\fEHG_RightLeg
 \n\fET_Spectator
 \n\fET_Terrorist
-\n\fEUnlockStyle
 \n\fGetUserFiles
 \n\fIgnoreFriend
 \n\fP2P_Messages
@@ -28014,6 +28011,7 @@ Z~wl
 \n\nprime_only
 \n\nquest_type
 \n\nqueue_size
+\n\nrecipe_def
 \n\nrequest_id
 \n\nrounds_won
 \n\nrpt_aimbot
@@ -28283,7 +28281,6 @@ Z~wl
 \n\tyaw_delta
 \n\vCM_MAX_BASE
 \n\vCMsgTEDecal
-\n\vCMsgUseItem
 \n\vCSOEconItem
 \n\vCS_UM_Shake
 \n\vCS_UM_Train
@@ -28327,6 +28324,7 @@ Z~wl
 \n\vcone_length
 \n\vcorrectpick
 \n\vcpus_online
+\n\vcraft_items
 \n\vcss_classes
 \n\vcustom_desc
 \n\vcustom_name
@@ -28337,7 +28335,6 @@ Z~wl
 \n\vdisplaytime
 \n\vease_in_out
 \n\veffectindex
-\n\vegg_item_id
 \n\vendcap_time
 \n\venemy_kills
 \n\vent_ehandle
@@ -28438,7 +28435,6 @@ Z~wl
 \rKT8v
 \rLAM
 \rMinghuaQu\f
-\rSource2/Composite Material Debug
 \rTxL
 \rUHz4Z}\r
 \rWhO
@@ -28645,6 +28641,7 @@ Z~wl
 \v\vTSG
 \vj0k
 \vjC7
+\vp0M
 ]1h=bfz
 ]FhSD}
 ]GT7]
@@ -28753,6 +28750,8 @@ _xU`u
 _}eOk
 `28)fk
 `3?New@Array@v8@@SA?AV?$Local@VArray@v8@@@2@PEAVIsolate@2@H@Z
+`430W
+`6Pi
 `:zQF
 `D$daM-l
 `DZG
@@ -28784,7 +28783,6 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
-aBvt
 aD/x
 aDSS
 aECDH
@@ -28844,7 +28842,6 @@ accountid64
 accumulated_error
 accuracy_target_enemy
 achievement_earned
-achievement_rewards
 act_
 act_apply_graffiti
 act_armsrace_level
@@ -29298,6 +29295,7 @@ antelope
 antialias
 antiquewhite
 anxious
+any sender
 anyExtendedKeyUsage
 anyPolicy
 any_equipment
@@ -29449,6 +29447,7 @@ attempt to reuse session in different context
 attempting to create unknown particle system %s
 attenuation
 attr: %s
+attr_def
 attr_factory
 attrib
 attrib_definition_index_t
@@ -29515,6 +29514,7 @@ a|w9i
 b <= sizeof ctx->buf
 b <= sizeof ctx->final
 b0M%
+b0W$
 b2i_PVK_bio
 b5o-
 b=G3
@@ -29557,8 +29557,6 @@ background-repeat
 background-size
 background-texture-size
 backgroundMap
-backpack_expander
-backpack_slots
 backup
 backwards
 bad alert record
@@ -29769,8 +29767,6 @@ bn to asn1 integer error
 bn_expand2
 boar
 body_collection
-body_substring_keys
-body_substring_values
 bodygroup
 bodygroupchoices
 bodylower
@@ -30498,10 +30494,7 @@ cold
 collapse
 collapse_addr_hash
 collection
-collection bits
-collection_item_id
 collection_reward
-collection_reward_item
 collection_type
 collision_group_override
 collision_property
@@ -31019,7 +31012,6 @@ custom_game_state_1
 custom_player
 custom_sound
 custom_type
-customize_texture_item
 customorigin
 customorigin_follow
 customplayer
@@ -31698,8 +31690,6 @@ dtls1_send_server_key_exchange
 dtls1_write_app_data_bytes
 dual ec drbg disabled
 duck
-duel__class_lock
-duel_minigame
 dummy
 dummyfilename.tif
 duplicate compression id
@@ -32044,7 +32034,6 @@ errorcode
 errormsg
 ess add signing cert error
 ess signing certificate error
-essence_item_id
 ethe resulting relationship.  Depending on state, may move directly to friends rather than invite sent"R\n
 euro
 evcode
@@ -33843,7 +33832,6 @@ impactDecalName
 impactGrazingDecalName
 impale
 impolite
-import_from
 impulse 100
 impulse 201
 in freemove
@@ -34539,7 +34527,6 @@ kw.6#
 kyxsan
 k~Rz
 l <= sizeof(c->iv)
-l&+3p
 l&rB6
 l4Ot
 l7@J
@@ -34547,7 +34534,7 @@ lC57
 lDcW
 lM2p
 l\n\fexcludedtags
-l`w4(
+l`w4
 label_token
 ladder
 ladder_angle_yaw
@@ -34837,7 +34824,7 @@ lowercase
 lowervalue
 lowprecisionuv
 lowprecisionuv1
-lvR4
+lvR4H[
 m&9W
 m*Zu
 m249
@@ -35526,6 +35513,7 @@ message digest is null
 message extensions
 message imprint mismatch
 message too long
+message type
 messageDigest
 messagedigest attribute wrong length
 messagedigest wrong length
@@ -35938,8 +35926,8 @@ n6j/
 n:2C[
 n@PK
 nAnimEvent
-nCPulseCell_LerpCameraSettings
 nCRD
+nC_LightDirectionalEntity
 nChangeOffset < INT16_MAX
 nChangeOffset > 0
 nDataSize > 0
@@ -36192,7 +36180,6 @@ nodes
 noecheck|
 nofood
 noheader
-noise_maker
 nolink
 nomap
 nombstr
@@ -36597,8 +36584,7 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^t
-p2 H)
+p08@H^
 p250
 p2p_ping could not convert "%s" to a CPeerToPeerAddress\n
 p2p_ping could not ping "%s" because they are an unknown peer\n
@@ -36609,8 +36595,10 @@ p4Z3
 p5Z3
 p5\nL,
 p618
+p6p)
 p>?Set@Template@v8@@QEAAXV?$Local@VName@v8@@@2@V?$Local@VData@v8@@@2@W4PropertyAttribute@2@@Z
 p@0pqE5tsO?|1
+pBr_decals_default_start_fade
 pBuffer != nullptr
 pCachedPoseBuffer->m_ID.IsValid()
 pCheckpointName
@@ -36621,6 +36609,7 @@ pDest
 pFilter
 pG_*h
 pIp 
+pLength of each crosshair bar, scaled with screen resolution
 pLocationEntity
 pNewRequest
 pO0h
@@ -36645,6 +36634,7 @@ p^SYe
 p^i9
 pa end %f
 pa start %f
+packet format
 packet length too long
 packetid
 padding
@@ -36658,15 +36648,12 @@ page_class
 page_res
 pagerTelephoneNumber
 pagescroll
-paint_can
 paint_data
-paint_kit
 paint_kits
 paint_kits_rarity
 paintable
 paintable_team_colors
 paintable_unusual
-paintcan_index
 paintkit
 palegoldenrod
 palegreen
@@ -36988,7 +36975,6 @@ penalty_seconds
 penetrated
 penetration_count
 penguin
-pennant_item_id
 per-frame
 percentage
 perf
@@ -37437,6 +37423,7 @@ propattr_flatten_into_parent_row
 propdataname
 propername
 proportional_base
+protobuf
 protocol is shutdown
 protocolInformation
 provide parameters
@@ -37585,7 +37572,6 @@ rZPM
 r\n\vstart_index
 r\vDi
 r\vp!K
-r\vph
 r_2PassBuildDraw 0
 r_2PassBuildDraw 1
 r_csm_fast_path 0
@@ -38309,6 +38295,8 @@ self_opening_purchase
 self_with_wearables
 sellback %d
 semi-bold
+sender
+sender is a user or game server
 separate_eye_ramp
 separator
 separatortext
@@ -38368,7 +38356,6 @@ set filename failed
 set item texture prefab
 set item texture seed
 set item texture wear
-set item tint RGB
 set supply crate series
 set-addPolicy
 set-attr
@@ -39230,7 +39217,6 @@ strValue
 strafe
 strafe_mode
 strange
-strange_part_item_id
 strange_parts
 streakconvictions
 stream
@@ -40301,6 +40287,7 @@ unsupported name constraint type
 unsupported option
 unsupported or invalid name constraint syntax
 unsupported or invalid name syntax
+unsupported packet format
 unsupported pkcs12 mode
 unsupported prf
 unsupported private key algorithm
@@ -40339,7 +40326,6 @@ update_particle_transform
 updates
 upgrade level
 upgrade threshold
-upgrade_item_id
 upgraded_defidx
 upmove
 upnext
@@ -40961,7 +40947,6 @@ web_resources
 webp
 webvtt-cue end-time must have value greater than start-time
 webvtt-cue-id truncated
-wedding_ring
 week_id
 week_name
 wfA'@7
@@ -41075,7 +41060,6 @@ wrap
 wrap error
 wrap mode not allowed
 wraparound
-wrapped_gift
 wrapped_sticker
 wrappedhtmlid
 wretched
@@ -41183,6 +41167,7 @@ y#y&Jb
 y-offset
 y0JY
 y2Cu
+y3 X
 y;w9
 y>?SetAccessor@ObjectTemplate@v8@@QEAAXV?$Local@VString@v8@@@2@P6AX0AEBV?$PropertyCallbackInfo@VValue@v8@@@2@@ZP6AX0V?$Local@VValue@v8@@@2@AEBV?$PropertyCallbackInfo@X@2@@Z3W4AccessControl@2@W4PropertyAttribute@2@W4SideEffectType@2@8@Z
 y?iLa

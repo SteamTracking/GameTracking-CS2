@@ -7,7 +7,7 @@
 	ZoomOut
 
 AssetBrowserMainWnd : CQAssetBrowserMainWnd // src/assetbrowser/qassetbrowsermainwnd.cpp
-	// commands = null
+	ExploreToSelectedAsset
 
 AssetGraphView : CQAssetGraphView // src/assetbrowser/qasset_graph_view.cpp
 	DecreaseMaxDepth
