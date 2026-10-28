@@ -569,6 +569,7 @@ CCSGameRules
 	int m_iMatchStats_PlayersAlive_CT
 	int m_iMatchStats_PlayersAlive_T
 	float m_TeamRespawnWaveTimes
+	int m_nActiveMutators
 	GameTime_t m_flNextRespawnWave (sent as: float32)
 	VectorWS m_vMinimapMins
 	VectorWS m_vMinimapMaxs
@@ -807,7 +808,7 @@ CCSPlayerPawn
 	Color m_GunGameImmunityColor
 	GameTime_t m_fImmuneToGunGameDamageTime (sent as: float32)
 	bool m_bGunGameImmunity
-	float m_flModifier0
+	float m_flBigHeadScale
 	float m_fMolotovDamageTime
 	QAngle m_angEyeAngles (encoder: qangle_precise; priority: 32)
 
@@ -956,8 +957,8 @@ CCSWeaponBase
 	bool m_bIsHauledBack
 	bool m_bSilencerOn
 	GameTime_t m_flTimeSilencerSwitchComplete (sent as: float32)
-	bool m_bStealthy
-	GameTime_t m_flStealthHoldStartTime (sent as: float32)
+	bool m_bIsInStealthReload
+	GameTime_t m_flStealthReloadHoldStartTime (sent as: float32)
 	bool m_bReloadHeldSinceStart
 	float m_flWeaponActionPlaybackRate
 	int m_iOriginalTeamNumber

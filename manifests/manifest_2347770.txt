@@ -1,16 +1,16 @@
 Content Manifest for Depot 2347770 
 
-Manifest ID / date     : 67499503218971311 / 10/22/2026 21:23:12 
+Manifest ID / date     : 8833146750479675564 / 10/28/2026 20:57:52 
 Total number of files  : 2992 
-Total number of chunks : 65056 
-Total bytes on disk    : 65046717914 
-Total bytes compressed : 55569212736 
+Total number of chunks : 65074 
+Total bytes on disk    : 65065602283 
+Total bytes compressed : 55586326720 
 
 
           Size Chunks File SHA                                 Flags Name
-            10      1 f682f2f1f48fd3263a783d320e93c520255419f0     0 game\bin\built_from_cl.txt
-         10347      1 3c847a3139308a273cbcc28208a6cee89b3bcb93     0 game\bin\win64\csgo.signatures
-          8941      1 571971dcdbf2ebcde2716f50a62ff0e48924d941     0 game\bin\win64\vpk.signatures
+            10      1 cbdd67858201fbb67a3af7ec944ee3d8137ade56     0 game\bin\built_from_cl.txt
+         10347      1 e50c5dc3f0367da59129c5be7332559bd2fc0918     0 game\bin\win64\csgo.signatures
+          8941      1 97782ee451748c773a7732f9fb410892906422a3     0 game\bin\win64\vpk.signatures
          51357      1 0f5112698b482f8c1190c89192a4c0c8b0e50198     0 game\core\cfg\sfm_default_animation_groups.vcfg
           2270      1 ab4e0ee92367ba6d28a89dae8f6000631ffdb641     0 game\core\cfg\user_keys_default.vcfg
           2474      1 c4ff2f85048812f02c2403b0675208acfc00c7b0     0 game\core\gameinfo.gi
@@ -2438,7 +2438,7 @@ Total bytes compressed : 55569212736
      118404050    113 796c7932cfeb6772b51013f28bd99bfdfb40483d     0 game\csgo\pak01_033.vpk
      116169795    111 e382335666c33007e4a346ded29843a08e8656eb     0 game\csgo\pak01_034.vpk
      104201764    102 d897179aaadd2b0de26e19afe39037903f6f424a     0 game\csgo\pak01_035.vpk
-     119854432    125 40db818e02a53d6c47f9336bb8736f7fda103cbd     0 game\csgo\pak01_036.vpk
+     106521791    129 37f5f0b02681e7ffa2052a4b139680303910cf18     0 game\csgo\pak01_036.vpk
      109137813    105 c1c5d1aeea369e80997338b7f41f8cadb17bbfdb     0 game\csgo\pak01_037.vpk
      116538440    112 cf02841fa129fbb93933f539cc8ae0fcb54de2d9     0 game\csgo\pak01_038.vpk
      103037018    103 83bd86a8c8cdc17b353c54cd4cf6a1e347a59e63     0 game\csgo\pak01_039.vpk
@@ -2501,7 +2501,7 @@ Total bytes compressed : 55569212736
      105895501    102 f35e2b0b50367dd370317f5802dde986483ed7fc     0 game\csgo\pak01_096.vpk
      105018655    101 6419a709918edde7e2cc0c9bd15d3af4f9acd379     0 game\csgo\pak01_097.vpk
      101003333     97 cc4fd1ac89a5b39e9c96d1fd81b65352fc70d13e     0 game\csgo\pak01_098.vpk
-     106510966    130 f26a20fb26c58ae884929e8ce61b98cbb1c60d6c     0 game\csgo\pak01_099.vpk
+     117493211    120 86110f81a1d9952f74447a48d8df390785e0d83e     0 game\csgo\pak01_099.vpk
      104039515    103 b85a721f33aacb335f94d2e7de4b03e25d0aa84b     0 game\csgo\pak01_100.vpk
      102113235    101 953db92997c93bdade3c4ab4d4c71ab2335b80fe     0 game\csgo\pak01_101.vpk
      104782944    103 4dae3bce4ac194cc42a507cf959865cd983022cc     0 game\csgo\pak01_102.vpk
@@ -2903,11 +2903,11 @@ Total bytes compressed : 55569212736
      103652491    105 97b078393d02aaed75aa0d5f232ec9573a608d48     0 game\csgo\pak01_498.vpk
      105338067    116 4af7ebb5429b351ff2b76c4f9b300cd176157ada     0 game\csgo\pak01_499.vpk
      102090495    101 6cac088baddee5012d7a47318b06d119f3cbb859     0 game\csgo\pak01_500.vpk
-     105973509    114 1b63dd014f735934b9ffc7a76dfd957e6988a7b6     0 game\csgo\pak01_501.vpk
+      99621966    105 a36d3ad51113077cf85943cd5a96a10581c7edaf     0 game\csgo\pak01_501.vpk
       99618250    105 568b65b644448b85efe132f8eaebe59c309c3fb3     0 game\csgo\pak01_502.vpk
      100220508    102 60654a3f3231ef5de3b458ed332ba064c153c465     0 game\csgo\pak01_503.vpk
-      46221702     47 61aef0b0a5dfbc55626af427162f4b3e2b7c58e5     0 game\csgo\pak01_504.vpk
-       7708830      8 8d4538401fb2f65735bb3297cf68ad4e8112be39     0 game\csgo\pak01_dir.vpk
+      73801782     76 e868db78c1f025ef727560bdeeac4a627960590d     0 game\csgo\pak01_504.vpk
+       7715045      8 c8514c1fed295f92b27cf36ba7eea751c5b3273a     0 game\csgo\pak01_dir.vpk
          11893      1 d2f5c237fcac89835ab901bf3cc83850c71d9b46     0 game\csgo\panorama\fonts\fonts.conf
         107848      1 90edfc11fa568cd0fb5b9d6e6d369dddadfdb8c4     0 game\csgo\panorama\fonts\notomono-regular.ttf
         310556      1 84e39ddc72cd1d2ac4be132d235979f10f916c2b     0 game\csgo\panorama\fonts\notosans-bold.ttf
@@ -2991,12 +2991,12 @@ Total bytes compressed : 55569212736
        4362116      5 f0bfa803c4ac96e601af4b20d73b78910dc7888e     0 game\csgo\panorama\videos\zoo_no_alpha.webm
         786486      1 833fcfa581e6ce5692926177984c1ac5a84df424     0 game\csgo\resource\game-icon.bmp
      110113298    106 ca8200fb00cef1e454460835b09d217d8165bbe7     0 game\csgo\shaders_vulkan_000.vpk
-     125646348    122 9671b9dd673de42e7b185c284379ae49d4f4f829     0 game\csgo\shaders_vulkan_001.vpk
+     124187884    121 75a27aea1887fbb719c28c0ff48ab91c89da904c     0 game\csgo\shaders_vulkan_001.vpk
      105215922    103 2eb2a66d74d0379cd76656beb82e2cb3fcd90f71     0 game\csgo\shaders_vulkan_002.vpk
      303670574    290 d2d77a7357436cf6fb69b704cebc84718609f70e     0 game\csgo\shaders_vulkan_003.vpk
-      23545661     26 0adb494f89ec39b346696b421de69f64dbb49e76     0 game\csgo\shaders_vulkan_004.vpk
-         41884      1 ac3becdcde613a11ff6edba56e148bbd65761d2d     0 game\csgo\shaders_vulkan_dir.vpk
-           190      1 38d9850281f88fa7ac44357dc0b969abb9800914     0 game\csgo\steam.inf
+      25004138     28 7a80e74bbd9d763f27ad8788694da6d9d81cc99e     0 game\csgo\shaders_vulkan_004.vpk
+         41884      1 a9b38a712dcebbc8a985763a9134ec66c4264688     0 game\csgo\shaders_vulkan_dir.vpk
+           190      1 3cd68d9dfada742adc3209d9d4bcdfd63c2e2b7a     0 game\csgo\steam.inf
            209      1 cb2eaab8dbda9f075491a5410326356e127f60ec     0 game\csgo_lv\gameinfo.gi
            135      1 7769174b103a021d6390cb2a31b758dbfff04639     0 game\csgo_lv\gameinfo_branchspecific.gi
         473822      1 f5ca24bf12b20fee2ffb5d8bbc465ba8805d8abe     0 game\thirdpartylegalnotices.txt

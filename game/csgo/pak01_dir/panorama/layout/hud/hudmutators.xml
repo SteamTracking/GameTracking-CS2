@@ -1,0 +1,11 @@
+<!-- xml reconstructed by Source 2 Viewer - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/base.vcss" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/hud/hudmutators.vcss" />
+	</styles>
+	<CSGOHudMutatorsPanel hittest="false" hittestchildren="false" class="hudmutators">
+		<Panel id="HudMutatorsList" class="hudmutators-list" />
+	</CSGOHudMutatorsPanel>
+</root>

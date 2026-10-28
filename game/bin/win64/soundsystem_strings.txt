@@ -3254,6 +3254,7 @@ output_goto_count
 output_guid
 output_has_envelope
 output_has_sky_exposure
+output_head_scale
 output_high
 output_hit_position
 output_host_elapsed_time

@@ -133,6 +133,33 @@
 				input = "@volume_accumulate.output"
 			},
 			{
+				name = "bighead_player_info"
+				operator = "game_get_source_player_info"
+				input_execute = "1"
+				execute_once = "1"
+			},
+			{
+				name = "bighead_is_scaled"
+				operator = "math_float"
+				apply = "not_equal"
+				input1 = "@bighead_player_info.output_head_scale"
+				input2 = "1.000000"
+			},
+			{
+				name = "send_bighead_head_scale"
+				input_execute = "@bighead_is_scaled.output"
+				operator = "vmix_voicegraph_input"
+				input_name = "bighead_head_scale"
+				input = "@bighead_player_info.output_head_scale"
+			},
+			{
+				name = "send_bighead_pitch_enable"
+				input_execute = "@bighead_is_scaled.output"
+				operator = "vmix_voicegraph_input"
+				input_name = "bighead_pitch_enable"
+				input = "@bighead_is_scaled.output"
+			},
+			{
 				name = "submix_send"
 				operator = "vmix_mixgraph_send"
 				input_execute = "1.0"

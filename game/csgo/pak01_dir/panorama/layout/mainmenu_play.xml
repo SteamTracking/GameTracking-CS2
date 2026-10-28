@@ -31,6 +31,7 @@
 					<Image id="ActiveGroupIcon" class="right-margin" texturewidth="24" textureheight="24" src="s2r://panorama/images/icons/ui/competitive.vsvg" />
 				</Panel>
 				<Label id="MapGroupNewTag" class="map-selection-info__new stratum-medium-italic hidden" text="#SFUI_Workshop_New_Map" />
+				<Panel id="MapGroupMutators" class="map-selection-btn__mutators hidden" hittest="false" hittestchildren="false" />
 				<Panel id="MapSelectionButton" class="map-selection-btn-container" hittest="false">
 					<Panel id="MapGroupCollectionMultiIcons" class="map-selection-btn__groupmap-icons" />
 					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml" class="map-selection-btn__ratingemblem" />

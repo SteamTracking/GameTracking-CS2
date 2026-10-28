@@ -221,10 +221,10 @@ shaders/vfx/csgo_simple_3layer_parallax_vulkan_50_ps.vcs CRC:001da3c613 size:319
 shaders/vfx/csgo_simple_3layer_parallax_vulkan_50_psrs.vcs CRC:00ec6ef90d size:1938
 shaders/vfx/csgo_simple_3layer_parallax_vulkan_50_vs.vcs CRC:00d1b9d962 size:21931
 shaders/vfx/csgo_simple_liquid.ini CRC:0000000000 size:0
-shaders/vfx/csgo_simple_liquid_vulkan_50_features.vcs CRC:003cfb0ef8 size:5874
+shaders/vfx/csgo_simple_liquid_vulkan_50_features.vcs CRC:00d51ad92c size:5890
 shaders/vfx/csgo_simple_liquid_vulkan_50_ps.vcs CRC:00e86b59df size:1418572
 shaders/vfx/csgo_simple_liquid_vulkan_50_psrs.vcs CRC:009897a715 size:1826
-shaders/vfx/csgo_simple_liquid_vulkan_50_vs.vcs CRC:00f9889c23 size:32148
+shaders/vfx/csgo_simple_liquid_vulkan_50_vs.vcs CRC:004ccc6e87 size:32154
 shaders/vfx/csgo_simple_vulkan_50_features.vcs CRC:00a1a7b65f size:4658
 shaders/vfx/csgo_simple_vulkan_50_ps.vcs CRC:00c9e1f0ac size:275662
 shaders/vfx/csgo_simple_vulkan_50_psrs.vcs CRC:00ca11e680 size:2130

@@ -106,6 +106,7 @@ DotaMapUtils001
 EconVData001
 Entry %s was not found in surfaceproperties_footsteps.txt\n
 Error loading %s: %s\n
+FaN"\n
 Failed to open file: %s\n
 FoliageAnimation
 Game System %s is defined twice!\n

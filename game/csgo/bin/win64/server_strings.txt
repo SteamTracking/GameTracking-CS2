@@ -3280,6 +3280,7 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@HVNetworkVar_m_iType@CPlayerPing@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_iUtilityDamage@CSPerRoundStats_t@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nAABBDirection@CCitadelSoundOpvarSetOBB@@@@
+.?AV?$CNetworkVarBase@HVNetworkVar_m_nActiveMutators@CCSGameRules@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nBakeSpecularToCubemaps@CBarnLight@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nBakedShadowIndex@CBarnLight@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nBakedShadowIndex@CLightComponent@@@@
@@ -3531,6 +3532,7 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBackgroundBorderWidth@CPointWorldText@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBackgroundWorldToUV@CPointWorldText@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBakeSpecularToCubemapsScale@CBarnLight@@@@
+.?AV?$CNetworkVarBase@MVNetworkVar_m_flBigHeadScale@CCSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBlendWeight@CRagdollProp@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBombPlantViewOffset@CCSPlayer_MovementServices@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBounceScale@CBarnLight@@@@
@@ -3696,7 +3698,6 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinLogExposure@CPostProcessingVolume@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinRoughness@CBarnLight@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinRoughness@CLightComponent@@@@
-.?AV?$CNetworkVarBase@MVNetworkVar_m_flModifier0@CCSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMomentumModifier@CPointValueRemapper@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flNearClipPlane@CLightComponent@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flNextHoldFrac@CBaseCSGrenade@@@@
@@ -4065,7 +4066,7 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStartTime@CEnvWindShared@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStartTime@CParticleSystem@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStartTime@CPointCommentaryNode@@@@
-.?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStealthHoldStartTime@CCSWeaponBase@@@@
+.?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStealthReloadHoldStartTime@CCSWeaponBase@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flTimeOfLastInjury@CCSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flTimeSilencerSwitchComplete@CCSWeaponBase@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flWeaponGameplayAnimStateTimestamp@CCSWeaponBase@@@@
@@ -4292,6 +4293,7 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsHauledBack@CCSWeaponBase@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsHeldByPlayer@CBaseCSGrenade@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsHltvActive@CCSGameRules@@@@
+.?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsInStealthReload@CCSWeaponBase@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsIncGrenade@CMolotovProjectile@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsLive@CBaseGrenade@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsMaster@CEnvVolumetricFogController@@@@
@@ -4396,7 +4398,6 @@ $tH@T\tI
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bStartDisabled@CGradientFog@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bStartDisabled@CPlayerVisibility@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bStartedArming@CC4@@@@
-.?AV?$CNetworkVarBase@_NVNetworkVar_m_bStealthy@CCSWeaponBase@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bSurrendered@CCSTeam@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bTCantBuy@CCSGameRules@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bTakesDamage@CBaseEntity@@@@
@@ -20731,6 +20732,7 @@ action_panic
 action_parachute_positioning
 action_pull_trigger
 action_reload
+action_reload_silent
 action_reset
 action_retirement
 action_reveal

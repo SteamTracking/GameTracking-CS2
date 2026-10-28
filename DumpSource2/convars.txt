@@ -2428,6 +2428,9 @@ cl_weapon_debug_show_accuracy_duration 10 (clientdll cheat release)
 cl_weapon_selection_rarity_color false (clientdll archive release)
 	<no description>
 
+cl_weapon_stealth_reload_toggle false (clientdll archive userinfo per_user)
+	Should the silent reload act like a toggle
+
 cl_workshop_map_download_timeout 120 (developmentonly clientdll defensive)
 	<no description>
 
@@ -12920,6 +12923,9 @@ vulkan_dedicated_allocation_threshold 512 (developmentonly defensive)
 
 vulkan_link_time_optimize_libraries true (release)
 	<no description>
+
+vulkan_pipeline_cache_max_size_mb 4096 (min: 1, release)
+	Max pipeline cache size
 
 vulkan_pipeline_compile_spew false (developmentonly defensive)
 	<no description>

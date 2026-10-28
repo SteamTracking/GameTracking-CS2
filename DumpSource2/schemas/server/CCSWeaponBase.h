@@ -31,11 +31,10 @@ class CCSWeaponBase : public CBasePlayerWeapon
 	bool m_bIsHauledBack;
 	bool m_bSilencerOn;
 	GameTime_t m_flTimeSilencerSwitchComplete;
-	bool m_bStealthy;
+	bool m_bIsInStealthReload;
 	bool m_bInSilentReloadSection;
-	bool m_bSilentReloadStatCounted;
 	bool m_bSilentReloadStatPending;
-	GameTime_t m_flStealthHoldStartTime;
+	GameTime_t m_flStealthReloadHoldStartTime;
 	bool m_bReloadHeldSinceStart;
 	float32 m_flWeaponActionPlaybackRate;
 	int32 m_iOriginalTeamNumber;

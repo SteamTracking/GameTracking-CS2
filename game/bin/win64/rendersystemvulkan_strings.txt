@@ -2860,7 +2860,7 @@ setting.shaderquality
 shader thread state machine violation
 shaderModules
 shader_%06d.spv
-shadercache\vulkan
+shadercache
 shaders.cache
 shaders.cache.blob
 shaders\vfx
@@ -3897,6 +3897,7 @@ vma_memdump%d.json
 vs_4_0
 vs_5_0
 vs_6_0
+vulkan
 vulkan-1.dll
 vulkan_peer2peer_mgpu.vtex
 vulkan_readpixels_resolve

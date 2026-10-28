@@ -81,6 +81,7 @@ scripts/surfaceproperties_impact_effects.txt
 soundevents/soundevents_manifest.vrman
 sounds/common/null.vsnd
 sounds/graphs/mixgraphs.vrman
+sounds/graphs/__main__.vsnd
 soundstacks/soundstacks_manifest.vrman
 soundstacks/soundstacks_manifest_devonly.vrman
 surfaceproperties/surfaceproperties.vsurf
@@ -91,7 +92,6 @@ materials/default/default_normal.tga
 materials/default/default_normal.txt
 materials/default/default_rough.tga
 materials/default/default_trans.tga
-sounds/graphs/__main__.vsnd
 maps/editor/toolscene_default.vmap
 materials/default/default_normal_tga_f93ac262.vtex
 materials/default/default_ao_tga_559f1ac6.vtex
@@ -134880,6 +134880,7 @@ panorama/images/pet_book/page_titles/wanted/wanted_vietnamese_png.vtex
 materials/dev/placeholder.vmat
 materials/tools/toolsskybox_occluder.vmat
 materials/tools/toolsskybox_occluder_color_tga_f2c37d52.vtex
+panorama/images/icons/ui/mutator_big_head.vsvg
 sounds/graphs/core_grenade_shock_ring1.vsnd
 sounds/graphs/core_grenade_shock_ring2.vsnd
 sounds/graphs/core_grenade_shock_ring3.vsnd
@@ -134919,3 +134920,15 @@ sounds/graphs/reverb_6_largeroom.vsnd
 sounds/graphs/reverb_7_mediumhall.vsnd
 sounds/graphs/reverb_8_mediumcarpetroom.vsnd
 sounds/graphs/reverb_9_mediumchamber.vsnd
+panorama/images/icons/equipment/lar.vsvg
+panorama/layout/hud/hudmutators.vxml
+panorama/styles/hud/hudmutators.vcss
+sounds/graphs/bighead_pitch.vsnd
+weapons/models/lar/weapon_rif_lar.vmdl
+weapons/models/lar/materials/weapon_rif_lar.vmat
+weapons/models/lar/mesh/fbx/do_not_ship/lar_temp.vmat
+panorama/images/econ/weapons/base_weapons/weapon_lar_png.vtex
+weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_albedo_jpg_a9420be9.vtex
+weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_emissive_jpg_9d61adb2.vtex
+weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_normal_png_419b046c.vtex
+weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_roughness_jpg_55597ce4.vtex

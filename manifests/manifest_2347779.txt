@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347779 
 
-Manifest ID / date     : 2792300332124241829 / 10/22/2026 21:24:50 
+Manifest ID / date     : 2888303856247423407 / 10/28/2026 20:59:18 
 Total number of files  : 909 
-Total number of chunks : 2523 
-Total bytes on disk    : 2108137779 
-Total bytes compressed : 576285072 
+Total number of chunks : 2524 
+Total bytes on disk    : 2108142576 
+Total bytes compressed : 576286240 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -633,18 +633,18 @@ Total bytes compressed : 576285072
             34      1 5ae7a5871cb358698c8a47d83b787447ebb23b53     0 content\csgo_addons\workshop_items\workshop_items.txt
          32991      1 9d6322a3e2262994d74bb905f9fedcea2e5505b8     0 game\bin\assettypes_common.txt
           3734      1 970059aac54dddba1b88fdec2836afd7261e5a2f     0 game\bin\sdkenginetools.txt
-       3728024      4 d8d418f92562008b2cae717534fedef71786c90e     0 game\bin\win64\assetbrowser.dll
-      33821336     33 285d2c292da1f33e50bddb791e94cc015f4a9334     0 game\bin\win64\assetrename.dll
-       5703320      6 66729c234da3edd46192dc4d2712c2b76dec9bf2     0 game\bin\win64\assetsystem.dll
+       3728024      4 cdf9adddba6dab0bb14a296393128ae45c6351a7     0 game\bin\win64\assetbrowser.dll
+      33821336     33 526ed6a6ddf2c2d7ff3a0086e635daa8732e2049     0 game\bin\win64\assetrename.dll
+       5703320      6 69aef54a5be46a22842ba8a8671ef057da9ffedd     0 game\bin\win64\assetsystem.dll
        1529856      2 45e7d0873608e5424312fa289a270f2faacfe8fa     0 game\bin\win64\bc7e.dll
-        396952      1 8cc2a3fc818e185c7ae960382de90743361a1f76     0 game\bin\win64\cs2_build_econ_items_workshop.exe
-         13866      1 6d3ad501b5c4008b0deaa9fd7dd85113e8b40eba     0 game\bin\win64\csgo.signatures
-       1271448      2 3c9fa35d715aae35fdb7a779f5accb37bd36ac31     0 game\bin\win64\csgocfg.exe
-      15683736     15 bfc2c3d18162541473116e479625f3ed8b17d019     0 game\bin\win64\cs_mdl_import.exe
-       1196696      2 91475816c3d44e19f910ac844d60f375cf2f5576     0 game\bin\win64\dmxconvert.exe
-       3682968      4 0a0be7d6af05c87b63ccb1e1f2e1fa59b55d67c8     0 game\bin\win64\exportsystem.dll
+        396952      1 3a1580720932ad35bdc8455fea40739014877638     0 game\bin\win64\cs2_build_econ_items_workshop.exe
+         13866      1 62ca0b9e4c3a3df901dbd1b5f3d2d4d5dead27b5     0 game\bin\win64\csgo.signatures
+       1271448      2 41ff225a0583e28a3755588aac5634c5db7af5c4     0 game\bin\win64\csgocfg.exe
+      15683736     15 2e0961f7f4e0776a11546c4f8a6ee8797cd7a478     0 game\bin\win64\cs_mdl_import.exe
+       1196696      2 f3364d2c801c80b4e2eb6d8c76a6ec0aca706962     0 game\bin\win64\dmxconvert.exe
+       3682968      4 21d3a8712c8d71e2dcc790a44f5c8cda24f79ab7     0 game\bin\win64\exportsystem.dll
        1418240      2 d1cc730f23d2b2f8567555d0c09a36dfd01e45c9     0 game\bin\win64\ispc_texcomp.dll
-      16949912     17 bd57483f289c2743c7b360a14e73bf9e0683df4a     0 game\bin\win64\modeldoc_utils.dll
+      16949912     17 c45e12842ab3f33a26a6088d9bf6646e2fe9ae33     0 game\bin\win64\modeldoc_utils.dll
         177280      1 27c1a881c6648129f95646e61e6f101d15ddd692     0 game\bin\win64\OpenImageDenoise.dll
       50625664     49 cb2153ac3d4f75ddfb071802c9dbb39c48acf078     0 game\bin\win64\OpenImageDenoise_core.dll
         513664      1 be8640db91ff826e381a9b6ea1a89e5fec462c5c     0 game\bin\win64\OpenImageDenoise_device_cpu.dll
@@ -654,26 +654,26 @@ Total bytes compressed : 576285072
         831616      1 7ca261e89897f9905ffc656b84e7f0d5c49dd896     0 game\bin\win64\pi_level_zero.dll
          95360      1 e7364c7c47a730233631c86b1993b2b5098df426     0 game\bin\win64\pi_win_proxy_loader.dll
         165528      1 8fb641fb82a8e7e70f6c6f683ba73b981cccc873     0 game\bin\win64\resourcecompiler.exe
-       1479832      2 e1a42202bc72842199cb35b4790cdbc105f22916     0 game\bin\win64\resourcecopy.exe
-       3925656      4 705eb8f935d8fa5ae942d08d833d4d8c67cf2749     0 game\bin\win64\resourceinfo.exe
-       1511576      2 6f593435d7056853b577d3f35d3d60bda37401ed     0 game\bin\win64\smartprops.dll
-      18281112     19 c9e85b8c9b4fd6c424bb817a52e8b8e3be25cd62     0 game\bin\win64\source1import.exe
+       1479832      2 ee88306dfc4d55150545ecb2c269172d54e86b40     0 game\bin\win64\resourcecopy.exe
+       3925656      4 79fa01cfc438e65c2bffa4b7e06f6dedb8f0b5b2     0 game\bin\win64\resourceinfo.exe
+       1511576      2 c5c369b26b718e196d7e8ca38063af69574a1e5a     0 game\bin\win64\smartprops.dll
+      18281112     19 fda0033b3177971213cc9e0e90a7ac0bff8ac742     0 game\bin\win64\source1import.exe
        4600960      5 ee4319b51e4210bb9046ec3ddee39878ab4ad33c     0 game\bin\win64\sycl7.dll
         319616      1 668b7a5c4c4f9456f73a6014df1b02ae05480195     0 game\bin\win64\tbb12.dll
          47744      1 6169fdd71db33cc70ef4e8c853edd73571ffc538     0 game\bin\win64\tbbbind.dll
          47744      1 5e52608c5ff4fffb626a9ab3a81a0913c132fd93     0 game\bin\win64\tbbbind_2_0.dll
          48768      1 b28a6fd65fe96ff562b07fcbcfe740e63a73604a     0 game\bin\win64\tbbbind_2_5.dll
-      14937240     15 b550199ee5d0d9a1193f29ccd41e0196464d1cae     0 game\bin\win64\toolscenenodes.dll
-       6680216      7 86812bf790d0a6514b70fbc2307b5389b4a75ebb     0 game\bin\win64\tools\cs2_item_editor.dll
-       2348184      3 6d73aaadedb33e193c27c651f71c8e5a47c6f820     0 game\bin\win64\tools\cs2_workshop_manager.dll
-      39611544     39 06df09110cb8b7ee345009159a0b4d439760a2b1     0 game\bin\win64\tools\hammer.dll
-       4787352      5 6561df6f16088e86cf8450b9886eda217f606017     0 game\bin\win64\tools\met.dll
-      27271832     27 5d11fa8a1d74031c44a5c55bb15c8fababdb7c3a     0 game\bin\win64\tools\modeldoc_editor.dll
-       9320088      9 7f9e0d23a4922d57f5e6c81f5bec4bcdf2f6faea     0 game\bin\win64\tools\pet.dll
-       7924888      8 fecdf8e8e900e2d2b456b9afe572541c6d0dde06     0 game\bin\win64\tools\postprocessingeditor.dll
-      13459608     13 0eac0bce1d8d2bcce485af60d1abdaafdb488292     0 game\bin\win64\tools\sfm.dll
-       1532568      2 7a9c63960c0b38bcb2f5bcafa1308329a9b2d587     0 game\bin\win64\tools\subrecteditor.dll
-       3269272      4 eb44127bec1243ab26219e6ee02bf7bf4ddcab3f     0 game\bin\win64\vrad3.dll
+      14937240     15 f0ef2480f60bb6e9dc51d39f7c1438fb090580f9     0 game\bin\win64\toolscenenodes.dll
+       6680216      7 54df7544ec5c62db5d5665fb1d4d93e3fd3c2715     0 game\bin\win64\tools\cs2_item_editor.dll
+       2348184      3 b88d5b6645fd70323781fedbf3278493bc17e4c8     0 game\bin\win64\tools\cs2_workshop_manager.dll
+      39611544     39 a0ec8807bcb2012b0a15f083f816256536603c2e     0 game\bin\win64\tools\hammer.dll
+       4787352      5 a94d36e185c5af92cdaa77b43e6d3164b93e3b1e     0 game\bin\win64\tools\met.dll
+      27271832     27 2bccca8deac7cd9fd2e28071af16763ded581220     0 game\bin\win64\tools\modeldoc_editor.dll
+       9320088      9 398d5e8f49b7fed99fc89ebdd4580fb99255e2ec     0 game\bin\win64\tools\pet.dll
+       7924888      8 c7729a84c9e833d9ecf7b10bd0bc2847e0db9589     0 game\bin\win64\tools\postprocessingeditor.dll
+      13459608     13 ef695e294d8f374b855b2178a1cc57d014ee46d1     0 game\bin\win64\tools\sfm.dll
+       1532568      2 3cb34f647837b87d48d4581ef24d8283a803cb2b     0 game\bin\win64\tools\subrecteditor.dll
+       3269272      4 ffdd183287816b80b05233abd7261ba3a15221fb     0 game\bin\win64\vrad3.dll
         165528      1 c1c90737ec6f5507a45e5beb66308ddb430b8fab     0 game\bin\win64\vrad3.exe
          74744      1 fdcd0602e39a727985c5b41524c26c5b1f0e4635     0 game\core\ai_basenpc.fgd
          40196      1 0ef10aaa7fb9d6f248ea7b9bed4f676cbb2a769b     0 game\core\ai_defaultnpc.fgd
@@ -685,9 +685,9 @@ Total bytes compressed : 576285072
          15349      1 77e30141e2c71fcbbd546d7fc03ce7dc4b9bc7e5     0 game\core\models_base.fgd
          10685      1 067c09ab720883c247eae43d4248f9f67367e158     0 game\core\models_base_breakables.fgd
           2004      1 5cb2856b8584f65147b80cd8c87e1cbe1c155992     0 game\core\postprocessing.fgd
-        423652      1 f369b46c572028a9f7e86a1e027d41fdef1eec48     0 game\core\readonly_tools_asset_info.bin
+        423652      1 c5428fef616a47986946d6c793ec643e42b85246     0 game\core\readonly_tools_asset_info.bin
           4922      1 ef927dc90ee64b75629aea8e9b62e8f5dcb0864b     0 game\core\vdata_base.fgd
-      17946264     18 3bc694df01c8b0d90e39ea55f94faab94f61fcc2     0 game\csgo\bin\win64\modtools.dll
+      17946264     18 555499df53336fd6e9bb6c2e7a85702220fbeda4     0 game\csgo\bin\win64\modtools.dll
          89997      1 e5c2f5ffa14a73b9d5dbc8e967a7371a505d3df2     0 game\csgo\csgo.fgd
         398843      1 5ccbe56ddcb35b7e10316f10ab5294742a75b391     0 game\csgo\import_scripts\bin\base.fgd
          55534      1 d1dd4689259623923344c03ba682713d4427d7b7     0 game\csgo\import_scripts\bin\csgo.fgd
@@ -721,7 +721,7 @@ Total bytes compressed : 576285072
         133435      1 5c5acf7bffba281b1fb2de939a6953c385e26ac3     0 game\csgo\lighting\postprocessing\editor\toolsscene_default.vpost_c
           3823      1 aaa9517703492629cade78571c39f5fdc2c417e3     0 game\csgo\models_gamedata.fgd
           1559      1 ccef3c777e99029f1956e3ad23a718a99fd36d14     0 game\csgo\postprocessing.fgd
-      50759697     51 1f4e03acda448eec58cec84f765020d8b3db4b9b     0 game\csgo\readonly_tools_asset_info.bin
+      50764494     52 9bf42a6c2e4924dab630257854137646df9fe384     0 game\csgo\readonly_tools_asset_info.bin
           3009      1 8374c54025aad8c3d4a72b5f7f198d99951b7844     0 game\csgo\tools\cs2_icon_gen\icon_camera.png
           2390      1 436ef3b91600906f462a33b9973b3f0955ddf1d6     0 game\csgo\tools\cs2_icon_gen\icon_item.png
           2566      1 d78fd6c17e836a35c1cff4b375de7928ea5aea40     0 game\csgo\tools\cs2_icon_gen\icon_light_fill.png

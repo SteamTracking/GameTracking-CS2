@@ -62,6 +62,7 @@ class CCSGameRules : public CTeamplayRules
 	int32[30] m_iMatchStats_PlayersAlive_CT;
 	int32[30] m_iMatchStats_PlayersAlive_T;
 	float32[32] m_TeamRespawnWaveTimes;
+	int32 m_nActiveMutators;
 	GameTime_t[32] m_flNextRespawnWave;
 	VectorWS m_vMinimapMins;
 	VectorWS m_vMinimapMaxs;

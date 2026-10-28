@@ -1369,6 +1369,47 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 	margin-left: 0px;
 }
 
+.map-selection-btn__mutators
+{
+	max-width: 100%;
+	height: fit-children;
+	flow-children: down;
+	vertical-align: top;
+	horizontal-align: center;
+	padding: 4px 14px 4px 8px;
+	margin: 1px;
+	background-color: rgba(0, 0, 0, 0.75);
+	box-shadow: shadowOffset;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.map-selection-btn__mutators-row
+{
+	height: fit-children;
+	flow-children: right;
+}
+
+.map-selection-btn__mutators-icon
+{
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	margin-right: 6px;
+	wash-color: #ffffff;
+}
+
+.map-selection-btn__mutators .map-selection-btn__mutators-row .map-selection-btn__mutators-name
+{
+	max-width: 170px;
+	font-size: 24px;
+	font-family: Stratum2 Condensed, 'Arial Unicode MS';
+	color: white;
+	vertical-align: center;
+	white-space: nowrap;
+	text-overflow: shrink;
+}
+
 .map-selection-info__wait-time-block
 {
 	height: fit-children;
@@ -1422,7 +1463,7 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 	visibility: collapse;
 }
 
-.map-selection-info__wait-time-block.hidden,.map-selection-info__new.hidden,.map-selection-info__new--star.hidden
+.map-selection-info__wait-time-block.hidden,.map-selection-info__new.hidden,.map-selection-info__new--star.hidden,.map-selection-btn__mutators.hidden
 {
 	visibility: collapse;
 }

@@ -9199,6 +9199,7 @@ Max number of timeouts each team can have per OT after all OT timeouts got added
 Max number of times a player may purchase any weapon per match
 Max number of times a user can fail rcon authentication before being banned
 Max orientation range allowed within a region before it gets further split.
+Max pipeline cache size
 Max polymorphic variants to spew when spewing a flattened serializer.
 Max reverb gain amount for listener DSP.
 Max reverb gain amount for source-specific DSP.
@@ -13540,6 +13541,7 @@ Should the return value be normalized to unit length (direction vector).
 Should the roll (rotation around forward vector) value be reset.
 Should the rotation be applied to the current transform.
 Should the scope dot match the user's crosshair color
+Should the silent reload act like a toggle
 Should the translation curve change as the orientation is being warped?
 Should the yaw (roation around the up vector) value be reset.
 Should this element be placed at the first positions on the path
@@ -15899,6 +15901,8 @@ WPN_ANIMSTATE_KNIFE_SECONDARY_MISS
 WPN_ANIMSTATE_KNIFE_SECONDARY_STAB
 WPN_ANIMSTATE_RELOAD
 WPN_ANIMSTATE_RELOAD_OUTRO
+WPN_ANIMSTATE_RELOAD_OUTRO_SILENT
+WPN_ANIMSTATE_RELOAD_SILENT
 WPN_ANIMSTATE_SHOOT_DRYFIRE
 WPN_ANIMSTATE_SHOOT_PRIMARY
 WPN_ANIMSTATE_SHOOT_SECONDARY
@@ -17713,6 +17717,7 @@ cl_weapon_debug_print_accuracy
 cl_weapon_debug_show_accuracy
 cl_weapon_debug_show_accuracy_duration
 cl_weapon_selection_rarity_color
+cl_weapon_stealth_reload_toggle
 cl_workshop_map_download_timeout
 cl_yawspeed
 clamp maximum light value to initial color
@@ -23490,6 +23495,7 @@ m_bIsHltvActive
 m_bIsImGuiEntTextLogging
 m_bIsImGuiLogging
 m_bIsInGroup
+m_bIsInStealthReload
 m_bIsIncGrenade
 m_bIsIncindiary
 m_bIsInclusiveCheck
@@ -24149,7 +24155,6 @@ m_bShowLight
 m_bShowPreview
 m_bShuffle
 m_bSilencerOn
-m_bSilentReloadStatCounted
 m_bSilentReloadStatPending
 m_bSimulate
 m_bSimulationTimeChanged
@@ -24205,7 +24210,6 @@ m_bStartedMoving
 m_bStartedRotating
 m_bState
 m_bStatic
-m_bStealthy
 m_bStencilEnable
 m_bStencilTestExclude
 m_bStickInsteadOfCull
@@ -25364,6 +25368,7 @@ m_flBias
 m_flBiasAndClampPitchOffset
 m_flBiasAndClampYawOffset
 m_flBiasParameter
+m_flBigHeadScale
 m_flBindPoseDirectionMS
 m_flBlastDamageInflicted
 m_flBlendDeltaMultiplier
@@ -26474,7 +26479,6 @@ m_flModDepth
 m_flModRate
 m_flModelScale
 m_flModifier
-m_flModifier0
 m_flModifierMin
 m_flModify
 m_flModulatorAmount
@@ -27086,7 +27090,7 @@ m_flStartTime_max
 m_flStartTime_min
 m_flStartValue
 m_flStaticImpactVolume
-m_flStealthHoldStartTime
+m_flStealthReloadHoldStartTime
 m_flSteeringAxisFriction
 m_flStepHeightDecreaseScale
 m_flStepHeightIncreaseScale
@@ -28704,6 +28708,7 @@ m_nActiveCP
 m_nActiveCPField
 m_nActiveIKChainMask
 m_nActiveMotorIndex
+m_nActiveMutators
 m_nActivity
 m_nActorID
 m_nActualMoveType
@@ -37771,6 +37776,7 @@ vulkan_framebuffermgr_print
 vulkan_link_time_optimize_libraries
 vulkan_memgr_fragmentation_print
 vulkan_memgr_print
+vulkan_pipeline_cache_max_size_mb
 vulkan_pipeline_compile_spew
 vulkan_pipeline_compile_throttle_ms
 vulkan_pipelinemgr_print

@@ -2431,6 +2431,47 @@
 				input_delay = "@calc_delay.output"
 			},
 			{
+				name = "bighead_is_vo"
+				operator = "math_string"
+				input1 = "@public.mixgroup"
+				input2 = "VO"
+				execute_once = "1"
+			},
+			{
+				name = "bighead_player_info"
+				operator = "game_get_source_player_info"
+				input_execute = "@bighead_is_vo.output"
+				execute_once = "1"
+			},
+			{
+				name = "bighead_is_scaled"
+				operator = "math_float"
+				apply = "not_equal"
+				input1 = "@bighead_player_info.output_head_scale"
+				input2 = "1.000000"
+			},
+			{
+				name = "bighead_pitch_enable"
+				operator = "math_float"
+				apply = "and"
+				input1 = "@bighead_is_vo.output"
+				input2 = "@bighead_is_scaled.output"
+			},
+			{
+				name = "send_bighead_head_scale"
+				input_execute = "@bighead_pitch_enable.output"
+				operator = "vmix_voicegraph_input"
+				input_name = "bighead_head_scale"
+				input = "@bighead_player_info.output_head_scale"
+			},
+			{
+				name = "send_bighead_pitch_enable"
+				input_execute = "@bighead_pitch_enable.output"
+				operator = "vmix_voicegraph_input"
+				input_name = "bighead_pitch_enable"
+				input = "@bighead_pitch_enable.output"
+			},
+			{
 				name = "send_voicegraph_source_dsp"
 				input_execute = "1"
 				operator = "vmix_voicegraph_name_input"

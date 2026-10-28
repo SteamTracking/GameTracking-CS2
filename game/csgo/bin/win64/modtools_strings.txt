@@ -13863,6 +13863,7 @@ acosf() heavily exaggerates floating point precision errors. Threshold is high (
 action_c4_plant
 action_deploy
 action_reload
+action_reload_silent
 action_silencer_attach
 action_silencer_detach
 activation_distance
@@ -15965,7 +15966,7 @@ weapon_knife_tactical
 weapon_knife_ursus
 weapon_knife_widowmaker
 weapon_l
-weapon_m14
+weapon_lar
 weapon_unknown
 weight_list_name
 weight_threshold

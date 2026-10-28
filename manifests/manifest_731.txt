@@ -1,6 +1,6 @@
 Content Manifest for Depot 731 
 
-Manifest ID / date     : 1914580569200573996 / 10/22/2026 21:21:43 
+Manifest ID / date     : 6136897076417766099 / 10/28/2026 20:56:26 
 Total number of files  : 1 
 Total number of chunks : 1 
 Total bytes on disk    : 8 
@@ -8,4 +8,4 @@ Total bytes compressed : 64
 
 
           Size Chunks File SHA                                 Flags Name
-             8      1 f4fb723d844970b2e5700511e847389244ad80b7     0 game\bin\content_built_from_cl.txt
+             8      1 6dbe87f2df31621a39a598c8ac5d32af40524a01     0 game\bin\content_built_from_cl.txt

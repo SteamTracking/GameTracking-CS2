@@ -952,6 +952,7 @@
 #Panorama_HUD_weaponid_lookat
 #Panorama_HUD_weaponid_pickup
 #Panorama_HUD_weaponid_swap
+#Panorama_Mutator_BigHead
 #Panorama_Notice_DM_BonusSwitchTo
 #Panorama_Vote_No
 #Panorama_Vote_Server
@@ -4705,6 +4706,7 @@ $taser_charge
 .?AV?$CNetworkVarBase@HVNetworkVar_m_iType@C_PlayerPing@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_iUtilityDamage@CSPerRoundStats_t@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nAABBDirection@CCitadelSoundOpvarSetOBB@@@@
+.?AV?$CNetworkVarBase@HVNetworkVar_m_nActiveMutators@C_CSGameRules@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nBakeSpecularToCubemaps@C_BarnLight@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nBakedShadowIndex@CLightComponent@@@@
 .?AV?$CNetworkVarBase@HVNetworkVar_m_nBakedShadowIndex@C_BarnLight@@@@
@@ -4969,6 +4971,7 @@ $taser_charge
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBackgroundBorderWidth@C_PointWorldText@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBackgroundWorldToUV@C_PointWorldText@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBakeSpecularToCubemapsScale@C_BarnLight@@@@
+.?AV?$CNetworkVarBase@MVNetworkVar_m_flBigHeadScale@C_CSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBlendWeight@C_RagdollProp@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBombPlantViewOffset@CCSPlayer_MovementServices@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flBounceScale@CLightComponent@@@@
@@ -5138,7 +5141,6 @@ $taser_charge
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinLogExposure@C_PostProcessingVolume@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinRoughness@CLightComponent@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMinRoughness@C_BarnLight@@@@
-.?AV?$CNetworkVarBase@MVNetworkVar_m_flModifier0@C_CSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flMomentumModifier@C_PointValueRemapper@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flNearClipPlane@CLightComponent@@@@
 .?AV?$CNetworkVarBase@MVNetworkVar_m_flNextHoldFrac@C_BaseCSGrenade@@@@
@@ -5510,7 +5512,7 @@ $taser_charge
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStartTime@C_EnvWindShared@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStartTime@C_ParticleSystem@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStartTime@C_PointCommentaryNode@@@@
-.?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStealthHoldStartTime@C_CSWeaponBase@@@@
+.?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flStealthReloadHoldStartTime@C_CSWeaponBase@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flTimeOfLastInjury@C_CSPlayerPawn@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flTimeSilencerSwitchComplete@C_CSWeaponBase@@@@
 .?AV?$CNetworkVarBase@VGameTime_t@@VNetworkVar_m_flWeaponGameplayAnimStateTimestamp@C_CSWeaponBase@@@@
@@ -5741,6 +5743,7 @@ $taser_charge
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsHauledBack@C_CSWeaponBase@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsHeldByPlayer@C_BaseCSGrenade@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsHltvActive@C_CSGameRules@@@@
+.?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsInStealthReload@C_CSWeaponBase@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsIncGrenade@C_MolotovProjectile@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsLive@C_BaseGrenade@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bIsMaster@C_EnvVolumetricFogController@@@@
@@ -5846,7 +5849,6 @@ $taser_charge
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bStartDisabled@C_PlayerVisibility@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bStartedArming@C_C4@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bState@C_FuncElectrifiedVolume@@@@
-.?AV?$CNetworkVarBase@_NVNetworkVar_m_bStealthy@C_CSWeaponBase@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bSurrendered@C_CSTeam@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bTCantBuy@C_CSGameRules@@@@
 .?AV?$CNetworkVarBase@_NVNetworkVar_m_bTakesDamage@C_BaseEntity@@@@
@@ -7175,6 +7177,7 @@ $taser_charge
 .?AVCCSGO_HudHintText@@
 .?AVCCSGO_HudInstructor@@
 .?AVCCSGO_HudMatchAlerts@@
+.?AVCCSGO_HudMutatorsPanel@@
 .?AVCCSGO_HudNotice@@
 .?AVCCSGO_HudProgressBar@@
 .?AVCCSGO_HudRadar@@
@@ -10696,6 +10699,7 @@ $taser_charge
 :BAD OBJECT
 :Blowfish part of OpenSSL 1.0.2j  26 Sep 2016
 :EXTERNAL TYPE %s\n
+;<}\v<}\v<}\v<}\venv_tonemap_controller
 ;sv_pausable;sv_cheats
 <!-- dmx encoding keyvalues2_noids 4 format vtex 1 -->\n"CDmeVtex"\n{\n\t"m_inputTextureArray" "element_array"\n\t[\n
 <!-- dmx encoding keyvalues2_noids 4 format vtex 1 -->\n"CDmeVtex"\n{\n\t"m_inputTextureArray" "element_array"\n\t[\n\t\t"CDmeInputTexture"\n\t\t{\n\t\t\t"m_name" "string" "TextureAmbientOcclusion"\n\t\t\t"m_fileName" "string" "$TEXTURE_REPLACEMENT_TOKEN"\n\t\t\t"m_colorSpace" "string" "linear"\n\t\t\t"m_fileExt" "string" "ao"\n\t\t\t"m_nMinBitsPerChannel" "int" "8"\n\t\t\t"m_typeString" "string" "2D"\n\t\t\t"m_imageProcessorArray" "element_array"\n\t\t\t[\n\t\t\t\t"CDmeImageProcessor"\n\t\t\t\t{\n\t\t\t\t\t"m_algorithm" "string" "None"\n\t\t\t\t\t"m_stringArg" "string" ""\n\t\t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n\t\t\t\t}\n\t\t\t]\n\t\t\t"m_bPassThroughToCompiledVtex" "bool" "0"\n\t\t\t"m_n3DSliceCount" "int" "-1"\n\t\t\t"m_n3DSliceWidth" "int" "-1"\n\t\t\t"m_n3DSliceHeight" "int" "-1"\n\t\t}\n\t]\n\t"m_outputTypeString" "string" "2D"\n\t"m_outputFormat" "string" "ATI1N"\n\t"m_outputClearColor" "vector4" "0 0 0 0"\n\t"m_nOutputMinDimension" "int" "0"\n\t"m_nOutputMaxDimension" "int" "0"\n\t"m_nOutputDimensionReduce" "int" "0"\n\t"m_textureOutputChannelArray" "element_array"\n\t[\n\t\t"CDmeTextureOutputChannel"\n\t\t{\n\t\t\t"m_srcChannels" "string" "r"\n\t\t\t"m_dstChannels" "string" "r"\n\t\t\t"m_mipAlgorithm" "CDmeImageProcessor"\n\t\t\t{\n\t\t\t\t"m_algorithm" "string" ""\n\t\t\t\t"m_stringArg" "string" ""\n\t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n\t\t\t}\n\t\t\t"m_outputColorSpace" "string" "linear"\n\t\t\t"m_inputTextureArray" "string_array"\n\t\t\t[\n\t\t\t\t"TextureAmbientOcclusion"\n\t\t\t]\n\t\t}\n\t]\n\t"m_vClamp" "vector3" "0 0 0"\n\t"m_bNoLod" "bool" "0"\n\t"m_bHiddenAssetFlag" "bool" "0"\n\t"m_bNormalizeRange" "bool" "0"\n\t"m_nDisplayRectWidth" "int" "0"\n\t"m_nDisplayRectHeight" "int" "0"\n\t"m_nMotionVectorsMaxDistanceInPixels" "int" "0"\n}\n
@@ -12433,6 +12437,7 @@ CCSGO_HudInstructor::EventOnLocatorTargetUpdate %d %.2f\n
 CCSGO_HudInstructor::LessonPanel::Hide %d %.2f\n
 CCSGO_HudInstructor::LessonPanel::Show %d %.2f\n
 CCSGO_HudMatchAlerts
+CCSGO_HudMutatorsPanel
 CCSGO_HudRadar
 CCSGO_HudRadio
 CCSGO_HudReticle
@@ -13805,6 +13810,7 @@ CSGOHudHintText
 CSGOHudInstructor
 CSGOHudInstructorHideBindings
 CSGOHudInstructorShowBindings
+CSGOHudMutatorsPanel
 CSGOHudNotice
 CSGOHudProgressBar
 CSGOHudRadar
@@ -17768,6 +17774,7 @@ GetModelBonePosition
 GetMouseEnableBindingName
 GetMusicIDForPlayer
 GetMusicNameFromMusicID
+GetMutatorDisplayInfo
 GetMyClanCount
 GetMyClanId32BitByIndex
 GetMyClanId32BitEquipped
@@ -17950,6 +17957,7 @@ GetRequiredPredictionsPointsGold
 GetRequiredPredictionsPointsSilver
 GetResultsCount
 GetRotatingOfficialMapGroupCurrentState
+GetRotatingOfficialMapGroupMutators
 GetRoundPlayersAlive_CT
 GetRoundPlayersAlive_T
 GetRoundWinResult
@@ -18604,6 +18612,7 @@ HudHighlightClip
 HudInWorld
 HudLowerLeft
 HudMoney
+HudMutatorsList
 HudNetJitterGraph
 HudNotice
 HudPerfStatsBasics
@@ -19989,6 +19998,7 @@ Must enable "%s" in gameinfo.gi to use -buildsparseshadowtree.\n
 Must enable "%s" in gameinfo.gi to use buildcubemaps.\n
 Must enable "%s" in gameinfo.gi to use buildsparseshadowtree.\n
 MutableRepeatedMessage
+MutatorDisplayInfo
 MuteStreamPanel
 Mutiny
 MuzzleFlash
@@ -25757,6 +25767,7 @@ action_land
 action_low_on_food
 action_panic
 action_reload
+action_reload_silent
 action_reset
 action_retirement
 action_reveal
@@ -28829,6 +28840,7 @@ file://{images}/icons/ui/map_bombzone_a.svg
 file://{images}/icons/ui/map_bombzone_b.svg
 file://{images}/icons/ui/midplan.svg
 file://{images}/icons/ui/multipleenemieshere.svg
+file://{images}/icons/ui/mutator_big_head.svg
 file://{images}/icons/ui/needbackup.svg
 file://{images}/icons/ui/oneenemyhere.svg
 file://{images}/icons/ui/pet_chick.svg
@@ -28891,6 +28903,7 @@ file://{resources}/layout/hud/hudhealthbars.xml
 file://{resources}/layout/hud/hudhinttext.xml
 file://{resources}/layout/hud/hudinstructor.xml
 file://{resources}/layout/hud/hudmoney.xml
+file://{resources}/layout/hud/hudmutators.xml
 file://{resources}/layout/hud/hudprogressbar.xml
 file://{resources}/layout/hud/hudradar.xml
 file://{resources}/layout/hud/hudradio.xml
@@ -29844,6 +29857,11 @@ hud_perf_bad_value_hide_delay
 hud_perf_bad_value_hold_peak_delay
 hudcolor
 hudmodel
+hudmutators--active
+hudmutators--faded
+hudmutators-icon
+hudmutators-name
+hudmutators-row
 hue-rotation
 hummingbird
 hungry
@@ -35049,6 +35067,7 @@ strafe
 strafe_mode
 strange
 strange_parts
+stratum-medium
 stream
 streaming not supported
 streams

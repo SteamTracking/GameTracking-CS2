@@ -9020,7 +9020,7 @@ $key:FloatBitmap_t
 /vpk.privatekey.vdf
 /vpk.publickey.vdf
 0123456789)"
-09:04:04
+08:41:27
 1:1: Tokens : ( PLUS | MINUS | MUL | DIV | COMMA | LPAREN | RPAREN | EQUALS | PERCENT | INT | FLOAT | ID | ML_COMMENT | SL_COMMENT | NL | WS );
 1:1: Tokens : ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | BOOLLITERAL | ID | INTEGERLITERAL | HEXINTEGERLITERAL | FLOATLITERAL | COMMENT | WS );
 241:1: FLOAT : ( ( MINUS )? ( DIGIT )+ '.' ( DIGIT )* ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? '.' ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? );
@@ -12354,6 +12354,7 @@ Object of the appropriate type, if valid.
 Object to cast
 OcclusionCullingBoundsExpand
 OcclusionCullingBoundsScale
+Oct 28 2026
 Offset from %d 
 Old params: %s\n
 On After Killed
@@ -16198,7 +16199,7 @@ pathing_visibility_threshold
 pathingcoeffs
 pathingeq
 pathingmixlevel
-pc64 Oct 22 2026 09:03:44
+pc64 Oct 28 2026 08:41:36
 perchannel
 permissive_panorama_compiles
 permitrepeats

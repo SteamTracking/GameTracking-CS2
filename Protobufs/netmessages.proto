@@ -319,6 +319,8 @@ message CSVCMsg_Menu {
 }
 
 message CSVCMsg_UserMessage {
+	option (maximum_size_bytes) = 0;
+
 	optional int32 msg_type = 1;
 	optional bytes msg_data = 2;
 	optional int32 passthrough = 3;

@@ -438,7 +438,7 @@
 		priority = 5.0
 		stop_music = "true"
 		volume_fade_out_input_max = 1.6
-		loop_track = "true"
+		loop_track = "false"
 		should_queue_track = "true"
 		skip_if_muted = "true"
 		block_won_lost = "true"

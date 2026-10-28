@@ -188,10 +188,10 @@ shaders/vfx/csgo_simple_3layer_parallax_pc_50_ps.vcs CRC:00afc01a69 size:3090430
 shaders/vfx/csgo_simple_3layer_parallax_pc_50_psrs.vcs CRC:0051d20c11 size:1890
 shaders/vfx/csgo_simple_3layer_parallax_pc_50_vs.vcs CRC:008fdae558 size:25434
 shaders/vfx/csgo_simple_liquid.ini CRC:0000000000 size:0
-shaders/vfx/csgo_simple_liquid_pc_50_features.vcs CRC:003db6d109 size:5794
+shaders/vfx/csgo_simple_liquid_pc_50_features.vcs CRC:00eba0f1b9 size:5810
 shaders/vfx/csgo_simple_liquid_pc_50_ps.vcs CRC:00a17d45fa size:1003783
 shaders/vfx/csgo_simple_liquid_pc_50_psrs.vcs CRC:009897a715 size:1826
-shaders/vfx/csgo_simple_liquid_pc_50_vs.vcs CRC:00641569f9 size:41956
+shaders/vfx/csgo_simple_liquid_pc_50_vs.vcs CRC:00e8bef575 size:41959
 shaders/vfx/csgo_simple_pc_50_features.vcs CRC:00fb3b70e4 size:4754
 shaders/vfx/csgo_simple_pc_50_ps.vcs CRC:00bce484ff size:314662
 shaders/vfx/csgo_simple_pc_50_psrs.vcs CRC:001a21352e size:2082

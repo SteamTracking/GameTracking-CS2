@@ -1,0 +1,71 @@
+/* Prettified by Source 2 Viewer - https://valveresourceformat.github.io */
+
+.hudmutators
+{
+	width: 240px;
+	height: fit-children;
+	flow-children: down;
+	margin-top: 20px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000D8 ), color-stop( 0.75, #00000030 ), to( #00000000 ) );
+	visibility: collapse;
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 0.35s;
+	transition-timing-function: ease-in-out;
+}
+
+.hudmutators.hudmutators--active
+{
+	visibility: visible;
+	opacity: 1;
+}
+
+.hudmutators.hudmutators--active.hudmutators--faded
+{
+	opacity: 0;
+	transition-duration: 1.0s;
+}
+
+.hudmutators-title
+{
+	font-size: 17px;
+	color: #ffffffaa;
+	margin-bottom: 4px;
+}
+
+.hudmutators-list
+{
+	width: 100%;
+	height: fit-children;
+	flow-children: down;
+}
+
+.hudmutators-row
+{
+	width: 100%;
+	height: fit-children;
+	flow-children: right;
+	margin-left: 8px;
+}
+
+.hudmutators-icon
+{
+	width: 32px;
+	height: 32px;
+	vertical-align: center;
+	margin-right: 8px;
+	wash-color: #ffffff;
+}
+
+.hudmutators-name
+{
+	font-size: 17px;
+	color: #ffffff;
+	font-weight: bold;
+	vertical-align: center;
+}
+

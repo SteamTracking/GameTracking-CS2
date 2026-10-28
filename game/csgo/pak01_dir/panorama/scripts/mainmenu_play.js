@@ -580,6 +580,9 @@ var PlayMenu;
             if (settings.game.mode === "survival") {
                 _GetRotatingMapGroupStatus(_RealGameMode(), m_singleSkirmishMapGroup, settings.game.mapgroupname);
             }
+            else if (_HasRotatingMapGroupMutators()) {
+                _UpdateRotatingMapGroupMutators();
+            }
             _SelectMapButtonsFromSettings(settings);
         }
         else {
@@ -1287,6 +1290,42 @@ var PlayMenu;
                 }
             }
         }
+        else if (_HasRotatingMapGroupMutators()
+            && m_mapSelectionButtonContainers && m_mapSelectionButtonContainers[activeMapGroup]) {
+            _UpdateRotatingMapGroupMutators();
+        }
+    }
+    function _HasRotatingMapGroupMutators() {
+        return !m_isWorkshop && _IsPlayingOnValveOfficial() && _RealGameMode() === 'casual';
+    }
+    function _UpdateRotatingMapGroupMutators() {
+        m_timerMapGroupHandler = null;
+        for (const elMapPanel of _GetMapListForServerTypeAndGameMode(m_activeMapGroupSelectionPanelID)) {
+            _UpdateMapGroupMutators(elMapPanel.GetAttributeString('mapname', ''), elMapPanel);
+        }
+        m_timerMapGroupHandler = $.Schedule(1, _UpdateRotatingMapGroupMutators);
+    }
+    function _UpdateMapGroupMutators(mapName, elMapPanel) {
+        const nMutators = _HasRotatingMapGroupMutators() ? CompetitiveMatchAPI.GetRotatingOfficialMapGroupMutators(_RealGameMode(), mapName) : 0;
+        const elMutators = elMapPanel.FindChildInLayoutFile('MapGroupMutators');
+        if (elMutators.GetAttributeInt('mutators', 0) === nMutators)
+            return;
+        elMutators.RemoveAndDeleteChildren();
+        for (let i = 0; i < 32; ++i) {
+            if (!(nMutators & (1 << i)))
+                continue;
+            const info = GameTypesAPI.GetMutatorDisplayInfo(i);
+            const elRow = $.CreatePanel('Panel', elMutators, '', { class: 'map-selection-btn__mutators-row' });
+            $.CreatePanel('Image', elRow, '', {
+                class: 'map-selection-btn__mutators-icon',
+                texturewidth: 20,
+                textureheight: 20,
+                src: info.icon
+            });
+            $.CreatePanel('Label', elRow, '', { class: 'map-selection-btn__mutators-name stratum-medium', text: info.name });
+        }
+        elMutators.SetAttributeInt('mutators', nMutators);
+        elMutators.SetHasClass('hidden', nMutators === 0);
     }
     function _CancelRotatingMapGroupSchedule() {
         if (m_timerMapGroupHandler) {
@@ -1298,6 +1337,7 @@ var PlayMenu;
         const isNew = (GameTypesAPI.GetMapGroupAttribute(mapName, 'showtagui') === 'new');
         elMapPanel.FindChildInLayoutFile('MapGroupNewTag').SetHasClass('hidden', !isNew || mapName === "mg_lobby_mapveto");
         elMapPanel.FindChildInLayoutFile('MapSelectionTopRowIcons').SetHasClass('tall', mapName === "mg_lobby_mapveto");
+        _UpdateMapGroupMutators(mapName, elMapPanel);
     }
     function _ReloadLeaderboardLayoutGivenSettings(container, lbName, strTitleOverride, strPointsTitle) {
         const elFriendLeaderboards = container.FindChildTraverse("FriendLeaderboards");

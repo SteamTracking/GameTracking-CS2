@@ -77,6 +77,14 @@
 						</CSGOSettingsEnumDropDown>
 					</Panel>
 					<Panel class="horizontal-separator" />
+					<Panel class="SettingsMenuDropdownContainer">
+						<Label text="#SFUI_ReloadMode" class="half-width" />
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_weapon_stealth_reload_toggle">
+							<Label text="#SFUI_Hold" id="reloadmode0" value="0" />
+							<Label text="#SFUI_Toggle" id="reloadmode1" value="1" />
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+					<Panel class="horizontal-separator" />
 					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#ZoomButtonHold_Desc">
 						<Label id="ZoomButtonHold" text="#ZoomButtonHold" class="half-width" />
 						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_debounce_zoom">

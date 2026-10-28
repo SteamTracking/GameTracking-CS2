@@ -1509,6 +1509,11 @@ sounds/diagnostics/sin_1k_0p005_oneshot.vsnd
 soundstacks/soundstacks_beat_pattern.vsndstck
 materials/tools/steamaudio_color_psd_e6d24263.vtex
 materials/editor/far_field_tga_497ff95.vtex
+sounds/graphs/base.vsnd
+sounds/graphs/echo.vsnd
+sounds/graphs/lpf.vsnd
+sounds/graphs/test_mix8.vsnd
+sounds/graphs/test_voice_sends.vsnd
 materials/loading_background.vmat
 materials/startup_background.vmat
 materials/tools_postprocess_volume.vmat
@@ -1607,6 +1612,7 @@ scripts/surfaceproperties_impact_effects.txt
 soundevents/soundevents_manifest.vrman
 sounds/common/null.vsnd
 sounds/graphs/mixgraphs.vrman
+sounds/graphs/__main__.vsnd
 soundstacks/soundstacks_manifest.vrman
 soundstacks/soundstacks_manifest_devonly.vrman
 surfaceproperties/surfaceproperties.vsurf
@@ -1617,9 +1623,3 @@ materials/default/default_normal.tga
 materials/default/default_normal.txt
 materials/default/default_rough.tga
 materials/default/default_trans.tga
-sounds/graphs/base.vsnd
-sounds/graphs/echo.vsnd
-sounds/graphs/lpf.vsnd
-sounds/graphs/test_mix8.vsnd
-sounds/graphs/test_voice_sends.vsnd
-sounds/graphs/__main__.vsnd

@@ -49,7 +49,7 @@ struct VS_INPUT
 	uint4  nPackedFrame               : NORMAL0        < Semantic( CompressedTangentFrame ); >;   
 	float4 vNormalOs                  : NORMAL0        < Semantic( Normal ); >;                   
 	float2 vLightmapUV                : TEXCOORD3      < Semantic( LightmapUV ); >;                // D_BAKED_LIGHTING_FROM_LIGHTMAP=1
-	float3 vPositionOs                : POSITION0      < Semantic( PosXyz ); >;                    // D_CS_VERTEX_ANIMATION=0, S_NO_LIQUID=0
+	float3 vPositionOs                : POSITION0      < Semantic( PosXyz ); >;                   
 	float4 vTangentUOs_flTangentVSign : TANGENT0       < Semantic( TangentU_SignV ); >;           
 	float2 vTexCoord                  : TEXCOORD0      < Semantic( LowPrecisionUv ); >;           
 	float2 nInstanceIdx               : TEXCOORD13     < Semantic( InstanceTransformUv ); >;      

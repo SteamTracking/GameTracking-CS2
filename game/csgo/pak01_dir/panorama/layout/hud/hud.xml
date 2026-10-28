@@ -23,6 +23,7 @@
 			<CSGOHudGameIcons id="HudGameIcons" />
 			<CSGOHudDMBonusPanel id="HudDMBonusPanel" />
 			<CSGORetakePanel id="HudRetake" hittest="false" hittestchildren="false" />
+			<CSGOHudMutatorsPanel id="HudMutatorsPanel" />
 			<Frame id="HudMissionPanel" src="s2r://panorama/layout/mission_tile_ingame.vxml" />
 			<Panel />
 		</Panel>
