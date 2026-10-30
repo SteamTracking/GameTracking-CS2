@@ -403,7 +403,7 @@
 		priority = 4.0
 		stop_music_except_mvp = "true"
 		volume_fade_out_input_max = 1.6
-		loop_track = "true"
+		loop_track = "false"
 		should_queue_track = "true"
 		skip_if_muted = "true"
 		test_mvp_block = "true"
@@ -428,7 +428,7 @@
 		priority = 4.0
 		stop_music_except_mvp = "true"
 		volume_fade_out_input_max = 1.6
-		loop_track = "true"
+		loop_track = "false"
 		should_queue_track = "true"
 		skip_if_muted = "true"
 		test_mvp_block = "true"

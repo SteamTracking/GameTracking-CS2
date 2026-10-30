@@ -1,16 +1,16 @@
 Content Manifest for Depot 2347770 
 
-Manifest ID / date     : 8833146750479675564 / 10/28/2026 20:57:52 
+Manifest ID / date     : 6694633556888099985 / 10/30/2026 21:05:03 
 Total number of files  : 2992 
-Total number of chunks : 65074 
-Total bytes on disk    : 65065602283 
-Total bytes compressed : 55586326720 
+Total number of chunks : 65063 
+Total bytes on disk    : 65051805863 
+Total bytes compressed : 55573428128 
 
 
           Size Chunks File SHA                                 Flags Name
-            10      1 cbdd67858201fbb67a3af7ec944ee3d8137ade56     0 game\bin\built_from_cl.txt
-         10347      1 e50c5dc3f0367da59129c5be7332559bd2fc0918     0 game\bin\win64\csgo.signatures
-          8941      1 97782ee451748c773a7732f9fb410892906422a3     0 game\bin\win64\vpk.signatures
+            10      1 2d6149740ea5c8f6b2d653ccf3f38a0d2a294ac3     0 game\bin\built_from_cl.txt
+         10347      1 cf297ff72b6c1648a9cecd8868cfac716c658e3c     0 game\bin\win64\csgo.signatures
+          8941      1 ec38742284e7338bb190a5eb2ff6f77c2a534438     0 game\bin\win64\vpk.signatures
          51357      1 0f5112698b482f8c1190c89192a4c0c8b0e50198     0 game\core\cfg\sfm_default_animation_groups.vcfg
           2270      1 ab4e0ee92367ba6d28a89dae8f6000631ffdb641     0 game\core\cfg\user_keys_default.vcfg
           2474      1 c4ff2f85048812f02c2403b0675208acfc00c7b0     0 game\core\gameinfo.gi
@@ -2438,7 +2438,7 @@ Total bytes compressed : 55586326720
      118404050    113 796c7932cfeb6772b51013f28bd99bfdfb40483d     0 game\csgo\pak01_033.vpk
      116169795    111 e382335666c33007e4a346ded29843a08e8656eb     0 game\csgo\pak01_034.vpk
      104201764    102 d897179aaadd2b0de26e19afe39037903f6f424a     0 game\csgo\pak01_035.vpk
-     106521791    129 37f5f0b02681e7ffa2052a4b139680303910cf18     0 game\csgo\pak01_036.vpk
+     105234684    129 3493b2d21b1aecc2a0b56c7338a9fcc06f512e91     0 game\csgo\pak01_036.vpk
      109137813    105 c1c5d1aeea369e80997338b7f41f8cadb17bbfdb     0 game\csgo\pak01_037.vpk
      116538440    112 cf02841fa129fbb93933f539cc8ae0fcb54de2d9     0 game\csgo\pak01_038.vpk
      103037018    103 83bd86a8c8cdc17b353c54cd4cf6a1e347a59e63     0 game\csgo\pak01_039.vpk
@@ -2903,11 +2903,11 @@ Total bytes compressed : 55586326720
      103652491    105 97b078393d02aaed75aa0d5f232ec9573a608d48     0 game\csgo\pak01_498.vpk
      105338067    116 4af7ebb5429b351ff2b76c4f9b300cd176157ada     0 game\csgo\pak01_499.vpk
      102090495    101 6cac088baddee5012d7a47318b06d119f3cbb859     0 game\csgo\pak01_500.vpk
-      99621966    105 a36d3ad51113077cf85943cd5a96a10581c7edaf     0 game\csgo\pak01_501.vpk
+      99621956    106 9d2ae31cb7b16513b47b2aa6bc1a5b55a6ad8d43     0 game\csgo\pak01_501.vpk
       99618250    105 568b65b644448b85efe132f8eaebe59c309c3fb3     0 game\csgo\pak01_502.vpk
      100220508    102 60654a3f3231ef5de3b458ed332ba064c153c465     0 game\csgo\pak01_503.vpk
-      73801782     76 e868db78c1f025ef727560bdeeac4a627960590d     0 game\csgo\pak01_504.vpk
-       7715045      8 c8514c1fed295f92b27cf36ba7eea751c5b3273a     0 game\csgo\pak01_dir.vpk
+      61294166     64 7e4515c2e23cc6b96ef870aff144182d3aa0bc84     0 game\csgo\pak01_504.vpk
+       7713358      8 860cb1f89ad46cd24ec82d18dca3f975cc951465     0 game\csgo\pak01_dir.vpk
          11893      1 d2f5c237fcac89835ab901bf3cc83850c71d9b46     0 game\csgo\panorama\fonts\fonts.conf
         107848      1 90edfc11fa568cd0fb5b9d6e6d369dddadfdb8c4     0 game\csgo\panorama\fonts\notomono-regular.ttf
         310556      1 84e39ddc72cd1d2ac4be132d235979f10f916c2b     0 game\csgo\panorama\fonts\notosans-bold.ttf
@@ -2996,7 +2996,7 @@ Total bytes compressed : 55586326720
      303670574    290 d2d77a7357436cf6fb69b704cebc84718609f70e     0 game\csgo\shaders_vulkan_003.vpk
       25004138     28 7a80e74bbd9d763f27ad8788694da6d9d81cc99e     0 game\csgo\shaders_vulkan_004.vpk
          41884      1 a9b38a712dcebbc8a985763a9134ec66c4264688     0 game\csgo\shaders_vulkan_dir.vpk
-           190      1 3cd68d9dfada742adc3209d9d4bcdfd63c2e2b7a     0 game\csgo\steam.inf
+           190      1 6bd54113491e0ded55a8f7d0f773905099323118     0 game\csgo\steam.inf
            209      1 cb2eaab8dbda9f075491a5410326356e127f60ec     0 game\csgo_lv\gameinfo.gi
            135      1 7769174b103a021d6390cb2a31b758dbfff04639     0 game\csgo_lv\gameinfo_branchspecific.gi
         473822      1 f5ca24bf12b20fee2ffb5d8bbc465ba8805d8abe     0 game\thirdpartylegalnotices.txt

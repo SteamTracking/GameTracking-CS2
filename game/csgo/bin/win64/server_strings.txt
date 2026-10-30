@@ -21566,6 +21566,7 @@ camera_path_delete\n
 camera_path_load\n
 camera_path_save\n
 campaign
+campaign completion bitfield
 campaign_definitions
 can't find SRP server param
 canRemoveVertex: Out of memory 'edges' (%d).

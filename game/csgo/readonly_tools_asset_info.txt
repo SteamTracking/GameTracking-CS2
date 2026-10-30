@@ -134920,15 +134920,6 @@ sounds/graphs/reverb_6_largeroom.vsnd
 sounds/graphs/reverb_7_mediumhall.vsnd
 sounds/graphs/reverb_8_mediumcarpetroom.vsnd
 sounds/graphs/reverb_9_mediumchamber.vsnd
-panorama/images/icons/equipment/lar.vsvg
 panorama/layout/hud/hudmutators.vxml
 panorama/styles/hud/hudmutators.vcss
 sounds/graphs/bighead_pitch.vsnd
-weapons/models/lar/weapon_rif_lar.vmdl
-weapons/models/lar/materials/weapon_rif_lar.vmat
-weapons/models/lar/mesh/fbx/do_not_ship/lar_temp.vmat
-panorama/images/econ/weapons/base_weapons/weapon_lar_png.vtex
-weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_albedo_jpg_a9420be9.vtex
-weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_emissive_jpg_9d61adb2.vtex
-weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_normal_png_419b046c.vtex
-weapons/models/lar/mesh/fbx/do_not_ship/initialshadinggroup_roughness_jpg_55597ce4.vtex

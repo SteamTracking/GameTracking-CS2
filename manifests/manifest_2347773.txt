@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347773 
 
-Manifest ID / date     : 3474977783625240452 / 10/28/2026 20:58:51 
+Manifest ID / date     : 6232960523750647649 / 10/30/2026 21:05:58 
 Total number of files  : 135 
 Total number of chunks : 6673 
-Total bytes on disk    : 7224463846 
-Total bytes compressed : 4605724896 
+Total bytes on disk    : 7224464934 
+Total bytes compressed : 4605726512 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -42,7 +42,7 @@ Total bytes compressed : 4605724896
       10777468     11 3a9bd9792e999e94206fda1dadeacf2d32c96477     0 game\bin\linuxsteamrt64\libscenesystem.so
         713948      1 ad85dae76aad400f723e768ee7286fc6993c7c2f     0 game\bin\linuxsteamrt64\libschemasystem.so
        3229400      4 0558f1091e79b187e42491955cf362112598cff5     0 game\bin\linuxsteamrt64\libSDL3.so.0
-       7961876      8 ab5e72fe683cd977926ef1d273990dd0f1b829fd     0 game\bin\linuxsteamrt64\libsoundsystem.so
+       7962196      8 f8b3d7618016aef0270517c79848a225837296b8     0 game\bin\linuxsteamrt64\libsoundsystem.so
        4771364      5 57b51902f63f93920f5bea8e86feb5b5adcda44e     0 game\bin\linuxsteamrt64\libsteamaudio.so
        5692434      6 9ec4204cb535bb2c204a69c2d7d15e2b2c9682a1     0 game\bin\linuxsteamrt64\libsteamnetworkingsockets.so
         381976      1 c109666c839a433b5ff8f635ad173cde77bdcdb6     0 game\bin\linuxsteamrt64\libsteam_api.so
@@ -66,10 +66,10 @@ Total bytes compressed : 4605724896
        1296400      2 f63aa2c6334168781aa9b5bd2db22c0cc3a98a71     0 game\bin\linuxsteamrt64\libvscript.so
        4570212      5 9401bc49adf98aa264340e34e93dfc06fd786adc     0 game\bin\linuxsteamrt64\libworldrenderer.so
           3822      1 956919b920713ce452f46c20cf8643674f7543f7     0 game\cs2.sh
-      74208120     71 6424d7e40ea57f83d0f1a8d49278ddef029a8d94     0 game\csgo\bin\linuxsteamrt64\libclient.so
+      74208376     71 a0729807ba98a01f7c8fde6b2a787897403028f6     0 game\csgo\bin\linuxsteamrt64\libclient.so
        3184412      4 2a6ef4e4bdf777c3ccd9d2d11c8cfce69baeb82f     0 game\csgo\bin\linuxsteamrt64\libhost.so
        3775044      4 4a6bd2fa9528edbac347b03c837c3158d93bca75     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
-      41807128     40 caa2892202b928cf2a671fc04fb7c4f4e41b8f81     0 game\csgo\bin\linuxsteamrt64\libserver.so
+      41807640     40 da6d2163b63dbc977b94d454dd3eb1ceb322e3a5     0 game\csgo\bin\linuxsteamrt64\libserver.so
      182648578    175 d4b7d7aea361a8b94c54e79904d642d712a1a3f5     0 game\csgo_community_addons\cs_shelter\cs_shelter_000.vpk
      107052112    105 2c61877687a4e433f04a62340fb3ce54b70e039c     0 game\csgo_community_addons\cs_shelter\cs_shelter_001.vpk
      106101480    104 e5dc305d96a55ae88a396ac6d98037209b4520ce     0 game\csgo_community_addons\cs_shelter\cs_shelter_002.vpk
