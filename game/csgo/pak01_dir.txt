@@ -84581,7 +84581,7 @@ panorama/scripts/mainmenu_xpshop_tile.vts_c CRC:00d409e8ed size:24206
 panorama/scripts/mapdraft.vts_c CRC:0067f23c2d size:42318
 panorama/scripts/match-reconnect.vts_c CRC:009bd134cc size:6862
 panorama/scripts/match_stakes.vts_c CRC:007a7a3ca9 size:10862
-panorama/scripts/matchinfo.vts_c CRC:008a1a5f2f size:105486
+panorama/scripts/matchinfo.vts_c CRC:002706dab2 size:105902
 panorama/scripts/matchlist.vts_c CRC:00ac9e0e42 size:52878
 panorama/scripts/matchmaking_status.vts_c CRC:0008a8c523 size:13534
 panorama/scripts/mission_tile.vts_c CRC:00db95903b size:33790
@@ -87984,7 +87984,7 @@ resource/csgo_bulgarian.txt CRC:00e6aa803c size:7758759
 resource/csgo_czech.txt CRC:00aa2da1f8 size:5097152
 resource/csgo_danish.txt CRC:001655e064 size:5003477
 resource/csgo_dutch.txt CRC:007e635df4 size:5049457
-resource/csgo_english.txt CRC:00a7f600cd size:4878645
+resource/csgo_english.txt CRC:00e83600df size:4879039
 resource/csgo_finnish.txt CRC:0040d7f29a size:4960257
 resource/csgo_french.txt CRC:00cf90f727 size:5254356
 resource/csgo_german.txt CRC:00768f902a size:5164887
@@ -87998,7 +87998,7 @@ resource/csgo_latam.txt CRC:00436dd96a size:5188121
 resource/csgo_norwegian.txt CRC:00f79e57f3 size:4924516
 resource/csgo_polish.txt CRC:003eee27c8 size:5321400
 resource/csgo_portuguese.txt CRC:00ed24ede6 size:5059879
-resource/csgo_romanian.txt CRC:00726dbe1b size:5270911
+resource/csgo_romanian.txt CRC:00b3958fb9 size:5270915
 resource/csgo_russian.txt CRC:00ffa91341 size:6563734
 resource/csgo_schinese.txt CRC:000d6871a9 size:4931452
 resource/csgo_schinese_pw.txt CRC:0083fe268a size:15645
@@ -88006,7 +88006,7 @@ resource/csgo_spanish.txt CRC:00f5db4811 size:5159573
 resource/csgo_swedish.txt CRC:00b8b4e017 size:5031803
 resource/csgo_tchinese.txt CRC:008252f083 size:4627815
 resource/csgo_thai.txt CRC:00f47187a0 size:8128621
-resource/csgo_turkish.txt CRC:0004ab0a9f size:5165343
+resource/csgo_turkish.txt CRC:00ea144dfc size:5165506
 resource/csgo_ukrainian.txt CRC:00ab17d5bc size:6621012
 resource/csgo_vietnamese.txt CRC:00985185c2 size:5450532
 resource/game.gameevents CRC:0090de10bc size:9837

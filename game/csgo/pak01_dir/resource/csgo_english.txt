@@ -46172,6 +46172,11 @@
 		"SFUI_Lobby_StatusRichPresence_retakes_community"				"Community Retakes"
 		"SFUI_Lobby_StatusRichPresence_retakes_watch"					"Watching Retakes"
 		"SFUI_Lobby_StatusRichPresence_retakes_review"					"Replaying Retakes"
+		"SFUI_Lobby_StatusRichPresence_workshop_lobby"					"In Workshop Map Lobby"
+		"SFUI_Lobby_StatusRichPresence_workshop_game"					"Playing Workshop Map"
+		"SFUI_Lobby_StatusRichPresence_workshop_community"				"Community Workshop Map"
+		"SFUI_Lobby_StatusRichPresence_workshop_watch"					"Watching Workshop Map"
+		"SFUI_Lobby_StatusRichPresence_workshop_review"					"Replaying Workshop Map"
 		"SFUI_Lobby_StatusRichPresenceSeparator_classic_competitive"			" "
 
 		"SFUI_PSNPresence_SinglePlayer"		"Single Player"

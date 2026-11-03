@@ -271,7 +271,7 @@
 0 bit issue, spot 2
 0 bit issue, spot 3
 0 bit issue, spot 4
-7;eZ\f
+7;eZ\r
 ::Storage_t
 Accepting Steam Net connection %s\n
 AckSeqNum

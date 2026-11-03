@@ -235,12 +235,12 @@
 // THIS FILE IS AUTO-GENERATED\n
 //-------------------------------------------------\n
 0123456789)"
-08:38:49
 0=Wrap,1=Mirror,2=Clamp,3=Border,4=MirrorOnce
 1 texel = %1px
 1/%1x
 1/2/3
 128 x 128
+15:35:57
 1:1 current mip
 1:1: Tokens : ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | BOOLLITERAL | ID | INTEGERLITERAL | HEXINTEGERLITERAL | FLOATLITERAL | COMMENT | WS );
 1AboutAction()
@@ -1248,7 +1248,6 @@ No valid vcs file found for shader %s\n
 No\nPreview\nAvailable
 Normal Map Conversion
 OCTAL_ESC
-Oct 28 2026
 OnAccept
 OnAcceptClicked
 OnAccepted

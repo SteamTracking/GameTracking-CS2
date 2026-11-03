@@ -101,6 +101,7 @@ class CCSGameRules : public CTeamplayRules
 	uint32 m_numSpectatorsCountMax;
 	uint32 m_numSpectatorsCountMaxTV;
 	uint32 m_numSpectatorsCountMaxLnk;
+	bool m_bQueuedMatchmakingReportedRoundStatsPendingSend;
 	int32 m_nCTsAliveAtFreezetimeEnd;
 	int32 m_nTerroristsAliveAtFreezetimeEnd;
 	bool m_bForceTeamChangeSilent;

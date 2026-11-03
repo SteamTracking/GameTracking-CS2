@@ -392,8 +392,10 @@ var matchInfo;
         elPlayerRow.AddClass('no-hover');
         elParentPanel.Data().activePlayerRow = elPlayerRow;
         let isLive = Boolean(MatchInfoAPI.IsLive(elParentPanel.Data().matchId));
-        if (isLive == false) {
-            elParentPanel.FindChildInLayoutFile('id-mi-player-stats').RemoveClass('mi-player-stats__collapse');
+        let hasRoundStats = Boolean(MatchInfoAPI.GetMatchPlayerRoundStats(elParentPanel.Data().matchId, elPlayerRow.Data().playerXuid, "round_wins"));
+        elParentPanel.FindChildInLayoutFile('id-mi-player-stats').SetHasClass('mi-player-stats__collapse', isLive || !hasRoundStats);
+        if (!hasRoundStats) {
+            return;
         }
         let elStatsContainer = elParentPanel.FindChildInLayoutFile('id-mi-round-stats__container');
         let elTickLabels = elParentPanel.FindChildInLayoutFile('id-mi-round-stats__tick-labels');

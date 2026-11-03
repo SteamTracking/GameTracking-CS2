@@ -23939,6 +23939,7 @@ m_bQueueFinishLoading
 m_bQueueSetupPathMover
 m_bQueueStop
 m_bQueueStopMoving
+m_bQueuedMatchmakingReportedRoundStatsPendingSend
 m_bQuietTracepoints
 m_bRadarFlash
 m_bRadialCheck
