@@ -985,6 +985,7 @@ $tH@T\tI
 %.3f sec delay
 %.5f (%.5f)
 %.6f
+%.9g %.9g %.9g
 %0*d
 %0.15f
 %0.21f
@@ -1525,18 +1526,23 @@ $tH@T\tI
 (command: string)
 (config:{before?:function,after?:function})
 (config:{center: Vector, radius: number, duration: number, color: Color})
+(config:{input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number})
 (config:{mins: Vector, maxs: Vector, duration: number, color: Color})
 (config:{name: string, input: string, value:any, caller:Entity, activator:Entity, delay:number})
-(config:{resources: string[]})
+(config:{name: string, input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number})
+(config:{resources?: string[], entities?: string[]})
 (config:{start: Vector, end: Vector, duration: number, color: Color})
 (config:{target: Entity, input: string, value:any, caller:Entity, activator:Entity, delay:number})
+(config:{target: Entity, output: string, callback: function})
 (config:{text: string, x: number, y: number, duration: number, color: Color})
+(connectionId: number)
 (connectionId:number)
 (damage: number, info?: Object)
 (data: string)
 (debug)
 (default)
 (delay: number)
+(entities:{classname: string, origin?: Vector, angles?: QAngle, [key: string]: EntityKeyValue}[])
 (entmodel:Entity,index?:number)
 (exception)
 (followConfig: CameraFollowConfig)
@@ -2632,6 +2638,7 @@ $tH@T\tI
 .?AV?$CEntitySpawnerBase@VCTriggerMultiple@@@@
 .?AV?$CEntitySpawnerBase@VCVoteController@@@@
 .?AV?$CEntitySpawnerBase@VCWorld@@@@
+.?AV?$CEntityWithSubclassSpawner@VCBaseEntity@@@@
 .?AV?$CErrorContextValue@PEBVKeyValues3@@@@
 .?AV?$CFixedSizeCircularBuffer@UCDebugSnapshotFrame_t@@$0HNA@H@@
 .?AV?$CFixedSizeCircularBuffer@UShootPositionHistoryEntry_t@CCSPlayer_WeaponServices@@$0CA@H@@
@@ -8412,6 +8419,7 @@ $tH@T\tI
 ?BooleanValue@Value@v8@@QEBA_NPEAVIsolate@2@@Z
 ?Call@Function@v8@@QEAA?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@HQEAV52@@Z
 ?CompileModule@ScriptCompiler@v8@@SA?AV?$MaybeLocal@VModule@v8@@@2@PEAVIsolate@2@PEAVSource@12@W4CompileOptions@12@W4NoCacheReason@12@@Z
+?CreateDataProperty@Object@v8@@QEAA?AV?$Maybe@_N@2@V?$Local@VContext@v8@@@2@IV?$Local@VValue@v8@@@2@@Z
 ?CreateHandle@HandleScope@v8@@KAPEA_KPEAVIsolate@internal@2@_K@Z
 ?CreateSyntheticModule@Module@v8@@SA?AV?$Local@VModule@v8@@@2@PEAVIsolate@2@V?$Local@VString@v8@@@2@AEBV?$MemorySpan@$$CBV?$Local@VString@v8@@@v8@@@2@P6A?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@V32@@Z@Z
 ?CurrentStackTrace@StackTrace@v8@@SA?AV?$Local@VStackTrace@v8@@@2@PEAVIsolate@2@HW4StackTraceOptions@12@@Z
@@ -8438,6 +8446,7 @@ $tH@T\tI
 ?GetLineNumber@Message@v8@@QEBA?AV?$Maybe@H@2@V?$Local@VContext@v8@@@2@@Z
 ?GetLocation@StackFrame@v8@@QEBA?AVLocation@2@XZ
 ?GetMicrotaskQueue@Context@v8@@QEAAPEAVMicrotaskQueue@2@XZ
+?GetOwnPropertyNames@Object@v8@@QEAA?AV?$MaybeLocal@VArray@v8@@@2@V?$Local@VContext@v8@@@2@@Z
 ?GetPromise@Resolver@Promise@v8@@QEAA?AV?$Local@VPromise@v8@@@3@XZ
 ?GetScriptName@StackFrame@v8@@QEBA?AV?$Local@VString@v8@@@2@XZ
 ?GetStackTrace@Exception@v8@@SA?AV?$Local@VStackTrace@v8@@@2@V?$Local@VValue@v8@@@2@@Z
@@ -8473,7 +8482,6 @@ $tH@T\tI
 ?NewInstance@Function@v8@@QEBA?AV?$MaybeLocal@VObject@v8@@@2@V?$Local@VContext@v8@@@2@HQEAV?$Local@VValue@v8@@@2@@Z
 ?PerformMicrotaskCheckpoint@Isolate@v8@@QEAAXXZ
 ?Resolve@Resolver@Promise@v8@@QEAA?AV?$Maybe@_N@3@V?$Local@VContext@v8@@@3@V?$Local@VValue@v8@@@3@@Z
-?Set@Object@v8@@QEAA?AV?$Maybe@_N@2@V?$Local@VContext@v8@@@2@IV?$Local@VValue@v8@@@2@@Z
 ?Set@Object@v8@@QEAA?AV?$Maybe@_N@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@1@Z
 ?Set@Template@v8@@QEAAXV?$Local@VName@v8@@@2@V?$Local@VData@v8@@@2@W4PropertyAttribute@2@@Z
 ?SetAlignedPointerInInternalField@Object@v8@@QEAAXHPEAX@Z
@@ -14444,6 +14452,7 @@ FindAllByTarget
 FindAllInSphere
 FindAllMatchingSnapshots
 FindBestGoal: Calling GetNearestNavAreaAndGravityOrientedGoalPos defaultGravity[%s]
+FindByClass
 FindByClassname
 FindByClassnameNearest
 FindByClassnameWithin
@@ -14492,6 +14501,7 @@ FireEntityIOInputVec
 FireEvent: event '%s' not registered.\n
 FireGameEvent
 FireGameEventLocal
+FireInput
 Fired after spawning an instance of this template.
 Fired when a round starts.
 Fired when a round winner is determined.
@@ -14939,6 +14949,7 @@ GetConst R%d <- C%d (%s)
 GetContext
 GetContext( name ): looks up a context and returns it if available. May return string, float, or null (if the context isn't found).
 GetContextForScript
+GetControlledBotPawn
 GetController
 GetController() : Returns the controller for this pawn
 GetConvarBoolean
@@ -15640,6 +15651,7 @@ IsClient
 IsClientLoaded
 IsClientLoading
 IsConnected
+IsControllingBot
 IsCrouched
 IsCrouching
 IsDedicatedServer
@@ -16149,16 +16161,25 @@ Metal.Medium
 Metal.SawbladeStick
 Metal.Small
 Method %s.%s cannot be used on official servers.
+Method %s.%s invoked by a script with no parent entity.
 Method %s.%s invoked in incorrect scope.
+Method %s.%s invoked on an invalid entity.
 Method %s.%s invoked with bad '%s' property for argument %d (%s). Got %s.
+Method %s.%s invoked with bad 'angles' for entities[%d]. Got %s.
+Method %s.%s invoked with bad 'origin' for entities[%d]. Got %s.
+Method %s.%s invoked with bad classname for entities[%d]. Got %s.
+Method %s.%s invoked with bad entities[%d]. Got %s.
 Method %s.%s invoked with bad value for argument %d (%s). Got %s.
 Method %s.%s invoked with bad value for argument 0 (reason). Got %s.
 Method %s.%s invoked with bad value for argument 0 (team). Got %s.
+Method %s.%s invoked with bad value for key "%s" for entities[%d]. Got %s.
 Method %s.%s invoked with incompatible value for convar "%s". %s cannot be converted to %s.
 Method %s.%s invoked with incorrect 'this' value.
 Method %s.%s invoked with missing '%s' property for argument %d (%s).
 Method %s.%s invoked with name of incompatible convar "%s". Use %s.%s.
 Method %s.%s invoked with name of unknown convar "%s".
+Method %s.%s invoked with output "%s", which %s does not have.
+Method %s.%s invoked with reserved key "%s" for entities[%d].
 Method %s.%s invoked with unrecognized 'this' value.
 Method %s.%s requires %d argument%s but got %d. %s
 Method CSPlayerPawn.GetCustomCamera failed to spawn a custom_player_camera.
@@ -16188,8 +16209,10 @@ Method Instance.EntFireAtTarget invoked with bad value for argument 0 (target). 
 Method Instance.EntFireAtTarget invoked with bad value for argument 1 (input). Got %s.
 Method Instance.EntFireAtTarget invoked with bad value for argument 2 (inputData). Got %s.
 Method Instance.Precache failed.
+Method Instance.Precache invoked with bad entity "%s". It is not an entity classname or subclass.
 Method Instance.Precache invoked with bad resource "%s".
 Method Instance.Precache invoked with bad resource "%s". There is no compiled "%s_c".
+Method Instance.Precache invoked with no resources or entities.
 Method Instance.SpawnGrenadeProjectile requires at least thrower or position be specified.
 Microsoft CSP Name
 Microsoft Commercial Code Signing
@@ -16644,6 +16667,7 @@ OnBombExplode
 OnBombPlant
 OnBombPlantAbort
 OnBombPlantStart
+OnBotControl
 OnBufferNotStarved(), resolved starve queue\n
 OnBulletImpact
 OnCase%02d
@@ -16745,7 +16769,6 @@ Out:\n%s
 Outflow List
 Output
 Output connection not found\n
-Output not found: "%s"\n
 OutputConnection:
 OutputConnection:%d
 Outro Playback Rate
@@ -21526,6 +21549,7 @@ ca dn length mismatch
 ca dn too long
 caIssuers
 caRepository
+cable_*
 cableclass
 callback
 called a function that was disabled at compile-time
@@ -21835,6 +21859,7 @@ conflicting engine id
 connect error
 connection id is different
 connection type not set
+connectionId
 cons: 
 cont [ %d ]
 contains
@@ -21951,7 +21976,7 @@ cs_rush
 cs_script/%s
 cs_shelter
 cs_siege
-cs_spawn_group_resources
+cs_spawn_group_precache
 cs_thunder
 cs_usercmd.proto
 cs_win_panel_match
@@ -22715,6 +22740,7 @@ entindex_ability
 entindex_attacker
 entindex_inflictor
 entindex_killed
+entities
 entity %s at %s has physics attachment to more than one entity with the name %s!!!\n
 entity context menu
 entityArray
@@ -23124,6 +23150,7 @@ fullname
 fullpos
 func(%lu)
 func_
+func_*
 func_areaportal
 func_breakable with invalid propdata %d.\n
 func_breakable_surf
@@ -23830,6 +23857,7 @@ info_node_hint
 info_player_logo
 info_spawngroup_load
 info_spawngroup_load_unload w/o specifying map name, removing entity!!!\n
+info_target*
 inherit_all_joints
 inherit_owner
 inherit_owner_index
@@ -24283,6 +24311,7 @@ lifestage_adult
 lifestage_chick
 lifestage_egg
 light
+light_*
 light_capsule
 light_dynamic at [%d %d %d] has invalid exponent value (%d must be between %d and %d).\n
 light_style_output_event0
@@ -25767,6 +25796,7 @@ producedAt
 profile level %g
 projectile
 prop.breakable.01
+prop_*
 prop_car_alarm
 prop_car_glass
 prop_contexts
@@ -26646,6 +26676,7 @@ smokegrenade_detonate
 smokegrenade_expired
 smokegrenade_projectile.ventr
 smokegrenade_projectile_server
+snd_*
 snd_mouth
 sniper_warning
 sniperk
@@ -27453,6 +27484,7 @@ transition volume passed
 transition volume screened out
 transitioning
 tried to use unsupported cipher
+trigger_*
 trigger_changelevel to %s doesn't have a landmark
 trigger_changelevel to map %s has a landmark embedded in solid!\nThis will break level transitions!\n
 trigger_survival_playarea
@@ -27865,6 +27897,7 @@ weapon pistol rifle survivor common_male
 weapon.C4.Impact
 weapon_
 weapon_%s
+weapon_*
 weapon_action_speedscale
 weapon_ak47.ventr
 weapon_ak47_server

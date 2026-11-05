@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347779 
 
-Manifest ID / date     : 9144463342521858931 / 11/03/2026 00:27:26 
+Manifest ID / date     : 5209724922577403770 / 11/05/2026 00:10:12 
 Total number of files  : 909 
-Total number of chunks : 2523 
-Total bytes on disk    : 2108139011 
-Total bytes compressed : 576285616 
+Total number of chunks : 2524 
+Total bytes on disk    : 2108141791 
+Total bytes compressed : 576286224 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -619,13 +619,13 @@ Total bytes compressed : 576285616
        1621570      2 e3d9cdb314cae29e2a1c5bc8a35f8801cd078c17     0 content\csgo_addons\addon_template\sounds\interior_01.wav
        1311024      2 dc14d2a9922760330712f093eed8ab75dc709070     0 content\csgo_addons\addon_template\sounds\vent_01.wav
       68886528     68 59ec2879ff3b11fea33042a32c80e6493cd47113     0 content\csgo_addons\cs_script_demo\maps\cs_script_demo.vmap
-        142016      1 d2250b59abe01005d2cdf93f782ac8d99b416df3     0 content\csgo_addons\cs_script_demo\maps\scripts\chess.js
-          4777      1 08ed91c65f79c27090a62eb786a049e59ec816ef     0 content\csgo_addons\cs_script_demo\maps\scripts\grenadetraining.js
+        141974      1 2f0711f03e4faa839021921e22cb51baddd543e4     0 content\csgo_addons\cs_script_demo\maps\scripts\chess.js
+          4667      1 9b275310a44cdcd9fd822f1c968a7bb3e3c5220e     0 content\csgo_addons\cs_script_demo\maps\scripts\grenadetraining.js
            124      1 22a4ad6b72ccca4118d03ccb0d02f9f1f7b559d0     0 content\csgo_addons\cs_script_demo\maps\scripts\hello.js
           1508      1 f576a9fe52176f409d268ab6107a119c9250e034     0 content\csgo_addons\cs_script_demo\maps\scripts\input.js
-          1768      1 efad58a778fb6617e34f3eee454500547f5b979e     0 content\csgo_addons\cs_script_demo\maps\scripts\mdlchange.js
-         52790      1 a3caed0a9858b2ee9d4a005558da3236d37010f9     0 content\csgo_addons\cs_script_demo\maps\scripts\point_script.d.ts
-          2092      1 2ff2ecb556d00d6e00d026ba3860cb0977844155     0 content\csgo_addons\cs_script_demo\maps\scripts\setup.js
+          1774      1 78e5c4937ae89c8b49af0594308cd38d64c2fa89     0 content\csgo_addons\cs_script_demo\maps\scripts\mdlchange.js
+         55136      1 94a37ef72e5e9d67fd51d1922e25425701ac2e7c     0 content\csgo_addons\cs_script_demo\maps\scripts\point_script.d.ts
+          2304      1 0d1e9adb823d080002b1a5e48b7bbd592d585a15     0 content\csgo_addons\cs_script_demo\maps\scripts\setup.js
           6476      1 b26cb1c845028c2a73c610f66654009d12865dcd     0 content\csgo_addons\cs_script_demo\maps\scripts\trace.js
            141      1 d38bb2dbf61185966292fa1c1aa57a86e5171beb     0 content\csgo_addons\cs_script_demo\maps\scripts\tsconfig.json
            344      1 33085b2472c3efcdebb61a0cc4f2aec675f79166     0 content\csgo_addons\cs_script_demo\panorama\layout\custom_game\welcome.xml
@@ -638,7 +638,7 @@ Total bytes compressed : 576285616
        5703320      6 265f267641ffa2f5f8eacca5ce3ae23c95c15b01     0 game\bin\win64\assetsystem.dll
        1529856      2 45e7d0873608e5424312fa289a270f2faacfe8fa     0 game\bin\win64\bc7e.dll
         396952      1 d40100945a08d047d65a8f8c1ba557351467136b     0 game\bin\win64\cs2_build_econ_items_workshop.exe
-         13866      1 22ce12bf18f6df3737c2ac7a83452663ed531f04     0 game\bin\win64\csgo.signatures
+         13866      1 4e91d62ce49f83b21a49316d8e255cb52939be20     0 game\bin\win64\csgo.signatures
        1271448      2 e0c0511657da151a4b8546e1ccb0f2eb5e6c6a40     0 game\bin\win64\csgocfg.exe
       15683736     15 2787c3be064fd2215239c7fe9cb6f573d4984d9a     0 game\bin\win64\cs_mdl_import.exe
        1196696      2 5691c2eec39a867bdb053d6880e5bc18b0bfde2a     0 game\bin\win64\dmxconvert.exe
@@ -721,7 +721,7 @@ Total bytes compressed : 576285616
         133435      1 5c5acf7bffba281b1fb2de939a6953c385e26ac3     0 game\csgo\lighting\postprocessing\editor\toolsscene_default.vpost_c
           3823      1 aaa9517703492629cade78571c39f5fdc2c417e3     0 game\csgo\models_gamedata.fgd
           1559      1 ccef3c777e99029f1956e3ad23a718a99fd36d14     0 game\csgo\postprocessing.fgd
-      50760417     51 2864b89d3750e3547f9063365e334dca0fcd55c5     0 game\csgo\readonly_tools_asset_info.bin
+      50760653     52 93546dbe6f18a664cf6fe049d26d6fa2669b54c1     0 game\csgo\readonly_tools_asset_info.bin
           3009      1 8374c54025aad8c3d4a72b5f7f198d99951b7844     0 game\csgo\tools\cs2_icon_gen\icon_camera.png
           2390      1 436ef3b91600906f462a33b9973b3f0955ddf1d6     0 game\csgo\tools\cs2_icon_gen\icon_item.png
           2566      1 d78fd6c17e836a35c1cff4b375de7928ea5aea40     0 game\csgo\tools\cs2_icon_gen\icon_light_fill.png
@@ -896,24 +896,24 @@ Total bytes compressed : 576285616
         124548      1 20a6acffa7ca7b25b9d9877c122fa093fa57ff0b     0 game\csgo_addons\addon_template\sounds\vent_01.vsnd_c
             43      1 5c3b6d056cc345ec397072c83b3ee35b9a297c54     0 game\csgo_addons\cs_script_demo\addoninfo.txt
        9365499      9 ec299d7ace3af9c2dc9389711f8245648e98f0a1     0 game\csgo_addons\cs_script_demo\maps\cs_script_demo.vpk
-        142896      1 b32b537abcbf37d3142ff9e6f993054f36794cc0     0 game\csgo_addons\cs_script_demo\maps\scripts\chess.vjs_c
-          5673      1 400181285c706c503c05df252f02d6d5afe6d287     0 game\csgo_addons\cs_script_demo\maps\scripts\grenadetraining.vjs_c
+        142854      1 e7a944ff2a1f60050cec656163e9f222fed60fb7     0 game\csgo_addons\cs_script_demo\maps\scripts\chess.vjs_c
+          5563      1 aa170a6c06797a100a3adcf2f9a80e94187f72fc     0 game\csgo_addons\cs_script_demo\maps\scripts\grenadetraining.vjs_c
           1004      1 7f478db2558a9255c8d0f4eaf4713ec0c95289d8     0 game\csgo_addons\cs_script_demo\maps\scripts\hello.vjs_c
           2388      1 d66364c7659b7d12265bf20125a8a2b047e359a4     0 game\csgo_addons\cs_script_demo\maps\scripts\input.vjs_c
-          2664      1 80b21090e2f0d1fc2b8776bcbc88831952db1afd     0 game\csgo_addons\cs_script_demo\maps\scripts\mdlchange.vjs_c
-          2972      1 39a51a14245ec28b2a640f2b52dcb7cb4ed2ef97     0 game\csgo_addons\cs_script_demo\maps\scripts\setup.vjs_c
+          2670      1 68b17c707895ade3432792703a9b1d305c063bb2     0 game\csgo_addons\cs_script_demo\maps\scripts\mdlchange.vjs_c
+          3184      1 86527676cb68b689379cf18e31768209b882d826     0 game\csgo_addons\cs_script_demo\maps\scripts\setup.vjs_c
           7356      1 5b8e9e25a6b1b4d942e02f16c2922780e862bce7     0 game\csgo_addons\cs_script_demo\maps\scripts\trace.vjs_c
           1599      1 26b7254a6bf5a03bb6fe0dab0b87763117024ee9     0 game\csgo_addons\cs_script_demo\panorama\layout\custom_game\welcome.vxml_c
           2439      1 f11b0c632f773e4dee00eb71cbb43319a0acb557     0 game\csgo_addons\cs_script_demo\panorama\styles\custom_game\welcome.vcss_c
-        142016      1 5b78dcfe1e02801682f30badc197821af834f7a1     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\chess.js
-          4777      1 fb1b321cf1d587bd92762d4ae18f70e375ed8a92     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\grenadetraining.js
+        141974      1 5ea1650a6c01a1a966cc61629112eeb398499e97     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\chess.js
+          4667      1 b89ec7b13634f4c2c936fb45e47248abfc851b99     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\grenadetraining.js
            124      1 bc5e2b800073f4e359d7d29cb07d35a7a312859a     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\hello.js
           1508      1 0fc8650026ef338adae04c20fc9abacd95ccaba9     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\input.js
-          1768      1 665584f5be5a273e00cdc4d52fc777544216e3ab     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\mdlchange.js
-          2092      1 2ff2ecb556d00d6e00d026ba3860cb0977844155     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\setup.js
+          1774      1 d1255dadcba7eff368fcf2aaf3af17eae29a9d28     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\mdlchange.js
+          2304      1 0d1e9adb823d080002b1a5e48b7bbd592d585a15     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\setup.js
           6476      1 d71bc1d5fac402a9d18d71cd2b853ec98f26ec45     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\trace.js
            344      1 33085b2472c3efcdebb61a0cc4f2aec675f79166     0 game\csgo_addons\cs_script_demo\panorama_stripped\panorama\layout\custom_game\welcome.xml
            774      1 d4b48ea27dc2e4a7bd771559459e058e8dcd7040     0 game\csgo_addons\cs_script_demo\panorama_stripped\panorama\styles\custom_game\welcome.css
-          4862      1 02076fae4b389b631257caa0f96c803c45a842b1     0 game\csgo_addons\cs_script_demo\readonly_tools_asset_info.bin
+          4862      1 a1a8b99f7caf6411ddc55f278f2dd68431b120b6     0 game\csgo_addons\cs_script_demo\readonly_tools_asset_info.bin
            191      1 e3c5549cb3715e2e759a11d90eddea1c1f49a341     0 game\csgo_addons\workshop_items\addoninfo.txt
        1706103      2 e12db26662c1223b12302ff8618f0630586d5a14     0 game\csgo_lv\readonly_tools_asset_info.bin

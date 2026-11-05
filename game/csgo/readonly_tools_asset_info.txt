@@ -134923,3 +134923,4 @@ sounds/graphs/reverb_9_mediumchamber.vsnd
 panorama/layout/hud/hudmutators.vxml
 panorama/styles/hud/hudmutators.vcss
 sounds/graphs/bighead_pitch.vsnd
+panorama/images/econ/keychains/bud2025/kc_bud2025_png.vtex

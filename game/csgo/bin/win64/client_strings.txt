@@ -21990,6 +21990,7 @@ RestorePetItemData
 ResurrectedUnreachables%d
 RetakeLoadout
 RetakeLoadoutMenu--loadout-container-%d
+RetakeLoadoutMenu--loadout-container-0
 RetakeLoadoutMenuCardContainer
 RetakeLoadoutMenuLoadoutContainer
 Retakes

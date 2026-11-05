@@ -172,26 +172,6 @@
 	opacity: 0;
 }
 
-.RetakeLoadoutMenu--loadout-container.RetakeLoadoutMenu--loadout-container-0
-{
-	animation-delay: 0.15s;
-}
-
-.RetakeLoadoutMenu--loadout-container.RetakeLoadoutMenu--loadout-container-1
-{
-	animation-delay: 0.25s;
-}
-
-.RetakeLoadoutMenu--loadout-container.RetakeLoadoutMenu--loadout-container-2
-{
-	animation-delay: 0.45s;
-}
-
-.RetakeLoadoutMenu--loadout-container.RetakeLoadoutMenu--loadout-container-3
-{
-	animation-delay: .5s;
-}
-
 @keyframes 'deal'
 {
 	0%

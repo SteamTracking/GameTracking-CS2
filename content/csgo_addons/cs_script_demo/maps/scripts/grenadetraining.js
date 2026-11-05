@@ -1,4 +1,4 @@
-import { Console, Entity, Instance } from "cs_script/point_script";
+import { Console, Entity, Instance, Entities } from "cs_script/point_script";
 
 let Rounds = 0;
 let Hits = 0;
@@ -11,9 +11,9 @@ let TargetHard = "targetbox.hard";
 function SetNextTarget() {
     Rounds++;
 
-    Instance.EntFireAtName({ name: "worldtext.rounds", input: "SetMessage", value: Rounds });
-    Instance.EntFireAtName({ name: "cover.*", input: "Enable" });
-    Instance.EntFireAtName({ name: "tele.reset", input: "Teleport" });
+    Entities.FireInput({ name: "worldtext.rounds", input: "SetMessage", value: Rounds });
+    Entities.FireInput({ name: "cover.*", input: "Enable" });
+    Entities.FireInput({ name: "tele.reset", input: "Teleport" });
 
     // Roll 1-11, if it duplicates last value choose value 12.
     let NewTarget = Math.floor(Math.random() * 11) + 1;
@@ -24,27 +24,27 @@ function SetNextTarget() {
     if (Rounds > 7) difficulty = "hard";
     else if (Rounds > 4) difficulty = "med";
 
-    Instance.EntFireAtName({ name: `cover.${Target}`, input: "Disable" });
-    Instance.EntFireAtName({ name: `tele.${Target}`, input: "TeleportEntity", value: `targetbox.${difficulty}` });
+    Entities.FireInput({ name: `cover.${Target}`, input: "Disable" });
+    Entities.FireInput({ name: `tele.${Target}`, input: "TeleportEntity", value: `targetbox.${difficulty}` });
 }
 
 // called if player leaves play area at any time
 Instance.OnScriptInput("ResetAndCleanUp", () => {
-    Instance.EntFireAtName({ name: "trigger.start", input: "Enable" });
-    Instance.EntFireAtName({ name: "trigger.end_early", input: "Disable" });
-    Instance.EntFireAtName({ name: "worldtext.go_here", input: "Enable" });
-    Instance.EntFireAtName({ name: "relay.start_countdown", input: "CancelPending" });
+    Entities.FireInput({ name: "trigger.start", input: "Enable" });
+    Entities.FireInput({ name: "trigger.end_early", input: "Disable" });
+    Entities.FireInput({ name: "worldtext.go_here", input: "Enable" });
+    Entities.FireInput({ name: "relay.start_countdown", input: "CancelPending" });
 
-    Instance.EntFireAtName({ name: "worldtext.training_countdown_dyn", input: "SetMessage", value: "3" });
-    Instance.EntFireAtName({ name: "worldtext.training_countdown_static", input: "Disable" });
-    Instance.EntFireAtName({ name: "worldtext.training_countdown_dyn", input: "Disable" });
-    Instance.EntFireAtName({ name: "board.timer", input: "Disable" });
-    Instance.EntFireAtName({ name: "board.timer", input: "ResetTimer" });
-    Instance.EntFireAtName({ name: "snd.tick", input: "StopSound" });
-    Instance.EntFireAtName({ name: "tele.reset", input: "Teleport" });
-    Instance.EntFireAtName({ name: "cover.*", input: "Enable" });
-    Instance.EntFireAtName({ name: "worldtext.hits", input: "SetMessage", value: "0" });
-    Instance.EntFireAtName({ name: "worldtext.rounds", input: "SetMessage", value: "0" });
+    Entities.FireInput({ name: "worldtext.training_countdown_dyn", input: "SetMessage", value: "3" });
+    Entities.FireInput({ name: "worldtext.training_countdown_static", input: "Disable" });
+    Entities.FireInput({ name: "worldtext.training_countdown_dyn", input: "Disable" });
+    Entities.FireInput({ name: "board.timer", input: "Disable" });
+    Entities.FireInput({ name: "board.timer", input: "ResetTimer" });
+    Entities.FireInput({ name: "snd.tick", input: "StopSound" });
+    Entities.FireInput({ name: "tele.reset", input: "Teleport" });
+    Entities.FireInput({ name: "cover.*", input: "Enable" });
+    Entities.FireInput({ name: "worldtext.hits", input: "SetMessage", value: "0" });
+    Entities.FireInput({ name: "worldtext.rounds", input: "SetMessage", value: "0" });
 
     Console.SetConvar("sv_infinite_ammo", 0);
     const player = Instance.GetPlayerController(0)?.GetPlayerPawn();
@@ -53,10 +53,10 @@ Instance.OnScriptInput("ResetAndCleanUp", () => {
 });
 
 Instance.OnScriptInput("StartTraining", () => {
-    Instance.EntFireAtName({ name: "trigger.start", input: "Disable" });
-    Instance.EntFireAtName({ name: "trigger.end_early", input: "Enable" });
-    Instance.EntFireAtName({ name: "worldtext.go_here", input: "Disable" });
-    Instance.EntFireAtName({ name: "relay.start_countdown", input: "Trigger" });
+    Entities.FireInput({ name: "trigger.start", input: "Disable" });
+    Entities.FireInput({ name: "trigger.end_early", input: "Enable" });
+    Entities.FireInput({ name: "worldtext.go_here", input: "Disable" });
+    Entities.FireInput({ name: "relay.start_countdown", input: "Trigger" });
 
     Console.SetConvar("sv_infinite_ammo", 1);
     const player = Instance.GetPlayerController(0)?.GetPlayerPawn();
@@ -70,8 +70,8 @@ Instance.OnScriptInput("StartTraining", () => {
 // called from grenade trigger inside target area
 Instance.OnScriptInput("GrenadeHit", () => {
     Hits++;
-    Instance.EntFireAtName({ name: "snd.hit", input: "StartSound" });
-    Instance.EntFireAtName({ name: "worldtext.hits", input: "SetMessage", value: Hits });
+    Entities.FireInput({ name: "snd.hit", input: "StartSound" });
+    Entities.FireInput({ name: "worldtext.hits", input: "SetMessage", value: Hits });
     if (trackedProjectile && trackedProjectile.IsValid()) {
         trackedProjectile.Remove();
         trackedProjectile = undefined;
@@ -83,11 +83,11 @@ Instance.OnScriptInput("SetNextTarget", () => {
     if (Rounds < 10) {
         SetNextTarget();
     } else {
-        Instance.EntFireAtName({ name: "snd.end", input: "StartSound" });
-        Instance.EntFireAtName({ name: "board.timer", input: "Disable" });
-        Instance.EntFireAtName({ name: "board.timer", input: "ResetTimer" });
-        Instance.EntFireAtName({ name: "tele.reset", input: "Teleport" });
-        Instance.EntFireAtName({ name: "cover.*", input: "Enable" });
+        Entities.FireInput({ name: "snd.end", input: "StartSound" });
+        Entities.FireInput({ name: "board.timer", input: "Disable" });
+        Entities.FireInput({ name: "board.timer", input: "ResetTimer" });
+        Entities.FireInput({ name: "tele.reset", input: "Teleport" });
+        Entities.FireInput({ name: "cover.*", input: "Enable" });
     }
 });
 

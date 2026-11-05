@@ -1,6 +1,7 @@
 // Spawn locations and angles.
 // The first three numbers are the X Y Z coordinates of the player location.
 // The last three numbers are the PITCH YAW ROLL parameters of the player camera.
+// Only YAW is used. PITCH and ROLL must be 0.
 // To easily get these numbers, walk around the map and type "getpos" in the console.
 // The console will return the 6 numbers that you need to paste into your entry below.
 

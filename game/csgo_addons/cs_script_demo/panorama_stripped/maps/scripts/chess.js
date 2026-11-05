@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { Instance, PointTemplate } from "cs_script/point_script";
+import { Instance, PointTemplate, Entities } from "cs_script/point_script";
 
 function ChessJS() {
        
@@ -3474,7 +3474,7 @@ let chess = new Chess();
 
 const centers = {};
 function FindCenters() {
-    const entities = Instance.FindEntitiesByClass("info_target");
+    const entities = Entities.FindByClass("info_target");
     for (const ent of entities) {
         const name = ent.GetEntityName();
         if (/^[a-h][1-8]$/.test(name)) {
@@ -3501,14 +3501,14 @@ async function RunChess() {
         await AnimateMove(move);
     }
 
-    Instance.EntFireAtName({ name: `snd.chess.${chess.turn()}.win`, input: "StartSound" });
+    Entities.FireInput({ name: `snd.chess.${chess.turn()}.win`, input: "StartSound" });
     Instance.SetNextThink(Instance.GetGameTime() + 10);
     bIsRunning = false;
 }
 
 function RenderPieces() {
                                                                     
-    const existing = Instance.FindEntitiesByName("chess.piece.*");
+    const existing = Entities.FindByName("chess.piece.*");
 
     for (const line of chess.board()) {
         for (const square of line) {
@@ -3545,12 +3545,12 @@ function RenderPieces() {
 }
 
 function PlaySoundOnEnt(soundEntName, targetEntName) {
-    Instance.EntFireAtName({ name: soundEntName, input: "SetSourceEntity", value: targetEntName });
-    Instance.EntFireAtName({ name: soundEntName, input: "StartSound" });
+    Entities.FireInput({ name: soundEntName, input: "SetSourceEntity", value: targetEntName });
+    Entities.FireInput({ name: soundEntName, input: "StartSound" });
 }
 
 async function AnimateMove(move) {
-    const piece = Instance.FindEntitiesByName(`chess.piece.${move.color}.${move.piece}`).find((p) => p.square === move.from);
+    const piece = Entities.FindByName(`chess.piece.${move.color}.${move.piece}`).find((p) => p.square === move.from);
     if (!piece) {
         RenderPieces();
         return;
@@ -3568,7 +3568,7 @@ async function AnimateMove(move) {
         if (move.isCapture()) {
             PlaySoundOnEnt("chess.snd.capture", piece.GetEntityName());
             const capturedColor = move.color === WHITE ? BLACK : WHITE;
-            const captured = Instance.FindEntitiesByName(`chess.piece.${capturedColor}.${move.captured}`).find((p) => p.square === move.to);
+            const captured = Entities.FindByName(`chess.piece.${capturedColor}.${move.captured}`).find((p) => p.square === move.to);
             if (captured) {
                 await DiePiece(captured);
             }
@@ -3623,9 +3623,9 @@ async function DiePiece(piece) {
 }
 
 function SpawnPiece(type, color) {
-    let spawner = Instance.FindEntityByName(`chess.template.${type}.${color}`);
+    let [spawner] = Entities.FindByName(`chess.template.${type}.${color}`);
     if (!spawner) {
-        spawner = Instance.FindEntityByName(`chess.template.${type}`);
+        [spawner] = Entities.FindByName(`chess.template.${type}`);
     }
     if (spawner instanceof PointTemplate) {
         const spawned = spawner.ForceSpawn();

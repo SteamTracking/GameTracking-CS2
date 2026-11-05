@@ -39,6 +39,7 @@
 %s:autowake
 %s:interrupt
 %s:wait
+%s_c
 (%s:%d)
 (debug)
 *** Test failure: "%s"
@@ -863,6 +864,7 @@ PrintStringWithLeafSuggestions: %s\n
 Probable infinite loop detected! Terminating pulse cursor after %d consecutive instructions (%s)
 Probable runaway cursor creation detected! Permanently disabling this graph instance (%s)
 Process Selector
+Pulse graphs not allowed from untrusted addons.\n
 Pulse system: minimal vpulse definition loading enabled - graphs may be incomplete!\n
 Pulse: %s 
 PulseSystemEventCursorResult_t
@@ -1364,6 +1366,7 @@ propattr_flatten_into_parent_row
 propdataname
 public_output::%s
 public_output::%s::%s
+pulse/pulse_enabled_for_untrusted_addons
 pulse_bindings
 pulse_editor
 pulse_fingerprints

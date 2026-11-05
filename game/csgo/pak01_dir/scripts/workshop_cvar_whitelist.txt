@@ -223,6 +223,7 @@
 		"mp_death_drop_defuser",								
 		"mp_death_drop_grenade",								
 		"mp_death_drop_gun",									
+		"mp_death_drop_taser",
 		"mp_death_drop_healthshot",
 		"mp_deathcam_skippable",								
 		"mp_default_team_winner_no_objective",					

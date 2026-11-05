@@ -43,12 +43,15 @@ declare module "cs_script/point_script"
 
     export const GameRules: IGameRules;
 
+    export const Entities: IEntities;
+
     type Vector = { x: number, y: number, z: number };
     type RotationVector = { x: number, y: number, z: number };
     type QAngle = { pitch: number, yaw: number, roll: number };
     type ColorArg = { r: number, g: number, b: number, a?: number };
     type Color = { r: number, g: number, b: number, a: number };
     type InputValue = boolean | number | string | Vector | Color | undefined;
+    type EntityKeyValue = boolean | number | string | Vector | QAngle;
 
     /**
      * The API provided to scripts attached to a point_script entity.
@@ -110,6 +113,8 @@ declare module "cs_script/point_script"
         OnPlayerDisconnect(callback: (event: { playerSlot: number }) => void): void;
         /** Called when a player respawns, changes team, or is placed back at spawn due to a round restart */
         OnPlayerReset(callback: (event: { player: CSPlayerPawn }) => void): void
+        /** Called when a player takes or releases control of a bot. */
+        OnBotControl(callback: (event: { controller: CSPlayerController }) => void): void;
         /** Called when a player changes team */
         OnPlayerTeamChanged(callback: (event: { player: CSPlayerPawn, oldTeam: number }) => void): void
         /** Called when a new round begins */
@@ -191,23 +196,6 @@ declare module "cs_script/point_script"
         /** Called when a button in a CustomHudLayout is clicked. */
         OnCustomHudClicked( callback: (event: {player: CSPlayerController, layout: CustomHudLayout, buttonId: string}) => void ): void;
 
-        /** Fire the input on all targets matching the specified names. */
-        EntFireAtName(config: { name: string, input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number }): void;
-        /** Fire the input on the specified target. */
-        EntFireAtTarget(config: { target: Entity, input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number }): void;
-        /** Connect the output of an entity to a callback. The return value is a connection id that can be used in `DisconnectOutput` */
-        ConnectOutput(target: Entity, output: string, callback: (inputData: { value?: InputValue, caller?: Entity, activator?: Entity }) => any): number | undefined;
-        /** Find entities by name. */
-        DisconnectOutput(connectionId: number): void;
-
-        /** Find the first entity matching the specified name. */
-        FindEntityByName(name: string): Entity | undefined;
-        /** Find entities matching the specified name. */
-        FindEntitiesByName(name: string): Entity[];
-        /** Find the first entity of the specified class name. */
-        FindEntityByClass(className: string): Entity | undefined;
-        /** Find entities of the specified class name. */
-        FindEntitiesByClass(className: string): Entity[];
         /** Get the player controller in the given slot. */
         GetPlayerController(playerSlot: number): CSPlayerController | undefined;
         /** Get all the player controllers. Includes disconnected players. */
@@ -240,11 +228,12 @@ declare module "cs_script/point_script"
 
         /**
          * Loads resources on the server and clients to avoid hitches when later referenced.
-         * Supports .vmdl, .vpcf, .vmat, and .vsnd resources.
+         * `resources` supports .vmdl, .vpcf, .vmat, and .vsnd resources.
+         * `entities` takes entity class names or subclass names.
          * @experimental This feature is experimental and may experience breaking changes.
          * Please send feedback to CSGOTeamFeedback@valvesoftware.com with "cs_script Feedback" in the subject line.
          */
-        Precache(config: { resources: string[] }): CSPrecache | undefined;
+        Precache(config: { resources?: string[], entities?: string[] }): CSPrecache | undefined;
 
         /** @deprecated This method will be removed in a future update */
         OnBeforePlayerDamage(callback: () => any): void;
@@ -260,9 +249,13 @@ declare module "cs_script/point_script"
         DebugBox(mins: Vector, maxs: Vector, duration: number, color: ColorArg): void;
         /** @deprecated This overload will be removed in a future update */
         DebugSphere(center: Vector, radius: number, duration: number, color: ColorArg): void;
-        /** @deprecated This overload will be removed in a future update */
+        /** @deprecated This method will be removed in a future update */
+        EntFireAtName(config: { name: string, input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number }): void;
+        /** @deprecated This method will be removed in a future update */
         EntFireAtName(name: string, input: string, inputData?: InputValue | { value?: InputValue, caller?: Entity, activator?: Entity }, delay?: number): void;
-        /** @deprecated This overload will be removed in a future update */
+        /** @deprecated This method will be removed in a future update */
+        EntFireAtTarget(config: { target: Entity, input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number }): void;
+        /** @deprecated This method will be removed in a future update */
         EntFireAtTarget(target: Entity, input: string, inputData?: InputValue | { value?: InputValue, caller?: Entity, activator?: Entity }, delay?: number): void;
         /** @deprecated This method will be removed in a future update */
         Msg(text: any): void;
@@ -286,6 +279,18 @@ declare module "cs_script/point_script"
         SetRoundRemainingTime(time: number): void;
         /** @deprecated This method will be removed in a future update */
         AddTeamMoney(team: number, reason: CSTeamMoneyReason, amount?: number): void;
+        /** @deprecated This method will be removed in a future update */
+        FindEntityByName(name: string): Entity | undefined;
+        /** @deprecated This method will be removed in a future update */
+        FindEntitiesByName(name: string): Entity[];
+        /** @deprecated This method will be removed in a future update */
+        FindEntityByClass(className: string): Entity | undefined;
+        /** @deprecated This method will be removed in a future update */
+        FindEntitiesByClass(className: string): Entity[];
+        /** @deprecated This method will be removed in a future update */
+        ConnectOutput(target: Entity, output: string, callback: (inputData: { value?: InputValue, caller?: Entity, activator?: Entity }) => any): number | undefined;
+        /** @deprecated This method will be removed in a future update */
+        DisconnectOutput(connectionId: number): void;
     }
     
     /**
@@ -360,6 +365,32 @@ declare module "cs_script/point_script"
          * setting corresponding to the reason parameter.
          */
         AddTeamMoney(team: number, reason: CSTeamMoneyReason, amount?: number): void;
+    }
+
+    /**
+     * An API provided to scripts for general entity interaction.
+     * Access these functions by importing Entities from "cs_script/point_script".
+     */
+    interface IEntities
+    {
+        /**
+         * Spawns a set of entities.
+         * @experimental This feature is experimental and may experience breaking changes.
+         * Please send feedback to CSGOTeamFeedback@valvesoftware.com with "cs_script Feedback" in the subject line.
+         */
+        Spawn(entities: ({ classname: string, origin?: Vector, angles?: QAngle } & { [key: string]: EntityKeyValue })[]): Entity[];
+
+        /** Find all entities with the specified name. */
+        FindByName(name: string): Entity[];
+        /** Find all entities of the specified class name. */
+        FindByClass(className: string): Entity[];
+
+        /** Fire the input on all entities with the specified name. */
+        FireInput(config: { name: string, input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number }): void;
+        /** Connect the output of an entity to a callback. The return value is a connection id that can be used in `DisconnectOutput` */
+        ConnectOutput(config: { target: Entity, output: string, callback: (inputData: { value?: InputValue, caller?: Entity, activator?: Entity }) => any }): number | undefined;
+        /** Disconnect an output connection made by `ConnectOutput`. */
+        DisconnectOutput(connectionId: number): void;
     }
 
     export enum CSMoveType {
@@ -806,6 +837,8 @@ declare module "cs_script/point_script"
         TakeDamage(takeDamage: EntityDamage): number;
         Kill(): void;
         Remove(): void;
+        /** Fire the input on this entity. */
+        FireInput(config: { input: string, value?: InputValue, caller?: Entity, activator?: Entity, delay?: number }): void;
 
         /** @deprecated This overload will be removed in a future update */
         Teleport(newPosition: Vector | null, newAngles: QAngle | null, newVelocity: Vector | null): void;
@@ -927,6 +960,8 @@ declare module "cs_script/point_script"
         GetPlayerName(): string;
         GetPlayerPawn(): CSPlayerPawn | undefined;
         GetObserverPawn(): CSObserverPawn | undefined;
+        IsControllingBot(): boolean;
+        GetControlledBotPawn(): CSPlayerPawn | undefined;
         GetScore(): number;
         /** Add to the player's score. Negative values are allowed but the score will not go below zero. */
         AddScore(points: number): void;
@@ -961,6 +996,8 @@ declare module "cs_script/point_script"
         GetPlayerController(): CSPlayerController | undefined;
         /** Gets the controller that this player pawn was originally spawned for. */
         GetOriginalPlayerController(): CSPlayerController;
+        /** Reset the player to full health and ammo. If dead they will be alive with the default weapon loadout. Cancels any bot takeover. */
+        Reset(): void;
         /** @returns `true` if specified inputs are pressed at the end of the current tick. */
         IsInputPressed(inputs: CSInputs): boolean;
         /** @returns `true` if specified inputs went from released to pressed at some point during the current tick. */

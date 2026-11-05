@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347771 
 
-Manifest ID / date     : 5808144614069275570 / 11/03/2026 00:26:34 
+Manifest ID / date     : 3019944380727688040 / 11/05/2026 00:09:34 
 Total number of files  : 183 
 Total number of chunks : 7219 
-Total bytes on disk    : 7753537022 
-Total bytes compressed : 5011473536 
+Total bytes on disk    : 7753523710 
+Total bytes compressed : 5011490592 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -54,7 +54,7 @@ Total bytes compressed : 5011473536
         567656      1 79759ec5c92853b73627da14e5e70f6c6c580a78     0 game\bin\win64\phonon4.dll
       13950616     14 d97d9e5d6a64e98bd812ebe70a023c39a24e833b     0 game\bin\win64\physicsbuilder.dll
        1522840      2 eba06453afcdd6d6bf4b608fcc3fe6dcde592cb7     0 game\bin\win64\propertyeditor.dll
-       2031768      2 6f40ef4d08911950fad3e1a7fb65b4ec1672b3ee     0 game\bin\win64\pulse_system.dll
+       2032792      2 4029fe37dc9abc273fedded7eb5a26dbf6716f06     0 game\bin\win64\pulse_system.dll
         131432      1 3177661f6e066460f2c859d2d5453323b68d6eda     0 game\bin\win64\Qt5Concurrent.dll
        6288744      6 5f5173c825810bbd849e32b5e6e2cb32f6c456d2     0 game\bin\win64\Qt5Core.dll
        7007080      7 08882a63e4c0962b33376da66224655f2b1d5e06     0 game\bin\win64\Qt5Gui.dll
@@ -110,10 +110,10 @@ Total bytes compressed : 5011473536
        3185298      4 10bea5cfe6883540880c748e9506a04ad11e53ca     0 game\core\shaders_pc_000.vpk
          25563      1 72204b8136ab7b8df21a52fb0b8b674f8c578b06     0 game\core\shaders_pc_dir.vpk
        1728360      2 4e48ff45949c7f3cd8fd8ab5b7514ae27f44e53a     0 game\csgo\bin\legacy\csgo_legacy_app.exe
-      39224472     38 51a449b7cac525d9470b3d98debc6a43467ead20     0 game\csgo\bin\win64\client.dll
+      39227544     38 a9b6232c2c6286eaa7d3df5cf6161bd08b40ff71     0 game\csgo\bin\win64\client.dll
        1389208      2 425f2ec89bdaa5b0d2ca47945fa08ec906661749     0 game\csgo\bin\win64\host.dll
        1890968      2 ebcf0d685e5347a5e246521cc0ee694f5d266bb3     0 game\csgo\bin\win64\matchmaking.dll
-      34690200     34 b3c3e96f47acbdcf00655a3d7e5db509480eeef5     0 game\csgo\bin\win64\server.dll
+      34672792     34 d190d3118a36646eb284641f8c455f3be33ca56f     0 game\csgo\bin\win64\server.dll
      115209034    117 4bbd01e43063ebade958bb509725b1b48c811b00     0 game\csgo\shaders_pc_000.vpk
      189827159    182 7829b4ede09333c4e30a53d1ef958b9baeaeac39     0 game\csgo\shaders_pc_001.vpk
       38973836     41 55f4f1a11b02a8a25a77a452d24ae14aa04b9f0b     0 game\csgo\shaders_pc_002.vpk

@@ -1,7 +1,7 @@
-import { Instance, BaseModelEntity, Console } from "cs_script/point_script";
+import { Instance, BaseModelEntity, Console, Entities } from "cs_script/point_script";
 
 function GetProp() {
-    const ent = Instance.FindEntityByName("mdlchange.prop_dyn");
+    const [ent] = Entities.FindByName("mdlchange.prop_dyn");
     if (ent instanceof BaseModelEntity) return ent;
 }
 function Init() {
