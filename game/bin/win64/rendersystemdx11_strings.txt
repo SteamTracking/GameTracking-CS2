@@ -828,6 +828,7 @@ FindOrCreateTexture: Texture scope is unspecified!\n
 FindOrCreateTexture: Texture usage is unspecified!\n
 Floating point "Predictor" not supported with %d data format
 ForceHardwareSync
+ForceLoadShader: invalid shader loading state %d, shader %p has likely been freed\n
 FormatMessageW
 Found %d streaming textures in array, but in-flight count is %d\n
 Found registry key %ls in %ls

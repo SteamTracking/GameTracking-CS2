@@ -12,4 +12,5 @@ class CNmAimCSNode::CDefinition : public CNmPassthroughNode::CDefinition
 	float32 m_flHandIKBlendInTimeSeconds;
 	float32 m_flActionBlendTimeSeconds;
 	float32 m_flPlantingBlendTimeSeconds;
+	float32 m_flTransitionBlendTimeSeconds;
 };

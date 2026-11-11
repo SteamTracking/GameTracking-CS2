@@ -2357,6 +2357,7 @@ Error_OutOfMemory
 Escape sequence did not encode a valid character.
 Escape sequence terminated prematurely.
 Escape sequence was neither a valid property nor a valid character class name.
+Events
 Evicted
 EvictedToDisk
 Exceeded nested brace limit.

@@ -113,7 +113,7 @@ PS
 	Texture3D g_tCopyColor < Attribute("CustomTexture1"); SrgbRead(true); >;
 	Texture2D g_tDepthTexture < Attribute("CustomTexture0"); SrgbRead(false); >;
 	float3 g_vColorTint < Default3(1, 1, 1); Attribute("ColorTint"); UiType(VectorText); >;
-	float4 g_vScaleAndBias < Default2(0, 1); Attribute("ScaleAndBias"); UiType(VectorText); >;
+	float4 g_vScaleAndBias < Default4(0, 1, 0, 1); Attribute("ScaleAndBias"); UiType(VectorText); >;
 	
 	// Color
 	CreateInputTexture2D(TextureColorWarp3D, Srgb, 8, "", "_z000", "Color,10/Color Warp", Default4(1, 1, 1, 1));

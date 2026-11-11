@@ -236,7 +236,7 @@ PS
 	Texture2D<float4> g_tDepthNoCharacters : register(t56, space1);
 	Texture2D<float4> g_tMaskTexture : register(t55, space1);
 	Texture3D<float4> g_tSmokeVolumeTexA_Atlas : register(t51, space1);
-	SamplerState g_sTrilinearClamp : register(s17, space1);
+	SamplerState g_sTrilinearClamp : register(s18, space1);
 	Texture3D<float4> g_tSmokeVolumeLPV_Atlas : register(t52, space1);
 	
 	static float4 gl_FragCoord;

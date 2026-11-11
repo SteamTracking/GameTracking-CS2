@@ -15,4 +15,5 @@ class CMapInfo : public C_PointEntity
 	float32 m_flEnvPuddleRippleDirection;
 	float32 m_flEnvWetnessCoverage;
 	float32 m_flEnvWetnessDryingAmount;
+	bool m_bFrostEnabled;
 };

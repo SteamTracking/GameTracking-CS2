@@ -1,0 +1,124 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+// Move to a random spot near the planted bomb, then take the nearest free hiding spot and watch where enemies could come from.
+{
+	type = "decorator_sensor"
+	entity_type_filter = "CLASSNAME"
+	class_name = "planted_c4"
+	output = "PlantedBomb"
+	priority = 1
+	child =
+	{
+		type = "condition_is_empty"
+		input = "PlantedBomb"
+		negated = 1
+		child =
+		{
+			type = "sequencer"
+			children =
+			[
+				{
+					type = "action_choose_random_waypoint_within_radius"
+					origin = "PlantedBomb"
+					radius = 500
+					output = "BombHoldSpot"
+				},
+				{
+					type = "action_move_to"
+					destination = "BombHoldSpot"
+					movement_type = "BT_ACTION_MOVETO_RUN"
+					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+					threat = "NearestThreatMemory"
+				},
+				{
+					type = "selector"
+					children =
+					[
+						// take cover at the closest hiding spot nobody is in
+						{
+							type = "sequencer"
+							children =
+							[
+								{
+									type = "action_hide"
+									max_range = 400
+									output = "BombHidingSpot"
+								},
+								{
+									type = "action_move_to"
+									destination = "BombHidingSpot"
+									movement_type = "BT_ACTION_MOVETO_RUN"
+									route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+									threat = "NearestThreatMemory"
+									arrival_epsilon = 20
+								},
+								// only stay if no teammate got here first
+								{
+									type = "decorator_sensor"
+									entity_type_filter = "PLAYERS"
+									team_filter = "SAME"
+									shape =
+									{
+										type = "sensor_shape_sphere"
+										radius = 80
+									}
+									output = "TeammatesAtSpot"
+									child =
+									{
+										type = "condition_is_empty"
+										input = "TeammatesAtSpot"
+										child =
+										{
+											type = "decorator_repeat"
+											amount = 4
+											child =
+											{
+												type = "subtree"
+												file = "scripts/ai/retakes/modules/bt_watch_approach_points.kv3"
+												name = "WatchApproachPoints"
+											}
+										}
+									}
+								}
+							]
+						},
+						// Else: a teammate already has this spot, leave so we pick another one
+						{
+							type = "decorator_sensor"
+							entity_type_filter = "PLAYERS"
+							team_filter = "SAME"
+							shape =
+							{
+								type = "sensor_shape_sphere"
+								radius = 80
+							}
+							output = "TeammatesAtSpot"
+							child =
+							{
+								type = "condition_is_empty"
+								input = "TeammatesAtSpot"
+								negated = 1
+								child =
+								{
+									type = "action_wait"
+									wait_time_min = 0.1
+									wait_time_max = 0.1
+								}
+							}
+						},
+						// Else: no hiding spot nearby, watch from here for a bit
+						{
+							type = "decorator_repeat"
+							amount = 2
+							child =
+							{
+								type = "subtree"
+								file = "scripts/ai/retakes/modules/bt_watch_approach_points.kv3"
+								name = "WatchApproachPoints"
+							}
+						}
+					]
+				}
+			]
+		}
+	}
+}

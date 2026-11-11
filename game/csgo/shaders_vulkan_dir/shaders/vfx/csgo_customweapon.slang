@@ -891,10 +891,10 @@ PS
 	float g_fOverlayMetalness < UiType(Slider); UiGroup("Paint Inputs/Lighting/22"); >;
 	float g_fOverlayStrength < Default(1); UiType(Slider); UiGroup("Paint Inputs/Overlay/22"); >;
 	float g_flCaseHardeningRampOffset < UiType(Slider); UiGroup("Paint Inputs/Pattern/22"); >;
-	float3 g_vHalftonePatternLevels < Default2(0, 0.5); Range2(-10, 0, 10, 1); UiType(VectorText); UiGroup("Paint Inputs/Pattern/22"); Expression(float3(-this.x,-1.4427*log(max(.0001,1-this.y)),2-this.z)); >;
+	float3 g_vHalftonePatternLevels < Default3(0, 0.5, 1); Range2(-10, 0, 10, 1); UiType(VectorText); UiGroup("Paint Inputs/Pattern/22"); Expression(float3(-this.x,-1.4427*log(max(.0001,1-this.y)),2-this.z)); >;
 	float g_fOverlayMaterialStrength < Default(1); UiType(Slider); UiGroup("Paint Inputs/Overlay/23"); >;
-	float4 g_vCaseHardening < Default(0); UiType(VectorText); UiGroup("Paint Inputs/Pattern/23"); >;
-	float2 g_vHalftoneThresholds < Default(0); UiType(VectorText); UiGroup("Paint Inputs/Pattern/23"); >;
+	float4 g_vCaseHardening < Default2(0, 1); UiType(VectorText); UiGroup("Paint Inputs/Pattern/23"); >;
+	float2 g_vHalftoneThresholds < Default2(0, 1); UiType(VectorText); UiGroup("Paint Inputs/Pattern/23"); >;
 	float g_fOverlayBrightness < Default(1); Range(0, 2); UiType(Slider); UiGroup("Paint Inputs/Overlay/24"); >;
 	float g_flHalftoneRotationOffsetA < Range(-360, 360); UiType(Slider); UiGroup("Paint Inputs/Pattern/24"); >;
 	float g_fOverlayDurability < UiType(Slider); UiGroup("Paint Inputs/Overlay/25"); Expression(1-this); >;
@@ -1377,10 +1377,10 @@ PS
 	layout(set = 1) uniform _2733 _Globals_;
 	
 	layout(set = 1, binding = 30) uniform texture2D g_tAmbientOcclusion;
-	layout(set = 1, binding = 23) uniform sampler g_sTrilinearClamp;
+	layout(set = 1, binding = 24) uniform sampler g_sTrilinearClamp;
 	layout(set = 1, binding = 31) uniform texture2D g_tMasks;
 	layout(set = 1, binding = 38) uniform texture2D g_tWear;
-	layout(set = 1, binding = 22) uniform sampler g_sTrilinearWrap;
+	layout(set = 1, binding = 23) uniform sampler g_sTrilinearWrap;
 	layout(set = 1, binding = 39) uniform texture2D g_tGrunge;
 	layout(set = 1, binding = 35) uniform texture2D g_tMetalness;
 	layout(set = 1, binding = 34) uniform texture2D g_tColor;

@@ -228,7 +228,7 @@ PS
 	[[layer_constant]] ExternalDescriptorSet g_lightBinnerGpuSet < Source(ExternalDescSet); Attribute("g_lightBinnerGpuSet"); >;
 	int g_nToolsVisMode < Attribute("g_nToolsVisMode"); UiType(Slider); >;
 	TextureCube g_tFogCubeTexture < Attribute("CubemapFogTexture"); SrgbRead(true); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
 	// Fog
@@ -262,7 +262,7 @@ PS
 	};
 	
 	TextureCube<float4> g_tFogCubeTexture : register(t42, space1);
-	SamplerState g_sTrilinearClamp : register(s17, space1);
+	SamplerState g_sTrilinearClamp : register(s18, space1);
 	
 	static float3 input_0;
 	static float4 output_0;

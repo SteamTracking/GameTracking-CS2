@@ -68,7 +68,7 @@ VS
 	
 	// Override Color
 	float g_OverrideColorFactor < UiType(Slider); UiGroup("Override Color"); >;
-	float4 g_vOverrideColor < Default(0); UiType(Color); UiGroup("Override Color"); Expression(SrgbGammaToLinear(this)); >;
+	float4 g_vOverrideColor < Default4(0, 0, 0, 1); UiType(Color); UiGroup("Override Color"); Expression(SrgbGammaToLinear(this)); >;
 	
 	// Source 2 Viewer - https://valveresourceformat.github.io
 	// SPIR-V source, HLSL reflection with SPIRV-Cross by KhronosGroup

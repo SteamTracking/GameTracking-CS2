@@ -106658,7 +106658,6 @@ materials/de_inferno/ground/inferno_stone_floor_08_ao_tga_961ee77e.vtex
 materials/de_inferno/ground/inferno_stone_floor_08_color_tga_199a7503.vtex
 materials/trim/concrete_trim_02_ao_tga_68704a36.vtex
 materials/trim/concrete_trim_02_color_tga_971de7c0.vtex
-weapons/models/c4/materials/c4_digits_psd_52746c2d.vtex
 weapons/models/c4/materials/weapon_c4_digits_vmat_g_tmetalness_5818ca09.vtex
 weapons/models/shared/shells/shotgun/mag7_bullet_color_psd_29ec1a9d.vtex
 maps/ar_shoots_night.vmap
@@ -134924,3 +134923,7 @@ panorama/layout/hud/hudmutators.vxml
 panorama/styles/hud/hudmutators.vcss
 sounds/graphs/bighead_pitch.vsnd
 panorama/images/econ/keychains/bud2025/kc_bud2025_png.vtex
+materials/dev/frost.vtex
+weapons/models/c4/materials/c4_digits_mask_psd_3de339d1.vtex
+weapons/models/c4/materials/c4_digits_psd_f79d8a5b.vtex
+weapons/models/c4/materials/weapon_c4_digits_vmat_g_tcolor_6dc78c9e.vtex

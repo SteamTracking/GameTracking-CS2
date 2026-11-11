@@ -2586,6 +2586,7 @@ Cant find specified effector bone ID ('%s') for two bone IK
 Ceiling - round float up to nearest integer)
 Ceiling Float
 Chain Lookat
+Chain Lookat Task - Trying to perform a chain lookat on top of an additive pose, this is not allowed!
 Check Requirement
 Check Type
 Check if any element of 'a' compares equal to 'element'.

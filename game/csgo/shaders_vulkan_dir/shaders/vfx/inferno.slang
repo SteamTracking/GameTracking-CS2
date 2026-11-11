@@ -176,7 +176,7 @@ PS
 	
 	layout(set = 1, binding = 50) uniform texture2D g_tSceneDepth;
 	layout(set = 1, binding = 51) uniform texture3D g_tSmokeNoiseTex;
-	layout(set = 1, binding = 16) uniform sampler g_sTrilinearWrap;
+	layout(set = 1, binding = 17) uniform sampler g_sTrilinearWrap;
 	
 	layout(location = 0) in vec2 input_0;
 	layout(location = 2) in vec3 input_2;

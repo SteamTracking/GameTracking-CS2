@@ -260,9 +260,9 @@ CMaterial2::GetVertexShaderInputSignature(780): Error! Material "%s" doesn't hav
 CMaterial2::GetVertexShaderInputSignature(812): Error! Material "%s" doesn't have a CVsInputSignatureVector!\n
 CMaterial2::GetVertexShaderInputSignature(830): Error! Material "%s" has invalid signature index %d!\n
 CMaterial2::LoadShadersAndSetupModes(1662): Error creating shader %s for material %s!\n
-CMaterialMode::ComputeWorkItemsToSetupStaticCombosForMode(2956): Failed call to FindOrCreateStaticComboDataInCache()!\n
-CMaterialMode::FindOrLoadVfx(2475): DxSupportLevel %d not supported!\n
-CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(1067): ERROR!!! Shaders not freed before shader reload! (See spew above)\n\n
+CMaterialMode::ComputeWorkItemsToSetupStaticCombosForMode(2958): Failed call to FindOrCreateStaticComboDataInCache()!\n
+CMaterialMode::FindOrLoadVfx(2477): DxSupportLevel %d not supported!\n
+CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(1069): ERROR!!! Shaders not freed before shader reload! (See spew above)\n\n
 CMaterialSystem2::FrameUpdate
 CMaterialSystem2::GetErrorMaterial(505): GetErrorMaterial() called when m_pMaterialTypeManager == NULL!\n
 CMaterialSystem2::Init(153): ERROR! Empty shader mode string found! Use "Default" instead!\n
@@ -427,9 +427,9 @@ MakeOrthonormalForward
 MakeOrthonormalRight
 Malgun Gothic
 Marlett
-MatPrintShaderInfo(3492): Error reading index!\n
-MatPrintShaders(3209): pVfx == NULL!\n
-MatPrintShaders(3258): pVfx == NULL!\n
+MatPrintShaderInfo(3494): Error reading index!\n
+MatPrintShaders(3211): pVfx == NULL!\n
+MatPrintShaders(3260): pVfx == NULL!\n
 MatUtilsRenderMesh
 MatUtilsRenderOutlinedRect
 MatUtilsRenderPrimitives
@@ -713,8 +713,8 @@ WARNING: Invalid resource version (%d): %s\n
 \nCMaterial2::LoadShadersAndSetupModes(1748): Error creating shader %s for material %s!\n
 \nCMaterial2::LoadShadersAndSetupModes(1753): Error creating shader %s and cannot load error.vfx instead!\n
 \nCMaterial2::LoadShadersAndSetupModes(1763): Error creating static combos for shader %s and error.vfx instead!\n
-\nCMaterialMode::ComputeRenderablePassesForContextInternal(3373): All bad! The error material failed in dynamic shader compile!\n
-\nCMaterialMode::CreateCommandBuffer(4281): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s\n
+\nCMaterialMode::ComputeRenderablePassesForContextInternal(3375): All bad! The error material failed in dynamic shader compile!\n
+\nCMaterialMode::CreateCommandBuffer(4283): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s\n
 \nInitDynamicShaderCompileDLL(119): ERROR! Can't load vfx_dx dll, dynamic shader compile unavailable!\n
 \nMS,\nVS_MS_RTX
 \nPS_RENDER_STATE

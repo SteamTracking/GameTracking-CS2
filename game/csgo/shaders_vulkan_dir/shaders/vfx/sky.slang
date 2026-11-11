@@ -169,7 +169,7 @@ PS
 	};
 	
 	TextureCube<float4> g_tSkyTexture : register(t50, space1);
-	SamplerState DefaultSamplerState_0 : register(s25, space1);
+	SamplerState DefaultSamplerState_0 : register(s26, space1);
 	
 	static float3 input_0;
 	static float4 output_0;

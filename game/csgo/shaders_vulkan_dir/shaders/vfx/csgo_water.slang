@@ -344,7 +344,7 @@ PS
 	Texture2D g_tSceneDepth < Attribute("FramebufferDepthTexture"); SrgbRead(false); >;
 	Texture2D g_tShadowDepthBufferDepth < Attribute("ShadowDepthBuffer"); SrgbRead(false); >;
 	Texture2D g_tSsao < Attribute("SSAOOcclusionFactor"); SrgbRead(false); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float2 g_vRoughness < UiType(VectorText); Expression(max(.01,1-g_flGlossiness).x); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
@@ -392,7 +392,7 @@ PS
 	// Specular
 	float g_flReflectionPower < Default(1); Range(0.01, 10); UiType(Slider); UiGroup("Specular"); >;
 	float3 g_vReflectionColor < Default3(1, 1, 1); UiType(Color); UiGroup("Specular"); Expression(SrgbGammaToLinear(this)); >;
-	float3 g_vReflectionDir < Default(0); Range3(-1, -1, -1, 1, 1, 1); UiType(VectorText); UiGroup("Specular"); >;
+	float3 g_vReflectionDir < Default3(0, 0, 1); Range3(-1, -1, -1, 1, 1, 1); UiType(VectorText); UiGroup("Specular"); >;
 	
 	// Refractions
 	float g_flRefractionAmount < Default(1); UiType(Slider); UiGroup("Refractions"); >;
@@ -503,9 +503,9 @@ PS
 	    uint _m0[];
 	} g_CullBits_1;
 	
-	layout(set = 1, binding = 18) uniform sampler g_sTrilinearClamp;
+	layout(set = 1, binding = 19) uniform sampler g_sTrilinearClamp;
 	layout(set = 1, binding = 53) uniform texture2D g_tNormal;
-	layout(set = 1, binding = 27) uniform sampler DefaultSamplerState_0;
+	layout(set = 1, binding = 28) uniform sampler DefaultSamplerState_0;
 	layout(set = 1, binding = 55) uniform texture2D g_tSceneDepth;
 	layout(set = 1, binding = 14) uniform sampler AddressU_Clamp_AddressV_Clamp_Filter_MinMagMipPoint;
 	layout(set = 1, binding = 41) uniform textureCubeArray g_tFallbackCubemap;

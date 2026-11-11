@@ -1815,6 +1815,7 @@
 	envpuddlerippledirection(float) // FIELD_FLOAT32 m_flEnvPuddleRippleDirection
 	envwetnesscoverage(float) // FIELD_FLOAT32 m_flEnvWetnessCoverage
 	envwetnessdryingamount(float) // FIELD_FLOAT32 m_flEnvWetnessDryingAmount
+	frostenabled(boolean) // FIELD_BOOLEAN m_bFrostEnabled
 	input FireWinCondition(integer) // PVAL_INT param
 ]
 

@@ -1251,6 +1251,7 @@ $modelname$_surface
 .?AUCAttr_m_flTraceRadius@?1??GetStaticAttributes@CModelDocFoot@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flTracksConstantThreshold@?1??GetStaticAttributes@CModelDocAclParameters@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flTracksPrecision@?1??GetStaticAttributes@CModelDocAclParameters@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_flTransitionBlendTimeSeconds@?1??GetAttributeTable_Impl@CNmGraphDocAimCSNode@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flTranslationConstantThreshold@?1??GetStaticAttributes@CModelDocAclParameters@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flTranslationIgnoreThreshold@?1??GetStaticAttributes@CModelDocAnimConstraintRbf@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flTranslationWeight@?1??GetStaticAttributes@CModelDocAnimIkLockLocal@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -9176,7 +9177,6 @@ $modelname$_surface
 <pair_a> 
 <pair_b> 
 <unnamed>
->fff>
 @%s%s
 @%s_lookFrame_0
 @%s_lookFrame_1
@@ -9241,7 +9241,6 @@ Accent frame of the gesture/posture, unused
 AclParameters
 Action Blend Time Seconds
 Action Blend Time: %.2fs
-Action Weight: %.2f
 Activation Distance
 Active By Default
 ActiveArea
@@ -10130,7 +10129,7 @@ CModelMaterialGroupName
 CModelMesh Index Buffer
 CModelMeshRenderData::BuildVertexBuffersForMaterialGroups(732): 
 CModelMeshVertexBuffer
-CNmAimCSTask::TrySetupSolverData
+CNmAimCSTask::TrySetupBoneIndices
 CNmBoneMaskTaskList::GenerateBoneMask
 CNmChainLookatNode::CDefinition::InstantiateNode
 CNmChainLookatTask::CNmChainLookatTask
@@ -10307,6 +10306,7 @@ Center vertices relative to the origin using average vertex position. Optionally
 Chain Length
 Chain Length: %d
 Chain Lookat
+Chain Lookat Task - Trying to perform a chain lookat on top of an additive pose, this is not allowed!
 Chain Rotation Weight
 Chain Weights
 Changes how the cycle time is computed.  Mainly used with autolayer.\nShould not be used with AnimGraph.
@@ -11062,6 +11062,7 @@ Event ID
 Event ID: %s
 Event ID: Invalid
 Event IDs
+Events
 Events Ignored
 Exact
 Exclude Bones With Exact Flags
@@ -11433,6 +11434,7 @@ Has Stray Radius
 Has Up Frame
 Has World Collision
 Has Yaw Constraint
+Head Lookat Weight: %.2f
 Health Override
 Heat
 Heel Land Frame
@@ -12565,6 +12567,7 @@ Planarconfig tag value assumed incorrect, assuming data is contig instead of chu
 Planarize
 Plane Primitive
 Planting Blend Time Seconds
+Planting Blend Time: %.2fs
 Planting Disable Multiplier: %.2f
 Plastic
 Plasticity
@@ -13100,6 +13103,8 @@ Soft Link
 Softbody
 Software
 Solver Settings
+Solver Transition Blend Time: %.2fs
+Solver Transition Weight: %.2f
 Some events have invalid characters in their IDs
 Some events have unset IDs
 Some events have unset event classes
@@ -13458,6 +13463,7 @@ Transform Bindpose Bone
 Transform Bindpose Bone [%s]
 Transform Vertices
 Transforms the animation by the specified values
+Transition Blend Time Seconds
 Transition Conduit
 Transition Event Condition
 Translate the overall model by the specified vector.
@@ -13677,6 +13683,7 @@ Warp Z
 Warp event is not allowed to be within the first or last frame!
 Wavelength
 Weapon Action
+Weapon Action Weight: %.2f
 Weapon Category
 Weapon Constraint
 Weapon Drop
@@ -13784,7 +13791,6 @@ Zero input vector for info node!
 [anim]
 [cloth] | [procedural]
 [procedural]
-\fB33
 \n***ASSERT FAILED*** Image data section has too many channels (%d).
 \n***ASSERT FAILED*** Pointer is null.
 \n***ERROR*** [DecompressRle] Malformed RLE data encountered
@@ -13966,6 +13972,8 @@ applicable_to
 apply_fast_sweep
 applymodelspacetranslation
 are_effects_mutually_exclude
+arm_lower_L
+arm_lower_R
 arm_upper_L
 arm_upper_R
 assetTag
@@ -14128,6 +14136,8 @@ choices
 choreoanchorclass
 chunkCount
 clamp
+clavicle_L
+clavicle_R
 clear_rest_of_selection
 clear_selection
 close_outline_at_hard_edges

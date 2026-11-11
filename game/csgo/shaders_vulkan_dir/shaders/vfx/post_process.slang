@@ -181,7 +181,7 @@ PS
 	layout(set = 1) uniform _1245 PostProcessingConstantBuffer_t;
 	
 	layout(set = 1, binding = 50) uniform texture2D g_tColorBuffer;
-	layout(set = 1, binding = 25) uniform sampler Filter_MinMagLinearMipPoint;
+	layout(set = 1, binding = 26) uniform sampler Filter_MinMagLinearMipPoint;
 	
 	layout(location = 0) out vec4 output_0;
 	

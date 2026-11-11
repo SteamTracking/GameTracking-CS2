@@ -273,7 +273,7 @@ PS
 	layout(set = 1) uniform _1008 PerViewConstantBuffer_t;
 	
 	layout(set = 1, binding = 42) uniform textureCube g_tFogCubeTexture;
-	layout(set = 1, binding = 17) uniform sampler g_sTrilinearClamp;
+	layout(set = 1, binding = 18) uniform sampler g_sTrilinearClamp;
 	
 	layout(location = 0) in vec3 input_0;
 	layout(location = 0) out vec4 output_0;

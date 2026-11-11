@@ -12,6 +12,7 @@
 	"setting.videocfg_texture_detail"			"2"
 	"setting.videocfg_particle_detail"			"2"
 	"setting.videocfg_ao_detail"				"2"
+	"setting.videocfg_parallax_detail"			"1"
 	"setting.videocfg_hdr_detail"				"-1"
 	"setting.videocfg_fsr_detail"				"0"
 

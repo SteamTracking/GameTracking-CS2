@@ -182,11 +182,11 @@ CS
 	layout(set = 0) uniform _1011 PerViewConstantBufferCsgo_t;
 	
 	layout(set = 0, binding = 42) uniform texture3D g_tLPV_Irradiance;
-	layout(set = 0, binding = 15) uniform sampler g_sBilinearClamp;
-	layout(set = 0, binding = 16) uniform sampler g_sTrilinearWrap;
+	layout(set = 0, binding = 16) uniform sampler g_sBilinearClamp;
+	layout(set = 0, binding = 17) uniform sampler g_sTrilinearWrap;
 	layout(set = 0, binding = 34) uniform texture3D g_tLightCookieTexture;
-	layout(set = 0, binding = 22) uniform sampler g_sCookieSampler;
-	layout(set = 0, binding = 23) uniform samplerShadow g_tShadowDepthBufferCmpSampler;
+	layout(set = 0, binding = 23) uniform sampler g_sCookieSampler;
+	layout(set = 0, binding = 24) uniform samplerShadow g_tShadowDepthBufferCmpSampler;
 	layout(set = 0, binding = 36) uniform texture2D g_tShadowDepthBufferDepth;
 	layout(set = 0, binding = 46) uniform texture3D g_tLPV_Shadows;
 	layout(set = 0, binding = 158) uniform writeonly image3D g_SmokeVolumeLPV;

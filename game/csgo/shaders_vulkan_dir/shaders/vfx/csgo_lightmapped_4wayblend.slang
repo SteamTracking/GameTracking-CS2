@@ -299,7 +299,7 @@ PS
 	Texture2D g_tParticleShadowBuffer < Attribute("ParticleShadowBuffer"); SrgbRead(false); >;
 	Texture2D g_tShadowDepthBufferDepth < Attribute("ShadowDepthBuffer"); SrgbRead(false); >;
 	Texture2D g_tSsao < Attribute("SSAOOcclusionFactor"); SrgbRead(false); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
 	// Detail
@@ -371,17 +371,17 @@ PS
 	#endif
 	#extension GL_KHR_shader_subgroup_arithmetic : require
 	
-	struct _1654
+	struct _1906
 	{
 	    vec4 _m0[3];
 	};
 	
-	struct _1864
+	struct _2116
 	{
 	    vec4 _m0[4];
 	};
 	
-	struct _2767
+	struct _872
 	{
 	    mat4 _m0[4];
 	};
@@ -452,10 +452,10 @@ PS
 	
 	layout(set = 1) uniform _1574 _Globals_;
 	
-	struct _1920
+	struct _2326
 	{
-	    _1654 _m0;
-	    _1864 _m1;
+	    _1906 _m0;
+	    _2116 _m1;
 	    vec4 _m2;
 	    vec4 _m3;
 	    vec4 _m4;
@@ -471,11 +471,11 @@ PS
 	    float _m14;
 	    float _m15;
 	    float _m16;
-	    _2767 _m17;
-	    _1864 _m18;
+	    _872 _m17;
+	    _2116 _m18;
 	};
 	
-	layout(set = 3) uniform _1920 PerViewLightingConstantBufferGpu_t;
+	layout(set = 3) uniform _2326 PerViewLightingConstantBufferGpu_t;
 	
 	struct _1194
 	{
@@ -498,12 +498,12 @@ PS
 	} g_BarnLights_1;
 	
 	layout(set = 1, binding = 43) uniform texture2D g_tColor;
-	layout(set = 1, binding = 19) uniform sampler g_sUserConfig;
+	layout(set = 1, binding = 20) uniform sampler g_sUserConfig;
 	layout(set = 1, binding = 46) uniform texture2D g_tLayer2Color;
 	layout(set = 1, binding = 49) uniform texture2D g_tLayer3Color;
 	layout(set = 1, binding = 52) uniform texture2D g_tLayer4Color;
 	layout(set = 1, binding = 45) uniform texture2D g_tLayer1AmbientOcclusion;
-	layout(set = 1, binding = 16) uniform sampler g_sTrilinearWrap;
+	layout(set = 1, binding = 17) uniform sampler g_sTrilinearWrap;
 	layout(set = 1, binding = 48) uniform texture2D g_tLayer2AmbientOcclusion;
 	layout(set = 1, binding = 51) uniform texture2D g_tLayer3AmbientOcclusion;
 	layout(set = 1, binding = 54) uniform texture2D g_tLayer4AmbientOcclusion;
@@ -512,13 +512,13 @@ PS
 	layout(set = 1, binding = 50) uniform texture2D g_tLayer3NormalRoughness;
 	layout(set = 1, binding = 53) uniform texture2D g_tLayer4NormalRoughness;
 	layout(set = 1, binding = 38) uniform texture2D g_tDynamicAmbientOcclusionDepth;
-	layout(set = 1, binding = 22) uniform sampler g_sCookieSampler;
+	layout(set = 1, binding = 23) uniform sampler g_sCookieSampler;
 	layout(set = 1, binding = 37) uniform texture2D g_tDynamicAmbientOcclusion;
-	layout(set = 1, binding = 18) uniform sampler g_sPointClamp;
-	layout(set = 1, binding = 23) uniform samplerShadow g_tShadowDepthBufferCmpSampler;
+	layout(set = 1, binding = 19) uniform sampler g_sPointClamp;
+	layout(set = 1, binding = 24) uniform samplerShadow g_tShadowDepthBufferCmpSampler;
 	layout(set = 1, binding = 36) uniform texture2D g_tShadowDepthBufferDepth;
 	layout(set = 1, binding = 61) uniform texture2D g_tParticleShadowBuffer;
-	layout(set = 1, binding = 17) uniform sampler g_sTrilinearClamp;
+	layout(set = 1, binding = 18) uniform sampler g_sTrilinearClamp;
 	layout(set = 1, binding = 34) uniform texture3D g_tLightCookieTexture;
 	layout(set = 1, binding = 42) uniform textureCube g_tFogCubeTexture;
 	
@@ -616,104 +616,115 @@ PS
 	    {
 	        _21709 = 1.0;
 	    }
-	    float _21710;
+	    float _8634 = dot(PerViewLightingConstantBufferGpu_t._m8.xyz, _24735);
+	    float _12320;
 	    SPIRV_CROSS_BRANCH
-	    if (PerViewLightingConstantBufferGpu_t._m10 != 0)
+	    if (_8634 > 0.0)
 	    {
-	        int _23989;
-	        int _10191;
-	        float _13136;
-	        vec3 _14975;
-	        int _13039 = 0;
-	        for (;;)
+	        float _12503;
+	        SPIRV_CROSS_BRANCH
+	        if (PerViewLightingConstantBufferGpu_t._m10 != 0)
 	        {
-	            if (!(_13039 < PerViewLightingConstantBufferGpu_t._m10))
+	            int _23989;
+	            int _10191;
+	            float _13136;
+	            vec3 _14975;
+	            int _13039 = 0;
+	            for (;;)
 	            {
-	                _13136 = 1.0;
-	                _14975 = vec3(0.0);
-	                _10191 = -1;
-	                break;
-	            }
-	            vec4 _18322 = vec4(input_1.xyz, 1.0) * PerViewLightingConstantBufferGpu_t._m17._m0[_13039];
-	            float _12779 = _18322.x;
-	            if (max(abs(_12779), abs(_18322.y)) < PerViewLightingConstantBufferGpu_t._m12[_13039])
-	            {
-	                vec3 _19470 = vec3(_12779, _18322.yz);
-	                vec2 _24804 = _19470.xy;
-	                vec2 _22193 = vec2(1.0) - saturate((abs(_24804) * vec2(PerViewLightingConstantBufferGpu_t._m14)) + vec2(PerViewLightingConstantBufferGpu_t._m13));
-	                vec2 _20561 = (_24804 * PerViewLightingConstantBufferGpu_t._m18._m0[_13039].zw) + PerViewLightingConstantBufferGpu_t._m18._m0[_13039].xy;
-	                vec3 _20488 = _19470;
-	                _20488.x = _20561.x;
-	                _20488.y = _20561.y;
-	                _13136 = saturate(_22193.x * _22193.y);
-	                _14975 = _20488;
-	                _10191 = _13039;
-	                break;
-	            }
-	            _23989 = _13039 + 1;
-	            _13039 = _23989;
-	            continue;
-	        }
-	        float _19363;
-	        if (_10191 >= 0)
-	        {
-	            float _18270 = textureLod(sampler2DShadow(g_tShadowDepthBufferDepth, g_tShadowDepthBufferCmpSampler), vec3(_14975.xy, saturate(_14975.z + PerViewLightingConstantBufferGpu_t._m11)), 0.0);
-	            float _12501;
-	            SPIRV_CROSS_BRANCH
-	            if (_13136 < 1.0)
-	            {
-	                float _7934;
-	                if (_10191 < (PerViewLightingConstantBufferGpu_t._m10 - 1))
+	                if (!(_13039 < PerViewLightingConstantBufferGpu_t._m10))
 	                {
-	                    int _15335 = _10191 + 1;
-	                    vec4 _19671 = vec4(input_1.xyz, 1.0) * PerViewLightingConstantBufferGpu_t._m17._m0[_15335];
-	                    vec2 _20562 = (_19671.xy * PerViewLightingConstantBufferGpu_t._m18._m0[_15335].zw) + PerViewLightingConstantBufferGpu_t._m18._m0[_15335].xy;
-	                    vec3 _20489;
-	                    _20489.x = _20562.x;
-	                    _20489.y = _20562.y;
-	                    _7934 = textureLod(sampler2DShadow(g_tShadowDepthBufferDepth, g_tShadowDepthBufferCmpSampler), vec3(_20489.xy, saturate(_19671.z + PerViewLightingConstantBufferGpu_t._m11)), 0.0);
+	                    _13136 = 1.0;
+	                    _14975 = vec3(0.0);
+	                    _10191 = -1;
+	                    break;
+	                }
+	                vec4 _18322 = vec4(input_1.xyz, 1.0) * PerViewLightingConstantBufferGpu_t._m17._m0[_13039];
+	                float _12779 = _18322.x;
+	                if (max(abs(_12779), abs(_18322.y)) < PerViewLightingConstantBufferGpu_t._m12[_13039])
+	                {
+	                    vec3 _19470 = vec3(_12779, _18322.yz);
+	                    vec2 _24804 = _19470.xy;
+	                    vec2 _22193 = vec2(1.0) - saturate((abs(_24804) * vec2(PerViewLightingConstantBufferGpu_t._m14)) + vec2(PerViewLightingConstantBufferGpu_t._m13));
+	                    vec2 _20561 = (_24804 * PerViewLightingConstantBufferGpu_t._m18._m0[_13039].zw) + PerViewLightingConstantBufferGpu_t._m18._m0[_13039].xy;
+	                    vec3 _20488 = _19470;
+	                    _20488.x = _20561.x;
+	                    _20488.y = _20561.y;
+	                    _13136 = saturate(_22193.x * _22193.y);
+	                    _14975 = _20488;
+	                    _10191 = _13039;
+	                    break;
+	                }
+	                _23989 = _13039 + 1;
+	                _13039 = _23989;
+	                continue;
+	            }
+	            float _19363;
+	            if (_10191 >= 0)
+	            {
+	                float _18270 = textureLod(sampler2DShadow(g_tShadowDepthBufferDepth, g_tShadowDepthBufferCmpSampler), vec3(_14975.xy, saturate(_14975.z + PerViewLightingConstantBufferGpu_t._m11)), 0.0);
+	                float _12501;
+	                SPIRV_CROSS_BRANCH
+	                if (_13136 < 1.0)
+	                {
+	                    float _7934;
+	                    if (_10191 < (PerViewLightingConstantBufferGpu_t._m10 - 1))
+	                    {
+	                        int _15335 = _10191 + 1;
+	                        vec4 _19671 = vec4(input_1.xyz, 1.0) * PerViewLightingConstantBufferGpu_t._m17._m0[_15335];
+	                        vec2 _20562 = (_19671.xy * PerViewLightingConstantBufferGpu_t._m18._m0[_15335].zw) + PerViewLightingConstantBufferGpu_t._m18._m0[_15335].xy;
+	                        vec3 _20489;
+	                        _20489.x = _20562.x;
+	                        _20489.y = _20562.y;
+	                        _7934 = textureLod(sampler2DShadow(g_tShadowDepthBufferDepth, g_tShadowDepthBufferCmpSampler), vec3(_20489.xy, saturate(_19671.z + PerViewLightingConstantBufferGpu_t._m11)), 0.0);
+	                    }
+	                    else
+	                    {
+	                        _7934 = 1.0;
+	                    }
+	                    _12501 = mix(_7934, _18270, _13136);
 	                }
 	                else
 	                {
-	                    _7934 = 1.0;
+	                    _12501 = _18270;
 	                }
-	                _12501 = mix(_7934, _18270, _13136);
+	                _19363 = _12501;
 	            }
 	            else
 	            {
-	                _12501 = _18270;
+	                _19363 = 1.0;
 	            }
-	            _19363 = _12501;
+	            float _13279 = mix(_19363, 1.0, saturate((distance(_11095.xyz, PerViewConstantBuffer_t._m3) * PerViewLightingConstantBufferGpu_t._m16) + PerViewLightingConstantBufferGpu_t._m15));
+	            float _12502;
+	            if (_24465.y)
+	            {
+	                _12502 = min(_13279, textureLod(sampler2D(g_tParticleShadowBuffer, g_sTrilinearClamp), (_11408.xy * PerViewConstantBuffer_t._m2.xy).xy, 0.0).z);
+	            }
+	            else
+	            {
+	                _12502 = _13279;
+	            }
+	            _12503 = _12502;
 	        }
 	        else
 	        {
-	            _19363 = 1.0;
+	            _12503 = 1.0;
 	        }
-	        float _13279 = mix(_19363, 1.0, saturate((distance(_11095.xyz, PerViewConstantBuffer_t._m3) * PerViewLightingConstantBufferGpu_t._m16) + PerViewLightingConstantBufferGpu_t._m15));
-	        float _12502;
-	        if (_24465.y)
-	        {
-	            _12502 = min(_13279, textureLod(sampler2D(g_tParticleShadowBuffer, g_sTrilinearClamp), (_11408.xy * PerViewConstantBuffer_t._m2.xy).xy, 0.0).z);
-	        }
-	        else
-	        {
-	            _12502 = _13279;
-	        }
-	        _21710 = _12502;
+	        _12320 = _12503;
 	    }
 	    else
 	    {
-	        _21710 = 1.0;
+	        _12320 = 1.0;
 	    }
-	    vec3 _21711;
+	    vec3 _21710;
 	    SPIRV_CROSS_BRANCH
-	    if ((dot(PerViewLightingConstantBufferGpu_t._m8.xyz, _24735) * _21710) > 0.0)
+	    if ((_8634 * _12320) > 0.0)
 	    {
-	        _21711 = PerViewLightingConstantBufferGpu_t._m4.xyz + (vec3(max(0.0, dot(_14995.xyz, PerViewLightingConstantBufferGpu_t._m8.xyz))).xyz * (PerViewLightingConstantBufferGpu_t._m9.xyz * _21710).xyz);
+	        _21710 = PerViewLightingConstantBufferGpu_t._m4.xyz + (vec3(max(0.0, dot(_14995.xyz, PerViewLightingConstantBufferGpu_t._m8.xyz))).xyz * (PerViewLightingConstantBufferGpu_t._m9.xyz * _12320).xyz);
 	    }
 	    else
 	    {
-	        _21711 = PerViewLightingConstantBufferGpu_t._m4.xyz;
+	        _21710 = PerViewLightingConstantBufferGpu_t._m4.xyz;
 	    }
 	    bvec4 _24466 = notEqual(PerViewConstantBufferCsgo_t._m1, ivec4(0));
 	    bool _20060 = _24466.x;
@@ -737,7 +748,7 @@ PS
 	    uint _10838 = PerViewLightingConstantBufferGpu_t._m5.y + (((_12083.y * PerViewLightingConstantBufferGpu_t._m6.y) + _12083.x) * PerViewLightingConstantBufferGpu_t._m5.z);
 	    uint _23393 = PerViewLightingConstantBufferGpu_t._m5.x + (uint(clamp(_19364.w * PerViewLightingConstantBufferGpu_t._m7.x, 0.0, PerViewLightingConstantBufferGpu_t._m7.y)) * PerViewLightingConstantBufferGpu_t._m5.z);
 	    vec3 _13155;
-	    _13155 = _21711;
+	    _13155 = _21710;
 	    uint _21567;
 	    vec3 _13156;
 	    uint _16208 = 0u;
@@ -750,7 +761,7 @@ PS
 	        uint _14475 = subgroupOr(g_CullBits_1._m0[_10838 + _16208] & g_CullBits_1._m0[_23393 + _16208]);
 	        _13156 = _13155;
 	        uint _20344;
-	        vec3 _12504;
+	        vec3 _12505;
 	        uint _16209 = _14475;
 	        for (;;)
 	        {
@@ -790,7 +801,7 @@ PS
 	                }
 	                if (_12885)
 	                {
-	                    _12504 = _13156;
+	                    _12505 = _13156;
 	                    break;
 	                }
 	                float _23571 = 2.0 * g_BarnLights_1._m0[_12608]._m5.y;
@@ -900,7 +911,7 @@ PS
 	                }
 	                else
 	                {
-	                    vec3 _12503;
+	                    vec3 _12504;
 	                    if (g_BarnLights_1._m0[_12608]._m4.w < 0.0)
 	                    {
 	                        vec4 _17795 = vec4(-g_BarnLights_1._m0[_12608]._m5.xyz, g_BarnLights_1._m0[_12608]._m5.w);
@@ -916,7 +927,7 @@ PS
 	                        vec3 _20491 = _14081;
 	                        _20491.x = _20564.x;
 	                        _20491.y = _20564.y;
-	                        _12503 = _17828.xyz * textureLod(sampler3D(g_tLightCookieTexture, g_sTrilinearWrap), _20491.xyz, 0.0).xyz;
+	                        _12504 = _17828.xyz * textureLod(sampler3D(g_tLightCookieTexture, g_sTrilinearWrap), _20491.xyz, 0.0).xyz;
 	                    }
 	                    else
 	                    {
@@ -925,13 +936,13 @@ PS
 	                        vec3 _20490 = _13791;
 	                        _20490.x = _20563.x;
 	                        _20490.y = _20563.y;
-	                        _12503 = _17828.xyz * textureLod(sampler3D(g_tLightCookieTexture, g_sCookieSampler), _20490.xyz, 0.0).xyz;
+	                        _12504 = _17828.xyz * textureLod(sampler3D(g_tLightCookieTexture, g_sCookieSampler), _20490.xyz, 0.0).xyz;
 	                    }
-	                    _21548 = _12503;
+	                    _21548 = _12504;
 	                }
 	                if (all(equal(_21548.xyz, vec3(0.0))))
 	                {
-	                    _12504 = _13156;
+	                    _12505 = _13156;
 	                    break;
 	                }
 	                vec3 _19630;
@@ -953,7 +964,7 @@ PS
 	                    vec3 _20482 = _21548.xyz * mix(1.0, textureLod(sampler2DShadow(g_tShadowDepthBufferDepth, g_tShadowDepthBufferCmpSampler), vec3(vec3(fma(_19629.xy, g_BarnLights_1._m0[_12608]._m8.zw, g_BarnLights_1._m0[_12608]._m8.xy), _19629.z).xy, saturate(_19629.z + PerViewLightingConstantBufferGpu_t._m11)), 0.0), g_BarnLights_1._m0[_12608]._m12);
 	                    if (all(equal(_20482.xyz, vec3(0.0))))
 	                    {
-	                        _12504 = _13156;
+	                        _12505 = _13156;
 	                        break;
 	                    }
 	                    _19630 = _20482;
@@ -962,10 +973,10 @@ PS
 	                {
 	                    _19630 = _21548;
 	                }
-	                _12504 = _13156.xyz + (vec3(max(0.0, dot(_14995.xyz, _11179.xyz))).xyz * _19630.xyz);
+	                _12505 = _13156.xyz + (vec3(max(0.0, dot(_14995.xyz, _11179.xyz))).xyz * _19630.xyz);
 	                break;
 	            } while(false);
-	            _13156 = _12504;
+	            _13156 = _12505;
 	            _16209 = _20344;
 	            continue;
 	        }

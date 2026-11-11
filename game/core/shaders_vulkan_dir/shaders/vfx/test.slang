@@ -272,7 +272,7 @@ PS
 	[[vk::constant_id(0)]] int g_nGPUVendorID < UiType(Slider); Expression(S_GPU_VENDOR_ID); >;
 	int g_nValue < UiType(Slider); >;
 	Texture2D g_tColor < Channel(RGB, Box(TextureColor), Srgb); OutputFormat(DXT1); SrgbRead(true); >;
-	float3 g_vModulationColor2 < Default(0); UiType(Color); >;
+	float3 g_vModulationColor2 < Default2(0, 1); UiType(Color); >;
 	float3 g_vModulationColor3 < Default3(1, 1, 0.5); UiType(Color); >;
 	
 	// Color

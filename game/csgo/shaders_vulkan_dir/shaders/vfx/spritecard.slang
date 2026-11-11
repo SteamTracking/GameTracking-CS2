@@ -95,7 +95,7 @@ VS
 	// Source 2 Viewer - https://valveresourceformat.github.io
 	// SPIR-V source, HLSL reflection with SPIRV-Cross by KhronosGroup
 	
-	struct _1428
+	struct _1680
 	{
 	    float4 _m0[3];
 	};
@@ -183,7 +183,7 @@ VS
 	    float4 PerViewLightingConstantBufferGpu_t_1_m1 : packoffset(c1);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m2 : packoffset(c2);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m3 : packoffset(c3);
-	    _1428 PerViewLightingConstantBufferGpu_t_1_m4 : packoffset(c7);
+	    _1680 PerViewLightingConstantBufferGpu_t_1_m4 : packoffset(c7);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m5 : packoffset(c18);
 	    uint4 PerViewLightingConstantBufferGpu_t_1_m6 : packoffset(c19);
 	    uint4 PerViewLightingConstantBufferGpu_t_1_m7 : packoffset(c22);
@@ -196,10 +196,10 @@ VS
 	ByteAddressBuffer g_BarnLights : register(t31, space3);
 	SamplerState AddressU_Wrap_AddressV_Wrap_Filter_MinMagMipPoint : register(s14, space0);
 	Texture2D<float4> g_tParticleSheetTexture : register(t42, space0);
-	SamplerState g_sCookieSampler : register(s26, space0);
-	SamplerComparisonState g_tShadowDepthBufferCmpSampler : register(s27, space0);
+	SamplerState g_sCookieSampler : register(s27, space0);
+	SamplerComparisonState g_tShadowDepthBufferCmpSampler : register(s28, space0);
 	Texture2D<float4> g_tShadowDepthBufferDepth : register(t36, space0);
-	SamplerState g_sTrilinearWrap : register(s20, space0);
+	SamplerState g_sTrilinearWrap : register(s21, space0);
 	Texture3D<float4> g_tLightCookieTexture : register(t34, space0);
 	
 	static float4 gl_Position;
@@ -3933,7 +3933,7 @@ PS
 	Texture2D<float4> g_tBaseTexture : register(t38, space1);
 	SamplerState Filter_MinMagMipLinear_MaxAniso_1 : register(s15, space1);
 	TextureCube<float4> g_tFogCubeTexture : register(t43, space1);
-	SamplerState g_sTrilinearClamp : register(s21, space1);
+	SamplerState g_sTrilinearClamp : register(s22, space1);
 	
 	static float4 input_0;
 	static float4 input_1;

@@ -70,7 +70,7 @@ VS
 	
 	// Override Color
 	float g_OverrideColorFactor < UiType(Slider); UiGroup("Override Color"); >;
-	float4 g_vOverrideColor < Default(0); UiType(Color); UiGroup("Override Color"); Expression(SrgbGammaToLinear(this)); >;
+	float4 g_vOverrideColor < Default4(0, 0, 0, 1); UiType(Color); UiGroup("Override Color"); Expression(SrgbGammaToLinear(this)); >;
 	
 	// SPIR-V reflection failed for backend HLSL:
 	// cbuffer ID 5618 (name: _Globals_), member index 0 (name: g_vOverrideColor) cannot be expressed with either HLSL packing layout or packoffset.

@@ -307,7 +307,7 @@ PS
 	Texture2D g_tColorA < Channel(RGB, Box(TextureColor), Srgb); OutputFormat(DXT1); SrgbRead(true); >;
 	Texture2D g_tColorB < Channel(RGB, AlphaWeighted(TextureColor, TextureTranslucency), Srgb); Channel(A, PreserveCoverage(TextureTranslucency), Linear); OutputFormat(DXT5); SrgbRead(true); >;
 	Texture2D g_tColorC < Channel(RGBA, Box(TextureColor), Srgb); OutputFormat(DXT5); SrgbRead(true); >;
-	float4 g_vBorderColor < Default(0); Attribute("BorderColor"); UiType(VectorText); >;
+	float4 g_vBorderColor < Default4(0, 0, 0, 1); Attribute("BorderColor"); UiType(VectorText); >;
 	
 	// Color
 	CreateInputTexture2D(TextureColor, Srgb, 8, "", "_color", "Color", Default4(1, 1, 1, 0));

@@ -9,6 +9,7 @@
 
 	FileSystem
 	{
+		ForceUseBuildVersion	1
 		SteamAppId				710			// This will mount all the GCFs we need (240=CS:S, 220=HL2).
 		SearchPaths
 		{
@@ -130,7 +131,16 @@
 		"r_add_views_in_pre_output"		"1"
 
 		// Limits
-		"sv_recvbuf_messages" "500"
+		"net_limit_sv_recvbuffer_kb" "128"
+		"net_limit_sv_recvbuffer_msg" "100"
+		"net_limit_sv_recv_max_frame_size_kb" "40"
+		"net_limit_sv_recv_chan_buffer_messages" "500"
+		"net_limit_sv_recv_chan_msgs_per_frame" "250"
+		"net_limit_sv_message_process_time_ms_warn_burst" "20"
+		"net_limit_sv_message_process_time_ms_warn_rate_per_sec" "128" // 2ms/tick
+		"net_limit_sv_message_process_time_ms_drop_burst" "200"
+		"net_limit_sv_message_process_time_ms_drop_rate_per_sec" "256" // 4ms/tick
+		"net_message_size_enforce" "2"
 
 		// Nav fixups
 		"nav_path_fixup_climb_up_segments" "1"
@@ -276,6 +286,7 @@
 		"cq_buffer_bloat_msecs_max" "64"
 
 		"cl_interp_ag2_for_non_ag2_entities"	"0"
+		"cl_interp_parallel"			"1"
 
 		"r_skip_precache_validation_check" "1"
 

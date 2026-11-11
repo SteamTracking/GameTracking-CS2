@@ -278,7 +278,7 @@ GameStartup "RenderingPipelineCsgoManifest" // src/game/client/cstrike15/renderi
 	materials/dev/water_droplets.vtex
 	materials/dev/water_waves.vtex
 	materials/dev/water_flowing.vtex
-	materials/dev/snow_sparkle.vtex
+	materials/dev/frost.vtex
 	materials/dev/rain_ripples.vtex
 	materials/dev/custom_cubemap_001.vtex
 	materials/dev/overlay_smoke.vmat

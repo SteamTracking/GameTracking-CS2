@@ -110,9 +110,9 @@ PS
 	};
 	
 	Texture2D<float4> g_tCameraTexture : register(t30, space1);
-	SamplerState DefaultSamplerState_0 : register(s21, space1);
+	SamplerState DefaultSamplerState_0 : register(s22, space1);
 	Texture2D<float4> g_tJumpThrowIcon : register(t31, space1);
-	SamplerState g_sBilinearClamp : register(s15, space1);
+	SamplerState g_sBilinearClamp : register(s16, space1);
 	
 	static float2 input_0;
 	static float4 output_0;

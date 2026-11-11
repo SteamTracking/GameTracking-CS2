@@ -154,7 +154,7 @@ PS
 	};
 	
 	Texture2D<float4> g_tZeroth_Moment : register(t31, space1);
-	SamplerState g_sBilinearClamp : register(s15, space1);
+	SamplerState g_sBilinearClamp : register(s16, space1);
 	Texture2D<float4> g_tMoments : register(t32, space1);
 	Texture2D<float4> g_tMoments_Extra : register(t33, space1);
 	

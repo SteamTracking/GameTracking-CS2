@@ -9020,7 +9020,7 @@ $key:FloatBitmap_t
 /vpk.privatekey.vdf
 /vpk.publickey.vdf
 0123456789)"
-15:37:26
+09:29:58
 1:1: Tokens : ( PLUS | MINUS | MUL | DIV | COMMA | LPAREN | RPAREN | EQUALS | PERCENT | INT | FLOAT | ID | ML_COMMENT | SL_COMMENT | NL | WS );
 1:1: Tokens : ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | BOOLLITERAL | ID | INTEGERLITERAL | HEXINTEGERLITERAL | FLOATLITERAL | COMMENT | WS );
 241:1: FLOAT : ( ( MINUS )? ( DIGIT )+ '.' ( DIGIT )* ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? | ( MINUS )? '.' ( DIGIT )+ ( EXP )? ( FLOATSUFFIX )? );
@@ -16041,7 +16041,6 @@ nParentIdx != NM_INVALID_INDEX
 nPriority
 nServerLOD
 nX=%? nY=%?
-nXAO
 name_delta
 namespace
 navProperty_
@@ -16198,7 +16197,7 @@ pathing_visibility_threshold
 pathingcoeffs
 pathingeq
 pathingmixlevel
-pc64 Nov  2 2026 15:37:25
+pc64 Nov 11 2026 09:30:19
 perchannel
 permissive_panorama_compiles
 permitrepeats

@@ -273,7 +273,6 @@ CBasePlatTrain
 CBasePlayerController
 	include by name: m_pEntity, m_flSimulationTime, m_flCreateTime, m_iTeamNum, m_nNextThinkTick, m_fFlags
 	include by user group: LocalPlayerExclusive, LocalPlayerAndPredictorsExclusive
-	overrides: m_nNextThinkTick userGroup LocalPlayerAndPredictorsExclusive
 	user group proxies: LocalPlayerExclusive, LocalTeamExclusive, LocalPlayerAndObserversExclusive, LocalPlayerAndPredictorsExclusive
 	network class
 	uint32 m_nTickBase (priority: 1; user groups: LocalPlayerAndPredictorsExclusive)

@@ -186,9 +186,9 @@ PS
 	// Static combos: S_SUPPORTS_DECALS
 	
 	Texture2D<float4> g_tPreviousRT : register(t30, space1);
-	SamplerState AddressU_Clamp_AddressV_Clamp : register(s21, space1);
+	SamplerState AddressU_Clamp_AddressV_Clamp : register(s22, space1);
 	Texture2D<float4> g_tDecals : register(t31, space1);
-	SamplerState g_sTrilinearClamp : register(s17, space1);
+	SamplerState g_sTrilinearClamp : register(s18, space1);
 	
 	static float4 input_1;
 	static float3 input_2;

@@ -982,8 +982,8 @@ cl_clock_recvmargin_window 4 (developmentonly)
 cl_clockdbg false (developmentonly defensive)
 	<no description>
 
-cl_clockdrift_max_ticks 3 (min: 0, hidden release)
-	Maximum number of ticks the clock is allowed to drift before the client snaps its clock to the server's.
+cl_clockdrift_max_secs 0.125 (min: 0, hidden release)
+	Maximum duration the client clock is allowed to drift from server snapshots, before the client snaps its clock to the latest server snapshot received
 
 cl_clutch_mode false (clientdll release)
 	Silence voice and other distracting sounds until the end of round or next death.
@@ -1653,6 +1653,9 @@ cl_obs_interp_speed 1 (min: 0.25, max: 2.5, clientdll archive)
 
 cl_observed_bot_crosshair 2 (clientdll archive release)
 	Crosshair shown when observing a bot. 0 = show your crosshair, 1 = show your crosshair only when the bot can be taken over (otherwise default), 2 = always show the default crosshair
+
+cl_packetentities_merge_before_decode true (developmentonly defensive)
+	When an entity is decoded from a baseline plus a wire delta, merge the two and decode once (true), or decode the baseline and then the delta as two passes (false, the old behaviour, which can invoke change callbacks with baseline values for an entity that already exists).
 
 cl_paintkit_override "" (clientdll cheat release)
 	<no description>
@@ -4675,7 +4678,7 @@ lservercfgfile "listenserver.cfg" (developmentonly gamedll defensive)
 lua_assert_on_error false (developmentonly defensive)
 	<no description>
 
-lua_is_currently_executing false (hidden dontrecord release flag_36)
+lua_is_currently_executing false (hidden dontrecord release vconsole_no_change_notify)
 	<no description>
 
 lua_shipping_assert_on_error false (developmentonly defensive)
@@ -6573,17 +6576,47 @@ net_filelogging false (developmentonly)
 net_fs_showindirections false (developmentonly)
 	<no description>
 
-net_limit_sv_recv_max_message_size_kb 32 (release)
-	Server will reject message larger than N kb
+net_gather_child_fields_only false (release)
+	GatherSendProxyResults only walks struct and array fields, skipping scalar fields.
+
+net_limit_sv_listen_max_message_size_kb 3 (release)
+	Server: max SteamNetworkingSockets message size in kb accepted from a connection that does not yet have a netchan
+
+net_limit_sv_listen_recvbuffer_kb 16 (release)
+	Server: SteamNetworkingSockets will not buffer more than N kb from a connection that does not yet have a netchan
+
+net_limit_sv_listen_recvbuffer_msg 4 (release)
+	Server: SteamNetworkingSockets will not buffer more than N messages from a connection that does not yet have a netchan
+
+net_limit_sv_message_process_time_ms_drop_burst 300 (release)
+	Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
+
+net_limit_sv_message_process_time_ms_drop_rate_per_sec 500 (release)
+	Drop a client if processing their messages consumes more than N ms of CPU time *PER SECOND*, sustained (token bucket fill rate)
+
+net_limit_sv_message_process_time_ms_warn_burst 50 (release)
+	Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
+
+net_limit_sv_message_process_time_ms_warn_rate_per_sec 150 (release)
+	Warn if processing messages from a client consumes more than N ms of CPU time *PER SECOND*, sustained (token bucket fill rate)
+
+net_limit_sv_recv_chan_buffer_messages 1000 (release)
+	Max number of source engine messages that can be queued in a netchan receive buffer for an ordinary connection from a client.
+
+net_limit_sv_recv_chan_msgs_per_frame 500 (release)
+	Max number of source engine messages an ordinary client connection may put in a single network frame.  Exceeding this disconnects the client.
+
+net_limit_sv_recv_max_frame_size_kb 64 (release)
+	Server will reject uncompressed Source engine frame larger than N kb.  Also sets limit on SteamNetworkingSockets message size
 
 net_limit_sv_recv_segments_per_packet 50 (release)
-	Server will reject packets with more than N segments
+	Server: SteamNetworkingSockets will reject packets with more than N message segments
 
 net_limit_sv_recvbuffer_kb 128 (release)
-	Server will not buffer more than N kb from connected clients
+	Server: SteamNetworkingSockets will not buffer more than N kb from connected clients
 
 net_limit_sv_recvbuffer_msg 100 (release)
-	Server will not buffer more than N messages from connected clients
+	Server: SteamNetworkingSockets will not buffer more than N messages from connected clients
 
 net_log_processing false (developmentonly defensive)
 	Log network processing
@@ -7620,6 +7653,36 @@ r_csgo_enable_volume_fog false (developmentonly clientdll)
 r_csgo_firstpersonlegs_nearz_offset 0.1 (developmentonly clientdll)
 	<no description>
 
+r_csgo_frost_dry_time 20 (developmentonly clientdll)
+	Seconds for the melted frost to dry
+
+r_csgo_frost_force -1 (developmentonly clientdll)
+	Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)
+
+r_csgo_frost_grow_time 10 (developmentonly clientdll)
+	Seconds outdoors for frost to grow to full
+
+r_csgo_frost_heat_barrel_position 0.33 (developmentonly clientdll)
+	Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)
+
+r_csgo_frost_heat_cool_time 20 (developmentonly clientdll)
+	Frost: seconds for a hot barrel to cool down
+
+r_csgo_frost_heat_light_delay 1 (developmentonly clientdll)
+	Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)
+
+r_csgo_frost_heat_light_time 10 (developmentonly clientdll)
+	Frost: seconds for a lit molotov's rag to reach full heat
+
+r_csgo_frost_heat_per_shot 0.05 (developmentonly clientdll)
+	Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)
+
+r_csgo_frost_indoor_distance 128 (developmentonly clientdll)
+	Frost: distance under cover (no sky) over which the cold fades out (indoors)
+
+r_csgo_frost_melt_time 10 (developmentonly clientdll)
+	Seconds indoors for full frost to melt
+
 r_csgo_fsr_enable_mip_bias true (developmentonly clientdll defensive)
 	Apply negative mip bias when rendering with FSR.
 
@@ -7742,6 +7805,9 @@ r_csgo_opaquerefract_viewmodel_quality 1 (developmentonly clientdll)
 
 r_csgo_outline_glow_scaledenom 1 (developmentonly clientdll cheat)
 	<no description>
+
+r_csgo_parallax 1 (developmentonly clientdll defensive)
+	Parallax occlusion mapping (Advanced Video setting): 0 = off, 1 = on
 
 r_csgo_player_occlusion_query true (developmentonly clientdll)
 	<no description>
@@ -11454,18 +11520,6 @@ sv_mover_pogofrequency 10 (developmentonly gamedll clientdll notify replicated d
 sv_mute_players_with_social_penalties true (developmentonly gamedll defensive)
 	<no description>
 
-sv_net_client_message_process_time_ms_drop_burst 500 (release)
-	Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
-
-sv_net_client_message_process_time_ms_drop_rate 200 (release)
-	Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
-
-sv_net_client_message_process_time_ms_warn_burst 50 (release)
-	Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
-
-sv_net_client_message_process_time_ms_warn_rate 5 (release)
-	Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
-
 sv_netprof_delta_sharing_temp false (release)
 	Temp counter for measuring performance impact of some network changes. To be removed by the end of Sept 2026
 
@@ -11651,9 +11705,6 @@ sv_rcon_minfailuretime 30 (min: 1, developmentonly defensive)
 
 sv_record_item_time_data false (gamedll release)
 	Turn on recording of per player item time data into the server log.
-
-sv_recvbuf_messages 1024 (developmentonly defensive)
-	Max number of messages that can be queued in a netchan receive buffer for an ordinary connection from a client.
 
 sv_regeneration_force_on false (gamedll cheat)
 	Cheat to test regenerative health systems
@@ -12687,6 +12738,9 @@ videocfg_fsr_detail 0 (developmentonly clientdll defensive)
 videocfg_hdr_detail -1 (developmentonly clientdll defensive)
 	<no description>
 
+videocfg_parallax_detail 0 (developmentonly clientdll defensive)
+	<no description>
+
 videocfg_particle_detail 1 (developmentonly clientdll defensive)
 	<no description>
 
@@ -12899,6 +12953,9 @@ vprof_counters 0 (developmentonly defensive)
 
 vprof_counters_show_minmax false (developmentonly defensive)
 	<no description>
+
+vprof_lite_auto true (release)
+	Let demo playback and the game rules start, dump and stop the vprof lite profiler on their own.  The vprof_lite_start, vprof_lite_stop and vprof_lite_dump commands set this to 0 so that a script can drive the profiler itself.
 
 vprof_scope_entity_clientthink false (developmentonly clientdll hidden defensive)
 	Does nothing whatsoever.

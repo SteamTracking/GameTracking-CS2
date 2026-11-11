@@ -218,7 +218,7 @@ PS
 	Texture2D g_tColor < Channel(RGB, ArtistDefined(TextureColor), Srgb); OutputFormat(DXT1); SrgbRead(true); >;
 	TextureCube g_tCubeMap < Channel(RGB, Box(TextureCubeMap), Srgb); OutputFormat(RGBA8888); SrgbRead(true); >;
 	TextureCube g_tFogCubeTexture < Attribute("CubemapFogTexture"); SrgbRead(true); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
 	// Color
@@ -268,11 +268,11 @@ PS
 	};
 	
 	Texture2D<float4> g_tColor : register(t52, space1);
-	SamplerState g_sUserConfig : register(s20, space1);
+	SamplerState g_sUserConfig : register(s21, space1);
 	TextureCube<float4> g_tCubeMap : register(t43, space1);
 	SamplerState Filter_Anisotropic_MaxAniso_8 : register(s14, space1);
 	TextureCube<float4> g_tFogCubeTexture : register(t42, space1);
-	SamplerState g_sTrilinearClamp : register(s18, space1);
+	SamplerState g_sTrilinearClamp : register(s19, space1);
 	
 	static float3 input_0;
 	static float4 input_2;

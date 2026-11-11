@@ -5462,7 +5462,6 @@ file://{resources}/default_keybinds.cfg
 file://{resources}/keybinds.cfg
 file://{resources}/window_keybinds.cfg
 filename too big
-fill
 fill 
 fill-opacity
 fill-parent-flow

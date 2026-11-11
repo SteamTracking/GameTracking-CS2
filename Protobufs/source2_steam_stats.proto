@@ -24,6 +24,9 @@ message CMsgSource2SystemSpecs {
 	optional string cpu_brand = 2;
 	optional uint32 cpu_model = 3;
 	optional uint32 cpu_num_physical = 4;
+	optional uint32 cpu_num_logical = 5;
+	optional uint32 cpu_num_performance = 6;
+	optional uint32 cpu_num_efficiency = 7;
 	optional uint32 ram_physical_total_mb = 21;
 	optional string gpu_rendersystem_dll_name = 41;
 	optional uint32 gpu_vendor_id = 42;
@@ -34,6 +37,7 @@ message CMsgSource2SystemSpecs {
 	optional uint32 gpu_texture_memory_size_mb = 47;
 	optional uint32 backbuffer_width = 51;
 	optional uint32 backbuffer_height = 52;
+	optional uint32 thread_pool_workers = 61;
 }
 
 message CMsgSource2VProfLiteReportItem {

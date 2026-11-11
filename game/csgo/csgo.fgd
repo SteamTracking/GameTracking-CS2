@@ -1415,6 +1415,7 @@
 	envpuddlerippledirection(float) : "Environment Puddle Ripple Direction" : "0" : "Rotates the puddle ripples (0 to 1, i.e. 0.5 is reversed, 0.25 is 90 degrees)."
 	envwetnesscoverage(float) : "Environment Wetness Coverage" : "1" : "How wet the environment was before drying."
 	envwetnessdryingamount(float) : "Environment Wetness Drying Amount" : "0" : "How much the environment dried out."
+	frostenabled(boolean) : "Player frost enabled" : 0 : "Players, weapons and chickens frost over outdoors (traces to the sky), and melt indoors."
 	input FireWinCondition(integer) : "Fires win conditions for the win."
 	
 ]

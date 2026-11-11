@@ -175,7 +175,7 @@ PS
 	Texture2D g_tNormal < Channel(RGBA, MipNormal(TextureNormal), Linear); OutputFormat(DXT5); SrgbRead(false); >;
 	Texture2D g_tNormal2 < Channel(RGBA, MipNormal(TextureNormal2), Linear); OutputFormat(DXT5); SrgbRead(false); >;
 	Texture2D g_tRefractTint < Channel(RGBA, MipNormal(TextureTintTexture), Linear); OutputFormat(DXT5); SrgbRead(false); >;
-	float4 g_vFBCopyTextureRect < Default2(0, 0); Attribute("FrameBufferCopyRectangle"); UiType(VectorText); >;
+	float4 g_vFBCopyTextureRect < Default4(0, 0, 1, 1); Attribute("FrameBufferCopyRectangle"); UiType(VectorText); >;
 	
 	// Refraction
 	CreateInputTexture2D(TextureNormal, Linear, 8, "", "_normal", "Refraction", Default4(0.5, 0.5, 1, 0));

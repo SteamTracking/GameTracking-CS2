@@ -89,7 +89,7 @@ CS
 	layout(set = 0) uniform _1146 _Globals_;
 	
 	layout(set = 0, binding = 30) uniform texture2D g_tInputDownSample;
-	layout(set = 0, binding = 15) uniform sampler g_sBilinearClamp;
+	layout(set = 0, binding = 16) uniform sampler g_sBilinearClamp;
 	layout(set = 0, binding = 158) uniform writeonly image2D g_tOutput;
 	
 	void main()

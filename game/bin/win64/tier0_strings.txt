@@ -430,6 +430,7 @@ $xmm9
 ( %u: max procs %u, active proc %u, active mask 0x%llx )
 ( cubGap & 15 ) == 0
 (%d,%d)
+(-AVX512) 
 (Missing)
 (None)
 (Unaccounted)
@@ -774,7 +775,6 @@ $xmm9
 ;BIb?
 ;srv*http://symbols/windows
 <!-- kv3 encoding:%s:version{%s} format:%s:version{%s} -->\n
-<!-- schema 
 </link>
 </script>
 << NULL >>\n
@@ -4652,6 +4652,7 @@ Outflow_NPCUseScriptedAbility
 Outflow_Simultaneous
 OutputDebugStringA
 OverrideQuantizedFloatEncoderAlias
+P(YX
 P4_EXTRACT_CMD=p4.exe print -o %srcsrvtrg% -q "//%var3%#%var4%"\n
 P4_EXTRACT_TARGET=%targ%\%var2%\%fnbksl%(%var3%)\%var4%\%fnfile%(%var1%)\n
 PARTICLE_DEPTH_FEATHERING_OFF
@@ -7967,6 +7968,7 @@ modf
 moredetailed
 moveto
 multiplayer_break
+n<!-- schema 
 nBits != 32
 nInterruptability
 nMax
@@ -7975,7 +7977,6 @@ nOffset < m_nAllocationSize
 nOverrideCPField
 nSwitchValue
 nTries < 10000000
-n\f"pA3Q
 name
 nan(ind)
 nan(snan)

@@ -299,9 +299,9 @@ PS
 	CreateInputTexture2D(TextureGlossiness, Linear, 8, "", "_gloss", "Lighting,30/Gloss,20/10", Default4(0.5, 0.5, 0.5, 0));
 	CreateInputTexture2D(TextureMetalness, Linear, 8, "", "_metal", "Lighting,30/Metalness,30/10", Default4(0, 0, 0, 0));
 	CreateInputTexture2D(TextureReflectance, Linear, 8, "", "_refl", "Lighting,30/Reflectance,10/10", Default4(0.1, 0.1, 0.1, 0));
-	float2 g_vGlossinessRange < Default(0); UiType(VectorText); UiGroup("Lighting,30/Gloss/20"); >;
-	float2 g_vMetalnessRange < Default(0); UiType(VectorText); UiGroup("Lighting,30/Metalness/20"); >;
-	float2 g_vReflectanceRange < Default(0); UiType(VectorText); UiGroup("Lighting,30/Reflectance/20"); >;
+	float2 g_vGlossinessRange < Default2(0, 1); UiType(VectorText); UiGroup("Lighting,30/Gloss/20"); >;
+	float2 g_vMetalnessRange < Default2(0, 1); UiType(VectorText); UiGroup("Lighting,30/Metalness/20"); >;
+	float2 g_vReflectanceRange < Default2(0, 1); UiType(VectorText); UiGroup("Lighting,30/Reflectance/20"); >;
 	
 	// Normal Map
 	CreateInputTexture2D(TextureNormal, Linear, 8, "NormalizeNormals", "_normal", "Normal Map,20", Default4(0.5, 0.5, 1, 0));

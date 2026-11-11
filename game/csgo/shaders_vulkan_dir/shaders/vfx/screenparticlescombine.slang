@@ -98,7 +98,7 @@ PS
 	};
 	
 	Texture2D<float4> g_tScreenParticles : register(t30, space1);
-	SamplerState g_sBilinearClamp : register(s15, space1);
+	SamplerState g_sBilinearClamp : register(s16, space1);
 	
 	static float4 gl_FragCoord;
 	static float4 output_0;

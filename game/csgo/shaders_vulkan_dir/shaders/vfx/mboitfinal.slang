@@ -134,7 +134,7 @@ PS
 	};
 	
 	Texture2D<float4> g_tMoitFinal : register(t30, space1);
-	SamplerState g_sPointClamp : register(s18, space1);
+	SamplerState g_sPointClamp : register(s19, space1);
 	Texture2D<float4> g_tZeroth_Moment : register(t31, space1);
 	
 	static float4 gl_FragCoord;

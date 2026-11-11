@@ -143,7 +143,7 @@ PS
 	    float PerViewConstantBuffer_t_1_m1 : packoffset(c23.y);
 	};
 	
-	SamplerState g_sPointClamp : register(s18, space1);
+	SamplerState g_sPointClamp : register(s19, space1);
 	Texture2D<float4> g_tInputDepthHiRes : register(t32, space1);
 	Texture2D<float4> g_tInputTexture : register(t30, space1);
 	

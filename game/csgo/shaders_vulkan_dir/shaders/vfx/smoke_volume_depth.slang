@@ -160,7 +160,7 @@ PS
 	};
 	
 	Texture3D<float4> g_tSmokeVolumeTexA_Atlas : register(t43, space1);
-	SamplerState g_sTrilinearClamp : register(s18, space1);
+	SamplerState g_sTrilinearClamp : register(s19, space1);
 	Texture2D<float4> g_tBlueNoise : register(t30, space1);
 	
 	static float4 gl_FragCoord;

@@ -110,7 +110,7 @@ PS
 	Texture2D g_tTexture2 < Attribute("Texture2"); SrgbRead(false); >;
 	Texture2D g_tTexture3 < Attribute("Texture3"); SrgbRead(false); >;
 	Texture2D g_tTexture4 < Attribute("Texture4"); SrgbRead(false); >;
-	float2 g_vBlurMultiplyVec < Default(0); Attribute("BlurMultiplyVec"); UiType(VectorText); >;
+	float2 g_vBlurMultiplyVec < Default2(0, 1); Attribute("BlurMultiplyVec"); UiType(VectorText); >;
 	
 	
 	// Variant parameters

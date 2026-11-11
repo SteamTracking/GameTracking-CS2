@@ -285,7 +285,6 @@ $%llx
 APPSYSTEM: In ConnectGameInterfaces(), s_nRegistrationCount is %d!\n
 APPSYSTEM: In ConnectGameInterfaces(), tried to use different connection modes!\n
 APPSYSTEM: In ReconnectGameInterface(), tried to use different connection modes!\n
-AddWorkItem
 Adding player %llu to team %d\n
 AllowSecureServers
 Attempted a typeid of nullptr pointer!
@@ -596,7 +595,6 @@ Server/reservationid
 Server/server
 Server/xuid
 SessionSearch
-SetEvent()
 Settings data:\n
 SetupSteamRankingConfiguration
 SharedObjectCache for %s (%d types):\n
@@ -647,7 +645,6 @@ TeamSearchResult::Dedicated
 TeamSearchResult::ListenClient
 TeamSearchResult::ListenHost
 Thread "%s" (ID %llu) failed to shut down
-ThreadingMain
 TimeoutJob
 TitleSettings
 Trying to send message type %d before GC connection established.  This is guaranteed to fail.\n

@@ -312,14 +312,14 @@ PS
 	Texture2D g_tGlassDust < Channel(RGB, ArtistDefinedOrAlphaWeighted(GlassMaskColor, GlassMaskTranslucency), Srgb); Channel(A, Box(GlassMaskTranslucency), Linear); OutputFormat(BC7); SrgbRead(true); >;
 	Texture2D g_tGlassTintColor < Channel(RGB, Box(GlassTintColor), Srgb); Channel(A, Box(GlassMaskTransmission), Linear); OutputFormat(BC7); SrgbRead(true); >;
 	Texture2D g_tNormal < Channel(RGBA, HemiOctIsoRoughness_RG_B(TextureNormal, TextureRoughness), Linear); OutputFormat(BC7); SrgbRead(false); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
 	// Glass
 	CreateInputTexture2D(GlassTintColor, Srgb, 8, "", "_color", "Glass,10/Tint,30/10", "materials/default/default_tint_color.tga");
 	CreateInputTexture2D(GlassMaskColor, Srgb, 8, "", "_color", "Glass,10/Mask,10/20", Default4(1, 1, 1, 0));
 	CreateInputTexture2D(GlassMaskTranslucency, Linear, 8, "", "_trans", "Glass,10/Mask,10/30", Default4(0, 0, 0, 0));
-	float2 g_flTranslucencyRemap < Default(0); UiType(VectorText); UiGroup("Glass,10/Mask,10/30"); >;
+	float2 g_flTranslucencyRemap < Default2(0, 1); UiType(VectorText); UiGroup("Glass,10/Mask,10/30"); >;
 	CreateInputTexture2D(GlassMaskTransmission, Linear, 8, "", "_mask", "Glass,10/Mask,10/40", Default4(1, 1, 1, 0));
 	
 	// Normal
@@ -347,17 +347,17 @@ PS
 	// Source 2 Viewer - https://valveresourceformat.github.io
 	// SPIR-V source, HLSL reflection with SPIRV-Cross by KhronosGroup
 	
-	struct _1696
+	struct _1822
 	{
 	    float4 _m0[3];
 	};
 	
-	struct _1709
+	struct _1835
 	{
 	    float4 _m0[4];
 	};
 	
-	struct _360
+	struct _918
 	{
 	    column_major float4x4 _m0[4];
 	};
@@ -400,15 +400,15 @@ PS
 	    uint _Globals_1_g_tGlassDust : packoffset(c0.w);
 	    float2 _Globals_1_g_flTranslucencyRemap : packoffset(c1);
 	    float _Globals_1_g_flModelTintAmount : packoffset(c1.z);
-	    uint _Globals_1_g_sTrilinearWrap : packoffset(c2.y);
-	    uint _Globals_1_g_sTrilinearClamp : packoffset(c2.z);
-	    uint _Globals_1_g_sUserConfig : packoffset(c3.z);
-	    uint _Globals_1_g_sCookieSampler : packoffset(c4.y);
-	    uint _Globals_1_g_tShadowDepthBufferCmpSampler : packoffset(c4.z);
-	    int _Globals_1_g_bFogEnabled : packoffset(c5);
-	    int _Globals_1_g_bDontFlipBackfaceNormals : packoffset(c5.y);
-	    int _Globals_1_g_bRenderBackfaceNormals : packoffset(c5.z);
-	    float _Globals_1_g_flReflectance : packoffset(c5.w);
+	    uint _Globals_1_g_sTrilinearWrap : packoffset(c2.z);
+	    uint _Globals_1_g_sTrilinearClamp : packoffset(c2.w);
+	    uint _Globals_1_g_sUserConfig : packoffset(c3.w);
+	    uint _Globals_1_g_sCookieSampler : packoffset(c4.z);
+	    uint _Globals_1_g_tShadowDepthBufferCmpSampler : packoffset(c4.w);
+	    int _Globals_1_g_bFogEnabled : packoffset(c5.y);
+	    int _Globals_1_g_bDontFlipBackfaceNormals : packoffset(c5.z);
+	    int _Globals_1_g_bRenderBackfaceNormals : packoffset(c5.w);
+	    float _Globals_1_g_flReflectance : packoffset(c6);
 	};
 	
 	cbuffer PerViewConstantBufferCsgo_t : register(b3, space1)
@@ -442,7 +442,7 @@ PS
 	
 	cbuffer PerViewLightingConstantBufferGpu_t : register(b0, space3)
 	{
-	    _1696 PerViewLightingConstantBufferGpu_t_1_m0 : packoffset(c7);
+	    _1822 PerViewLightingConstantBufferGpu_t_1_m0 : packoffset(c7);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m1 : packoffset(c18);
 	    uint4 PerViewLightingConstantBufferGpu_t_1_m2 : packoffset(c19);
 	    uint4 PerViewLightingConstantBufferGpu_t_1_m3 : packoffset(c22);
@@ -458,8 +458,8 @@ PS
 	    float PerViewLightingConstantBufferGpu_t_1_m13 : packoffset(c1955.y);
 	    float PerViewLightingConstantBufferGpu_t_1_m14 : packoffset(c1955.z);
 	    float PerViewLightingConstantBufferGpu_t_1_m15 : packoffset(c1955.w);
-	    _360 PerViewLightingConstantBufferGpu_t_1_m16 : packoffset(c1956);
-	    _1709 PerViewLightingConstantBufferGpu_t_1_m17 : packoffset(c1988);
+	    _918 PerViewLightingConstantBufferGpu_t_1_m16 : packoffset(c1956);
+	    _1835 PerViewLightingConstantBufferGpu_t_1_m17 : packoffset(c1988);
 	    uint PerViewLightingConstantBufferGpu_t_1_m18 : packoffset(c1996);
 	    uint PerViewLightingConstantBufferGpu_t_1_m19 : packoffset(c1996.y);
 	};

@@ -4840,6 +4840,7 @@ Clear all watches from the game debug overlay
 Clear buffered logging
 Clear console output from all views.
 Clear console output.
+Clear per-entity decode change callback stats
 Clear the list of deferred soundevents for loading.
 Clear the list of files that have been opened.
 Clear the pause state of the server.
@@ -5878,8 +5879,8 @@ Draws line between two 3D Points.\n\tGreen if no collision\n\tRed is collides wi
 Draws the current weapon's true inaccuracy + spread radius around the crosshair
 Draws the overview map
 Drive (dB)
+Drop a client if processing their messages consumes more than N ms of CPU time *PER SECOND*, sustained (token bucket fill rate)
 Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
-Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Drop defuser on player death
 Drop every Nth fragment
 Drop healthshot on player death
@@ -7172,6 +7173,13 @@ From Player
 From Rotations
 From Velocity
 From World
+Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)
+Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)
+Frost: distance under cover (no sky) over which the cold fades out (indoors)
+Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)
+Frost: seconds for a hot barrel to cool down
+Frost: seconds for a lit molotov's rag to reach full heat
+Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)
 Frozen
 Full 3-Axis Rotation
 Full Density Blend Weight
@@ -7359,6 +7367,7 @@ Gameplay State High
 Gameplay State Low
 Gamma-correct vertex colors
 Gate
+GatherSendProxyResults only walks struct and array fields, skipping scalar fields.
 Gaussian
 General
 General purpose timer. use 'stopwatch' to toggle or explicitly call 'stopwatch start' and/or 'stopwatch stop'.
@@ -8711,6 +8720,7 @@ Less aggressive fade out. The object will not fade out until it is smaller on sc
 LessThan
 LessThanEqual
 LessonPanelLayoutFileTypes_t
+Let demo playback and the game rules start, dump and stop the vprof lite profiler on their own.  The vprof_lite_start, vprof_lite_stop and vprof_lite_dump commands set this to 0 so that a script can drive the profiler itself.
 Level Override
 Level Volume
 Level of validation for nav system.  Higher will be slower.
@@ -9192,8 +9202,9 @@ Max number of broadcast http requests in flight. If there is a network issue, th
 Max number of broadcast1 http requests in flight. If there is a network issue, the requests may start piling up, degrading server performance. If more than the specified number of requests are in flight, the new requests are dropped.
 Max number of entities to transmit to player
 Max number of kills for a single multikill event
-Max number of messages that can be queued in a netchan receive buffer for an ordinary connection from a client.
 Max number of samples per triangle. Higher is more quality/slower.
+Max number of source engine messages an ordinary client connection may put in a single network frame.  Exceeding this disconnects the client.
+Max number of source engine messages that can be queued in a netchan receive buffer for an ordinary connection from a client.
 Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time.
 Max number of timeouts each team can have per OT after all OT timeouts got added.
 Max number of times a player may purchase any weapon per match
@@ -9234,6 +9245,7 @@ Maximum depth of smart prop evaluation stack during evaluation.
 Maximum distance flames can spread from their initial ignition point
 Maximum distance flames can spread from their initial ignition point for an incendiary
 Maximum distance to transmit footstep sound effects.
+Maximum duration the client clock is allowed to drift from server snapshots, before the client snaps its clock to the latest server snapshot received
 Maximum gain any HRTF could have during volume normalization.
 Maximum lag compensation in seconds
 Maximum length
@@ -9253,7 +9265,6 @@ Maximum number of probes to create when baking custom data (occlusion).
 Maximum number of probes to create when baking paths.
 Maximum number of probes to create when baking reverb.
 Maximum number of ragdolls to show (-1 disables limit)
-Maximum number of ticks the clock is allowed to drift before the client snaps its clock to the server's.
 Maximum number of undo levels
 Maximum of how hard the hostage is pushed away from physics objects.
 Maximum of how hard the player is pushed away from physics objects.
@@ -11185,6 +11196,7 @@ PanoramaUIClient001
 PanoramaUIEngine001
 PanoramaVideoPlayer
 Parallalelize Filter
+Parallax occlusion mapping (Advanced Video setting): 0 = off, 1 = on
 ParamSpanSample_t
 ParamSpan_t
 Parameter
@@ -11438,7 +11450,7 @@ Play a broadcast
 Play a demo and report performance info.
 Play a demo, report performance info, and then exit
 Play a note from a specified sampler
-Play a recorded demo file (.dem ).
+Play a recorded demo file (.dem ).  Options: start=<tick> end=<tick> timescale=<float> (run with no arguments for details).
 Play a sound at a specified volume.
 Play a sound.
 Play demos in demo sequence.
@@ -11636,6 +11648,7 @@ Print out broadcast status
 Print out hltv events
 Print out information on existing particle systems
 Print out number of active projected textures
+Print per-entity decode change callback stats
 Print simple description of prediction copy fields for entindex
 Print something every time we predict a command
 Print spew related to server clock and ticking
@@ -12067,7 +12080,6 @@ Recursion Branch Split Scale
 Recursion Depth
 RecvProxy_Jumped
 RecvProxy_PatchEconIndices
-RecvProxy_Rescued
 RecvProxy_VoteOption
 RecvProxy_VoteType
 Recvmargin-based usercommand pacing will not speed up or slow down command pacing by more than N% compared to realtime
@@ -12961,6 +12973,9 @@ Secondary_Mode
 Seconds after client connect during which extra frames are buffered to prevent non-delta'd update
 Seconds between drowning ticks
 Seconds between full frame embeddeds
+Seconds for the melted frost to dry
+Seconds indoors for full frost to melt
+Seconds outdoors for frost to grow to full
 Seconds to fade the ChickensObscuredLayer mix layer in and out.
 Seed (negative values=randomize)
 Seed Input Var
@@ -13058,11 +13073,14 @@ Server queue reservation
 Server tags. Used to provide extra information to clients when they're browsing for servers. Separate tags with a comma.
 Server will listen for direct UDP connections on the configured port.  This can be turned off to only listen for P2P/SDR connections.
 Server will not allow the client to buffer up more than N ms of commands.
-Server will not buffer more than N kb from connected clients
-Server will not buffer more than N messages from connected clients
-Server will reject message larger than N kb
-Server will reject packets with more than N segments
+Server will reject uncompressed Source engine frame larger than N kb.  Also sets limit on SteamNetworkingSockets message size
 Server will stop generating substitute commands if client hasn't sent one, after N in a row
+Server: SteamNetworkingSockets will not buffer more than N kb from a connection that does not yet have a netchan
+Server: SteamNetworkingSockets will not buffer more than N kb from connected clients
+Server: SteamNetworkingSockets will not buffer more than N messages from a connection that does not yet have a netchan
+Server: SteamNetworkingSockets will not buffer more than N messages from connected clients
+Server: SteamNetworkingSockets will reject packets with more than N message segments
+Server: max SteamNetworkingSockets message size in kb accepted from a connection that does not yet have a netchan
 ServerAuthoritative
 ServerAuthoritativeWeaponSlot_t
 ServerLog
@@ -15926,8 +15944,8 @@ Walk
 Warmup time to use when all players have connected. 0 to disable.
 Warmup time to use when the match will be cancelled (eg. due to a live VAC ban).
 Warn if lag compensated head hitbox position doesn't match that on client.
+Warn if processing messages from a client consumes more than N ms of CPU time *PER SECOND*, sustained (token bucket fill rate)
 Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
-Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Warp Orientation
 Warp Position
 Warp Section Tag
@@ -16002,6 +16020,7 @@ When a player disconnects, kill them first (triggering item drops, stats, etc.)
 When a source has source-specific DSP, this can be used as an additional mix stage for the listener reverb amount.
 When an animgraph is reloaded, should the underlying system restore all params?
 When an asset is being recompiled the dependents will be recompiled only as needed, otherwise the original recompile mode will be passed on.
+When an entity is decoded from a baseline plus a wire delta, merge the two and decode once (true), or decode the baseline and then the delta as two passes (false, the old behaviour, which can invoke change callbacks with baseline values for an entity that already exists).
 When computing respondents for a 'THEN ANY' rule, all rule-matching scores within this much of the best score will be considered.
 When computing the transform at each path point ensure that there is no roll around the path relative to the up direction. This prevents objects from tilting side to side while still allowing them to tilt along the path (unlike Use Fixed Up which does not allow them to tilt along the path).
 When condensing late commands. Should we compress multiple moves of button presses into the target move?
@@ -17100,7 +17119,7 @@ cl_clock_recvmargin_timeconstant_slowdown
 cl_clock_recvmargin_timeconstant_speedup
 cl_clock_recvmargin_window
 cl_clockdbg
-cl_clockdrift_max_ticks
+cl_clockdrift_max_secs
 cl_clutch_mode
 cl_color
 cl_connectionretrytime_p2p
@@ -17394,6 +17413,7 @@ cl_new_user_phase
 cl_obs_interp_enable
 cl_obs_interp_speed
 cl_observed_bot_crosshair
+cl_packetentities_merge_before_decode
 cl_paintkit_override
 cl_panel_freeze_time_after_press
 cl_parallel_readpacketentities
@@ -19368,6 +19388,7 @@ fresnel warp texture
 friction
 friction_scale
 friendlyname
+frostenabled
 fs_async_threads
 fs_clear_open_duplicate_times
 fs_dump_open_duplicate_times
@@ -23229,6 +23250,7 @@ m_bFreezePeriod
 m_bFreezeTargetState
 m_bFreezeTransitionActive
 m_bFreshStartThisRound
+m_bFrostEnabled
 m_bFrozen
 m_bFullbright
 m_bGPUCullSkybox
@@ -25593,7 +25615,6 @@ m_flDampedValue
 m_flDamping
 m_flDampingRatio
 m_flDangerousTime
-m_flDeadOrRescuedTime
 m_flDealtDamageToEnemyMostRecentTimestamp
 m_flDeathCamTilt
 m_flDeathDestroyTime
@@ -27243,6 +27264,7 @@ m_flTraceRadius
 m_flTraceTolerance
 m_flTracerDuration
 m_flTrajectoryTrailEffectCreationTime
+m_flTransitionBlendTimeSeconds
 m_flTransitionDurationSeconds
 m_flTransitionPenalty
 m_flTransitionSourcePathLocation
@@ -33556,6 +33578,8 @@ net_compresspackets_minsize
 net_connections_stats
 net_culloptimization
 net_debug_to_file
+net_decode_callback_queue_stats_clear
+net_decode_callback_queue_stats_dump
 net_detailed_canpacket_log
 net_fakeclear
 net_fakejitter
@@ -33564,7 +33588,17 @@ net_fakeloss
 net_fakestatus
 net_filelogging
 net_fs_showindirections
-net_limit_sv_recv_max_message_size_kb
+net_gather_child_fields_only
+net_limit_sv_listen_max_message_size_kb
+net_limit_sv_listen_recvbuffer_kb
+net_limit_sv_listen_recvbuffer_msg
+net_limit_sv_message_process_time_ms_drop_burst
+net_limit_sv_message_process_time_ms_drop_rate_per_sec
+net_limit_sv_message_process_time_ms_warn_burst
+net_limit_sv_message_process_time_ms_warn_rate_per_sec
+net_limit_sv_recv_chan_buffer_messages
+net_limit_sv_recv_chan_msgs_per_frame
+net_limit_sv_recv_max_frame_size_kb
 net_limit_sv_recv_segments_per_packet
 net_limit_sv_recvbuffer_kb
 net_limit_sv_recvbuffer_msg
@@ -34552,6 +34586,16 @@ r_csgo_enable_tonemapping
 r_csgo_enable_translucent_screen_space
 r_csgo_enable_volume_fog
 r_csgo_firstpersonlegs_nearz_offset
+r_csgo_frost_dry_time
+r_csgo_frost_force
+r_csgo_frost_grow_time
+r_csgo_frost_heat_barrel_position
+r_csgo_frost_heat_cool_time
+r_csgo_frost_heat_light_delay
+r_csgo_frost_heat_light_time
+r_csgo_frost_heat_per_shot
+r_csgo_frost_indoor_distance
+r_csgo_frost_melt_time
 r_csgo_fsr_enable_mip_bias
 r_csgo_fsr_rcas_sharpness
 r_csgo_fsr_upsample
@@ -34593,6 +34637,7 @@ r_csgo_no_shader_resolve
 r_csgo_opaquerefract_viewmodel_depthcopy
 r_csgo_opaquerefract_viewmodel_quality
 r_csgo_outline_glow_scaledenom
+r_csgo_parallax
 r_csgo_player_occlusion_query
 r_csgo_player_occlusion_query_debug
 r_csgo_postprocess_enable
@@ -36784,10 +36829,6 @@ sv_mover_maxslope
 sv_mover_pogodampingratio
 sv_mover_pogofrequency
 sv_mute_players_with_social_penalties
-sv_net_client_message_process_time_ms_drop_burst
-sv_net_client_message_process_time_ms_drop_rate
-sv_net_client_message_process_time_ms_warn_burst
-sv_net_client_message_process_time_ms_warn_rate
 sv_netprof_delta_sharing_temp
 sv_networkvar_log_fullchanges
 sv_networkvar_perfieldtracking
@@ -36852,7 +36893,6 @@ sv_rcon_maxfailures
 sv_rcon_minfailures
 sv_rcon_minfailuretime
 sv_record_item_time_data
-sv_recvbuf_messages
 sv_regeneration_force_on
 sv_regeneration_wait_time
 sv_region
@@ -37631,6 +37671,7 @@ vertical_align
 videocfg_ao_detail
 videocfg_fsr_detail
 videocfg_hdr_detail
+videocfg_parallax_detail
 videocfg_particle_detail
 videocfg_shadow_quality
 videocfg_texture_detail
@@ -37752,6 +37793,13 @@ vprof_dump_counters
 vprof_generate_report
 vprof_generate_report_budget
 vprof_generate_report_hierarchy
+vprof_lite_auto
+vprof_lite_dump
+vprof_lite_dump [filename] [stop=1]\nWrite the vprof lite budget group statistics as CSV, then stop the profiler and clear its data.\nstop=0 leaves the profiler running with its data.  The default filename is vprof_lite.csv in the mod directory;\nan absolute path is used as given.  Sets vprof_lite_auto 0, so the game will not stop or dump the profiler on its own.
+vprof_lite_start
+vprof_lite_start [clear=1]\nStart the vprof lite profiler, clearing any data it holds.  clear=0 keeps the data and continues adding to it.\nSets vprof_lite_auto 0, so the game will not stop or dump the profiler on its own.
+vprof_lite_stop
+vprof_lite_stop [clear=1]\nStop the vprof lite profiler and clear its data.  clear=0 keeps the data, for engine_frametime_print_report or vprof_lite_dump.\nSets vprof_lite_auto 0, so the game will not start the profiler on its own.
 vprof_loadhitstore_scale
 vprof_off
 vprof_on

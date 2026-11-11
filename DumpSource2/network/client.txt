@@ -58,7 +58,6 @@ CBaseFilter
 CBasePlayerController
 	include by name: m_pEntity, m_flSimulationTime, m_flCreateTime, m_iTeamNum, m_nNextThinkTick, m_fFlags
 	include by user group: LocalPlayerExclusive, LocalPlayerAndPredictorsExclusive
-	overrides: m_nNextThinkTick userGroup LocalPlayerAndPredictorsExclusive
 	user group proxies: LocalPlayerExclusive, LocalTeamExclusive, LocalPlayerAndObserversExclusive, LocalPlayerAndPredictorsExclusive
 	replay compat fields: m_skeletonInstance\.m_vecOrigin\..*| OnReplayCompat_GameSceneNodeOriginAngles
 	uint32 m_nTickBase (priority: 1; user groups: LocalPlayerAndPredictorsExclusive)
@@ -994,7 +993,7 @@ C_BasePlayerPawn
 	exclude by name: m_pWeaponServices, m_pItemServices, m_pAutoaimServices, m_pObserverServices, m_pWaterServices, m_pUseServices, m_pFlashlightServices, m_pMovementServices
 	include by user group: Player, Water, LocalPlayerExclusive, LocalPlayerAndPredictorsExclusive
 	exclude by user group: FogController
-	overrides: CNetworkOriginCellCoordQuantizedVector::m_vecX bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecY bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecZ bitCount 32, m_lifeState changeCallback OnLifeStateChanged, m_nNextThinkTick userGroup LocalPlayerAndPredictorsExclusive
+	overrides: CNetworkOriginCellCoordQuantizedVector::m_vecX bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecY bitCount 32, CNetworkOriginCellCoordQuantizedVector::m_vecZ bitCount 32, m_lifeState changeCallback OnLifeStateChanged
 	user group proxies: LocalPlayerExclusive
 	CPlayer_WeaponServices * m_pWeaponServices
 	CPlayer_ItemServices * m_pItemServices
@@ -1829,7 +1828,7 @@ C_Hostage
 	CHandle< CBaseEntity> m_leader (sent as: ehandle)
 	CountdownTimer m_reuseTimer
 	Vector m_vel
-	bool m_isRescued (change callbacks: RecvProxy_Rescued)
+	bool m_isRescued
 	bool m_jumpedThisFrame (change callbacks: RecvProxy_Jumped)
 	int m_nHostageState (change callbacks: OnHostageStateChanged)
 	bool m_bHandsHaveBeenCut

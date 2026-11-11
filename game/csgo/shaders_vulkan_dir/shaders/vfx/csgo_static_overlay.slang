@@ -123,20 +123,16 @@ VS
 	int g_nScaleTexCoordUByModelScaleAxis < Range4(0, 0, 0, 0, 3, 3, 3, 3); UiOptions("0=None,1=UV.u * model.x,2=UV.u * model.y,3=UV.u * model.z"); UiType(Enum); UiGroup("Color/80"); >;
 	int g_nScaleTexCoordVByModelScaleAxis < Range4(0, 0, 0, 0, 3, 3, 3, 3); UiOptions("0=None,1=UV.v * model.x,2=UV.v * model.y,3=UV.v * model.z"); UiType(Enum); UiGroup("Color/90"); >;
 	
+	// Overlay
+	float g_flOverlayLift < Range(0, 2); UiType(Slider); UiGroup("Overlay,90/Lift,10/10"); >;
+	
 	// Material1
 	int g_nUVSet1 < Default(1); Range4(0, 0, 0, 0, 2, 2, 2, 2); UiOptions("0=Biplanar,1=UV1,2=UV2"); UiType(Enum); UiGroup("Material1/Texture Coordinates,34/1"); >;
 	float2 g_vTexCoordScale1 < Default2(1, 1); Range2(0, 0, 100, 100); Attribute("0=X,1=Y"); UiType(VectorText); UiGroup("Material1/Texture Transform,35/2"); >;
 	float g_flTexCoordRotation1 < Range(-360, 360); UiType(Slider); UiGroup("Material1/Texture Transform,35/13"); UiVisibility(1); >;
 	
-	// SPIR-V reflection failed for backend HLSL:
-	// cbuffer ID 5618 (name: _Globals_), member index 0 (name: g_vTexCoordXform0) cannot be expressed with either HLSL packing layout or packoffset.
-	//
-	// Re-attempting reflection with the GLSL backend.
-	
 	// Source 2 Viewer - https://valveresourceformat.github.io
-	// SPIR-V source, GLSL reflection with SPIRV-Cross by KhronosGroup
-	
-	#version 460
+	// SPIR-V source, HLSL reflection with SPIRV-Cross by KhronosGroup
 	
 	struct _1125
 	{
@@ -152,88 +148,101 @@ VS
 	
 	struct _1119
 	{
-	    mat3x4 _m0;
+	    row_major float3x4 _m0;
 	};
 	
-	layout(set = 4, binding = 32, std430) readonly buffer g_instanceBuffer
+	ByteAddressBuffer g_instanceBuffer : register(t32, space4);
+	ByteAddressBuffer g_transformBuffer : register(t30, space4);
+	cbuffer PerViewConstantBuffer_t : register(b1, space0)
 	{
-	    _1125 _m0[];
-	} g_instanceBuffer_1;
-	
-	layout(set = 4, binding = 30, std430) readonly buffer g_transformBuffer
-	{
-	    _1119 _m0[];
-	} g_transformBuffer_1;
-	
-	struct _1340
-	{
-	    mat4 _m0;
-	    float _m1;
-	    vec4 _m2;
-	    vec3 _m3;
+	    column_major float4x4 PerViewConstantBuffer_t_1_m0 : packoffset(c0);
+	    float PerViewConstantBuffer_t_1_m1 : packoffset(c18.w);
+	    float4 PerViewConstantBuffer_t_1_m2 : packoffset(c24);
+	    float3 PerViewConstantBuffer_t_1_m3 : packoffset(c26);
 	};
 	
-	layout(set = 0) uniform _1340 PerViewConstantBuffer_t;
-	
-	struct _1234
+	cbuffer _Globals_ : register(b0, space0)
 	{
-	    vec4 g_vTexCoordXform0;
-	    vec4 g_vTexCoordXform1;
-	    vec2 g_vTexCoordScrollSpeed;
-	    vec3 g_vColorTint;
-	    float g_flModelTintAmount;
+	    float4 _Globals_1_g_vTexCoordXform0 : packoffset(c31);
+	    float4 _Globals_1_g_vTexCoordXform1 : packoffset(c32);
+	    float2 _Globals_1_g_vTexCoordScrollSpeed : packoffset(c33);
+	    float3 _Globals_1_g_vColorTint : packoffset(c36.y);
+	    float _Globals_1_g_flModelTintAmount : packoffset(c37);
+	    float _Globals_1_g_flOverlayLift : packoffset(c37.z);
 	};
 	
-	layout(set = 0) uniform _1234 _Globals_;
-	
-	struct _1017
+	cbuffer PerViewConstantBufferCsgo_t : register(b3, space0)
 	{
-	    vec4 _m0;
+	    float4 PerViewConstantBufferCsgo_t_1_m0 : packoffset(c35);
 	};
 	
-	layout(set = 0) uniform _1017 PerViewConstantBufferCsgo_t;
 	
-	layout(location = 0) in vec3 vPositionOs;
-	layout(location = 1) in vec2 vTexCoord;
-	layout(location = 2) in vec3 vNormalOs;
-	layout(location = 3) in uvec4 vBlendIndices;
-	layout(location = 4) in uint nInstanceIdx;
-	layout(location = 0) out vec3 output_0;
-	layout(location = 1) out vec3 output_1;
-	layout(location = 2) out vec4 output_2;
-	layout(location = 3) out vec3 output_3;
-	layout(location = 4) out vec3 output_4;
-	layout(location = 5) out vec4 output_5;
-	layout(location = 6) centroid out vec4 output_6;
-	layout(location = 7) flat out uint output_7;
+	static float4 gl_Position;
+	static float3 vPositionOs;
+	static float2 vTexCoord;
+	static float3 vNormalOs;
+	static uint4 vBlendIndices;
+	static uint nInstanceIdx;
+	static float3 output_0;
+	static float3 output_1;
+	static float4 output_2;
+	static float3 output_3;
+	static float3 output_4;
+	static float4 output_5;
+	static float4 output_6;
+	static uint output_7;
 	
-	void main()
+	struct VS_INPUT
 	{
-	    uint _13771 = (g_instanceBuffer_1._m0[nInstanceIdx]._m5 >> uint(16)) & 15u;
+	    float3 vPositionOs : POSITION0;
+	    float2 vTexCoord : TEXCOORD0;
+	    float3 vNormalOs : NORMAL0;
+	    uint4 vBlendIndices : BLENDINDICES0;
+	    uint nInstanceIdx : TEXCOORD13;
+	};
+	
+	struct PS_INPUT
+	{
+	    float3 output_0 : TEXCOORD0;
+	    float3 output_1 : TEXCOORD1;
+	    float4 output_2 : TEXCOORD2;
+	    float3 output_3 : TEXCOORD3;
+	    float3 output_4 : TEXCOORD4;
+	    float4 output_5 : TEXCOORD5;
+	    centroid float4 output_6 : TEXCOORD6;
+	    nointerpolation uint output_7 : TEXCOORD7;
+	    float4 gl_Position : SV_Position;
+	};
+	
+	void MainVs_inner()
+	{
+	    uint _13771 = (g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 20) >> uint(16)) & 15u;
 	    uint _21785;
 	    if (_13771 == 1u)
 	    {
-	        _21785 = g_instanceBuffer_1._m0[nInstanceIdx]._m1 + (2u + vBlendIndices.x);
+	        _21785 = g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 4) + (2u + vBlendIndices.x);
 	    }
 	    else
 	    {
-	        _21785 = g_instanceBuffer_1._m0[nInstanceIdx]._m1;
+	        _21785 = g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 4);
 	    }
-	    vec3 _21709;
+	    float3x4 _12618 = float3x4(g_transformBuffer.Load<float4>(_21785 * 48 + 0), g_transformBuffer.Load<float4>(_21785 * 48 + 16), g_transformBuffer.Load<float4>(_21785 * 48 + 32));
+	    float3 _21709;
 	    if (_13771 > 0u)
 	    {
-	        _21709 = vec3(g_transformBuffer_1._m0[g_instanceBuffer_1._m0[nInstanceIdx]._m1]._m0[0].z);
+	        float3x4 _25207 = float3x4(g_transformBuffer.Load<float4>(g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 4) * 48 + 0), g_transformBuffer.Load<float4>(g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 4) * 48 + 16), g_transformBuffer.Load<float4>(g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 4) * 48 + 32));
+	        _21709 = _25207[0].z.xxx;
 	    }
 	    else
 	    {
-	        _21709 = vec3(1.0);
+	        _21709 = 1.0f.xxx;
 	    }
-	    vec4 _23812 = vec4(uvec4(g_instanceBuffer_1._m0[nInstanceIdx]._m0 & 255u, (g_instanceBuffer_1._m0[nInstanceIdx]._m0 & 65280u) >> uint(8), (g_instanceBuffer_1._m0[nInstanceIdx]._m0 & 16711680u) >> uint(16), (g_instanceBuffer_1._m0[nInstanceIdx]._m0 & 4278190080u) >> uint(24))) * vec4(0.0039215688593685626983642578125);
-	    vec3 _6253 = _23812.xyz;
-	    vec3 _17828 = _6253 * vec3(0.077399380505084991455078125);
-	    vec3 _7676 = pow((_6253 * vec3(0.947867333889007568359375)) + vec3(0.052132703363895416259765625), vec3(2.400000095367431640625));
+	    float4 _23812 = float4(uint4(g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 0) & 255u, (g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 0) & 65280u) >> uint(8), (g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 0) & 16711680u) >> uint(16), (g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 0) & 4278190080u) >> uint(24))) * 0.0039215688593685626983642578125f.xxxx;
+	    float3 _6253 = _23812.xyz;
+	    float3 _17828 = _6253 * 0.077399380505084991455078125f.xxx;
+	    float3 _7676 = pow((_6253 * 0.947867333889007568359375f.xxx) + 0.052132703363895416259765625f.xxx, 2.400000095367431640625f.xxx);
 	    float _21354;
-	    if (_23812.x <= 0.040449999272823333740234375)
+	    if (_23812.x <= 0.040449999272823333740234375f)
 	    {
 	        _21354 = _17828.x;
 	    }
@@ -242,7 +251,7 @@ VS
 	        _21354 = _7676.x;
 	    }
 	    float _21355;
-	    if (_23812.y <= 0.040449999272823333740234375)
+	    if (_23812.y <= 0.040449999272823333740234375f)
 	    {
 	        _21355 = _17828.y;
 	    }
@@ -251,7 +260,7 @@ VS
 	        _21355 = _7676.y;
 	    }
 	    float _17978;
-	    if (_23812.z <= 0.040449999272823333740234375)
+	    if (_23812.z <= 0.040449999272823333740234375f)
 	    {
 	        _17978 = _17828.z;
 	    }
@@ -260,33 +269,69 @@ VS
 	        _17978 = _7676.z;
 	    }
 	    float _7654 = _23812.w;
-	    vec3 _12151 = vec4(vPositionOs.xyz * _21709.xyz, 1.0) * g_transformBuffer_1._m0[_21785]._m0;
-	    vec4 _18237 = (vec4(_12151.xyz, 1.0) + (PerViewConstantBuffer_t._m2 * 1.0)).xyzw * PerViewConstantBuffer_t._m0;
-	    vec4 _9360 = vTexCoord.xyxy;
-	    _9360.x = dot(vTexCoord.xy, _Globals_.g_vTexCoordXform0.xy) + _Globals_.g_vTexCoordXform0.w;
-	    _9360.y = dot(vTexCoord.xy, _Globals_.g_vTexCoordXform1.xy) + _Globals_.g_vTexCoordXform1.w;
-	    vec2 _22490 = _9360.xy + (_Globals_.g_vTexCoordScrollSpeed.xy * PerViewConstantBuffer_t._m1);
-	    vec4 _20488 = _9360;
+	    float3 _11179 = normalize(mul(_12618, float4(vNormalOs.xyz, 0.0f)));
+	    float3 _12151 = mul(_12618, float4(vPositionOs.xyz * _21709.xyz, 1.0f));
+	    float4 _21447 = PerViewConstantBuffer_t_1_m2 * 1.0f;
+	    float4 _13706 = vTexCoord.xyxy;
+	    _13706.x = dot(vTexCoord.xy, _Globals_1_g_vTexCoordXform0.xy) + _Globals_1_g_vTexCoordXform0.w;
+	    _13706.y = dot(vTexCoord.xy, _Globals_1_g_vTexCoordXform1.xy) + _Globals_1_g_vTexCoordXform1.w;
+	    float2 _22490 = _13706.xy + (_Globals_1_g_vTexCoordScrollSpeed.xy * PerViewConstantBuffer_t_1_m1);
+	    float4 _20488 = _13706;
 	    _20488.x = _22490.x;
 	    _20488.y = _22490.y;
-	    vec4 _11399 = vec4(mix(vec3(1.0), vec4(_21354, _21355, _17978, _7654).xyz, vec3(_Globals_.g_flModelTintAmount)), _7654 * g_instanceBuffer_1._m0[nInstanceIdx]._m7);
-	    vec3 _13062 = _11399.xyz * _Globals_.g_vColorTint.xyz;
-	    vec4 _23714 = _11399;
+	    float4 _11399 = float4(lerp(1.0f.xxx, float4(_21354, _21355, _17978, _7654).xyz, _Globals_1_g_flModelTintAmount.xxx), _7654 * g_instanceBuffer.Load<float>(nInstanceIdx * 32 + 28));
+	    float3 _13062 = _11399.xyz * _Globals_1_g_vColorTint.xyz;
+	    float4 _23714 = _11399;
 	    _23714.x = _13062.x;
 	    _23714.y = _13062.y;
 	    _23714.z = _13062.z;
+	    float4 _19363;
+	    if (_Globals_1_g_flOverlayLift > 0.0f)
+	    {
+	        float3 _6847 = _12151.xyz;
+	        float3 _18449 = normalize(PerViewConstantBuffer_t_1_m3.xyz - _6847);
+	        float4 _18277 = mul(PerViewConstantBuffer_t_1_m0, (float4(_6847, 1.0f) + _21447).xyzw);
+	        float4 _8847 = mul(PerViewConstantBuffer_t_1_m0, (float4((_6847 + (_18449 * ((_Globals_1_g_flOverlayLift * 1.5f) / max(dot(_11179.xyz, _18449), 0.300000011920928955078125f)))).xyz, 1.0f) + _21447).xyzw);
+	        _18277.z = (_8847.z / _8847.w) * _18277.w;
+	        _19363 = _18277;
+	    }
+	    else
+	    {
+	        _19363 = mul(PerViewConstantBuffer_t_1_m0, (float4(_12151.xyz, 1.0f) + _21447).xyzw);
+	    }
 	    output_0 = _12151;
-	    output_1 = _12151 - PerViewConstantBuffer_t._m3.xyz;
+	    output_1 = _12151 - PerViewConstantBuffer_t_1_m3.xyz;
 	    output_2 = _20488;
-	    output_3 = _12151.xyz - PerViewConstantBufferCsgo_t._m0.xyz;
-	    output_4 = normalize(vec4(vNormalOs.xyz, 0.0) * g_transformBuffer_1._m0[_21785]._m0);
+	    output_3 = _12151.xyz - PerViewConstantBufferCsgo_t_1_m0.xyz;
+	    output_4 = _11179;
 	    output_5 = _20488;
 	    output_6 = _23714;
-	    output_7 = g_instanceBuffer_1._m0[nInstanceIdx]._m5 & 65535u;
-	    _18237.y = -_18237.y;
-	    gl_Position = _18237;
+	    output_7 = g_instanceBuffer.Load<uint>(nInstanceIdx * 32 + 20) & 65535u;
+	    float4 _20857 = _19363;
+	    _20857.y = -_19363.y;
+	    gl_Position = _20857;
 	}
 	
+	PS_INPUT MainVs(VS_INPUT stage_input)
+	{
+	    vPositionOs = stage_input.vPositionOs;
+	    vTexCoord = stage_input.vTexCoord;
+	    vNormalOs = stage_input.vNormalOs;
+	    vBlendIndices = stage_input.vBlendIndices;
+	    nInstanceIdx = stage_input.nInstanceIdx;
+	    MainVs_inner();
+	    PS_INPUT stage_output;
+	    stage_output.gl_Position = gl_Position;
+	    stage_output.output_0 = output_0;
+	    stage_output.output_1 = output_1;
+	    stage_output.output_2 = output_2;
+	    stage_output.output_3 = output_3;
+	    stage_output.output_4 = output_4;
+	    stage_output.output_5 = output_5;
+	    stage_output.output_6 = output_6;
+	    stage_output.output_7 = output_7;
+	    return stage_output;
+	}
 	
 	// ---------  SPIRV -> HLSL end  --------- 
 	
@@ -397,7 +442,7 @@ PS
 	float3 g_vAlbedoLevels < UiType(VectorText); Expression(float3(-float3(-.045,.4,1.15).x,-1.4427*log(max(.0001,1-float3(-.045,.4,1.15).y)),2-float3(-.045,.4,1.15).z)); >;
 	float3 g_vBiplanarTexCoordScale < UiType(VectorText); Expression(1/64*float3(-1,1,-1)); >;
 	float3 g_vDarkMetallicAlbedoLevels < UiType(VectorText); Expression(float3(-float3(-.1,.4,1.08).x,-1.4427*log(max(.0001,1-float3(-.1,.4,1.08).y)),2-float3(-.1,.4,1.08).z)); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float3 g_vMetallicAlbedoLevels < UiType(VectorText); Expression(float3(-float3(-.45,.4,1.08).x,-1.4427*log(max(.0001,1-float3(-.45,.4,1.08).y)),2-float3(-.45,.4,1.08).z)); >;
 	float4 g_vNormalXform_1 < UiType(VectorText); Expression(v0 = g_flTexCoordRotation1*3.1415927/180;
 		v1 = cos(v0);
@@ -430,7 +475,7 @@ PS
 	CreateInputTexture2D(TextureAmbientOcclusion1, Linear, 8, "", "_ao", "Material1/Lighting,20/20", Default4(1, 1, 1, 0));
 	float g_fTextureColorContrast1 < Default(1); Range(0, 4); UiType(Slider); UiGroup("Material1/Color Correction/20"); >;
 	float g_flHeightMapScale1 < Default(1); Range(-4, 4); UiType(Slider); UiGroup("Material1/Height/20"); >;
-	float3 g_vAmbientOcclusionLevels1 < Default2(0, 0.5); Range(-1, 1); Attribute("0=Option 1,1=Option 2,2=Option 3"); UiType(VectorText); UiGroup("Material1/Lighting/21"); Expression(float3(-this.x,-1.4427*log(max(.0001,1-this.y)),2-this.z)); >;
+	float3 g_vAmbientOcclusionLevels1 < Default3(0, 0.5, 1); Range(-1, 1); Attribute("0=Option 1,1=Option 2,2=Option 3"); UiType(VectorText); UiGroup("Material1/Lighting/21"); Expression(float3(-this.x,-1.4427*log(max(.0001,1-this.y)),2-this.z)); >;
 	CreateInputTexture2D(TextureMetalness1, Linear, 8, "", "_metal", "Material1/Lighting/30", Default4(0, 0, 0, 0));
 	float g_fTextureColorSaturation1 < Default(1); Range(0, 4); UiType(Slider); UiGroup("Material1/Color Correction/30"); >;
 	float g_flHeightMapZeroPoint1 < Default(0.5); UiType(Slider); UiGroup("Material1/Height/30"); >;
@@ -451,6 +496,7 @@ PS
 	// Lighting
 	CreateInputTexture2D(TextureMetalness, Linear, 8, "", "_metal", "Lighting,30/Metalness,30/10", Default4(0, 0, 0, 0));
 	CreateInputTexture2D(TextureRoughness, Linear, 8, "Inverse", "_rough", "Lighting,30/Roughness,20/10", Default4(0.5, 0.5, 0.5, 0));
+	bool g_bSnow < UiType(CheckBox); UiGroup("Lighting/Snow,90/10"); >;
 	float g_fTextureRoughnessContrast < Default(1); Range(0, 4); UiType(Slider); UiGroup("Lighting/Roughness/11"); >;
 	float g_fTextureRoughnessBrightness < Default(1); Range(0, 4); UiType(Slider); UiGroup("Lighting/Roughness/12"); >;
 	bool g_bMaskRoughnessAdjustmentsByTintMask < UiType(CheckBox); UiGroup("Lighting/Roughness/13"); UiVisibility(F_TINT_MASK==1); >;

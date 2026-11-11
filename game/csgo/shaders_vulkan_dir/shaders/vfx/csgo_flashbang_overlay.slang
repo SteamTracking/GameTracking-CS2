@@ -277,7 +277,7 @@ PS
 	};
 	
 	Texture2D<float4> g_tFlashbangFrame : register(t53, space1);
-	SamplerState g_sPointClamp : register(s18, space1);
+	SamplerState g_sPointClamp : register(s19, space1);
 	
 	static float4 gl_FragCoord;
 	static float4 output_0;

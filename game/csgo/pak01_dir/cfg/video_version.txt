@@ -1,5 +1,5 @@
 // Bump the version number to force auto config to be re-run so that the local settings will be re-generated from the appropriate video_defaults_#.txt
 "video_version.txt"
 {
-	"Version"		"16"
+	"Version"		"17"
 }

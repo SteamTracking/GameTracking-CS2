@@ -44560,6 +44560,8 @@
 
 		"SFUI_Settings_AOProxy"				"Ambient Occlusion"
 		"SFUI_Settings_AOProxy_Info"		"Calculate lighting using Ambient Occlusion.  Enabling Ambient Occlusion can degrade graphics performance."
+		"SFUI_Settings_Parallax"			"Parallax Occlusion Mapping"
+		"SFUI_Settings_Parallax_Info"		"Gives some surfaces, such as snow, real looking depth.  Enabling it can degrade graphics performance."
 
 		"SFUI_Settings_FSR"					"FidelityFX Super Resolution"
 		"SFUI_Settings_FSR_Info"			"FidelityFX Super Resolution may improve performance by rendering at reduced resolution and upscaling using a high-quality spatial technique."

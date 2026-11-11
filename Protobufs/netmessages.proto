@@ -418,9 +418,10 @@ message CSVCMsg_CreateStringTable {
 	optional int32 user_data_size_bits = 5;
 	optional int32 flags = 6;
 	optional bytes string_data = 7;
-	optional int32 uncompressed_size = 8;
 	optional bool data_compressed = 9;
 	optional bool using_varint_bitcounts = 10;
+
+	reserved 8;
 }
 
 message CSVCMsg_UpdateStringTable {

@@ -1157,6 +1157,7 @@ $tH@T\tI
 %s PRIVATE KEY
 %s Tactical Timeouts remaining was %d, 
 %s Tick
+%s [%d]
 %s [%s%s%s]###%p
 %s [%u]
 %s algorithm "%s" unsupported\n
@@ -6073,6 +6074,7 @@ $tH@T\tI
 .?AVCHLTVDirector@@
 .?AVCHandleDummy@@
 .?AVCHandleTest@@
+.?AVCHiddenFieldValuePrinter@@
 .?AVCHitboxComponent@@
 .?AVCHitboxSystem@@
 .?AVCHitgroupDisableListSaveRestoreOps@@
@@ -6870,138 +6872,6 @@ $tH@T\tI
 .?AVCProtoBufMsgMemoryPoolBase@GCSDK@@
 .?AVCProtoBufNetPacket@GCSDK@@
 .?AVCProtoBufSharedObjectBase@GCSDK@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBI@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEvent@@@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBJ@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEventBounce@@@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBK@VCClientMsg_ClientUIEvent@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BCN@VCCSUsrMsg_VGUIMenu@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BDN@VCCSUsrMsg_SendAudio@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BDO@VCCSUsrMsg_RawAudio@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEB@VCCSUsrMsg_Damage@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEC@VCCSUsrMsg_RadioText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BED@VCCSUsrMsg_HintText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEE@VCCSUsrMsg_KeyHintText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEF@VCCSUsrMsg_ProcessSpottedEntityUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEH@VCCSUsrMsg_AdjustMoney@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEK@VCCSUsrMsg_KillCam@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEO@VCCSUsrMsg_MatchEndConditions@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEP@VCCSUsrMsg_DisconnectToLobby@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFA@VCCSUsrMsg_PlayerStatsUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFJ@VCCSUsrMsg_CallVoteFailed@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFK@VCCSUsrMsg_VoteStart@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFL@VCCSUsrMsg_VotePass@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFM@VCCSUsrMsg_VoteFailed@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFN@VCCSUsrMsg_VoteSetup@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFO@VCCSUsrMsg_ServerRankRevealAll@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFP@VCCSUsrMsg_SendLastKillerDamageToClient@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGA@VCCSUsrMsg_ServerRankUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGJ@VCCSUsrMsg_SendPlayerItemDrops@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGK@VCCSUsrMsg_RoundBackupFilenames@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGL@VCCSUsrMsg_SendPlayerItemFound@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGM@VCCSUsrMsg_ReportHit@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGN@VCCSUsrMsg_XpUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGO@VCCSUsrMsg_QuestProgress@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGP@VCCSUsrMsg_ScoreLeaderboardData@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHA@VCCSUsrMsg_PlayerDecalDigitalSignature@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHB@VCCSUsrMsg_WeaponSound@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHC@VCCSUsrMsg_UpdateScreenHealthBar@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHD@VCCSUsrMsg_EntityOutlineHighlight@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHE@VCCSUsrMsg_SSUI@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHF@VCCSUsrMsg_SurvivalStats@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHG@VCCSUsrMsg_DisconnectToLobby@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHH@VCCSUsrMsg_EndOfMatchAllPlayersData@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHI@VCCSUsrMsg_PostRoundDamageReport@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHL@VCCSUsrMsg_RoundEndReportData@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHM@VCCSUsrMsg_CurrentRoundOdds@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHN@VCCSUsrMsg_DeepStats@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHP@VCCSUsrMsg_ShootInfo@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BIB@VCCSUsrMsg_CounterStrafe@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BID@VCCSUsrMsg_RecurringMissionSchema@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BIE@VCCSUsrMsg_SendPlayerLoadout@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BIF@VCCSUsrMsg_WeaponMagDrop@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BIG@VCCSUsrMsg_CustomHudClicked@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJA@VCMsgTEEffectDispatch@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJB@VCMsgTEArmorRicochet@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJC@VCMsgTEBeamEntPoint@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJD@VCMsgTEBeamEnts@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJE@VCMsgTEBeamPoints@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJF@VCMsgTEBeamRing@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJI@VCMsgTEBubbles@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJJ@VCMsgTEBubbleTrail@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJK@VCMsgTEDecal@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJL@VCMsgTEWorldDecal@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJM@VCMsgTEEnergySplash@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJN@VCMsgTEFizz@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJP@VCMsgTEGlowSprite@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKA@VCMsgTEImpact@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKB@VCMsgTEMuzzleFlash@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKC@VCMsgTEBloodStream@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKD@VCMsgTEExplosion@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKE@VCMsgTEDust@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKF@VCMsgTELargeFunnel@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKG@VCMsgTESparks@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKH@VCMsgTEPhysicsProp@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKK@VCMsgTESmoke@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BME@VCMsgTEFireBullets@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BMF@VCMsgPlayerBulletHit@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GF@VCUserMessageAchievementEvent@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GI@VCUserMessageCurrentTimescale@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GJ@VCUserMessageDesiredTimescale@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GK@VCUserMessageFade@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GO@VCUserMessageHudMsg@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GP@VCUserMessageHudText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HB@VCUserMessageColoredText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HC@VCUserMessageRequestState@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HD@VCUserMessageResetHUD@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HE@VCUserMessageRumble@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HF@VCUserMessageSayText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HG@VCUserMessageSayText2@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HH@VCUserMessageSayTextChannel@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HI@VCUserMessageShake@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HJ@VCUserMessageShakeDir@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HK@VCUserMessageWaterShake@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HM@VCUserMessageTextMsg@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HN@VCUserMessageScreenTilt@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IA@VCUserMessageVoiceMask@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IC@VCUserMessageSendAudio@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0ID@VCUserMessageItemPickup@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IE@VCUserMessageAmmoDenied@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IG@VCUserMessageShowMenu@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IH@VCUserMessageCreditsMsg@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IJ@VCEntityMessageScreenOverlay@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IL@VCEntityMessagePropagateForce@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IM@VCEntityMessageDoSpark@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IO@VCUserMessageCloseCaptionPlaceholder@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IP@VCUserMessageCameraTransition@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JA@VCUserMessageAudioParameter@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JB@VCUserMsg_ParticleManager@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JC@VCUserMsg_HudError@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JE@V?$CBaseCmdKeyValues@VCUserMsg_CustomGameEvent@@@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JG@VCUserMessageHapticsManagerPulse@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JH@VCUserMessageHapticsManagerEffect@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JJ@VCUserMessageUpdateCssClasses@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JK@VCUserMessageServerFrameTime@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JL@VCUserMessageLagCompensationError@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JM@VCUserMessageRequestDllStatus@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JN@VCUserMessageRequestUtilAction@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KA@VCUserMessageRequestInventory@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KC@VCUserMessageRequestDiagnostic@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KF@VCUserMessage_NotifyResponseFound@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KG@VCUserMessage_PlayResponseConditional@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KK@VCUserMessageRemoteServerResponse@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MJ@VCMsgPlaceDecalEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MK@VCMsgClearWorldDecalsEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0ML@VCMsgClearEntityDecalsEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MM@VCMsgClearDecalsForEntityEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MN@VCMsgSource1LegacyGameEventList@@$09$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MO@VCMsgSource1LegacyListenEvents@@$09$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MP@VCMsgSource1LegacyGameEvent@@$04$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NA@VCMsgSosStartSoundEvent@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NB@VCMsgSosStopSoundEvent@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NC@VCMsgSosSetSoundEventParams@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0ND@VCMsgSosSetLibraryStackFields@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NE@VCMsgSosStopSoundEventHash@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NF@VCMsgClothStiffenAnimEvent@@$04$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NG@VCMsgClothEffectAnimEvent@@$04$00$00@@
 .?AVCPulseAPIExtensionRegistrationContext@@
 .?AVCPulseBlackboardViewFromGraphInstance@@
 .?AVCPulseCell_ApplyAnimGraphParam@@
@@ -7101,7 +6971,6 @@ $tH@T\tI
 .?AVCReadyForMatchIssue@@
 .?AVCRecipientFilter@@
 .?AVCRectLight@@
-.?AVCRefCount@GCSDK@@
 .?AVCReliableBroadcastRecipientFilter@@
 .?AVCReliableSingleUserRecipientFilter@@
 .?AVCReloadMatchFilter@@
@@ -8811,7 +8680,6 @@ AddTeamMoney
 AddTeamScore
 AddVelocity
 AddViewsToSceneSystem
-AddWorkItem
 Added area %d.  ( to go there: setpos %f %f %f )\n
 Additive Blend
 Additive Blend (Masked): %.2f%%
@@ -9340,6 +9208,7 @@ C:\buildworker\csgo_rel_win64\build\src\animlib\tasksystem\animbonemasktask.cpp
 C:\buildworker\csgo_rel_win64\build\src\animlib\tasksystem\animtaskposepool.cpp
 C:\buildworker\csgo_rel_win64\build\src\animlib\tasksystem\animtasksystem.cpp
 C:\buildworker\csgo_rel_win64\build\src\animlib\tasksystem\tasks\animtask_chainlookat.cpp
+C:\buildworker\csgo_rel_win64\build\src\common\protobuf_helpers.cpp
 C:\buildworker\csgo_rel_win64\build\src\entity2\entity2_networking.cpp
 C:\buildworker\csgo_rel_win64\build\src\entity2\entitykeyvalues.cpp
 C:\buildworker\csgo_rel_win64\build\src\entity2\entitysystem.cpp
@@ -9527,7 +9396,7 @@ CAnimGraphControllerManager::CreateAndBindController
 CAnimGraphControllerManager::CreateControllerToGraphBindings
 CAnimGraphControllerManager::PreGraphUpdate
 CAnimGraphGameSystem::OnServerPrePackEntities
-CAnimGraphGameSystem::OnServerPrePackEntities(), C:\buildworker\csgo_rel_win64\build\src\game\shared\animgraph_gamesystem.cpp:2434
+CAnimGraphGameSystem::OnServerPrePackEntities(), C:\buildworker\csgo_rel_win64\build\src\game\shared\animgraph_gamesystem.cpp:2436
 CAnimGraphGameSystem::PreUpdateAnimGraphAnimations
 CAnimGraphParamAutoResetRef
 CAnimGraphParamRef
@@ -11318,7 +11187,7 @@ CNetworkUtlVectorEmbedded: successfully late-resolved 0x%p in entity %d:%s to %s
 CNetworkUtlVectorFull
 CNetworkedQuantizedFloat
 CNetworkedQuantizedFloat:  called before encoder initialized, use DECLARE_NETWORK_QUANTIZED_FLOAT_NETWORKVAR or DECLARE_NETWORK_QUANTIZED_FLOAT to make sure the encoder is initialized;\n
-CNmAimCSTask::TrySetupSolverData
+CNmAimCSTask::TrySetupBoneIndices
 CNmBoneMaskTaskList::GenerateBoneMask
 CNmChainLookatNode::CDefinition::InstantiateNode
 CNmChainLookatTask::CNmChainLookatTask
@@ -12830,6 +12699,7 @@ Certificate Sign
 Certificate:\n
 Cessation Of Operation
 Chain Lookat
+Chain Lookat Task - Trying to perform a chain lookat on top of an additive pose, this is not allowed!
 Change FOV
 Change Level
 Change Opvar Value
@@ -12897,7 +12767,6 @@ ClearDecalsForEntityEvent_t
 ClearEntityDecalsEvent_t
 ClearWorldDecalsEvent_t
 Clearing old .sav file %s\n
-Client Messages
 ClientCommand
 ClientGamePrecache_server
 ClientJob_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
@@ -14234,6 +14103,7 @@ Event.HostageRescued
 EventID
 EventLog
 EventQueue
+Events
 Exception during CompileModule\n%s\n    at (%s:%d:%d)\n
 Exception during Evaluate\n%s\n
 Exception during InstantiateModule\n%s\n
@@ -17049,7 +16919,6 @@ PassthroughCaller: %s
 Path Discarded Immediately
 Path segment [%d/%d] has no area
 PathFind_NavAreaBuildPath
-Path_RemoveAll failed for read only CFieldPath
 Pathfind to leader failed.\n
 PathfindGeneric
 PathfindGeneric - failed
@@ -17585,7 +17454,7 @@ ReadyForMatch
 Reasons
 Recast
 Recast: 
-Received %d perf samples from player %d '%s'
+Received %d perf samples from player %d '%s'\n
 Received client welcome from GC.\n
 Received method callback. Handle: %llu. Context: %llu. EResult: %d. Response Size: %d.\n
 Received new item acknowledgement: %s\n
@@ -18836,7 +18705,6 @@ SetDialogVariableStringForPlayer
 SetDistanceToReachMaxSpeed [distance=%.2f time=%.2f]
 SetDistanceToReachZeroSpeed [distance=%.2f time=%.2f]
 SetEntityName
-SetEvent()
 SetExternalAnimgraphResource
 SetEyeAngles
 SetFloat(name, val) : sets the value of the convar to the float.
@@ -19493,7 +19361,6 @@ This is the overall duration. If -1 timer will continue forever. During this dur
 Thread "%s" (ID %llu) failed to shut down
 Thread32First
 Thread32Next
-ThreadingMain
 ThreeEnemiesLeft
 Throwing smoke grenade!
 Ticks: %d (%d)
@@ -19939,6 +19806,7 @@ VisMon: RESET\n
 VisMon: Starting at element: %d\n
 VisMon: Time: %f - Tracking %d Entities. (Max:%d)\n
 VisibilityMonitor
+Voice
 VoiceBank
 VoicePitch
 Volume Matches Event Ramp
@@ -20564,11 +20432,11 @@ Zero input vector for info node!
 [net] %s
 [none]
 [null]
+[removed]
 [unknown entity]
 \%02X
 \U%04lX
 \W%08lX
-\fB33
 \n            Not After : 
 \n        Public key OCSP hash: 
 \n    at %s (%s:%d:%d)
@@ -21106,6 +20974,8 @@ arealist
 arg%d
 arg2 lt arg3
 argument is not a number
+arm_lower_L
+arm_lower_R
 arm_upper_L
 arm_upper_R
 armor
@@ -21736,6 +21606,8 @@ class_usage
 classdefidx:
 classic
 classname missing from entity!\n
+clavicle_L
+clavicle_R
 cleanup method function failed
 clear_group
 clearance

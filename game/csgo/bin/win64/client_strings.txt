@@ -2106,6 +2106,7 @@ $taser_charge
 %s PARAMETERS
 %s PRIVATE KEY
 %s Tick
+%s [%d]
 %s [%s%s%s]###%p
 %s algorithm "%s" unsupported\n
 %s at %.0f %.0f %0.f uses model %s, which has an invalid prop_data type. DELETED.\n
@@ -2538,6 +2539,7 @@ $taser_charge
 (%0.2f): %s
 (%d) Dynamic prop %s (model %s): no sequence named:%s\n
 (%d) Name: %s (%s)
+(%f, %f, %f)
 (%s)Found new peer %u\n
 (%s)Keeping existing peer %u\n
 (%s,%s)
@@ -7892,6 +7894,7 @@ $taser_charge
 .?AVCHeatMap@@
 .?AVCHelpRequestLogs_UploadUserApplicationLog_Request@@
 .?AVCHelpRequestLogs_UploadUserApplicationLog_Response@@
+.?AVCHiddenFieldValuePrinter@@
 .?AVCHistogramReadback@@
 .?AVCHistogramRenderer@@
 .?AVCHitboxComponent@@
@@ -8609,139 +8612,6 @@ $taser_charge
 .?AVCProtoBufMsgMemoryPoolBase@GCSDK@@
 .?AVCProtoBufNetPacket@GCSDK@@
 .?AVCProtoBufSharedObjectBase@GCSDK@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BAA@VCP2P_TextMessage@@$0A@$00$0A@@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BAB@VCP2P_Voice@@$05$01$0A@@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BAC@VCP2P_Ping@@$0A@$00$0A@@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBI@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEvent@@@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBJ@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEventBounce@@@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBK@VCClientMsg_ClientUIEvent@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BCN@VCCSUsrMsg_VGUIMenu@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BDN@VCCSUsrMsg_SendAudio@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BDO@VCCSUsrMsg_RawAudio@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEB@VCCSUsrMsg_Damage@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEC@VCCSUsrMsg_RadioText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BED@VCCSUsrMsg_HintText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEE@VCCSUsrMsg_KeyHintText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEF@VCCSUsrMsg_ProcessSpottedEntityUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEH@VCCSUsrMsg_AdjustMoney@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEK@VCCSUsrMsg_KillCam@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEO@VCCSUsrMsg_MatchEndConditions@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BEP@VCCSUsrMsg_DisconnectToLobby@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFA@VCCSUsrMsg_PlayerStatsUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFJ@VCCSUsrMsg_CallVoteFailed@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFK@VCCSUsrMsg_VoteStart@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFL@VCCSUsrMsg_VotePass@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFM@VCCSUsrMsg_VoteFailed@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFN@VCCSUsrMsg_VoteSetup@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFO@VCCSUsrMsg_ServerRankRevealAll@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BFP@VCCSUsrMsg_SendLastKillerDamageToClient@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGA@VCCSUsrMsg_ServerRankUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGJ@VCCSUsrMsg_SendPlayerItemDrops@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGK@VCCSUsrMsg_RoundBackupFilenames@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGL@VCCSUsrMsg_SendPlayerItemFound@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGM@VCCSUsrMsg_ReportHit@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGN@VCCSUsrMsg_XpUpdate@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGO@VCCSUsrMsg_QuestProgress@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BGP@VCCSUsrMsg_ScoreLeaderboardData@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHA@VCCSUsrMsg_PlayerDecalDigitalSignature@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHB@VCCSUsrMsg_WeaponSound@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHC@VCCSUsrMsg_UpdateScreenHealthBar@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHD@VCCSUsrMsg_EntityOutlineHighlight@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHE@VCCSUsrMsg_SSUI@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHF@VCCSUsrMsg_SurvivalStats@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHG@VCCSUsrMsg_DisconnectToLobby@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHH@VCCSUsrMsg_EndOfMatchAllPlayersData@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHI@VCCSUsrMsg_PostRoundDamageReport@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHL@VCCSUsrMsg_RoundEndReportData@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHM@VCCSUsrMsg_CurrentRoundOdds@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHN@VCCSUsrMsg_DeepStats@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BHP@VCCSUsrMsg_ShootInfo@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BID@VCCSUsrMsg_RecurringMissionSchema@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BIE@VCCSUsrMsg_SendPlayerLoadout@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BIF@VCCSUsrMsg_WeaponMagDrop@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJA@VCMsgTEEffectDispatch@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJB@VCMsgTEArmorRicochet@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJC@VCMsgTEBeamEntPoint@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJD@VCMsgTEBeamEnts@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJE@VCMsgTEBeamPoints@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJF@VCMsgTEBeamRing@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJI@VCMsgTEBubbles@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJJ@VCMsgTEBubbleTrail@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJK@VCMsgTEDecal@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJL@VCMsgTEWorldDecal@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJM@VCMsgTEEnergySplash@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJN@VCMsgTEFizz@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BJP@VCMsgTEGlowSprite@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKA@VCMsgTEImpact@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKB@VCMsgTEMuzzleFlash@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKC@VCMsgTEBloodStream@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKD@VCMsgTEExplosion@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKE@VCMsgTEDust@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKF@VCMsgTELargeFunnel@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKG@VCMsgTESparks@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKH@VCMsgTEPhysicsProp@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BKK@VCMsgTESmoke@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BME@VCMsgTEFireBullets@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BMF@VCMsgPlayerBulletHit@@$04$0A@$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GF@VCUserMessageAchievementEvent@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GI@VCUserMessageCurrentTimescale@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GJ@VCUserMessageDesiredTimescale@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GK@VCUserMessageFade@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GO@VCUserMessageHudMsg@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0GP@VCUserMessageHudText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HB@VCUserMessageColoredText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HC@VCUserMessageRequestState@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HD@VCUserMessageResetHUD@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HE@VCUserMessageRumble@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HF@VCUserMessageSayText@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HG@VCUserMessageSayText2@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HH@VCUserMessageSayTextChannel@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HI@VCUserMessageShake@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HJ@VCUserMessageShakeDir@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HK@VCUserMessageWaterShake@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HM@VCUserMessageTextMsg@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0HN@VCUserMessageScreenTilt@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IA@VCUserMessageVoiceMask@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IC@VCUserMessageSendAudio@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0ID@VCUserMessageItemPickup@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IE@VCUserMessageAmmoDenied@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IG@VCUserMessageShowMenu@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IH@VCUserMessageCreditsMsg@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IJ@VCEntityMessageScreenOverlay@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IL@VCEntityMessagePropagateForce@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IM@VCEntityMessageDoSpark@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IO@VCUserMessageCloseCaptionPlaceholder@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0IP@VCUserMessageCameraTransition@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JA@VCUserMessageAudioParameter@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JB@VCUserMsg_ParticleManager@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JC@VCUserMsg_HudError@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JE@V?$CBaseCmdKeyValues@VCUserMsg_CustomGameEvent@@@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JG@VCUserMessageHapticsManagerPulse@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JH@VCUserMessageHapticsManagerEffect@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JJ@VCUserMessageUpdateCssClasses@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JK@VCUserMessageServerFrameTime@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JL@VCUserMessageLagCompensationError@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JM@VCUserMessageRequestDllStatus@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0JN@VCUserMessageRequestUtilAction@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KA@VCUserMessageRequestInventory@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KC@VCUserMessageRequestDiagnostic@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KF@VCUserMessage_NotifyResponseFound@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KG@VCUserMessage_PlayResponseConditional@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0KK@VCUserMessageRemoteServerResponse@@$0N@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MJ@VCMsgPlaceDecalEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MK@VCMsgClearWorldDecalsEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0ML@VCMsgClearEntityDecalsEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MM@VCMsgClearDecalsForEntityEvent@@$0M@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MN@VCMsgSource1LegacyGameEventList@@$09$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MO@VCMsgSource1LegacyListenEvents@@$09$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0MP@VCMsgSource1LegacyGameEvent@@$04$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NA@VCMsgSosStartSoundEvent@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NB@VCMsgSosStopSoundEvent@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NC@VCMsgSosSetSoundEventParams@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0ND@VCMsgSosSetLibraryStackFields@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NE@VCMsgSosStopSoundEventHash@@$03$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NF@VCMsgClothStiffenAnimEvent@@$04$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0NG@VCMsgClothEffectAnimEvent@@$04$00$00@@
 .?AVCPsdBufferFile@@
 .?AVCPublishedFile_GetDetails_Request@@
 .?AVCPublishedFile_GetDetails_Response@@
@@ -8825,7 +8695,6 @@ $taser_charge
 .?AVCReadOnlyBlackboardView@@
 .?AVCRecipientFilter@@
 .?AVCRecordingList@@
-.?AVCRefCount@GCSDK@@
 .?AVCReliableBroadcastRecipientFilter@@
 .?AVCReloadMatchFilter@@
 .?AVCRenderComponent@@
@@ -10699,7 +10568,7 @@ $taser_charge
 :BAD OBJECT
 :Blowfish part of OpenSSL 1.0.2j  26 Sep 2016
 :EXTERNAL TYPE %s\n
-;<}\v<}\v<}\v<}\venv_tonemap_controller
+;<}\v<}\v<}\v<}\vC_TonemapController2
 ;sv_pausable;sv_cheats
 <!-- dmx encoding keyvalues2_noids 4 format vtex 1 -->\n"CDmeVtex"\n{\n\t"m_inputTextureArray" "element_array"\n\t[\n
 <!-- dmx encoding keyvalues2_noids 4 format vtex 1 -->\n"CDmeVtex"\n{\n\t"m_inputTextureArray" "element_array"\n\t[\n\t\t"CDmeInputTexture"\n\t\t{\n\t\t\t"m_name" "string" "TextureAmbientOcclusion"\n\t\t\t"m_fileName" "string" "$TEXTURE_REPLACEMENT_TOKEN"\n\t\t\t"m_colorSpace" "string" "linear"\n\t\t\t"m_fileExt" "string" "ao"\n\t\t\t"m_nMinBitsPerChannel" "int" "8"\n\t\t\t"m_typeString" "string" "2D"\n\t\t\t"m_imageProcessorArray" "element_array"\n\t\t\t[\n\t\t\t\t"CDmeImageProcessor"\n\t\t\t\t{\n\t\t\t\t\t"m_algorithm" "string" "None"\n\t\t\t\t\t"m_stringArg" "string" ""\n\t\t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n\t\t\t\t}\n\t\t\t]\n\t\t\t"m_bPassThroughToCompiledVtex" "bool" "0"\n\t\t\t"m_n3DSliceCount" "int" "-1"\n\t\t\t"m_n3DSliceWidth" "int" "-1"\n\t\t\t"m_n3DSliceHeight" "int" "-1"\n\t\t}\n\t]\n\t"m_outputTypeString" "string" "2D"\n\t"m_outputFormat" "string" "ATI1N"\n\t"m_outputClearColor" "vector4" "0 0 0 0"\n\t"m_nOutputMinDimension" "int" "0"\n\t"m_nOutputMaxDimension" "int" "0"\n\t"m_nOutputDimensionReduce" "int" "0"\n\t"m_textureOutputChannelArray" "element_array"\n\t[\n\t\t"CDmeTextureOutputChannel"\n\t\t{\n\t\t\t"m_srcChannels" "string" "r"\n\t\t\t"m_dstChannels" "string" "r"\n\t\t\t"m_mipAlgorithm" "CDmeImageProcessor"\n\t\t\t{\n\t\t\t\t"m_algorithm" "string" ""\n\t\t\t\t"m_stringArg" "string" ""\n\t\t\t\t"m_vFloat4Arg" "vector4" "0 0 0 0"\n\t\t\t}\n\t\t\t"m_outputColorSpace" "string" "linear"\n\t\t\t"m_inputTextureArray" "string_array"\n\t\t\t[\n\t\t\t\t"TextureAmbientOcclusion"\n\t\t\t]\n\t\t}\n\t]\n\t"m_vClamp" "vector3" "0 0 0"\n\t"m_bNoLod" "bool" "0"\n\t"m_bHiddenAssetFlag" "bool" "0"\n\t"m_bNormalizeRange" "bool" "0"\n\t"m_nDisplayRectWidth" "int" "0"\n\t"m_nDisplayRectHeight" "int" "0"\n\t"m_nMotionVectorsMaxDistanceInPixels" "int" "0"\n}\n
@@ -11201,7 +11070,6 @@ AddTimedStyle
 AddToTeamSelectPlayerList
 AddVelocity
 AddViewsToSceneSystem
-AddWorkItem
 Added TrueView prediction for player slot %d (%s)\n
 Added keyframe: pos=%f %f %f\n
 Added prediction for player slot %d (%s)\n
@@ -12008,6 +11876,7 @@ C:\buildworker\csgo_rel_win64\build\src\animlib\tasksystem\animtasksystem.cpp
 C:\buildworker\csgo_rel_win64\build\src\animlib\tasksystem\tasks\animtask_chainlookat.cpp
 C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp
 C:\buildworker\csgo_rel_win64\build\src\common\crypto.cpp
+C:\buildworker\csgo_rel_win64\build\src\common\protobuf_helpers.cpp
 C:\buildworker\csgo_rel_win64\build\src\compositematerialslib\compositematerialmanager.cpp
 C:\buildworker\csgo_rel_win64\build\src\entity2\entity2_networking.cpp
 C:\buildworker\csgo_rel_win64\build\src\entity2\entitykeyvalues.cpp
@@ -12017,7 +11886,7 @@ C:\buildworker\csgo_rel_win64\build\src\game\client\c_basecombatcharacter.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_baseentity.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_baselesson.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_baseplayerpawn.cpp
-C:\buildworker\csgo_rel_win64\build\src\game\client\c_baseplayerpawn.cpp:1620
+C:\buildworker\csgo_rel_win64\build\src\game\client\c_baseplayerpawn.cpp:1621
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_effects.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_entitydissolve.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_func_monitor.cpp
@@ -13292,7 +13161,7 @@ CNetworkUtlVectorBase< uint8, NetworkVar_m_networkAnimTiming , -1, int >
 CNetworkedQuantizedFloat
 CNetworkedQuantizedFloat:  called before encoder initialized, use DECLARE_NETWORK_QUANTIZED_FLOAT_NETWORKVAR or DECLARE_NETWORK_QUANTIZED_FLOAT to make sure the encoder is initialized;\n
 CNewParticleEffect::DetectChanges
-CNmAimCSTask::TrySetupSolverData
+CNmAimCSTask::TrySetupBoneIndices
 CNmBoneMaskTaskList::GenerateBoneMask
 CNmChainLookatNode::CDefinition::InstantiateNode
 CNmChainLookatTask::CNmChainLookatTask
@@ -13708,7 +13577,7 @@ CRenderGameSystem::OnClientPreOutputParallelWithServer
 CRenderGameSystem::OnClientPreOutputParallelWithServer(), C:\buildworker\csgo_rel_win64\build\src\game\shared\rendergamesystem.cpp:1265
 CRenderGameSystem::OnClientPreOutputParallelWithServer(1365): 
 CRenderingPipelineCS2Shadows
-CRenderingPipelineCsgo::AddLayersToView(11295): 
+CRenderingPipelineCsgo::AddLayersToView(11300): 
 CResourceName
 CResourceNameTyped
 CResourcePrecacherGameSystem
@@ -14747,6 +14616,7 @@ Certified server denied
 Certified server required
 Cessation Of Operation
 Chain Lookat
+Chain Lookat Task - Trying to perform a chain lookat on top of an additive pose, this is not allowed!
 Change FOV
 ChangeGameUIState: %s -> %s\n
 ChangeTeammateColor
@@ -14855,7 +14725,6 @@ Clearing old .sav file %s\n
 Client 
 Client Game
 Client Main World:
-Client Messages
 Client Restore Server State
 Client Scene Entity %d - Frame(%d)\n
 Client Soundscape data dump:\n
@@ -14872,8 +14741,6 @@ Client not allowed to do this action
 Client not authenticated by server
 Client registered for tournament team '%s' (%s-%s-%u)\n
 Client session ID (%s).\n
-Client tick %d (%d) last exec cmd %d, predicting %d commands %d..%d\n
-Client tick %d + %.2f final predicted tick %d + %.2f, offset = %.3f seconds, %.2f ticks\n
 Client update required
 Client-ID
 ClientCreateMoveFirst
@@ -16839,7 +16706,9 @@ Failed to load workshop compatibility versions. Demo files on old maps may not w
 Failed to open file
 Failed to open file handle to process chunk file \n
 Failed to pack %s to vpk\n
+Failed to parse %s: %s\n
 Failed to parse %s\n
+Failed to parse Source1LegacyGameEventList_t: %s\n
 Failed to parse and set new panel event for %s="%s"\n
 Failed to parse channel info.\n
 Failed to parse cubemap fog curve (%s).\n
@@ -18186,6 +18055,7 @@ Graffiti tint name duplicate: #%d %s\n
 Grail
 GrandFinal
 Graph
+Graph '%s' references resource '%s', which is not loaded\n
 Graph Parameter Name
 Graph1
 Graph2
@@ -20525,6 +20395,7 @@ P-384
 P-521
 P2P ping to "%s". Timed out after %.2fms\n
 PANORAMA_LAYOUTFILE
+PARALLAX DETAIL\t %d    \t\t\t\t\t\n
 PARALYZE
 PARAMETER NAME: %s | OPTIONAL: %s, TYPE: %s, BOUND: %s\n
 PARAMETERS
@@ -20961,6 +20832,9 @@ PanoramaUI.Lobby.GotInvited
 PanoramaWorldPanelGenerateMips
 PanoramaWorldPanelSystem
 Paper
+ParallaxDetail
+ParallaxPanel
+ParallaxSeparator
 Parameter [%s=%s] 
 Parameterized Clip Selector: Failed to select a valid option!
 Parameterized Selector: Failed to select a valid option!
@@ -21264,6 +21138,7 @@ PostDataUpdate
 PostEntityPacketReceived
 PostNetworkDataReceived
 PostNetworkDataReceived tick %d, ack %d cmds
+PostNetworkDataReceived: LastProcessedCommandNumber=%d, LastServerSnapshotTick=%d\n
 PostPanoramaRenderingPipeline
 Pre Generation KVs
 PreGraphUpdate
@@ -22896,7 +22771,6 @@ SetDragPosition
 SetDragRotateRadius
 SetDragRotateYawLimit
 SetDraggable
-SetEvent()
 SetExternalAnimgraphResource
 SetFlashlightAmount
 SetFlashlightColor
@@ -24086,7 +23960,6 @@ Thread "%s" (ID %llu) failed to shut down
 Thread32First
 Thread32Next
 ThreadPoolOptionsChanged
-ThreadingMain
 Threshholding
 Thrill
 Thunder
@@ -24294,11 +24167,11 @@ Triggered by app when the user's workshop subscriptions are updated
 Triggers the creation of entities in a manually-completed spawn group
 TrueSight spectating prediction changing %d->%d for player slot %d?\n
 TrueView active for slot %d\n
-TrueView adjust timing: Client tick %d + %.2f, desired offset %.3f sec = %.2f ticks, desired final predicted tick %d + %.2f\n
-TrueView cached command %d executed on tick %d.  Client tick = %d, offset %d\n
+TrueView cached command %d executed on tick %d.  Client tick = %d, offset %d, prediction offset %.2f\n
 TrueView can't determine last executed command number on server from command lookahead.  Desired tick %d (%d ahead).\n
+TrueView command stream for slot %d resumed after a gap.  Restarting.\n
 TrueView could not bracket view angles at tick %.2f.  Last command created %d.\n
-TrueView could not determine prediction time offset at sim tick %d.  Using 0.\n
+TrueView could not determine prediction time offset at sim tick %d.  Not predicting.\n
 TrueView found no newly executed command for slot %d in %d consecutive snapshots.  Snapshot tick %d, last executed command %d, last created command %d.\n
 TrueView inactive\n
 TrueView last created command %d for slot %d is out of range of last executed command %d.  Resetting last executed command.\n
@@ -24306,8 +24179,7 @@ TrueView not available: demo player cannot peek packets\n
 TrueView not predicting slot %d: controller has no pawn\n
 TrueView not running any commands: target tick %d, last snapshot tick %d\n
 TrueView predicted no commands this frame.  Last executed %d, last created %d, finish command %d, target tick %d.\n
-TrueView target tick %d is behind last snapshot tick %d?\n
-TrueView target time going in reverse [ %d + %.3f ] -> [ %d + %.3f ]
+TrueView target tick %d is behind last snapshot tick %d\n
 TrueViewDeadOnServer
 TrueViewDeadOnServerChanged
 Truncated header.
@@ -25353,7 +25225,6 @@ Zipping %s (%d files)\n
 [OnTickPetBookRebuild: %s] Failed to upload %d bytes to cloud file: %s\n
 [RETURN R%d]
 [RETURN]
-[TrueView %d] m_taiaTrueSpectateTargetTime=%d+%.3f   player.m_nLastExecutedCommandNumber=%d  nFirstEarlyPredictionCommand=%d\n
 [Wearables] Creating new wearable (%d)
 [disabled] 
 [dt %5.2f] velocity: %s
@@ -25369,15 +25240,22 @@ Zipping %s (%d files)\n
 [not bound]
 [null]
 [object@%p]
+[removed]
 [signon]
 [spacer]
 [symbol %d]
+[t%d f%d] Client tick [%d + %.2f] final predicted tick [%d + %.2f], offset = %.3f seconds, %.2f ticks\n
+[t%d f%d] Prediction done, tick base %d, last predicted cmd %d\n
+[t%d f%d] TrueView adjust timing: Client tick [%d + %.2f], desired offset %.3f sec = %.2f ticks, desired final predicted tick [%d + %.2f]\n
+[t%d f%d] TrueView m_taiaTrueSpectateTargetTime=%d+%.3f   player.m_nLastExecutedCommandNumber=%d  nFirstEarlyPredictionCommand=%d\n
+[t%d f%d] TrueView target time going in reverse [ %d + %.3f ] -> [ %d + %.3f ]\n
+[t%d f%d] origin %s, eye pos %s, eye angles %s\n
+[t%d f%d] server snapshot %d last exec cmd %d, predicting %d commands %d..%d\n
 [unknown entity]
 [{"event_id":
 \%02X
 \U%04lX
 \W%08lX
-\fB33
 \n            Not After : 
 \n        Public key OCSP hash: 
 \n    [%d: huff+mtf 
@@ -27138,6 +27016,8 @@ classic
 classname is
 classname missing from entity!\n
 classname_global_index
+clavicle_L
+clavicle_R
 clay
 clean
 cleanup method function failed
@@ -28060,7 +27940,6 @@ demo-tick
 demo-tick-max
 demo-time
 demo-time-max
-demo_skip
 demo_start
 demo_stop
 demo_timescale %f
@@ -31616,6 +31495,7 @@ materials/dev/downsample_depth.vmat
 materials/dev/downsample_depth_cs.vmat
 materials/dev/downsample_outlineglows.vmat
 materials/dev/error_compmat.vtex
+materials/dev/frost.vtex
 materials/dev/gaussian_bloom_blur.vmat
 materials/dev/generalfilter_alphablended.vmat
 materials/dev/glow_health_color.vmat
@@ -31643,7 +31523,6 @@ materials/dev/smoke_volume.vmat
 materials/dev/smoke_volume_depth.vmat
 materials/dev/smoke_volume_lpv.vmat
 materials/dev/smoke_volume_mask.vmat
-materials/dev/snow_sparkle.vtex
 materials/dev/update_visnode_visibility.vmat
 materials/dev/upsample.vmat
 materials/dev/upsample_fsr.vmat
@@ -34443,6 +34322,7 @@ setting.r_character_decal_resolution
 setting.r_csgo_cmaa_enable
 setting.r_csgo_fsr_upsample
 setting.r_csgo_mboit_force_mixed_resolution
+setting.r_csgo_parallax
 setting.r_low_latency
 setting.r_particle_cables_cast_shadows
 setting.r_particle_max_detail_level
@@ -34461,6 +34341,7 @@ setting.videocfg_ao_detail
 setting.videocfg_dynamic_shadows
 setting.videocfg_fsr_detail
 setting.videocfg_hdr_detail
+setting.videocfg_parallax_detail
 setting.videocfg_particle_detail
 setting.videocfg_shadow_quality
 setting.videocfg_texture_detail
@@ -35377,7 +35258,6 @@ timeouts_remaining
 timer
 timer_time
 timerangeindays
-timescale
 timeslice
 timestamp
 timestamp=%d&stat_value=%.3f&stat_index=%d&percentile=%.2f

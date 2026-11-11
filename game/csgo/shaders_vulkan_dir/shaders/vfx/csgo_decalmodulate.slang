@@ -259,7 +259,7 @@ PS
 	};
 	
 	Texture2D<float4> g_tColor : register(t43, space1);
-	SamplerState g_sUserConfigAllowGlobalMipBias : register(s20, space1);
+	SamplerState g_sUserConfigAllowGlobalMipBias : register(s21, space1);
 	
 	static float4 input_2;
 	static float4 input_3;

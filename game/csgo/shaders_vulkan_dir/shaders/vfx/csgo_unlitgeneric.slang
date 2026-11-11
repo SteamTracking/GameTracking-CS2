@@ -382,9 +382,9 @@ PS
 	};
 	
 	Texture2D<float4> g_tColor : register(t51, space1);
-	SamplerState g_sUserConfigAllowGlobalMipBias : register(s20, space1);
+	SamplerState g_sUserConfigAllowGlobalMipBias : register(s21, space1);
 	TextureCube<float4> g_tFogCubeTexture : register(t42, space1);
-	SamplerState g_sTrilinearClamp : register(s17, space1);
+	SamplerState g_sTrilinearClamp : register(s18, space1);
 	
 	static float4 input_2;
 	static float4 input_3;

@@ -330,7 +330,7 @@ PS
 	Texture2D g_tParticleShadowBuffer < Attribute("ParticleShadowBuffer"); SrgbRead(false); >;
 	Texture2D g_tShadowDepthBufferDepth < Attribute("ShadowDepthBuffer"); SrgbRead(false); >;
 	Texture2D g_tSsao < Attribute("SSAOOcclusionFactor"); SrgbRead(false); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float3 g_vGrassColorTint < UiType(Color); Expression(SrgbGammaToLinear(this)); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
@@ -353,17 +353,17 @@ PS
 	// Source 2 Viewer - https://valveresourceformat.github.io
 	// SPIR-V source, HLSL reflection with SPIRV-Cross by KhronosGroup
 	
-	struct _1108
+	struct _1402
 	{
 	    float4 _m0[3];
 	};
 	
-	struct _1890
+	struct _2100
 	{
 	    float4 _m0[4];
 	};
 	
-	struct _2452
+	struct _371
 	{
 	    column_major float4x4 _m0[4];
 	};
@@ -430,7 +430,7 @@ PS
 	    float4 PerViewLightingConstantBufferGpu_t_1_m1 : packoffset(c1);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m2 : packoffset(c2);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m3 : packoffset(c3);
-	    _1108 PerViewLightingConstantBufferGpu_t_1_m4 : packoffset(c7);
+	    _1402 PerViewLightingConstantBufferGpu_t_1_m4 : packoffset(c7);
 	    float4 PerViewLightingConstantBufferGpu_t_1_m5 : packoffset(c18);
 	    uint4 PerViewLightingConstantBufferGpu_t_1_m6 : packoffset(c19);
 	    uint4 PerViewLightingConstantBufferGpu_t_1_m7 : packoffset(c22);
@@ -444,8 +444,8 @@ PS
 	    float PerViewLightingConstantBufferGpu_t_1_m15 : packoffset(c1955.y);
 	    float PerViewLightingConstantBufferGpu_t_1_m16 : packoffset(c1955.z);
 	    float PerViewLightingConstantBufferGpu_t_1_m17 : packoffset(c1955.w);
-	    _2452 PerViewLightingConstantBufferGpu_t_1_m18 : packoffset(c1956);
-	    _1890 PerViewLightingConstantBufferGpu_t_1_m19 : packoffset(c1988);
+	    _371 PerViewLightingConstantBufferGpu_t_1_m18 : packoffset(c1956);
+	    _2100 PerViewLightingConstantBufferGpu_t_1_m19 : packoffset(c1988);
 	};
 	
 	cbuffer PerViewConstantBuffer_t : register(b1, space1)
@@ -463,14 +463,14 @@ PS
 	Texture2D<float4> g_tGrassQuadSpecularArray : register(t44, space1);
 	SamplerState AddressU_Clamp_AddressV_Clamp_Filter_Anisotropic_MaxAniso_8 : register(s15, space1);
 	Texture2D<float4> g_tAmbientOcclusion : register(t53, space1);
-	SamplerState g_sUserConfig : register(s21, space1);
-	SamplerComparisonState g_tShadowDepthBufferCmpSampler : register(s25, space1);
+	SamplerState g_sUserConfig : register(s22, space1);
+	SamplerComparisonState g_tShadowDepthBufferCmpSampler : register(s26, space1);
 	Texture2D<float4> g_tShadowDepthBufferDepth : register(t36, space1);
 	Texture2D<float4> g_tParticleShadowBuffer : register(t51, space1);
-	SamplerState g_sTrilinearClamp : register(s19, space1);
-	SamplerState g_sTrilinearWrap : register(s18, space1);
+	SamplerState g_sTrilinearClamp : register(s20, space1);
+	SamplerState g_sTrilinearWrap : register(s19, space1);
 	Texture3D<float4> g_tLightCookieTexture : register(t34, space1);
-	SamplerState g_sCookieSampler : register(s24, space1);
+	SamplerState g_sCookieSampler : register(s25, space1);
 	TextureCube<float4> g_tFogCubeTexture : register(t42, space1);
 	
 	static float4 gl_FragCoord;
@@ -513,167 +513,178 @@ PS
 	    float4 _19068 = g_tAmbientOcclusion.Sample(g_sUserConfig, input_2.xy);
 	    float3 _24735 = _7029.xyz;
 	    float4 _23875 = float4(_24735, 1.0f);
-	    float _21709;
+	    float _8634 = dot(PerViewLightingConstantBufferGpu_t_1_m9.xyz, _24735);
+	    float _12320;
 	    [branch]
-	    if (PerViewLightingConstantBufferGpu_t_1_m11 != 0)
+	    if (_8634 > 0.0f)
 	    {
-	        int _23989;
-	        int _10191;
-	        float _13136;
-	        float3 _14975;
-	        int _13039 = 0;
-	        for (;;)
+	        float _12504;
+	        [branch]
+	        if (PerViewLightingConstantBufferGpu_t_1_m11 != 0)
 	        {
-	            if (!(_13039 < PerViewLightingConstantBufferGpu_t_1_m11))
+	            int _23989;
+	            int _10191;
+	            float _13136;
+	            float3 _14975;
+	            int _13039 = 0;
+	            for (;;)
 	            {
-	                _13136 = 1.0f;
-	                _14975 = 0.0f.xxx;
-	                _10191 = -1;
-	                break;
-	            }
-	            float4 _18322 = mul(PerViewLightingConstantBufferGpu_t_1_m18._m0[_13039], float4(input_0.xyz, 1.0f));
-	            float _12779 = _18322.x;
-	            if (max(abs(_12779), abs(_18322.y)) < PerViewLightingConstantBufferGpu_t_1_m13[_13039])
-	            {
-	                float3 _19470 = float3(_12779, _18322.yz);
-	                float2 _24804 = _19470.xy;
-	                float2 _22193 = 1.0f.xx - clamp((abs(_24804) * PerViewLightingConstantBufferGpu_t_1_m15.xx) + PerViewLightingConstantBufferGpu_t_1_m14.xx, 0.0f.xx, 1.0f.xx);
-	                float2 _20561 = (_24804 * PerViewLightingConstantBufferGpu_t_1_m19._m0[_13039].zw) + PerViewLightingConstantBufferGpu_t_1_m19._m0[_13039].xy;
-	                float3 _20488 = _19470;
-	                _20488.x = _20561.x;
-	                _20488.y = _20561.y;
-	                _13136 = saturate(_22193.x * _22193.y);
-	                _14975 = _20488;
-	                _10191 = _13039;
-	                break;
-	            }
-	            _23989 = _13039 + 1;
-	            _13039 = _23989;
-	            continue;
-	        }
-	        float _19363;
-	        if (_10191 >= 0)
-	        {
-	            float2 _7045;
-	            float2 _7046;
-	            float2 _7735;
-	            float _8969;
-	            float _8970;
-	            float _15996;
-	            float _17299;
-	            float2 _18870;
-	            float4 _20581;
-	            float4 _22023;
-	            float _23727;
-	            do
-	            {
-	                float _21452 = saturate(_14975.z + PerViewLightingConstantBufferGpu_t_1_m12);
-	                _20581 = PerViewLightingConstantBufferGpu_t_1_m0;
-	                _22023 = PerViewLightingConstantBufferGpu_t_1_m1;
-	                _17299 = PerViewLightingConstantBufferGpu_t_1_m2.z;
-	                _15996 = PerViewLightingConstantBufferGpu_t_1_m3.z;
-	                _18870 = float2(_17299, _15996);
-	                _8969 = PerViewLightingConstantBufferGpu_t_1_m2.y;
-	                _7045 = float2(_8969, _15996);
-	                _8970 = PerViewLightingConstantBufferGpu_t_1_m3.y;
-	                _7046 = float2(_17299, _8970);
-	                _7735 = float2(_8969, _8970);
-	                float _15310 = dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _18870).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _7045).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _7046).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _7735).xy, _21452)).xyzw, 0.25f.xxxx);
-	                bool _12885;
-	                if (_15310 == 0.0f)
+	                if (!(_13039 < PerViewLightingConstantBufferGpu_t_1_m11))
 	                {
-	                    _12885 = true;
-	                }
-	                else
-	                {
-	                    _12885 = _15310 == 1.0f;
-	                }
-	                if (_12885)
-	                {
-	                    _23727 = _15310;
+	                    _13136 = 1.0f;
+	                    _14975 = 0.0f.xxx;
+	                    _10191 = -1;
 	                    break;
 	                }
-	                _23727 = ((_15310 * (_20581.w * 4.0f)) + dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(_17299, 0.0f)).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(_8969, 0.0f)).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(0.0f, _8970)).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(0.0f, _15996)).xy, _21452)).xyzw, _22023.xxxx)) + (g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, _14975.xy, _21452) * _22023.y);
-	                break;
-	            } while(false);
-	            float _12502;
-	            [branch]
-	            if (_13136 < 1.0f)
-	            {
-	                float _7934;
-	                if (_10191 < (PerViewLightingConstantBufferGpu_t_1_m11 - 1))
+	                float4 _18322 = mul(PerViewLightingConstantBufferGpu_t_1_m18._m0[_13039], float4(input_0.xyz, 1.0f));
+	                float _12779 = _18322.x;
+	                if (max(abs(_12779), abs(_18322.y)) < PerViewLightingConstantBufferGpu_t_1_m13[_13039])
 	                {
-	                    int _15335 = _10191 + 1;
-	                    float4 _19671 = mul(PerViewLightingConstantBufferGpu_t_1_m18._m0[_15335], float4(input_0.xyz, 1.0f));
-	                    float2 _20562 = (_19671.xy * PerViewLightingConstantBufferGpu_t_1_m19._m0[_15335].zw) + PerViewLightingConstantBufferGpu_t_1_m19._m0[_15335].xy;
-	                    float3 _20489;
-	                    _20489.x = _20562.x;
-	                    _20489.y = _20562.y;
-	                    float _12501;
-	                    do
+	                    float3 _19470 = float3(_12779, _18322.yz);
+	                    float2 _24804 = _19470.xy;
+	                    float2 _22193 = 1.0f.xx - clamp((abs(_24804) * PerViewLightingConstantBufferGpu_t_1_m15.xx) + PerViewLightingConstantBufferGpu_t_1_m14.xx, 0.0f.xx, 1.0f.xx);
+	                    float2 _20561 = (_24804 * PerViewLightingConstantBufferGpu_t_1_m19._m0[_13039].zw) + PerViewLightingConstantBufferGpu_t_1_m19._m0[_13039].xy;
+	                    float3 _20488 = _19470;
+	                    _20488.x = _20561.x;
+	                    _20488.y = _20561.y;
+	                    _13136 = saturate(_22193.x * _22193.y);
+	                    _14975 = _20488;
+	                    _10191 = _13039;
+	                    break;
+	                }
+	                _23989 = _13039 + 1;
+	                _13039 = _23989;
+	                continue;
+	            }
+	            float _19363;
+	            if (_10191 >= 0)
+	            {
+	                float2 _7045;
+	                float2 _7046;
+	                float2 _7735;
+	                float _8969;
+	                float _8970;
+	                float _15996;
+	                float _17299;
+	                float2 _18870;
+	                float4 _20581;
+	                float4 _22023;
+	                float _23727;
+	                do
+	                {
+	                    float _21452 = saturate(_14975.z + PerViewLightingConstantBufferGpu_t_1_m12);
+	                    _20581 = PerViewLightingConstantBufferGpu_t_1_m0;
+	                    _22023 = PerViewLightingConstantBufferGpu_t_1_m1;
+	                    _17299 = PerViewLightingConstantBufferGpu_t_1_m2.z;
+	                    _15996 = PerViewLightingConstantBufferGpu_t_1_m3.z;
+	                    _18870 = float2(_17299, _15996);
+	                    _8969 = PerViewLightingConstantBufferGpu_t_1_m2.y;
+	                    _7045 = float2(_8969, _15996);
+	                    _8970 = PerViewLightingConstantBufferGpu_t_1_m3.y;
+	                    _7046 = float2(_17299, _8970);
+	                    _7735 = float2(_8969, _8970);
+	                    float _15310 = dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _18870).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _7045).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _7046).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + _7735).xy, _21452)).xyzw, 0.25f.xxxx);
+	                    bool _12885;
+	                    if (_15310 == 0.0f)
 	                    {
-	                        float _20322 = saturate(_19671.z + PerViewLightingConstantBufferGpu_t_1_m12);
-	                        float _15311 = dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _18870).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _7045).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _7046).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _7735).xy, _20322)).xyzw, 0.25f.xxxx);
-	                        bool _12886;
-	                        if (_15311 == 0.0f)
-	                        {
-	                            _12886 = true;
-	                        }
-	                        else
-	                        {
-	                            _12886 = _15311 == 1.0f;
-	                        }
-	                        if (_12886)
-	                        {
-	                            _12501 = _15311;
-	                            break;
-	                        }
-	                        _12501 = ((_15311 * (_20581.w * 4.0f)) + dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(_17299, 0.0f)).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(_8969, 0.0f)).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(0.0f, _8970)).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(0.0f, _15996)).xy, _20322)).xyzw, _22023.xxxx)) + (g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, _20489.xy, _20322) * _22023.y);
+	                        _12885 = true;
+	                    }
+	                    else
+	                    {
+	                        _12885 = _15310 == 1.0f;
+	                    }
+	                    if (_12885)
+	                    {
+	                        _23727 = _15310;
 	                        break;
-	                    } while(false);
-	                    _7934 = _12501;
+	                    }
+	                    _23727 = ((_15310 * (_20581.w * 4.0f)) + dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(_17299, 0.0f)).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(_8969, 0.0f)).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(0.0f, _8970)).xy, _21452), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14975.xy + float2(0.0f, _15996)).xy, _21452)).xyzw, _22023.xxxx)) + (g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, _14975.xy, _21452) * _22023.y);
+	                    break;
+	                } while(false);
+	                float _12502;
+	                [branch]
+	                if (_13136 < 1.0f)
+	                {
+	                    float _7934;
+	                    if (_10191 < (PerViewLightingConstantBufferGpu_t_1_m11 - 1))
+	                    {
+	                        int _15335 = _10191 + 1;
+	                        float4 _19671 = mul(PerViewLightingConstantBufferGpu_t_1_m18._m0[_15335], float4(input_0.xyz, 1.0f));
+	                        float2 _20562 = (_19671.xy * PerViewLightingConstantBufferGpu_t_1_m19._m0[_15335].zw) + PerViewLightingConstantBufferGpu_t_1_m19._m0[_15335].xy;
+	                        float3 _20489;
+	                        _20489.x = _20562.x;
+	                        _20489.y = _20562.y;
+	                        float _12501;
+	                        do
+	                        {
+	                            float _20322 = saturate(_19671.z + PerViewLightingConstantBufferGpu_t_1_m12);
+	                            float _15311 = dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _18870).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _7045).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _7046).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + _7735).xy, _20322)).xyzw, 0.25f.xxxx);
+	                            bool _12886;
+	                            if (_15311 == 0.0f)
+	                            {
+	                                _12886 = true;
+	                            }
+	                            else
+	                            {
+	                                _12886 = _15311 == 1.0f;
+	                            }
+	                            if (_12886)
+	                            {
+	                                _12501 = _15311;
+	                                break;
+	                            }
+	                            _12501 = ((_15311 * (_20581.w * 4.0f)) + dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(_17299, 0.0f)).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(_8969, 0.0f)).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(0.0f, _8970)).xy, _20322), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_20489.xy + float2(0.0f, _15996)).xy, _20322)).xyzw, _22023.xxxx)) + (g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, _20489.xy, _20322) * _22023.y);
+	                            break;
+	                        } while(false);
+	                        _7934 = _12501;
+	                    }
+	                    else
+	                    {
+	                        _7934 = 1.0f;
+	                    }
+	                    _12502 = lerp(_7934, _23727, _13136);
 	                }
 	                else
 	                {
-	                    _7934 = 1.0f;
+	                    _12502 = _23727;
 	                }
-	                _12502 = lerp(_7934, _23727, _13136);
+	                _19363 = _12502;
 	            }
 	            else
 	            {
-	                _12502 = _23727;
+	                _19363 = 1.0f;
 	            }
-	            _19363 = _12502;
+	            float _12513 = lerp(_19363, 1.0f, saturate((distance(_10753.xyz, PerViewConstantBuffer_t_1_m3) * PerViewLightingConstantBufferGpu_t_1_m17) + PerViewLightingConstantBufferGpu_t_1_m16));
+	            float _12503;
+	            if (bool4(PerViewConstantBufferCsgo_t_1_m0.x != int4(0, 0, 0, 0).x, PerViewConstantBufferCsgo_t_1_m0.y != int4(0, 0, 0, 0).y, PerViewConstantBufferCsgo_t_1_m0.z != int4(0, 0, 0, 0).z, PerViewConstantBufferCsgo_t_1_m0.w != int4(0, 0, 0, 0).w).y)
+	            {
+	                _12503 = min(_12513, g_tParticleShadowBuffer.SampleLevel(g_sTrilinearClamp, (_11408.xy * PerViewConstantBuffer_t_1_m2.xy).xy, 0.0f).z);
+	            }
+	            else
+	            {
+	                _12503 = _12513;
+	            }
+	            _12504 = _12503;
 	        }
 	        else
 	        {
-	            _19363 = 1.0f;
+	            _12504 = 1.0f;
 	        }
-	        float _12513 = lerp(_19363, 1.0f, saturate((distance(_10753.xyz, PerViewConstantBuffer_t_1_m3) * PerViewLightingConstantBufferGpu_t_1_m17) + PerViewLightingConstantBufferGpu_t_1_m16));
-	        float _12503;
-	        if (bool4(PerViewConstantBufferCsgo_t_1_m0.x != int4(0, 0, 0, 0).x, PerViewConstantBufferCsgo_t_1_m0.y != int4(0, 0, 0, 0).y, PerViewConstantBufferCsgo_t_1_m0.z != int4(0, 0, 0, 0).z, PerViewConstantBufferCsgo_t_1_m0.w != int4(0, 0, 0, 0).w).y)
-	        {
-	            _12503 = min(_12513, g_tParticleShadowBuffer.SampleLevel(g_sTrilinearClamp, (_11408.xy * PerViewConstantBuffer_t_1_m2.xy).xy, 0.0f).z);
-	        }
-	        else
-	        {
-	            _12503 = _12513;
-	        }
-	        _21709 = _12503;
+	        _12320 = _12504;
 	    }
 	    else
 	    {
-	        _21709 = 1.0f;
+	        _12320 = 1.0f;
 	    }
-	    float3 _21710;
+	    float3 _21709;
 	    [branch]
-	    if ((dot(PerViewLightingConstantBufferGpu_t_1_m9.xyz, _24735) * _21709) > 0.0f)
+	    if ((_8634 * _12320) > 0.0f)
 	    {
-	        _21710 = PerViewLightingConstantBufferGpu_t_1_m5.xyz + (max(0.0f, dot(_7029.xyz, PerViewLightingConstantBufferGpu_t_1_m9.xyz)).xxx.xyz * (PerViewLightingConstantBufferGpu_t_1_m10.xyz * _21709).xyz);
+	        _21709 = PerViewLightingConstantBufferGpu_t_1_m5.xyz + (max(0.0f, dot(_7029.xyz, PerViewLightingConstantBufferGpu_t_1_m9.xyz)).xxx.xyz * (PerViewLightingConstantBufferGpu_t_1_m10.xyz * _12320).xyz);
 	    }
 	    else
 	    {
-	        _21710 = PerViewLightingConstantBufferGpu_t_1_m5.xyz;
+	        _21709 = PerViewLightingConstantBufferGpu_t_1_m5.xyz;
 	    }
 	    bool4 _24465 = bool4(PerViewConstantBufferCsgo_t_1_m1.x != int4(0, 0, 0, 0).x, PerViewConstantBufferCsgo_t_1_m1.y != int4(0, 0, 0, 0).y, PerViewConstantBufferCsgo_t_1_m1.z != int4(0, 0, 0, 0).z, PerViewConstantBufferCsgo_t_1_m1.w != int4(0, 0, 0, 0).w);
 	    bool _20059 = _24465.x;
@@ -697,7 +708,7 @@ PS
 	    uint _10838 = PerViewLightingConstantBufferGpu_t_1_m6.y + (((_12083.y * PerViewLightingConstantBufferGpu_t_1_m7.y) + _12083.x) * PerViewLightingConstantBufferGpu_t_1_m6.z);
 	    uint _23393 = PerViewLightingConstantBufferGpu_t_1_m6.x + (uint(clamp(_19364.w * PerViewLightingConstantBufferGpu_t_1_m8.x, 0.0f, PerViewLightingConstantBufferGpu_t_1_m8.y)) * PerViewLightingConstantBufferGpu_t_1_m6.z);
 	    float3 _13155;
-	    _13155 = _21710;
+	    _13155 = _21709;
 	    uint _21567;
 	    float3 _13156;
 	    uint _16208 = 0u;
@@ -710,7 +721,7 @@ PS
 	        uint _14475 = WaveActiveBitOr(g_CullBits.Load<uint>((_10838 + _16208) * 4 + 0) & g_CullBits.Load<uint>((_23393 + _16208) * 4 + 0));
 	        _13156 = _13155;
 	        uint _20344;
-	        float3 _12505;
+	        float3 _12506;
 	        uint _16209 = _14475;
 	        for (;;)
 	        {
@@ -753,7 +764,7 @@ PS
 	                }
 	                if (_12887)
 	                {
-	                    _12505 = _13156;
+	                    _12506 = _13156;
 	                    break;
 	                }
 	                float _23571 = 2.0f * g_BarnLights.Load<float4>(_12608 * 480 + 176).y;
@@ -863,7 +874,7 @@ PS
 	                }
 	                else
 	                {
-	                    float3 _12504;
+	                    float3 _12505;
 	                    if (g_BarnLights.Load<float4>(_12608 * 480 + 160).w < 0.0f)
 	                    {
 	                        float4 _17795 = float4(-g_BarnLights.Load<float4>(_12608 * 480 + 176).xyz, g_BarnLights.Load<float4>(_12608 * 480 + 176).w);
@@ -879,7 +890,7 @@ PS
 	                        float3 _20491 = _14081;
 	                        _20491.x = _20564.x;
 	                        _20491.y = _20564.y;
-	                        _12504 = _17828.xyz * g_tLightCookieTexture.SampleLevel(g_sTrilinearWrap, _20491.xyz, 0.0f).xyz;
+	                        _12505 = _17828.xyz * g_tLightCookieTexture.SampleLevel(g_sTrilinearWrap, _20491.xyz, 0.0f).xyz;
 	                    }
 	                    else
 	                    {
@@ -888,13 +899,13 @@ PS
 	                        float3 _20490 = _13791;
 	                        _20490.x = _20563.x;
 	                        _20490.y = _20563.y;
-	                        _12504 = _17828.xyz * g_tLightCookieTexture.SampleLevel(g_sCookieSampler, _20490.xyz, 0.0f).xyz;
+	                        _12505 = _17828.xyz * g_tLightCookieTexture.SampleLevel(g_sCookieSampler, _20490.xyz, 0.0f).xyz;
 	                    }
-	                    _21548 = _12504;
+	                    _21548 = _12505;
 	                }
 	                if (all(bool3(_21548.xyz.x == 0.0f.xxx.x, _21548.xyz.y == 0.0f.xxx.y, _21548.xyz.z == 0.0f.xxx.z)))
 	                {
-	                    _12505 = _13156;
+	                    _12506 = _13156;
 	                    break;
 	                }
 	                float3 _19630;
@@ -917,8 +928,8 @@ PS
 	                    do
 	                    {
 	                        float _11455 = saturate(_19629.z + PerViewLightingConstantBufferGpu_t_1_m12);
-	                        float2 _14615 = float3(mad(_19629.xy, g_BarnLights.Load<float4>(_12608 * 480 + 208).zw, g_BarnLights.Load<float4>(_12608 * 480 + 208).xy), _19629.z).xy;
-	                        float _15312 = dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(PerViewLightingConstantBufferGpu_t_1_m2.z, PerViewLightingConstantBufferGpu_t_1_m3.z)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(PerViewLightingConstantBufferGpu_t_1_m2.y, PerViewLightingConstantBufferGpu_t_1_m3.z)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(PerViewLightingConstantBufferGpu_t_1_m2.z, PerViewLightingConstantBufferGpu_t_1_m3.y)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(PerViewLightingConstantBufferGpu_t_1_m2.y, PerViewLightingConstantBufferGpu_t_1_m3.y)).xy, _11455)).xyzw, 0.25f.xxxx);
+	                        float2 _14616 = float3(mad(_19629.xy, g_BarnLights.Load<float4>(_12608 * 480 + 208).zw, g_BarnLights.Load<float4>(_12608 * 480 + 208).xy), _19629.z).xy;
+	                        float _15312 = dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(PerViewLightingConstantBufferGpu_t_1_m2.z, PerViewLightingConstantBufferGpu_t_1_m3.z)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(PerViewLightingConstantBufferGpu_t_1_m2.y, PerViewLightingConstantBufferGpu_t_1_m3.z)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(PerViewLightingConstantBufferGpu_t_1_m2.z, PerViewLightingConstantBufferGpu_t_1_m3.y)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(PerViewLightingConstantBufferGpu_t_1_m2.y, PerViewLightingConstantBufferGpu_t_1_m3.y)).xy, _11455)).xyzw, 0.25f.xxxx);
 	                        bool _12888;
 	                        if (_15312 == 0.0f)
 	                        {
@@ -933,14 +944,14 @@ PS
 	                            _24972 = _15312;
 	                            break;
 	                        }
-	                        _24972 = ((_15312 * (PerViewLightingConstantBufferGpu_t_1_m0.w * 4.0f)) + dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(PerViewLightingConstantBufferGpu_t_1_m2.z, 0.0f)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(PerViewLightingConstantBufferGpu_t_1_m2.y, 0.0f)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(0.0f, PerViewLightingConstantBufferGpu_t_1_m3.y)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14615 + float2(0.0f, PerViewLightingConstantBufferGpu_t_1_m3.z)).xy, _11455)).xyzw, PerViewLightingConstantBufferGpu_t_1_m1.xxxx)) + (g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, _14615, _11455) * PerViewLightingConstantBufferGpu_t_1_m1.y);
+	                        _24972 = ((_15312 * (PerViewLightingConstantBufferGpu_t_1_m0.w * 4.0f)) + dot(float4(g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(PerViewLightingConstantBufferGpu_t_1_m2.z, 0.0f)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(PerViewLightingConstantBufferGpu_t_1_m2.y, 0.0f)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(0.0f, PerViewLightingConstantBufferGpu_t_1_m3.y)).xy, _11455), g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, (_14616 + float2(0.0f, PerViewLightingConstantBufferGpu_t_1_m3.z)).xy, _11455)).xyzw, PerViewLightingConstantBufferGpu_t_1_m1.xxxx)) + (g_tShadowDepthBufferDepth.SampleCmpLevelZero(g_tShadowDepthBufferCmpSampler, _14616, _11455) * PerViewLightingConstantBufferGpu_t_1_m1.y);
 	                        break;
 	                    } while(false);
 	                    float3 _19878 = _21548.xyz * lerp(1.0f, _24972, g_BarnLights.Load<float>(_12608 * 480 + 260));
 	                    float3 _16449 = _19878.xyz;
 	                    if (all(bool3(_16449.x == 0.0f.xxx.x, _16449.y == 0.0f.xxx.y, _16449.z == 0.0f.xxx.z)))
 	                    {
-	                        _12505 = _13156;
+	                        _12506 = _13156;
 	                        break;
 	                    }
 	                    _19630 = _19878;
@@ -949,10 +960,10 @@ PS
 	                {
 	                    _19630 = _21548;
 	                }
-	                _12505 = _13156.xyz + (max(0.0f, dot(_7029.xyz, _11179.xyz)).xxx.xyz * _19630.xyz);
+	                _12506 = _13156.xyz + (max(0.0f, dot(_7029.xyz, _11179.xyz)).xxx.xyz * _19630.xyz);
 	                break;
 	            } while(false);
-	            _13156 = _12505;
+	            _13156 = _12506;
 	            _16209 = _20344;
 	            continue;
 	        }

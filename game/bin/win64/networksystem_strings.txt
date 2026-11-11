@@ -6,7 +6,7 @@
          Percentage. . : %9s%9s\n
   % 3d % 8d [%8.3f %%]\n
   %i:  culled %-20s:  %s -> %s (%s)\n
-  %s has flag %s\n
+  %s%2d: %d\n
   %s: %dms via %s (front=%dms, back=%dms)%s\n
   %s: %dms via direct route\n
   %s: %dms\n
@@ -35,13 +35,13 @@
  polymorphic\n
  ptr to %s [%u]
  serializer(%s)
-!m_NetworkChangeTagCallback.IsEmpty()
+!s_NetworkChangeTagCallback.IsEmpty()
 %%%d.%ds 
 %%s 
 %-10s % 5d no fastpath because field %s %s changed the array size from %d to %d\n
 %-10s % 5d no fastpath because field %s base depth is too large (pointer metadata change?)\n
 %-10s % 5d no fastpath because field %s not resolvable\n
-%-10s %d %s: %s at offset %d, 0x%p array %s struct %s: index %d array size %d in %s\n
+%-10s %d %s: %s at offset %d, 0x%p array of structs: index %d array size %d in %s\n
 %-5d %-20s : [%-5d -> %-5d] %-5s bits:  %-32s %-80s : '%s' %s
 %-64.64s has %d CFlattendSerializer permutations\n
 %-75s %-75s offset %10.10s %9.9s %s
@@ -53,6 +53,8 @@
 %20.20s %s is variant %d/%d of %s\n
 %20.20s omit %d types for %s [convar net_max_polymorphic_spew=%d]\n
 %20.20s omit %s variants, already spewed\n
+%5d%7d%7d%7d %s\n
+%5s%7s%7s%7s %s\n
 %60.60s %15.15s %24.24s %10.10s\n
 %60.60s %15.15s %24s %10d 
 %8.3f: %s: ParseMessagesDemo UNRELIABLE %d bytes\n
@@ -65,6 +67,7 @@
 %d [%s,%s] %s
 %d [0x%x]
 %d bits
+%d bytes is too big.
 %d of %d empty (%.3f %%)\n
 %d structs not using DECLARE_NETWORKVAR_STRUCT_NOT_IN_NETWORK_UTLVECTOR_EMBEDDED, consider porting fields to use CNetworkVars!\n
 %d total.\n
@@ -88,6 +91,7 @@
 %s Gathering field offsets in %s\n
 %s SendMessages %s failed with EResult %d\n
 %s [%d fields]\n
+%s [%d]
 %s [%u]
 %s ambiguous, field exists in serializer '%s' field %d\n
 %s does not support allocation from networking\n
@@ -134,7 +138,7 @@
 %s: shrinking removes delegate [0x%p]\n
 %s: timing out, last received %f [%.2f seconds ago]\n
 %s: unable to find serializer named %s\n
-%s::%s has more than one MNetworkChangeCallback that requires passing network value into handler, this is unsupported\n
+%s::%s encoder mismatch, local '%s' vs. remote '%s', using local\n
 %s::%s was in the original serializer at offset %u but that offset isn't in the ignore list!!!\n
 %s::%s:%u (%s ) already encountered at %s::%s:%u (%s)
 %s:Inbound net frame %d dropped\n
@@ -212,13 +216,12 @@
 .?AV?$_Node_str@D@std@@
 .?AV?$collate@D@std@@
 .?AVCCLCMsg_RconServerDetails_t@@
-.?AVCDecodeSerializerStack@@
-.?AVCDeltaCalculator@@
 .?AVCDeltaFieldPathTracer@@
 .?AVCEncodeSerializerStack@@
 .?AVCFieldShadowSpewCollector@@
 .?AVCFlattenedSerializerReadFieldListListener@@
 .?AVCFlattenedSerializers@@
+.?AVCHiddenFieldValuePrinter@@
 .?AVCNETMsg_SplitScreenUser_t@@
 .?AVCNetChan@@
 .?AVCNetWhyFieldExcludedFunctor@@
@@ -226,10 +229,7 @@
 .?AVCNetworkFieldChangedEventQueue@@
 .?AVCNetworkFieldSerializerAllocator@@
 .?AVCNetworkMessages@@
-.?AVCNetworkSerializerPB@@
 .?AVCNetworkSystem@@
-.?AVCProtobufBinding@?$CNetMessagePB@$02VCNETMsg_SplitScreenUser@@$0L@$00$0A@@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0A@VCNETMsg_NOP@@$0L@$00$0A@@@
 .?AVCSchemaRegistration_networksystem@@
 .?AVCSerializedEntities@@
 .?AVCSerializerStack@@
@@ -241,12 +241,10 @@
 .?AVINetworkEncodingStats@@
 .?AVINetworkFieldChangedEventQueue@@
 .?AVINetworkFieldSerializerAllocator@@
-.?AVINetworkMessageInternal@@
 .?AVINetworkMessages@@
 .?AVINetworkSystem@@
 .?AVINode@CFieldPathHuffmanEncoder@@
 .?AVISerializedEntities@@
-.?AVISerializedEntityErrorSpewHook@@
 .?AVInternalNode@CFieldPathHuffmanEncoder@@
 .?AVLeafNode@CFieldPathHuffmanEncoder@@
 .?AVNetMessageConnectionClosed_t@@
@@ -271,7 +269,6 @@
 0 bit issue, spot 2
 0 bit issue, spot 3
 0 bit issue, spot 4
-7;eZ\r
 ::Storage_t
 Accepting Steam Net connection %s\n
 AckSeqNum
@@ -289,6 +286,8 @@ Average Backing Raw Paths         :  %8.3f\n
 Average Data Bytes                :  %8.3f bytes\n
 Average Memory Usage Per Entity   :  %8.3f bytes\n
 Average Number of Field Paths     :  %8.3f\n
+AvgSz
+BUG! Failed to read from buffer after checking size?
 BetaUniverse
 BufType
 Buffer overflow
@@ -301,16 +300,18 @@ BuildMergedSerializedEntity:  problem writing %s:  %d bits [%d to %d] is < 1 bit
 BuildOutputString:  change %s to %d\n
 BytesWire
 C:\buildworker\csgo_rel_win64\build\_build_\networksystem\_vpc_networksystem\default\win64\_msvc_\Retail\networksystem.pdb
+C:\buildworker\csgo_rel_win64\build\src\common\protobuf_helpers.cpp
 C:\buildworker\csgo_rel_win64\build\src\networksystem\flattenedserializer.cpp
+C:\buildworker\csgo_rel_win64\build\src\networksystem\flattenedserializer_encode.cpp
+C:\buildworker\csgo_rel_win64\build\src\networksystem\flattenedserializer_setup_gamecode.cpp
 C:\buildworker\csgo_rel_win64\build\src\networksystem\flattenedserializers.cpp
 C:\buildworker\csgo_rel_win64\build\src\networksystem\netchan.cpp
 C:\buildworker\csgo_rel_win64\build\src\networksystem\networkmessages.cpp
 C:\buildworker\csgo_rel_win64\build\src\networksystem\networkserializer.cpp
+C:\buildworker\csgo_rel_win64\build\src\networksystem\networkserializerregistry.cpp
 C:\buildworker\csgo_rel_win64\build\src\networksystem\networksystem.cpp
 C:\buildworker\csgo_rel_win64\build\src\public\networksystem\serializedentity.h
 CBuildNetworkSerializerHierarchyOrder::ComputeDepth
-CDeltaCalculator::ErrorMsg %s %d\n
-CDeltaCalculator::ErrorMsg: %s\n
 CDeltaCalculator::FieldCalcDelta fromBits
 CDeltaCalculator::FieldCalcDelta toBits
 CEntitySystem::BuildEntityNetworking (%s build of %s) took %.3f msecs for %d out of %d classes\n
@@ -321,7 +322,7 @@ CFlattenedSerializer::ApplyOverrides_R
 CFlattenedSerializer::BuildDeltaProperties using %d bytes for encoding %d/%s\n
 CFlattenedSerializer::BuildHierarchy_R
 CFlattenedSerializer::BuildOverrideField:  Problem initializing replacement field %s::%s\n
-CFlattenedSerializer::Decode
+CFlattenedSerializer::DecodeSerializedEntity
 CFlattenedSerializer::DumpSerializedEntityToConsole
 CFlattenedSerializer::Encode failure for entity %d\n
 CFlattenedSerializer::Encode overflow failure for entity %d max size is %d bytes\n
@@ -353,9 +354,8 @@ CMergedEntityOffsetBuilder::Expecting at least one bit in offset
 CNetChan::BUF_RELIABLE
 CNetChan::BUF_UNRELIABLE
 CNetChan::BUF_VOICE
-CNetChan::ParseMessages
 CNetChan::ProcessMessages
-CNetChan::SendNetMessage: SerializeAbstract for message %s failed!\n
+CNetChan::SendNetMessage: Failed to serialize %s\n
 CNetChan::SendNetMessage: Trying to send message %s, which is an invalid category for this channel!\n
 CNetChan::SendNetMessage: Unable to send message %s, buffer is full!\n
 CNetChan::Setup for %s\n
@@ -364,27 +364,14 @@ CNetSerializerStrongHandle::Serialize
 CNetSerializerStrongHandle::Unserialize
 CNetworkFieldChangedEventQueue::QueueChange:  ran out of scratch data space!!!\n
 CNetworkFieldChangedEventQueue::QueueReplayCompatFieldChange
-CNetworkMessages::AllocateAndCopyConstructNetMessageAbstract unable to allocate unknown message type!\n
-CNetworkMessages::ComputeOrderForPriority
 CNetworkMessages::ConfirmAllMessageHandlersInstalled
-CNetworkMessages::DeallocateUnserializedMessage unable to deallocate unknown message type!\n
 CNetworkMessages::FindOrCreateGroupId
 CNetworkMessages::FindOrCreateGroupId: Too many network groups!\n
-CNetworkMessages::FindOrCreateNetMessage
 CNetworkMessages::FindOrCreateNetMessage: It is illegal to register new net messages after serialization!\n
-CNetworkMessages::FindOrCreateNetMessage: Message %s is expected to have already been registered!\n
-CNetworkMessages::InitNetworkChangeTag
-CNetworkMessages::InitNetworkChangeTag - missing m_NetworkChangeTagCallback, should have been installed by CEntitySystem::Init call to g_pNetworkMessages->RegisterNetworkChangeTagCallback!
-CNetworkMessages::RegisterFieldChangeCallbackPriority
-CNetworkMessages::RegisterNetworkArrayFieldSerializer
-CNetworkMessages::RegisterNetworkFieldChangeCallbackInternal
-CNetworkMessages::RegisterNetworkFieldSerializer
 CNetworkMessages::Serialize attempted to serialize a non-serializeable message [%s]!\n
 CNetworkSerializer: Unable to find network encoder named %s!\n
 CNetworkSerializer::AssignSharedChangeCallbackIndex
 CNetworkSerializer::DetermineFieldSerializerGroup
-CNetworkSystem::BufferToBufferDecompress with improperly sized dest buffer (%u in, %llu needed)\n
-CNetworkSystem::BufferToBufferDecompress with improperly sized dest buffer (%u in, %u needed)\n
 CNetworkSystem::CleanupDebugOutputFunction()\n
 CNetworkSystem::CloseAllSockets()\n
 CNetworkSystem::GetPacket
@@ -427,16 +414,17 @@ CUtlLeanVectorBase<struct UtlLinkedListElem_t<struct CNetworkFieldChangedEventQu
 CUtlLeanVectorBase<struct UtlLinkedListElem_t<struct CNetworkFieldPointerAllocationQueueInfo_t,unsigned int>,unsigned int,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorBase<struct UtlRBTreeNode_t<int,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct CNetChan::SplitPlayer_t,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
-CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct CUtlOrderedMapBase<int,class INetworkMessageInternal *,class CDefLess<int>,unsigned short>::Node_t,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct CUtlOrderedMapBase<int,int,class CDefLess<int>,unsigned short>::Node_t,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
+CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct CUtlOrderedMapBase<int,struct NetMessageInfo_t *,class CDefLess<int>,unsigned short>::Node_t,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct OverrideWork_t,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlHashMap<class CFieldPath,class CDTIField,class CDefEquals<class CFieldPath>,struct DefaultHashFunctor<class CFieldPath>,int>::HashBucket_t,int,class CMemAllocAllocator>,struct CUtlHashMap<class CFieldPath,class CDTIField,class CDefEquals<class CFieldPath>,struct DefaultHashFunctor<class CFieldPath>,int>::HashBucket_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlHashMap<class CSerializerHandle_t<class CFlattenedSerializer>,class CDTISerializerInfo *,class CDefEquals<class CSerializerHandle_t<class CFlattenedSerializer> >,struct DefaultHashFunctor<class CSerializerHandle_t<class CFlattenedSerializer> >,int>::HashBucket_t,int,class CMemAllocAllocator>,struct CUtlHashMap<class CSerializerHandle_t<class CFlattenedSerializer>,class CDTISerializerInfo *,class CDefEquals<class CSerializerHandle_t<class CFlattenedSerializer> >,struct DefaultHashFunctor<class CSerializerHandle_t<class CFlattenedSerializer> >,int>::HashBucket_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlHashMap<unsigned int,int,class CDefEquals<unsigned int>,struct DefaultHashFunctor<unsigned int>,int>::HashBucket_t,int,class CMemAllocAllocator>,struct CUtlHashMap<unsigned int,int,class CDefEquals<unsigned int>,struct DefaultHashFunctor<unsigned int>,int>::HashBucket_t,int>::AddMultipleToTail
+CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct ChangeCallback_t,int,class CMemAllocAllocator>,struct ChangeCallback_t,int>::InsertBeforeGetPtr
 CUtlLeanVectorImpl<class CUtlLeanVectorFixedGrowableBase<struct CFieldPath::Path_t,6,int,class CMemAllocAllocator>,struct CFieldPath::Path_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorFixedGrowableBase<unsigned int,3,int,class CMemAllocAllocator>,unsigned int,int>::AddMultipleToTail
-CUtlSortVector<int,class CNetworkMessages::CPriorityLess,class CUtlVector<int,int,class CUtlVectorMemory_Growable<int,int,0> > >::Find
-CUtlSortVector<int,class CNetworkMessages::CPriorityLess,class CUtlVector<int,int,class CUtlVectorMemory_Growable<int,int,0> > >::InsertIfNotFound
+CUtlSortVector<int,class CPriorityLess,class CUtlVector<int,int,class CUtlVectorMemory_Growable<int,int,0> > >::Find
+CUtlSortVector<int,class CPriorityLess,class CUtlVector<int,int,class CUtlVectorMemory_Growable<int,int,0> > >::InsertIfNotFound
 CacheableConnectionExpired
 CalcDelta
 Can't ConnectLoopback between socket %d and %d, not enough slots\n
@@ -456,6 +444,7 @@ Cannot use priority equal to NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY!\n
 Capture active, %s samples written\nnet_captureculldata stop to stop the capture\n
 Checking for missing CNetworkVar* declarations\n
 Class,Field,Field Path,Decode Count,Total Bits,Avg Bits,Total Index Bits,Avg Index Bits,Priority,=SUM(E:E),Full Name,Notes\n
+Client Messages
 CloseSocket
 CloseSteamNetConnection handle #%u (userdata %d)%s\n
 Closing '%s' P2P listen socket\n
@@ -472,6 +461,8 @@ Couldn't resolve offset %u in %s at path (%d = '%s')\n
 CreateHostedDedicatedServerListenSocket for socket '%s' failed /+/ port %u vport %d\n
 CreateReplayCompatSerializerFromMeta creating fake serializer for %s\n
 Created poll group for socket '%s'\n
+DECODE FAILED
+DISCARD array size
 DTI %s\n
 DTI reset\n
 DTI: can't Flush(), no data to write.\n
@@ -491,7 +482,7 @@ Encountered 2 fields "%s" and "%s" in struct "%s" using the same change callback
 Encountered message with an invalid network category! [net message %s]
 End of stream
 Error installing message handlers into a net channel: missing handlers in channel %s!\n
-Error parsing message type %d (%s)
+Error parsing message type %d (%s): %s
 Error processing network message %s! Channel is closing!\n
 Error! Failed to WSAStartup! err = %d.\n
 Error: Components count + networkable data type must be the same for all instances of network field serializer (%s)!\n
@@ -502,10 +493,10 @@ EstablishCacheableSharedNetConnection(%s) failed\n
 EstablishNewSteamNetConnection ConnectByIPv4Address(%s) failed\n
 EstablishNewSteamNetConnection ConnectP2P(%s) failed\n
 Established cacheable shared Steam Net Connection to '%s'\n
+Events
 Exceeded max number proxies in CFlattenedSerializer::BuildHierarchy()
 Executing queued command: '%s'\n
 Expected AVG or PROFILE argument\n
-Expecting NetMessageInfo_t::m_pProtobufBinding to be non-NULL
 Extra connection [%s]:\n
 FAKE array size
 FAKE pointer
@@ -515,6 +506,7 @@ Failed to create poll group for socket '%s'?\n
 Failed to install message handler for message %s in channel %s!\n
 Failed to open P2P network socket '%s'\n
 Failed to open UDP network socket '%s'\n
+Failed to parse %s.  %s\n
 Failed to set SteamNetworkingSockets option '%s'\n
 Failed to start listening for SDR on port %d.  Waiting and will retry\n
 FakeJitter
@@ -530,10 +522,11 @@ Field %s::%s specified an unknown field change callback %s!\n
 Field names match, but types do not to match %s::%s local type is '%s' vs. remote type is '%s'\n
 FieldPathEncodeFinish
 FlattenedSerializerField_t::FindPolymorphicFieldInfoByCodegenBinding
+Frame too large (%d bytes uncompressed), limit is %s=%d
+Game Engine
 GatherAllFieldOffsets_R:  local offset of %s::%s %u is too large (%u max)\n
 GatherSendProxyResults
 GetBitRange( %d -> %d ) end is before or same as start\n
-GetPathData failed for read only CFieldPath
 Got ISteamNetworkingSockets user interfaces from standalone lib\n
 Got ISteamNetworkingSockets user interfaces from steam client\n
 Got message on poll group for socket %s, but cannot find connection in table?
@@ -544,6 +537,8 @@ HParticleSystemDefinitionStrong
 HPostProcessingStrong
 HRenderTextureStrong
 HVDataResourceStrong
+History: %s\n
+Hltv Replay
 IND)ind)"
 INetChannel::SetCategories: Network category wasn't registered!\n
 INetworkSystem::RegisterNetworkCategory: Attempted to register category %u twice (debug name: %s and %s)\n
@@ -563,6 +558,7 @@ JitterMS
 Kind
 LastSeqNum
 Latency. . . . . . . . : %7dms%7dms%7dms   net_fakelag\n
+Lead byte(s) encode invalid size %d.  (%d bytes remaining)
 Leaked channel %s remote %s\n
 Loss . . . . . . . . . : %8.2f%%%8.2f%%%9s   net_fakeloss\n
 MNetworkBitCount
@@ -580,10 +576,13 @@ MNetworkSerializer
 MNetworkUserGroup
 MNetworkVarTypeOverride is referring to an unknown class name %s in class %s\n
 MakeSerializersMatchByMeta failed for %s\n
+Max struct change callbacks queued at one level, per entity decode (inline capacity %d):\n
+MaxSz
 Measured RTT to %d SDR points of presence.\n
 Merge
 Message of type (%s) %d size %d exceeded maximum message size %d; allowing as per %s=%d\n
 Message of type (%s) %d size %d exceeded maximum message size %d; rejecting.\n
+MinSz
 Multiple steam net connections from %s\n
 NETWORK_FIELD_CHANGED_ARRAY_NO_VALUE
 NETWORK_FIELD_CHANGED_ARRAY_WITH_VALUE
@@ -600,7 +599,7 @@ NETWORK_FIELD_HIGHEST_PRIORITY
 NETWORK_FIELD_LOWEST_PRIORITY
 Net graph %s\n
 Net status for host %s:\n
-NetChan %s ProcessMessages has exhausted its CPU time warning budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
+NetChan %s ProcessMessages excessive CPU usage.  %dms to process %d messages this call.  (Current message type: '%s', drop budget remaining: %.1fms)\n
 NetChanFlowIncomingAck
 NetChanRecv
 NetChanRecvMisdelivery
@@ -612,6 +611,16 @@ NetChanTransmitReliable
 NetChanTransmitUnreliable
 NetChannel '%s':\n
 NetMessage '%s' still using auto-assigned, has to generate id from name CUtlStringToken hashcode = %d\n
+NetSerializers_ComputeOrderForPriority
+NetSerializers_InitNetworkChangeTag
+NetSerializers_InitNetworkChangeTag - missing s_NetworkChangeTagCallback, should have been installed by CEntitySystem::Init call to g_pNetworkMessages->RegisterNetworkChangeTagCallback!
+NetSerializers_RegisterFieldChangeCallbackPriority
+NetSerializers_RegisterNetworkArrayFieldSerializer
+NetSerializers_RegisterNetworkFieldChangeCallback
+NetSerializers_RegisterNetworkFieldSerializer
+Net_BufferToBufferDecompress: decompressed size %llu exceeds NET_MAX_PAYLOAD\n
+Net_BufferToBufferDecompress: malformed compressed data\n
+Net_BufferToBufferDecompress: uncompressed size %llu exceeds NET_MAX_PAYLOAD\n
 Netchan '%s' closed unexpectedly: %s\n
 Netchan [%s] already associated with hconn #%u, but now we are getting messages on new hconn #%u using the same 'from' address\n
 Netchan queued message new high water mark reached by %s at %d messages\n
@@ -619,7 +628,6 @@ Network System Initialized\n
 Network field tried to use a priority that has not been registered!\n
 Network socket '%s' opened on port %d\n
 NetworkConfigLimits
-NetworkMessages::FindOrCreateNetMessage: Message %s is of size %d in leaf code, but protobuf object is size %lld, the added fields should be placed into object derived from protobuf and then CNetMessagePB references that\n
 NetworkReplayCompatField_t %s::%s on field '%s' is using possibly bogus this pointer from class %s!\n
 NetworkSystem
 NetworkSystem/CreateListenSocketP2P
@@ -652,8 +660,6 @@ PACKET_STATUS_DROPPED
 PACKET_STATUS_INVALID
 PACKET_STATUS_NORMAL
 PACKET_STATUS_OUT_OF_ORDER
-Path_Remove failed for read only CFieldPath
-Path_RemoveAll failed for read only CFieldPath
 Peer To Peer
 PlusFour
 PlusN
@@ -672,6 +678,7 @@ PopOnePlusN
 PopOnePlusOne
 ProcessOverride encountered unknown directive NetworkOverrideType_t(%d)\n
 Processing
+Protobuf parse failed
 PublicUniverse
 PushN
 PushNAndNonTopographical
@@ -708,6 +715,7 @@ Recv
 RecvMarginMS
 RegisterNetMessageHandlerAbstract: Attempted to register a message handler for a message which is not valid for this category of channel [message %s]!\n
 RegisterNetMessageHandlerAbstract: Must call StartRegisteringMessageHandlers before, and FinishRegisteringMessageHandlers after [message %s]!\n
+Reliable payload expands to %d bytes, limit is %d
 ReliableNetSize
 ReliableSize
 RemoveArrayElementsOutsideOfArrayMetadataBounds:  %s [ent %d] removing change '%s' for field %s (value '%s') on array that has metadata with only %d array elements!\n
@@ -731,6 +739,7 @@ Socket '%s' bound to '%s' [%s]:\n
 Socket '%s' listening for %s on port %d:\n
 Socket '%s' listening for SDR on port %d virtual port %d\n
 Socket layer initialized: \n
+Spawn Groups
 Steam Net connection %s %s, reason %d: %s\n
 Steam supporting smaller max routable packet than engine expecting (%d vs %d)\n
 SteamAPI_GetHSteamPipe
@@ -755,11 +764,14 @@ SteamNetworkingSockets not yet initialized.  Queuing command '%s'\n
 SteamNetworkingSockets_LibV12
 SteamNetworkingUtils_LibV4
 Stopping capture, %s samples written\n
+String Command
+String Table
 Summary of connection [%s]:\n
 TCP/UDP Disabled.\n
 The 'sdr' console command has been renamed to 'net_option'.  Please update your scripts\n
 TimeTable
 Too many incoming messages on channel (%s) %d remain queued, limit per-frame is %d.\n
+Too many messages in one frame (%d), limit is %s=%d
 Too many proxies for serializer %s.
 Too many queued messages (%d)
 Too many queued messages on channel (%s) %d queued, limit is %d.\n
@@ -777,6 +789,7 @@ Unknown message type %u
 Unreasonable reliable nUncompressedSize (%d).
 Unreasonable unreliable nUncompressedSize (%d).
 Unreliable header too small
+Unreliable payload expands to %d bytes, limit is %d
 UnreliableNetSize
 UnreliableSize
 Unserialized nonresident asset %s status [%d]
@@ -785,6 +798,7 @@ Usage: net_option <setting> [<value>]\n
 Usage:\nnet_fakejitter [send|recv] AVG [PCT] [MAX]\nnet_fakejitter [send|recv] PROFILE\n\nsend|recv  If present, applies the changes to the specified direction only.\nAVG        Mean delay, for packets that are jittered, in ms.  The random\n           delay is chosen using the exponential distribution.\nPCT        Percentage of packets (0...100) that will receive a random delay.\nMAX        Clamp random jitter delay to MAX ms.\nPROFILE    One of: off, low, med, high, huge\n\nUse net_fakestatus to display current simulated network conditions.\n
 UsecEngineLatency
 UsecLocalLatency
+User Messages
 Using Valve ICE implementation\n
 VERBOSE_BITCOUNT
 VERBOSE_ENDBIT
@@ -804,10 +818,12 @@ ValidateSerializedEntity:  metadata incorrect entry for %s [%d expected %d]\n
 ValidateSerializedEntity:  missing metadata entry for %s\n
 Valve.Source.Net
 VectorWS
+Voice
 WriteFields
 WriteToBuffer Message %s is not initialized! Probably missing required fields!\n
 Writing %d bits for path %s of serializer %s entity %d, this will fail to parse\n
 [ Net Message Info: %s ]\n
+[ T-%.1fms  %d msgs  %.1fms ]
 [%s] DISCONNECTING. ProcessMessages has exhausted its CPU time budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 [%s] Queued message count %d exceeds limit of %s=%d.  Allowing due to engine_frametime_warnings_enable=false\n
 [%s] high frame misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping, %.0fms peak jitter\n
@@ -817,7 +833,16 @@ Writing %d bits for path %s of serializer %s entity %d, this will fail to parse\
 [Group]
 [Name]
 [context entity 0x%p]
+[ent %d] Decode path %s has polymorphic type id %u for pointer %s::%s [%d], which has %d types.  Rejecting the rest of the entity.\n
+[ent %d] Decode path %s is %d deep under array of primitives %s::%s [%d], expected exactly one level (the element index).  Rejecting the rest of the entity.\n
+[ent %d] Decode path %s is %d deep under primitive field %s::%s [%d], expected to end at the field.  Rejecting the rest of the entity.\n
+[ent %d] Decode path %s is below null element %d of array of pointers %s::%s [%d].  Discarding its fields.\n
+[ent %d] Decode path %s names embedded substruct %s::%s [%d] directly, which is useless.  Ignoring this field path.\n
+[ent %d] Decode path %s names field %d of %s, which has %d fields.  Rejecting the rest of the entity.\n
+[ent %d] Decode path %s repeats array of structs %s::%s [%d].  Rejecting the rest of the entity.\n
+[ent %d] Field %s::%s [%d] is a pointer to a primitive, which is not a supported combination of features.  Rejecting the rest of the entity.\n
 [opaque]
+[removed]
 \nNon-networkables\n\n
 \rBytes
 \tCannotBeNetworked        = %s\n
@@ -874,7 +899,6 @@ decode
 decoding FAKE
 deleted
 delta >= 1u
-delta_error
 depth %2d: %d serializers\n
 drop
 dropped
@@ -922,7 +946,6 @@ inpacket.message
 invalid!
 invalid_address
 latency_seconds
-m_bCanStillRegisterCallbackPriorities
 m_nSharedChangeCallbackCount must be <= EncounteredSharedChangedCallbackBitVec_t::knFixedBitSize
 mark all recursively (%s)
 marked %s by user group %s
@@ -933,7 +956,7 @@ marked by nobase
 marked by user group
 matrix3x4_t
 matrix3x4a_t
-nIndex != m_priorityToOrderMap.InvalidIndex()
+nIndex != s_priorityToOrderMap.InvalidIndex()
 nPriority != NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY
 name,type,offset
 net_fakeclear: Cleared simulated network conditions\n
@@ -1000,13 +1023,13 @@ regex_error(error_syntax)
 reliable
 reliable_bits
 render_interpolation_fraction
+s_bCanStillRegisterCallbackPriorities
 sent
 sentinel
 serializer,permutations
 server_framerate
 server_framerate_stddev
 showing permutations for %s\n
-shutdown
 single permutation
 skip
 steamappid

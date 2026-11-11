@@ -14,7 +14,6 @@ class C_Hostage : public C_BaseCombatCharacter
 	GameTime_t m_flRescueStartTime;
 	GameTime_t m_flGrabSuccessTime;
 	GameTime_t m_flDropStartTime;
-	GameTime_t m_flDeadOrRescuedTime;
 	CountdownTimer m_blinkTimer;
 	VectorWS m_lookAt;
 	CountdownTimer m_lookAroundTimer;

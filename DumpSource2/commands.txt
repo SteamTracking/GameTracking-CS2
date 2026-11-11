@@ -2357,6 +2357,12 @@ net_channels (release)
 net_connections_stats (release)
 	Print detailed network statistics for each network connection
 
+net_decode_callback_queue_stats_clear (developmentonly defensive)
+	Clear per-entity decode change callback stats
+
+net_decode_callback_queue_stats_dump (developmentonly defensive)
+	Print per-entity decode change callback stats
+
 net_fakeclear (release)
 	Clear all simulated network conditions
 
@@ -2576,7 +2582,7 @@ playcast (release)
 	Play a broadcast
 
 playdemo (release)
-	Play a recorded demo file (.dem ).
+	Play a recorded demo file (.dem ).  Options: start=<tick> end=<tick> timescale=<float> (run with no arguments for details).
 
 player_ping (gamedll client_can_execute)
 	Creates a ping notification where the player is looking.
@@ -3817,6 +3823,22 @@ vprof_generate_report_budget (developmentonly defensive)
 
 vprof_generate_report_hierarchy (developmentonly defensive)
 	Generate a report to the console.
+
+vprof_lite_dump (developmentonly defensive)
+	vprof_lite_dump [filename] [stop=1]
+	Write the vprof lite budget group statistics as CSV, then stop the profiler and clear its data.
+	stop=0 leaves the profiler running with its data.  The default filename is vprof_lite.csv in the mod directory;
+	an absolute path is used as given.  Sets vprof_lite_auto 0, so the game will not stop or dump the profiler on its own.
+
+vprof_lite_start (developmentonly defensive)
+	vprof_lite_start [clear=1]
+	Start the vprof lite profiler, clearing any data it holds.  clear=0 keeps the data and continues adding to it.
+	Sets vprof_lite_auto 0, so the game will not stop or dump the profiler on its own.
+
+vprof_lite_stop (developmentonly defensive)
+	vprof_lite_stop [clear=1]
+	Stop the vprof lite profiler and clear its data.  clear=0 keeps the data, for engine_frametime_print_report or vprof_lite_dump.
+	Sets vprof_lite_auto 0, so the game will not start the profiler on its own.
 
 vprof_loadhitstore_scale (developmentonly hidden)
 	Scale used when displaying load-hit-stores (0 = use default)

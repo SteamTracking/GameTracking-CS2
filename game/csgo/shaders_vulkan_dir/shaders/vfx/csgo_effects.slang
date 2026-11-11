@@ -327,7 +327,7 @@ PS
 	Texture2D g_tSceneDepth < Attribute("SceneDepth"); SrgbRead(false); >;
 	Texture2D g_tTintMask < Channel(R, Box(TextureTintMask), Linear); OutputFormat(ATI1N); SrgbRead(false); >;
 	Texture2D g_tZeroth_Moment < Attribute("zeroth_moment"); SrgbRead(true); >;
-	float3 g_vFlatOverlayColor < Default2(1, 0); Attribute("FlatOverlayColor"); UiType(VectorText); >;
+	float3 g_vFlatOverlayColor < Default3(1, 0, 1); Attribute("FlatOverlayColor"); UiType(VectorText); >;
 	float4 g_vShaderIDColor < Source(ShaderIDColor); UiType(VectorText); >;
 	
 	// Color
@@ -427,13 +427,13 @@ PS
 	};
 	
 	Texture2D<float4> g_tColor : register(t51, space1);
-	SamplerState g_sUserConfigAllowGlobalMipBias : register(s20, space1);
+	SamplerState g_sUserConfigAllowGlobalMipBias : register(s21, space1);
 	Texture2D<float4> g_tMask1 : register(t52, space1);
-	SamplerState g_sUserConfig : register(s19, space1);
+	SamplerState g_sUserConfig : register(s20, space1);
 	Texture2D<float4> g_tMask2 : register(t53, space1);
 	Texture2D<float4> g_tMask3 : register(t54, space1);
 	TextureCube<float4> g_tFogCubeTexture : register(t42, space1);
-	SamplerState g_sTrilinearClamp : register(s17, space1);
+	SamplerState g_sTrilinearClamp : register(s18, space1);
 	
 	static bool gl_FrontFacing;
 	static float3 input_0;
