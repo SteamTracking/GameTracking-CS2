@@ -41,46 +41,6 @@
 	margin-top: 16px;
 }
 
-.can-sell-items.mainmenu-xpshop-tile .mainmenu-xpshop-tile__image
-{
-	width: 60%;
-	height: 60%;
-	opacity-mask: url("s2r://panorama/images/masks/top-bottom-fade-4_png.vtex");
-	margin-top: -16px;
-}
-
-.mainmenu-xpshop-tile .mainmenu-major-tile__new-items
-{
-	width: 100%;
-	visibility: collapse;
-	vertical-align: bottom;
-	flow-children: right;
-}
-
-.can-sell-items.mainmenu-xpshop-tile .mainmenu-major-tile__new-items
-{
-	visibility: visible;
-}
-
-.mainmenu-xpshop-tile .mainmenu-major-tile__new-items Label
-{
-	font-size: 18px;
-	text-align: center;
-	vertical-align: center;
-	horizontal-align: center;
-	color: rgb(36, 40, 53);
-	max-height: 20px;
-	text-overflow: shrink;
-}
-
-.mainmenu-xpshop-tile .mainmenu-major-tile__new-items ItemImage
-{
-	width: height-percentage( 140% );
-	height: 72px;
-	margin: 8px 4px 8px 8px;
-	background-color: gradient( radial, 50% 50%, 0% 0%, 50% 50%, from( #000000 ), to( #00000000 ) );
-}
-
 .mainmenu-xphop-tile__title-container
 {
 	flow-children: down;
@@ -283,11 +243,6 @@
 	opacity: 1.0;
 	transform: translatex(0px);
 	z-index: 3;
-}
-
-.mainmenu-xpshop-itemtile.Focused .mainmenu-major-tile__view-item
-{
-	visibility: visible;
 }
 
 .mainmenu-xpshop-itemtile.LeftOfFocus1,.mainmenu-xpshop-itemtile.LeftOfFocus2,.mainmenu-xpshop-itemtile.LeftOfFocus3,.mainmenu-xpshop-itemtile.LeftOfFocus4,.mainmenu-xpshop-itemtile.LeftOfFocus5,.mainmenu-xpshop-itemtile.LeftOfFocus6,.mainmenu-xpshop-itemtile.LeftOfFocus7,.mainmenu-xpshop-itemtile.LeftOfFocus8,.mainmenu-xpshop-itemtile.LeftOfFocus9,.mainmenu-xpshop-itemtile.LeftOfFocus10,.mainmenu-xpshop-itemtile.LeftOfFocus11,.mainmenu-xpshop-itemtile.LeftOfFocus12

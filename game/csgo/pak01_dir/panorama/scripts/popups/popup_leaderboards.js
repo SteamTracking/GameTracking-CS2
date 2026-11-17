@@ -36,11 +36,10 @@ var PopupLeaderboards;
             return;
         }
         let elBackground = $.GetContextPanel().FindChild('id-popup-leaderboard-bg');
-        elBackground.style.backgroundImage = 'url( "file://{images}/tournaments/backgrounds/pickem_bg_' + $.GetContextPanel().GetAttributeString('eventid', '') + '.png");';
+        elBackground.style.backgroundImage = 'url( "file://{images}/tournaments/backgrounds/pickem_bg_' + eventId + '.psd");';
         elBackground.style.backgroundSize = 'cover';
         elBackground.style.backgroundPosition = ' 50% 50%;';
         elBackground.visible = true;
-        $.GetContextPanel().SetHasClass('major-' + $.GetContextPanel().GetAttributeString('eventid', ''), true);
     }
     function _SetPointsTitle() {
         var strPointsTitle = $.GetContextPanel().GetAttributeString('points-title', '');

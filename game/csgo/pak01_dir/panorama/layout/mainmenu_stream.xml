@@ -12,6 +12,7 @@
 	<snippets>
 		<snippet name="stream-panel">
 			<Panel class="stream-container">
+				<Label id="id-stream-title" class="stream-title-bar stratum-regular-condensed fontSize-m" text="{s:title}" />
 				<Panel>
 					<HTML id="StreamHTML" acceptsinput="false" acceptsfocus="false" focusonhover="false" mousetracking="false" url="about:blank" hittest="false" />
 					<Panel class="steam-controls-container">
@@ -75,7 +76,6 @@
 						</Panel>
 					</Panel>
 				</Panel>
-				<Label id="id-stream-title" class="stream-title-bar stratum-regular-condensed fontSize-m" text="{s:title}" />
 			</Panel>
 		</snippet>
 	</snippets>

@@ -1,0 +1,29 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "condition_is_empty"
+	input = "BombIsBeingDefused"
+	negated = 1
+	child =
+	{
+		type = "decorator_sensor"
+		entity_type_filter = "CLASSNAME"
+		class_name = "planted_c4"
+		output = "PlantedBomb"
+		priority = 1
+		child =
+		{
+			type = "condition_is_empty"
+			input = "PlantedBomb"
+			negated = 1
+			child =
+			{
+				type = "action_move_to"
+				destination = "PlantedBomb"
+				movement_type = "BT_ACTION_MOVETO_RUN"
+				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+				threat = "NearestThreatMemory"
+				arrival_epsilon = 150
+			}
+		}
+	}
+}

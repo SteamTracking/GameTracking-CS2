@@ -1,6 +1,7 @@
 "use strict";
 /// <reference path="../csgo.d.ts" />
 /// <reference path="../common/licenseutil.ts" />
+/// <reference path="../common/major_store_prices.ts" />
 /// <reference path="../common/eventutil.ts" />
 /// <reference path="../common/store_items.ts" />
 /// <reference path="../generated/items_event_current_generated_store.d.ts" />
@@ -21,7 +22,12 @@ var PopupMajorHub;
     let _m_inventoryUpdatedHandler;
     let m_selectedPage;
     let m_setDefaultTab;
+    let _m_setDefaultTabHandle = null;
     let m_redeemAvailable = 0;
+    const BANNER_MODEL_FADE_SECONDS = 0.8;
+    let _m_bBannerFilled = false;
+    let _m_bannerTeamId = 0;
+    let _m_hBannerModelSwap = null;
     let m_oPageData = {};
     m_oPageData.hasAlreadyInit = [];
     function ClosePopup() {
@@ -82,9 +88,6 @@ var PopupMajorHub;
         _m_eventId = eventId;
         SavePicksButton._m_eventId = eventId;
         _m_tournamentId = 'tournament:' + _m_eventId;
-        if (_m_eventId > 22) {
-            _m_cp.SetHasClass('major-' + _m_eventId, true);
-        }
         SetUpHubBasedOnEventId();
     }
     function UnreadyForDisplay() {
@@ -101,7 +104,8 @@ var PopupMajorHub;
         let bItemsForSale = _ItemsForSale();
         _m_cp.SetHasClass('no-items-on-sale', !bItemsForSale);
         if (bItemsForSale) {
-            _UpdateStoreBannar();
+            _SetUpShop();
+            _SetUpSouvenir();
         }
         LoadPickEmData();
         SetUpTournamentControlRoom();
@@ -148,9 +152,6 @@ var PopupMajorHub;
                     elNavBtn.SetHasClass('active', true);
                     elLastActiveSection = elNavBtn;
                 }
-                else {
-                    elNavBtn.SetHasClass('active', false);
-                }
             }
         }
         if (elLastActiveSection && elLastActiveSection.IsValid()) {
@@ -171,68 +172,100 @@ var PopupMajorHub;
     function _SetBackgroundImages() {
         if (!_m_eventId)
             return;
-        let bgImage = "url( 'file://{images}/tournaments/backgrounds/pickem_bg_" + _m_eventId + ".png')";
-        if (_m_eventId !== 24) {
-            _m_cp.FindChildInLayoutFile('id-graffiti-block').style.backgroundImage = bgImage;
-            _m_cp.FindChildInLayoutFile('id-graffiti-block').SetHasClass('major-background-size', true);
-            _m_cp.FindChildInLayoutFile('id-major-store-block').style.backgroundImage = bgImage;
-            _m_cp.FindChildInLayoutFile('id-major-store-block').SetHasClass('major-background-size', true);
-        }
-        else {
-            _m_cp.FindChildInLayoutFile('id-major-store').style.backgroundImage = bgImage;
-            _m_cp.FindChildInLayoutFile('id-major-store').SetHasClass('major-background-size', true);
-        }
-        _m_cp.FindChildInLayoutFile('id-challenges-block').style.backgroundImage = bgImage;
-        _m_cp.FindChildInLayoutFile('id-challenges-block').SetHasClass('major-background-size', true);
-    }
-    function _UpdateSouvenirSection(bItemsForSale) {
-        let elDesc = _m_cp.FindChildInLayoutFile('id-major-hub-souvenir-desc');
-        elDesc.visible = true;
-        if (bItemsForSale) {
-            let idForCharges = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_charge, 0);
-            if (StoreAPI.GetStoreItemSalePrice(idForCharges, 1, '')) {
-                _m_cp.SetDialogVariable('souvenir_price', StoreAPI.GetStoreItemSalePrice(idForCharges, 1, ''));
-            }
-            elDesc.SetDialogVariable('souvenir_package_desc', $.Localize('#major_hub_souvenir_package_desc', _m_cp));
-        }
-        else if (m_redeemAvailable && m_redeemAvailable > 0) {
-            elDesc.SetDialogVariable('souvenir_package_desc', $.Localize('#major_hub_souvenir_package_desc_no_price', _m_cp));
-        }
-        else {
-            elDesc.visible = false;
-        }
-        _m_cp.SetDialogVariable('souvenir_package', $.Localize('#CSGO_TournamentPass_' + g_ActiveTournamentInfo.location + '_store_desc'));
+        let bgImage = "url( 'file://{images}/tournaments/backgrounds/pickem_bg_" + _m_eventId + ".psd')";
+        ['id-major-store-block', 'id-major-souvenir-block', 'id-graffiti-block', 'id-challenges-block'].forEach(id => {
+            const elBlock = _m_cp.FindChildInLayoutFile(id);
+            elBlock.style.backgroundImage = bgImage;
+            elBlock.AddClass('major-background-size');
+        });
     }
     const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-    function _UpdateStoreBannar() {
+    function _SetUpShop() {
         _m_cp.FindChildInLayoutFile('id-major-open-store').SetPanelEvent('onactivate', () => {
             UiToolkitAPI.ShowCustomLayoutPopup('id-popup-major-store', 'file://{resources}/layout/popups/popup_major_store.xml');
-            $.DispatchEvent("CSGOPlaySoundEffect", "UIPanorama.tab_mainmenu_shop", "MOUSE");
+            $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.tab_mainmenu_shop', 'MOUSE');
         });
-        const elStore = _m_cp.FindChildInLayoutFile('id-major-store-banner');
-        const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
-        const numStickers = 10;
-        for (let i = 0; i < numStickers; i++) {
-            const stickerIndex = g_ActiveTournamentTeams[getRandomInt(0, g_ActiveTournamentTeams.length - 1)].players[getRandomInt(0, 4)].rankingids[getRandomInt(0, 2)];
-            const itemId = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxStickerItem, stickerIndex);
-            let elDisplay;
-            if (i == 2 || i == 8) {
-                elDisplay = elStore.FindChildInLayoutFile('id-major-store-banner-item-' + i);
-                elDisplay.SetCamera('camera_weapon_7');
-                elDisplay.SetActiveItem(0);
-                elDisplay.SetItemItemId(itemId, '');
-                let nRenderInterval = 1;
-                elDisplay.SetRenderInterval(nRenderInterval);
-            }
-            else {
-                elDisplay = elStore.FindChildInLayoutFile('id-major-store-banner-item-' + i);
-                elDisplay.itemid = itemId;
-            }
-            elDisplay.AddClass('show');
-        }
-        _SetUpBannerSouvenir(elStore);
+        StoreAPI.VolatileShopSubscribe(g_ActiveTournamentInfo.itemid_dynamic_stickers, false);
+        _UpdateStorePrice();
+        _FillBannerStickers();
     }
-    function _SetUpBannerSouvenir(elStore) {
+    function _FillBannerStickers() {
+        if (_m_bBannerFilled) {
+            return;
+        }
+        const aTeams = MajorStorePrices.GetTopTeams();
+        if (aTeams.length === 0) {
+            return;
+        }
+        _m_bBannerFilled = true;
+        _ShowBannerStickers([
+            MajorStorePrices.GetTeamGoldSticker(aTeams[0]),
+            ...aTeams.slice(1, 5).flatMap(team => MajorStorePrices.PickPlayerStickers(team, 1)),
+        ]);
+    }
+    function ShowBannerTeam(teamId) {
+        const team = g_ActiveTournamentTeams.find(t => t.teamid === teamId);
+        if (!team || teamId === _m_bannerTeamId) {
+            return;
+        }
+        _m_bannerTeamId = teamId;
+        _m_bBannerFilled = true;
+        _ShowBannerStickers([
+            MajorStorePrices.GetTeamGoldSticker(team),
+            ...MajorStorePrices.PickPlayerStickers(team, 4),
+        ]);
+    }
+    PopupMajorHub.ShowBannerTeam = ShowBannerTeam;
+    function _ShowBannerStickers(aItemIds) {
+        _m_cp.FindChildInLayoutFile('id-major-store-banner-images').Children().forEach((elSlot, i) => {
+            const itemId = aItemIds[i];
+            if (!itemId) {
+                return;
+            }
+            if (elSlot.paneltype === 'MapItemPreviewPanel') {
+                _SwapBannerModel(elSlot, itemId);
+                return;
+            }
+            const [elFirst, elSecond] = elSlot.Children();
+            const elNext = elFirst.BHasClass('show') ? elSecond : elFirst;
+            elNext.itemid = itemId;
+            elFirst.SetHasClass('show', elNext === elFirst);
+            elSecond.SetHasClass('show', elNext === elSecond);
+        });
+    }
+    function _SwapBannerModel(elModel, itemId) {
+        if (_m_hBannerModelSwap !== null) {
+            $.CancelScheduled(_m_hBannerModelSwap);
+        }
+        const nWait = elModel.BHasClass('show') ? BANNER_MODEL_FADE_SECONDS : 0;
+        elModel.RemoveClass('show');
+        _m_hBannerModelSwap = $.Schedule(nWait, () => {
+            _m_hBannerModelSwap = null;
+            if (!elModel.IsValid()) {
+                return;
+            }
+            elModel.SetCamera('camera_weapon_7');
+            elModel.SetActiveItem(0);
+            elModel.SetItemItemId(itemId, '');
+            elModel.SetRenderInterval(1);
+            elModel.AddClass('show');
+        });
+    }
+    function _UpdateStorePrice() {
+        const elPrice = _m_cp.FindChildInLayoutFile('id-major-hub-store-price');
+        const range = MajorStorePrices.GetStickerPriceRange();
+        const bOnSale = range.maxDiscountPct > 0;
+        elPrice.SetDialogVariableInt('discount', range.maxDiscountPct);
+        elPrice.FindChildInLayoutFile('id-major-hub-store-price-label').text =
+            $.Localize(bOnSale ? '#major_store_sale_banner' : '#major_hub_store_finish_prices', elPrice);
+        elPrice.SetHasClass('on-sale', bOnSale);
+    }
+    function _OnStorePricesChanged() {
+        if (_ItemsForSale()) {
+            _UpdateStorePrice();
+        }
+    }
+    function _SetUpSouvenir() {
         InventoryAPI.SetInventorySortAndFilters('inv_sort_rarity', false, 'rifle,craft_souvenir,is_rental:false,is_sealed:false', '', '');
         let itemId = '';
         const count = InventoryAPI.GetInventoryCount();
@@ -263,7 +296,7 @@ var PopupMajorHub;
         const defName = InventoryAPI.GetItemDefinitionName(itemId);
         let cameraData = XpShopWeaponCameraSettings.CameraSettings.find(({ type }) => type === defName);
         let cameraSuffix = cameraData !== undefined ? cameraData.camera : '0';
-        const elModelPanel = elStore.FindChildInLayoutFile('id-major-store-banner-souvenir');
+        const elModelPanel = _m_cp.FindChildInLayoutFile('id-major-souvenir-model');
         elModelPanel.SetCamera('camera_weapon_' + cameraSuffix);
         elModelPanel.SetActiveItem(0);
         elModelPanel.SetItemItemId(itemId, '');
@@ -434,8 +467,7 @@ var PopupMajorHub;
         elImage.itemid = ItemInfo.GetFauxReplacementItemID(tournamentCoinItemId, 'graffiti');
         var elIBtn = $.GetContextPanel().FindChildInLayoutFile('id-tournament-journal-selectspray-btn');
         elIBtn.SetPanelEvent('onactivate', function () {
-            UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_tournament_select_spray.xml', 'journalid=' + tournamentCoinItemId +
-                '&' + 'eventid=' + _m_eventId);
+            UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_tournament_select_spray.xml', 'journalid=' + tournamentCoinItemId);
         });
         elParent.SetHasClass('graffiti-panel-visible', true);
     }
@@ -498,7 +530,12 @@ var PopupMajorHub;
             _CancelMatchStatsLoadedTimeout();
             _m_cp.SetHasClass('loading', false);
             if (!m_setDefaultTab) {
-                $.Schedule(.15, SetDefaultTab);
+                if (!_m_setDefaultTabHandle) {
+                    _m_setDefaultTabHandle = $.Schedule(.15, () => {
+                        _m_setDefaultTabHandle = null;
+                        SetDefaultTab();
+                    });
+                }
             }
             else {
                 NavigateToTab(m_oPageData.sectionIndex);
@@ -584,6 +621,8 @@ var PopupMajorHub;
         $.RegisterForUnhandledEvent('PanoramaComponent_MatchList_StateChange', LoadPickEmData);
         $.RegisterForUnhandledEvent('PanoramaComponent_MatchList_PredictionUploaded', RefreshActivePage);
         $.RegisterForUnhandledEvent('PanoramaComponent_Store_PurchaseCompleted', ItemAcquired);
+        $.RegisterForUnhandledEvent('PanoramaComponent_Store_PriceSheetChanged', _OnStorePricesChanged);
+        $.RegisterForUnhandledEvent('PanoramaComponent_Store_VolatileShopSubscribe', _OnStorePricesChanged);
         $.RegisterForUnhandledEvent('OpenInventory', ClosePopup);
         $.RegisterEventHandler('ReadyForDisplay', _m_cp, ReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', _m_cp, UnreadyForDisplay);
@@ -669,12 +708,6 @@ var SavePicksButton;
                 let bHasActiveCoin = tournamentCoinItemId && tournamentCoinItemId !== '0';
                 let bIsPrime = (MyPersonaAPI.GetElevatedState() === 'elevated');
                 if (!elBtn.BHasClass('activated-by-program')) {
-                    if (!bIsPrime && !bHasActiveCoin) {
-                        if (!elBtn.BHasClass('activated-by-program')) {
-                            UiToolkitAPI.ShowGenericPopupTwoOptions('#CSGO_official_leaderboard_pickem_' + g_ActiveTournamentInfo.location + '_team', '#CSGO_PickEm_Leaderboards_PassOrPrime_Message', '', '#SFUI_ConfirmBtn_GetPassNow', () => { }, '#SFUI_Elevated_Status_Sale_action', () => { UiToolkitAPI.ShowCustomLayoutPopup('prime_status', 'file://{resources}/layout/popups/popup_prime_status.xml'); });
-                        }
-                        return;
-                    }
                     if (!bHasActiveCoin && (passItemId && passItemId !== '0')) {
                         let elPopup = UiToolkitAPI.ShowGenericPopupTwoOptions('#pickem_submit_warning_popup_title', '#pickem_submit_warning_popup_desc', '', '#pickem_submit_warning_popup_action2', () => {
                             InventoryAPI.UseTool(passItemId, '');
@@ -683,17 +716,12 @@ var SavePicksButton;
                         elPopup.SetDialogVariable('pass-name', InventoryAPI.GetItemName(InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_pass, 0)));
                         return;
                     }
+                    if (!bIsPrime && !bHasActiveCoin) {
+                        let elPopup = UiToolkitAPI.ShowGenericPopupTwoOptions('#CSGO_official_leaderboard_pickem_' + g_ActiveTournamentInfo.location + '_team', '#CSGO_PickEm_Leaderboards_PassOrPrime_Message', '', '#SFUI_ConfirmBtn_GetPassNow', () => { _ShowGetPassMenu(elPopup); }, '#SFUI_Elevated_Status_Sale_action', () => { UiToolkitAPI.ShowCustomLayoutPopup('prime_status', 'file://{resources}/layout/popups/popup_prime_status.xml'); });
+                        return;
+                    }
                     if (!bHasActiveCoin) {
-                        let elPopup = UiToolkitAPI.ShowGenericPopupTwoOptions('#pickem_submit_warning_popup_title', '#pickem_submit_warning_popup_desc', '', '#SFUI_ConfirmBtn_GetPassNow', () => {
-                            $.DispatchEvent('UIPopupButtonClicked', elPopup, '');
-                            $.DispatchEvent('ContextMenuEvent', '');
-                            UiToolkitAPI.HideTextTooltip();
-                            var contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParameters('', '', 'file://{resources}/layout/context_menus/context_menu_store_linked_items.xml', 'itemids=' + InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_pass, 0) +
-                                ',' + InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_pack, 0) +
-                                '&' + 'linkedWarning=#tournament_items_notice');
-                            contextMenuPanel.AddClass("ContextMenu_NoArrow");
-                            contextMenuPanel.SetFocus();
-                        }, '#pickem_submit_warning_popup_action', () => { _SubmitPicks(elBtn, args); });
+                        let elPopup = UiToolkitAPI.ShowGenericPopupTwoOptions('#pickem_submit_warning_popup_title', '#pickem_submit_warning_popup_desc', '', '#SFUI_ConfirmBtn_GetPassNow', () => { _ShowGetPassMenu(elPopup); }, '#pickem_submit_warning_popup_action', () => { _SubmitPicks(elBtn, args); });
                         elPopup.SetDialogVariable('pass-name', InventoryAPI.GetItemName(InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_pass, 0)));
                         return;
                     }
@@ -701,6 +729,16 @@ var SavePicksButton;
                 _SubmitPicks(elBtn, args);
             });
         }
+    }
+    function _ShowGetPassMenu(elPopup) {
+        $.DispatchEvent('UIPopupButtonClicked', elPopup, '');
+        $.DispatchEvent('ContextMenuEvent', '');
+        UiToolkitAPI.HideTextTooltip();
+        const contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParameters('', '', 'file://{resources}/layout/context_menus/context_menu_store_linked_items.xml', 'itemids=' + InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_pass, 0) +
+            ',' + InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(g_ActiveTournamentInfo.itemid_pack, 0) +
+            '&' + 'linkedWarning=#tournament_items_notice');
+        contextMenuPanel.AddClass("ContextMenu_NoArrow");
+        contextMenuPanel.SetFocus();
     }
     function _SubmitPicks(elBtn, args) {
         elBtn.enabled = false;

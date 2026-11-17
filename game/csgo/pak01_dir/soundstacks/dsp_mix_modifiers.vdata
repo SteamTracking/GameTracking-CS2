@@ -1302,7 +1302,7 @@
 						m_flModifier = 0.5
 						m_flListenerReverbModifierWhenSourceReverbIsActive = 0.0
 						m_flSourceModifier = 0.5
-						m_flModifierMin = 0.1
+						m_flModifierMin = 0.6
 					},
 					{
 						m_mixgroup = "PlayerDamage"

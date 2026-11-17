@@ -3,6 +3,8 @@
 	<styles>
 		<include src="s2r://panorama/styles/gamestyles.vcss" />
 		<include src="s2r://panorama/styles/popups/popups_shared.vcss" />
+		<include src="s2r://panorama/styles/common/major_theme.vcss" />
+		<include src="s2r://panorama/styles/common/major_store_price.vcss" />
 		<include src="s2r://panorama/styles/popups/popup_major_store.vcss" />
 		<include src="s2r://panorama/styles/popups/popup_major_store_balance.vcss" />
 	</styles>

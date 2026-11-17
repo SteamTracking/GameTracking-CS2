@@ -309,9 +309,11 @@ var CapabilityDecodable;
         if (contextPanel.Data().itemFromContainer) {
             InventoryAPI.SetItemSessionPropertyValue(contextPanel.Data().itemFromContainer, 'recent', '1');
             InventoryAPI.AcknowledgeNewItembyItemID(contextPanel.Data().itemFromContainer);
-            if (ItemInfo.ItemDefinitionNameSubstrMatch(contextPanel.Data().itemFromContainer, 'tournament_journal_')) {
+            if (ItemInfo.IsActiveTournamentJournal(contextPanel.Data().itemFromContainer)) {
+                const journalId = contextPanel.Data().itemFromContainer;
                 $.Schedule(0.2, () => {
-                    UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_major_hub.xml', 'journalid=' + contextPanel.Data().itemFromContainer);
+                    UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_major_hub.xml', 'journalid=' + journalId +
+                        '&' + 'eventid=' + NewsAPI.GetActiveTournamentEventID());
                 });
             }
             else {

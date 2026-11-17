@@ -855,6 +855,7 @@ materials/tools/audiomodifier_color_tga_15a1e827.vtex_c CRC:000167e4fc size:7604
 materials/tools/climb.vmat_c CRC:00cb2a33bd size:2477
 materials/tools/climb_color_tga_b223a265.vtex_c CRC:0070bb28b6 size:12956
 materials/tools/climb_versus.vmat_c CRC:00fd370fae size:2461
+materials/tools/container_slide.vmat_c CRC:000428ace4 size:3372
 materials/tools/copy_texture_with_gamma.vmat_c CRC:004dac3dc0 size:1537
 materials/tools/copy_to_backbuffer.vmat_c CRC:00d6484bd8 size:1521
 materials/tools/draw_points_sizefromcode.vmat_c CRC:0098b47636 size:1569
@@ -883,6 +884,8 @@ materials/tools/handle_edged_diamond.vmat_c CRC:001697d8ee size:2037
 materials/tools/handle_edged_diamond_tga_a3722553.vtex_c CRC:004dd2be12 size:3348
 materials/tools/handle_edged_diamond_translucent.vmat_c CRC:006b117eca size:2069
 materials/tools/handle_generic.vmat_c CRC:0060a979fc size:2101
+materials/tools/handle_generic_aligned.vmat_c CRC:009fb4f63e size:2411
+materials/tools/handle_generic_aligned_translucent.vmat_c CRC:00a837777a size:2459
 materials/tools/handle_generic_translucent.vmat_c CRC:00b9bd0a23 size:2117
 materials/tools/handle_ring.vmat_c CRC:00237a6b2a size:2021
 materials/tools/handle_ring_color_tga_fab69840.vtex_c CRC:00a625a988 size:7444
@@ -970,6 +973,8 @@ materials/tools/toolsinvisibleladder.vmat_c CRC:00febcb36e size:3157
 materials/tools/toolsinvisibleladder_color_tga_dd58c82d.vtex_c CRC:00b92cc6c3 size:7524
 materials/tools/toolslightmapres.vmat_c CRC:0097b242f2 size:3042
 materials/tools/toolslightmapres_color_tga_3915f391.vtex_c CRC:006d555bcb size:7508
+materials/tools/toolslightmesh.vmat_c CRC:0022f3059d size:3324
+materials/tools/toolslightmesh_color_tga_8f2a0d7.vtex_c CRC:00b921efa7 size:7572
 materials/tools/toolslightprobevolume.vmat_c CRC:00f5d0491b size:2924
 materials/tools/toolslightprobevolume_color_png_fb40b780.vtex_c CRC:00bb45c90e size:4892
 materials/tools/toolslightvolumeboundary.vmat_c CRC:00454ad7ab size:2953

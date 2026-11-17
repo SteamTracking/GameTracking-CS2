@@ -12,9 +12,6 @@ var mainmenu_watch;
 (function (mainmenu_watch) {
     let _m_bPerfectWorld = (MyPersonaAPI.GetLauncherType() === 'perfectworld');
     let _m_activeTab;
-    let _m_contextTab;
-    let _m_tabStack = [];
-    let _m_contextPanel;
     let _m_myXuid = MyPersonaAPI.GetXuid();
     let MATCHLISTDESCRIPTOR = {
         "JsLive": "live",
@@ -107,7 +104,7 @@ var mainmenu_watch;
                 elTournamentPanel.SetDialogVariable('tournament-title', $.Localize('#CSGO_Tournament_Event_Location_' + i));
                 let elTOLogo = elTournamentPanel.FindChildTraverse('id-tournament-to-logo');
                 elTOLogo.SetImage('file://{images}/tournaments/events/tournament_logo_' + i + '.svg');
-                elTOLogo.GetParent().SetHasClass('tall-logo', i == 22 || i == 24 || i == 25);
+                elTOLogo.GetParent().SetHasClass('tall-logo', i == 22 || i == 24 || i == 25 || i == 27);
                 let ProEventJSO = TournamentsAPI.GetProEventDataJSO(i, 8);
                 let oWinningTeam;
                 let hasEventData = false;
@@ -248,10 +245,6 @@ var mainmenu_watch;
     }
     function UpdateActiveTab() {
         if (_m_activeTab) {
-            if (_m_activeTab.id === 'JsActiveTournament') {
-                $.DispatchEvent('RefreshPickemPage', 'tournament:' + g_ActiveTournamentInfo.eventid);
-                return;
-            }
             _UpdateTab(_m_activeTab);
         }
     }
@@ -265,97 +258,21 @@ var mainmenu_watch;
     function _UpdateMatchListFromMatchListChangeEvent(listId) {
         _UpdateMatchList(listId, true);
     }
-    function NavigateToTab(tab = '', xmlName = '', tournament_id = '', isSubTab = false, addToStack = false) {
-        if (isSubTab && addToStack) {
-            if (_m_tabStack.length > 0) {
-                _m_tabStack[_m_tabStack.length - 1].AddClass("mainmenu-content--hidden");
-            }
-            else {
-                if (!_m_contextPanel) {
-                    _m_contextPanel = $("#main-content");
-                }
-                if (_m_contextPanel) {
-                    _m_contextPanel.AddClass("mainmenu-content--hidden");
-                }
-            }
-        }
-        let parent = $.GetContextPanel().FindChildInLayoutFile(tab);
-        if (isSubTab && !parent) {
-            let newPanel = undefined;
-            parent = $.CreatePanel('Panel', $('#JsWatchContent'), tab);
-            parent.AddClass("mainmenu-content--popuptab");
-            parent.AddClass("mainmenu-content--hidden");
-            parent.AddClass("mainmenu-content__container");
-            parent.AddClass("no-margin");
-            parent.AddClass('hide');
-            newPanel = $.CreatePanel('Panel', parent, "tournament_content_" + tournament_id);
-            newPanel.Data().elMainMenuRoot = $.GetContextPanel().Data().elMainMenuRoot;
-            parent.RemoveClass('hide');
-            parent.RemoveClass('mainmenu-content--hidden');
-            parent.Data().tournament_id = tournament_id;
-            newPanel.BLoadLayout('file://{resources}/layout/' + xmlName + '.xml', false, false);
-            newPanel.RegisterForReadyEvents(true);
-            parent.Data().isSubTab = true;
-            _InitResourceManagement(newPanel);
-            $.DispatchEvent('InitializeTournamentsPage', newPanel, tournament_id);
-        }
-        let pressedTab = $('#' + tab);
+    function NavigateToTab(tab = '') {
+        const pressedTab = $('#' + tab);
         if (_m_activeTab != pressedTab) {
-            if (!isSubTab) {
-                if (_m_activeTab) {
-                    if (!_m_activeTab.Data().isSubTab) {
-                        _m_activeTab.AddClass('WatchMenu--Hide');
-                    }
-                    else {
-                        _m_activeTab.AddClass('mainmenu-content--hidden');
-                    }
-                }
-                _m_activeTab = pressedTab;
-                _m_contextTab = pressedTab;
-                if (!_m_contextPanel) {
-                    _m_contextPanel = $("#main-content");
-                }
-                if (_m_contextPanel) {
-                    _m_contextPanel.RemoveClass("mainmenu-content--hidden");
-                }
-                if (!_m_activeTab) {
-                    return;
-                }
-                _m_activeTab.RemoveClass('WatchMenu--Hide');
+            if (_m_activeTab) {
+                _m_activeTab.AddClass('WatchMenu--Hide');
             }
-            else {
-                if (!addToStack)
-                    _m_activeTab.AddClass('mainmenu-content--hidden');
-                _m_activeTab = pressedTab;
-                _m_activeTab.SetFocus();
-                if (!_m_activeTab) {
-                    return;
-                }
-                _m_activeTab.RemoveClass('mainmenu-content--hidden');
-                if (_m_activeTab.Data().tournament_id) {
-                    matchList.ReselectActiveTile(_m_activeTab);
-                }
-                if (addToStack)
-                    _m_tabStack.push(_m_activeTab);
+            _m_activeTab = pressedTab;
+            if (!_m_activeTab) {
+                return;
             }
+            _m_activeTab.RemoveClass('WatchMenu--Hide');
         }
         _UpdateTab(_m_activeTab);
     }
     mainmenu_watch.NavigateToTab = NavigateToTab;
-    function CloseSubMenuContent() {
-        if ((!_m_tabStack) || (_m_tabStack.length == 0) || (!_m_tabStack[_m_tabStack.length - 1].visible)) {
-            return false;
-        }
-        _m_tabStack.pop();
-        if (_m_tabStack.length >= 1) {
-            NavigateToTab(_m_tabStack[_m_tabStack.length - 1].id, undefined, undefined, false);
-        }
-        else {
-            NavigateToTab(_m_contextTab.id);
-        }
-        return true;
-    }
-    mainmenu_watch.CloseSubMenuContent = CloseSubMenuContent;
     function _InitResourceManagement(elTab) {
         $.RegisterEventHandler('PropertyTransitionEnd', elTab, (panelName, propertyName) => {
             if (elTab === panelName && propertyName === 'opacity') {
@@ -377,10 +294,7 @@ var mainmenu_watch;
     }
     function InitMainWatchPanel() {
         _m_activeTab = null;
-        _m_contextPanel = $("#main-content");
         $.RegisterForUnhandledEvent("PanoramaComponent_MatchList_StateChange", _UpdateMatchListFromMatchListChangeEvent);
-        $.RegisterForUnhandledEvent("CloseSubMenuContent", CloseSubMenuContent);
-        $.RegisterForUnhandledEvent("NavigateToTab", NavigateToTab);
         _InitTab('JsYourMatches');
         _InitTab('JsDownloaded');
         _InitTab('JsLive');
@@ -395,9 +309,6 @@ var mainmenu_watch;
         }
         else {
             _InitResourceManagement($('#JsEvents'));
-        }
-        let restrictions = LicenseUtil.GetCurrentLicenseRestrictions();
-        if (restrictions === false) {
         }
         NavigateToTab('JsYourMatches');
         $('#WatchNavBarYourMatches').checked = true;
@@ -414,30 +325,7 @@ var mainmenu_watch;
     }
     mainmenu_watch.OnReadyForDisplay = OnReadyForDisplay;
     ;
-    function ShowActiveTournamentPage(idOfTab = '') {
-        while (CloseSubMenuContent())
-            continue;
-        NavigateToTab('JsTournaments');
-        $('#WatchNavBarButtonTournaments').checked = true;
-        let i = g_ActiveTournamentInfo.eventid;
-        NavigateToTab('JsMainMenuSubContent_Tournament' + i, 'mainmenu_watch_tournament', 'tournament:' + i, true, true);
-        let elTournamentActive = _m_activeTab;
-        if (idOfTab && elTournamentActive) {
-            let elTabToActivate = elTournamentActive.FindChildTraverse('content-navbar__tabs');
-            if (elTabToActivate) {
-                elTabToActivate = elTabToActivate.FindChildInLayoutFile(idOfTab);
-            }
-            if (elTabToActivate) {
-                $.DispatchEvent("Activated", elTabToActivate, "mouse");
-            }
-            else {
-            }
-        }
-    }
-    mainmenu_watch.ShowActiveTournamentPage = ShowActiveTournamentPage;
 })(mainmenu_watch || (mainmenu_watch = {}));
 (function () {
-    $.RegisterEventHandler('Cancelled', $('#JsWatch'), mainmenu_watch.CloseSubMenuContent);
     $.RegisterEventHandler('ReadyForDisplay', $('#JsWatch'), mainmenu_watch.OnReadyForDisplay);
-    $.RegisterForUnhandledEvent('ShowActiveTournamentPage', mainmenu_watch.ShowActiveTournamentPage);
 })();

@@ -2,6 +2,7 @@
 <root>
 	<styles>
 		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/common/major_theme.vcss" />
 		<include src="s2r://panorama/styles/popups/popup_major_hub.vcss" />
 		<include src="s2r://panorama/styles/tournaments/predictions_group_stage.vcss" />
 	</styles>
@@ -98,11 +99,11 @@
 		<Panel class="full-width full-height left-right-flow horizontal-center">
 			<Panel class="group-stage-teams-container">
 				<Panel id="id-drag-teams" class="group-stage-teams__howto">
-					<Image class="" texturewidth="18" textureheight="18" scaling="stretch-to-fit-y-preserve-aspect" src="s2r://panorama/images/icons/ui/drag.vsvg" />
+					<Image texturewidth="18" textureheight="18" scaling="stretch-to-fit-y-preserve-aspect" src="s2r://panorama/images/icons/ui/drag.vsvg" />
 					<Label class="stratum-light" text="#pickem_drag_picks" />
 				</Panel>
 				<Panel id="id-no-teams" class="group-stage-teams__howto">
-					<Image class="" texturewidth="18" textureheight="18" scaling="stretch-to-fit-y-preserve-aspect" src="s2r://panorama/images/icons/ui/info.vsvg" />
+					<Image texturewidth="18" textureheight="18" scaling="stretch-to-fit-y-preserve-aspect" src="s2r://panorama/images/icons/ui/info.vsvg" />
 					<Label class="stratum-light" text="#pickem_teams_tbd" />
 				</Panel>
 				<Panel id="id-predictions-draggable-teams" class="group-stage-teams" />
@@ -116,7 +117,6 @@
 				</Panel>
 			</Panel>
 			<Panel class="group-stage-matchups-container" hittest="false">
-				<Image class="group-stage-static-background major-24" scaling="stretch-to-cover-preserve-aspect" src="s2r://panorama/images/tournaments/backgrounds/pickem_advance_group_24_psd.vtex" />
 				<Image class="group-stage-static-background" textureheight="-1" texturewidth="308" src="s2r://panorama/images/tournaments/pickem_advance_group.vsvg" />
 				<Frame id="matchups-0-0" snippet="group-section-matches-8" />
 				<Panel class="group-stage-matchups-arrows column1">

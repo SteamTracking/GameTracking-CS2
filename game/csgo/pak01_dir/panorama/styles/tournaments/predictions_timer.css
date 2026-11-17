@@ -22,21 +22,9 @@
 	font-size: 16px;
 }
 
-.major-24 .predictions-stage-header .predictions-stage-header__warning .predictions-stage-header__warning__label
-{
-	color: groups-text-color-major-24;
-	text-shadow: text-shadow-major-24;
-	font-family: Stratum2 Medium, "Arial Unicode MS";
-}
-
 .predictions-stage-header .predictions-stage-header__warning .predictions-stage-header__warning__icon
 {
 	vertical-align: center;
 	margin-right: 6px;
-}
-
-.major-24 .predictions-stage-header .predictions-stage-header__warning .predictions-stage-header__warning__icon
-{
-	wash-color:groups-text-color-major-24;
 }
 

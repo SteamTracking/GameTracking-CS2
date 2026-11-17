@@ -1514,6 +1514,11 @@ sounds/graphs/echo.vsnd
 sounds/graphs/lpf.vsnd
 sounds/graphs/test_mix8.vsnd
 sounds/graphs/test_voice_sends.vsnd
+materials/tools/container_slide.vmat
+materials/tools/handle_generic_aligned.vmat
+materials/tools/handle_generic_aligned_translucent.vmat
+materials/tools/toolslightmesh.vmat
+materials/tools/toolslightmesh_color_tga_8f2a0d7.vtex
 materials/loading_background.vmat
 materials/startup_background.vmat
 materials/tools_postprocess_volume.vmat

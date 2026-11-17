@@ -9,77 +9,89 @@
 	{
 		"competitive"
 		{
-			"mg_de_cache"		"1"
-			"mg_de_anubis"		"2"
-			"mg_de_inferno"		"3"
-			"mg_de_mirage"		"4"
-			"mg_de_dust2"		"5"
-			"mg_de_nuke"		"6"
-			"mg_de_ancient"		"7"
-			"mg_de_train"		"8"
-			"mg_de_vertigo"		"9"
-			"mg_de_overpass"	"10"
+			"mg_de_cbble"		"1"
 
-			// community
-			"mg_de_boulder"		"11"
-			"mg_de_fachwerk"		"12"
-			"mg_cs_shelter"		"13"
+			"mg_de_inferno"		"2"
+			"mg_de_mirage"		"3"
+			"mg_de_dust2"		"4"
+
+			"mg_de_anubis"		"5"
+			"mg_de_nuke"		"6"
+			"mg_de_cache"		"7"
+			"mg_de_vertigo"		"8"
+
+			"mg_de_ancient"		"9"
+			"mg_de_train"		"10"
+			"mg_de_overpass"	"11"
 
 			// hostage
-			"mg_cs_office"		"14"
-			"mg_cs_italy"		"15"
+			"mg_cs_office"		"12"
+			"mg_cs_italy"		"13"
 		}
 		"casual"
 		{
-			"mg_de_cache"		"1"
-			"mg_de_anubis"		"2"
-			"mg_de_inferno"		"3"
-			"mg_de_mirage"		"4"
-			"mg_de_dust2"		"5"
-			"mg_de_nuke"		"6"
-			"mg_de_ancient_night" "7"
-			"mg_de_train"		"8"
-			"mg_de_vertigo"		"9"
-			"mg_de_overpass"	"10"
+			"mg_de_cbble"		"1"
 
-			// community
-			"mg_de_boulder"		"11"
-			"mg_de_fachwerk"		"12"
-			"mg_cs_shelter"		"13"
+			"mg_de_inferno"		"2"
+			"mg_de_mirage"		"3"
+			"mg_de_dust2"		"4"
+
+			"mg_de_anubis"		"5"
+			"mg_de_nuke"		"6"
+			"mg_de_cache"		"7"
+			"mg_de_vertigo"		"8"
+
+			"mg_de_ancient_night" "9"
+			"mg_de_train"		"10"
+			"mg_de_overpass"	"11"
 
 			// hostage
-			"mg_cs_office"		"14"
-			"mg_cs_italy"		"15"
+			"mg_cs_office"		"12"
+			"mg_cs_italy"		"13"
 		}
 		"retakes"
 		{
-			"mg_de_cache"		"1"
-			"mg_de_anubis"		"2"
-			"mg_de_inferno"		"3"
-			"mg_de_mirage"		"4"
-			"mg_de_dust2"		"5"
+			"mg_de_cbble"		"1"
+
+			"mg_de_inferno"		"2"
+			"mg_de_mirage"		"3"
+			"mg_de_dust2"		"4"
+
+			"mg_de_anubis"		"5"
 			"mg_de_nuke"		"6"
-			"mg_de_ancient_night" "7"
-			"mg_de_train"		"8"
-			"mg_de_vertigo"		"9"
-			"mg_de_overpass"	"10"
+			"mg_de_cache"		"7"
+			"mg_de_vertigo"		"8"
+
+			"mg_de_ancient_night" "9"
+			"mg_de_train"		"10"
+			"mg_de_overpass"	"11"
 		}
 		"2v2"
 		{
-			"mg_de_debris"		"0"
-			"mg_de_eldorado"	"1"
-			"mg_de_poseidon"	"2"
-			"mg_de_overpass"	"3"
-			"mg_de_vertigo"		"4"
-			"mg_de_nuke"		"5"
-			"mg_de_inferno"		"6"
+			"mg_de_cbble"		"1"
+			"mg_de_inferno"		"2"
+			"mg_de_nuke"		"3"
+			"mg_de_overpass"	"4"
+			"mg_de_vertigo"		"5"
+			"mg_de_debris"		"6"
+			"mg_de_eldorado"	"7"
+			"mg_de_poseidon"	"8"
 		}
-		"sddh"
+		"sddhretakes"
 		{
-			"mg_casualalpha"	"0"
-			"mg_casualdelta"	"1"
-			"mg_casualcharlie"	"2"
-			"mg_hostage"		"3"
+			"mg_de_cbble"		"0"
+			"mg_casualalpha"	"1"
+			"mg_casualdelta"	"2"
+			"mg_casualsigma"	"3"
+		}
+		"sddhcasual"
+		{
+			"mg_de_cbble"		"0"
+			"mg_casualalpha"	"1"
+			"mg_casualdelta"	"2"
+			"mg_casualsigma"	"3"
+			// "mg_casualcharlie"	"4"
+			"mg_hostage"		"4"
 		}
 	}
 
@@ -130,7 +142,7 @@
 					// Map groups for online modesw
 					"mapgroupsMP"
 					{
-						"template#include"		"sddh"
+						"template#include"		"sddhcasual"
 					}
 				}
 	
@@ -348,8 +360,7 @@
 					// Map groups for online modesw
 					"mapgroupsMP"
 					{
-						"mg_casualalpha"	"0"
-						"mg_casualdelta"	"1"
+						"template#include"		"sddhretakes"
 					}
 				}
 				"rush"
@@ -556,7 +567,7 @@
 					// Map groups for online modes
 					"mapgroupsMP"
 					{
-						"template#include"		"sddh"
+						"template#include"		"sddhcasual"
 					}
 				}
 			}
@@ -965,41 +976,38 @@
 			}
 		}
 		
-		"mg_casualdelta"
-		{
-			"imagename"				"mapgroup-casualdelta"
-			"nameID"				"#SFUI_Mapgroup_casualdelta"
-			"tooltipID"				"#SFUI_MapGroup_Tooltip_Desc_CasualDelta"
-			"tooltipMaps"			"de_train,de_anubis,de_ancient_night,de_overpass,de_nuke"
-			"name"					"mg_casualdelta"
-			"grouptype"				"reserves"
-			"icon_image_path"		"map_icons/mapgroup_icon_reserves"
-			"maps"
-			{
-				"de_train"		""
-				"de_anubis"		""
-				"de_ancient_night" ""
-				"de_overpass"	""
-				"de_nuke"		""
-			}
-		}
-		
 		"mg_casualalpha"
 		{
 			"imagename"				"mapgroup-casualalpha"
 			"nameID"				"#SFUI_Mapgroup_casualalpha"
 			"tooltipID"				"#SFUI_MapGroup_Tooltip_Desc_CasualAlpha"
-			"tooltipMaps"			"de_dust2,de_mirage,de_inferno,de_vertigo,de_cache"
+			"tooltipMaps"			"de_inferno,de_mirage,de_dust2"
 			"name"					"mg_casualalpha"
 			"grouptype"				"reserves"
 			"icon_image_path"		"map_icons/mapgroup_icon_reserves"
 			"maps"
 			{
-				"de_dust2"		""
-				"de_mirage"		""
 				"de_inferno"	""
-				"de_vertigo"		""
+				"de_mirage"		""
+				"de_dust2"		""
+			}
+		}
+		
+		"mg_casualdelta"
+		{
+			"imagename"				"mapgroup-casualdelta"
+			"nameID"				"#SFUI_Mapgroup_casualdelta"
+			"tooltipID"				"#SFUI_MapGroup_Tooltip_Desc_CasualDelta"
+			"tooltipMaps"			"de_anubis,de_nuke,de_cache,de_vertigo"
+			"name"					"mg_casualdelta"
+			"grouptype"				"reserves"
+			"icon_image_path"		"map_icons/mapgroup_icon_reserves"
+			"maps"
+			{
+				"de_anubis"		""
+				"de_nuke"		""
 				"de_cache"		""
+				"de_vertigo"		""
 			}
 		}
 		
@@ -1008,16 +1016,15 @@
 			"imagename"				"mapgroup-casualsigma"
 			"nameID"				"#SFUI_Mapgroup_casualsigma"
 			"tooltipID"				"#SFUI_MapGroup_Tooltip_Desc_CasualSigma"
-			"tooltipMaps"			"de_dust2,de_mirage,de_inferno,de_vertigo"
+			"tooltipMaps"			"de_ancient_night,de_train,de_overpass"
 			"name"					"mg_casualsigma"
 			"grouptype"				"reserves"
 			"icon_image_path"		"map_icons/mapgroup_icon_reserves"
 			"maps"
 			{
-				"de_dust2"		""
-				"de_mirage"		""
-				"de_inferno"	""
-				"de_vertigo"		""
+				"de_ancient_night" ""
+				"de_train"		""
+				"de_overpass"	""
 			}
 		}
 		
@@ -1544,6 +1551,7 @@
 			"tooltipID"				"#SFUI_Map_Tooltip_Desc_Reserves"
 			"name"					"mg_de_cbble"
 			"icontag"				"bomb"
+			"showtagui"				"new"
 			"grouptype"				"reserves"
 			"icon_image_path"		"map_icons/map_icon_de_cbble"
 			"maps"
@@ -1559,7 +1567,6 @@
 			"tooltipID"				"#SFUI_Map_Tooltip_Desc_Reserves"
 			"name"					"mg_de_train"
 			"icontag"				"bomb"
-			// "showtagui"				"new"
 			"grouptype"				"reserves"
 			"icon_image_path"		"map_icons/map_icon_de_train"
 			"maps"

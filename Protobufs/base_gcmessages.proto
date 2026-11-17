@@ -262,6 +262,19 @@ message CMsgStoreGetUserDataResponse {
 	optional bytes price_sheet = 8;
 }
 
+message CMsgVolatileContainerPricesheet {
+	message Entry {
+		optional fixed64 key = 1;
+		optional uint32 cost = 2;
+		optional sint32 trend = 3;
+		optional uint32 low = 4;
+		optional uint32 high = 5;
+	}
+
+	optional uint32 version = 1;
+	repeated .CMsgVolatileContainerPricesheet.Entry entries = 2;
+}
+
 message CMsgUpdateItemSchema {
 	optional bytes items_game = 1;
 	optional fixed32 item_schema_version = 2;

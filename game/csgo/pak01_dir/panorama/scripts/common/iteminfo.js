@@ -273,6 +273,14 @@ var ItemInfo;
         return (!!itemDefName && (itemDefName.startsWith(defSubstr)));
     }
     ItemInfo.ItemDefinitionNameStartsWith = ItemDefinitionNameStartsWith;
+    function IsActiveTournamentJournal(id) {
+        if (!ItemDefinitionNameSubstrMatch(id, 'tournament_journal_')) {
+            return false;
+        }
+        const nEventId = InventoryAPI.GetItemAttributeValue(id, '{uint32}tournament event id');
+        return !nEventId || nEventId === NewsAPI.GetActiveTournamentEventID();
+    }
+    ItemInfo.IsActiveTournamentJournal = IsActiveTournamentJournal;
     function GetFauxReplacementItemID(id, purpose) {
         if (purpose === 'graffiti') {
             if (ItemDefinitionNameSubstrMatch(id, 'tournament_journal_')) {

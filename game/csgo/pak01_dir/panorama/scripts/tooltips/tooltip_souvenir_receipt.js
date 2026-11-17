@@ -6,6 +6,43 @@
 var TooltipSouvenirReceipt;
 (function (TooltipSouvenirReceipt) {
     function Init() {
+        if ($.GetContextPanel().GetAttributeString("pricing", "") === "persticker")
+            InitWithPerStickerPricing();
+        else
+            InitWithPerRarityPricing();
+    }
+    TooltipSouvenirReceipt.Init = Init;
+    function InitWithPerRarityPricing() {
+        let itemId = $.GetContextPanel().GetAttributeString("itemid", "");
+        if (!itemId) {
+            UiToolkitAPI.HideCustomLayoutTooltip('tooltip-souvenir-receipt');
+            return;
+        }
+        const nItemRarity = InventoryAPI.GetItemRarity(itemId);
+        const nTotalCostInCredits = MissionsAPI.GetSeasonalOperationFauxCreditsCost(g_ActiveTournamentInfo.credits_id, 'R' + itemId);
+        const elParent = $.GetContextPanel().FindChildInLayoutFile('id-sticker-list');
+        const nMaxRarityShown = (nItemRarity < 7) ? 6 : nItemRarity;
+        elParent.Children().forEach((sticker, idx) => { if (idx >= nMaxRarityShown)
+            sticker.DeleteAsync(0); });
+        for (let j = 1; j <= nMaxRarityShown; ++j) {
+            let elPanel = elParent.FindChildInLayoutFile('id-sticker' + j);
+            if (!elPanel) {
+                elPanel = $.CreatePanel('Panel', elParent, 'id-sticker' + j);
+                elPanel.BLoadLayoutSnippet('sticker-entry');
+            }
+            elPanel.style.washColor = InventoryAPI.GetItemRarityColor('R' + j);
+            elPanel.SetDialogVariableInt('price', MissionsAPI.GetSeasonalOperationFauxCreditsCost(g_ActiveTournamentInfo.credits_id, 'R!' + j));
+            elPanel.SetDialogVariable('sticker-name', $.Localize('#RI_R' + j + 'p'));
+            elPanel.SetHasClass('activeitem', j === nItemRarity);
+        }
+        const totalSum = nTotalCostInCredits;
+        let discountPrice = nTotalCostInCredits;
+        $.GetContextPanel().FindChildInLayoutFile('id-sticker-total-row').SetDialogVariableInt('price', totalSum);
+        $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-price-row').SetDialogVariableInt('price', discountPrice);
+        $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-price-row').SetDialogVariable('currency', StoreAPI.GetStoreItemTokensBundlePrice('' + g_ActiveTournamentInfo.itemid_charge, discountPrice, ''));
+        $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-row').SetDialogVariableInt('discount', InventoryAPI.GetItemSouvenirDiscountPercent(itemId));
+    }
+    function InitWithPerStickerPricing() {
         let itemId = $.GetContextPanel().GetAttributeString("itemid", "");
         if (!itemId) {
             UiToolkitAPI.HideCustomLayoutTooltip('tooltip-souvenir-receipt');
@@ -53,5 +90,4 @@ var TooltipSouvenirReceipt;
         $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-price-row').SetDialogVariable('currency', StoreAPI.GetStoreItemTokensBundlePrice('' + g_ActiveTournamentInfo.itemid_charge, discountPrice, ''));
         $.GetContextPanel().FindChildInLayoutFile('id-sticker-discount-row').SetDialogVariableInt('discount', InventoryAPI.GetItemSouvenirDiscountPercent(itemId));
     }
-    TooltipSouvenirReceipt.Init = Init;
 })(TooltipSouvenirReceipt || (TooltipSouvenirReceipt = {}));

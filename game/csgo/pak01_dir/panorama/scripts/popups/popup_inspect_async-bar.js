@@ -65,6 +65,7 @@ var InspectAsyncActionBar;
             cp.Data().refreshSubscriptionHandle = null;
         }
         StoreAPI.VolatileShopSubscribe(g_ActiveTournamentInfo.itemid_dynamic_stickers, true);
+        StoreAPI.VolatileShopSubscribe(g_ActiveTournamentInfo.itemid_dynamic_souvenirs, true);
         cp.Data().refreshSubscriptionHandle = $.Schedule(150, () => _EnsureVolatileShopSubscribed(cp));
     }
     function _DoesNotMeetDecodalbeRequirements() {
@@ -275,8 +276,10 @@ var InspectAsyncActionBar;
                 elOption.BLoadLayoutSnippet('craft-souvenir-dropdown-select-player-entry');
                 let elNamePanel = elOption.FindChildInLayoutFile('id-craft-souvenir-dropdown-select-player-entry-name');
                 elNamePanel.text = sel.sPlayerName;
-                elOption.FindChildInLayoutFile('id-craft-souvenir-dropdown-select-player-entry-cost')
-                    .SetDialogVariableInt('cost', sel.unCostInCredits);
+                const elCostColumn = elOption.FindChildInLayoutFile('id-craft-souvenir-dropdown-select-player-entry-cost');
+                elCostColumn.SetDialogVariableInt('cost', sel.unCostInCredits);
+                if (g_ActiveTournamentInfo.pp_fixed_prices)
+                    elCostColumn.AddClass('hidden');
                 elOption.FindChildInLayoutFile('id-team-player-logo')
                     .SetImage("file://{images}/tournaments/teams/" + sel.sTeamTag + ".svg");
                 elOption.SetAttributeUInt32('playerid', sel.unPlayerID);
@@ -760,32 +763,18 @@ var InspectAsyncActionBar;
     }
     function _ComputeTotalSouvenirCost(cp, itemIdSouvenir) {
         const tempCreatedItem = itemIdSouvenir ?? InspectShared.GetPopupSetting('temp_display_item_id');
-        let nTotalCostInCredits = 0;
-        {
-            const defidxStickerItem = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
-            for (let i = 0; i < 6; ++i) {
-                const idStickerKit = InventoryAPI.GetItemAttributeValue(tempCreatedItem, '{uint32}sticker slot ' + i + ' id');
-                if (!idStickerKit)
-                    continue;
-                const idFauxSticker = InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxStickerItem, idStickerKit);
-                const unCostInCredits = MissionsAPI.GetSeasonalOperationFauxCreditsCost(g_ActiveTournamentInfo.credits_id, idFauxSticker);
-                if (unCostInCredits)
-                    nTotalCostInCredits += unCostInCredits;
-                else
-                    nTotalCostInCredits += g_ActiveTournamentInfo.souvenir_cost;
-            }
-        }
-        const discountAmount = InventoryAPI.GetItemSouvenirDiscountPercent(tempCreatedItem);
-        const discountCredits = Math.trunc(nTotalCostInCredits * discountAmount / 100);
-        let discountPrice = nTotalCostInCredits;
-        if (discountCredits < nTotalCostInCredits)
-            discountPrice -= discountCredits;
-        return { discountPrice: discountPrice, originalPrice: nTotalCostInCredits, discountAmount: discountAmount };
+        const nTotalCostInCredits = MissionsAPI.GetSeasonalOperationFauxCreditsCost(g_ActiveTournamentInfo.credits_id, 'R' + tempCreatedItem);
+        return { discountPrice: nTotalCostInCredits, originalPrice: nTotalCostInCredits, discountAmount: 0 };
     }
     let m_SouvenirCheckoutCart = ShoppingCart.cart;
     function _OnVolatileShopSubscribe(nContainerDef, bNewPricesParsed, cp) {
-        if (nContainerDef != g_ActiveTournamentInfo.itemid_dynamic_stickers)
-            return;
+        switch (nContainerDef) {
+            case g_ActiveTournamentInfo.itemid_dynamic_stickers:
+            case g_ActiveTournamentInfo.itemid_dynamic_souvenirs:
+                break;
+            default:
+                return;
+        }
         const nTotalCostInCredits = _ComputeTotalSouvenirCost(cp).discountPrice;
         if (m_SouvenirCheckoutCart !== ShoppingCart.cart) {
             m_SouvenirCheckoutCart.syncPrices((itemId) => {

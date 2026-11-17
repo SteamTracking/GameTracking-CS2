@@ -9,7 +9,6 @@
 		<Frame id="id-mainmenu-mini-store-panel" src="s2r://panorama/layout/mainmenu_mini_store.vxml" />
 		<Frame id="id-mainmenu-major-tile-panel" src="s2r://panorama/layout/mainmenu_major_tile.vxml" />
 		<Frame id="id-mainmenu-xpshop-tile-panel" src="s2r://panorama/layout/mainmenu_xpshop_tile.vxml" />
-		<Frame id="id-mainmenu-rush-tile-panel" src="s2r://panorama/layout/mainmenu_rush_tile.vxml" />
 		<Frame id="id-mainmenu-mission-panel" src="s2r://panorama/layout/mission_tile_mainmenu.vxml" />
 	</Panel>
 </root>

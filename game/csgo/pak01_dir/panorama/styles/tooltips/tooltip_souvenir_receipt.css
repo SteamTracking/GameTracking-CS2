@@ -6,6 +6,17 @@
 	width: 340px;
 }
 
+.tooltip-souvenir-receipt .hidden
+{
+	visibility: collapse;
+}
+
+.tooltip-souvenir-receipt .activeitem
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba(255, 255, 255, 0.0) ), to( rgba(255, 255, 255, 0.062) ) );
+	font-weight: bold;
+}
+
 .tooltip-souvenir-receipt .tooltip-souvenir-receipt__header
 {
 	font-size: 14px;
@@ -38,6 +49,10 @@
 	height:16px;
 	text-overflow: ellipsis;
 	font-size: 14px;
+}
+
+.tooltip-souvenir-receipt .tooltip-souvenir-receipt__row .tooltip-souvenir-receipt__name.finaltotal
+{
 	font-weight: bold;
 }
 
@@ -47,7 +62,6 @@
 	text-align: right;
 	font-size: 14px;
 	background-color: positiveColor;
-	font-weight: bold;
 	padding: 2px 4px;
 	border-radius: 3px;
 	color: black;

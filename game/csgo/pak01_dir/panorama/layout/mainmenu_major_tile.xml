@@ -3,44 +3,40 @@
 	<styles>
 		<include src="s2r://panorama/styles/csgostyles.vcss" />
 		<include src="s2r://panorama/styles/mainmenu_mini_store.vcss" />
+		<include src="s2r://panorama/styles/common/major_theme.vcss" />
+		<include src="s2r://panorama/styles/common/major_store_price.vcss" />
 		<include src="s2r://panorama/styles/mainmenu_major_tile.vcss" />
-		<include src="s2r://panorama/styles/popups/popup_major_hub.vcss" />
-		<include src="s2r://panorama/styles/popups/popup_major_store.vcss" />
 		<include src="s2r://panorama/styles/mainmenu_xpshop_tile.vcss" />
 	</styles>
 	<scripts>
 		<include src="s2r://panorama/scripts/common/licenseutil.vts" />
 		<include src="s2r://panorama/scripts/generated/items_event_current_generated_store.vts" />
+		<include src="s2r://panorama/scripts/common/major_store_prices.vts" />
 		<include src="s2r://panorama/scripts/mainmenu_major_tile.vts" />
 	</scripts>
 	<snippets>
-		<snippet name="shop-ticket">
-			<Panel class="xpshop-active-pass" group="xpshop-nav">
-				<Image class="xpshop-active-pass__bg" scaling="stretch-to-fit-x-preserve-aspect" textureheight="-1" texturewidth="240" src="s2r://panorama/images/backgrounds/xpshop/pass_bg.vsvg" />
-				<Panel class="xpshop-active-pass__content" />
-				<Label id="id-xpshop-pass-activate-btn" class="xpshop__tracks_upsell-btn confirm-btn activate-pass-btn" text="{s:action-text}" />
-			</Panel>
-		</snippet>
 		<snippet name="major-shop-item">
 			<Panel class="mainmenu-major-item" hittest="false">
-				<ItemImage id="id-item-image" class="xpshop-active-pass__bg" scaling="stretch-to-fit-x-preserve-aspect" textureheight="-1" texturewidth="240" hittest="false" />
-				<Panel class="left-right-flow vertical-align-bottom horizontal-center bottom-margin hide">
-					<Label class="stratum-medium-condensed dark-icon" html="true" text="#major_store_price" hittest="false" />
-					<Button id="id-item-inspect-btn" class="mainmenu-major-tile__view-item IconButton">
-						<Image textureheight="18" texturewidth="18" src="s2r://panorama/images/icons/ui/zoom_in.vsvg" />
-					</Button>
+				<ItemImage id="id-item-image" scaling="stretch-to-fit-x-preserve-aspect" textureheight="-1" texturewidth="240" hittest="false" />
+				<Panel class="mainmenu-major-item__price" hittest="false">
+					<Label id="id-store-item-real-price" class="stratum-medium major-store__item-real-price" html="true" text="{s:local-price}" />
+					<Panel class="major-store__item-price-container" hittest="false" hittestchildren="false">
+						<Label class="stratum-medium-condensed major-store__item-sale__discount" text="#major_store_discount" />
+						<Label id="id-store-item-price" class="stratum-medium-condensed major-store__item-price" html="true" text="#major_store_price" />
+						<Label class="stratum-regular-condensed major-store__item-sale__regular" text="{d:regular-price}" />
+					</Panel>
 				</Panel>
 			</Panel>
 		</snippet>
 	</snippets>
 	<Panel class="mainmenu-major-tile">
 		<Label class="xpshop__item-tile__new-tag stratum-medium-italic" html="true" text="#Store_Price_New" hittest="false" />
-		<Button id="id-img-open-major-hub" class="mainmenu-major-tile__btn" hittest="true">
+		<Button id="id-img-open-major-hub" class="mainmenu-major-tile__btn">
 			<Panel class="horizontal-center top-bottom-flow full-width">
 				<Image id="id-major-promo-image" class="mainmenu-major-tile__promo" scaling="stretch-to-fit-x-preserve-aspect" />
 				<Panel class="full-width">
 					<Panel class="mainmenu-major-tile__info">
-						<Label class="mainmenu-major-tile__promo_desc" text="#mainmenu_major_hub_new_ranked" />
+						<Label class="mainmenu-major-tile__promo_desc" text="#mainmenu_major_hub_visit" />
 					</Panel>
 				</Panel>
 			</Panel>

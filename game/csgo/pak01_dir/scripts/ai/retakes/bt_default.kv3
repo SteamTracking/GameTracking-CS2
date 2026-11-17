@@ -1,5 +1,4 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
-// Retakes bots. CTs defuse and push the site, Ts hide around the bomb.
 {
 	config = "scripts/ai/retakes/bt_config.kv3"
 	root =
@@ -88,7 +87,6 @@
 								file = "scripts/ai/modules/bt_attack.kv3"
 								name = "Attack"
 							},
-							// Else: one CT goes for the defuse
 							{
 								type = "condition_is_equal"
 								source = "TeamName"
@@ -100,7 +98,17 @@
 									name = "DefusePlantedBomb"
 								}
 							},
-							// Else: Ts take cover around the bomb
+							{
+								type = "condition_is_equal"
+								source = "TeamName"
+								destination = "'T'"
+								child =
+								{
+									type = "subtree"
+									file = "scripts/ai/retakes/modules/bt_stop_defuse.kv3"
+									name = "StopDefuse"
+								}
+							},
 							{
 								type = "condition_is_equal"
 								source = "TeamName"
@@ -112,7 +120,6 @@
 									name = "HideNearPlantedBomb"
 								}
 							},
-							// Else: CTs push onto the site
 							{
 								type = "condition_is_equal"
 								source = "TeamName"
@@ -130,7 +137,7 @@
 								file = "scripts/ai/modules/bt_investigate_closest_memorized_event.kv3"
 								name = "InvestigateClosestMemorizedEvent"
 							},
-							// Else: hunt. Only reached with no bomb, like warmup.
+							// Else: hunt.
 							{
 								type = "sequencer"
 								children =

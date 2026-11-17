@@ -69,6 +69,19 @@ var ItemContextEntries;
             }
         },
         {
+            name: 'open_watch_panel_pickem',
+            AvailableForItem: (id) => {
+                if (GameStateAPI.IsLocalPlayerPlayingMatch() || !g_ActiveTournamentInfo.active) {
+                    return false;
+                }
+                return (ItemInfo.IsActiveTournamentJournal(id) && (InventoryAPI.GetRawDefinitionKey(id, 'item_sub_position2') === 'spray0'));
+            },
+            OnSelected: (id) => {
+                $.DispatchEvent('ContextMenuEvent', '');
+                UiToolkitAPI.ShowCustomLayoutPopupParameters('id-popup-major-hub', 'file://{resources}/layout/popups/popup_major_hub.xml', 'eventid=' + NewsAPI.GetActiveTournamentEventID());
+            }
+        },
+        {
             name: 'bulkretrieve',
             populateFilter: ['loadout', 'loadout_slot_t', 'loadout_slot_ct'],
             AvailableForItem: (id) => {
@@ -210,19 +223,6 @@ var ItemContextEntries;
                 $.DispatchEvent('ContextMenuEvent', '');
                 TryEquipItemInSlot('noteam', '0', InventoryAPI.GetDefaultSlot(id));
             },
-        },
-        {
-            name: 'open_watch_panel_pickem',
-            AvailableForItem: (id) => {
-                if (GameStateAPI.GetMapBSPName())
-                    return false;
-                return (ItemInfo.ItemDefinitionNameSubstrMatch(id, 'tournament_journal_') && (InventoryAPI.GetRawDefinitionKey(id, 'item_sub_position2') === 'spray0'));
-            },
-            OnSelected: (id) => {
-                $.DispatchEvent('OpenWatchMenu');
-                $.DispatchEvent('ShowActiveTournamentPage', '');
-                $.DispatchEvent('ContextMenuEvent', '');
-            }
         },
         {
             name: 'getprestige',

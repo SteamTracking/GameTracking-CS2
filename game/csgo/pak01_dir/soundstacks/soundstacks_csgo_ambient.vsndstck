@@ -238,6 +238,26 @@
 							property_group = "Time"
 						}
 					}
+					delay_random_min = 
+					{
+						data_type = "float"
+						value = "0"
+						_system_properties = 
+						{
+							display_group = "normal"
+							property_group = "Time"
+						}
+					}
+					delay_random_max = 
+					{
+						data_type = "float"
+						value = "0"
+						_system_properties = 
+						{
+							display_group = "normal"
+							property_group = "Time"
+						}
+					}
 					use_fadetime_volume_mapping_curve = 
 					{
 						data_type = "bool"
@@ -572,6 +592,16 @@
 					{
 						data_type = "float"
 						value = "-1"
+						_system_properties = 
+						{
+							display_group = "normal"
+							property_group = "Retrigger"
+						}
+					}
+					retrigger_first_uses_delay = 
+					{
+						data_type = "bool"
+						value = "false"
 						_system_properties = 
 						{
 							display_group = "normal"
@@ -2106,10 +2136,34 @@
 				match_event_name = "@public.block_other_name"
 			},
 			{
+				name = "block_is_delayed_timer"
+				operator = "math_float"
+				execute_once = "true"
+				apply = "and"
+				input1 = "@public.enable_retrigger"
+				input2 = "@public.retrigger_first_uses_delay"
+			},
+			{
+				name = "block_allowed"
+				operator = "math_float"
+				execute_once = "true"
+				apply = "less_than"
+				input1 = "@block_is_delayed_timer.output"
+				input2 = "0.500000"
+			},
+			{
+				name = "block_test_allowed"
+				operator = "math_float"
+				execute_once = "true"
+				apply = "and"
+				input1 = "@public.block_matching_events"
+				input2 = "@block_allowed.output"
+			},
+			{
 				name = "test_soundevent_block"
 				operator = "soundevent_block_test"
 				execute_once = "true"
-				input_execute = "@public.block_matching_events"
+				input_execute = "@block_test_allowed.output"
 				input_entity_index = "@use_entity_for_block.output"
 				input_position = "@final_position.output"
 				match_this_event = "1"
@@ -2118,7 +2172,7 @@
 				name = "set_soundevent_block"
 				operator = "soundevent_block"
 				execute_once = "true"
-				input_execute = "1.000000"
+				input_execute = "@block_allowed.output"
 				input_duration = "@public.block_duration"
 				input_entity_index = "@use_entity_for_block.output"
 				input_position = "@final_position.output"
@@ -2604,12 +2658,67 @@
 				input_max = "@public.retrigger_interval_max"
 			},
 			{
-				name = "retrigger_interval_calc"
+				name = "retrigger_first_delay_random"
+				operator = "math_random_float"
+				execute_once = "true"
+				input_min = "@public.delay_random_min"
+				input_max = "@public.delay_random_max"
+			},
+			{
+				name = "retrigger_first_delay"
+				operator = "math_float"
+				execute_once = "true"
+				apply = "add"
+				input1 = "@public.delay"
+				input2 = "@retrigger_first_delay_random.output"
+			},
+			{
+				name = "retrigger_is_first"
 				input_execute = "@public.enable_retrigger"
 				operator = "math_float"
-				apply = "mult"
+				apply = "equal"
+				input1 = "@retrigger_count.output"
+				input2 = "0.000000"
+			},
+			{
+				name = "retrigger_use_first_delay"
+				input_execute = "@public.enable_retrigger"
+				operator = "math_float"
+				apply = "and"
+				input1 = "@retrigger_is_first.output"
+				input2 = "@public.retrigger_first_uses_delay"
+			},
+			{
+				name = "retrigger_interval_calc"
+				input_execute = "@public.enable_retrigger"
+				operator = "ctrl_switch_float"
+				input_switch = "@retrigger_use_first_delay.output"
 				input1 = "@retrigger_interval_random.output"
-				input2 = "1.000000"
+				input2 = "@retrigger_first_delay.output"
+			},
+			{
+				name = "retrigger_child_delay"
+				input_execute = "@public.enable_retrigger"
+				operator = "ctrl_switch_float"
+				input_switch = "@public.retrigger_first_uses_delay"
+				input1 = "@public.delay"
+				input2 = "0.000000"
+			},
+			{
+				name = "retrigger_child_delay_random_min"
+				input_execute = "@public.enable_retrigger"
+				operator = "ctrl_switch_float"
+				input_switch = "@public.retrigger_first_uses_delay"
+				input1 = "@public.delay_random_min"
+				input2 = "0.000000"
+			},
+			{
+				name = "retrigger_child_delay_random_max"
+				input_execute = "@public.enable_retrigger"
+				operator = "ctrl_switch_float"
+				input_switch = "@public.retrigger_first_uses_delay"
+				input1 = "@public.delay_random_max"
+				input2 = "0.000000"
 			},
 			{
 				name = "retrigger_interval_is_zero"
@@ -2669,6 +2778,24 @@
 						operator_arg_field = "true"
 						data_type = "bool"
 						value = "false"
+					}
+					public.delay = 
+					{
+						operator_arg_field = "true"
+						data_type = "float"
+						value = "@retrigger_child_delay.output"
+					}
+					public.delay_random_min = 
+					{
+						operator_arg_field = "true"
+						data_type = "float"
+						value = "@retrigger_child_delay_random_min.output"
+					}
+					public.delay_random_max = 
+					{
+						operator_arg_field = "true"
+						data_type = "float"
+						value = "@retrigger_child_delay_random_max.output"
 					}
 					public.source_soundscape = 
 					{
@@ -3091,6 +3218,21 @@
 				execute_once = "1"
 			},
 			{
+				name = "delay_random_variance"
+				execute_once = "true"
+				operator = "math_random_float"
+				input_min = "@public.delay_random_min"
+				input_max = "@public.delay_random_max"
+			},
+			{
+				name = "calc_delay_random"
+				operator = "math_float"
+				apply = "add"
+				input1 = "@calc_delay.output"
+				input2 = "@delay_random_variance.output"
+				execute_once = "1"
+			},
+			{
 				name = "switch_fade_time"
 				operator = "ctrl_switch_float"
 				input_switch = "@distance_volume_less_than_zero.output"
@@ -3117,7 +3259,7 @@
 				input_fade_out = "@switch_fade_time.output"
 				input_track1 = "track_01"
 				input_vsnd1 = "@get_vsnd_track_01.output"
-				input_delay = "@calc_delay.output"
+				input_delay = "@calc_delay_random.output"
 			},
 			{
 				name = "send_voicegraph_source_dsp"
@@ -3392,6 +3534,21 @@
 			{
 				x = 7672.0
 				y = 3548.0
+			}
+			block_is_delayed_timer = 
+			{
+				x = 6750.0
+				y = 4328.0
+			}
+			block_allowed = 
+			{
+				x = 7210.0
+				y = 4328.0
+			}
+			block_test_allowed = 
+			{
+				x = 7210.0
+				y = 3938.0
 			}
 			set_soundevent_block = 
 			{
@@ -3702,6 +3859,41 @@
 			{
 				x = 23688.0
 				y = 1896.0
+			}
+			retrigger_first_delay_random = 
+			{
+				x = 22764.0
+				y = 2286.0
+			}
+			retrigger_first_delay = 
+			{
+				x = 23226.0
+				y = 2286.0
+			}
+			retrigger_is_first = 
+			{
+				x = 22764.0
+				y = 2676.0
+			}
+			retrigger_use_first_delay = 
+			{
+				x = 23226.0
+				y = 2676.0
+			}
+			retrigger_child_delay = 
+			{
+				x = 24150.0
+				y = 1116.0
+			}
+			retrigger_child_delay_random_min = 
+			{
+				x = 24150.0
+				y = 726.0
+			}
+			retrigger_child_delay_random_max = 
+			{
+				x = 24150.0
+				y = 336.0
 			}
 			retrigger_interval_is_zero = 
 			{
@@ -4117,6 +4309,16 @@
 			{
 				x = 16444.959
 				y = 4752.226
+			}
+			delay_random_variance = 
+			{
+				x = 15780.0
+				y = 5100.0
+			}
+			calc_delay_random = 
+			{
+				x = 16700.0
+				y = 4900.0
 			}
 			duration_negative = 
 			{

@@ -4,6 +4,7 @@
 /// <reference path="../popups/popup_inspect_shared.ts" />
 var InspectPurchaseBar;
 (function (InspectPurchaseBar) {
+    let _m_schfnMusicMvpPreviewEnd = null;
     function Init() {
         const elPurchaseBar = $.GetContextPanel().FindChildInLayoutFile('PopUpInspectPurchaseBar');
         elPurchaseBar.FindChildInLayoutFile('id-popup-purchase').SetPanelEvent('onactivate', ClosePopup);
@@ -41,8 +42,33 @@ var InspectPurchaseBar;
         _SetUpPurchaseBtn(elPurchaseBar);
         _SetUpDropdownAction(elPurchaseBar, $.GetContextPanel());
         _UpdatePurchasePrice(elPurchaseBar, $.GetContextPanel());
+        _SetUpPlayMvpBtn(elPurchaseBar, $.GetContextPanel());
     }
     InspectPurchaseBar.Init = Init;
+    function _SetUpPlayMvpBtn(elPurchaseBar, contextPanel) {
+        const itemId = InspectShared.GetPopupSetting('item_id', contextPanel);
+        const elMusicBtn = elPurchaseBar.FindChildInLayoutFile('InspectPlayMvpBtn');
+        elMusicBtn.SetPanelEvent('onactivate', () => _InspectPlayMusic('mvp', contextPanel));
+        const bIsMusicKit = (InventoryAPI.GetLoadoutCategory(itemId) === 'musickit');
+        elMusicBtn.SetHasClass('hidden', !bIsMusicKit || (InventoryAPI.GetItemRarity(itemId) <= 0));
+    }
+    function _InspectPlayMusic(type, contextPanel) {
+        if (!contextPanel.IsValid())
+            return;
+        const itemId = InspectShared.GetPopupSetting('item_id', contextPanel);
+        if (type === 'mvp') {
+            if (_m_schfnMusicMvpPreviewEnd)
+                return;
+            InventoryAPI.StopItemPreviewMusic();
+            InventoryAPI.PlayItemPreviewMusic(itemId, 'MVPPreview');
+            _m_schfnMusicMvpPreviewEnd = $.Schedule(6.8, () => _InspectPlayMusic('schfn', contextPanel));
+        }
+        else if (type === 'schfn') {
+            _m_schfnMusicMvpPreviewEnd = null;
+            InventoryAPI.StopItemPreviewMusic();
+            InventoryAPI.PlayItemPreviewMusic(itemId, '');
+        }
+    }
     function _SetPurchaseImage(elPanel, itemId) {
         const elImage = elPanel.FindChildInLayoutFile('PurchaseItemImage');
         const showXrayMachineUi = InspectShared.GetPopupSetting("is_xray_machine");
@@ -147,6 +173,10 @@ var InspectPurchaseBar;
     }
     function ClosePopup() {
         InventoryAPI.StopItemPreviewMusic();
+        if (_m_schfnMusicMvpPreviewEnd) {
+            $.CancelScheduled(_m_schfnMusicMvpPreviewEnd);
+            _m_schfnMusicMvpPreviewEnd = null;
+        }
         $.DispatchEvent('HideSelectItemForCapabilityPopup');
         $.DispatchEvent('UIPopupButtonClicked', '');
         $.DispatchEvent('CapabilityPopupIsOpen', false);

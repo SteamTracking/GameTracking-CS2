@@ -1,0 +1,92 @@
+/* Prettified by Source 2 Viewer - https://valveresourceformat.github.io */
+
+.inline-coin-icon
+{
+	height: 14px;
+	width: 14px;
+	vertical-align: top;
+	transform: translateY(-2px);
+	wash-color: rgb(230, 227, 227);
+}
+
+.Positive .inline-coin-icon
+{
+	wash-color: positiveColor;
+	height: 16px;
+	width: 16px;
+	margin-bottom: 3px;
+}
+
+.dark-icon .inline-coin-icon
+{
+	wash-color: black;
+}
+
+.major-store__item-price-container
+{
+	flow-children: right;
+	vertical-align: center;
+}
+
+.major-store__item-price
+{
+	font-size: 16px;
+	color: white;
+}
+
+.major-store__item-price .inline-coin-icon
+{
+	height: 16px;
+	width: 16px;
+	transform: translateY(-2px);
+}
+
+.major-store__item-sale__discount,.major-store__item-sale__regular
+{
+	visibility: collapse;
+	vertical-align: center;
+	font-size: 16px;
+}
+
+.on-sale .major-store__item-sale__discount,.on-sale .major-store__item-sale__regular
+{
+	visibility: visible;
+}
+
+.major-store__item-sale__discount
+{
+	margin-right: 6px;
+	padding: 0px 4px;
+	color: white;
+	background-color: major-accent-color;
+}
+
+.major-store__item-sale__regular
+{
+	margin-left: 6px;
+	color: rgba(255, 255, 255, 0.5);
+	text-decoration: line-through;
+}
+
+.major-store__item-real-price
+{
+	horizontal-align: left;
+	margin-bottom: 4px;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 12px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.87);
+	opacity: 0;
+	transform: translateY( 6px );
+	transition-property: opacity, transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease-in-out;
+}
+
+.major-store__item-real-price.show
+{
+	opacity: 1;
+	transform: translateY( 0px );
+}
+

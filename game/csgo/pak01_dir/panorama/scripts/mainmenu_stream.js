@@ -55,6 +55,8 @@ var StreamPanel;
         $.Schedule(.3, () => {
             m_cp.SetParent(m_pinnedParent);
             m_cp.SetHasClass('stream-drag-enabled', false);
+            m_cp.style.x = '0px';
+            m_cp.style.y = '0px';
             m_cp.FindChild('StreamPanelFeed').style.opacity = '1';
             m_pinnedParent.MoveChildBefore(m_cp, m_pinnedParent.FindChild('VanityControls'));
         });

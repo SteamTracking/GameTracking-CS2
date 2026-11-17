@@ -4143,6 +4143,7 @@ $taser_charge
 .?AV?$CGameSystemStaticFactory@VCEnvVolumetricFogControllerSystem@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCExplosionDebrisEffectsManager@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCExplosionTypeSystemGameSystem@@V1@@@
+.?AV?$CGameSystemStaticFactory@VCFireEnvironment@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCFlashlightEffectManager@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCFlashlightReceiver_Manager@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCFlexSceneFileManager@@V1@@@
@@ -7787,6 +7788,7 @@ $taser_charge
 .?AVCFilterName@@
 .?AVCFilterProximity@@
 .?AVCFilterTeam@@
+.?AVCFireEnvironment@@
 .?AVCFireSceneObject@@
 .?AVCFireSceneObjectDesc@@
 .?AVCFlashbangResolveLayerRenderer@@
@@ -8292,6 +8294,8 @@ $taser_charge
 .?AVCMsgUpdateItemSchema@@
 .?AVCMsgUseItem@@
 .?AVCMsgVDebugGameSessionIDEvent@@
+.?AVCMsgVolatileContainerPricesheet@@
+.?AVCMsgVolatileContainerPricesheet_Entry@@
 .?AVCMultiFOVCamera@@
 .?AVCNetworkFieldScratchData@@
 .?AVCNetworkOriginCellCoordQuantizedVector@@
@@ -11664,6 +11668,7 @@ BetaUniverse
 BgColor
 Big Number part of OpenSSL 1.0.2j  26 Sep 2016
 BigShot
+BindFireConstantBufferCsgo
 BindingLabelContainer
 Bindings for CBaseAnimGraphDestructibleParts_GraphController\n
 Bindings for CCS2ChickenGraphController\n
@@ -12708,8 +12713,8 @@ CFilterMultiple_API::RemoveFilter
 CFilterName_API
 CFilterProximity_API
 CFilterTeam_API
+CFireEnvironment
 CFireObjectDesc
-CFireSceneObjectDesc::DrawArrayFire
 CFlashbangProjectile_API
 CFlatGroupDatabase::LookupFlatGroup
 CFogController_API
@@ -13577,7 +13582,7 @@ CRenderGameSystem::OnClientPreOutputParallelWithServer
 CRenderGameSystem::OnClientPreOutputParallelWithServer(), C:\buildworker\csgo_rel_win64\build\src\game\shared\rendergamesystem.cpp:1265
 CRenderGameSystem::OnClientPreOutputParallelWithServer(1365): 
 CRenderingPipelineCS2Shadows
-CRenderingPipelineCsgo::AddLayersToView(11300): 
+CRenderingPipelineCsgo::AddLayersToView(11431): 
 CResourceName
 CResourceNameTyped
 CResourcePrecacherGameSystem
@@ -16857,7 +16862,6 @@ FireEvent: event '%s' not registered.\n
 FireGameEvent
 FireGameEventLocal
 FireObject
-FireRenderer
 Fired after spawning an instance of this template.
 Fired to hide the store panel.
 Fired to show the store panel.
@@ -18687,6 +18691,9 @@ Indicate that a checkpoint has been reached.
 Indicates a test failure if Value is false.
 Indicates a test failure if value is false; only tested when running unit tests
 Inferno
+Inferno Influence
+InfernoInfluence
+InfernoInfluenceScaled
 InfernoMaterials_client
 Infinite time value
 Inflictor is the entity that is dealing the damage.\nIt can be the attacker itself or a summoned unit, a projectile entity of some sort.\nIt is *MOST DEFINITELY NOT* the weapon or ability. Use Set/GetAbility for that.
@@ -20459,6 +20466,7 @@ PGL 2017 Krakow CS:GO Major Championship
 PGL 2021 Stockholm CS:GO Major Championship
 PGL 2022 Antwerp CS:GO Major Championship
 PGL Copenhagen 2024 CS2 Major Championship
+PGL Singapore 2026 CS2 Major Championship
 PHYSGUN
 PHYS_SAVE_RESTORE_VERSION
 PISTOL
@@ -20833,8 +20841,6 @@ PanoramaWorldPanelGenerateMips
 PanoramaWorldPanelSystem
 Paper
 ParallaxDetail
-ParallaxPanel
-ParallaxSeparator
 Parameter [%s=%s] 
 Parameterized Clip Selector: Failed to select a valid option!
 Parameterized Selector: Failed to select a valid option!
@@ -24481,6 +24487,7 @@ UploadDraftEntryCTTeamID
 UploadDraftEntryMap
 UploadFirstVetoTeamID
 Upscale
+Upscale Inferno Influence
 Upscale Particle Shadow
 Upscale Smoke Depth
 UpscaleResolve
@@ -29502,6 +29509,7 @@ headshot
 headshotkills
 health less than
 health percentage less than
+health_c4_preview
 health_removed
 healthbar_old--hidden
 healthbar_position
@@ -31495,6 +31503,7 @@ materials/dev/downsample_depth.vmat
 materials/dev/downsample_depth_cs.vmat
 materials/dev/downsample_outlineglows.vmat
 materials/dev/error_compmat.vtex
+materials/dev/fire.vtex
 materials/dev/frost.vtex
 materials/dev/gaussian_bloom_blur.vmat
 materials/dev/generalfilter_alphablended.vmat
@@ -31691,6 +31700,7 @@ mg_armsrace
 mg_casualalpha
 mg_casualcharlie
 mg_casualdelta
+mg_casualsigma
 mg_cs_italy
 mg_cs_office
 mg_cs_shelter
@@ -31699,6 +31709,7 @@ mg_de_anubis
 mg_de_bank
 mg_de_boulder
 mg_de_cache
+mg_de_cbble
 mg_de_debris
 mg_de_dust2
 mg_de_eldorado

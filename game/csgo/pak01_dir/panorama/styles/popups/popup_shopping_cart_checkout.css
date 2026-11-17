@@ -18,15 +18,10 @@
 	width: 880px;
 	vertical-align: center;
 	horizontal-align: center;
-	background-color: major-hub-btn-dark-color-major-26;
-	border: 1px solid rgb(54, 83, 54);
-	box-shadow: fill rgba(0, 0, 0, 0.4) 0px 4px 32px 1;
+	background-color: grey;
+	border: 1px solid major-accent-color;
 	blur: mipmapgaussian( 2, 2, 4 );
-	background-image: url("s2r://panorama/images/tournaments/backgrounds/pickem_bg_26_png.vtex");
-	background-img-opacity: .6;
-	background-repeat: no-repeat;
-	background-size: auto 120%;
-	background-position: 50% 50%;
+	background-img-opacity: 1;
 }
 
 .popup-major-store__top-bar__balance
@@ -60,7 +55,7 @@
 {
 	flow-children: down;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
 	width: 480px;
 	border-radius: 6px;
 }
@@ -148,7 +143,7 @@
 	horizontal-align: center;
 	margin-left: 24px;
 	flow-children: down;
-	background-color: rgba(0, 0, 0, 0.308);
+	background-color: rgba(0, 0, 0, 0.5);
 	padding: 16px;
 	border-radius: 6px;
 	width: 320px;
@@ -429,85 +424,6 @@
 	border-radius: 14px;
 	color: black;
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #efefef ), to( rgb( 212, 211, 211 )));
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change
-{
-	opacity: 0;
-	width: 0px;
-	max-height: 18px;
-	transform: translateX( 30px);
-	flow-children: right;
-	tooltip-position: left;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	vertical-align: center;
-	margin: 0px 4px 4px 0px;
-	padding: 2px 4px 2px 4px;
-	transition-property: opacity, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change Label
-{
-	text-align: left;
-	horizontal-align: left;
-	color: black;
-	font-size: 12px;
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change Image
-{
-	height: 12px;
-	width: 12px;
-	vertical-align: center;
-	wash-color: black;
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change.lower
-{
-	background-color: gradient( linear, 0% 0%, 100% 0%, from( rgb(21, 201, 21) ), to( rgba(21, 201, 21, 0) ));
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change.lower Image
-{
-	transform: rotateZ(-90deg);
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change.higher
-{
-	background-color: gradient( linear, 0% 0%, 100% 0%, from( rgb(255, 196, 0) ), to( rgba(212, 211, 211, 0)));
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change.higher Image
-{
-	transform: rotateZ(90deg);
-}
-
-.cart-item .cart-item__right-block .cart-item__price-change.show-change
-{
-	opacity: 1;
-	transform: translateX(0px);
-	width: fit-children;
-}
-
-.cart-item .cart-item__right-block .cart-item__price-loading
-{
-	background-color: rgb(210, 207, 207);
-	padding: 2px 6px;
-	border-radius: 16px;
-	horizontal-align: center;
-	visibility: collapse;
-	width: 100%;
-}
-
-.cart-item .cart-item__right-block .cart-item__price-loading .popup-major-store__refresh-icon
-{
-	margin:0px;
-	height: 18px;
-	width: 18px;
-	wash-color:black;
 }
 
 .cart-item .cart-item__right-block .cart-item__quantity

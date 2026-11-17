@@ -1,152 +1,6 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	cbbl.Indoors.Rocks = 
-	{
-		type = "csgo_mega"
-		mixgroup = "Cbble"
-		volume = 1.0
-		volume_random_min = -0.8
-		volume_random_max = -0.7
-		pitch_random_min = -0.2
-		enable_retrigger = true
-		retrigger_interval_min = 10.0
-		retrigger_interval_max = 22.0
-		randomize_position_min_radius = 300.0
-		randomize_position_max_radius = 300.0
-		use_time_volume_mapping_curve = true
-		set_child_position = false
-		position_relative_to_player = true
-		distance_effect_mix = 0.0
-		vsnd_files_track_01 = 
-		[
-			"sounds/ambient/common/materials/rock1.vsnd",
-			"sounds/ambient/common/materials/rock2.vsnd",
-			"sounds/ambient/common/materials/rock3.vsnd",
-		]
-		distance_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		time_volume_mapping_curve = 
-		[
-			[
-				0.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.14, 0.129464, 1.875, 1.875,
-				3.0, 1.0,
-			],
-			[
-				0.357143, 0.669643, 1.40409, 1.40409,
-				1.0, 1.0,
-			],
-			[
-				0.76, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		fadetime_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.485714, 0.799107, -0.612877, -0.612877,
-				3.0, 1.0,
-			],
-			[
-				1.325714, 0.1875, -0.527712, -0.527712,
-				1.0, 1.0,
-			],
-			[
-				2.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		soundevent_01 = ""
-	}
 	cbbl.Indoors.RoomTone = 
-	{
-		type = "csgo_mega"
-		mixgroup = "Cbble"
-		use_distance_unfiltered_stereo_mapping_curve = true
-		volume = 0.4
-		use_time_volume_mapping_curve = true
-		set_child_position = false
-		distance_effect_mix = 0.0
-		vsnd_files_track_01 = "sounds/ambient/common/backgrounds/roomtone2.vsnd"
-		distance_unfiltered_stereo_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		distance_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		time_volume_mapping_curve = 
-		[
-			[
-				0.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.14, 0.129464, 1.875, 1.875,
-				3.0, 1.0,
-			],
-			[
-				0.357143, 0.669643, 1.40409, 1.40409,
-				1.0, 1.0,
-			],
-			[
-				0.76, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		fadetime_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.485714, 0.799107, -0.612877, -0.612877,
-				3.0, 1.0,
-			],
-			[
-				1.325714, 0.1875, -0.527712, -0.527712,
-				1.0, 1.0,
-			],
-			[
-				2.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		soundevent_01 = ""
-	}
-	cbbl.Indoors.Wind = 
 	{
 		type = "csgo_mega"
 		mixgroup = "Cbble"
@@ -155,7 +9,10 @@
 		use_time_volume_mapping_curve = true
 		set_child_position = false
 		distance_effect_mix = 0.0
-		vsnd_files_track_01 = "sounds/ambient/common/wind/wind1.vsnd"
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/inferno/interior_church.vsnd",
+		]
 		distance_unfiltered_stereo_mapping_curve = 
 		[
 			[
@@ -217,6 +74,8 @@
 			],
 		]
 		soundevent_01 = ""
+		pitch = 0.8
+		reverb_wet = 1.0
 	}
 	cbbl.Outdoors1 = 
 	{
@@ -233,7 +92,7 @@
 		randomize_position_max_radius = 0.0
 		use_time_volume_mapping_curve = true
 		enable_child_events = true
-		dsp_preset = "reverb_22_outsideOpen"
+		dsp_preset = "core.null"
 		set_child_position = false
 		distance_effect_mix = 0.0
 		vsnd_files_track_01 = "sounds/common/null.vsnd"
@@ -281,11 +140,12 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1.Birds",
-			"cbbl.Outdoors1.Clanks",
 			"cbbl.Outdoors1.Crows",
-			"cbbl.Outdoors1.Planes",
-			"cbbl.Outdoors1.Rocks",
 			"cbbl.Outdoors1.Wind",
+			"cbbl.Outdoors1.Snowfall",
+			"cbbl.Outdoors1.Rockfalls",
+			"cbbl.Outdoors1.Biplane",
+			"cbbl.Outdoors1.Wind.Air",
 		]
 	}
 	cbbl.Under.TunnelWind = 
@@ -297,7 +157,10 @@
 		use_time_volume_mapping_curve = true
 		set_child_position = false
 		distance_effect_mix = 0.0
-		vsnd_files_track_01 = "sounds/ambient/common/machines/lab_loop1.vsnd"
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/tones/tunnel_wind_loop.vsnd",
+		]
 		distance_unfiltered_stereo_mapping_curve = 
 		[
 			[
@@ -362,7 +225,6 @@
 		volume = 1.0
 		volume_random_min = 0.0
 		volume_random_max = 0.0
-		pitch_random_min = 0.0
 		enable_retrigger = false
 		retrigger_interval_min = 0.0
 		retrigger_interval_max = 0.0
@@ -437,9 +299,7 @@
 		randomize_position_max_radius = 0.0
 		use_time_volume_mapping_curve = true
 		enable_child_events = true
-		dsp_preset = "reverb_6_largeRoom"
 		set_child_position = false
-		override_dsp_preset = true
 		distance_effect_mix = 0.0
 		vsnd_files_track_01 = "sounds/common/null.vsnd"
 		distance_volume_mapping_curve = 
@@ -489,21 +349,22 @@
 		]
 		soundevent_01 = 
 		[
-			"cbbl.Indoors.Rocks",
 			"cbbl.Indoors.RoomTone",
-			"cbbl.Indoors.Wind",
 		]
 	}
 	cbbl.Outdoors1.Wind = 
 	{
 		type = "csgo_mega"
-		mixgroup = "Cbbl"
+		mixgroup = "Cbble"
 		use_distance_unfiltered_stereo_mapping_curve = true
-		volume = 0.4
+		volume = 0.5
 		use_time_volume_mapping_curve = true
 		set_child_position = false
 		distance_effect_mix = 0.0
-		vsnd_files_track_01 = "sounds/ambient/common/wind/wind1.vsnd"
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/dry_air_short_tunnel.vsnd",
+		]
 		distance_unfiltered_stereo_mapping_curve = 
 		[
 			[
@@ -533,11 +394,11 @@
 				2.0, 3.0,
 			],
 			[
-				0.094286, 0.7625, 3.333333, 3.333333,
+				0.319286, 0.600338, 1.0, 1.0,
 				3.0, 1.0,
 			],
 			[
-				0.3, 1.0, 0.0, 0.0,
+				1.0, 1.0, 0.0, 0.0,
 				2.0, 3.0,
 			],
 		]
@@ -560,115 +421,29 @@
 				2.0, 3.0,
 			],
 		]
+		randomize_start_time = true
 	}
 	cbbl.Outdoors1.Birds = 
 	{
 		type = "csgo_mega"
-		mixgroup = "Cbbl"
-		volume = 1.0
-		volume_random_min = -0.95
-		volume_random_max = -0.9
-		pitch_random_min = -0.25
-		enable_retrigger = true
-		retrigger_interval_min = 6.0
-		retrigger_interval_max = 12.0
-		randomize_position_min_radius = 300.0
-		randomize_position_max_radius = 300.0
-		use_time_volume_mapping_curve = false
-		set_child_position = false
-		position_relative_to_player = true
-		distance_effect_mix = 0.0
-		vsnd_files_track_01 = 
-		[
-			"sounds/ambient/common/animal/bird1.vsnd",
-			"sounds/ambient/common/animal/bird10.vsnd",
-			"sounds/ambient/common/animal/bird11.vsnd",
-			"sounds/ambient/common/animal/bird12.vsnd",
-			"sounds/ambient/common/animal/bird13.vsnd",
-			"sounds/ambient/common/animal/bird14.vsnd",
-			"sounds/ambient/common/animal/bird15.vsnd",
-			"sounds/ambient/common/animal/bird16.vsnd",
-			"sounds/ambient/common/animal/bird17.vsnd",
-			"sounds/ambient/common/animal/bird18.vsnd",
-			"sounds/ambient/common/animal/bird19.vsnd",
-			"sounds/ambient/common/animal/bird2.vsnd",
-			"sounds/ambient/common/animal/bird20.vsnd",
-			"sounds/ambient/common/animal/bird3.vsnd",
-			"sounds/ambient/common/animal/bird4.vsnd",
-			"sounds/ambient/common/animal/bird5.vsnd",
-			"sounds/ambient/common/animal/bird6.vsnd",
-			"sounds/ambient/common/animal/bird7.vsnd",
-			"sounds/ambient/common/animal/bird8.vsnd",
-			"sounds/ambient/common/animal/bird9.vsnd",
-		]
-		distance_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		time_volume_mapping_curve = 
-		[
-			[
-				0.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.094286, 0.7625, 3.333333, 3.333333,
-				3.0, 1.0,
-			],
-			[
-				0.3, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		fadetime_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.522367, 0.626582, -0.561423, -0.561423,
-				3.0, 1.0,
-			],
-			[
-				1.375347, 0.227848, -0.349671, -0.349671,
-				1.0, 1.0,
-			],
-			[
-				2.314286, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-	}
-	cbbl.Outdoors1.Clanks = 
-	{
-		type = "csgo_mega"
-		mixgroup = "Cbbl"
-		volume = 1.0
-		volume_random_min = -0.8
-		volume_random_max = -0.7
-		pitch_random_min = -0.2
+		mixgroup = "Cbble"
+		volume = 0.3
+		volume_random_min = 0.0
+		volume_random_max = -0.3
+		pitch_random_min = 0.0
 		enable_retrigger = true
 		retrigger_interval_min = 10.0
-		retrigger_interval_max = 25.0
-		randomize_position_min_radius = 300.0
-		randomize_position_max_radius = 300.0
+		retrigger_interval_max = 30.0
+		randomize_position_min_radius = 2000.0
+		randomize_position_max_radius = 3000.0
 		use_time_volume_mapping_curve = false
 		set_child_position = false
-		position_relative_to_player = true
 		distance_effect_mix = 0.0
 		vsnd_files_track_01 = 
 		[
-			"sounds/ambient/common/materials/clank1.vsnd",
-			"sounds/ambient/common/materials/clank2.vsnd",
-			"sounds/ambient/common/materials/clank3.vsnd",
+			"sounds/ambient/cbble/bird_snowfinch_01.vsnd",
+			"sounds/ambient/cbble/bird_snowfinch_02.vsnd",
+			"sounds/ambient/cbble/bird_snowfinch_03.vsnd",
 		]
 		distance_volume_mapping_curve = 
 		[
@@ -715,163 +490,41 @@
 				2.0, 3.0,
 			],
 		]
-	}
-	cbbl.Outdoors1.Rocks = 
-	{
-		type = "csgo_mega"
-		mixgroup = "Cbbl"
-		volume = 1.0
-		volume_random_min = -0.8
-		volume_random_max = -0.7
-		pitch_random_min = -0.2
-		enable_retrigger = true
-		retrigger_interval_min = 10.0
-		retrigger_interval_max = 22.0
-		randomize_position_min_radius = 300.0
-		randomize_position_max_radius = 300.0
-		use_time_volume_mapping_curve = false
-		set_child_position = false
-		position_relative_to_player = true
-		distance_effect_mix = 0.0
-		vsnd_files_track_01 = 
-		[
-			"sounds/ambient/common/materials/rock1.vsnd",
-			"sounds/ambient/common/materials/rock2.vsnd",
-			"sounds/ambient/common/materials/rock3.vsnd",
-		]
-		distance_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		time_volume_mapping_curve = 
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		distance_unfiltered_stereo_mapping_curve = 
 		[
 			[
 				0.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
+				0.0, 0.0,
 			],
 			[
-				0.094286, 0.7625, 3.333333, 3.333333,
-				3.0, 1.0,
-			],
-			[
-				0.3, 1.0, 0.0, 0.0,
-				2.0, 3.0,
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
 			],
 		]
-		fadetime_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.522367, 0.626582, -0.561423, -0.561423,
-				3.0, 1.0,
-			],
-			[
-				1.375347, 0.227848, -0.349671, -0.349671,
-				1.0, 1.0,
-			],
-			[
-				2.314286, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
 	}
 	cbbl.Outdoors1.Crows = 
 	{
 		type = "csgo_mega"
-		mixgroup = "Cbbl"
-		volume = 1.0
-		volume_random_min = -0.96
-		volume_random_max = -0.9
-		pitch_random_min = -0.2
+		mixgroup = "Cbble"
+		volume = 0.2
 		enable_retrigger = true
-		retrigger_interval_min = 30.0
-		retrigger_interval_max = 50.0
-		randomize_position_min_radius = 300.0
-		randomize_position_max_radius = 300.0
+		retrigger_interval_min = 10.0
+		retrigger_interval_max = 20.0
+		randomize_position_min_radius = 1000.0
+		randomize_position_max_radius = 2000.0
 		use_time_volume_mapping_curve = false
-		set_child_position = false
-		position_relative_to_player = true
-		distance_effect_mix = 0.0
-		vsnd_files_track_01 = "sounds/ambient/common/animal/crow_call_02.vsnd"
-		distance_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		time_volume_mapping_curve = 
-		[
-			[
-				0.0, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.094286, 0.7625, 3.333333, 3.333333,
-				3.0, 1.0,
-			],
-			[
-				0.3, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-		fadetime_volume_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				0.522367, 0.626582, -0.561423, -0.561423,
-				3.0, 1.0,
-			],
-			[
-				1.375347, 0.227848, -0.349671, -0.349671,
-				1.0, 1.0,
-			],
-			[
-				2.314286, 0.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
-	}
-	cbbl.Outdoors1.Planes = 
-	{
-		type = "csgo_mega"
-		mixgroup = "Cbbl"
-		volume = 1.0
-		volume_random_min = -0.92
-		volume_random_max = -0.8
-		pitch_random_min = -0.4
-		enable_retrigger = true
-		retrigger_interval_min = 15.0
-		retrigger_interval_max = 35.0
-		randomize_position_min_radius = 300.0
-		randomize_position_max_radius = 300.0
-		use_time_volume_mapping_curve = false
-		use_distance_unfiltered_stereo_mapping_curve = true
-		set_child_position = false
-		position_relative_to_player = true
-		distance_effect_mix = 0.0
 		vsnd_files_track_01 = 
 		[
-			"sounds/ambient/common/vehicles/plane1.vsnd",
-			"sounds/ambient/common/vehicles/plane2.vsnd",
-			"sounds/ambient/common/vehicles/plane3.vsnd",
+			"sounds/ambient/overpass/overpass_bird_10.vsnd",
+			"sounds/ambient/overpass/overpass_bird_11.vsnd",
+			"sounds/ambient/overpass/overpass_bird_07.vsnd",
 		]
 		distance_volume_mapping_curve = 
 		[
@@ -880,8 +533,12 @@
 				2.0, 3.0,
 			],
 			[
-				300.0, 1.0, 0.0, 0.0,
+				1004.1322, 1.0, -0.000646, -0.000646,
 				2.0, 3.0,
+			],
+			[
+				2000.0, 0.672043, -0.000329, -0.000329,
+				3.0, 1.0,
 			],
 		]
 		time_volume_mapping_curve = 
@@ -918,17 +575,15 @@
 				2.0, 3.0,
 			],
 		]
-		distance_unfiltered_stereo_mapping_curve = 
-		[
-			[
-				0.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-			[
-				300.0, 1.0, 0.0, 0.0,
-				2.0, 3.0,
-			],
-		]
+		reverb_wet = 1.0
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
+		retrigger_radius = 10000.0
+		delay_random_min = 60.0
+		delay_random_max = 60.0
+		retrigger_first_uses_delay = true
+		volume_random_max = 0.0
+		volume_random_min = -0.2
 	}
 	cbbl.Outdoors2 = 
 	{
@@ -937,7 +592,6 @@
 		volume = 1.0
 		volume_random_min = 0.0
 		volume_random_max = 0.0
-		pitch_random_min = 0.0
 		enable_retrigger = false
 		retrigger_interval_min = 0.0
 		retrigger_interval_max = 0.0
@@ -1002,7 +656,15 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.CT_Truck",
+			"cbble.ABomb.Chains",
+			"cbble.ABomb.Gate",
+			"cbble.DistantTraffic",
+			"cbble.ABConnectorLight",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_22_outsideOpen"
 	}
 	cbble.CTRamp = 
 	{
@@ -1012,7 +674,12 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.CT_Truck",
+			"cbbl.CTRamp.Wind",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_21_outsideStreet"
 	}
 	cbble.ALong = 
 	{
@@ -1022,7 +689,15 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.DistantTraffic",
+			"cbble.CT_Truck",
+			"cbble.ALong.Cricket",
+			"cbble.ALong.IceDrips2",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_17_smallConcrete"
+		position = [ -2936.1023, -685.7588, 10.977295 ]
 	}
 	cbble.ALongCourtyard = 
 	{
@@ -1032,7 +707,13 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.ALong.Window.N",
+			"cbble.ALong.Window.S",
+			"cbble.ALong.IceDrips1",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_18_mediumConcrete"
 	}
 	cbble.ALongInterior = 
 	{
@@ -1043,6 +724,9 @@
 		[
 			"cbbl.Indoors",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_12_mediumBright"
 	}
 	cbble.ABombPortico = 
 	{
@@ -1052,7 +736,12 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.portico.light",
+			"cbble.CT_Truck",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
 	}
 	cbble.TRamp = 
 	{
@@ -1062,7 +751,19 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.TRamp.Window.S",
+			"cbble.TRamp.Window.N",
+			"cbbl.TRamp.WoodCreaks",
+			"cbble.TRamp.Generator",
+			"cbble.TRamp.IceDrips1",
+			"cbble.TRamp.IceDrips2",
+			"cbble.TRamp.IceDrips3",
+			"cbbl.TRamp.Tree",
+			"cbble.TRamp.IceDrips4",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_22_outsideOpen"
 	}
 	cbble.TStart = 
 	{
@@ -1072,7 +773,18 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.T_Truck",
+			"cbble.TStart.Chains",
+			"cbble.TStart.Gate",
+			"cbble.TStart.Window.E",
+			"cbble.TStart.Window.W",
+			"cbble.TStart.WindDoor",
+			"cbbl.TStart.Flags.N",
+			"cbbl.TStart.Flags.S",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_19_largeConcrete"
 	}
 	cbble.Mid = 
 	{
@@ -1081,8 +793,14 @@
 		enable_child_events = true
 		soundevent_01 = 
 		[
-			"cbbl.Indoors",
+			"cbble.mid.drain.a",
+			"cbble.mid.drain.b",
+			"cbbl.Mid.BG",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_13_largeBright"
+		volume = 1.0
 	}
 	cbble.SnakeStairs = 
 	{
@@ -1092,7 +810,14 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.mid.drain.a",
+			"cbble.mid.drain.b",
+			"cbble.Fireplace.Fire.Low",
+			"cbbl.SnakeStairs.BG",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
 	}
 	cbble.Fireplace = 
 	{
@@ -1102,7 +827,13 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.Fireplace.Fire",
+			"cbbl.Indoors.WoodCreaks",
+			"cbbl.Fireplace.BG",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_7_mediumHall"
 	}
 	cbble.FireplaceToALong = 
 	{
@@ -1112,7 +843,11 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.Fireplace.Fire",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
 	}
 	cbble.StatueHall = 
 	{
@@ -1122,7 +857,14 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbbl.Indoors.Rockfalls",
+			"cbbl.StatueHall.BG",
+			"cbble.StatueHall.Rats",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_24_largeBathroom"
+		position = [ -1468.3107, 558.15704, 64.0 ]
 	}
 	cbble.StatuesToTRamp = 
 	{
@@ -1132,7 +874,12 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbbl.StatuesToTRamp.BG",
+			"cbbl.StatuesToTRamp.Door",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_14_brightHallway"
 	}
 	cbble.BMuseum = 
 	{
@@ -1141,8 +888,16 @@
 		enable_child_events = true
 		soundevent_01 = 
 		[
-			"cbbl.Indoors",
+			"cbbl.Indoors.WoodCreaks",
+			"cbble.BMuseum.Heater",
+			"cbble.CryptUpper.Heater",
+			"cbble.Dungeon",
+			"cbble.BToMuseumHall.Heater",
+			"cbbl.BMus.BG",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_25_massiveHanger"
 	}
 	cbble.BToMuseumHall = 
 	{
@@ -1151,8 +906,13 @@
 		enable_child_events = true
 		soundevent_01 = 
 		[
-			"cbbl.Indoors",
+			"cbble.BToMuseumHall.Heater",
+			"cbbl.BToMusHall.BG",
+			"cbbl.BToMusHall.Outside",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_7_mediumHall"
 	}
 	cbble.BBomb = 
 	{
@@ -1162,17 +922,14 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbbl.BBomb.Flags.N",
+			"cbbl.BBomb.Flags.S",
+			"cbbl.BBomb.Wind",
+			"cbbl.BBomb.DistantWind",
 		]
-	}
-	cbble.BBombStairwell = 
-	{
-		type = "csgo_mega"
-		mixgroup = "Cbble"
-		enable_child_events = true
-		soundevent_01 = 
-		[
-			"cbbl.Outdoors1",
-		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_22_outsideOpen"
 	}
 	cbble.BBombAlley = 
 	{
@@ -1182,7 +939,11 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbbl.BBombAlley.Wind",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_17_smallConcrete"
 	}
 	cbble.ABConnector = 
 	{
@@ -1192,7 +953,14 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.ABConnector.Tree",
+			"cbble.ABConnector.Cricket",
+			"cbble.ABConnector.DistantWind",
+			"cbble.DropHall.Heater",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_21_outsideStreet"
 	}
 	cbble.ABConnectorStairs = 
 	{
@@ -1201,8 +969,14 @@
 		enable_child_events = true
 		soundevent_01 = 
 		[
-			"cbbl.Indoors",
+			"cbble.ABConnectorLight",
+			"cbble.ABConnector.Tree",
+			"cbbl.ABConnectorStairs.BG",
+			"cbbl.InsideAir.BG",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
 	}
 	cbble.ABConnectorBalcony = 
 	{
@@ -1211,8 +985,13 @@
 		enable_child_events = true
 		soundevent_01 = 
 		[
-			"cbbl.Indoors",
+			"cbble.ABConnectorLight",
+			"cbbl.InsideAir.BG",
+			"cbbl.InsideAir.BG",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_12_mediumBright"
 	}
 	cbble.ABConnectorDoubleDoors = 
 	{
@@ -1222,7 +1001,12 @@
 		soundevent_01 = 
 		[
 			"cbbl.Outdoors1",
+			"cbble.CT_Truck",
+			"cbble.ABConnectorDoubleDoors.WindHowl",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
 	}
 	cbble.Crypt = 
 	{
@@ -1231,8 +1015,14 @@
 		enable_child_events = true
 		soundevent_01 = 
 		[
-			"cbbl.Indoors",
+			"cbbl.Indoors.Rockfalls",
+			"cbbl.Crypt.Rumble",
+			"cbble.Crypt.Coffin",
+			"cbbl.Crypt.Entrance",
 		]
+		set_child_position = false
+		dsp_preset = "reverb_24_largeBathroom"
+		override_dsp_preset = true
 	}
 	cbble.CryptStairs = 
 	{
@@ -1242,7 +1032,14 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbbl.Indoors.Rockfalls",
+			"cbble.Crypt.Coffin",
+			"cbbl.CryptStairs.Rumble",
+			"cbble.CryptUpper.Heater",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
 	}
 	cbble.CryptUpper = 
 	{
@@ -1252,7 +1049,14 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.CryptUpper.Heater",
+			"cbbl.Indoors.Rockfalls",
+			"cbbl.CryptUpper.Rumble",
+			"cbbl.CryptUpper.Wood",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_12_mediumBright"
 	}
 	cbble.DropHall = 
 	{
@@ -1262,7 +1066,15 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.DropHall.Heater",
+			"cbbl.DropHall.BG",
+			"cbbl.Drophall.Wind.Ext2",
+			"cbbl.Drophall.Wind.Ext1",
+			"cbbl.DropHalll.Windows",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_13_largeBright"
 	}
 	cbble.DropEntryLower = 
 	{
@@ -1272,7 +1084,12 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.DropHall.Heater",
+			"cbbl.Drophall.Wind.Ext1",
 		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_3_smallTunnels"
 	}
 	cbble.DropEntryUpper = 
 	{
@@ -1282,6 +1099,5837 @@
 		soundevent_01 = 
 		[
 			"cbbl.Indoors",
+			"cbble.DropHall.Heater",
+			"cbbl.BMus.BG",
+			"cbbl.DropUpper.Wood",
+			"cbbl.BToMusHall.BG",
+		]
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_13_largeBright"
+	}
+	cbble.CT_Truck = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.4
+		distance_volume_mapping_curve = 
+		[
+			[
+				44.133076, 1.0, -0.00276, -0.00276,
+				2.0, 3.0,
+			],
+			[
+				800.86066, 0.0, -0.0002, -0.0002,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/vehicles/truck_idle_loop.vsnd",
+		]
+		position = [ -2505.4402, -954.3194, 62.77881 ]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -3.601191,
+				0.0, 0.0,
+			],
+			[
+				0.277686, 0.0, -3.601191, -3.601191,
+				0.0, 1.0,
+			],
+		]
+	}
+	cbble.T_Truck = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.5
+		distance_volume_mapping_curve = 
+		[
+			[
+				106.61157, 1.0, -0.001976, -0.001976,
+				2.0, 3.0,
+			],
+			[
+				1100.0, 0.0, -0.0002, -0.0002,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/vehicles/truck_idle_lp_01.vsnd",
+		]
+		position = [ -313.5962, 2509.8127, -75.057434 ]
+		reverb_wet = 1.0
+		pitch = 1.2
+	}
+	cbble.ALongCorner = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		enable_child_events = true
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_22_outsideOpen"
+		soundevent_01 = 
+		[
+			"cbbl.Outdoors1",
+			"cbble.ChurchBells",
+			"cbble.DistantTraffic",
+			"cbble.ALongCorner.Cricket",
+			"cbble.ALongCorner.Shrub",
+		]
+	}
+	cbble.FireplaceToStatueHall = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		enable_child_events = true
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_11_smallBright"
+		soundevent_01 = 
+		[
+			"cbbl.Indoors",
+			"cbble.Fireplace.Fire",
+			"cbbl.StatueHall.BG",
+		]
+	}
+	cbble.TTower = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		enable_child_events = true
+		set_child_position = false
+		dsp_preset = "reverb_14_brightHallway"
+		override_dsp_preset = true
+		soundevent_01 = 
+		[
+			"cbbl.Indoors",
+			"cbble.TTower.Window",
+			"cbble.TTower.Rats",
+			"cbbl.TTower.BG",
+		]
+	}
+	cbble.portico.light = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -2858.0503, -973.3878, 148.0803 ]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/energy/flour_light.vsnd",
+		]
+		distance_volume_mapping_curve = 
+		[
+			[
+				82.64462, 1.0, 0.0, -0.005307,
+				0.0, 0.0,
+			],
+			[
+				271.07437, 0.0, -0.005307, -0.005307,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		volume = 0.3
+	}
+	cbble.ChurchBells = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -3885.3704, -1009.60144, 48.293213 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				642.97516, 1.0, 0.0, -0.001068,
+				0.0, 0.0,
+			],
+			[
+				1246.7919, 0.354839, -0.001068, -0.000922,
+				0.0, 1.0,
+			],
+			[
+				1727.964, 0.0, -0.000737, -0.000737,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.033333,
+				0.0, 0.0,
+			],
+			[
+				30.0, 0.0, -0.033333, -0.033333,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/bells_distant_01.vsnd",
+		]
+		volume = 0.2
+		instance_limit = 0.0
+		delay_random_max = 5.0
+		delay_random_min = 1.0
+		block_duration = 35.0
+	}
+	cbble.DistantTraffic = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -3885.3704, -1009.60144, 48.293213 ]
+		reverb_wet = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				630.5786, 1.0, 0.0, -0.001144,
+				0.0, 0.0,
+			],
+			[
+				1500.0, 0.005376, -0.001144, -0.001144,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.333333,
+				0.0, 0.0,
+			],
+			[
+				3.0, 0.0, -0.333333, -0.333333,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/distant_town_01.vsnd",
+		]
+		randomize_start_time = true
+		use_time_volume_mapping_curve = true
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.502479, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		use_distance_unfiltered_stereo_mapping_curve = true
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.000404,
+				0.0, 1.0,
+			],
+			[
+				624.7935, 0.747312, -0.000404, -0.006495,
+				0.0, 0.0,
+			],
+			[
+				726.61163, 0.086022, -0.006495, -0.000964,
+				0.0, 1.0,
+			],
+			[
+				1400.0, 0.0, -0.000128, -0.000128,
+				1.0, 1.0,
+			],
+		]
+		volume = 0.5
+	}
+	cbble.ALongCorner.Cricket = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 1.5
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		position = [ -3139.685, -377.5736, 79.41886 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				125.45452, 0.0, 0.0, 1.008308,
+				0.0, 0.0,
+			],
+			[
+				126.44628, 1.0, 1.008308, -0.007171,
+				2.0, 2.0,
+			],
+			[
+				400.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/animal/cricket_chirp_1.vsnd",
+		]
+	}
+	cbble.ALongCorner.Shrub = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.4
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 4.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		position = [ -3139.685, -377.5736, 79.41886 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				60.330578, 1.0, 0.0, -0.006915,
+				2.0, 2.0,
+			],
+			[
+				400.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/tree_branch_01.vsnd",
+			"sounds/ambient/cbble/tree_branch_02.vsnd",
+			"sounds/ambient/cbble/tree_branch_03.vsnd",
+			"sounds/ambient/cbble/tree_branch_04.vsnd",
+			"sounds/ambient/cbble/tree_branch_05.vsnd",
+			"sounds/ambient/cbble/tree_branch_06.vsnd",
+			"sounds/ambient/cbble/tree_branch_07.vsnd",
+			"sounds/ambient/cbble/tree_branch_08.vsnd",
+		]
+		volume_random_min = -0.4
+	}
+	cbbl.Outdoors1.Snowfall = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.07
+		volume_random_min = -0.05
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 20.0
+		randomize_position_min_radius = 4000.0
+		randomize_position_max_radius = 5000.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.672043, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.494624, 0.0, 0.037634,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.532258, 0.037634, 0.037634,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/snowfalls_01.vsnd",
+			"sounds/ambient/cbble/snowfalls_05.vsnd",
+			"sounds/ambient/cbble/snowfalls_06.vsnd",
+			"sounds/ambient/cbble/snowfalls_07.vsnd",
+			"sounds/ambient/cbble/snowfalls_08.vsnd",
+			"sounds/ambient/cbble/snowfalls_09.vsnd",
+			"sounds/ambient/cbble/snowfalls_10.vsnd",
+			"sounds/ambient/cbble/snowfalls_18.vsnd",
+		]
+	}
+	cbble.ABomb.Chains = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.1
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 7.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		position = [ -2384.8616, -2076.9219, 173.48541 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				5.0, 5.0,
+			],
+			[
+				108.26446, 1.0, 0.0, -0.004772,
+				2.0, 2.0,
+			],
+			[
+				999.99994, 0.0, -0.001121, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/chain_gate_b_01.vsnd",
+			"sounds/ambient/cbble/chain_gate_b_02.vsnd",
+			"sounds/ambient/cbble/chain_gate_b_03.vsnd",
+			"sounds/ambient/cbble/chain_gate_b_04.vsnd",
+			"sounds/ambient/cbble/chain_gate_b_05.vsnd",
+			"sounds/ambient/cbble/chain_gate_b_06.vsnd",
+			"sounds/ambient/cbble/chain_gate_b_07.vsnd",
+		]
+		pitch = 0.8
+		retrigger_first_uses_delay = true
+		volume_random_min = -0.1
+	}
+	cbble.ABomb.Gate = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.44
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 7.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		position = [ -2384.8616, -2076.9219, 173.48541 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				5.0, 5.0,
+			],
+			[
+				186.9646, 1.0, 0.0, -0.002382,
+				2.0, 2.0,
+			],
+			[
+				1166.9535, 0.0, -0.00102, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/metal_creak_heavy_01.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_02.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_03.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_04.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_05.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_06.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_07.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_08.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_09.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_10.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_11.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_12.vsnd",
+		]
+		retrigger_first_uses_delay = true
+	}
+	cbbl.Outdoors1.Rockfalls = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.1
+		volume_random_min = -0.1
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 8.0
+		retrigger_interval_max = 20.0
+		randomize_position_min_radius = 3000.0
+		randomize_position_max_radius = 5000.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/rockfalls_outdoors_01.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_02.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_03.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_04.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_05.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_06.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_07.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_08.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_09.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_10.vsnd",
+			"sounds/ambient/cbble/rockfalls_outdoors_11.vsnd",
+		]
+	}
+	cbble.mid.drain.a = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.7
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.002752,
+				2.0, 2.0,
+			],
+			[
+				502.4793, 0.0, -0.00199, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.21804, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/water_sewer_flow_01.vsnd",
+		]
+		reverb_wet = 1.0
+		position = [ -2146.897, 199.30128, -254.30609 ]
+		instance_limit = 1.0
+	}
+	cbble.mid.drain.b = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.4
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.002752,
+				2.0, 2.0,
+			],
+			[
+				600.0, 0.0, -0.001667, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.294545, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/water_sewer_laps_01.vsnd",
+		]
+		reverb_wet = 1.0
+		position = [ -2311.5098, 195.48824, -253.71655 ]
+		instance_limit = 1.0
+		pitch = 0.8
+	}
+	cbble.Fireplace.Fire = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		position = [ -2238.8865, 363.89343, 24.256104 ]
+		instance_limit = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.000347,
+				2.0, 2.0,
+			],
+			[
+				156.14233, 0.946237, 0.0, -0.000756,
+				2.0, 1.0,
+			],
+			[
+				369.59222, 0.72043, -0.001794, -0.001794,
+				1.0, 1.0,
+			],
+			[
+				500.82645, 0.327957, -0.003127, -0.003127,
+				1.0, 1.0,
+			],
+			[
+				600.0, 0.0, -0.003307, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 2.818996, 2.818996,
+				2.0, 3.0,
+			],
+			[
+				0.272798, 0.730242, 1.101001, 1.101001,
+				3.0, 1.0,
+			],
+			[
+				0.908264, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -1.433981, -1.433981,
+				2.0, 3.0,
+			],
+			[
+				2.601653, 0.0, -0.282842, -0.282842,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/safehouse/fireplace_lp.vsnd",
+		]
+		occlusion_intensity = 1.0
+	}
+	cbble.SnakeStairs.Upper = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		enable_child_events = true
+		set_child_position = false
+		override_dsp_preset = true
+		dsp_preset = "reverb_12_mediumBright"
+		soundevent_01 = 
+		[
+			"cbbl.Indoors",
+			"cbble.mid.drain.a",
+			"cbble.mid.drain.b",
+			"cbble.Fireplace.Fire.Low",
+			"cbbl.SnakeStairs.BG",
+		]
+	}
+	cbbl.Indoors.Rockfalls = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		volume_random_min = -0.05
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 20.0
+		randomize_position_min_radius = 2000.0
+		randomize_position_max_radius = 3000.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/rockfalls_indoors_01.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_02.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_03.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_04.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_05.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_06.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_07.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_08.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_09.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_10.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_11.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_12.vsnd",
+			"sounds/ambient/cbble/rockfalls_indoors_13.vsnd",
+		]
+		retrigger_first_uses_delay = true
+	}
+	cbbl.Indoors.WoodCreaks = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 8.0
+		randomize_position_min_radius = 2000.0
+		randomize_position_max_radius = 3000.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/wood_creak_hall_01.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_02.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_03.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_04.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_05.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_06.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_07.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_08.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_09.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_10.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_11.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_12.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_13.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_14.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_15.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_16.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_17.vsnd",
+		]
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.0
+		volume_random_min = -0.3
+	}
+	cbble.BMuseum.Heater = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -499.48987, 438.346, 16.952026 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				33.35837, 1.0, 0.0, -0.004717,
+				0.0, 0.0,
+			],
+			[
+				164.0203, 0.383609, -0.004717, -0.0015,
+				0.0, 1.0,
+			],
+			[
+				700.0, 0.0, -0.000716, -0.000716,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/fan_spaceheater_01.vsnd",
+		]
+		pitch = 0.6
+		volume = 0.2
+	}
+	cbble.CryptUpper.Heater = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -474.58337, 1070.7811, 32.544067 ]
+		pitch = 0.6
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				33.35837, 1.0, 0.0, -0.007901,
+				0.0, 0.0,
+			],
+			[
+				92.56198, 0.532258, -0.007901, -0.002143,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.001306, -0.001306,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/fan_spaceheater_01.vsnd",
+		]
+	}
+	cbble.BToMuseumHall.Heater = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -671.97546, -324.94348, 18.956116 ]
+		pitch = 0.6
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				33.35837, 1.0, -0.007513, -0.007513,
+				2.0, 3.0,
+			],
+			[
+				500.0, 0.0, -0.001059, -0.002143,
+				2.0, 2.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/fan_spaceheater_01.vsnd",
+		]
+	}
+	cbble.Dungeon = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.4
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 10.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 0.5
+		volume_random_min = -0.3
+		position = [ -331.64795, 43.88514, -56.568726 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				228.76033, 1.0, -0.007208, -0.007208,
+				2.0, 3.0,
+			],
+			[
+				495.86777, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/dungeon_01.vsnd",
+			"sounds/ambient/cbble/dungeon_02.vsnd",
+			"sounds/ambient/cbble/dungeon_03.vsnd",
+			"sounds/ambient/cbble/dungeon_04.vsnd",
+			"sounds/ambient/cbble/dungeon_05.vsnd",
+		]
+	}
+	cbbl.Indoors.WindHowl = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.2
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.575269, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.591398, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/mountain_wind_lp_01.vsnd",
+		]
+		randomize_start_time = true
+	}
+	cbble.DropHall.Heater = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -1026.731, -430.0, -15.27887 ]
+		pitch = 0.6
+		volume = 0.5
+		distance_volume_mapping_curve = 
+		[
+			[
+				33.35837, 1.0, 0.0, -0.009326,
+				0.0, 0.0,
+			],
+			[
+				106.70042, 0.316042, -0.009326, -0.001765,
+				0.0, 1.0,
+			],
+			[
+				600.0, 0.0, -0.000641, -0.000641,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/fan_spaceheater_01.vsnd",
+		]
+	}
+	cbbl.Outdoors1.Biplane = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		volume_random_min = 0.0
+		volume_random_max = -0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 45.0
+		retrigger_interval_max = 60.0
+		randomize_position_min_radius = 2000.0
+		randomize_position_max_radius = 3000.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		randomize_position_hemisphere = true
+		position_relative_to_player = true
+		retrigger_first_uses_delay = true
+		delay_random_min = 10.0
+		delay_random_max = 20.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.537634, 0.0, 0.005376,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.543011, 0.005376, 0.005376,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/biplane_01.vsnd",
+			"sounds/ambient/cbble/biplane_02.vsnd",
+			"sounds/ambient/cbble/biplane_03.vsnd",
+		]
+	}
+	cbbl.Outdoors1.Wind.Air = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.292203, 0.559797, 1.0, 1.0,
+				3.0, 1.0,
+			],
+			[
+				1.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/csgo_dust_wind_lp_01.vsnd",
+		]
+	}
+	cbble.TStart.Gate = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.7
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 15.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		position = [ -404.35144, 2430.7559, 69.19716 ]
+		retrigger_first_uses_delay = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				5.0, 5.0,
+			],
+			[
+				169.42148, 1.0, 0.0, -0.002074,
+				2.0, 2.0,
+			],
+			[
+				1500.0, 0.0, -0.000752, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/metal_creak_heavy_01.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_02.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_03.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_04.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_05.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_06.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_07.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_08.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_09.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_10.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_11.vsnd",
+			"sounds/ambient/cbble/metal_creak_heavy_12.vsnd",
+		]
+	}
+	cbble.TStart.Chains = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 7.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		position = [ -380.91498, 2532.35, -47.653564 ]
+		pitch = 0.8
+		retrigger_first_uses_delay = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				5.0, 5.0,
+			],
+			[
+				108.26446, 1.0, 0.0, -0.002074,
+				2.0, 2.0,
+			],
+			[
+				999.99994, 0.0, -0.001121, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/chain_gate_a_01.vsnd",
+			"sounds/ambient/cbble/chain_gate_a_02.vsnd",
+			"sounds/ambient/cbble/chain_gate_a_03.vsnd",
+			"sounds/ambient/cbble/chain_gate_a_04.vsnd",
+			"sounds/ambient/cbble/chain_gate_a_05.vsnd",
+		]
+	}
+	cbble.TStart.Window.W = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -1124.2439, 2663.1448, 68.766716 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002232,
+				0.0, 0.0,
+			],
+			[
+				379.49863, 0.26344, -0.002232, -0.002186,
+				0.0, 1.0,
+			],
+			[
+				438.0165, 0.150538, -0.001929, -0.002186,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.002429, -0.002429,
+				1.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+		volume = 0.2
+	}
+	cbble.TStart.Window.E = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -937.17584, 2720.966, 72.12309 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+		volume = 0.2
+	}
+	cbble.TStart.WindDoor = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -579.7095, 2604.3022, -37.108887 ]
+		volume = 0.5
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.003885,
+				0.0, 0.0,
+			],
+			[
+				142.55304, 0.446236, -0.003885, -0.003878,
+				0.0, 1.0,
+			],
+			[
+				257.85123, 0.0, -0.00387, -0.00387,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/amb_wind_01.vsnd",
+		]
+	}
+	cbbl.TStart.Flags.N = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		volume_random_min = -0.2
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 2.0
+		retrigger_interval_max = 5.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.04
+		retrigger_first_uses_delay = true
+		position = [ -551.1782, 2311.3442, 186.20006 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.483871, 0.0, -0.000806,
+				0.0, 0.0,
+			],
+			[
+				600.0, 0.0, -0.000806, -0.000806,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/banner_flap_01.vsnd",
+			"sounds/ambient/cbble/banner_flap_02.vsnd",
+			"sounds/ambient/cbble/banner_flap_03.vsnd",
+			"sounds/ambient/cbble/banner_flap_04.vsnd",
+			"sounds/ambient/cbble/banner_flap_05.vsnd",
+			"sounds/ambient/cbble/banner_flap_06.vsnd",
+			"sounds/ambient/cbble/banner_flap_07.vsnd",
+			"sounds/ambient/cbble/banner_flap_08.vsnd",
+			"sounds/ambient/cbble/banner_flap_09.vsnd",
+			"sounds/ambient/cbble/banner_flap_10.vsnd",
+			"sounds/ambient/cbble/banner_flap_11.vsnd",
+			"sounds/ambient/cbble/banner_flap_12.vsnd",
+			"sounds/ambient/cbble/banner_flap_13.vsnd",
+			"sounds/ambient/cbble/banner_flap_14.vsnd",
+		]
+	}
+	cbbl.TStart.Flags.S = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		volume_random_min = -0.2
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 4.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		position = [ -593.37195, 2472.6746, 179.59001 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.483871, 0.0, -0.000806,
+				0.0, 0.0,
+			],
+			[
+				600.0, 0.0, -0.000806, -0.000806,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/banner_flap_01.vsnd",
+			"sounds/ambient/cbble/banner_flap_02.vsnd",
+			"sounds/ambient/cbble/banner_flap_03.vsnd",
+			"sounds/ambient/cbble/banner_flap_04.vsnd",
+			"sounds/ambient/cbble/banner_flap_05.vsnd",
+			"sounds/ambient/cbble/banner_flap_06.vsnd",
+			"sounds/ambient/cbble/banner_flap_07.vsnd",
+			"sounds/ambient/cbble/banner_flap_08.vsnd",
+			"sounds/ambient/cbble/banner_flap_09.vsnd",
+			"sounds/ambient/cbble/banner_flap_10.vsnd",
+			"sounds/ambient/cbble/banner_flap_11.vsnd",
+			"sounds/ambient/cbble/banner_flap_12.vsnd",
+			"sounds/ambient/cbble/banner_flap_13.vsnd",
+			"sounds/ambient/cbble/banner_flap_14.vsnd",
+		]
+		delay_random_min = 1.0
+		delay_random_max = 2.0
+	}
+	cbble.TTower.Window = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -1522.1761, 2291.237, 325.97086 ]
+		volume = 0.3
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbble.TTower.Rats = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		enable_retrigger = true
+		retrigger_interval_min = 10.0
+		retrigger_interval_max = 20.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.3
+		block_duration = 1.0
+		position = [ -1328.058, 2354.7146, 53.688477 ]
+		pitch = 0.8
+		retrigger_first_uses_delay = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				5.0, 5.0,
+			],
+			[
+				108.26446, 1.0, 0.0, -0.002074,
+				2.0, 2.0,
+			],
+			[
+				512.5, 0.0, -0.002474, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/animal/rats1.vsnd",
+			"sounds/ambient/common/animal/rats2.vsnd",
+			"sounds/ambient/common/animal/rats3.vsnd",
+			"sounds/ambient/common/animal/rats4.vsnd",
+			"sounds/ambient/common/animal/rats5.vsnd",
+		]
+		delay_random_min = 10.0
+		delay_random_max = 15.0
+	}
+	cbble.TRamp.Window.N = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -2776.8823, 1197.7511, 61.48401 ]
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbble.TRamp.Window.S = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -2790.4807, 1074.0116, 57.203003 ]
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbbl.TRamp.WoodCreaks = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 8.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.5
+		volume_random_min = -0.2
+		position = [ -1784.5635, 2256.9673, 141.55542 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002355, -0.002355,
+				2.0, 3.0,
+			],
+			[
+				664.8881, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/inferno/window_01.vsnd",
+			"sounds/ambient/inferno/window_02.vsnd",
+			"sounds/ambient/inferno/window_03.vsnd",
+			"sounds/ambient/inferno/window_04.vsnd",
+			"sounds/ambient/inferno/window_05.vsnd",
+			"sounds/ambient/inferno/window_06.vsnd",
+			"sounds/ambient/inferno/window_07.vsnd",
+			"sounds/ambient/inferno/window_09.vsnd",
+		]
+	}
+	cbble.TRamp.Generator = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -2528.1414, 1349.0211, 46.252686 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				34.702545, 1.0, 0.0, -0.005363,
+				0.0, 0.0,
+			],
+			[
+				127.93387, 0.5, -0.005363, -0.002264,
+				0.0, 1.0,
+			],
+			[
+				476.3636, 0.0, -0.001435, -0.001435,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/machines/office_garage_vent_01.vsnd",
+		]
+		volume = 0.2
+	}
+	cbble.TRamp.IceDrips1 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 1.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 3.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 0.0
+		volume_random_min = -0.3
+		position = [ -1892.7313, 2214.4326, -82.44153 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002628, -0.002628,
+				2.0, 3.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/overpass/waterdrip_01.vsnd",
+			"sounds/ambient/overpass/waterdrip_02.vsnd",
+			"sounds/ambient/overpass/waterdrip_05.vsnd",
+			"sounds/ambient/overpass/waterdrip_06.vsnd",
+		]
+	}
+	cbble.TRamp.IceDrips2 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 3.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 0.0
+		volume_random_min = -0.3
+		position = [ -1803.83, 2209.6665, -91.17963 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002628, -0.002628,
+				2.0, 3.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/overpass/waterdrip_01.vsnd",
+			"sounds/ambient/overpass/waterdrip_02.vsnd",
+			"sounds/ambient/overpass/waterdrip_05.vsnd",
+			"sounds/ambient/overpass/waterdrip_06.vsnd",
+		]
+	}
+	cbble.TRamp.IceDrips3 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 3.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 0.0
+		volume_random_min = -0.3
+		position = [ -1739.8491, 2231.283, -103.30963 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002628, -0.002628,
+				2.0, 3.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/overpass/waterdrip_01.vsnd",
+			"sounds/ambient/overpass/waterdrip_02.vsnd",
+			"sounds/ambient/overpass/waterdrip_05.vsnd",
+			"sounds/ambient/overpass/waterdrip_06.vsnd",
+		]
+	}
+	cbbl.TRamp.Tree = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 1.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		position = [ -2615.3313, 2046.6171, 169.09326 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				317.35535, 1.0, -0.001205, -0.001205,
+				2.0, 3.0,
+			],
+			[
+				1200.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cache/treeroom_tree_01.vsnd",
+		]
+		randomize_start_time = true
+	}
+	cbble.ABConnector.Tree = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -1399.5615, -960.8041, 249.34448 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				204.29744, 1.0, 0.0, -0.004532,
+				2.0, 2.0,
+			],
+			[
+				760.33057, 0.0, -0.001798, -0.001798,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/tree_branch_01.vsnd",
+			"sounds/ambient/cbble/tree_branch_02.vsnd",
+			"sounds/ambient/cbble/tree_branch_03.vsnd",
+			"sounds/ambient/cbble/tree_branch_04.vsnd",
+			"sounds/ambient/cbble/tree_branch_05.vsnd",
+			"sounds/ambient/cbble/tree_branch_06.vsnd",
+			"sounds/ambient/cbble/tree_branch_07.vsnd",
+			"sounds/ambient/cbble/tree_branch_08.vsnd",
+		]
+		volume = 0.05
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 1.0
+		retrigger_first_uses_delay = true
+		instance_limit = 1.0
+		randomize_start_time = true
+	}
+	cbble.ABConnectorLight = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -1763.8646, -1594.6769, 230.7157 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				82.64462, 1.0, 0.0, -0.01613,
+				2.0, 2.0,
+			],
+			[
+				271.07437, 0.0, -0.005307, -0.005307,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/dust2/light_01.vsnd",
+		]
+		pitch = 1.0
+		volume = 0.5
+		randomize_start_time = true
+	}
+	cbble.ALong.Window.N = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -3377.9417, 525.11206, 52.275146 ]
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbble.ALong.Window.S = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -3362.634, 261.24872, 60.588806 ]
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbbl.BBomb.Flags.N = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.1
+		volume_random_min = -0.05
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 2.0
+		retrigger_interval_max = 5.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.04
+		retrigger_first_uses_delay = true
+		position = [ 754.4523, -936.18427, 268.5454 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				232.72726, 1.0, -0.002754, -0.002754,
+				2.0, 3.0,
+			],
+			[
+				1300.0, 0.0, -0.000783, -0.000783,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/banner_flap_01.vsnd",
+			"sounds/ambient/cbble/banner_flap_02.vsnd",
+			"sounds/ambient/cbble/banner_flap_03.vsnd",
+			"sounds/ambient/cbble/banner_flap_04.vsnd",
+			"sounds/ambient/cbble/banner_flap_05.vsnd",
+			"sounds/ambient/cbble/banner_flap_06.vsnd",
+			"sounds/ambient/cbble/banner_flap_07.vsnd",
+			"sounds/ambient/cbble/banner_flap_08.vsnd",
+			"sounds/ambient/cbble/banner_flap_09.vsnd",
+			"sounds/ambient/cbble/banner_flap_10.vsnd",
+			"sounds/ambient/cbble/banner_flap_11.vsnd",
+			"sounds/ambient/cbble/banner_flap_12.vsnd",
+			"sounds/ambient/cbble/banner_flap_13.vsnd",
+			"sounds/ambient/cbble/banner_flap_14.vsnd",
+		]
+	}
+	cbbl.BBomb.Flags.S = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.1
+		volume_random_min = -0.1
+		volume_random_max = 0.0
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 3.0
+		retrigger_interval_max = 5.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.04
+		retrigger_first_uses_delay = true
+		position = [ 731.16864, -1109.96, 267.02435 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				232.72726, 1.0, -0.002754, -0.002754,
+				2.0, 3.0,
+			],
+			[
+				1300.0, 0.0, -0.000783, -0.000783,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				285.95035, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1000.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/banner_flap_01.vsnd",
+			"sounds/ambient/cbble/banner_flap_02.vsnd",
+			"sounds/ambient/cbble/banner_flap_03.vsnd",
+			"sounds/ambient/cbble/banner_flap_04.vsnd",
+			"sounds/ambient/cbble/banner_flap_05.vsnd",
+			"sounds/ambient/cbble/banner_flap_06.vsnd",
+			"sounds/ambient/cbble/banner_flap_07.vsnd",
+			"sounds/ambient/cbble/banner_flap_08.vsnd",
+			"sounds/ambient/cbble/banner_flap_09.vsnd",
+			"sounds/ambient/cbble/banner_flap_10.vsnd",
+			"sounds/ambient/cbble/banner_flap_11.vsnd",
+			"sounds/ambient/cbble/banner_flap_12.vsnd",
+			"sounds/ambient/cbble/banner_flap_13.vsnd",
+			"sounds/ambient/cbble/banner_flap_14.vsnd",
+		]
+		pitch = 0.9
+	}
+	cbble.TRamp.IceDrips4 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 3.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.0
+		volume_random_min = -0.3
+		position = [ -2826.945, 828.65967, 20.585205 ]
+		delay_random_min = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002628, -0.002628,
+				2.0, 3.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/overpass/waterdrip_01.vsnd",
+			"sounds/ambient/overpass/waterdrip_02.vsnd",
+			"sounds/ambient/overpass/waterdrip_05.vsnd",
+			"sounds/ambient/overpass/waterdrip_06.vsnd",
+		]
+	}
+	cbble.ALong.IceDrips1 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 3.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.0
+		volume_random_min = -0.3
+		position = [ -3315.2542, 491.08517, 7.543335 ]
+		delay_random_min = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002628, -0.002628,
+				2.0, 3.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/overpass/waterdrip_01.vsnd",
+			"sounds/ambient/overpass/waterdrip_02.vsnd",
+			"sounds/ambient/overpass/waterdrip_05.vsnd",
+			"sounds/ambient/overpass/waterdrip_06.vsnd",
+		]
+	}
+	cbble.ALong.Cricket = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 1.5
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		position = [ -3088.2854, 16.655203, 75.36094 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				125.45452, 0.0, 0.0, 1.008308,
+				0.0, 0.0,
+			],
+			[
+				126.44628, 1.0, 1.008308, -0.007171,
+				2.0, 2.0,
+			],
+			[
+				400.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/animal/cricket_chirp_1.vsnd",
+		]
+	}
+	cbble.ALong.IceDrips2 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.3
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 0.5
+		retrigger_interval_max = 3.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.0
+		volume_random_min = -0.3
+		position = [ -3315.2542, 491.08517, 7.543335 ]
+		delay_random_min = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002628, -0.002628,
+				2.0, 3.0,
+			],
+			[
+				600.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/overpass/waterdrip_01.vsnd",
+			"sounds/ambient/overpass/waterdrip_02.vsnd",
+			"sounds/ambient/overpass/waterdrip_05.vsnd",
+			"sounds/ambient/overpass/waterdrip_06.vsnd",
+		]
+	}
+	cbbl.Crypt.Rumble = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 2.492869, 2.492869,
+				2.0, 3.0,
+			],
+			[
+				0.177, 0.314984, 1.076347, 1.076347,
+				3.0, 1.0,
+			],
+			[
+				0.68519, 0.737502, 0.471044, 0.471044,
+				1.0, 1.0,
+			],
+			[
+				1.63125, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -1.621621, -1.621621,
+				2.0, 3.0,
+			],
+			[
+				0.398214, 0.488296, -0.718161, -0.718161,
+				3.0, 1.0,
+			],
+			[
+				1.300714, 0.065878, -0.304845, -0.304845,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_crypt_bg_01.vsnd",
+		]
+	}
+	cbble.Crypt.Coffin = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.5
+		enable_retrigger = true
+		retrigger_interval_min = 20.0
+		retrigger_interval_max = 45.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		position = [ -813.04346, 1572.2466, -66.95026 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				126.44628, 1.0, 0.0, -0.001485,
+				0.0, 0.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/coffin_slide_01.vsnd",
+			"sounds/ambient/cbble/coffin_slide_02.vsnd",
+			"sounds/ambient/cbble/coffin_slide_03.vsnd",
+		]
+		retrigger_first_uses_delay = true
+		delay_random_min = 5.0
+		delay_random_max = 7.0
+	}
+	cbble.ABConnector.Cricket = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 1.5
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		position = [ -1406.0615, -972.2661, -1.417603 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				125.45452, 0.0, 0.0, 1.008308,
+				0.0, 0.0,
+			],
+			[
+				126.44628, 1.0, 1.008308, -0.005493,
+				2.0, 2.0,
+			],
+			[
+				600.0, 0.0, -0.001534, -0.001534,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/animal/cricket_chirp_1.vsnd",
+		]
+	}
+	cbble.ABConnectorDoubleDoors.WindHowl = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ 0.0, 0.0, 0.0 ]
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbble.ABConnector.DistantWind = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		position = [ -1450.8701, -1638.6448, 88.88903 ]
+		volume = 0.2
+		distance_volume_mapping_curve = 
+		[
+			[
+				49.48842, 1.0, 0.0, -0.002539,
+				0.0, 0.0,
+			],
+			[
+				355.86227, 0.22198, -0.002539, -0.00222,
+				0.0, 1.0,
+			],
+			[
+				500.0, 0.0, -0.00154, -0.00154,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -7.378043,
+				0.0, 0.0,
+			],
+			[
+				0.135537, 0.0, -7.378043, -7.378043,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/vertigo/vertigo_wind_01.vsnd",
+		]
+	}
+	cbbl.BBomb.Wind = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.271369, 0.397635, 1.825095, 1.825095,
+				3.0, 1.0,
+			],
+			[
+				0.547917, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.310811, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.27027, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_ext_wind_dist_01.vsnd",
+		]
+	}
+	cbbl.BBomb.DistantWind = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		position = [ 912.8036, 127.50605, 36.64862 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				266.6667, 0.594595, -0.003073, -0.003073,
+				2.0, 3.0,
+			],
+			[
+				662.5001, 0.0, -0.001502, -0.001502,
+				3.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_bbomb_gate_bg_01.vsnd",
+		]
+	}
+	cbbl.BBombAlley.Wind = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.7
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_ext_wind_dist_02.vsnd",
+		]
+	}
+	cbbl.CTRamp.Wind = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.7
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/dry_air_short_tunnel.vsnd",
+		]
+	}
+	cbble.BBombStairwell.Howl = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.7
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_cryptupper_doors.vsnd",
+		]
+	}
+	cbble.BBombStairwell = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.7
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		enable_child_events = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"cbble.BBombStairwell.Howl",
+			"cbbl.Outdoors1.Wind",
+			"cbbl.Outdoors1.Birds",
+			"cbbl.Indoors.Rockfalls",
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/common/null.vsnd",
+		]
+	}
+	cbbl.BToMusHall.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.5, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.5, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				636.22974, 0.148649, -0.001045, -0.001045,
+				3.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_btomuseumhall_bg_01.vsnd",
+		]
+		position = [ -126.55768, -288.67334, 241.31816 ]
+	}
+	cbbl.BToMusHall.Outside = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		position = [ 340.42252, -151.69714, 56.07611 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				2000.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.472973, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/dry_air_short_tunnel.vsnd",
+		]
+	}
+	cbbl.BMus.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		pitch = 0.8
+		reverb_wet = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.14, 0.129464, 1.875, 1.875,
+				3.0, 1.0,
+			],
+			[
+				0.357143, 0.669643, 1.40409, 1.40409,
+				1.0, 1.0,
+			],
+			[
+				0.76, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_bmus_bg_01.vsnd",
+		]
+		randomize_start_time = true
+	}
+	cbbl.StatueHall.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.11
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		pitch = 0.8
+		reverb_wet = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				1887.5002, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				1954.1675, 0.770271, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.14, 0.129464, 1.875, 1.875,
+				3.0, 1.0,
+			],
+			[
+				0.357143, 0.669643, 1.40409, 1.40409,
+				1.0, 1.0,
+			],
+			[
+				0.76, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -1.194879, -1.194879,
+				2.0, 3.0,
+			],
+			[
+				0.469047, 0.623431, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.407218, -0.407218,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				1695.8335, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				1829.1667, 0.337838, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_statuehall_bg_01.vsnd",
+		]
+	}
+	cbbl.Fireplace.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		pitch = 0.8
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.14, 0.129464, 1.875, 1.875,
+				3.0, 1.0,
+			],
+			[
+				0.357143, 0.669643, 1.40409, 1.40409,
+				1.0, 1.0,
+			],
+			[
+				0.76, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_bmus_bg_01.vsnd",
+		]
+		position = [ 0.0, 0.0, 0.0 ]
+	}
+	cbble.StatueHall.Rats = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.2
+		enable_retrigger = true
+		retrigger_interval_min = 1.0
+		retrigger_interval_max = 7.0
+		use_time_volume_mapping_curve = false
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.2
+		block_duration = 1.0
+		position = [ -1671.0052, 1003.1037, 56.0 ]
+		pitch = 0.8
+		retrigger_first_uses_delay = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				5.0, 5.0,
+			],
+			[
+				108.26446, 1.0, 0.0, -0.002074,
+				2.0, 2.0,
+			],
+			[
+				999.99994, 0.0, -0.001121, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/animal/rats1.vsnd",
+			"sounds/ambient/common/animal/rats2.vsnd",
+			"sounds/ambient/common/animal/rats3.vsnd",
+			"sounds/ambient/common/animal/rats4.vsnd",
+			"sounds/ambient/common/animal/rats5.vsnd",
+		]
+		delay_random_min = 5.0
+		delay_random_max = 15.0
+	}
+	cbbl.StatuesToTRamp.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.8
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.575269, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.591398, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_tower_bg_02.vsnd",
+		]
+	}
+	cbbl.StatuesToTRamp.Door = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		position = [ -1730.3837, 1361.9426, 63.99254 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				133.33333, 1.0, -0.001802, -0.001802,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				146.66666, 0.324324, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, -0.002027, -0.002027,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/csgo_dust_wind_lp_01.vsnd",
+		]
+	}
+	cbbl.TTower.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.77027, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.797297, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_tower_bg_02.vsnd",
+		]
+		position = [ -1434.2761, 2535.6423, 337.1788 ]
+	}
+	cbbl.Crypt.Entrance = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.5
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		position = [ -1080.2346, 2191.852, -68.0 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				370.0, 1.0, -0.001802, -0.001802,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				146.66666, 0.324324, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, -0.002027, -0.002027,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/csgo_dust_wind_lp_01.vsnd",
+		]
+	}
+	cbbl.CryptStairs.Rumble = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 2.492869, 2.492869,
+				2.0, 3.0,
+			],
+			[
+				0.177, 0.314984, 1.076347, 1.076347,
+				3.0, 1.0,
+			],
+			[
+				0.68519, 0.737502, 0.471044, 0.471044,
+				1.0, 1.0,
+			],
+			[
+				1.63125, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.685811, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.662163, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -1.621621, -1.621621,
+				2.0, 3.0,
+			],
+			[
+				0.398214, 0.488296, -0.718161, -0.718161,
+				3.0, 1.0,
+			],
+			[
+				1.300714, 0.065878, -0.304845, -0.304845,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_crypt_bg_01.vsnd",
+		]
+		position = [ -1124.2937, 1206.5714, 45.214417 ]
+	}
+	cbbl.CryptUpper.Rumble = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 2.492869, 2.492869,
+				2.0, 3.0,
+			],
+			[
+				0.177, 0.314984, 1.076347, 1.076347,
+				3.0, 1.0,
+			],
+			[
+				0.68519, 0.737502, 0.471044, 0.471044,
+				1.0, 1.0,
+			],
+			[
+				1.63125, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.118244, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.121622, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -1.621621, -1.621621,
+				2.0, 3.0,
+			],
+			[
+				0.398214, 0.488296, -0.718161, -0.718161,
+				3.0, 1.0,
+			],
+			[
+				1.300714, 0.065878, -0.304845, -0.304845,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_crypt_bg_01.vsnd",
+		]
+		position = [ -1124.2937, 1206.5714, 45.214417 ]
+	}
+	cbble.Fireplace.Fire.Low = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.4
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		position = [ -2238.8865, 363.89343, 24.256104 ]
+		instance_limit = 1.0
+		occlusion_intensity = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, -0.000347,
+				2.0, 2.0,
+			],
+			[
+				156.14233, 0.946237, 0.0, -0.000756,
+				2.0, 1.0,
+			],
+			[
+				369.59222, 0.72043, -0.001794, -0.001794,
+				1.0, 1.0,
+			],
+			[
+				500.82645, 0.327957, -0.003127, -0.003127,
+				1.0, 1.0,
+			],
+			[
+				600.0, 0.0, -0.003307, 0.0,
+				0.0, 0.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 2.818996, 2.818996,
+				2.0, 3.0,
+			],
+			[
+				0.272798, 0.730242, 1.101001, 1.101001,
+				3.0, 1.0,
+			],
+			[
+				0.908264, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -1.433981, -1.433981,
+				2.0, 3.0,
+			],
+			[
+				2.601653, 0.0, -0.282842, -0.282842,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/safehouse/fireplace_lp.vsnd",
+		]
+	}
+	cbbl.Mid.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.5
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_mid_bg_01.vsnd",
+		]
+	}
+	cbbl.ABConnectorStairs.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.5
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_tower_bg_02.vsnd",
+		]
+		pitch = 1.5
+	}
+	cbbl.InsideAir.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.4
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.292203, 0.559797, 1.0, 1.0,
+				3.0, 1.0,
+			],
+			[
+				1.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/csgo_dust_wind_lp_01.vsnd",
+		]
+		pitch = 0.9
+		reverb_wet = 1.0
+	}
+	cbbl.DropHall.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.3
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		pitch = 1.0
+		reverb_wet = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.292203, 0.559797, 1.0, 1.0,
+				3.0, 1.0,
+			],
+			[
+				1.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/dust2/interior_02.vsnd",
+		]
+	}
+	cbbl.Drophall.Wind.Ext2 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		position = [ -341.05566, -553.4792, 6.750305 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002266, -0.002266,
+				2.0, 3.0,
+			],
+			[
+				700.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.319286, 0.600338, 1.0, 1.0,
+				3.0, 1.0,
+			],
+			[
+				1.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.001476, -0.001476,
+				2.0, 3.0,
+			],
+			[
+				700.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/dry_air_short_tunnel.vsnd",
+		]
+	}
+	cbbl.Drophall.Wind.Ext1 = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		randomize_start_time = true
+		position = [ -1103.5413, -744.6121, 25.359985 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.002266, -0.002266,
+				2.0, 3.0,
+			],
+			[
+				700.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.319286, 0.600338, 1.0, 1.0,
+				3.0, 1.0,
+			],
+			[
+				1.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.001476, -0.001476,
+				2.0, 3.0,
+			],
+			[
+				700.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.522367, 0.626582, -0.561423, -0.561423,
+				3.0, 1.0,
+			],
+			[
+				1.375347, 0.227848, -0.349671, -0.349671,
+				1.0, 1.0,
+			],
+			[
+				2.314286, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/wind/dry_air_short_tunnel.vsnd",
+		]
+	}
+	cbbl.DropHalll.Windows = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 1.0
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		reverb_wet = 1.0
+		randomize_start_time = true
+		position = [ -458.50647, -604.6029, 183.62247 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -0.000915, -0.000915,
+				2.0, 3.0,
+			],
+			[
+				800.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.249091, 0.183227, 0.591373, 0.591373,
+				3.0, 1.0,
+			],
+			[
+				1.04144, 0.61588, 0.29691, 0.29691,
+				1.0, 1.0,
+			],
+			[
+				3.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.5, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 0.189189, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/cbble_btomuseumhall_bg_01.vsnd",
+		]
+	}
+	cbbl.DropUpper.Wood = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.1
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 8.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.0
+		volume_random_min = -0.1
+		position = [ -838.95935, 245.71991, 255.20262 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/wood_creak_hall_01.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_02.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_03.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_04.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_05.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_06.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_07.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_08.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_09.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_10.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_11.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_12.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_13.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_14.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_15.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_16.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_17.vsnd",
+		]
+	}
+	cbbl.CryptUpper.Wood = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		volume = 0.1
+		pitch_random_min = 0.0
+		enable_retrigger = true
+		retrigger_interval_min = 5.0
+		retrigger_interval_max = 8.0
+		use_time_volume_mapping_curve = false
+		distance_effect_mix = 0.0
+		reverb_wet = 0.0
+		block_duration = 1.0
+		use_distance_unfiltered_stereo_mapping_curve = true
+		retrigger_radius = 10000.0
+		pitch_random_max = 0.05
+		retrigger_first_uses_delay = true
+		delay_random_max = 1.0
+		volume_random_min = -0.1
+		position = [ -709.1929, 565.9221, 139.9224 ]
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.094286, 0.7625, 3.333333, 3.333333,
+				3.0, 1.0,
+			],
+			[
+				0.3, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 1.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, -2.420553, -2.420553,
+				2.0, 3.0,
+			],
+			[
+				0.493459, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/cbble/wood_creak_hall_01.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_02.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_03.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_04.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_05.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_06.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_07.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_08.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_09.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_10.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_11.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_12.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_13.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_14.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_15.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_16.vsnd",
+			"sounds/ambient/cbble/wood_creak_hall_17.vsnd",
+		]
+	}
+	cbbl.SnakeStairs.BG = 
+	{
+		type = "csgo_mega"
+		mixgroup = "Cbble"
+		use_distance_unfiltered_stereo_mapping_curve = true
+		volume = 0.07
+		use_time_volume_mapping_curve = true
+		set_child_position = false
+		distance_effect_mix = 0.0
+		pitch = 0.8
+		reverb_wet = 1.0
+		distance_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		time_volume_mapping_curve = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.14, 0.129464, 1.875, 1.875,
+				3.0, 1.0,
+			],
+			[
+				0.357143, 0.669643, 1.40409, 1.40409,
+				1.0, 1.0,
+			],
+			[
+				0.76, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		fadetime_volume_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				0.485714, 0.799107, -0.612877, -0.612877,
+				3.0, 1.0,
+			],
+			[
+				1.325714, 0.1875, -0.527712, -0.527712,
+				1.0, 1.0,
+			],
+			[
+				2.0, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		soundevent_01 = 
+		[
+			"",
+		]
+		distance_unfiltered_stereo_mapping_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				300.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files_track_01 = 
+		[
+			"sounds/ambient/common/tones/tunnel_wind_loop.vsnd",
 		]
 	}
 }

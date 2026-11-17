@@ -64,18 +64,6 @@
 	width: 24px;
 }
 
-.major-24 .bracket-column__group .bracket-column__group_lines
-{
-	border-top: 1px solid groups-text-color-major-24;
-	border-bottom: 1px solid groups-text-color-major-24;
-	border-right: 1px solid groups-text-color-major-24;
-}
-
-.major-24 .bracket-column__group .bracket-column__group_lines__connector
-{
-	background-color: groups-text-color-major-24;
-}
-
 .bracket-team
 {
 	width: 200px;
@@ -270,16 +258,6 @@
 	border-radius: 50%;
 	wash-color: pickem-green;
 	border: 1px solid white;
-}
-
-.major-24 .bracket-team .bracket-team__name
-{
-	color:groups-text-color-major-24;
-}
-
-.major-24 .bracket-team .bracket-team__bounding-box
-{
-	border: 1px dashed groups-text-color-major-24;
 }
 
 .round-of-4 .bracket-spacer

@@ -119,12 +119,6 @@
 	background-color: blueColor;
 }
 
-.major-24 .itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__stattrak.itemtile-store__not-released,.major-24 .itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__new.itemtile-store__not-released,.major-24 .itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__not-released.itemtile-store__not-released
-{
-	background-color: rgba(48, 31, 6, 0.788);
-	color: rgb(224, 198, 140);
-}
-
 .itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__stattrak.hidden,.itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__new.hidden,.itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__not-released.hidden
 {
 	visibility: collapse;
@@ -140,11 +134,6 @@
 	horizontal-align: left;
 	vertical-align: top;
 	text-overflow: ellipsis;
-}
-
-.major-24 .itemtile-store .itemtile-store__container .itemtile-store__name
-{
-	color: groups-text-color-major-24;
 }
 
 .itemtile-store .itemtile-store__container .itemtile-store__case-hint
@@ -572,17 +561,6 @@
 	max-width: 125px;
 }
 
-.major-23 .itemtile-store__bottomrow .itemtile-store__price-container .itemtile-store__price-labels .itemtile-store__price-sale
-{
-	color: gold;
-}
-
-.major-24 .itemtile-store__bottomrow .itemtile-store__price-container .itemtile-store__price-labels .itemtile-store__price-sale
-{
-	color: groups-text-color-major-24;
-	font-family: Stratum2 medium Condensed, "Arial Unicode MS";
-}
-
 .itemtile-store__bottomrow .itemtile-store__price-container.has-reduction
 {
 	height: 28px;
@@ -623,11 +601,6 @@
 .itemtile-store__bottomrow .itemtile-store__tooltip-hotspot:hover
 {
 	brightness: 1;
-}
-
-.major-24 .itemtile-store__bottomrow .itemtile-store__tooltip-hotspot
-{
-	wash-color: groups-text-color-major-24;
 }
 
 .is-mainmenu-item .itemtile-store__bottomrow

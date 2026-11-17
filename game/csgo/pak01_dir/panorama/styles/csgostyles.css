@@ -112,9 +112,6 @@
 @define xpshop-green: #46C786;
 @define xpshop-green-dark: #12693e;
 @define new-item-gradient: gradient( linear, 0% 0%, 100% 0%, from( rgb(85, 150, 224) ), to( blueColor) );
-@define groups-text-color-major-24: rgb(48, 31, 6);
-@define groups-text-color-major-25: rgb(224, 190, 231);
-@define text-shadow-major-24: 0px 0px 8px 0.5 #8f530f73;
 Label,TextEntry
 {
 	font-family: notosans, 'Arial Unicode MS';
@@ -1581,6 +1578,41 @@ CSGOTooltipManager .ShortTextTooltip #Contents
 CSGOTooltipManager .TooltipContainer
 {
 	padding-bottom: 0px;
+}
+
+CSGOTooltipManager TooltipTitleText.major-store-grid-tab-tooltip #Contents
+{
+	background-color: black;
+	border-radius: 8px;
+	padding: 6px 16px;
+}
+
+CSGOTooltipManager TooltipTitleText.major-store-grid-tab-tooltip .TitleTextContents
+{
+	width: fit-children;
+}
+
+CSGOTooltipManager TooltipTitleText.major-store-grid-tab-tooltip #TitleLabel,CSGOTooltipManager TooltipTitleText.major-store-grid-tab-tooltip #TextLabel
+{
+	horizontal-align: center;
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	color: white;
+}
+
+CSGOTooltipManager TooltipTitleText.major-store-grid-tab-tooltip b
+{
+	font-weight: bold;
+}
+
+CSGOTooltipManager TooltipTitleText.major-store-grid-tab-tooltip .inline-coin-icon
+{
+	width: 14px;
+	height: 14px;
+	vertical-align: top;
+	transform: translateY(-2px);
+	wash-color: white;
 }
 
 .tooltip-offer-wear
@@ -3463,7 +3495,7 @@ EdgeScrollBar.Vertical #MaxButton
 	width: 12px;
 	height: 12px;
 	vertical-align: middle;
-	margin-left: 50px;
+	margin-left: 30px;
 	transform: rotateZ( -90deg );
 	border-radius: 0px;
 }
@@ -3476,7 +3508,7 @@ EdgeScrollBar.Vertical #MaxButton
 
 .mini-store-container .PaginationArrow.Right,.mainmenu-major-tile .PaginationArrow.Right
 {
-	margin-right: 56px;
+	margin-right: 34px;
 	transform: rotateZ( 90deg );
 }
 

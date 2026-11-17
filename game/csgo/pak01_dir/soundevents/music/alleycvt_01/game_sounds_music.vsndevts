@@ -1,0 +1,446 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Music.Background.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		vsnd_files = "sounds/music/alleycvt_01/mainmenu.vsnd"
+		vsnd_duration = 161.601242
+	}
+	Music.MVPPreview.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/roundmvpanthem_01.vsnd",
+			"sounds/music/alleycvt_01/roundmvpanthem_02.vsnd",
+		]
+		vsnd_selection_type = "random"
+		vsnd_duration = 8.001791
+	}
+	Music.Selection.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		stop_match_end = "true"
+		stop_loading = "true"
+		vsnd_files = "sounds/music/alleycvt_01/chooseteam.vsnd"
+		join_non_mvp_group = "true"
+		vsnd_duration = 27.201677
+	}
+	Music.MatchFound.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 12.75
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 0.801, 1.601, 2.401,
+			3.202, 4.0, 4.801, 5.601,
+			6.401, 7.201, 8.001, 8.801,
+			9.601, 10.402, 11.201, 12.001,
+		]
+		vsnd_duration = 12.801248
+	}
+	Music.LoadingScreen.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_menumusic_volume"
+		sync_action_to_startround = 0
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		stop_start_round = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/startaction_01.vsnd",
+		]
+		vsnd_duration = 14.401247
+	}
+	Music.StartRound.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_roundstart_volume"
+		stop_music = "true"
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 12.75
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 0.801, 1.601, 2.401,
+			3.202, 4.0, 4.801, 5.601,
+			6.401, 7.201, 8.001, 8.801,
+			9.601, 10.402, 11.201, 12.001,
+		]
+		vsnd_duration = 12.801248
+	}
+	Music.StartAction.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_roundaction_volume"
+		sync_action_to_startround = 0
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 3.0
+		stop_at_time = 10.0
+		loop_track = "true"
+		should_queue_track = "true"
+		stop_start_round = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/startaction_01.vsnd",
+		]
+		vsnd_duration = 14.401247
+	}
+	Music.StartRound_GG.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_roundstart_volume"
+		stop_music = "true"
+		priority = 1.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 6.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.3
+		volume_fade_out_input_max = 3.0
+		stop_at_time = 6.0
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 12.75
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 0.801, 1.601, 2.401,
+			3.202, 4.0, 4.801, 5.601,
+			6.401, 7.201, 8.001, 8.801,
+			9.601, 10.402, 11.201, 12.001,
+		]
+		vsnd_duration = 12.801248
+	}
+	Music.BombPlanted.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_mapobjective_volume"
+		vsnd_files = "sounds/music/alleycvt_01/bombplanted.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 6.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.3
+		loop_track = "true"
+		join_non_mvp_group = "true"
+		stop_start_round = "true"
+		stop_tensec_count = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 37.601246
+	}
+	Music.BombTenSecCount.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/alleycvt_01/bombtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_out_input_max = 0.5
+		should_queue_track = "true"
+		stop_bomb_planted = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 10.400839
+	}
+	Music.GotHostage.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_mapobjective_volume"
+		vsnd_files = "sounds/music/alleycvt_01/bombplanted.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 7.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		stop_at_time = 9.0
+		stop_start_round = "true"
+		stop_tensec_count = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 37.601246
+	}
+	Music.HostageNearRescue.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/alleycvt_01/bombtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 7.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 1.5
+		stop_at_time = 4.0
+		stop_got_hostage = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 10.400839
+	}
+	Music.TenSecCount.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/alleycvt_01/roundtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_out_input_max = 0.5
+		should_queue_track = "true"
+		stop_start_round = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 11.400839
+	}
+	Music.WonRound.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		volume_convar = "snd_roundend_volume"
+		vsnd_files = "sounds/music/alleycvt_01/wonround.vsnd"
+		priority = 4.0
+		stop_music_except_mvp = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		test_mvp_block = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 8.001678
+	}
+	Music.LostRound.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		volume_convar = "snd_roundend_volume"
+		vsnd_files = "sounds/music/alleycvt_01/lostround.vsnd"
+		priority = 4.0
+		stop_music_except_mvp = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		test_mvp_block = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 5.601678
+	}
+	Music.DeathCam.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		mixgroup = "DuckingMusic"
+		volume_convar = "snd_deathcamera_volume"
+		vsnd_files = "sounds/music/alleycvt_01/deathcam.vsnd"
+		check_for_classic_deathcam = "true"
+		stop_start_round = "true"
+		stop_won_mvp = "true"
+		join_non_mvp_group = "true"
+		set_mixlayer_amount_enable = true
+		time_mixlayer_amount_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				1.5, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_duration = 5.601678
+	}
+	Music.MVPAnthem.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_mvp_volume"
+		priority = 5.0
+		stop_music = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		block_won_lost = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/alleycvt_01/roundmvpanthem_01.vsnd",
+			"sounds/music/alleycvt_01/roundmvpanthem_02.vsnd",
+		]
+		vsnd_selection_type = "random"
+		vsnd_duration = 8.001791
+	}
+	Music.MatchStart.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		volume_fade_initial_input_min = 9.0
+		volume_fade_initial_input_max = 9.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.1
+		stop_music = "true"
+		join_non_mvp_group = "true"
+		vsnd_files = "sounds/music/alleycvt_01/startofmatch.vsnd"
+		vsnd_duration = 16.002087
+	}
+	Music.MatchEnd.alleycvt_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		stop_won_mvp = "true"
+		should_queue_track = "true"
+		join_non_mvp_group = "true"
+		vsnd_files = "sounds/music/alleycvt_01/endofmatch.vsnd"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 57.61084
+	}
+}

@@ -7565,6 +7565,294 @@
 		}
 		_base = "sticker_major_cologne2026"
 	}
+	sticker_major_singapore2026 = 
+	{
+		inventory_image_data = 
+		{
+			item = 
+			{
+				position = [ 0, 0, 0 ]
+				angle = [ 0, 90, 0 ]
+			}
+			camera = 
+			{
+				angle = [ 0, 0, 0 ]
+				target = [ 0, 0, 0 ]
+				target_nudge = [ 0, 0, 0 ]
+				orbit_distance = 12.0
+				fov_v = 31.0
+				znear = 4
+				zfar = 1000
+			}
+			lightsun = 
+			{
+				color = [ 1.0, 0.98, 0.91 ]
+				angle = [ 50.0, 208.46, 0 ]
+				brightness = 1.9
+			}
+			lightfill = 
+			{
+				color = [ 0.75, 0.91, 1.0 ]
+				angle = [ 38.79, 29.39, 0 ]
+				brightness = 1.9
+			}
+			light0 = 
+			{
+				color = [ 0.907336, 0.90733, 0.907327 ]
+				angle = [ -0.2, 32.400002, 0.0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+			light1 = 
+			{
+				color = [ 0.47876, 0.478764, 0.478762 ]
+				angle = [ -30, 35, 0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+		}
+		_base = "sticker_major"
+	}
+	sticker_major_singapore2026_paper = 
+	{
+		inventory_image_data = 
+		{
+			item = 
+			{
+				position = [ 0, 0, 0 ]
+				angle = [ 0, 90, 0 ]
+			}
+			camera = 
+			{
+				angle = [ 0, 0, 0 ]
+				target = [ 0, 0, 0 ]
+				target_nudge = [ 0, 0, 0 ]
+				orbit_distance = 12.0
+				fov_v = 31.0
+				znear = 4
+				zfar = 1000
+			}
+			lightsun = 
+			{
+				color = [ 0.98, 0.973, 0.961 ]
+				angle = [ 104.639, 197.121, 0.0 ]
+				brightness = 1.85
+			}
+			lightfill = 
+			{
+				color = [ 0.75, 0.91, 1.0 ]
+				angle = [ 38.79, 29.39, 0 ]
+				brightness = 0.0
+			}
+			light0 = 
+			{
+				color = [ 0.907336, 0.90733, 0.907327 ]
+				angle = [ -0.2, 32.400002, 0.0 ]
+				orbit_distance = 296.0
+				brightness = 0.0
+			}
+			light1 = 
+			{
+				color = [ 0.47876, 0.478764, 0.478762 ]
+				angle = [ -30, 35, 0 ]
+				orbit_distance = 100
+				brightness = 1.02
+			}
+		}
+		_base = "sticker_major_singapore2026"
+	}
+	sticker_major_singapore2026_foil = 
+	{
+		inventory_image_data = 
+		{
+			item = 
+			{
+				position = [ 0, 0, 0 ]
+				angle = [ 0, 90, 0 ]
+			}
+			camera = 
+			{
+				angle = [ 0, 0, 0 ]
+				target = [ 0, 0, 0 ]
+				target_nudge = [ 0, 0, 0 ]
+				orbit_distance = 12.0
+				fov_v = 31.0
+				znear = 4
+				zfar = 1000
+			}
+			lightsun = 
+			{
+				color = [ 1.0, 0.98, 0.91 ]
+				angle = [ 160.31, 201.243, 0.0 ]
+				brightness = 0.98
+			}
+			lightfill = 
+			{
+				color = [ 0.75, 0.91, 1.0 ]
+				angle = [ 38.79, 29.39, 0 ]
+				brightness = 0.24
+			}
+			light0 = 
+			{
+				color = [ 0.907336, 0.90733, 0.907327 ]
+				angle = [ -0.2, -70.6928, 0.0 ]
+				orbit_distance = 100
+				brightness = 0.0
+			}
+			light1 = 
+			{
+				color = [ 0.47876, 0.478764, 0.478762 ]
+				angle = [ -30, 35, 0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+		}
+		_base = "sticker_major_singapore2026"
+	}
+	sticker_major_singapore2026_holo = 
+	{
+		inventory_image_data = 
+		{
+			item = 
+			{
+				position = [ 0, 0, 0 ]
+				angle = [ 0, 90, 0 ]
+			}
+			camera = 
+			{
+				angle = [ 0, 0, 0 ]
+				target = [ 0, 0, 0 ]
+				target_nudge = [ 0, 0, 0 ]
+				orbit_distance = 12.0
+				fov_v = 31.0
+				znear = 4
+				zfar = 1000
+			}
+			lightsun = 
+			{
+				color = [ 0.973, 0.965, 0.953 ]
+				angle = [ 60.3093, 315.677, 0.0 ]
+				brightness = 1.11
+			}
+			lightfill = 
+			{
+				color = [ 0.75, 0.91, 1.0 ]
+				angle = [ 38.79, 29.39, 0 ]
+				brightness = 0.49
+			}
+			light0 = 
+			{
+				color = [ 0.907336, 0.90733, 0.907327 ]
+				angle = [ -0.2, 32.400002, 0.0 ]
+				orbit_distance = 100
+				brightness = 0.0
+			}
+			light1 = 
+			{
+				color = [ 0.47876, 0.478764, 0.478762 ]
+				angle = [ -30, 35, 0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+		}
+		_base = "sticker_major_singapore2026"
+	}
+	sticker_major_singapore2026_gold = 
+	{
+		inventory_image_data = 
+		{
+			item = 
+			{
+				position = [ 0, 0, 0 ]
+				angle = [ 0, 90, 0 ]
+			}
+			camera = 
+			{
+				angle = [ 0, 0, 0 ]
+				target = [ 0, 0, 0 ]
+				target_nudge = [ 0, 0, 0 ]
+				orbit_distance = 12.0
+				fov_v = 31.0
+				znear = 4
+				zfar = 1000
+			}
+			lightsun = 
+			{
+				color = [ 0.965, 0.953, 0.929 ]
+				angle = [ 18.6495, 14.1817, 0.0 ]
+				brightness = 0.69
+			}
+			lightfill = 
+			{
+				color = [ 0.75, 0.91, 1.0 ]
+				angle = [ 1.58382, -28.4451, 0.0 ]
+				brightness = 0.24
+			}
+			light0 = 
+			{
+				color = [ 0.635, 0.635, 0.635 ]
+				angle = [ -0.77, 28.2763, 0.0 ]
+				orbit_distance = 100
+				brightness = 0.0
+			}
+			light1 = 
+			{
+				color = [ 0.47876, 0.478764, 0.478762 ]
+				angle = [ -30, 35, 0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+		}
+		_base = "sticker_major_singapore2026"
+	}
+	sticker_major_singapore2026_graffiti = 
+	{
+		inventory_image_data = 
+		{
+			item = 
+			{
+				position = [ 0, 0, 0 ]
+				angle = [ 0, 90, 0 ]
+			}
+			camera = 
+			{
+				angle = [ 0, 0, 0 ]
+				target = [ 0, 0, 0 ]
+				target_nudge = [ 0, 0, 0 ]
+				orbit_distance = 12.0
+				fov_v = 31.0
+				znear = 4
+				zfar = 1000
+			}
+			lightsun = 
+			{
+				color = [ 1.0, 0.98, 0.91 ]
+				angle = [ 50.0, 208.46, 0 ]
+				brightness = 1.9
+			}
+			lightfill = 
+			{
+				color = [ 0.75, 0.91, 1.0 ]
+				angle = [ 38.79, 29.39, 0 ]
+				brightness = 1.9
+			}
+			light0 = 
+			{
+				color = [ 0.907336, 0.90733, 0.907327 ]
+				angle = [ -0.2, 32.400002, 0.0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+			light1 = 
+			{
+				color = [ 0.47876, 0.478764, 0.478762 ]
+				angle = [ -30, 35, 0 ]
+				orbit_distance = 100
+				brightness = 1.5
+			}
+		}
+		_base = "sticker_major_singapore2026"
+	}
 	"1" = 
 	{
 		inventory_image_data = 

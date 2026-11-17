@@ -7173,13 +7173,6 @@ From Player
 From Rotations
 From Velocity
 From World
-Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)
-Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)
-Frost: distance under cover (no sky) over which the cold fades out (indoors)
-Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)
-Frost: seconds for a hot barrel to cool down
-Frost: seconds for a lit molotov's rag to reach full heat
-Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)
 Frozen
 Full 3-Axis Rotation
 Full Density Blend Weight
@@ -12973,9 +12966,6 @@ Secondary_Mode
 Seconds after client connect during which extra frames are buffered to prevent non-delta'd update
 Seconds between drowning ticks
 Seconds between full frame embeddeds
-Seconds for the melted frost to dry
-Seconds indoors for full frost to melt
-Seconds outdoors for frost to grow to full
 Seconds to fade the ChickensObscuredLayer mix layer in and out.
 Seed (negative values=randomize)
 Seed Input Var
@@ -34272,8 +34262,8 @@ player
 player0_using_joystick
 playerEyeAnglesChanged
 player_botdifflast_s
-player_competitive_maplist_2v2_10_0_D684D4E1
-player_competitive_maplist_8_10_0_A062AC6A
+player_competitive_maplist_2v2_10_0_7B2B4F7
+player_competitive_maplist_8_10_0_25074C46
 player_controller
 player_debug_off_nav
 player_debug_print_damage
@@ -34586,16 +34576,6 @@ r_csgo_enable_tonemapping
 r_csgo_enable_translucent_screen_space
 r_csgo_enable_volume_fog
 r_csgo_firstpersonlegs_nearz_offset
-r_csgo_frost_dry_time
-r_csgo_frost_force
-r_csgo_frost_grow_time
-r_csgo_frost_heat_barrel_position
-r_csgo_frost_heat_cool_time
-r_csgo_frost_heat_light_delay
-r_csgo_frost_heat_light_time
-r_csgo_frost_heat_per_shot
-r_csgo_frost_indoor_distance
-r_csgo_frost_melt_time
 r_csgo_fsr_enable_mip_bias
 r_csgo_fsr_rcas_sharpness
 r_csgo_fsr_upsample

@@ -1,0 +1,446 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Music.Background.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		vsnd_files = "sounds/music/pegboardnerds_01/mainmenu.vsnd"
+		vsnd_duration = 241.876465
+	}
+	Music.MVPPreview.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/roundmvpanthem_01.vsnd",
+			"sounds/music/pegboardnerds_01/roundmvpanthem_02.vsnd",
+		]
+		vsnd_selection_type = "random"
+		vsnd_duration = 7.628413
+	}
+	Music.Selection.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		stop_match_end = "true"
+		stop_loading = "true"
+		vsnd_files = "sounds/music/pegboardnerds_01/chooseteam.vsnd"
+		join_non_mvp_group = "true"
+		vsnd_duration = 17.814444
+	}
+	Music.MatchFound.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 14.9
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 0.938, 1.876, 2.813,
+			3.751, 4.688, 5.626, 6.563,
+			7.501, 8.438, 9.376, 10.313,
+			11.251, 12.188, 13.126, 14.064,
+		]
+		vsnd_duration = 15.012698
+	}
+	Music.LoadingScreen.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_menumusic_volume"
+		sync_action_to_startround = 0
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		stop_start_round = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/startaction_01.vsnd",
+		]
+		vsnd_duration = 15.236326
+	}
+	Music.StartRound.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_roundstart_volume"
+		stop_music = "true"
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 14.9
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 0.938, 1.876, 2.813,
+			3.751, 4.688, 5.626, 6.563,
+			7.501, 8.438, 9.376, 10.313,
+			11.251, 12.188, 13.126, 14.064,
+		]
+		vsnd_duration = 15.012698
+	}
+	Music.StartAction.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_roundaction_volume"
+		sync_action_to_startround = 0
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 3.0
+		stop_at_time = 10.0
+		loop_track = "true"
+		should_queue_track = "true"
+		stop_start_round = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/startaction_01.vsnd",
+		]
+		vsnd_duration = 15.236326
+	}
+	Music.StartRound_GG.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_roundstart_volume"
+		stop_music = "true"
+		priority = 1.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 6.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.3
+		volume_fade_out_input_max = 3.0
+		stop_at_time = 6.0
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 14.9
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 0.938, 1.876, 2.813,
+			3.751, 4.688, 5.626, 6.563,
+			7.501, 8.438, 9.376, 10.313,
+			11.251, 12.188, 13.126, 14.064,
+		]
+		vsnd_duration = 15.012698
+	}
+	Music.BombPlanted.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_mapobjective_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/bombplanted.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 6.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.3
+		loop_track = "true"
+		join_non_mvp_group = "true"
+		stop_start_round = "true"
+		stop_tensec_count = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 38.438957
+	}
+	Music.BombTenSecCount.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/bombtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_out_input_max = 0.5
+		should_queue_track = "true"
+		stop_bomb_planted = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 11.250975
+	}
+	Music.GotHostage.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_mapobjective_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/bombplanted.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 7.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		stop_at_time = 9.0
+		stop_start_round = "true"
+		stop_tensec_count = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 38.438957
+	}
+	Music.HostageNearRescue.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/bombtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 7.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 1.5
+		stop_at_time = 4.0
+		stop_got_hostage = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 11.250975
+	}
+	Music.TenSecCount.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/roundtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_out_input_max = 0.5
+		should_queue_track = "true"
+		stop_start_round = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 11.720204
+	}
+	Music.WonRound.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		volume_convar = "snd_roundend_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/wonround.vsnd"
+		priority = 4.0
+		stop_music_except_mvp = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		test_mvp_block = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 7.738843
+	}
+	Music.LostRound.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		volume_convar = "snd_roundend_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/lostround.vsnd"
+		priority = 4.0
+		stop_music_except_mvp = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		test_mvp_block = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 8.439456
+	}
+	Music.DeathCam.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		mixgroup = "DuckingMusic"
+		volume_convar = "snd_deathcamera_volume"
+		vsnd_files = "sounds/music/pegboardnerds_01/deathcam.vsnd"
+		check_for_classic_deathcam = "true"
+		stop_start_round = "true"
+		stop_won_mvp = "true"
+		join_non_mvp_group = "true"
+		set_mixlayer_amount_enable = true
+		time_mixlayer_amount_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				1.5, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_duration = 4.689456
+	}
+	Music.MVPAnthem.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_mvp_volume"
+		priority = 5.0
+		stop_music = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		block_won_lost = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/pegboardnerds_01/roundmvpanthem_01.vsnd",
+			"sounds/music/pegboardnerds_01/roundmvpanthem_02.vsnd",
+		]
+		vsnd_selection_type = "random"
+		vsnd_duration = 7.628413
+	}
+	Music.MatchStart.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		volume_fade_initial_input_min = 9.0
+		volume_fade_initial_input_max = 9.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.1
+		stop_music = "true"
+		join_non_mvp_group = "true"
+		vsnd_files = "sounds/music/pegboardnerds_01/startofmatch.vsnd"
+		vsnd_duration = 15.939456
+	}
+	Music.MatchEnd.pegboardnerds_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		stop_won_mvp = "true"
+		should_queue_track = "true"
+		join_non_mvp_group = "true"
+		vsnd_files = "sounds/music/pegboardnerds_01/endofmatch.vsnd"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 79.69873
+	}
+}

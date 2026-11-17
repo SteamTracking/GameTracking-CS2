@@ -19,23 +19,12 @@
 	vertical-align: center;
 }
 
-.major-24 .group-stage-apply-warning Image
-{
-	wash-color: groups-text-color-major-24;
-}
-
 .group-stage-apply-warning Label
 {
 	vertical-align: center;
 	font-size: 14px;
 	padding-top: 1px;
 	margin-left: 4px;
-}
-
-.major-24 .group-stage-apply-warning Label
-{
-	color:groups-text-color-major-24;
-	font-family: Stratum2 Medium Condensed, "Arial Unicode MS";
 }
 
 .group-stage-apply-btn
@@ -169,95 +158,6 @@
 	visibility: collapse;
 }
 
-.major-23 .group-stage-apply-btn
-{
-	background-color: rgb(143, 123, 10);
-	animation-name: submit-attract-major-23;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
-}
-
-.major-23 .group-stage-apply-btn Label
-{
-	color: white;
-}
-
-.major-23 .group-stage-apply-btn:hover
-{
-	background-color: rgb(143, 123, 10);
-	animation-name: submit-attract-major-23;
-	animation-duration: 0s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: 0;
-}
-
-.major-23 .group-stage-apply-btn:disabled
-{
-	background-color: rgba(0, 0, 0, 0.473);
-	animation-name: submit-attract-major-23;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: 0;
-}
-
-.major-23 .group-stage-apply-btn.saved:disabled
-{
-	border: 1.5px dashed gold;
-}
-
-.major-23 .group-stage-apply-btn.saved:disabled Label
-{
-	color: gold;
-}
-
-.major-23 .group-stage-apply-btn.saved:disabled #id-apply-btn-image-check
-{
-	wash-color: gold;
-}
-
-.major-24 .group-stage-apply-btn
-{
-	border: 3px solid pickem-green;
-	border-radius: 0px;
-}
-
-.major-24 .group-stage-apply-btn:disabled
-{
-	border: 4px dashed groups-text-color-major-24;
-	border-radius: 0px;
-}
-
-.major-24 .group-stage-apply-btn:disabled .Spinner,.major-24 .group-stage-apply-btn:disabled Label
-{
-	wash-color: groups-text-color-major-24;
-}
-
-.major-24 .group-stage-apply-btn:disabled .group-stage-apply-btn__contents Label
-{
-	color: groups-text-color-major-24;
-	text-shadow: text-shadow-major-24;
-	font-family: Stratum2 Medium Condensed, "Arial Unicode MS";
-}
-
-.major-24 .group-stage-apply-btn.saved:disabled
-{
-	border: 4px dashed groups-text-color-major-24;
-	background-color: rgba(37, 122, 62, 0.6);
-}
-
-.major-24 .group-stage-apply-btn.saved:disabled Label
-{
-	color:groups-text-color-major-24;
-	letter-spacing: 1px;
-}
-
-.major-24 .group-stage-apply-btn.saved:disabled #id-apply-btn-image-check
-{
-	visibility: visible;
-	wash-color: groups-text-color-major-24;
-}
-
 .group-stage-toggle-btn
 {
 	visibility: collapse;
@@ -304,28 +204,6 @@
 	{
 		border: 1.5px solid pickem-green;
 		box-shadow: hollow rgba(14, 209, 95, 0.082) 0px 0px 15px 1px;
-	}
-	
-}
-
-@keyframes 'submit-attract-major-23'
-{
-	0%
-	{
-		border: 1.5px solid gold;
-		box-shadow: hollow rgb(94, 80, 3) 0px 0px 15px 1px;
-	}
-	
-	50%
-	{
-		border: 1.5px solid rgb(94, 80, 3);
-		box-shadow: hollow rgb(94, 80, 3) 0px 0px 5px 1px;
-	}
-	
-	100%
-	{
-		border: 1.5px solid gold;
-		box-shadow: hollow rgb(94, 80, 3) 0px 0px 15px 1px;
 	}
 	
 }

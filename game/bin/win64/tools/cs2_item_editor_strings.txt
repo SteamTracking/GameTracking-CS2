@@ -1716,6 +1716,8 @@
 .?AVCMsgSystemBroadcast@@
 .?AVCMsgUpdateItemSchema@@
 .?AVCMsgUseItem@@
+.?AVCMsgVolatileContainerPricesheet@@
+.?AVCMsgVolatileContainerPricesheet_Entry@@
 .?AVCPreMatchInfoData@@
 .?AVCPreMatchInfoData_TeamStats@@
 .?AVCProductInfo_SetRichPresenceLocalization_Request@@

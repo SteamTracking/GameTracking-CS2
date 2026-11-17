@@ -29,14 +29,14 @@ var PredictionsGroup;
         let elClearBtn = oPageData.panel.FindChildInLayoutFile('id-clear-all-picks');
         elRandomBtn.visible = isActiveSection && canPick;
         elClearBtn.visible = isActiveSection && canPick;
-        if (isActiveSection && !oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
+        if (isActiveSection) {
             elRandomBtn.SetPanelEvent('onactivate', () => {
                 _UpdateDragSourceTeams(oPageData);
                 _FillOutPicksRandom();
                 elRandomBtn.enabled = false;
             });
             elRandomBtn.SetPanelEvent('onmouseover', () => {
-                UiToolkitAPI.ShowTextTooltip('id-fill-random', '#pickem_teams_fill_tooltip');
+                UiToolkitAPI.ShowTextTooltipOnPanel(elRandomBtn, '#pickem_teams_fill_tooltip');
             });
             elRandomBtn.SetPanelEvent('onmouseout', () => {
                 UiToolkitAPI.HideTextTooltip();
@@ -46,7 +46,7 @@ var PredictionsGroup;
                 _UpdateDragSourceTeams(oPageData);
             });
             elClearBtn.SetPanelEvent('onmouseover', () => {
-                UiToolkitAPI.ShowTextTooltip('id-fill-random', '#pickem_teams_remove_all_tooltip');
+                UiToolkitAPI.ShowTextTooltipOnPanel(elClearBtn, '#pickem_teams_remove_all_tooltip');
             });
             elClearBtn.SetPanelEvent('onmouseout', () => {
                 UiToolkitAPI.HideTextTooltip();
@@ -74,10 +74,8 @@ var PredictionsGroup;
                     elTeam.BLoadLayoutSnippet("team-draggable");
                     elTeam.Data().teamId = teamId;
                     elTeam.Data().isSource = true;
-                    if (isActiveSection && !oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
-                        _AddDragSourceEvents(elTeam);
-                        _ShowHideTeamTooltip(elTeam);
-                    }
+                    _AddDragSourceEvents(elTeam);
+                    _ShowHideTeamTooltip(elTeam);
                 }
                 _SetSourceDragTeamImage(elTeam, teamId);
                 let isLocalPick = aLocalPicks.find(p => p.teamId == teamId);
@@ -190,13 +188,14 @@ var PredictionsGroup;
     }
     function OnDragStart(elDragSource, drag) {
         PopupMajorHub.DeleteDragItem();
+        PopupMajorHub.ShowBannerTeam(elDragSource.Data().teamId);
         let elDragImage = $.CreatePanel('ItemImage', $.GetContextPanel(), '', {
             class: 'group-stage-drag-icon',
             textureheight: '48',
             texturewidth: '48'
         });
         elDragImage.SetImage(PopupMajorHub.GetTeamIcon(elDragSource.Data().teamId));
-        elDragImage.AddClass('start-drag');
+        elDragImage.AddClass('drag-start');
         elDragImage.Data().teamId = elDragSource.Data().teamId;
         elDragImage.Data().isSource = elDragSource.Data().isSource ? elDragSource.Data().isSource : false;
         PopupMajorHub.m_elDragImage = elDragImage;
@@ -223,31 +222,38 @@ var PredictionsGroup;
         let isActiveSection = PredictionsAPI.GetSectionIsActive(oPageData.tournamentId, oPageData.sectionId);
         for (let i = 0; i < nCount; ++i) {
             let elTarget = oPageData.panel.FindChildInLayoutFile(_m_targetNamePrefix + i);
+            if (!elTarget) {
+                continue;
+            }
             _MakeUniqueTooltipLocator(elTarget, oPageData.groupId, i);
+            if (!elTarget.Data().hasDragEvents) {
+                _ItemDragTargetEvents(elTarget);
+                _AddDragSourceEvents(elTarget.FindChildInLayoutFile('id-team-panel'));
+                elTarget.Data().hasDragEvents = true;
+            }
             if (bForceClear) {
+                elTarget.SwitchClass('correct-state', '');
                 _UpdateDropTarget(elTarget, null);
-                elTarget.SwitchClass('correct-state', 'not-active');
+                continue;
+            }
+            let savedTeamId = PredictionsAPI.GetMyPredictionTeamID(oPageData.tournamentId, oPageData.groupId, i);
+            let LocalTeamId = elTarget.Data().teamId;
+            let sCorrectPicks = PredictionsAPI.GetGroupCorrectPicksByIndex(oPageData.tournamentId, oPageData.groupId, i);
+            if (isActiveSection) {
+                elTarget.SwitchClass('correct-state', '');
+            }
+            else if (savedTeamId && PopupMajorHub.CheckIfPickIsCorrect(sCorrectPicks, savedTeamId)) {
+                elTarget.SwitchClass('correct-state', 'is-correct');
+            }
+            else if (savedTeamId) {
+                elTarget.SwitchClass('correct-state', 'is-incorrect');
             }
             else {
-                let savedTeamId = PredictionsAPI.GetMyPredictionTeamID(oPageData.tournamentId, oPageData.groupId, i);
-                let LocalTeamId = elTarget.Data().teamId;
-                _UpdateDropTarget(elTarget, (savedTeamId ? savedTeamId : LocalTeamId ? LocalTeamId : null));
-                if (isActiveSection && !oPageData.hasAlreadyInit.includes(oPageData.panel.id)) {
-                    _ItemDragTargetEvents(elTarget);
-                    _AddDragSourceEvents(elTarget.FindChildInLayoutFile('id-team-panel'));
-                }
-                else {
-                    let sCorrectPicks = PredictionsAPI.GetGroupCorrectPicksByIndex(oPageData.tournamentId, oPageData.groupId, i);
-                    if (PopupMajorHub.CheckIfPickIsCorrect(sCorrectPicks, savedTeamId) && savedTeamId) {
-                        elTarget.SwitchClass('correct-state', 'is-correct');
-                    }
-                    else if (savedTeamId && !isActiveSection) {
-                        elTarget.SwitchClass('correct-state', 'is-incorrect');
-                    }
-                    else {
-                        elTarget.SwitchClass('correct-state', 'not-active');
-                    }
-                }
+                elTarget.SwitchClass('correct-state', '');
+            }
+            _UpdateDropTarget(elTarget, (savedTeamId ? savedTeamId : LocalTeamId ? LocalTeamId : null));
+            if (!isActiveSection) {
+                elTarget.AddClass('not-active');
             }
         }
         if (bForceClear) {
@@ -323,12 +329,9 @@ var PredictionsGroup;
             return;
         }
         let aUnpickedTeams = aTeams.filter((value, index) => !aLocalPicks.find(p => p.teamId == value));
-        let top = aUnpickedTeams.length;
-        while (--top) {
-            var current = Math.floor(Math.random() * (top + 1));
-            var tmp = aUnpickedTeams[current];
-            aUnpickedTeams[current] = aUnpickedTeams[top];
-            aUnpickedTeams[top] = tmp;
+        for (let top = aUnpickedTeams.length - 1; top > 0; --top) {
+            const current = Math.floor(Math.random() * (top + 1));
+            [aUnpickedTeams[current], aUnpickedTeams[top]] = [aUnpickedTeams[top], aUnpickedTeams[current]];
         }
         let aEmptySlotsToFill = [];
         aLocalPicks.forEach((pick, index) => {

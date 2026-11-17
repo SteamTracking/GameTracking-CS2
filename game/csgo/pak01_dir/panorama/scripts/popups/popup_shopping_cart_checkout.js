@@ -6,7 +6,6 @@
 /// <reference path="../common/formattext.ts" />
 /// <reference path="../common/hold_button.ts" />
 /// <reference path="../common/add_major_tokens_anim.ts" />
-/// <reference path="../popups/popup_major_store.ts" />
 /// <reference path="../popups/popup_acknowledge_item.ts" />
 var PopUpShoppingCartCheckout;
 (function (PopUpShoppingCartCheckout) {
@@ -29,13 +28,10 @@ var PopUpShoppingCartCheckout;
             return;
         }
         const cp = $.GetContextPanel();
-        $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', (...args) => { _ItemCustomizationNotification(...args, cp); });
-        $.RegisterForUnhandledEvent('PanoramaComponent_Store_PurchaseCompleted', (...args) => { _OnPurchaseCompletion(...args, cp); });
-        $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_UpdateConnectionToGC', Init);
         cp.FindChildInLayoutFile('id-cart-close').SetPanelEvent('onactivate', ClosePopup);
         cp.FindChildInLayoutFile('id-cart-balance').SetDialogVariable('local-price', StoreAPI.GetStoreItemTokensBundlePrice('' + g_ActiveTournamentInfo.itemid_charge, 100, ''));
         cp.FindChildInLayoutFile('id-cart-balance').SetPanelEvent('onmouseover', () => {
-            UiToolkitAPI.ShowTitleTextTooltip('id-cart-balance', '#CSGO_TournamentPass_' + g_ActiveTournamentInfo.location + '_credits', '#major_store_balance_tooltip');
+            UiToolkitAPI.ShowTitleTextTooltip('id-cart-balance', '#CSGO_TournamentPass_' + g_ActiveTournamentInfo.location + '_credits', '#major_store_balance_tooltip' + (g_ActiveTournamentInfo.pp_fixed_prices ? '_fx' : ''));
         });
         cp.FindChildInLayoutFile('id-cart-balance').SetPanelEvent('onmouseout', () => {
             UiToolkitAPI.HideTitleTextTooltip();
@@ -53,6 +49,11 @@ var PopUpShoppingCartCheckout;
         InventoryAPI.SetInventorySortAndFilters('inv_sort_age', false, 'only_econ_items', '', '');
         m_numTotalEconItemsInInventory = InventoryAPI.GetInventoryCount();
         const cp = $.GetContextPanel();
+        const elBg = cp.FindChildInLayoutFile('id-cart-checkout-bg');
+        elBg.style.backgroundImage = 'url( "file://{images}/tournaments/backgrounds/pickem_bg_' + g_ActiveTournamentInfo.eventid + '.psd" )';
+        elBg.style.backgroundRepeat = 'no-repeat';
+        elBg.style.backgroundSize = 'auto 120%';
+        elBg.style.backgroundPosition = '50% 50%';
         const strOneOffCartId = cp.GetAttributeString('cartid', '');
         if (strOneOffCartId) {
             let cart = ShoppingCart.findOrCreateTempCart(strOneOffCartId, false);
@@ -79,9 +80,6 @@ var PopUpShoppingCartCheckout;
             _SetUpEmptyState(cp);
             _MakeCartTiles(cp);
         });
-        if (PopupMajorStore.GetSecondsUntilPendingPriceUpdateForAllTournamentItems() > 0) {
-            PopupMajorStore.PriceRefreshTimerUpdate(cp);
-        }
     }
     PopUpShoppingCartCheckout.Init = Init;
     function _SetRedeemableBalance(cp) {
@@ -212,7 +210,7 @@ var PopUpShoppingCartCheckout;
         elBtn.text = strButtonText;
         const btnSettings = {
             btn: elBtn,
-            tooltip: '#major_store_checkout_use_tokens_tooltip' + strCheckoutSuffix,
+            tooltip: '#major_store_checkout_use_tokens_tooltip' + strCheckoutSuffix + (g_ActiveTournamentInfo.pp_fixed_prices ? '_fx' : ''),
             locString: strButtonText,
             loopingSound: 'UI.Laptop.ButtonFillLoop',
             timerCompleteAction: () => {
@@ -240,7 +238,6 @@ var PopUpShoppingCartCheckout;
         $.DispatchEvent('ContextMenuEvent', '');
         UiToolkitAPI.HideTextTooltip();
         UiToolkitAPI.HideTitleTextTooltip();
-        PopupMajorStore.CancelRefreshTimerUpdate($.GetContextPanel());
     }
     PopUpShoppingCartCheckout.ClosePopup = ClosePopup;
     function _OnAccept(creditsOwned, totalPrice, cp) {
@@ -323,33 +320,9 @@ var PopUpShoppingCartCheckout;
                     _MakeCartTiles(cp);
                     $.DispatchEvent('CSGOPlaySoundEffect', 'UI.BookClose', 'MOUSE');
                 });
-                let isInitialSetup = true;
-                let lastSeenPrice;
-                const elChange = elTile.FindChildInLayoutFile('id-cart-item-price-change');
                 getCart(cp).subscribeToUpdates(elTile, 'cart-item', () => {
-                    if (item.oldPrice !== undefined && item.oldPrice !== item.price) {
-                        const nDifference = item.price - item.oldPrice;
-                        elTile.SetDialogVariableInt('price-change', Math.abs(nDifference * getCart(cp).getItemQuantity(item.id)));
-                        elChange.SetHasClass('show-change', false);
-                        elChange.SwitchClass('direction', item.price > item.oldPrice ? 'higher' : 'lower');
-                        if (isInitialSetup || lastSeenPrice == item.price) {
-                            elChange.SetHasClass('show-change', true);
-                        }
-                        else {
-                            elTile.FindChildInLayoutFile('id-cart-item-price-loading').visible = true;
-                            $.Schedule(1, () => {
-                                elTile.FindChildInLayoutFile('id-cart-item-price-loading').visible = false;
-                                elChange.SetHasClass('show-change', true);
-                            });
-                        }
-                    }
-                    else
-                        elChange.SetHasClass('show-change', false);
-                    const lineItemPrice = getCart(cp).getItemLinePrice(item.id);
-                    const itemQuantity = getCart(cp).getItemQuantity(item.id);
-                    elTile.SetDialogVariableInt('price', lineItemPrice);
-                    lastSeenPrice = item.price;
-                    isInitialSetup = false;
+                    elTile.SetDialogVariableInt('price', getCart(cp).getItemLinePrice(item.id));
+                    elTile.SetDialogVariableInt('count', getCart(cp).getItemQuantity(item.id));
                 });
                 $.RegisterEventHandler('PropertyTransitionEnd', elTile, function (panelName, propertyName) {
                     if (propertyName === "opacity") {
@@ -437,8 +410,12 @@ var PopUpShoppingCartCheckout;
         }
     }
     {
+        const cp = $.GetContextPanel();
         $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), OnReadyForDisplay);
         $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), OnUnreadyForDisplay);
+        $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', (...args) => { _ItemCustomizationNotification(...args, cp); });
+        $.RegisterForUnhandledEvent('PanoramaComponent_Store_PurchaseCompleted', (...args) => { _OnPurchaseCompletion(...args, cp); });
+        $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_UpdateConnectionToGC', Init);
         $.GetContextPanel().RegisterForReadyEvents(true);
         if ($.GetContextPanel().BReadyForDisplay()) {
             OnReadyForDisplay();

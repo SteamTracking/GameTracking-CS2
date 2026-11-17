@@ -138,30 +138,23 @@
 	margin: 30px;
 }
 
-.map-selection-list--official-deathmatch,.map-selection-list--official-casual,.map-selection-list--official-gungameprogressive,.map-selection-list--official-scrimcomp2v2,.map-selection-list--official-retakes,.map-selection-list--listen-scrimcomp2v2
+.map-selection-list--official-deathmatch,.map-selection-list--official-casual,.map-selection-list--official-gungameprogressive,.map-selection-list--official-retakes
 {
 	width: 90%;
 }
 
-.map-selection-list--official-deathmatch .map-selection-btn__groupmap-icons,.map-selection-list--official-casual .map-selection-btn__groupmap-icons,.map-selection-list--official-gungameprogressive .map-selection-btn__groupmap-icons,.map-selection-list--official-scrimcomp2v2 .map-selection-btn__groupmap-icons,.map-selection-list--official-retakes .map-selection-btn__groupmap-icons,.map-selection-list--listen-scrimcomp2v2 .map-selection-btn__groupmap-icons
+.map-selection-list--official-deathmatch .map-selection-btn__groupmap-icons,.map-selection-list--official-casual .map-selection-btn__groupmap-icons,.map-selection-list--official-gungameprogressive .map-selection-btn__groupmap-icons,.map-selection-list--official-retakes .map-selection-btn__groupmap-icons
 {
 	width: 340px;
 	vertical-align:center;
 	flow-children: down;
 }
 
-.map-selection-list--official-deathmatch .map-selection-btn__map-icon,.map-selection-list--official-casual .map-selection-btn__map-icon,.map-selection-list--official-gungameprogressive .map-selection-btn__map-icon,.map-selection-list--official-scrimcomp2v2 .map-selection-btn__map-icon,.map-selection-list--official-retakes .map-selection-btn__map-icon,.map-selection-list--listen-scrimcomp2v2 .map-selection-btn__map-icon
+.map-selection-list--official-deathmatch .map-selection-btn__map-icon,.map-selection-list--official-casual .map-selection-btn__map-icon,.map-selection-list--official-gungameprogressive .map-selection-btn__map-icon,.map-selection-list--official-retakes .map-selection-btn__map-icon
 {
 	width: 125px;
 	height: 125px;
 	margin: 0px;
-	horizontal-align: center;
-}
-
-.map-selection-list--official-deathmatch #gameModeButtonContainer_deathmatch_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-deathmatch #gameModeButtonContainer_casual_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-casual #gameModeButtonContainer_deathmatch_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-casual #gameModeButtonContainer_casual_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-gungameprogressive #gameModeButtonContainer_deathmatch_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-gungameprogressive #gameModeButtonContainer_casual_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-scrimcomp2v2 #gameModeButtonContainer_deathmatch_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-scrimcomp2v2 #gameModeButtonContainer_casual_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-retakes #gameModeButtonContainer_deathmatch_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--official-retakes #gameModeButtonContainer_casual_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--listen-scrimcomp2v2 #gameModeButtonContainer_deathmatch_officialmg_casualsigma .map-selection-btn__map-icon,.map-selection-list--listen-scrimcomp2v2 #gameModeButtonContainer_casual_officialmg_casualsigma .map-selection-btn__map-icon
-{
-	width: 120px;
-	height: 120px;
 	horizontal-align: center;
 }
 
@@ -177,7 +170,7 @@
 	width: 90%;
 }
 
-.map-selection-list--listen-deathmatch,.map-selection-list--listen-competitive,.map-selection-list--listen-casual,.map-selection-list--listen-retakes,.map-selection-list--official-competitive
+.map-selection-list--listen-deathmatch,.map-selection-list--listen-competitive,.map-selection-list--listen-scrimcomp2v2,.map-selection-list--listen-casual,.map-selection-list--listen-retakes,.map-selection-list--official-competitive,.map-selection-list--official-scrimcomp2v2
 {
 	flow-children: right-wrap;
 	width: 100%;
@@ -186,15 +179,15 @@
 	margin-bottom: 8px;
 }
 
-.map-selection-list--listen-deathmatch .map-selection-btn,.map-selection-list--listen-competitive .map-selection-btn,.map-selection-list--listen-casual .map-selection-btn,.map-selection-list--listen-retakes .map-selection-btn,.map-selection-list--official-competitive .map-selection-btn
+.map-selection-list--listen-deathmatch .map-selection-btn,.map-selection-list--listen-competitive .map-selection-btn,.map-selection-list--listen-scrimcomp2v2 .map-selection-btn,.map-selection-list--listen-casual .map-selection-btn,.map-selection-list--listen-retakes .map-selection-btn,.map-selection-list--official-competitive .map-selection-btn,.map-selection-list--official-scrimcomp2v2 .map-selection-btn
 {
 	margin: 8px 8px;
-	width: 10.5%;
+	width: 12.3%;
 	height: 48%;
 	vertical-align: top;
 }
 
-.map-selection-list--listen-deathmatch .map-selection-btn__map-icon,.map-selection-list--listen-competitive .map-selection-btn__map-icon,.map-selection-list--listen-casual .map-selection-btn__map-icon,.map-selection-list--listen-retakes .map-selection-btn__map-icon,.map-selection-list--official-competitive .map-selection-btn__map-icon
+.map-selection-list--listen-deathmatch .map-selection-btn__map-icon,.map-selection-list--listen-competitive .map-selection-btn__map-icon,.map-selection-list--listen-scrimcomp2v2 .map-selection-btn__map-icon,.map-selection-list--listen-casual .map-selection-btn__map-icon,.map-selection-list--listen-retakes .map-selection-btn__map-icon,.map-selection-list--official-competitive .map-selection-btn__map-icon,.map-selection-list--official-scrimcomp2v2 .map-selection-btn__map-icon
 {
 	width: 60%;
 	height: width-percentage(100%);
@@ -202,11 +195,16 @@
 	horizontal-align: center;
 }
 
-.map-selection-list--listen-deathmatch Label.map-selection-info__map-name,.map-selection-list--listen-competitive Label.map-selection-info__map-name,.map-selection-list--listen-casual Label.map-selection-info__map-name,.map-selection-list--listen-retakes Label.map-selection-info__map-name,.map-selection-list--official-competitive Label.map-selection-info__map-name
+.map-selection-list--listen-deathmatch Label.map-selection-info__map-name,.map-selection-list--listen-competitive Label.map-selection-info__map-name,.map-selection-list--listen-scrimcomp2v2 Label.map-selection-info__map-name,.map-selection-list--listen-casual Label.map-selection-info__map-name,.map-selection-list--listen-retakes Label.map-selection-info__map-name,.map-selection-list--official-competitive Label.map-selection-info__map-name,.map-selection-list--official-scrimcomp2v2 Label.map-selection-info__map-name
 {
 	font-size: 24px;
 	height: 28px;
 	margin-bottom: 4px;
+}
+
+.map-selection-list--listen-scrimcomp2v2 .map-selection-btn,.map-selection-list--official-scrimcomp2v2 .map-selection-btn
+{
+	width: 20.5%;
 }
 
 .map-selection-list--workshop

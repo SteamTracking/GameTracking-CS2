@@ -2,7 +2,7 @@
 <root>
 	<styles>
 		<include src="s2r://panorama/styles/gamestyles.vcss" />
-		<include src="s2r://panorama/styles/popups/popup_major_hub.vcss" />
+		<include src="s2r://panorama/styles/common/major_theme.vcss" />
 		<include src="s2r://panorama/styles/tournaments/predictions_apply_btn.vcss" />
 	</styles>
 	<scripts />

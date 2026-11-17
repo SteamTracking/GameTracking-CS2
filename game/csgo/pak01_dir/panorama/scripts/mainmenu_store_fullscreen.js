@@ -123,10 +123,15 @@ var MainMenuStore;
             (aItemsList[0].isNewRelease)) {
             if ('17293822569102711679' === aItemsList[0].id)
                 extraSuffix = '_nightmode2';
+            else if ('17293822569102711700' === aItemsList[0].id)
+                extraSuffix = '_monstercat';
         }
         let elPanel = _m_cp.FindChildInLayoutFile(parentId);
         let elParent = _m_cp.FindChildInLayoutFile('id-store-home-section-' + sSectionName);
-        elParent.style.backgroundImage = 'url("file://{images}/backgrounds/store_home_' + sSectionName + extraSuffix + '.psd")';
+        const szBgImage = (sSectionName === 'tournament') ?
+            'file://{images}/tournaments/backgrounds/store_home_tournament_' + g_ActiveTournamentInfo.eventid + '.psd' :
+            'file://{images}/backgrounds/store_home_' + sSectionName + extraSuffix + '.psd';
+        elParent.style.backgroundImage = 'url("' + szBgImage + '")';
         elParent.style.backgroundPosition = '50% 50%';
         elParent.style.backgroundSize = 'cover';
         let elTitleLabel = elParent.FindChildInLayoutFile('id-store-home-section-' + sSectionName + '-title');

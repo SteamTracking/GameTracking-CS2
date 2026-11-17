@@ -2,12 +2,10 @@
 
 .mainmenu-right-column
 {
-	padding: 64px 80px 16px 16px;
-	height: fit-children;
-	vertical-align: bottom;
+	padding: 80px 80px 16px 16px;
+	height: 100%;
 	horizontal-align: right;
 	width: 620px;
-	flow-children: left;
 	visibility: visible;
 	transition-property: opacity;
 	transition-duration: .25s;
@@ -17,6 +15,17 @@
 .mainmenu-right-column.hidden
 {
 	opacity: 0;
+}
+
+.mainmenu-right-column #id-mainmenu-stream-panel
+{
+	horizontal-align: right;
+	vertical-align: top;
+}
+
+.mainmenu-right-column #VanityControls
+{
+	horizontal-align: right;
 }
 
 .mainmenu-right-column .mainmenu-right-column__thin

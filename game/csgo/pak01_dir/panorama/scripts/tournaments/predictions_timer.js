@@ -9,6 +9,7 @@ var PredictionsTimer;
         if (!oPageData || !oPageData.tournamentId)
             return;
         if (oPageData.panel.Data().handlerLockPicksTimerSch) {
+            $.CancelScheduled(oPageData.panel.Data().handlerLockPicksTimerSch);
             oPageData.panel.Data().handlerLockPicksTimerSch = null;
         }
         let elIcon = oPageData.panel.FindChildTraverse('id-predictions-timer-icon');
@@ -31,7 +32,11 @@ var PredictionsTimer;
             oPageData.panel.SetDialogVariable('time', FormatText.SecondsToSignificantTimeString(secRemaining));
             oPageData.panel.SetDialogVariable('lock_state', $.Localize('#pickem_timer', oPageData.panel));
             if (!oPageData.panel.Data().handlerLockPicksTimerSch) {
-                oPageData.panel.Data().handlerLockPicksTimerSch = $.Schedule(1, () => { UpdateTimer(); });
+                const elPanel = oPageData.panel;
+                elPanel.Data().handlerLockPicksTimerSch = $.Schedule(1, () => {
+                    elPanel.Data().handlerLockPicksTimerSch = null;
+                    UpdateTimer();
+                });
             }
         }
         else {

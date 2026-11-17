@@ -253,14 +253,14 @@
 										</CSGOSettingsEnumDropDown>
 									</TooltipPanel>
 									<Panel class="horizontal-separator" />
-									<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Parallax_Info" id="ParallaxPanel">
+									<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Parallax_Info">
 										<Label text="#SFUI_Settings_Parallax" class="half-width" />
 										<CSGOSettingsEnumDropDown onuserinputsubmit="SettingsMenuShared.VideoSettingsEnableDiscard()" oninputsubmit="CSGOVideoChanged(&apos;&apos;)" class="PopupButton White" id="ParallaxDetail">
 											<Label text="#SFUI_Settings_Disabled" value="0" id="parallax0" />
 											<Label text="#SFUI_Settings_Enabled" value="1" id="parallax1" />
 										</CSGOSettingsEnumDropDown>
 									</TooltipPanel>
-									<Panel class="horizontal-separator" id="ParallaxSeparator" />
+									<Panel class="horizontal-separator" />
 									<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_HDR_Info">
 										<Label text="#SFUI_Settings_HDR" class="half-width" />
 										<CSGOSettingsEnumDropDown onuserinputsubmit="SettingsMenuShared.VideoSettingsEnableDiscard()" oninputsubmit="CSGOVideoChanged(&apos;&apos;)" class="PopupButton White" id="HDR">

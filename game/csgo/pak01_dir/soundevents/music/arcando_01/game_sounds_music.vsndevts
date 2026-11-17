@@ -1,0 +1,446 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Music.Background.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		vsnd_files = "sounds/music/arcando_01/mainmenu.vsnd"
+		vsnd_duration = 185.143921
+	}
+	Music.MVPPreview.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/roundmvpanthem_01.vsnd",
+			"sounds/music/arcando_01/roundmvpanthem_02.vsnd",
+		]
+		vsnd_selection_type = "random"
+		vsnd_duration = 8.229909
+	}
+	Music.Selection.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		stop_match_end = "true"
+		stop_loading = "true"
+		vsnd_files = "sounds/music/arcando_01/chooseteam.vsnd"
+		join_non_mvp_group = "true"
+		vsnd_duration = 21.944286
+	}
+	Music.MatchFound.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_menumusic_volume"
+		stop_music = "true"
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 21.9
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 1.373, 2.743, 4.115,
+			5.486, 6.858, 8.229, 9.601,
+			10.972, 12.344, 13.715, 15.087,
+			16.458, 17.829, 19.201, 20.572,
+		]
+		vsnd_duration = 10.971791
+	}
+	Music.LoadingScreen.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_menumusic_volume"
+		sync_action_to_startround = 0
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		stop_start_round = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/startaction_01.vsnd",
+		]
+		vsnd_duration = 12.351429
+	}
+	Music.StartRound.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_roundstart_volume"
+		stop_music = "true"
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.5
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 21.9
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 1.373, 2.743, 4.115,
+			5.486, 6.858, 8.229, 9.601,
+			10.972, 12.344, 13.715, 15.087,
+			16.458, 17.829, 19.201, 20.572,
+		]
+		vsnd_duration = 10.971791
+	}
+	Music.StartAction.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_roundaction_volume"
+		sync_action_to_startround = 0
+		priority = 2.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 4.0
+		volume_fade_initial_input_max = 12.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 3.0
+		stop_at_time = 10.0
+		loop_track = "true"
+		should_queue_track = "true"
+		stop_start_round = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/startaction_01.vsnd",
+		]
+		vsnd_duration = 12.351429
+	}
+	Music.StartRound_GG.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		mixgroup = "BuyMusic"
+		volume_convar = "snd_roundstart_volume"
+		stop_music = "true"
+		priority = 1.0
+		priority_override = "true"
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 6.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.3
+		volume_fade_out_input_max = 3.0
+		stop_at_time = 6.0
+		loop_track = "true"
+		should_queue_track = "true"
+		update_track_syncpoint_index = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		endpoint_01 = 21.9
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/startround_01.vsnd",
+		]
+		syncpoints_01 = 
+		[
+			0.0, 1.373, 2.743, 4.115,
+			5.486, 6.858, 8.229, 9.601,
+			10.972, 12.344, 13.715, 15.087,
+			16.458, 17.829, 19.201, 20.572,
+		]
+		vsnd_duration = 10.971791
+	}
+	Music.BombPlanted.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_mapobjective_volume"
+		vsnd_files = "sounds/music/arcando_01/bombplanted.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 6.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.3
+		loop_track = "true"
+		join_non_mvp_group = "true"
+		stop_start_round = "true"
+		stop_tensec_count = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 37.028934
+	}
+	Music.BombTenSecCount.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/arcando_01/bombtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_out_input_max = 0.5
+		should_queue_track = "true"
+		stop_bomb_planted = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 10.971791
+	}
+	Music.GotHostage.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_mapobjective_volume"
+		vsnd_files = "sounds/music/arcando_01/bombplanted.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 7.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 1.5
+		loop_track = "true"
+		stop_at_time = 9.0
+		stop_start_round = "true"
+		stop_tensec_count = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 37.028934
+	}
+	Music.HostageNearRescue.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/arcando_01/bombtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_initial_input_min = 1.0
+		volume_fade_initial_input_max = 7.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.2
+		volume_fade_out_input_max = 1.5
+		stop_at_time = 4.0
+		stop_got_hostage = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		vsnd_duration = 10.971791
+	}
+	Music.TenSecCount.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_tensecondwarning_volume"
+		vsnd_files = "sounds/music/arcando_01/roundtenseccount.vsnd"
+		priority = 3.0
+		volume_fade_out_input_max = 0.5
+		should_queue_track = "true"
+		stop_start_round = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 11.314649
+	}
+	Music.WonRound.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		volume_convar = "snd_roundend_volume"
+		vsnd_files = "sounds/music/arcando_01/wonround.vsnd"
+		priority = 4.0
+		stop_music_except_mvp = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		test_mvp_block = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 7.543923
+	}
+	Music.LostRound.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		volume_convar = "snd_roundend_volume"
+		vsnd_files = "sounds/music/arcando_01/lostround.vsnd"
+		priority = 4.0
+		stop_music_except_mvp = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		test_mvp_block = "true"
+		join_non_mvp_group = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 7.543923
+	}
+	Music.DeathCam.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 1.0
+		mixgroup = "DuckingMusic"
+		volume_convar = "snd_deathcamera_volume"
+		vsnd_files = "sounds/music/arcando_01/deathcam.vsnd"
+		check_for_classic_deathcam = "true"
+		stop_start_round = "true"
+		stop_won_mvp = "true"
+		join_non_mvp_group = "true"
+		set_mixlayer_amount_enable = true
+		time_mixlayer_amount_curve = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+			[
+				1.5, 0.0, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_duration = 7.544989
+	}
+	Music.MVPAnthem.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.9
+		volume_convar = "snd_mvp_volume"
+		priority = 5.0
+		stop_music = "true"
+		volume_fade_out_input_max = 1.6
+		loop_track = "false"
+		should_queue_track = "true"
+		skip_if_muted = "true"
+		block_won_lost = "true"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/arcando_01/roundmvpanthem_01.vsnd",
+			"sounds/music/arcando_01/roundmvpanthem_02.vsnd",
+		]
+		vsnd_selection_type = "random"
+		vsnd_duration = 8.229909
+	}
+	Music.MatchStart.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		volume_fade_initial_input_min = 9.0
+		volume_fade_initial_input_max = 9.0
+		volume_fade_initial_input_map_min = 1.0
+		volume_fade_initial_input_map_max = 0.1
+		stop_music = "true"
+		join_non_mvp_group = "true"
+		vsnd_files = "sounds/music/arcando_01/startofmatch.vsnd"
+		vsnd_duration = 13.715714
+	}
+	Music.MatchEnd.arcando_01 = 
+	{
+		type = "csgo_music"
+		volume = 0.8
+		mixgroup = "SelectedMusic"
+		volume_convar = "snd_menumusic_volume"
+		volume_fade_out_input_max = 1.0
+		stop_won_mvp = "true"
+		should_queue_track = "true"
+		join_non_mvp_group = "true"
+		vsnd_files = "sounds/music/arcando_01/endofmatch.vsnd"
+		startpoint_01 = 0.0
+		startpoint_02 = 0.0
+		startpoint_03 = 0.0
+		endpoint_01 = 0.0
+		endpoint_02 = 0.0
+		endpoint_03 = 0.0
+		syncpoints_01 = [ 0.0 ]
+		syncpoints_02 = [ 0.0 ]
+		syncpoints_03 = [ 0.0 ]
+		vsnd_duration = 92.581429
+	}
+}

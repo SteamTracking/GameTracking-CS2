@@ -1,0 +1,18 @@
+/* Prettified by Source 2 Viewer - https://valveresourceformat.github.io */
+
+@define major-bg-color: #1b0800dc;
+@define major-panel-color: rgb(70, 35, 16);
+@define major-accent-color: #B26115;
+@define major-accent-hover-color: #B2611526;
+@define major-border-color: rgba(178, 97, 21, 0.466);
+@define major-divider-color: rgba(97, 60, 38, 0.774);
+@define major-nav-separator: gradient( linear, 0% 0%, 100% 0%, from( rgba(178, 97, 21, 0.445) ), to( rgba(178, 97, 21, 0) ) );
+@define major-banner-fade-color: rgba(70, 35, 16, 0.651);
+@define major-empty-team-color: rgba(97, 48, 18, 0.397);
+@define major-team-logo-shadow: 0px 0px 4px 1.0 rgb(71, 30, 8);
+@define pickem-green: rgb(14, 209, 95);
+@define pickem-red: #B21E2C;
+@define bg-eliminated: #742235;
+@define bg-advance: #12735177;
+@define arrow-bg-color-green: gradient( linear, 20% 0%, 135% 0%, from( major-panel-color ), to( pickem-green ) );
+@define arrow-bg-color-red: gradient( linear, 30% 0%, 110% 0%, from( major-panel-color ), to( pickem-red ) );

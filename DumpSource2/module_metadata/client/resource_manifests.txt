@@ -279,6 +279,7 @@ GameStartup "RenderingPipelineCsgoManifest" // src/game/client/cstrike15/renderi
 	materials/dev/water_waves.vtex
 	materials/dev/water_flowing.vtex
 	materials/dev/frost.vtex
+	materials/dev/fire.vtex
 	materials/dev/rain_ripples.vtex
 	materials/dev/custom_cubemap_001.vtex
 	materials/dev/overlay_smoke.vmat
@@ -298,6 +299,7 @@ GameStartup "RenderingPipelineCsgoManifest" // src/game/client/cstrike15/renderi
 	materials/dev/cmaa2_cs.vmat
 	materials/dev/downsample_depth_cs.vmat
 	materials/dev/reconstruct_normals.vmat
+	materials/dev/inferno.vmat
 	materials/dev/write_smoke_depth_water_reflection.vmat
 	materials/effects/grenade_camera.vmat
 	materials/dev/screenparticlescombine.vmat

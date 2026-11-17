@@ -1,7 +1,5 @@
 /* Prettified by Source 2 Viewer - https://valveresourceformat.github.io */
 
-@define groups-text-color-major-24: rgb(48, 31, 6);
-@define text-shadow-major-24: 0px 0px 6px 2.0 #72420ac4;
 CSGOMainMenu,#MainMenuInput,#MainMenuCore,#MainMenuForeground,#MainMenuBackground,#TooltipManager,#ContextMenuManager,#PopupManager,#ItemPreviewDebugManager,.MainMenuBackground-Cloud,.MainMenu-FullscreenPanel,#MainMenuFriendsAndParty,.MainMenuContainer,#MainMenuVanityParent
 {
 	width: 100%;
@@ -1201,22 +1199,6 @@ CSGOMainMenu.PopupBackgroundBlur.pet-event-blur #MainMenuInput
 	padding: 8px 0px 8px 8px;
 }
 
-.major-24 .content-navbar__tabs--pickem
-{
-	transform: translateY(7px);
-}
-
-.major-24 .content-navbar__tabs--pickem RadioButton.content-navbar__tabs__btn--small Label
-{
-	color: groups-text-color-major-24;
-	font-weight: bold;
-}
-
-.major-24 .content-navbar__tabs--pickem .content-navbar__tabs__btn:selected
-{
-	background-color: rgba(0, 0, 0, 0.35);
-}
-
 .workshop #id-navbar-tabs,.content-navbar__tabs.collapse
 {
 	height: 0px;
@@ -1269,11 +1251,6 @@ CSGOMainMenu.PopupBackgroundBlur.pet-event-blur #MainMenuInput
 	sound: "UIPanorama.submenu_select";
 }
 
-.major-23 .content-navbar__tabs__btn:not(:disabled):selected Label,.major-23 .content-navbar__tabs__btn--small:not(:disabled):selected Label
-{
-	color: gold;
-}
-
 RadioButton.content-navbar__tabs__btn--small Label
 {
 	font-size: 12px;
@@ -1286,24 +1263,9 @@ RadioButton.content-navbar__tabs__btn--small Label
 	sound: "UIPanorama.loadout_sector_scroll";
 }
 
-.content-navbar__tabs__btn:not(:disabled):hover .major-23,.content-navbar__tabs__toggle-button:not(:disabled):hover .major-23
-{
-	background-color: rgba(255, 255, 255, 0.025);
-}
-
-.major-24 .content-navbar__tabs__btn:not(:disabled):hover,.major-24 .content-navbar__tabs__toggle-button:not(:disabled):hover
-{
-	background-color: rgba(255, 255, 255, 0.15);
-}
-
 .content-navbar__tabs__btn:selected,.content-navbar__tabs__toggle-button:selected
 {
 	background-color: #82d7ff1a;
-}
-
-.major-23 .content-navbar__tabs__btn:selected,.major-23 .content-navbar__tabs__toggle-button:selected
-{
-	background-color: rgb(100, 87, 14);
 }
 
 .content-navbar__tabs__btn:disabled:selected,.content-navbar__tabs__toggle-button:disabled:selected

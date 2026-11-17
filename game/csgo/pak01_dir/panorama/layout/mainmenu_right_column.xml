@@ -5,7 +5,7 @@
 		<include src="s2r://panorama/styles/mainmenu.vcss" />
 		<include src="s2r://panorama/styles/mainmenu_right_column.vcss" />
 	</styles>
-	<Panel class="mainmenu-right-column">
+	<Panel class="mainmenu-right-column" hittest="false">
 		<Frame id="id-mainmenu-stream-panel" src="s2r://panorama/layout/mainmenu_stream.vxml" />
 		<Panel id="VanityControls" hittest="true">
 			<Button id="VanityPanelGoToCharacterLoadout" onactivate="$.DispatchEvent( &apos;MainMenu_OnGoToCharacterLoadoutPressed&apos; )">

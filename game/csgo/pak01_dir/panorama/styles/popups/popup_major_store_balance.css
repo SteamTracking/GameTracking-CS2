@@ -14,15 +14,9 @@
 .major-store-balance-popup__banner
 {
 	width: 100%;
-	background-size: 110% 301%;
-	background-position: top;
-	background-repeat: no-repeat;
-}
-
-.major-26 .major-store-balance-popup__banner
-{
 	background-size: 120% 200%;
 	background-position: 50% 0px;
+	background-repeat: no-repeat;
 }
 
 .major-store-balance-popup__banner__content
@@ -30,7 +24,7 @@
 	width: 100%;
 	flow-children: down;
 	padding: 32px;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba( 0, 0, 0, 0 ) ), to( rgba( 7, 71, 51, 0.651 ) ) );
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba( 0, 0, 0, 0 ) ), to( major-banner-fade-color ) );
 }
 
 .major-store-balance-popup__logo
@@ -41,9 +35,7 @@
 
 .major-store-balance-popup__title
 {
-	font-size: 20px;
 	text-shadow: 0px 0px 12px 2 rgba(0, 0, 0, 0.5);
-	color: rgb(226, 219, 176);
 	horizontal-align: center;
 	vertical-align: center;
 	letter-spacing: 1.5px;

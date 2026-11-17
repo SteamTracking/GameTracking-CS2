@@ -3,7 +3,6 @@
 	<styles>
 		<include src="s2r://panorama/styles/csgostyles.vcss" />
 		<include src="s2r://panorama/styles/mainmenu_xpshop_tile.vcss" />
-		<include src="s2r://panorama/styles/mainmenu_major_tile.vcss" />
 	</styles>
 	<scripts>
 		<include src="s2r://panorama/scripts/common/licenseutil.vts" />

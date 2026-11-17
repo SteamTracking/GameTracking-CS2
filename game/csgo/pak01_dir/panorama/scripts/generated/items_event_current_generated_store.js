@@ -1,694 +1,183 @@
 "use strict";
 /// <reference path="items_event_current_generated_store.d.ts" />
 var g_ActiveTournamentInfo = {
-    eventid: 26,
-    credits_id: 12,
-    organization: 'iem',
-    location: 'cologne2026',
-    stickerid_graffiti: 10533,
+    eventid: 27,
+    credits_id: 13,
+    organization: 'pgl',
+    location: 'singapore2026',
+    stickerid_graffiti: 11978,
     stickerids: [
-        10497,
-        10498,
-        10499,
-        10500
+        11942,
+        11943,
+        11944,
+        11945
     ],
-    rankingids: [
-        11331,
-        11332,
-        11333
-    ],
-    itemid_pass: 5310,
-    itemid_pack: 5311,
+    rankingids: [],
+    itemid_pass: 5410,
+    itemid_pack: 5411,
     itemid_coins: [
-        5312, 5313, 5314, 5315
+        5412, 5413, 5414, 5415
     ],
-    itemid_charge: 5309,
-    itemid_dynamic_stickers: 5316,
-    itemid_champion_stickers: 5329,
-    itemid_rankings_stickers: 4040,
+    itemid_charge: 5409,
+    itemid_dynamic_souvenirs: 5423,
+    itemid_dynamic_stickers: 5416,
+    itemid_champion_stickers: 0,
+    itemid_rankings_stickers: 0,
     souvenir_cost: 1,
     num_global_offerings: 1,
     num_stages_with_swiss: 3,
-    active: false,
+    pp_fixed_prices: true,
+    active: true,
 };
 var g_ActiveTournamentTeams = [
     {
-        teamid: 89,
-        team: 'vita',
-        stickerid_graffiti: 10501,
+        teamid: 106,
+        team: 'mouz',
+        stickerid_graffiti: 11946,
         stickerids: [
-            10369,
-            10370,
-            10371,
-            10372
+            11814,
+            11815,
+            11816,
+            11817
         ],
-        rankingids: [
-            11235,
-            11236,
-            11237
-        ],
+        rankingids: [],
         team_group: 'legends',
         players: [
             {
-                playerid: 153400465,
-                code: 'zywoo',
-                nick: 'ZywOo',
+                playerid: 350295751,
+                code: 'pr',
+                nick: 'PR',
                 stickerids: [
-                    10534,
-                    10535,
-                    10536,
-                    10537
+                    11979,
+                    11980,
+                    11981,
+                    11982
                 ],
-                rankingids: [
-                    11334,
-                    11335,
-                    11336
-                ],
+                rankingids: [],
             },
             {
-                playerid: 29478439,
-                code: 'apex',
-                nick: 'apEX',
+                playerid: 103070679,
+                code: 'spinx',
+                nick: 'Spinx',
                 stickerids: [
-                    10538,
-                    10539,
-                    10540,
-                    10541
+                    11983,
+                    11984,
+                    11985,
+                    11986
                 ],
-                rankingids: [
-                    11337,
-                    11338,
-                    11339
+                rankingids: [],
+            },
+            {
+                playerid: 395473484,
+                code: 'torzsi',
+                nick: 'torzsi',
+                stickerids: [
+                    11987,
+                    11988,
+                    11989,
+                    11990
                 ],
+                rankingids: [],
+            },
+            {
+                playerid: 1038000482,
+                code: 'xelex',
+                nick: 'xelex',
+                stickerids: [
+                    11991,
+                    11992,
+                    11993,
+                    11994
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 232908406,
+                code: 'xertion',
+                nick: 'xertioN',
+                stickerids: [
+                    11995,
+                    11996,
+                    11997,
+                    11998
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 89,
+        team: 'vita',
+        stickerid_graffiti: 11947,
+        stickerids: [
+            11818,
+            11819,
+            11820,
+            11821
+        ],
+        rankingids: [],
+        team_group: 'legends',
+        players: [
+            {
+                playerid: 18569432,
+                code: 'flamez',
+                nick: 'FlameZ',
+                stickerids: [
+                    11999,
+                    12000,
+                    12001,
+                    12002
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 216612575,
+                code: 'jl',
+                nick: 'jL',
+                stickerids: [
+                    12003,
+                    12004,
+                    12005,
+                    12006
+                ],
+                rankingids: [],
             },
             {
                 playerid: 12874964,
                 code: 'mezii',
                 nick: 'mezii',
                 stickerids: [
-                    10542,
-                    10543,
-                    10544,
-                    10545
+                    12007,
+                    12008,
+                    12009,
+                    12010
                 ],
-                rankingids: [
-                    11340,
-                    11341,
-                    11342
-                ],
-            },
-            {
-                playerid: 18569432,
-                code: 'flamez',
-                nick: 'FlameZ',
-                stickerids: [
-                    10546,
-                    10547,
-                    10548,
-                    10549
-                ],
-                rankingids: [
-                    11343,
-                    11344,
-                    11345
-                ],
+                rankingids: [],
             },
             {
                 playerid: 31006590,
                 code: 'ropz',
                 nick: 'ropz',
                 stickerids: [
-                    10550,
-                    10551,
-                    10552,
-                    10553
-                ],
-                rankingids: [
-                    11346,
-                    11347,
-                    11348
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 12,
-        team: 'navi',
-        stickerid_graffiti: 10502,
-        stickerids: [
-            10373,
-            10374,
-            10375,
-            10376
-        ],
-        rankingids: [
-            11238,
-            11239,
-            11240
-        ],
-        team_group: 'legends',
-        players: [
-            {
-                playerid: 1102803112,
-                code: 'w0nderful',
-                nick: 'w0nderful',
-                stickerids: [
-                    10554,
-                    10555,
-                    10556,
-                    10557
-                ],
-                rankingids: [
-                    11349,
-                    11350,
-                    11351
-                ],
-            },
-            {
-                playerid: 52977598,
-                code: 'aleksib',
-                nick: 'Aleksib',
-                stickerids: [
-                    10558,
-                    10559,
-                    10560,
-                    10561
-                ],
-                rankingids: [
-                    11352,
-                    11353,
-                    11354
-                ],
-            },
-            {
-                playerid: 286341748,
-                code: 'b1t',
-                nick: 'b1t',
-                stickerids: [
-                    10562,
-                    10563,
-                    10564,
-                    10565
-                ],
-                rankingids: [
-                    11355,
-                    11356,
-                    11357
-                ],
-            },
-            {
-                playerid: 89984505,
-                code: 'im',
-                nick: 'iM',
-                stickerids: [
-                    10566,
-                    10567,
-                    10568,
-                    10569
-                ],
-                rankingids: [
-                    11358,
-                    11359,
-                    11360
-                ],
-            },
-            {
-                playerid: 1115923884,
-                code: 'makazze',
-                nick: 'makazze',
-                stickerids: [
-                    10570,
-                    10571,
-                    10572,
-                    10573
-                ],
-                rankingids: [
-                    11361,
-                    11362,
-                    11363
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 139,
-        team: 'fal',
-        stickerid_graffiti: 10503,
-        stickerids: [
-            10377,
-            10378,
-            10379,
-            10380
-        ],
-        rankingids: [
-            11241,
-            11242,
-            11243
-        ],
-        team_group: 'legends',
-        players: [
-            {
-                playerid: 81417650,
-                code: 'niko',
-                nick: 'NiKo',
-                stickerids: [
-                    10574,
-                    10575,
-                    10576,
-                    10577
-                ],
-                rankingids: [
-                    11364,
-                    11365,
-                    11366
-                ],
-            },
-            {
-                playerid: 97016704,
-                code: 'kyxsan',
-                nick: 'kyxsan',
-                stickerids: [
-                    10578,
-                    10579,
-                    10580,
-                    10581
-                ],
-                rankingids: [
-                    11367,
-                    11368,
-                    11369
-                ],
-            },
-            {
-                playerid: 114497073,
-                code: 'm0nesy',
-                nick: 'm0NESY',
-                stickerids: [
-                    10582,
-                    10583,
-                    10584,
-                    10585
-                ],
-                rankingids: [
-                    11370,
-                    11371,
-                    11372
-                ],
-            },
-            {
-                playerid: 36412550,
-                code: 'teses',
-                nick: 'TeSeS',
-                stickerids: [
-                    10586,
-                    10587,
-                    10588,
-                    10589
-                ],
-                rankingids: [
-                    11373,
-                    11374,
-                    11375
-                ],
-            },
-            {
-                playerid: 1071740496,
-                code: 'kyousuke',
-                nick: 'kyousuke',
-                stickerids: [
-                    10590,
-                    10591,
-                    10592,
-                    10593
-                ],
-                rankingids: [
-                    11376,
-                    11377,
-                    11378
-                ],
-            },
-        ],
-        champions: [
-            {
-                playerid: 81417650,
-                code: 'niko',
-                nick: 'NiKo',
-                stickerids: [
-                    11174,
-                    11175,
-                    11176,
-                    11177
+                    12011,
+                    12012,
+                    12013,
+                    12014
                 ],
                 rankingids: [],
             },
             {
-                playerid: 97016704,
-                code: 'kyxsan',
-                nick: 'kyxsan',
+                playerid: 153400465,
+                code: 'zywoo',
+                nick: 'ZywOo',
                 stickerids: [
-                    11178,
-                    11179,
-                    11180,
-                    11181
+                    12015,
+                    12016,
+                    12017,
+                    12018
                 ],
                 rankingids: [],
-            },
-            {
-                playerid: 114497073,
-                code: 'm0nesy',
-                nick: 'm0NESY',
-                stickerids: [
-                    11182,
-                    11183,
-                    11184,
-                    11185
-                ],
-                rankingids: [],
-            },
-            {
-                playerid: 36412550,
-                code: 'teses',
-                nick: 'TeSeS',
-                stickerids: [
-                    11186,
-                    11187,
-                    11188,
-                    11189
-                ],
-                rankingids: [],
-            },
-            {
-                playerid: 1071740496,
-                code: 'kyousuke',
-                nick: 'kyousuke',
-                stickerids: [
-                    11190,
-                    11191,
-                    11192,
-                    11193
-                ],
-                rankingids: [],
-            },
-        ],
-    },
-    {
-        teamid: 122,
-        team: 'mngz',
-        stickerid_graffiti: 10504,
-        stickerids: [
-            10381,
-            10382,
-            10383,
-            10384
-        ],
-        rankingids: [
-            11244,
-            11245,
-            11246
-        ],
-        team_group: 'legends',
-        players: [
-            {
-                playerid: 999558360,
-                code: 'blitz',
-                nick: 'bLitz',
-                stickerids: [
-                    10594,
-                    10595,
-                    10596,
-                    10597
-                ],
-                rankingids: [
-                    11379,
-                    11380,
-                    11381
-                ],
-            },
-            {
-                playerid: 1006074432,
-                code: 'techno4k',
-                nick: 'Techno4K',
-                stickerids: [
-                    10598,
-                    10599,
-                    10600,
-                    10601
-                ],
-                rankingids: [
-                    11382,
-                    11383,
-                    11384
-                ],
-            },
-            {
-                playerid: 1470606075,
-                code: 'cobra',
-                nick: 'cobra',
-                stickerids: [
-                    10602,
-                    10603,
-                    10604,
-                    10605
-                ],
-                rankingids: [
-                    11385,
-                    11386,
-                    11387
-                ],
-            },
-            {
-                playerid: 878556854,
-                code: 'mzinho',
-                nick: 'mzinho',
-                stickerids: [
-                    10606,
-                    10607,
-                    10608,
-                    10609
-                ],
-                rankingids: [
-                    11388,
-                    11389,
-                    11390
-                ],
-            },
-            {
-                playerid: 1243297617,
-                code: '910',
-                nick: '910',
-                stickerids: [
-                    10610,
-                    10611,
-                    10612,
-                    10613
-                ],
-                rankingids: [
-                    11391,
-                    11392,
-                    11393
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 142,
-        team: 'pari',
-        stickerid_graffiti: 10505,
-        stickerids: [
-            10385,
-            10386,
-            10387,
-            10388
-        ],
-        rankingids: [
-            11247,
-            11248,
-            11249
-        ],
-        team_group: 'legends',
-        players: [
-            {
-                playerid: 75859856,
-                code: 'jame',
-                nick: 'Jame',
-                stickerids: [
-                    10614,
-                    10615,
-                    10616,
-                    10617
-                ],
-                rankingids: [
-                    11394,
-                    11395,
-                    11396
-                ],
-            },
-            {
-                playerid: 1014804299,
-                code: 'nota',
-                nick: 'nota',
-                stickerids: [
-                    10618,
-                    10619,
-                    10620,
-                    10621
-                ],
-                rankingids: [
-                    11397,
-                    11398,
-                    11399
-                ],
-            },
-            {
-                playerid: 181006324,
-                code: 'xielo',
-                nick: 'xiELO',
-                stickerids: [
-                    10622,
-                    10623,
-                    10624,
-                    10625
-                ],
-                rankingids: [
-                    11400,
-                    11401,
-                    11402
-                ],
-            },
-            {
-                playerid: 293404789,
-                code: 'belchonokk',
-                nick: 'BELCHONOKK',
-                stickerids: [
-                    10626,
-                    10627,
-                    10628,
-                    10629
-                ],
-                rankingids: [
-                    11403,
-                    11404,
-                    11405
-                ],
-            },
-            {
-                playerid: 250361011,
-                code: 'zweih',
-                nick: 'zweih',
-                stickerids: [
-                    10630,
-                    10631,
-                    10632,
-                    10633
-                ],
-                rankingids: [
-                    11406,
-                    11407,
-                    11408
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 134,
-        team: 'aura',
-        stickerid_graffiti: 10506,
-        stickerids: [
-            10389,
-            10390,
-            10391,
-            10392
-        ],
-        rankingids: [
-            11250,
-            11251,
-            11252
-        ],
-        team_group: 'legends',
-        players: [
-            {
-                playerid: 83853068,
-                code: 'xantares',
-                nick: 'XANTARES',
-                stickerids: [
-                    10634,
-                    10635,
-                    10636,
-                    10637
-                ],
-                rankingids: [
-                    11409,
-                    11410,
-                    11411
-                ],
-            },
-            {
-                playerid: 366802450,
-                code: 'soulfly',
-                nick: 'soulfly',
-                stickerids: [
-                    10638,
-                    10639,
-                    10640,
-                    10641
-                ],
-                rankingids: [
-                    11412,
-                    11413,
-                    11414
-                ],
-            },
-            {
-                playerid: 852248195,
-                code: 'wicadia',
-                nick: 'Wicadia',
-                stickerids: [
-                    10642,
-                    10643,
-                    10644,
-                    10645
-                ],
-                rankingids: [
-                    11415,
-                    11416,
-                    11417
-                ],
-            },
-            {
-                playerid: 7167161,
-                code: 'maj3r',
-                nick: 'MAJ3R',
-                stickerids: [
-                    10646,
-                    10647,
-                    10648,
-                    10649
-                ],
-                rankingids: [
-                    11418,
-                    11419,
-                    11420
-                ],
-            },
-            {
-                playerid: 123219778,
-                code: 'woxic',
-                nick: 'woxic',
-                stickerids: [
-                    10650,
-                    10651,
-                    10652,
-                    10653
-                ],
-                rankingids: [
-                    11421,
-                    11422,
-                    11423
-                ],
             },
         ],
         champions: [],
@@ -696,118 +185,90 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 85,
         team: 'furi',
-        stickerid_graffiti: 10507,
+        stickerid_graffiti: 11948,
         stickerids: [
-            10393,
-            10394,
-            10395,
-            10396
+            11822,
+            11823,
+            11824,
+            11825
         ],
-        rankingids: [
-            11253,
-            11254,
-            11255
-        ],
+        rankingids: [],
         team_group: 'legends',
         players: [
             {
-                playerid: 174136197,
-                code: 'yekindar',
-                nick: 'YEKINDAR',
+                playerid: 424467,
+                code: 'fallen',
+                nick: 'FalleN',
                 stickerids: [
-                    10654,
-                    10655,
-                    10656,
-                    10657
+                    12019,
+                    12020,
+                    12021,
+                    12022
                 ],
-                rankingids: [
-                    11424,
-                    11425,
-                    11426
-                ],
+                rankingids: [],
             },
             {
                 playerid: 98234764,
                 code: 'kscerato',
                 nick: 'KSCERATO',
                 stickerids: [
-                    10658,
-                    10659,
-                    10660,
-                    10661
+                    12023,
+                    12024,
+                    12025,
+                    12026
                 ],
-                rankingids: [
-                    11427,
-                    11428,
-                    11429
-                ],
-            },
-            {
-                playerid: 424467,
-                code: 'fallen',
-                nick: 'FalleN',
-                stickerids: [
-                    10662,
-                    10663,
-                    10664,
-                    10665
-                ],
-                rankingids: [
-                    11430,
-                    11431,
-                    11432
-                ],
+                rankingids: [],
             },
             {
                 playerid: 240716562,
                 code: 'molodoy',
                 nick: 'molodoy',
                 stickerids: [
-                    10666,
-                    10667,
-                    10668,
-                    10669
+                    12027,
+                    12028,
+                    12029,
+                    12030
                 ],
-                rankingids: [
-                    11433,
-                    11434,
-                    11435
+                rankingids: [],
+            },
+            {
+                playerid: 174136197,
+                code: 'yekindar',
+                nick: 'YEKINDAR',
+                stickerids: [
+                    12031,
+                    12032,
+                    12033,
+                    12034
                 ],
+                rankingids: [],
             },
             {
                 playerid: 204704832,
                 code: 'yuurih',
                 nick: 'yuurih',
                 stickerids: [
-                    10670,
-                    10671,
-                    10672,
-                    10673
+                    12035,
+                    12036,
+                    12037,
+                    12038
                 ],
-                rankingids: [
-                    11436,
-                    11437,
-                    11438
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 106,
-        team: 'mouz',
-        stickerid_graffiti: 10508,
+        teamid: 134,
+        team: 'aura',
+        stickerid_graffiti: 11949,
         stickerids: [
-            10397,
-            10398,
-            10399,
-            10400
+            11826,
+            11827,
+            11828,
+            11829
         ],
-        rankingids: [
-            11256,
-            11257,
-            11258
-        ],
+        rankingids: [],
         team_group: 'legends',
         players: [
             {
@@ -815,180 +276,60 @@ var g_ActiveTournamentTeams = [
                 code: 'jimpphat',
                 nick: 'Jimpphat',
                 stickerids: [
-                    10674,
-                    10675,
-                    10676,
-                    10677
+                    12039,
+                    12040,
+                    12041,
+                    12042
                 ],
-                rankingids: [
-                    11439,
-                    11440,
-                    11441
-                ],
+                rankingids: [],
             },
             {
-                playerid: 178562747,
-                code: 'brollan',
-                nick: 'Brollan',
+                playerid: 97016704,
+                code: 'kyxsan',
+                nick: 'kyxsan',
                 stickerids: [
-                    10678,
-                    10679,
-                    10680,
-                    10681
+                    12043,
+                    12044,
+                    12045,
+                    12046
                 ],
-                rankingids: [
-                    11442,
-                    11443,
-                    11444
-                ],
+                rankingids: [],
             },
             {
-                playerid: 103070679,
-                code: 'spinx',
-                nick: 'Spinx',
+                playerid: 852248195,
+                code: 'wicadia',
+                nick: 'Wicadia',
                 stickerids: [
-                    10682,
-                    10683,
-                    10684,
-                    10685
+                    12047,
+                    12048,
+                    12049,
+                    12050
                 ],
-                rankingids: [
-                    11445,
-                    11446,
-                    11447
-                ],
+                rankingids: [],
             },
             {
-                playerid: 395473484,
-                code: 'torzsi',
-                nick: 'torzsi',
+                playerid: 123219778,
+                code: 'woxic',
+                nick: 'woxic',
                 stickerids: [
-                    10686,
-                    10687,
-                    10688,
-                    10689
+                    12051,
+                    12052,
+                    12053,
+                    12054
                 ],
-                rankingids: [
-                    11448,
-                    11449,
-                    11450
-                ],
+                rankingids: [],
             },
             {
-                playerid: 232908406,
-                code: 'xertion',
-                nick: 'xertioN',
+                playerid: 83853068,
+                code: 'xantares',
+                nick: 'XANTARES',
                 stickerids: [
-                    10690,
-                    10691,
-                    10692,
-                    10693
+                    12055,
+                    12056,
+                    12057,
+                    12058
                 ],
-                rankingids: [
-                    11451,
-                    11452,
-                    11453
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 145,
-        team: 'fut',
-        stickerid_graffiti: 10509,
-        stickerids: [
-            10401,
-            10402,
-            10403,
-            10404
-        ],
-        rankingids: [
-            11259,
-            11260,
-            11261
-        ],
-        team_group: 'challengers',
-        players: [
-            {
-                playerid: 915367451,
-                code: 'dem0n',
-                nick: 'dem0n',
-                stickerids: [
-                    10694,
-                    10695,
-                    10696,
-                    10697
-                ],
-                rankingids: [
-                    11454,
-                    11455,
-                    11456
-                ],
-            },
-            {
-                playerid: 1012530125,
-                code: 'launx',
-                nick: 'lauNX',
-                stickerids: [
-                    10698,
-                    10699,
-                    10700,
-                    10701
-                ],
-                rankingids: [
-                    11457,
-                    11458,
-                    11459
-                ],
-            },
-            {
-                playerid: 1031012697,
-                code: 'krabeni',
-                nick: 'Krabeni',
-                stickerids: [
-                    10702,
-                    10703,
-                    10704,
-                    10705
-                ],
-                rankingids: [
-                    11460,
-                    11461,
-                    11462
-                ],
-            },
-            {
-                playerid: 1353702531,
-                code: 'cmtry',
-                nick: 'cmtry',
-                stickerids: [
-                    10706,
-                    10707,
-                    10708,
-                    10709
-                ],
-                rankingids: [
-                    11463,
-                    11464,
-                    11465
-                ],
-            },
-            {
-                playerid: 1140460110,
-                code: 'dziugss',
-                nick: 'dziugss',
-                stickerids: [
-                    10710,
-                    10711,
-                    10712,
-                    10713
-                ],
-                rankingids: [
-                    11466,
-                    11467,
-                    11468
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
@@ -996,299 +337,303 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 81,
         team: 'spir',
-        stickerid_graffiti: 10510,
+        stickerid_graffiti: 11950,
         stickerids: [
-            10405,
-            10406,
-            10407,
-            10408
+            11830,
+            11831,
+            11832,
+            11833
         ],
-        rankingids: [
-            11262,
-            11263,
-            11264
-        ],
-        team_group: 'challengers',
+        rankingids: [],
+        team_group: 'legends',
         players: [
-            {
-                playerid: 911747440,
-                code: 'tn1r',
-                nick: 'tN1R',
-                stickerids: [
-                    10714,
-                    10715,
-                    10716,
-                    10717
-                ],
-                rankingids: [
-                    11469,
-                    11470,
-                    11471
-                ],
-            },
             {
                 playerid: 425999755,
                 code: 'donk',
                 nick: 'donk',
                 stickerids: [
-                    10718,
-                    10719,
-                    10720,
-                    10721
+                    12059,
+                    12060,
+                    12061,
+                    12062
                 ],
-                rankingids: [
-                    11472,
-                    11473,
-                    11474
-                ],
+                rankingids: [],
             },
             {
                 playerid: 868554,
                 code: 'magixx',
                 nick: 'magixx',
                 stickerids: [
-                    10722,
-                    10723,
-                    10724,
-                    10725
+                    12063,
+                    12064,
+                    12065,
+                    12066
                 ],
-                rankingids: [
-                    11475,
-                    11476,
-                    11477
-                ],
+                rankingids: [],
             },
             {
                 playerid: 121219047,
                 code: 'sh1ro',
                 nick: 'sh1ro',
                 stickerids: [
-                    10726,
-                    10727,
-                    10728,
-                    10729
+                    12067,
+                    12068,
+                    12069,
+                    12070
                 ],
-                rankingids: [
-                    11478,
-                    11479,
-                    11480
+                rankingids: [],
+            },
+            {
+                playerid: 911747440,
+                code: 'tn1r',
+                nick: 'tN1R',
+                stickerids: [
+                    12071,
+                    12072,
+                    12073,
+                    12074
                 ],
+                rankingids: [],
             },
             {
                 playerid: 1035615149,
                 code: 'zont1x',
                 nick: 'zont1x',
                 stickerids: [
-                    10730,
-                    10731,
-                    10732,
-                    10733
+                    12075,
+                    12076,
+                    12077,
+                    12078
                 ],
-                rankingids: [
-                    11481,
-                    11482,
-                    11483
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 60,
-        team: 'astr',
-        stickerid_graffiti: 10511,
+        teamid: 152,
+        team: 'bbt',
+        stickerid_graffiti: 11951,
         stickerids: [
-            10409,
-            10410,
-            10411,
-            10412
+            11834,
+            11835,
+            11836,
+            11837
         ],
-        rankingids: [
-            11265,
-            11266,
-            11267
-        ],
-        team_group: 'challengers',
+        rankingids: [],
+        team_group: 'legends',
         players: [
             {
-                playerid: 38661042,
-                code: 'hooxi',
-                nick: 'HooXi',
+                playerid: 185941338,
+                code: 'boombl4',
+                nick: 'Boombl4',
                 stickerids: [
-                    10734,
-                    10735,
-                    10736,
-                    10737
+                    12079,
+                    12080,
+                    12081,
+                    12082
                 ],
-                rankingids: [
-                    11484,
-                    11485,
-                    11486
-                ],
+                rankingids: [],
             },
             {
-                playerid: 447933315,
-                code: 'phzy',
-                nick: 'phzy',
+                playerid: 899162551,
+                code: 'd1ledez',
+                nick: 'd1Ledez',
                 stickerids: [
-                    10738,
-                    10739,
-                    10740,
-                    10741
+                    12083,
+                    12084,
+                    12085,
+                    12086
                 ],
-                rankingids: [
-                    11487,
-                    11488,
-                    11489
-                ],
+                rankingids: [],
             },
             {
-                playerid: 208135644,
-                code: 'ryu',
-                nick: 'ryu',
+                playerid: 411757486,
+                code: 'magnojez',
+                nick: 'Magnojez',
                 stickerids: [
-                    10742,
-                    10743,
-                    10744,
-                    10745
+                    12087,
+                    12088,
+                    12089,
+                    12090
                 ],
-                rankingids: [
-                    11490,
-                    11491,
-                    11492
-                ],
+                rankingids: [],
             },
             {
-                playerid: 160291620,
-                code: 'jabbi',
-                nick: 'jabbi',
+                playerid: 207519341,
+                code: 's1ren',
+                nick: 'S1ren',
                 stickerids: [
-                    10746,
-                    10747,
-                    10748,
-                    10749
+                    12091,
+                    12092,
+                    12093,
+                    12094
                 ],
-                rankingids: [
-                    11493,
-                    11494,
-                    11495
-                ],
+                rankingids: [],
             },
             {
-                playerid: 44842089,
-                code: 'staehr',
-                nick: 'Staehr',
+                playerid: 99348674,
+                code: 'zorte',
+                nick: 'zorte',
                 stickerids: [
-                    10750,
-                    10751,
-                    10752,
-                    10753
+                    12095,
+                    12096,
+                    12097,
+                    12098
                 ],
-                rankingids: [
-                    11496,
-                    11497,
-                    11498
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 59,
-        team: 'g2',
-        stickerid_graffiti: 10512,
+        teamid: 139,
+        team: 'fal',
+        stickerid_graffiti: 11952,
         stickerids: [
-            10413,
-            10414,
-            10415,
-            10416
+            11838,
+            11839,
+            11840,
+            11841
         ],
-        rankingids: [
-            11268,
-            11269,
-            11270
-        ],
-        team_group: 'challengers',
+        rankingids: [],
+        team_group: 'legends',
         players: [
             {
-                playerid: 52606325,
-                code: 'hunter',
-                nick: 'huNter-',
+                playerid: 29164525,
+                code: 'karrigan',
+                nick: 'karrigan',
                 stickerids: [
-                    10754,
-                    10755,
-                    10756,
-                    10757
+                    12099,
+                    12100,
+                    12101,
+                    12102
                 ],
-                rankingids: [
-                    11499,
-                    11500,
-                    11501
-                ],
+                rankingids: [],
             },
             {
-                playerid: 107737265,
-                code: 'heavygod',
-                nick: 'Heavygod',
+                playerid: 1071740496,
+                code: 'kyousuke',
+                nick: 'kyousuke',
                 stickerids: [
-                    10758,
-                    10759,
-                    10760,
-                    10761
+                    12103,
+                    12104,
+                    12105,
+                    12106
                 ],
-                rankingids: [
-                    11502,
-                    11503,
-                    11504
-                ],
+                rankingids: [],
             },
             {
-                playerid: 92860917,
-                code: 'nertz',
-                nick: 'NertZ',
+                playerid: 114497073,
+                code: 'm0nesy',
+                nick: 'm0NESY',
                 stickerids: [
-                    10762,
-                    10763,
-                    10764,
-                    10765
+                    12107,
+                    12108,
+                    12109,
+                    12110
                 ],
-                rankingids: [
-                    11505,
-                    11506,
-                    11507
-                ],
+                rankingids: [],
             },
             {
-                playerid: 349573813,
-                code: 'sunpayus',
-                nick: 'SunPayus',
+                playerid: 81417650,
+                code: 'niko',
+                nick: 'NiKo',
                 stickerids: [
-                    10766,
-                    10767,
-                    10768,
-                    10769
+                    12111,
+                    12112,
+                    12113,
+                    12114
                 ],
-                rankingids: [
-                    11508,
-                    11509,
-                    11510
-                ],
+                rankingids: [],
             },
             {
-                playerid: 1086212773,
-                code: 'matys',
-                nick: 'MATYS',
+                playerid: 36412550,
+                code: 'teses',
+                nick: 'TeSeS',
                 stickerids: [
-                    10770,
-                    10771,
-                    10772,
-                    10773
+                    12115,
+                    12116,
+                    12117,
+                    12118
                 ],
-                rankingids: [
-                    11511,
-                    11512,
-                    11513
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 145,
+        team: 'fut',
+        stickerid_graffiti: 11953,
+        stickerids: [
+            11842,
+            11843,
+            11844,
+            11845
+        ],
+        rankingids: [],
+        team_group: 'legends',
+        players: [
+            {
+                playerid: 1353702531,
+                code: 'cmtry',
+                nick: 'cmtry',
+                stickerids: [
+                    12119,
+                    12120,
+                    12121,
+                    12122
                 ],
+                rankingids: [],
+            },
+            {
+                playerid: 915367451,
+                code: 'dem0n',
+                nick: 'dem0n',
+                stickerids: [
+                    12123,
+                    12124,
+                    12125,
+                    12126
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1140460110,
+                code: 'dziugss',
+                nick: 'dziugss',
+                stickerids: [
+                    12127,
+                    12128,
+                    12129,
+                    12130
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1031012697,
+                code: 'krabeni',
+                nick: 'Krabeni',
+                stickerids: [
+                    12131,
+                    12132,
+                    12133,
+                    12134
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 217943381,
+                code: 'xfl0ud',
+                nick: 'xfl0ud',
+                stickerids: [
+                    12135,
+                    12136,
+                    12137,
+                    12138
+                ],
+                rankingids: [],
             },
         ],
         champions: [],
@@ -1296,18 +641,14 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 126,
         team: 'lgcy',
-        stickerid_graffiti: 10513,
+        stickerid_graffiti: 11954,
         stickerids: [
-            10417,
-            10418,
-            10419,
-            10420
+            11846,
+            11847,
+            11848,
+            11849
         ],
-        rankingids: [
-            11271,
-            11272,
-            11273
-        ],
+        rankingids: [],
         team_group: 'challengers',
         players: [
             {
@@ -1315,580 +656,668 @@ var g_ActiveTournamentTeams = [
                 code: 'art',
                 nick: 'arT',
                 stickerids: [
-                    10774,
-                    10775,
-                    10776,
-                    10777
+                    12139,
+                    12140,
+                    12141,
+                    12142
                 ],
-                rankingids: [
-                    11514,
-                    11515,
-                    11516
-                ],
-            },
-            {
-                playerid: 889754458,
-                code: 'latto',
-                nick: 'latto',
-                stickerids: [
-                    10778,
-                    10779,
-                    10780,
-                    10781
-                ],
-                rankingids: [
-                    11517,
-                    11518,
-                    11519
-                ],
+                rankingids: [],
             },
             {
                 playerid: 234059589,
                 code: 'dumau',
                 nick: 'dumau',
                 stickerids: [
-                    10782,
-                    10783,
-                    10784,
-                    10785
+                    12143,
+                    12144,
+                    12145,
+                    12146
                 ],
-                rankingids: [
-                    11520,
-                    11521,
-                    11522
-                ],
+                rankingids: [],
             },
             {
-                playerid: 140229234,
-                code: 'saadzin',
-                nick: 'saadzin',
+                playerid: 889754458,
+                code: 'latto',
+                nick: 'latto',
                 stickerids: [
-                    10786,
-                    10787,
-                    10788,
-                    10789
+                    12147,
+                    12148,
+                    12149,
+                    12150
                 ],
-                rankingids: [
-                    11523,
-                    11524,
-                    11525
-                ],
+                rankingids: [],
             },
             {
                 playerid: 101497868,
                 code: 'n1ssim',
                 nick: 'n1ssim',
                 stickerids: [
-                    10790,
-                    10791,
-                    10792,
-                    10793
+                    12151,
+                    12152,
+                    12153,
+                    12154
                 ],
-                rankingids: [
-                    11526,
-                    11527,
-                    11528
+                rankingids: [],
+            },
+            {
+                playerid: 404852560,
+                code: 'try',
+                nick: 'TRY',
+                stickerids: [
+                    12155,
+                    12156,
+                    12157,
+                    12158
                 ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 102,
-        team: 'pain',
-        stickerid_graffiti: 10514,
+        teamid: 107,
+        team: 'nemi',
+        stickerid_graffiti: 11955,
         stickerids: [
-            10421,
-            10422,
-            10423,
-            10424
+            11850,
+            11851,
+            11852,
+            11853
         ],
-        rankingids: [
-            11274,
-            11275,
-            11276
-        ],
+        rankingids: [],
         team_group: 'challengers',
         players: [
             {
-                playerid: 55043156,
-                code: 'biguzera',
-                nick: 'biguzera',
+                playerid: 196885990,
+                code: 'kair0n',
+                nick: 'KaiR0N-',
                 stickerids: [
-                    10794,
-                    10795,
-                    10796,
-                    10797
+                    12159,
+                    12160,
+                    12161,
+                    12162
                 ],
-                rankingids: [
-                    11529,
-                    11530,
-                    11531
-                ],
+                rankingids: [],
             },
             {
-                playerid: 390076777,
-                code: 'nqz',
-                nick: 'NQZ',
+                playerid: 991201920,
+                code: 'khan',
+                nick: 'khaN',
                 stickerids: [
-                    10798,
-                    10799,
-                    10800,
-                    10801
+                    12163,
+                    12164,
+                    12165,
+                    12166
                 ],
-                rankingids: [
-                    11532,
-                    11533,
-                    11534
-                ],
+                rankingids: [],
             },
             {
-                playerid: 417070118,
-                code: 'snow',
-                nick: 'snow',
+                playerid: 1160446281,
+                code: 'robo',
+                nick: 'robo',
                 stickerids: [
-                    10802,
-                    10803,
-                    10804,
-                    10805
+                    12167,
+                    12168,
+                    12169,
+                    12170
                 ],
-                rankingids: [
-                    11535,
-                    11536,
-                    11537
-                ],
+                rankingids: [],
             },
             {
-                playerid: 436072455,
-                code: 'piriajr',
-                nick: 'piriajr',
+                playerid: 449277787,
+                code: 'syph0',
+                nick: 'syph0',
                 stickerids: [
-                    10806,
-                    10807,
-                    10808,
-                    10809
+                    12171,
+                    12172,
+                    12173,
+                    12174
                 ],
-                rankingids: [
-                    11538,
-                    11539,
-                    11540
-                ],
+                rankingids: [],
             },
             {
-                playerid: 51467095,
-                code: 'vsm',
-                nick: 'v$m',
+                playerid: 879040137,
+                code: 'xant3r',
+                nick: 'Xant3r',
                 stickerids: [
-                    10810,
-                    10811,
-                    10812,
-                    10813
+                    12175,
+                    12176,
+                    12177,
+                    12178
                 ],
-                rankingids: [
-                    11541,
-                    11542,
-                    11543
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 119,
-        team: 'mont',
-        stickerid_graffiti: 10515,
+        teamid: 59,
+        team: 'g2',
+        stickerid_graffiti: 11956,
         stickerids: [
-            10425,
-            10426,
-            10427,
-            10428
+            11854,
+            11855,
+            11856,
+            11857
         ],
-        rankingids: [
-            11277,
-            11278,
-            11279
-        ],
+        rankingids: [],
         team_group: 'challengers',
         players: [
             {
-                playerid: 177848062,
-                code: 'rainwaker',
-                nick: 'Rainwaker',
+                playerid: 107737265,
+                code: 'heavygod',
+                nick: 'Heavygod',
                 stickerids: [
-                    10814,
-                    10815,
-                    10816,
-                    10817
+                    12179,
+                    12180,
+                    12181,
+                    12182
                 ],
-                rankingids: [
-                    11544,
-                    11545,
-                    11546
-                ],
+                rankingids: [],
             },
             {
-                playerid: 133120627,
-                code: 'bymas',
-                nick: 'Bymas',
+                playerid: 52606325,
+                code: 'hunter',
+                nick: 'huNter-',
                 stickerids: [
-                    10818,
-                    10819,
-                    10820,
-                    10821
+                    12183,
+                    12184,
+                    12185,
+                    12186
                 ],
-                rankingids: [
-                    11547,
-                    11548,
-                    11549
-                ],
+                rankingids: [],
             },
             {
-                playerid: 75315373,
-                code: 'afro',
-                nick: 'afro',
+                playerid: 1086212773,
+                code: 'matys',
+                nick: 'MATYS',
                 stickerids: [
-                    10822,
-                    10823,
-                    10824,
-                    10825
+                    12187,
+                    12188,
+                    12189,
+                    12190
                 ],
-                rankingids: [
-                    11550,
-                    11551,
-                    11552
-                ],
+                rankingids: [],
             },
             {
-                playerid: 383961258,
-                code: 'gizmy',
-                nick: 'Gizmy',
+                playerid: 92860917,
+                code: 'nertz',
+                nick: 'NertZ',
                 stickerids: [
-                    10826,
-                    10827,
-                    10828,
-                    10829
+                    12191,
+                    12192,
+                    12193,
+                    12194
                 ],
-                rankingids: [
-                    11553,
-                    11554,
-                    11555
-                ],
+                rankingids: [],
             },
             {
-                playerid: 1014228401,
-                code: 'azuwu',
-                nick: 'AZUWU',
+                playerid: 334115362,
+                code: 'r1nkle',
+                nick: 'r1nkle',
                 stickerids: [
-                    10830,
-                    10831,
-                    10832,
-                    10833
+                    12195,
+                    12196,
+                    12197,
+                    12198
                 ],
-                rankingids: [
-                    11556,
-                    11557,
-                    11558
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 112,
-        team: 'nine',
-        stickerid_graffiti: 10516,
+        teamid: 149,
+        team: 'one',
+        stickerid_graffiti: 11957,
         stickerids: [
-            10429,
-            10430,
-            10431,
-            10432
+            11858,
+            11859,
+            11860,
+            11861
         ],
-        rankingids: [
-            11280,
-            11281,
-            11282
-        ],
+        rankingids: [],
         team_group: 'challengers',
         players: [
             {
-                playerid: 282684656,
-                code: 'max',
-                nick: 'max',
+                playerid: 196512686,
+                code: 'artfr0st',
+                nick: 'ArtFr0st',
                 stickerids: [
-                    10834,
-                    10835,
-                    10836,
-                    10837
+                    12199,
+                    12200,
+                    12201,
+                    12202
                 ],
-                rankingids: [
-                    11559,
-                    11560,
-                    11561
-                ],
+                rankingids: [],
             },
             {
-                playerid: 256625848,
-                code: 'dgt',
-                nick: 'dgt',
+                playerid: 85167576,
+                code: 'ax1le',
+                nick: 'Ax1Le',
                 stickerids: [
-                    10838,
-                    10839,
-                    10840,
-                    10841
+                    12203,
+                    12204,
+                    12205,
+                    12206
                 ],
-                rankingids: [
-                    11562,
-                    11563,
-                    11564
-                ],
+                rankingids: [],
             },
             {
-                playerid: 235377137,
-                code: 'meyern',
-                nick: 'meyern',
+                playerid: 293404789,
+                code: 'belchonokk',
+                nick: 'BELCHONOKK',
                 stickerids: [
-                    10842,
-                    10843,
-                    10844,
-                    10845
+                    12207,
+                    12208,
+                    12209,
+                    12210
                 ],
-                rankingids: [
-                    11565,
-                    11566,
-                    11567
-                ],
+                rankingids: [],
             },
             {
-                playerid: 107456470,
-                code: 'luchov',
-                nick: 'luchov',
+                playerid: 119848818,
+                code: 'fame',
+                nick: 'fame',
                 stickerids: [
-                    10846,
-                    10847,
-                    10848,
-                    10849
+                    12211,
+                    12212,
+                    12213,
+                    12214
                 ],
-                rankingids: [
-                    11568,
-                    11569,
-                    11570
-                ],
+                rankingids: [],
             },
             {
-                playerid: 359457480,
-                code: 'huasopeek',
-                nick: 'HUASOPEEK',
+                playerid: 99448400,
+                code: 'nafany',
+                nick: 'nafany',
                 stickerids: [
-                    10850,
-                    10851,
-                    10852,
-                    10853
+                    12215,
+                    12216,
+                    12217,
+                    12218
                 ],
-                rankingids: [
-                    11571,
-                    11572,
-                    11573
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 115,
-        team: 'gl',
-        stickerid_graffiti: 10517,
+        teamid: 12,
+        team: 'navi',
+        stickerid_graffiti: 11958,
         stickerids: [
-            10433,
-            10434,
-            10435,
-            10436
+            11862,
+            11863,
+            11864,
+            11865
         ],
-        rankingids: [
-            11283,
-            11284,
-            11285
+        rankingids: [],
+        team_group: 'challengers',
+        players: [
+            {
+                playerid: 52977598,
+                code: 'aleksib',
+                nick: 'Aleksib',
+                stickerids: [
+                    12219,
+                    12220,
+                    12221,
+                    12222
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 286341748,
+                code: 'b1t',
+                nick: 'b1t',
+                stickerids: [
+                    12223,
+                    12224,
+                    12225,
+                    12226
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 89984505,
+                code: 'im',
+                nick: 'iM',
+                stickerids: [
+                    12227,
+                    12228,
+                    12229,
+                    12230
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1115923884,
+                code: 'makazze',
+                nick: 'makazze',
+                stickerids: [
+                    12231,
+                    12232,
+                    12233,
+                    12234
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1102803112,
+                code: 'w0nderful',
+                nick: 'w0nderful',
+                stickerids: [
+                    12235,
+                    12236,
+                    12237,
+                    12238
+                ],
+                rankingids: [],
+            },
         ],
+        champions: [],
+    },
+    {
+        teamid: 60,
+        team: 'astr',
+        stickerid_graffiti: 11959,
+        stickerids: [
+            11866,
+            11867,
+            11868,
+            11869
+        ],
+        rankingids: [],
+        team_group: 'challengers',
+        players: [
+            {
+                playerid: 160291620,
+                code: 'jabbi',
+                nick: 'jabbi',
+                stickerids: [
+                    12239,
+                    12240,
+                    12241,
+                    12242
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 447933315,
+                code: 'phzy',
+                nick: 'phzy',
+                stickerids: [
+                    12243,
+                    12244,
+                    12245,
+                    12246
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 208135644,
+                code: 'ryu',
+                nick: 'ryu',
+                stickerids: [
+                    12247,
+                    12248,
+                    12249,
+                    12250
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 190407632,
+                code: 'siuhy',
+                nick: 'siuhy',
+                stickerids: [
+                    12251,
+                    12252,
+                    12253,
+                    12254
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 44842089,
+                code: 'staehr',
+                nick: 'Staehr',
+                stickerids: [
+                    12255,
+                    12256,
+                    12257,
+                    12258
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 1,
+        team: 'nip',
+        stickerid_graffiti: 11960,
+        stickerids: [
+            11870,
+            11871,
+            11872,
+            11873
+        ],
+        rankingids: [],
+        team_group: 'challengers',
+        players: [
+            {
+                playerid: 890801811,
+                code: 'adamb',
+                nick: 'adamb',
+                stickerids: [
+                    12259,
+                    12260,
+                    12261,
+                    12262
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 210365363,
+                code: 'krimbo',
+                nick: 'Krimbo',
+                stickerids: [
+                    12263,
+                    12264,
+                    12265,
+                    12266
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 200443857,
+                code: 'sjuush',
+                nick: 'sjuush',
+                stickerids: [
+                    12267,
+                    12268,
+                    12269,
+                    12270
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 62099910,
+                code: 'stavn',
+                nick: 'stavn',
+                stickerids: [
+                    12271,
+                    12272,
+                    12273,
+                    12274
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 402698604,
+                code: 'xkacpersky',
+                nick: 'xKacpersky',
+                stickerids: [
+                    12275,
+                    12276,
+                    12277,
+                    12278
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 122,
+        team: 'mngz',
+        stickerid_graffiti: 11961,
+        stickerids: [
+            11874,
+            11875,
+            11876,
+            11877
+        ],
+        rankingids: [],
+        team_group: 'challengers',
+        players: [
+            {
+                playerid: 1243297617,
+                code: '910',
+                nick: '910',
+                stickerids: [
+                    12279,
+                    12280,
+                    12281,
+                    12282
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 999558360,
+                code: 'blitz',
+                nick: 'bLitz',
+                stickerids: [
+                    12283,
+                    12284,
+                    12285,
+                    12286
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1470606075,
+                code: 'cobra',
+                nick: 'cobra',
+                stickerids: [
+                    12287,
+                    12288,
+                    12289,
+                    12290
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 168197870,
+                code: 'nin9',
+                nick: 'nin9',
+                stickerids: [
+                    12291,
+                    12292,
+                    12293,
+                    12294
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1006074432,
+                code: 'techno4k',
+                nick: 'Techno4K',
+                stickerids: [
+                    12295,
+                    12296,
+                    12297,
+                    12298
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 153,
+        team: 'pvis',
+        stickerid_graffiti: 11962,
+        stickerids: [
+            11878,
+            11879,
+            11880,
+            11881
+        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
             {
-                playerid: 21875845,
-                code: 'snax',
-                nick: 'Snax',
+                playerid: 35551773,
+                code: 'fl1t',
+                nick: 'FL1T',
                 stickerids: [
-                    10854,
-                    10855,
-                    10856,
-                    10857
+                    12299,
+                    12300,
+                    12301,
+                    12302
                 ],
-                rankingids: [
-                    11574,
-                    11575,
-                    11576
-                ],
+                rankingids: [],
             },
             {
-                playerid: 73906687,
-                code: 'rez',
-                nick: 'REZ',
+                playerid: 68027030,
+                code: 'hobbit',
+                nick: 'Hobbit',
                 stickerids: [
-                    10858,
-                    10859,
-                    10860,
-                    10861
+                    12303,
+                    12304,
+                    12305,
+                    12306
                 ],
-                rankingids: [
-                    11577,
-                    11578,
-                    11579
-                ],
+                rankingids: [],
             },
             {
-                playerid: 356440446,
-                code: 'tauson',
-                nick: 'Tauson',
+                playerid: 75859856,
+                code: 'jame',
+                nick: 'Jame',
                 stickerids: [
-                    10862,
-                    10863,
-                    10864,
-                    10865
+                    12307,
+                    12308,
+                    12309,
+                    12310
                 ],
-                rankingids: [
-                    11580,
-                    11581,
-                    11582
-                ],
+                rankingids: [],
             },
             {
-                playerid: 350295751,
-                code: 'pr',
-                nick: 'PR',
+                playerid: 181006324,
+                code: 'xielo',
+                nick: 'xiELO',
                 stickerids: [
-                    10866,
-                    10867,
-                    10868,
-                    10869
+                    12311,
+                    12312,
+                    12313,
+                    12314
                 ],
-                rankingids: [
-                    11583,
-                    11584,
-                    11585
-                ],
+                rankingids: [],
             },
             {
-                playerid: 294421006,
-                code: 'hypex',
-                nick: 'hypex',
+                playerid: 250361011,
+                code: 'zweih',
+                nick: 'zweih',
                 stickerids: [
-                    10870,
-                    10871,
-                    10872,
-                    10873
+                    12315,
+                    12316,
+                    12317,
+                    12318
                 ],
-                rankingids: [
-                    11586,
-                    11587,
-                    11588
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 135,
-        team: 'b8',
-        stickerid_graffiti: 10518,
-        stickerids: [
-            10437,
-            10438,
-            10439,
-            10440
-        ],
-        rankingids: [
-            11286,
-            11287,
-            11288
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 1041272634,
-                code: 's1zzi',
-                nick: 's1zzi',
-                stickerids: [
-                    10874,
-                    10875,
-                    10876,
-                    10877
-                ],
-                rankingids: [
-                    11589,
-                    11590,
-                    11591
-                ],
-            },
-            {
-                playerid: 344771176,
-                code: 'npl',
-                nick: 'npl',
-                stickerids: [
-                    10878,
-                    10879,
-                    10880,
-                    10881
-                ],
-                rankingids: [
-                    11592,
-                    11593,
-                    11594
-                ],
-            },
-            {
-                playerid: 1189546625,
-                code: 'esenthial',
-                nick: 'esenthial',
-                stickerids: [
-                    10882,
-                    10883,
-                    10884,
-                    10885
-                ],
-                rankingids: [
-                    11595,
-                    11596,
-                    11597
-                ],
-            },
-            {
-                playerid: 343849791,
-                code: 'alex666',
-                nick: 'alex666',
-                stickerids: [
-                    10886,
-                    10887,
-                    10888,
-                    10889
-                ],
-                rankingids: [
-                    11598,
-                    11599,
-                    11600
-                ],
-            },
-            {
-                playerid: 421907931,
-                code: 'kensizor',
-                nick: 'kensizor',
-                stickerids: [
-                    10890,
-                    10891,
-                    10892,
-                    10893
-                ],
-                rankingids: [
-                    11601,
-                    11602,
-                    11603
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
@@ -1896,399 +1325,75 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 95,
         team: 'hero',
-        stickerid_graffiti: 10519,
+        stickerid_graffiti: 11963,
         stickerids: [
-            10441,
-            10442,
-            10443,
-            10444
+            11882,
+            11883,
+            11884,
+            11885
         ],
-        rankingids: [
-            11289,
-            11290,
-            11291
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
             {
-                playerid: 217943381,
-                code: 'xfl0ud',
-                nick: 'xfl0ud',
+                playerid: 178562747,
+                code: 'brollan',
+                nick: 'Brollan',
                 stickerids: [
-                    10894,
-                    10895,
-                    10896,
-                    10897
+                    12319,
+                    12320,
+                    12321,
+                    12322
                 ],
-                rankingids: [
-                    11604,
-                    11605,
-                    11606
-                ],
-            },
-            {
-                playerid: 200790839,
-                code: 'nilo',
-                nick: 'nilo',
-                stickerids: [
-                    10898,
-                    10899,
-                    10900,
-                    10901
-                ],
-                rankingids: [
-                    11607,
-                    11608,
-                    11609
-                ],
-            },
-            {
-                playerid: 382452440,
-                code: 'susp',
-                nick: 'susp',
-                stickerids: [
-                    10902,
-                    10903,
-                    10904,
-                    10905
-                ],
-                rankingids: [
-                    11610,
-                    11611,
-                    11612
-                ],
+                rankingids: [],
             },
             {
                 playerid: 332333072,
                 code: 'chr1zn',
                 nick: 'Chr1zN',
                 stickerids: [
-                    10906,
-                    10907,
-                    10908,
-                    10909
+                    12323,
+                    12324,
+                    12325,
+                    12326
                 ],
-                rankingids: [
-                    11613,
-                    11614,
-                    11615
-                ],
+                rankingids: [],
             },
             {
-                playerid: 1176878177,
-                code: 'yxngstxr',
-                nick: 'yxngstxr',
+                playerid: 409820733,
+                code: 'martinezsa',
+                nick: 'MartinezSa',
                 stickerids: [
-                    10910,
-                    10911,
-                    10912,
-                    10913
+                    12327,
+                    12328,
+                    12329,
+                    12330
                 ],
-                rankingids: [
-                    11616,
-                    11617,
-                    11618
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 137,
-        team: 'bb',
-        stickerid_graffiti: 10520,
-        stickerids: [
-            10445,
-            10446,
-            10447,
-            10448
-        ],
-        rankingids: [
-            11292,
-            11293,
-            11294
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 185941338,
-                code: 'boombl4',
-                nick: 'Boombl4',
-                stickerids: [
-                    10914,
-                    10915,
-                    10916,
-                    10917
-                ],
-                rankingids: [
-                    11619,
-                    11620,
-                    11621
-                ],
+                rankingids: [],
             },
             {
-                playerid: 99348674,
-                code: 'zorte',
-                nick: 'zorte',
+                playerid: 200790839,
+                code: 'nilo',
+                nick: 'nilo',
                 stickerids: [
-                    10918,
-                    10919,
-                    10920,
-                    10921
+                    12331,
+                    12332,
+                    12333,
+                    12334
                 ],
-                rankingids: [
-                    11622,
-                    11623,
-                    11624
-                ],
+                rankingids: [],
             },
             {
-                playerid: 207519341,
-                code: 's1ren',
-                nick: 'S1ren',
+                playerid: 382452440,
+                code: 'susp',
+                nick: 'susp',
                 stickerids: [
-                    10922,
-                    10923,
-                    10924,
-                    10925
+                    12335,
+                    12336,
+                    12337,
+                    12338
                 ],
-                rankingids: [
-                    11625,
-                    11626,
-                    11627
-                ],
-            },
-            {
-                playerid: 53993406,
-                code: 'fl4mus',
-                nick: 'FL4MUS',
-                stickerids: [
-                    10926,
-                    10927,
-                    10928,
-                    10929
-                ],
-                rankingids: [
-                    11628,
-                    11629,
-                    11630
-                ],
-            },
-            {
-                playerid: 411757486,
-                code: 'magnojez',
-                nick: 'Magnojez',
-                stickerids: [
-                    10930,
-                    10931,
-                    10932,
-                    10933
-                ],
-                rankingids: [
-                    11631,
-                    11632,
-                    11633
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 69,
-        team: 'big',
-        stickerid_graffiti: 10521,
-        stickerids: [
-            10449,
-            10450,
-            10451,
-            10452
-        ],
-        rankingids: [
-            11295,
-            11296,
-            11297
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 1225952,
-                code: 'tabsen',
-                nick: 'tabseN',
-                stickerids: [
-                    10934,
-                    10935,
-                    10936,
-                    10937
-                ],
-                rankingids: [
-                    11634,
-                    11635,
-                    11636
-                ],
-            },
-            {
-                playerid: 118505645,
-                code: 'jdc',
-                nick: 'JDC',
-                stickerids: [
-                    10938,
-                    10939,
-                    10940,
-                    10941
-                ],
-                rankingids: [
-                    11637,
-                    11638,
-                    11639
-                ],
-            },
-            {
-                playerid: 157930364,
-                code: 'faven',
-                nick: 'faveN',
-                stickerids: [
-                    10942,
-                    10943,
-                    10944,
-                    10945
-                ],
-                rankingids: [
-                    11640,
-                    11641,
-                    11642
-                ],
-            },
-            {
-                playerid: 68193075,
-                code: 'blamef',
-                nick: 'blameF',
-                stickerids: [
-                    10946,
-                    10947,
-                    10948,
-                    10949
-                ],
-                rankingids: [
-                    11643,
-                    11644,
-                    11645
-                ],
-            },
-            {
-                playerid: 409910954,
-                code: 'gr1ks',
-                nick: 'gr1ks',
-                stickerids: [
-                    10950,
-                    10951,
-                    10952,
-                    10953
-                ],
-                rankingids: [
-                    11646,
-                    11647,
-                    11648
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 140,
-        team: 'm80',
-        stickerid_graffiti: 10522,
-        stickerids: [
-            10453,
-            10454,
-            10455,
-            10456
-        ],
-        rankingids: [
-            11298,
-            11299,
-            11300
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 222737943,
-                code: 'swisher',
-                nick: 'Swisher',
-                stickerids: [
-                    10954,
-                    10955,
-                    10956,
-                    10957
-                ],
-                rankingids: [
-                    11649,
-                    11650,
-                    11651
-                ],
-            },
-            {
-                playerid: 377218468,
-                code: 'lake',
-                nick: 'Lake',
-                stickerids: [
-                    10958,
-                    10959,
-                    10960,
-                    10961
-                ],
-                rankingids: [
-                    11652,
-                    11653,
-                    11654
-                ],
-            },
-            {
-                playerid: 223887847,
-                code: 'jba',
-                nick: 'JBa',
-                stickerids: [
-                    10962,
-                    10963,
-                    10964,
-                    10965
-                ],
-                rankingids: [
-                    11655,
-                    11656,
-                    11657
-                ],
-            },
-            {
-                playerid: 230197733,
-                code: 's1n',
-                nick: 's1n',
-                stickerids: [
-                    10966,
-                    10967,
-                    10968,
-                    10969
-                ],
-                rankingids: [
-                    11658,
-                    11659,
-                    11660
-                ],
-            },
-            {
-                playerid: 104087441,
-                code: 'slaxz',
-                nick: 'slaxz-',
-                stickerids: [
-                    10970,
-                    10971,
-                    10972,
-                    10973
-                ],
-                rankingids: [
-                    11661,
-                    11662,
-                    11663
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
@@ -2296,599 +1401,151 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 80,
         team: 'mibr',
-        stickerid_graffiti: 10523,
+        stickerid_graffiti: 11964,
         stickerids: [
-            10457,
-            10458,
-            10459,
-            10460
+            11886,
+            11887,
+            11888,
+            11889
         ],
-        rankingids: [
-            11301,
-            11302,
-            11303
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
-            {
-                playerid: 144361165,
-                code: 'lnz',
-                nick: 'LNZ',
-                stickerids: [
-                    10974,
-                    10975,
-                    10976,
-                    10977
-                ],
-                rankingids: [
-                    11664,
-                    11665,
-                    11666
-                ],
-            },
             {
                 playerid: 101158002,
                 code: 'insani',
                 nick: 'insani',
                 stickerids: [
-                    10978,
-                    10979,
-                    10980,
-                    10981
+                    12339,
+                    12340,
+                    12341,
+                    12342
                 ],
-                rankingids: [
-                    11667,
-                    11668,
-                    11669
-                ],
+                rankingids: [],
             },
             {
-                playerid: 895610852,
-                code: 'brnz4n',
-                nick: 'brnz4n',
+                playerid: 144361165,
+                code: 'lnz',
+                nick: 'LNZ',
                 stickerids: [
-                    10982,
-                    10983,
-                    10984,
-                    10985
+                    12343,
+                    12344,
+                    12345,
+                    12346
                 ],
-                rankingids: [
-                    11670,
-                    11671,
-                    11672
+                rankingids: [],
+            },
+            {
+                playerid: 390076777,
+                code: 'nqz',
+                nick: 'NQZ',
+                stickerids: [
+                    12347,
+                    12348,
+                    12349,
+                    12350
                 ],
+                rankingids: [],
+            },
+            {
+                playerid: 462168316,
+                code: 'tomaszin',
+                nick: 'tomaszin',
+                stickerids: [
+                    12351,
+                    12352,
+                    12353,
+                    12354
+                ],
+                rankingids: [],
             },
             {
                 playerid: 257999525,
                 code: 'venomzera',
                 nick: 'venomzera',
                 stickerids: [
-                    10986,
-                    10987,
-                    10988,
-                    10989
+                    12355,
+                    12356,
+                    12357,
+                    12358
                 ],
-                rankingids: [
-                    11673,
-                    11674,
-                    11675
-                ],
-            },
-            {
-                playerid: 164802903,
-                code: 'kl1m',
-                nick: 'kl1m',
-                stickerids: [
-                    10990,
-                    10991,
-                    10992,
-                    10993
-                ],
-                rankingids: [
-                    11676,
-                    11677,
-                    11678
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 147,
-        team: 'sinn',
-        stickerid_graffiti: 10524,
+        teamid: 61,
+        team: 'faze',
+        stickerid_graffiti: 11965,
         stickerids: [
-            10461,
-            10462,
-            10463,
-            10464
+            11890,
+            11891,
+            11892,
+            11893
         ],
-        rankingids: [
-            11304,
-            11305,
-            11306
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
             {
-                playerid: 73173022,
-                code: 'beastik',
-                nick: 'beastik',
+                playerid: 108157034,
+                code: 'frozen',
+                nick: 'frozen',
                 stickerids: [
-                    10994,
-                    10995,
-                    10996,
-                    10997
+                    12359,
+                    12360,
+                    12361,
+                    12362
                 ],
-                rankingids: [
-                    11679,
-                    11680,
-                    11681
-                ],
+                rankingids: [],
             },
             {
-                playerid: 209294569,
-                code: 'shock',
-                nick: 'SHOCK',
+                playerid: 55872799,
+                code: 'jboen',
+                nick: 'JBOEN',
                 stickerids: [
-                    10998,
-                    10999,
-                    11000,
-                    11001
+                    12363,
+                    12364,
+                    12365,
+                    12366
                 ],
-                rankingids: [
-                    11682,
-                    11683,
-                    11684
-                ],
+                rankingids: [],
             },
             {
-                playerid: 389955370,
-                code: 'modo',
-                nick: 'MoDo',
+                playerid: 218471701,
+                code: 'jcobbb',
+                nick: 'jcobbb',
                 stickerids: [
-                    11002,
-                    11003,
-                    11004,
-                    11005
+                    12367,
+                    12368,
+                    12369,
+                    12370
                 ],
-                rankingids: [
-                    11685,
-                    11686,
-                    11687
-                ],
+                rankingids: [],
             },
             {
-                playerid: 292476348,
-                code: 'kisserek',
-                nick: 'kisserek',
+                playerid: 1011452664,
+                code: 'neityu',
+                nick: 'Neityu',
                 stickerids: [
-                    11006,
-                    11007,
-                    11008,
-                    11009
+                    12371,
+                    12372,
+                    12373,
+                    12374
                 ],
-                rankingids: [
-                    11688,
-                    11689,
-                    11690
-                ],
+                rankingids: [],
             },
             {
-                playerid: 344171388,
-                code: 'stressarn',
-                nick: 'stressarN',
+                playerid: 55989477,
+                code: 'twistzz',
+                nick: 'Twistzz',
                 stickerids: [
-                    11010,
-                    11011,
-                    11012,
-                    11013
+                    12375,
+                    12376,
+                    12377,
+                    12378
                 ],
-                rankingids: [
-                    11691,
-                    11692,
-                    11693
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 87,
-        team: 'nrg',
-        stickerid_graffiti: 10525,
-        stickerids: [
-            10465,
-            10466,
-            10467,
-            10468
-        ],
-        rankingids: [
-            11307,
-            11308,
-            11309
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 230970467,
-                code: 'grim',
-                nick: 'Grim',
-                stickerids: [
-                    11014,
-                    11015,
-                    11016,
-                    11017
-                ],
-                rankingids: [
-                    11694,
-                    11695,
-                    11696
-                ],
-            },
-            {
-                playerid: 100218065,
-                code: 'br0',
-                nick: 'br0',
-                stickerids: [
-                    11018,
-                    11019,
-                    11020,
-                    11021
-                ],
-                rankingids: [
-                    11697,
-                    11698,
-                    11699
-                ],
-            },
-            {
-                playerid: 87206806,
-                code: 'osee',
-                nick: 'oSee',
-                stickerids: [
-                    11022,
-                    11023,
-                    11024,
-                    11025
-                ],
-                rankingids: [
-                    11700,
-                    11701,
-                    11702
-                ],
-            },
-            {
-                playerid: 14864123,
-                code: 'sonic',
-                nick: 'Sonic',
-                stickerids: [
-                    11026,
-                    11027,
-                    11028,
-                    11029
-                ],
-                rankingids: [
-                    11703,
-                    11704,
-                    11705
-                ],
-            },
-            {
-                playerid: 35624002,
-                code: 'nitro',
-                nick: 'nitr0',
-                stickerids: [
-                    11030,
-                    11031,
-                    11032,
-                    11033
-                ],
-                rankingids: [
-                    11706,
-                    11707,
-                    11708
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 74,
-        team: 'tyl',
-        stickerid_graffiti: 10526,
-        stickerids: [
-            10469,
-            10470,
-            10471,
-            10472
-        ],
-        rankingids: [
-            11310,
-            11311,
-            11312
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 148530751,
-                code: 'mercury',
-                nick: 'Mercury',
-                stickerids: [
-                    11034,
-                    11035,
-                    11036,
-                    11037
-                ],
-                rankingids: [
-                    11709,
-                    11710,
-                    11711
-                ],
-            },
-            {
-                playerid: 400141913,
-                code: 'jee',
-                nick: 'Jee',
-                stickerids: [
-                    11038,
-                    11039,
-                    11040,
-                    11041
-                ],
-                rankingids: [
-                    11712,
-                    11713,
-                    11714
-                ],
-            },
-            {
-                playerid: 404671310,
-                code: 'jamyoung',
-                nick: 'JamYoung',
-                stickerids: [
-                    11042,
-                    11043,
-                    11044,
-                    11045
-                ],
-                rankingids: [
-                    11715,
-                    11716,
-                    11717
-                ],
-            },
-            {
-                playerid: 394931794,
-                code: 'moseyuh',
-                nick: 'Moseyuh',
-                stickerids: [
-                    11046,
-                    11047,
-                    11048,
-                    11049
-                ],
-                rankingids: [
-                    11718,
-                    11719,
-                    11720
-                ],
-            },
-            {
-                playerid: 996643915,
-                code: 'zerocn',
-                nick: 'Zero',
-                stickerids: [
-                    11050,
-                    11051,
-                    11052,
-                    11053
-                ],
-                rankingids: [
-                    11721,
-                    11722,
-                    11723
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 104,
-        team: 'shrk',
-        stickerid_graffiti: 10527,
-        stickerids: [
-            10473,
-            10474,
-            10475,
-            10476
-        ],
-        rankingids: [
-            11313,
-            11314,
-            11315
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 174962930,
-                code: 'gafolo',
-                nick: 'gafolo',
-                stickerids: [
-                    11054,
-                    11055,
-                    11056,
-                    11057
-                ],
-                rankingids: [
-                    11724,
-                    11725,
-                    11726
-                ],
-            },
-            {
-                playerid: 849196548,
-                code: 'koala',
-                nick: 'koala',
-                stickerids: [
-                    11058,
-                    11059,
-                    11060,
-                    11061
-                ],
-                rankingids: [
-                    11727,
-                    11728,
-                    11729
-                ],
-            },
-            {
-                playerid: 1070706470,
-                code: 'maxxkor',
-                nick: 'maxxkor',
-                stickerids: [
-                    11062,
-                    11063,
-                    11064,
-                    11065
-                ],
-                rankingids: [
-                    11730,
-                    11731,
-                    11732
-                ],
-            },
-            {
-                playerid: 347468740,
-                code: 'rdnzao',
-                nick: 'rdnzao',
-                stickerids: [
-                    11066,
-                    11067,
-                    11068,
-                    11069
-                ],
-                rankingids: [
-                    11733,
-                    11734,
-                    11735
-                ],
-            },
-            {
-                playerid: 135630812,
-                code: 'doc',
-                nick: 'doc',
-                stickerids: [
-                    11070,
-                    11071,
-                    11072,
-                    11073
-                ],
-                rankingids: [
-                    11736,
-                    11737,
-                    11738
-                ],
-            },
-        ],
-        champions: [],
-    },
-    {
-        teamid: 146,
-        team: 'gaim',
-        stickerid_graffiti: 10528,
-        stickerids: [
-            10477,
-            10478,
-            10479,
-            10480
-        ],
-        rankingids: [
-            11316,
-            11317,
-            11318
-        ],
-        team_group: 'contenders',
-        players: [
-            {
-                playerid: 57761535,
-                code: 'hen1',
-                nick: 'HEN1',
-                stickerids: [
-                    11074,
-                    11075,
-                    11076,
-                    11077
-                ],
-                rankingids: [
-                    11739,
-                    11740,
-                    11741
-                ],
-            },
-            {
-                playerid: 22765766,
-                code: 'felps',
-                nick: 'felps',
-                stickerids: [
-                    11078,
-                    11079,
-                    11080,
-                    11081
-                ],
-                rankingids: [
-                    11742,
-                    11743,
-                    11744
-                ],
-            },
-            {
-                playerid: 76618432,
-                code: 'nekiz',
-                nick: 'NEKiZ',
-                stickerids: [
-                    11082,
-                    11083,
-                    11084,
-                    11085
-                ],
-                rankingids: [
-                    11745,
-                    11746,
-                    11747
-                ],
-            },
-            {
-                playerid: 46114258,
-                code: 'luken',
-                nick: 'luken',
-                stickerids: [
-                    11086,
-                    11087,
-                    11088,
-                    11089
-                ],
-                rankingids: [
-                    11748,
-                    11749,
-                    11750
-                ],
-            },
-            {
-                playerid: 94554756,
-                code: 'jota',
-                nick: 'JOTA',
-                stickerids: [
-                    11090,
-                    11091,
-                    11092,
-                    11093
-                ],
-                rankingids: [
-                    11751,
-                    11752,
-                    11753
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
@@ -2896,18 +1553,14 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 48,
         team: 'liq',
-        stickerid_graffiti: 10529,
+        stickerid_graffiti: 11966,
         stickerids: [
-            10481,
-            10482,
-            10483,
-            10484
+            11894,
+            11895,
+            11896,
+            11897
         ],
-        rankingids: [
-            11319,
-            11320,
-            11321
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
             {
@@ -2915,280 +1568,668 @@ var g_ActiveTournamentTeams = [
                 code: 'elige',
                 nick: 'EliGE',
                 stickerids: [
-                    11094,
-                    11095,
-                    11096,
-                    11097
+                    12379,
+                    12380,
+                    12381,
+                    12382
                 ],
-                rankingids: [
-                    11754,
-                    11755,
-                    11756
-                ],
+                rankingids: [],
             },
             {
-                playerid: 323723495,
-                code: 'ultimate',
-                nick: 'ultimate',
+                playerid: 218120778,
+                code: 'jorko',
+                nick: 'Jorko',
                 stickerids: [
-                    11098,
-                    11099,
-                    11100,
-                    11101
+                    12383,
+                    12384,
+                    12385,
+                    12386
                 ],
-                rankingids: [
-                    11757,
-                    11758,
-                    11759
+                rankingids: [],
+            },
+            {
+                playerid: 61449372,
+                code: 'jt',
+                nick: 'JT',
+                stickerids: [
+                    12387,
+                    12388,
+                    12389,
+                    12390
                 ],
+                rankingids: [],
             },
             {
                 playerid: 120437415,
                 code: 'malbsmd',
                 nick: 'malbsMd',
                 stickerids: [
-                    11102,
-                    11103,
-                    11104,
-                    11105
+                    12391,
+                    12392,
+                    12393,
+                    12394
                 ],
-                rankingids: [
-                    11760,
-                    11761,
-                    11762
-                ],
-            },
-            {
-                playerid: 190407632,
-                code: 'siuhy',
-                nick: 'siuhy',
-                stickerids: [
-                    11106,
-                    11107,
-                    11108,
-                    11109
-                ],
-                rankingids: [
-                    11763,
-                    11764,
-                    11765
-                ],
+                rankingids: [],
             },
             {
                 playerid: 40885967,
                 code: 'naf',
                 nick: 'NAF',
                 stickerids: [
-                    11110,
-                    11111,
-                    11112,
-                    11113
+                    12395,
+                    12396,
+                    12397,
+                    12398
                 ],
-                rankingids: [
-                    11766,
-                    11767,
-                    11768
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 127,
-        team: 'lynn',
-        stickerid_graffiti: 10530,
+        teamid: 110,
+        team: 'eter',
+        stickerid_graffiti: 11967,
         stickerids: [
-            10485,
-            10486,
-            10487,
-            10488
+            11898,
+            11899,
+            11900,
+            11901
         ],
-        rankingids: [
-            11322,
-            11323,
-            11324
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
             {
-                playerid: 146974312,
-                code: 'westmelon',
-                nick: 'westmelon',
+                playerid: 450484535,
+                code: 'jottaaa',
+                nick: 'jottAAA',
                 stickerids: [
-                    11114,
-                    11115,
-                    11116,
-                    11117
+                    12399,
+                    12400,
+                    12401,
+                    12402
                 ],
-                rankingids: [
-                    11769,
-                    11770,
-                    11771
-                ],
+                rankingids: [],
             },
             {
-                playerid: 177517735,
-                code: 'z4kr',
-                nick: 'z4KR',
+                playerid: 885170938,
+                code: 'kvem',
+                nick: 'Kvem',
                 stickerids: [
-                    11118,
-                    11119,
-                    11120,
-                    11121
+                    12403,
+                    12404,
+                    12405,
+                    12406
                 ],
-                rankingids: [
-                    11772,
-                    11773,
-                    11774
-                ],
+                rankingids: [],
             },
             {
-                playerid: 920033815,
-                code: 'starry',
-                nick: 'Starry',
+                playerid: 175149890,
+                code: 'mistem',
+                nick: 'MisteM',
                 stickerids: [
-                    11122,
-                    11123,
-                    11124,
-                    11125
+                    12407,
+                    12408,
+                    12409,
+                    12410
                 ],
-                rankingids: [
-                    11775,
-                    11776,
-                    11777
-                ],
+                rankingids: [],
             },
             {
-                playerid: 856465673,
-                code: 'emiliaqaq',
-                nick: 'EmiliaQAQ',
+                playerid: 138197501,
+                code: 'regali',
+                nick: 'regali',
                 stickerids: [
-                    11126,
-                    11127,
-                    11128,
-                    11129
+                    12411,
+                    12412,
+                    12413,
+                    12414
                 ],
-                rankingids: [
-                    11778,
-                    11779,
-                    11780
-                ],
+                rankingids: [],
             },
             {
-                playerid: 456122416,
-                code: 'c4llm3su3',
-                nick: 'C4LLM3SU3',
+                playerid: 366802450,
+                code: 'soulfly',
+                nick: 'soulfly',
                 stickerids: [
-                    11130,
-                    11131,
-                    11132,
-                    11133
+                    12415,
+                    12416,
+                    12417,
+                    12418
                 ],
-                rankingids: [
-                    11781,
-                    11782,
-                    11783
-                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
     {
-        teamid: 148,
-        team: 'thun',
-        stickerid_graffiti: 10531,
+        teamid: 78,
+        team: 'thv',
+        stickerid_graffiti: 11968,
         stickerids: [
-            10489,
-            10490,
-            10491,
-            10492
+            11902,
+            11903,
+            11904,
+            11905
         ],
-        rankingids: [
-            11325,
-            11326,
-            11327
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
             {
-                playerid: 101535513,
-                code: 'dexter',
-                nick: 'dexter',
+                playerid: 27447936,
+                code: 'device',
+                nick: 'device',
                 stickerids: [
-                    11134,
-                    11135,
-                    11136,
-                    11137
+                    12419,
+                    12420,
+                    12421,
+                    12422
                 ],
-                rankingids: [
-                    11784,
-                    11785,
-                    11786
-                ],
+                rankingids: [],
             },
             {
-                playerid: 112055988,
-                code: 'liazz',
-                nick: 'Liazz',
+                playerid: 383961258,
+                code: 'gizmy',
+                nick: 'Gizmy',
                 stickerids: [
-                    11138,
-                    11139,
-                    11140,
-                    11141
+                    12423,
+                    12424,
+                    12425,
+                    12426
                 ],
-                rankingids: [
-                    11787,
-                    11788,
-                    11789
-                ],
+                rankingids: [],
             },
             {
-                playerid: 138080982,
-                code: 'alistair',
-                nick: 'aliStair',
+                playerid: 34912753,
+                code: 'poiii',
+                nick: 'poiii',
                 stickerids: [
-                    11142,
-                    11143,
-                    11144,
-                    11145
+                    12427,
+                    12428,
+                    12429,
+                    12430
                 ],
-                rankingids: [
-                    11790,
-                    11791,
-                    11792
-                ],
+                rankingids: [],
             },
+            {
+                playerid: 37085479,
+                code: 'rain',
+                nick: 'rain',
+                stickerids: [
+                    12431,
+                    12432,
+                    12433,
+                    12434
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 348675310,
+                code: 'sirah',
+                nick: 'sirah',
+                stickerids: [
+                    12435,
+                    12436,
+                    12437,
+                    12438
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 112,
+        team: 'nine',
+        stickerid_graffiti: 11969,
+        stickerids: [
+            11906,
+            11907,
+            11908,
+            11909
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 256625848,
+                code: 'dgt',
+                nick: 'dgt',
+                stickerids: [
+                    12439,
+                    12440,
+                    12441,
+                    12442
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 359457480,
+                code: 'huasopeek',
+                nick: 'HUASOPEEK',
+                stickerids: [
+                    12443,
+                    12444,
+                    12445,
+                    12446
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 107456470,
+                code: 'luchov',
+                nick: 'luchov',
+                stickerids: [
+                    12447,
+                    12448,
+                    12449,
+                    12450
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 282684656,
+                code: 'max',
+                nick: 'max',
+                stickerids: [
+                    12451,
+                    12452,
+                    12453,
+                    12454
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 235377137,
+                code: 'meyern',
+                nick: 'meyern',
+                stickerids: [
+                    12455,
+                    12456,
+                    12457,
+                    12458
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 140,
+        team: 'm80',
+        stickerid_graffiti: 11970,
+        stickerids: [
+            11910,
+            11911,
+            11912,
+            11913
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 223887847,
+                code: 'jba',
+                nick: 'JBa',
+                stickerids: [
+                    12459,
+                    12460,
+                    12461,
+                    12462
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 377218468,
+                code: 'lake',
+                nick: 'Lake',
+                stickerids: [
+                    12463,
+                    12464,
+                    12465,
+                    12466
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 230197733,
+                code: 's1n',
+                nick: 's1n',
+                stickerids: [
+                    12467,
+                    12468,
+                    12469,
+                    12470
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 104087441,
+                code: 'slaxz',
+                nick: 'slaxz-',
+                stickerids: [
+                    12471,
+                    12472,
+                    12473,
+                    12474
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 222737943,
+                code: 'swisher',
+                nick: 'Swisher',
+                stickerids: [
+                    12475,
+                    12476,
+                    12477,
+                    12478
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 151,
+        team: 'dend',
+        stickerid_graffiti: 11971,
+        stickerids: [
+            11914,
+            11915,
+            11916,
+            11917
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 135630812,
+                code: 'doc',
+                nick: 'doc',
+                stickerids: [
+                    12479,
+                    12480,
+                    12481,
+                    12482
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 174962930,
+                code: 'gafolo',
+                nick: 'gafolo',
+                stickerids: [
+                    12483,
+                    12484,
+                    12485,
+                    12486
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 849196548,
+                code: 'koala',
+                nick: 'koala',
+                stickerids: [
+                    12487,
+                    12488,
+                    12489,
+                    12490
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1070706470,
+                code: 'maxxkor',
+                nick: 'maxxkor',
+                stickerids: [
+                    12491,
+                    12492,
+                    12493,
+                    12494
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 347468740,
+                code: 'rdnzao',
+                nick: 'rdnzao',
+                stickerids: [
+                    12495,
+                    12496,
+                    12497,
+                    12498
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 113,
+        team: 'imp',
+        stickerid_graffiti: 11972,
+        stickerids: [
+            11918,
+            11919,
+            11920,
+            11921
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 107498100,
+                code: 'chelo',
+                nick: 'chelo',
+                stickerids: [
+                    12499,
+                    12500,
+                    12501,
+                    12502
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 346906182,
+                code: 'decenty',
+                nick: 'decenty',
+                stickerids: [
+                    12503,
+                    12504,
+                    12505,
+                    12506
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 839943839,
+                code: 'noway',
+                nick: 'noway',
+                stickerids: [
+                    12507,
+                    12508,
+                    12509,
+                    12510
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 140229234,
+                code: 'saadzin',
+                nick: 'saadzin',
+                stickerids: [
+                    12511,
+                    12512,
+                    12513,
+                    12514
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 36104456,
+                code: 'vini',
+                nick: 'VINI',
+                stickerids: [
+                    12515,
+                    12516,
+                    12517,
+                    12518
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 130,
+        team: 'wcrd',
+        stickerid_graffiti: 11973,
+        stickerids: [
+            11922,
+            11923,
+            11924,
+            11925
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 211453961,
+                code: 'cxzi',
+                nick: 'Cxzi',
+                stickerids: [
+                    12519,
+                    12520,
+                    12521,
+                    12522
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 177768668,
+                code: 'fr3nd',
+                nick: 'fr3nd',
+                stickerids: [
+                    12523,
+                    12524,
+                    12525,
+                    12526
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 250668735,
+                code: 'hext',
+                nick: 'HexT',
+                stickerids: [
+                    12527,
+                    12528,
+                    12529,
+                    12530
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 22076121,
+                code: 'nemanha',
+                nick: 'nEMANHA',
+                stickerids: [
+                    12531,
+                    12532,
+                    12533,
+                    12534
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 374549101,
+                code: 'reck',
+                nick: 'reck',
+                stickerids: [
+                    12535,
+                    12536,
+                    12537,
+                    12538
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 150,
+        team: 'gosh',
+        stickerid_graffiti: 11974,
+        stickerids: [
+            11926,
+            11927,
+            11928,
+            11929
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
             {
                 playerid: 68391216,
                 code: 'asap',
                 nick: 'asap',
                 stickerids: [
-                    11146,
-                    11147,
-                    11148,
-                    11149
+                    12539,
+                    12540,
+                    12541,
+                    12542
                 ],
-                rankingids: [
-                    11793,
-                    11794,
-                    11795
-                ],
+                rankingids: [],
             },
             {
-                playerid: 203514302,
-                code: 'tjp',
-                nick: 'TjP',
+                playerid: 23690923,
+                code: 'magisk',
+                nick: 'Magisk',
                 stickerids: [
-                    11150,
-                    11151,
-                    11152,
-                    11153
+                    12543,
+                    12544,
+                    12545,
+                    12546
                 ],
-                rankingids: [
-                    11796,
-                    11797,
-                    11798
+                rankingids: [],
+            },
+            {
+                playerid: 878556854,
+                code: 'mzinho',
+                nick: 'mzinho',
+                stickerids: [
+                    12547,
+                    12548,
+                    12549,
+                    12550
                 ],
+                rankingids: [],
+            },
+            {
+                playerid: 73936547,
+                code: 's1mple',
+                nick: 's1mple',
+                stickerids: [
+                    12551,
+                    12552,
+                    12553,
+                    12554
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 960454289,
+                code: 'senzu',
+                nick: 'Senzu',
+                stickerids: [
+                    12555,
+                    12556,
+                    12557,
+                    12558
+                ],
+                rankingids: [],
             },
         ],
         champions: [],
@@ -3196,716 +2237,246 @@ var g_ActiveTournamentTeams = [
     {
         teamid: 132,
         team: 'fq',
-        stickerid_graffiti: 10532,
+        stickerid_graffiti: 11975,
         stickerids: [
-            10493,
-            10494,
-            10495,
-            10496
+            11930,
+            11931,
+            11932,
+            11933
         ],
-        rankingids: [
-            11328,
-            11329,
-            11330
-        ],
+        rankingids: [],
         team_group: 'contenders',
         players: [
+            {
+                playerid: 138080982,
+                code: 'alistair',
+                nick: 'aliStair',
+                stickerids: [
+                    12559,
+                    12560,
+                    12561,
+                    12562
+                ],
+                rankingids: [],
+            },
             {
                 playerid: 26946895,
                 code: 'ins',
                 nick: 'INS',
                 stickerids: [
-                    11154,
-                    11155,
-                    11156,
-                    11157
+                    12563,
+                    12564,
+                    12565,
+                    12566
                 ],
-                rankingids: [
-                    11799,
-                    11800,
-                    11801
-                ],
+                rankingids: [],
             },
             {
                 playerid: 16839456,
                 code: 'jks',
                 nick: 'jks',
                 stickerids: [
-                    11158,
-                    11159,
-                    11160,
-                    11161
+                    12567,
+                    12568,
+                    12569,
+                    12570
                 ],
-                rankingids: [
-                    11802,
-                    11803,
-                    11804
-                ],
-            },
-            {
-                playerid: 92622415,
-                code: 'vexite',
-                nick: 'vexite',
-                stickerids: [
-                    11162,
-                    11163,
-                    11164,
-                    11165
-                ],
-                rankingids: [
-                    11805,
-                    11806,
-                    11807
-                ],
-            },
-            {
-                playerid: 105182632,
-                code: 'story',
-                nick: 'story',
-                stickerids: [
-                    11166,
-                    11167,
-                    11168,
-                    11169
-                ],
-                rankingids: [
-                    11808,
-                    11809,
-                    11810
-                ],
+                rankingids: [],
             },
             {
                 playerid: 372579523,
                 code: 'nettik',
                 nick: 'nettik',
                 stickerids: [
-                    11170,
-                    11171,
-                    11172,
-                    11173
+                    12571,
+                    12572,
+                    12573,
+                    12574
                 ],
-                rankingids: [
-                    11811,
-                    11812,
-                    11813
+                rankingids: [],
+            },
+            {
+                playerid: 92622415,
+                code: 'vexite',
+                nick: 'vexite',
+                stickerids: [
+                    12575,
+                    12576,
+                    12577,
+                    12578
                 ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 138,
+        team: 'chin',
+        stickerid_graffiti: 11976,
+        stickerids: [
+            11934,
+            11935,
+            11936,
+            11937
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 882582488,
+                code: 'cool4st',
+                nick: 'cool4st',
+                stickerids: [
+                    12579,
+                    12580,
+                    12581,
+                    12582
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 866891295,
+                code: 'fury5k',
+                nick: 'fury5k',
+                stickerids: [
+                    12583,
+                    12584,
+                    12585,
+                    12586
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 977087142,
+                code: 'roux',
+                nick: 'ROUX',
+                stickerids: [
+                    12587,
+                    12588,
+                    12589,
+                    12590
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 863160115,
+                code: 'sk0r',
+                nick: 'sk0R',
+                stickerids: [
+                    12591,
+                    12592,
+                    12593,
+                    12594
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 1430173287,
+                code: 'tikuak',
+                nick: 'tikuak',
+                stickerids: [
+                    12595,
+                    12596,
+                    12597,
+                    12598
+                ],
+                rankingids: [],
+            },
+        ],
+        champions: [],
+    },
+    {
+        teamid: 127,
+        team: 'lynn',
+        stickerid_graffiti: 11977,
+        stickerids: [
+            11938,
+            11939,
+            11940,
+            11941
+        ],
+        rankingids: [],
+        team_group: 'contenders',
+        players: [
+            {
+                playerid: 456122416,
+                code: 'c4llm3su3',
+                nick: 'C4LLM3SU3',
+                stickerids: [
+                    12599,
+                    12600,
+                    12601,
+                    12602
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 856465673,
+                code: 'emiliaqaq',
+                nick: 'EmiliaQAQ',
+                stickerids: [
+                    12603,
+                    12604,
+                    12605,
+                    12606
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 920033815,
+                code: 'starry',
+                nick: 'Starry',
+                stickerids: [
+                    12607,
+                    12608,
+                    12609,
+                    12610
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 146974312,
+                code: 'westmelon',
+                nick: 'westmelon',
+                stickerids: [
+                    12611,
+                    12612,
+                    12613,
+                    12614
+                ],
+                rankingids: [],
+            },
+            {
+                playerid: 177517735,
+                code: 'z4kr',
+                nick: 'z4KR',
+                stickerids: [
+                    12615,
+                    12616,
+                    12617,
+                    12618
+                ],
+                rankingids: [],
             },
         ],
         champions: [],
     },
 ];
-var g_ActiveTournamentHighlights = [
-    {
-        itemid_dynamic_shop: 5323,
-        group_id: 1,
-        stage: 49,
-        highlights: [
-            {
-                kc_highlight: 85,
-                stage: 49,
-                teamid1: 48,
-                teamid2: 69,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_st1ultimatenukejumpkill",
-                desc: "#HighlightDesc_cologne2026_st1ultimatenukejumpkill",
-            },
-            {
-                kc_highlight: 86,
-                stage: 49,
-                teamid1: 69,
-                teamid2: 87,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st1tabsenmirage1v2clutch",
-                desc: "#HighlightDesc_cologne2026_st1tabsenmirage1v2clutch",
-            },
-            {
-                kc_highlight: 87,
-                stage: 49,
-                teamid1: 74,
-                teamid2: 104,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st1koalainfernoace",
-                desc: "#HighlightDesc_cologne2026_st1koalainfernoace",
-            },
-            {
-                kc_highlight: 88,
-                stage: 49,
-                teamid1: 74,
-                teamid2: 127,
-                map_name: 'de_ancient',
-                title: "#HighlightReel_cologne2026_st1starryancientquadkill",
-                desc: "#HighlightDesc_cologne2026_st1starryancientquadkill",
-            },
-            {
-                kc_highlight: 89,
-                stage: 49,
-                teamid1: 80,
-                teamid2: 148,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st1asapinfernoace",
-                desc: "#HighlightDesc_cologne2026_st1asapinfernoace",
-            },
-            {
-                kc_highlight: 90,
-                stage: 49,
-                teamid1: 87,
-                teamid2: 115,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st1hypexinfernosmokekill",
-                desc: "#HighlightDesc_cologne2026_st1hypexinfernosmokekill",
-            },
-            {
-                kc_highlight: 91,
-                stage: 49,
-                teamid1: 95,
-                teamid2: 146,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st1suspinferno1v3clutch",
-                desc: "#HighlightDesc_cologne2026_st1suspinferno1v3clutch",
-            },
-            {
-                kc_highlight: 92,
-                stage: 49,
-                teamid1: 132,
-                teamid2: 147,
-                map_name: 'de_ancient',
-                title: "#HighlightReel_cologne2026_st1beastikancientquadkill",
-                desc: "#HighlightDesc_cologne2026_st1beastikancientquadkill",
-            },
-            {
-                kc_highlight: 93,
-                stage: 49,
-                teamid1: 135,
-                teamid2: 140,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st1s1zziinferno1v3clutch",
-                desc: "#HighlightDesc_cologne2026_st1s1zziinferno1v3clutch",
-            },
-            {
-                kc_highlight: 94,
-                stage: 49,
-                teamid1: 137,
-                teamid2: 146,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_st1magnojezdust21v3clutch",
-                desc: "#HighlightDesc_cologne2026_st1magnojezdust21v3clutch",
-            },
-        ]
-    },
-    {
-        itemid_dynamic_shop: 5324,
-        group_id: 2,
-        stage: 65,
-        highlights: [
-            {
-                kc_highlight: 95,
-                stage: 65,
-                teamid1: 59,
-                teamid2: 69,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st2nertzinfernoace",
-                desc: "#HighlightDesc_cologne2026_st2nertzinfernoace",
-            },
-            {
-                kc_highlight: 96,
-                stage: 65,
-                teamid1: 59,
-                teamid2: 119,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st2gizmymirageknifekill",
-                desc: "#HighlightDesc_cologne2026_st2gizmymirageknifekill",
-            },
-            {
-                kc_highlight: 97,
-                stage: 65,
-                teamid1: 59,
-                teamid2: 140,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st2matysmirageace",
-                desc: "#HighlightDesc_cologne2026_st2matysmirageace",
-            },
-            {
-                kc_highlight: 98,
-                stage: 65,
-                teamid1: 60,
-                teamid2: 102,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_st2saffeenuketriplekill",
-                desc: "#HighlightDesc_cologne2026_st2saffeenuketriplekill",
-            },
-            {
-                kc_highlight: 99,
-                stage: 65,
-                teamid1: 69,
-                teamid2: 135,
-                map_name: 'de_ancient',
-                title: "#HighlightReel_cologne2026_st2gr1ksancient1v3awpclutch",
-                desc: "#HighlightDesc_cologne2026_st2gr1ksancient1v3awpclutch",
-            },
-            {
-                kc_highlight: 100,
-                stage: 65,
-                teamid1: 69,
-                teamid2: 135,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_st2kensizordust2acetoadvance",
-                desc: "#HighlightDesc_cologne2026_st2kensizordust2acetoadvance",
-            },
-            {
-                kc_highlight: 101,
-                stage: 65,
-                teamid1: 69,
-                teamid2: 135,
-                map_name: 'de_overpass',
-                title: "#HighlightReel_cologne2026_st2s1zzioverpassace",
-                desc: "#HighlightDesc_cologne2026_st2s1zzioverpassace",
-            },
-            {
-                kc_highlight: 102,
-                stage: 65,
-                teamid1: 80,
-                teamid2: 135,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st2venomzeramirage1v3clutch",
-                desc: "#HighlightDesc_cologne2026_st2venomzeramirage1v3clutch",
-            },
-            {
-                kc_highlight: 103,
-                stage: 65,
-                teamid1: 81,
-                teamid2: 112,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_st2donknuke4kwithonetaps",
-                desc: "#HighlightDesc_cologne2026_st2donknuke4kwithonetaps",
-            },
-            {
-                kc_highlight: 104,
-                stage: 65,
-                teamid1: 102,
-                teamid2: 119,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_st2azuwudust2deagleace",
-                desc: "#HighlightDesc_cologne2026_st2azuwudust2deagleace",
-            },
-        ]
-    },
-    {
-        itemid_dynamic_shop: 5325,
-        group_id: 3,
-        stage: 83,
-        highlights: [
-            {
-                kc_highlight: 105,
-                stage: 83,
-                teamid1: 12,
-                teamid2: 59,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_st3w0nderfuldust22hp1v4clutch",
-                desc: "#HighlightDesc_cologne2026_st3w0nderfuldust22hp1v4clutch",
-            },
-            {
-                kc_highlight: 106,
-                stage: 83,
-                teamid1: 81,
-                teamid2: 112,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_st3sh1rodust24kwith1v2clutch",
-                desc: "#HighlightDesc_cologne2026_st3sh1rodust24kwith1v2clutch",
-            },
-            {
-                kc_highlight: 107,
-                stage: 83,
-                teamid1: 81,
-                teamid2: 134,
-                map_name: 'de_anubis',
-                title: "#HighlightReel_cologne2026_st3magixxanubismultiweaponace",
-                desc: "#HighlightDesc_cologne2026_st3magixxanubismultiweaponace",
-            },
-            {
-                kc_highlight: 108,
-                stage: 83,
-                teamid1: 85,
-                teamid2: 135,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_st3ksceratoinferno1v3clutch",
-                desc: "#HighlightDesc_cologne2026_st3ksceratoinferno1v3clutch",
-            },
-            {
-                kc_highlight: 109,
-                stage: 83,
-                teamid1: 85,
-                teamid2: 135,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st3yekindarmiragetriplekill",
-                desc: "#HighlightDesc_cologne2026_st3yekindarmiragetriplekill",
-            },
-            {
-                kc_highlight: 110,
-                stage: 83,
-                teamid1: 89,
-                teamid2: 145,
-                map_name: 'de_overpass',
-                title: "#HighlightReel_cologne2026_st3zywoooverpassacewith1v3clutch",
-                desc: "#HighlightDesc_cologne2026_st3zywoooverpassacewith1v3clutch",
-            },
-            {
-                kc_highlight: 111,
-                stage: 83,
-                teamid1: 112,
-                teamid2: 122,
-                map_name: 'de_overpass',
-                title: "#HighlightReel_cologne2026_st3dgtoverpasspistolace",
-                desc: "#HighlightDesc_cologne2026_st3dgtoverpasspistolace",
-            },
-            {
-                kc_highlight: 112,
-                stage: 83,
-                teamid1: 112,
-                teamid2: 134,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_st3woxicdust21v4clutch",
-                desc: "#HighlightDesc_cologne2026_st3woxicdust21v4clutch",
-            },
-            {
-                kc_highlight: 113,
-                stage: 83,
-                teamid1: 119,
-                teamid2: 139,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st3nikomiragequadkill",
-                desc: "#HighlightDesc_cologne2026_st3nikomiragequadkill",
-            },
-            {
-                kc_highlight: 114,
-                stage: 83,
-                teamid1: 137,
-                teamid2: 145,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_st3krabenimirageace",
-                desc: "#HighlightDesc_cologne2026_st3krabenimirageace",
-            },
-        ]
-    },
-    {
-        itemid_dynamic_shop: 5326,
-        group_id: 4,
-        stage: 6,
-        highlights: [
-            {
-                kc_highlight: 115,
-                stage: 6,
-                teamid1: 134,
-                teamid2: 137,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_qfboombl4nuke1v3clutch",
-                desc: "#HighlightDesc_cologne2026_qfboombl4nuke1v3clutch",
-            },
-            {
-                kc_highlight: 116,
-                stage: 6,
-                teamid1: 134,
-                teamid2: 137,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_qfsoulflynuke1v2clutch",
-                desc: "#HighlightDesc_cologne2026_qfsoulflynuke1v2clutch",
-            },
-            {
-                kc_highlight: 117,
-                stage: 6,
-                teamid1: 59,
-                teamid2: 81,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_qfsh1romirageace",
-                desc: "#HighlightDesc_cologne2026_qfsh1romirageace",
-            },
-            {
-                kc_highlight: 118,
-                stage: 6,
-                teamid1: 59,
-                teamid2: 81,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_qfmagixxmirage1v4clutch",
-                desc: "#HighlightDesc_cologne2026_qfmagixxmirage1v4clutch",
-            },
-            {
-                kc_highlight: 119,
-                stage: 6,
-                teamid1: 59,
-                teamid2: 81,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_qfdonkdust21v2clutch",
-                desc: "#HighlightDesc_cologne2026_qfdonkdust21v2clutch",
-            },
-            {
-                kc_highlight: 120,
-                stage: 6,
-                teamid1: 89,
-                teamid2: 139,
-                map_name: 'de_anubis',
-                title: "#HighlightReel_cologne2026_qfkyousukeanubis3kills",
-                desc: "#HighlightDesc_cologne2026_qfkyousukeanubis3kills",
-            },
-            {
-                kc_highlight: 121,
-                stage: 6,
-                teamid1: 89,
-                teamid2: 139,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_qfmeziidust2molotovkill",
-                desc: "#HighlightDesc_cologne2026_qfmeziidust2molotovkill",
-            },
-            {
-                kc_highlight: 122,
-                stage: 6,
-                teamid1: 85,
-                teamid2: 112,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_qfyuurihmirage1v4clutch",
-                desc: "#HighlightDesc_cologne2026_qfyuurihmirage1v4clutch",
-            },
-            {
-                kc_highlight: 123,
-                stage: 6,
-                teamid1: 85,
-                teamid2: 112,
-                map_name: 'de_overpass',
-                title: "#HighlightReel_cologne2026_qfhuasopeekoverpassace",
-                desc: "#HighlightDesc_cologne2026_qfhuasopeekoverpassace",
-            },
-            {
-                kc_highlight: 124,
-                stage: 6,
-                teamid1: 85,
-                teamid2: 112,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_qfmaxdust21v2clutch",
-                desc: "#HighlightDesc_cologne2026_qfmaxdust21v2clutch",
-            },
-        ]
-    },
-    {
-        itemid_dynamic_shop: 5327,
-        group_id: 5,
-        stage: 8,
-        highlights: [
-            {
-                kc_highlight: 125,
-                stage: 8,
-                teamid1: 85,
-                teamid2: 134,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_sfsoulflydust23kills",
-                desc: "#HighlightDesc_cologne2026_sfsoulflydust23kills",
-            },
-            {
-                kc_highlight: 126,
-                stage: 8,
-                teamid1: 85,
-                teamid2: 134,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_sfksceratodust2ace",
-                desc: "#HighlightDesc_cologne2026_sfksceratodust2ace",
-            },
-            {
-                kc_highlight: 127,
-                stage: 8,
-                teamid1: 85,
-                teamid2: 134,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_sfyekindardust22kills",
-                desc: "#HighlightDesc_cologne2026_sfyekindardust22kills",
-            },
-            {
-                kc_highlight: 128,
-                stage: 8,
-                teamid1: 85,
-                teamid2: 134,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_sfyekindarnuketriplekill",
-                desc: "#HighlightDesc_cologne2026_sfyekindarnuketriplekill",
-            },
-            {
-                kc_highlight: 129,
-                stage: 8,
-                teamid1: 85,
-                teamid2: 134,
-                map_name: 'de_nuke',
-                title: "#HighlightReel_cologne2026_sfksceratonukequadkill",
-                desc: "#HighlightDesc_cologne2026_sfksceratonukequadkill",
-            },
-            {
-                kc_highlight: 130,
-                stage: 8,
-                teamid1: 81,
-                teamid2: 139,
-                map_name: 'de_anubis',
-                title: "#HighlightReel_cologne2026_sfkyousukeanubistriplekill",
-                desc: "#HighlightDesc_cologne2026_sfkyousukeanubistriplekill",
-            },
-            {
-                kc_highlight: 131,
-                stage: 8,
-                teamid1: 81,
-                teamid2: 139,
-                map_name: 'de_anubis',
-                title: "#HighlightReel_cologne2026_sfsh1roanubisquadkill",
-                desc: "#HighlightDesc_cologne2026_sfsh1roanubisquadkill",
-            },
-            {
-                kc_highlight: 132,
-                stage: 8,
-                teamid1: 81,
-                teamid2: 139,
-                map_name: 'de_dust2',
-                title: "#HighlightReel_cologne2026_sftesesdust21v2clutch",
-                desc: "#HighlightDesc_cologne2026_sftesesdust21v2clutch",
-            },
-            {
-                kc_highlight: 133,
-                stage: 8,
-                teamid1: 81,
-                teamid2: 139,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_sfkarriganmirage4kills",
-                desc: "#HighlightDesc_cologne2026_sfkarriganmirage4kills",
-            },
-            {
-                kc_highlight: 134,
-                stage: 8,
-                teamid1: 81,
-                teamid2: 139,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_sfmagixxmirage4kills",
-                desc: "#HighlightDesc_cologne2026_sfmagixxmirage4kills",
-            },
-        ]
-    },
-    {
-        itemid_dynamic_shop: 5328,
-        group_id: 6,
-        stage: 97,
-        highlights: [
-            {
-                kc_highlight: 135,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_gffalconsteamentrance",
-                desc: "#HighlightDesc_cologne2026_gffalconsteamentrance",
-            },
-            {
-                kc_highlight: 136,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_gffuriateamentrance",
-                desc: "#HighlightDesc_cologne2026_gffuriateamentrance",
-            },
-            {
-                kc_highlight: 137,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_mirage',
-                title: "#HighlightReel_cologne2026_gffallenmiragequadkill",
-                desc: "#HighlightDesc_cologne2026_gffallenmiragequadkill",
-            },
-            {
-                kc_highlight: 138,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_anubis',
-                title: "#HighlightReel_cologne2026_gfm0nesyanubis4kills",
-                desc: "#HighlightDesc_cologne2026_gfm0nesyanubis4kills",
-            },
-            {
-                kc_highlight: 139,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_anubis',
-                title: "#HighlightReel_cologne2026_gfm0nesyanubis3killswith1v2clutch",
-                desc: "#HighlightDesc_cologne2026_gfm0nesyanubis3killswith1v2clutch",
-            },
-            {
-                kc_highlight: 140,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_gfkyousukeinferno4kills",
-                desc: "#HighlightDesc_cologne2026_gfkyousukeinferno4kills",
-            },
-            {
-                kc_highlight: 141,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_gfkarriganinferno3kills",
-                desc: "#HighlightDesc_cologne2026_gfkarriganinferno3kills",
-            },
-            {
-                kc_highlight: 142,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_gfnikoinfernotriplekill",
-                desc: "#HighlightDesc_cologne2026_gfnikoinfernotriplekill",
-            },
-            {
-                kc_highlight: 143,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_gfkarriganinfernodoublekill",
-                desc: "#HighlightDesc_cologne2026_gfkarriganinfernodoublekill",
-            },
-            {
-                kc_highlight: 144,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_gfm0nesyinfernomajorwinningkill",
-                desc: "#HighlightDesc_cologne2026_gfm0nesyinfernomajorwinningkill",
-            },
-            {
-                kc_highlight: 145,
-                stage: 97,
-                teamid1: 85,
-                teamid2: 139,
-                map_name: 'de_inferno',
-                title: "#HighlightReel_cologne2026_gffalconstrophyliftingmoment",
-                desc: "#HighlightDesc_cologne2026_gffalconstrophyliftingmoment",
-            },
-        ]
-    },
-];
+var g_ActiveTournamentHighlights = [];
 var g_ActiveTournamentStoreLayout = [
     [
         g_ActiveTournamentInfo.itemid_pass,
         g_ActiveTournamentInfo.itemid_pack,
-        '#CSGO_TournamentPass_cologne2026_pack_tinyname'
+        '#CSGO_TournamentPass_singapore2026_pack_tinyname'
     ]
 ];
 var g_ActiveTournamentPasses = [
     g_ActiveTournamentInfo.itemid_pass,
     g_ActiveTournamentInfo.itemid_pack,
 ];
+var g_ActiveTournamentDynamicSouvenirFaux = 'R-1152921504606714548';
 var g_ActiveTournamentDynamicContainers = [
-    5316,
-    5329,
-    4040,
-    5323,
-    5324,
-    5325,
-    5326,
-    5327,
-    5328,
+    5416,
+    5423,
 ];

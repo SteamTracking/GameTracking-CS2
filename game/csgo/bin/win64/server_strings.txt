@@ -6491,6 +6491,8 @@ $tH@T\tI
 .?AVCMsgUpdateItemSchema@@
 .?AVCMsgUseItem@@
 .?AVCMsgVDebugGameSessionIDEvent@@
+.?AVCMsgVolatileContainerPricesheet@@
+.?AVCMsgVolatileContainerPricesheet_Entry@@
 .?AVCMultiLightProxy@@
 .?AVCMultiSource@@
 .?AVCMultiplayRules@@

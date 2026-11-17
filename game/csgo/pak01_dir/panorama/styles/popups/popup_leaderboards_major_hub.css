@@ -1,0 +1,146 @@
+/* Prettified by Source 2 Viewer - https://valveresourceformat.github.io */
+
+.PopupPanel.major-hub-popup-leaderboard .PopupTitle
+{
+	letter-spacing: 4px;
+	font-family: Stratum2 Light Condensed, "Arial Unicode MS";
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded
+{
+	width: 300px;
+	height: 145px;
+	min-width: 300px;
+	max-width: 300px;
+	vertical-align: top;
+	horizontal-align: right;
+	margin-right: 42px;
+	margin-top: 8px;
+	padding: 0px;
+	background-color: none;
+	border: 0px solid white;
+	box-shadow: none;
+	ui-scale: 92%;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded.leaderboard-has-nodata
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard-title-bar
+{
+	height: 32px;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard-title-bar .PopupTitle
+{
+	padding: 1px;
+	font-size: 16px;
+	margin-left: 8px;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: white;
+	background-color: #00000000;
+	font-family: Stratum2 Medium Condensed, "Arial Unicode MS";
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard-title-bar .IconButton
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents
+{
+	height: 100%;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list
+{
+	margin: 0px;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .header_row
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__entries-container
+{
+	overflow: clip;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__row:Hover
+{
+	transform: scale3d( 1.0, 1.0, 1.0 );
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .local-player .popup-leaderboard__list__column
+{
+	background-color: rgba( 245, 245, 245, 0.01 );
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__column
+{
+	height: 26px;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__column.rank
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__column.score
+{
+	width: fill-parent-flow( 2 );
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__name-entry__avatar
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__column__title
+{
+	font-size: 12px;
+	height: 14px;
+	vertical-align: center;
+	font-family: Stratum2, "Arial Unicode MS";
+	color: baseText;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__column.itemimage ItemImage
+{
+	padding: 2px;
+	horizontal-align: center;
+	vertical-align: center;
+	height: 100%;
+	width: height-percentage( 125% );
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__list .popup-leaderboard__list__column.background
+{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__status
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+.popup-major-hub #id-leaderboard.leaderboard_embedded .popup-leaderboard__contents .popup-leaderboard__status .PopupMessage
+{
+	font-size: 10px;
+}
+
+.AspectRatio16x10 .popup-major-hub #id-leaderboard.leaderboard_embedded,.AspectRatio16x9 .popup-major-hub #id-leaderboard.leaderboard_embedded,.AspectRatio21x9 .popup-major-hub #id-leaderboard.leaderboard_embedded
+{
+	margin-right: 16px;
+}
+

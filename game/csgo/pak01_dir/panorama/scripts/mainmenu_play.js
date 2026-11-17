@@ -1123,7 +1123,10 @@ var PlayMenu;
         p.SetPanelEvent('onactivate', () => _OnActivateMapOrMapGroupButton(p));
         p.SetHasClass('map-selection-btn-activedutymap', mg.grouptype === 'active');
         p.FindChildInLayoutFile('ActiveGroupIcon').visible = mg.grouptype === 'active';
-        p.FindChildInLayoutFile('MapGroupName').text = $.Localize(mg.nameID);
+        let strNameLocToken = mg.nameID + '_short';
+        if (!$.CanLocalize(strNameLocToken))
+            strNameLocToken = mg.nameID;
+        p.FindChildInLayoutFile('MapGroupName').text = $.Localize(strNameLocToken);
         UpdateIconsAndScreenshots(p, numTiles, mapGroupName, mg);
         return p;
     }

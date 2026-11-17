@@ -60,7 +60,7 @@ var PopupRedeemSouvenir;
         }
         if (m_redeemsAvailable <= 0) {
             OnClose();
-            UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_tournament_journal.xml', 'journalid=' + coinId);
+            UiToolkitAPI.ShowCustomLayoutPopupParameters('id-popup-major-hub', 'file://{resources}/layout/popups/popup_major_hub.xml', 'eventid=' + m_tournamentIndex);
             return;
         }
         const contextPanel = $.GetContextPanel();

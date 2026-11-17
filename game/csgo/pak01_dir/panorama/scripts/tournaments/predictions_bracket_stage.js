@@ -108,13 +108,14 @@ var PredictionsBracket;
         });
     }
     function OnDragStart(elDragSource, drag) {
+        PopupMajorHub.ShowBannerTeam(elDragSource.Data().teamId);
         let elDragImage = $.CreatePanel('ItemImage', $.GetContextPanel(), '', {
             class: 'group-stage-drag-icon',
             textureheight: '48',
             texturewidth: '48'
         });
         elDragImage.SetImage(PopupMajorHub.GetTeamIcon(elDragSource.Data().teamId));
-        elDragImage.AddClass('start-drag');
+        elDragImage.AddClass('drag-start');
         elDragImage.Data().teamId = elDragSource.Data().teamId;
         elDragImage.Data().pickId = elDragSource.Data().pickId;
         elDragImage.Data().validSlotIds = elDragSource.Data().validSlotIds;

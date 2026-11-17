@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347779 
 
-Manifest ID / date     : 3182124947840740879 / 11/11/2026 18:33:14 
-Total number of files  : 909 
-Total number of chunks : 2523 
-Total bytes on disk    : 2108143143 
-Total bytes compressed : 576281504 
+Manifest ID / date     : 8547967306647237005 / 11/17/2026 18:25:32 
+Total number of files  : 910 
+Total number of chunks : 2526 
+Total bytes on disk    : 2111154640 
+Total bytes compressed : 576675280 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -501,6 +501,7 @@ Total bytes compressed : 576281504
           1417      1 96edb60d0fd02cdfd8b55689bc576dff84e16547     0 content\csgo\materials\rect\windows_hotspots_01a.vmat.rect
           3177      1 f02ce1d6610dacb969daee9cde683ca9f6aefc3e     0 content\csgo\materials\rect\windows_warehouse_01a.rect
           1079      1 661112135b0c418a82b86201044030f098752e37     0 content\csgo\materials\rect\wood_plywood_01.rect
+          4141      1 cd91503921f65a5a4ba0af2cb764f730dcc92f31     0 content\csgo\materials\trim\metal_trims_ship_01a.rect
           3565      1 e207a4eff82e05769b6c9e211f3dc4ece97b63f4     0 content\csgo\materials\trim\trim_layout_02.rect
           3783      1 2e420d1080f4fca72a3ee92b478d65ca38c59d7d     0 content\csgo\materials\trim\trim_masterlayout_01.rect
          16363      1 47e77fbb1df4ff7edf01343ddfe0a3931a7e51db     0 content\csgo\scripts\propdata.vdata
@@ -638,7 +639,7 @@ Total bytes compressed : 576281504
        5703320      6 8ffec1532c726eab6e11173ab3305e5fc5fda867     0 game\bin\win64\assetsystem.dll
        1529856      2 45e7d0873608e5424312fa289a270f2faacfe8fa     0 game\bin\win64\bc7e.dll
         396952      1 df08d28266d4c77d1468d69b1badbea7668ac714     0 game\bin\win64\cs2_build_econ_items_workshop.exe
-         13866      1 cae6d2cc7367d7495818f5ba9090e3fac90ca25e     0 game\bin\win64\csgo.signatures
+         13866      1 1a02b8126deea547a8387388c4f23d01ab3121d5     0 game\bin\win64\csgo.signatures
        1271448      2 f333bd4f41b4f22fcd25ef8ae50c9313b19e6966     0 game\bin\win64\csgocfg.exe
       15683224     15 ee224796853d56cf882d6216c2178dd452ce0e31     0 game\bin\win64\cs_mdl_import.exe
        1195672      2 4bb01bb63f5430fc2df767bf83bfeda9d8c0d182     0 game\bin\win64\dmxconvert.exe
@@ -664,7 +665,7 @@ Total bytes compressed : 576281504
          47744      1 5e52608c5ff4fffb626a9ab3a81a0913c132fd93     0 game\bin\win64\tbbbind_2_0.dll
          48768      1 b28a6fd65fe96ff562b07fcbcfe740e63a73604a     0 game\bin\win64\tbbbind_2_5.dll
       14936728     15 b689e2dbc1c6fdc0ad730d77221655a7d8614c37     0 game\bin\win64\toolscenenodes.dll
-       6679192      7 874f5874b60a7b88e40922b3c4b236fb934f726c     0 game\bin\win64\tools\cs2_item_editor.dll
+       6683800      7 067fe09bad755bfd27f134f1d26886d63686f302     0 game\bin\win64\tools\cs2_item_editor.dll
        2348184      3 d590b3bb3388c6ac77027e82c1e0b93727395415     0 game\bin\win64\tools\cs2_workshop_manager.dll
       39615128     39 01c48d99b29167ae5ce8982f7f99d02dca76c7cc     0 game\bin\win64\tools\hammer.dll
        4785816      5 f2b8db0b5ed0f8ae16d717d0b2720d95cee88a7b     0 game\bin\win64\tools\met.dll
@@ -685,9 +686,9 @@ Total bytes compressed : 576281504
          15349      1 77e30141e2c71fcbbd546d7fc03ce7dc4b9bc7e5     0 game\core\models_base.fgd
          10685      1 067c09ab720883c247eae43d4248f9f67367e158     0 game\core\models_base_breakables.fgd
           2004      1 5cb2856b8584f65147b80cd8c87e1cbe1c155992     0 game\core\postprocessing.fgd
-        423652      1 c5428fef616a47986946d6c793ec643e42b85246     0 game\core\readonly_tools_asset_info.bin
+        425739      1 cf2783a4f32ea8ef1fe38f80fc66c8b2288ce088     0 game\core\readonly_tools_asset_info.bin
           4922      1 ef927dc90ee64b75629aea8e9b62e8f5dcb0864b     0 game\core\vdata_base.fgd
-      17958552     18 12f2876f8d54f3368d09baa97c3986bc07a25aaf     0 game\csgo\bin\win64\modtools.dll
+      17959064     19 da30c669471fbff5780904a1d27dcceea1030eee     0 game\csgo\bin\win64\modtools.dll
          90143      1 cae1521a4d88c8e64aa25597839f8090666dbf8d     0 game\csgo\csgo.fgd
         398843      1 5ccbe56ddcb35b7e10316f10ab5294742a75b391     0 game\csgo\import_scripts\bin\base.fgd
          55534      1 d1dd4689259623923344c03ba682713d4427d7b7     0 game\csgo\import_scripts\bin\csgo.fgd
@@ -721,7 +722,7 @@ Total bytes compressed : 576281504
         133435      1 5c5acf7bffba281b1fb2de939a6953c385e26ac3     0 game\csgo\lighting\postprocessing\editor\toolsscene_default.vpost_c
           3823      1 aaa9517703492629cade78571c39f5fdc2c417e3     0 game\csgo\models_gamedata.fgd
           1559      1 ccef3c777e99029f1956e3ad23a718a99fd36d14     0 game\csgo\postprocessing.fgd
-      50761347     51 d44caf7f5cad721286779088099f863975f896d5     0 game\csgo\readonly_tools_asset_info.bin
+      53761496     52 9383b5af91d46bc6e03d0fa4f562310a88964b7c     0 game\csgo\readonly_tools_asset_info.bin
           3009      1 8374c54025aad8c3d4a72b5f7f198d99951b7844     0 game\csgo\tools\cs2_icon_gen\icon_camera.png
           2390      1 436ef3b91600906f462a33b9973b3f0955ddf1d6     0 game\csgo\tools\cs2_icon_gen\icon_item.png
           2566      1 d78fd6c17e836a35c1cff4b375de7928ea5aea40     0 game\csgo\tools\cs2_icon_gen\icon_light_fill.png
@@ -914,6 +915,6 @@ Total bytes compressed : 576281504
           6476      1 d71bc1d5fac402a9d18d71cd2b853ec98f26ec45     0 game\csgo_addons\cs_script_demo\panorama_stripped\maps\scripts\trace.js
            344      1 33085b2472c3efcdebb61a0cc4f2aec675f79166     0 game\csgo_addons\cs_script_demo\panorama_stripped\panorama\layout\custom_game\welcome.xml
            774      1 d4b48ea27dc2e4a7bd771559459e058e8dcd7040     0 game\csgo_addons\cs_script_demo\panorama_stripped\panorama\styles\custom_game\welcome.css
-          4862      1 a1a8b99f7caf6411ddc55f278f2dd68431b120b6     0 game\csgo_addons\cs_script_demo\readonly_tools_asset_info.bin
+          4862      1 d4fadc4775e309d0f4ef4ebd606b93970d3ab933     0 game\csgo_addons\cs_script_demo\readonly_tools_asset_info.bin
            191      1 e3c5549cb3715e2e759a11d90eddea1c1f49a341     0 game\csgo_addons\workshop_items\addoninfo.txt
        1706103      2 e12db26662c1223b12302ff8618f0630586d5a14     0 game\csgo_lv\readonly_tools_asset_info.bin

@@ -522,6 +522,9 @@ PS
 	// Fog
 	bool g_bFogEnabled < Default(1); UiType(CheckBox); UiGroup("Fog"); >;
 	
+	// Wetness
+	bool g_bWetnessUseHeightmapAdjustments < UiType(CheckBox); UiGroup("Wetness/2"); UiVisibility(0); >;
+	
 	// Blend Effects
 	float g_flBorderSpread1 < Default(0.1); Range(-1, 1); UiType(Slider); UiGroup("Blend Effects/Border,0/10"); >;
 	float g_flBorderSoftness1 < Default(0.2); UiType(Slider); UiGroup("Blend Effects/Border/20"); Expression(max(.001,this)); >;

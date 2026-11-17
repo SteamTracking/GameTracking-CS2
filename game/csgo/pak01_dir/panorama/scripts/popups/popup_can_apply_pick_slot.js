@@ -126,7 +126,8 @@ var CanApplyPickSlot;
             if (worktype === 'craft_souvenir') {
                 elPatch.enabled = false;
                 const elCostLabel = elPatch.FindChildInLayoutFile('CostLabel');
-                elCostLabel.RemoveClass('hidden');
+                if (!g_ActiveTournamentInfo.pp_fixed_prices)
+                    elCostLabel.RemoveClass('hidden');
                 elCostLabel.SetDialogVariableInt('cost', slots[j].cost);
             }
             else {

@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347771 
 
-Manifest ID / date     : 5946971774180560324 / 11/11/2026 18:32:27 
+Manifest ID / date     : 1039356520811108867 / 11/17/2026 18:24:36 
 Total number of files  : 184 
-Total number of chunks : 7290 
-Total bytes on disk    : 7836687327 
-Total bytes compressed : 5094883024 
+Total number of chunks : 7355 
+Total bytes on disk    : 7901058855 
+Total bytes compressed : 5159018368 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -76,7 +76,7 @@ Total bytes compressed : 5094883024
        7094936      7 a65103f605507c6da7c4d0096e01a458cfe33435     0 game\bin\win64\scenesystem.dll
         445592      1 3c97ca0ab9bc78827d192bc4dc4192c1a703fa71     0 game\bin\win64\schemasystem.dll
        2891928      3 2455bae3c453025d4d481afebdc517ac9e3f3659     0 game\bin\win64\SDL3.dll
-       5837464      6 58514f3efcef95c28cce17f40d637a048dfcffb2     0 game\bin\win64\soundsystem.dll
+       5839000      6 4ec3855859e6d3e1fed3a923a1355b37dbfdc204     0 game\bin\win64\soundsystem.dll
        3545752      4 82e438cac70098b5b6a74d7d1b680ffb8f5b42fe     0 game\bin\win64\steamaudio.dll
        4304536      5 a293182dd1ef2c6a832c496a8629999a175115ef     0 game\bin\win64\steamnetworkingsockets.dll
         317080      1 a9fd85dbfdcee3209768facb284b8788df41c3d3     0 game\bin\win64\steam_api64.dll
@@ -110,15 +110,15 @@ Total bytes compressed : 5094883024
        3185298      4 10bea5cfe6883540880c748e9506a04ad11e53ca     0 game\core\shaders_pc_000.vpk
          25563      1 72204b8136ab7b8df21a52fb0b8b674f8c578b06     0 game\core\shaders_pc_dir.vpk
        1728360      2 4e48ff45949c7f3cd8fd8ab5b7514ae27f44e53a     0 game\csgo\bin\legacy\csgo_legacy_app.exe
-      39120536     38 7e0e4644d3d171c9527a39391c7458476c0ec6b6     0 game\csgo\bin\win64\client.dll
+      39141016     38 f1b7096e3b65d4c4bc5c77634b66902ae55c85e1     0 game\csgo\bin\win64\client.dll
        1388184      2 fa5c47c2c5cf081bdab0a946e62ea4bb44d796f0     0 game\csgo\bin\win64\host.dll
-       1888920      2 d5d5cb81490f5d6326abdb3c0f9dc7eb56b69619     0 game\csgo\bin\win64\matchmaking.dll
-      34539672     33 db26d158379ae2596c53e55d7da8845b1f88495c     0 game\csgo\bin\win64\server.dll
-     109469175    105 860c1f064bffddbe5147505bcc51980c5bdca7a5     0 game\csgo\shaders_pc_000.vpk
-     104554962    103 be7cd59ea273ffb3119c5b6c107d666a27381577     0 game\csgo\shaders_pc_001.vpk
-     207470863    198 5759161bbd84fa8105692e55a8816e2a13ce4d72     0 game\csgo\shaders_pc_002.vpk
-       5981074      6 bc51dc4fa799ad47e5adc130fbe111e569ca5dd2     0 game\csgo\shaders_pc_003.vpk
-         31902      1 13d0f6cac01781f9bda906c35d581bb527e99540     0 game\csgo\shaders_pc_dir.vpk
+       1888920      2 b567263620f0e8050b67cfe7dd7e77c2a27e30e6     0 game\csgo\bin\win64\matchmaking.dll
+      34545816     33 d3ff4beeaaa9fcef8dfffaf4245321ce59e6719d     0 game\csgo\bin\win64\server.dll
+     107051403    109 db91bdd5d007829ee1970f003136b5e6b4a738eb     0 game\csgo\shaders_pc_000.vpk
+     136077566    130 a61c09b08f0719d5018914765955ec26a3a664cf     0 game\csgo\shaders_pc_001.vpk
+     207470863    198 db913f5529a3e3e1d400f2fff64165df420fcd70     0 game\csgo\shaders_pc_002.vpk
+      41217874     40 5c6b35875514919f3be724f5e7426c2bf70c792e     0 game\csgo\shaders_pc_003.vpk
+         33638      1 42ffaede6f97cd6374f883437c1bbdfe1f6a9f4c     0 game\csgo\shaders_pc_dir.vpk
      182648578    175 d4b7d7aea361a8b94c54e79904d642d712a1a3f5     0 game\csgo_community_addons\cs_shelter\cs_shelter_000.vpk
      107052112    105 2c61877687a4e433f04a62340fb3ce54b70e039c     0 game\csgo_community_addons\cs_shelter\cs_shelter_001.vpk
      106101480    104 e5dc305d96a55ae88a396ac6d98037209b4520ce     0 game\csgo_community_addons\cs_shelter\cs_shelter_002.vpk

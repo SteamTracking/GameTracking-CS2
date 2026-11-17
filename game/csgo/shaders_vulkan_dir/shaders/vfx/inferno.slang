@@ -99,9 +99,15 @@ VS
 
 PS
 {
+	DynamicCombo( D_INFERNO_ENVIRONMENT, 0..2 );
+	DynamicCombo( D_INFERNO_MSAA, 0..1 );
+	DynamicComboRule( Requires( D_INFERNO_MSAA, D_INFERNO_ENVIRONMENT ) );
 	
 	[[layer_constant]] ExternalDescriptorSet g_globalLateBoundBindlessSet < Source(ExternalDescSet); Attribute("g_globalLateBoundBindlessSet"); >;
 	[[layer_constant]] ExternalDescriptorSet g_lightBinnerGpuSet < Source(ExternalDescSet); Attribute("g_lightBinnerGpuSet"); >;
+	Texture2D g_tDepth < Attribute("DepthBuffer"); SrgbRead(false); >;
+	Texture2D g_tFire < Attribute("Fire"); SrgbRead(false); >;
+	Texture2D g_tInputTexture < Attribute("InputTexture"); SrgbRead(false); >;
 	Texture2D g_tSceneDepth < Attribute("SceneDepthInferno"); SrgbRead(false); >;
 	Texture3D g_tSmokeNoiseTex < Channel(RG, None(TextureNoise), Linear); OutputFormat(ATI2N); SrgbRead(false); >;
 	

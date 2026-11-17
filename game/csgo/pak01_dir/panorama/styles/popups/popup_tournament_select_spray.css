@@ -6,30 +6,6 @@
 	padding-bottom: 0px;
 }
 
-.PopupPanel.popup-tournament-select-spray.major-24
-{
-	background-color: none;
-	border: 0px solid black;
-	box-shadow: none;
-}
-
-.PopupPanel.popup-tournament-select-spray.major-24 Label
-{
-	color: groups-text-color-major-24;
-	background-color: none;
-}
-
-.PopupPanel.popup-tournament-select-spray.major-25
-{
-	border: 1px solid rgb(59, 45, 83);
-}
-
-.PopupPanel.popup-tournament-select-spray.major-25 Label
-{
-	color: groups-text-color-major-25;
-	background-color: none;
-}
-
 .popup-tournament-select-spray-bg
 {
 	width: 100%;

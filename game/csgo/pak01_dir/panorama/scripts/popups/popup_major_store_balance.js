@@ -12,8 +12,7 @@ var PopupMajorStoreBalance;
         _m_cp.SetDialogVariableInt('balance', _m_cp.GetAttributeInt('balance', 0));
         _m_cp.SetDialogVariable('tournament_name', $.Localize('#CSGO_Tournament_Event_NameShort_' + eventId));
         _m_cp.FindChildInLayoutFile('id-major-store-balance-logo').SetImage('file://{images}/tournaments/backgrounds/pickem_mainmenu_promo_' + eventId + '.psd');
-        _m_cp.FindChildInLayoutFile('id-major-store-balance-banner').style.backgroundImage = "url( 'file://{images}/tournaments/backgrounds/pickem_bg_" + eventId + ".png')";
-        _m_cp.SetHasClass('major-' + eventId, true);
+        _m_cp.FindChildInLayoutFile('id-major-store-balance-banner').style.backgroundImage = "url( 'file://{images}/tournaments/backgrounds/pickem_bg_" + eventId + ".psd')";
     }
     PopupMajorStoreBalance.Init = Init;
     function OpenMajorHub() {

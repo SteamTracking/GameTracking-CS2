@@ -7,6 +7,7 @@
 	<scripts>
 		<include src="s2r://panorama/scripts/context_menus/context_menu_inventory_item.vts" />
 		<include src="s2r://panorama/scripts/common/iteminfo.vts" />
+		<include src="s2r://panorama/scripts/generated/items_event_current_generated_store.vts" />
 		<include src="s2r://panorama/scripts/common/item_context_entries.vts" />
 	</scripts>
 	<Panel onload="ItemContextMenu.SetupContextMenu()" acceptsinput="true" acceptsfocus="true" class="top-bottom-flow ContextMenuItem" />

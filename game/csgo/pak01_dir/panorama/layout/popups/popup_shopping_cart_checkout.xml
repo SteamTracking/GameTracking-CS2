@@ -4,7 +4,8 @@
 		<include src="s2r://panorama/styles/gamestyles.vcss" />
 		<include src="s2r://panorama/styles/mainmenu.vcss" />
 		<include src="s2r://panorama/styles/popups/popups_shared.vcss" />
-		<include src="s2r://panorama/styles/popups/popup_major_hub.vcss" />
+		<include src="s2r://panorama/styles/common/major_theme.vcss" />
+		<include src="s2r://panorama/styles/common/major_store_price.vcss" />
 		<include src="s2r://panorama/styles/popups/popup_major_store.vcss" />
 		<include src="s2r://panorama/styles/popups/popup_shopping_cart_checkout.vcss" />
 	</styles>
@@ -15,7 +16,7 @@
 		<include src="s2r://panorama/scripts/common/formattext.vts" />
 		<include src="s2r://panorama/scripts/common/add_major_tokens_anim.vts" />
 		<include src="s2r://panorama/scripts/common/hold_button.vts" />
-		<include src="s2r://panorama/scripts/popups/popup_major_store.vts" />
+		<include src="s2r://panorama/scripts/common/major_store_prices.vts" />
 		<include src="s2r://panorama/scripts/popups/popup_shopping_cart_checkout.vts" />
 	</scripts>
 	<snippets>
@@ -27,19 +28,7 @@
 				</Panel>
 				<Panel class="cart-item__right-block">
 					<Panel class="horizontal-align-right bottom-margin left-right-flow">
-						<TooltipPanel id="id-cart-item-price-change" tooltip="#major_store_price_change_tooltip" class="cart-item__price-change lower">
-							<Image scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/pan_arrow_left.vsvg" />
-							<Label class="stratum-medium-italic" html="true" text="{d:price-change}" />
-						</TooltipPanel>
-						<Panel>
-							<Label class="cart-item__price stratum-medium-condensed dark-icon" html="true" text="#major_store_price" />
-							<Panel id="id-cart-item-price-loading" class="cart-item__price-loading">
-								<Panel class="popup-major-store__refresh-icon vertical-center horizontal-center">
-									<Image class="popup-major-store__refresh-icon__rotate" src="s2r://panorama/images/icons/ui/refresh_skinny.vsvg" textureheight="24" texturewidth="-1" />
-									<Image src="s2r://panorama/images/icons/ui/major_coin_trophy.vsvg" textureheight="12" texturewidth="-1" />
-								</Panel>
-							</Panel>
-						</Panel>
+						<Label class="cart-item__price stratum-medium-condensed dark-icon" html="true" text="#major_store_price" />
 					</Panel>
 					<Panel id="id-cart-quantity-block" class="cart-item__quantity">
 						<Button id="id-cart-item-trash-btn" class="cart-item__trash-btn">
@@ -58,20 +47,10 @@
 		</snippet>
 	</snippets>
 	<PopupCustomLayout class="PopupPanel popup-shopping-cart-checkout Hidden" useglobalcontext="true" registerforreadyevents="true" popupbackground="dim" popupfullscreenopaque="false" onload="PopUpShoppingCartCheckout.Init();" oncancel="PopUpShoppingCartCheckout.ClosePopup();">
-		<CSGOBlurTarget class="cart-checkout__container-bg" blurrects="id-cart-lister id-cart-summary" />
+		<CSGOBlurTarget id="id-cart-checkout-bg" class="cart-checkout__container-bg" blurrects="id-cart-lister id-cart-summary" />
 		<Frame id="id-cart-add-tokens" src="s2r://panorama/layout/common/add_major_tokens_anim.vxml" />
 		<Panel class="cart-checkout__container">
 			<Panel class="left-right-flow horizontal-align-right bottom-margin-12">
-				<TooltipPanel id="id-major-store-refresh" tooltip="#major_store_refesh_tooltip" class="popup-major-store__top-bar__refresh">
-					<Panel class="popup-major-store__refresh-icon">
-						<Image class="popup-major-store__refresh-icon__rotate" src="s2r://panorama/images/icons/ui/refresh_skinny.vsvg" textureheight="24" texturewidth="-1" />
-						<Image src="s2r://panorama/images/icons/ui/major_coin_trophy.vsvg" textureheight="12" texturewidth="-1" />
-					</Panel>
-					<Image class="popup-major-store__updated-icon" src="s2r://panorama/images/icons/ui/checkbox.vsvg" textureheight="18" texturewidth="-1" />
-					<Panel class="">
-						<Label id="id-major-store-refresh-time" class="mono-spaced-font-bold" text="" />
-					</Panel>
-				</TooltipPanel>
 				<Panel id="id-cart-balance" class="popup-major-store__top-bar__balance">
 					<Label class="stratum-medium-condensed" html="true" text="#major_store_balance" />
 				</Panel>

@@ -5217,7 +5217,7 @@ mp_endmatch_votenextmap_wargames_nummaps 3 (gamedll release)
 mp_endmatch_votenextmap_wargames_nummodes 1 (gamedll release)
 	Maximum number of other War Games to include in endmatch voting during War Games
 
-mp_endwarmup_player_count 0 (gamedll clientdll replicated release)
+mp_endwarmup_player_count 0 (gamedll release commandline_enforced)
 	Number of players required to be connected to end warmup early. 0 to require maximum players for mode.
 
 mp_equipment_reset_rounds 0 (gamedll clientdll replicated release commandline_enforced)
@@ -5331,10 +5331,10 @@ mp_logmoney false (gamedll release)
 mp_match_can_clinch true (gamedll clientdll replicated release commandline_enforced)
 	Can a team clinch and end the match by being so far ahead that the other team has no way to catching up?
 
-mp_match_end_changelevel false (gamedll clientdll replicated release commandline_enforced)
+mp_match_end_changelevel false (gamedll release commandline_enforced)
 	At the end of the match, perform a changelevel even if next map is the same
 
-mp_match_end_restart false (gamedll clientdll replicated release)
+mp_match_end_restart false (gamedll release commandline_enforced)
 	At the end of the match, perform a restart instead of loading a new map
 
 mp_match_restart_delay 25 (min: 1, max: 9999, gamedll clientdll replicated release)
@@ -5637,7 +5637,7 @@ mp_tournament_whitelist "item_whitelist.txt" (developmentonly gamedll defensive)
 mp_use_respawn_waves 0 (gamedll clientdll replicated release commandline_enforced)
 	When set to 1, and that player's team is set to respawn, they will respawn in waves. If set to 2, teams will respawn when the whole team is dead.
 
-mp_verbose_changelevel_spew 1 (gamedll clientdll replicated release)
+mp_verbose_changelevel_spew 1 (gamedll release)
 	<no description>
 
 mp_warmup_items_drop_policy 247 (gamedll clientdll replicated release commandline_enforced)
@@ -5664,10 +5664,10 @@ mp_warmup_pausetimer 0 (gamedll clientdll replicated release commandline_enforce
 mp_warmuptime 30 (min: 5, gamedll clientdll replicated release commandline_enforced)
 	How long the warmup period lasts. Changing this value resets warmup.
 
-mp_warmuptime_all_players_connected 0 (gamedll clientdll replicated release commandline_enforced)
+mp_warmuptime_all_players_connected 0 (gamedll release commandline_enforced)
 	Warmup time to use when all players have connected. 0 to disable.
 
-mp_warmuptime_match_cancelled 5 (gamedll clientdll replicated release commandline_enforced)
+mp_warmuptime_match_cancelled 5 (gamedll release commandline_enforced)
 	Warmup time to use when the match will be cancelled (eg. due to a live VAC ban).
 
 mp_weapon_next_owner_touch_time 1.3 (gamedll cheat release)
@@ -7284,10 +7284,10 @@ player0_using_joystick false (archive)
 player_botdifflast_s "2" (clientdll archive release)
 	<no description>
 
-player_competitive_maplist_2v2_10_0_D684D4E1 "mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_debris,mg_de_poseidon,mg_de_eldorado,mg_de_overpass" (clientdll archive)
+player_competitive_maplist_2v2_10_0_7B2B4F7 "mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_debris,mg_de_poseidon,mg_de_eldorado,mg_de_overpass,mg_de_cbble" (clientdll archive)
 	<no description>
 
-player_competitive_maplist_8_10_0_A062AC6A "mg_de_dust2,mg_de_train,mg_de_ancient,mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_mirage,mg_cs_office,mg_cs_italy,mg_de_cache,mg_de_boulder,mg_de_anubis,mg_lobby_mapveto,mg_de_fachwerk,mg_cs_shelter,mg_de_overpass" (clientdll archive)
+player_competitive_maplist_8_10_0_25074C46 "mg_de_dust2,mg_de_train,mg_de_ancient,mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_mirage,mg_cs_office,mg_cs_italy,mg_de_cache,mg_de_anubis,mg_lobby_mapveto,mg_de_overpass,mg_de_cbble" (clientdll archive)
 	<no description>
 
 player_debug_off_nav false (gamedll cheat)
@@ -7652,36 +7652,6 @@ r_csgo_enable_volume_fog false (developmentonly clientdll)
 
 r_csgo_firstpersonlegs_nearz_offset 0.1 (developmentonly clientdll)
 	<no description>
-
-r_csgo_frost_dry_time 20 (developmentonly clientdll)
-	Seconds for the melted frost to dry
-
-r_csgo_frost_force -1 (developmentonly clientdll)
-	Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)
-
-r_csgo_frost_grow_time 10 (developmentonly clientdll)
-	Seconds outdoors for frost to grow to full
-
-r_csgo_frost_heat_barrel_position 0.33 (developmentonly clientdll)
-	Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)
-
-r_csgo_frost_heat_cool_time 20 (developmentonly clientdll)
-	Frost: seconds for a hot barrel to cool down
-
-r_csgo_frost_heat_light_delay 1 (developmentonly clientdll)
-	Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)
-
-r_csgo_frost_heat_light_time 10 (developmentonly clientdll)
-	Frost: seconds for a lit molotov's rag to reach full heat
-
-r_csgo_frost_heat_per_shot 0.05 (developmentonly clientdll)
-	Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)
-
-r_csgo_frost_indoor_distance 128 (developmentonly clientdll)
-	Frost: distance under cover (no sky) over which the cold fades out (indoors)
-
-r_csgo_frost_melt_time 10 (developmentonly clientdll)
-	Seconds indoors for full frost to melt
 
 r_csgo_fsr_enable_mip_bias true (developmentonly clientdll defensive)
 	Apply negative mip bias when rendering with FSR.

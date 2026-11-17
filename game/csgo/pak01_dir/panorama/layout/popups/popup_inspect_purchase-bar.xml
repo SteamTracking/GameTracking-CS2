@@ -38,6 +38,9 @@
 				<Label id="PurchaseSalePrice" class="popup-capability__sale-price" text="" />
 				<Label id="PurchaseItemPercent" class="store-sale-tag__text right-margin fontSize-l" text="" />
 				<Label id="PurchaseItemName" html="true" class="popup-capability__purchase__text stratum-font" text="" />
+				<Button id="InspectPlayMvpBtn" class="IconButton hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectPlayMvpBtn&apos;, &apos;#tooltip_inspect_play_mvp_anthem&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" src="s2r://panorama/images/icons/ui/unmuted.vsvg" />
+				</Button>
 				<ItemImage id="PurchaseItemImage" class="popup-capability__purchase__image" scaling="stretch-to-fit-x-preserve-aspect" />
 			</Panel>
 		</Panel>
