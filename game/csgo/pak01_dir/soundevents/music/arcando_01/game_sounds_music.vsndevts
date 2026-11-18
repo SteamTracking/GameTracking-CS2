@@ -324,7 +324,7 @@
 		syncpoints_01 = [ 0.0 ]
 		syncpoints_02 = [ 0.0 ]
 		syncpoints_03 = [ 0.0 ]
-		vsnd_duration = 7.543923
+		vsnd_duration = 7.544286
 	}
 	Music.LostRound.arcando_01 = 
 	{
@@ -349,7 +349,7 @@
 		syncpoints_01 = [ 0.0 ]
 		syncpoints_02 = [ 0.0 ]
 		syncpoints_03 = [ 0.0 ]
-		vsnd_duration = 7.543923
+		vsnd_duration = 7.544286
 	}
 	Music.DeathCam.arcando_01 = 
 	{
@@ -374,7 +374,7 @@
 				2.0, 3.0,
 			],
 		]
-		vsnd_duration = 7.544989
+		vsnd_duration = 4.801429
 	}
 	Music.MVPAnthem.arcando_01 = 
 	{

@@ -1,16 +1,16 @@
 Content Manifest for Depot 2347771 
 
-Manifest ID / date     : 1039356520811108867 / 11/17/2026 18:24:36 
-Total number of files  : 184 
-Total number of chunks : 7355 
-Total bytes on disk    : 7901058855 
-Total bytes compressed : 5159018368 
+Manifest ID / date     : 6729017085491141898 / 11/18/2026 02:20:32 
+Total number of files  : 130 
+Total number of chunks : 2571 
+Total bytes on disk    : 2630164647 
+Total bytes compressed : 1800726736 
 
 
           Size Chunks File SHA                                 Flags Name
         181608      1 0bc12517a8ee4173867d54081a6d26527ab62672     0 game\bin\win64\amd_ags_x64.dll
-       9328792      9 2299b2e3ad01be1045106550db34fb8a205a88e0     0 game\bin\win64\animationsystem.dll
-      48611992     48 c7b59f63fc5092517ac9114925cce68c4f52aab2     0 game\bin\win64\assetpreview.dll
+       9328792      9 3faa58e23c9d715120ef692b7d17547cfaba615b     0 game\bin\win64\animationsystem.dll
+      48611992     48 b5a94c2990a5a8647ab2c1e1bfc402b5155c33cd     0 game\bin\win64\assetpreview.dll
         754024      1 84aaa5491087ffb7aa5453f48bdf3a837839f770     0 game\bin\win64\ati_compress_wrapper.dll
         167576      1 4d37682282df9b7d307698d51adce738b17ddc20     0 game\bin\win64\bugreporter_filequeue.dll
        1271960      2 5bc505278185a2d0a3569e9a6caf8ab0b944be5f     0 game\bin\win64\cairo.dll
@@ -18,13 +18,13 @@ Total bytes compressed : 5159018368
        4346120      5 612e6f443d927330b9b8ac13cc4a2a6b959cee48     0 game\bin\win64\d3dcompiler_47.dll
        1558912      2 4ef5d229709e40f3f84e46c3a28341eadbd1a044     0 game\bin\win64\dbghelp.dll
       21996904     21 bc499749a83cd7cd52673ecaa1c74760a20ba714     0 game\bin\win64\embree3.dll
-       7455384      8 0739b76e948a085a4396786d1ba146589e077d71     0 game\bin\win64\engine2.dll
-       2260120      3 2666f876402b1c5ce344774c5c3a2272def3d52a     0 game\bin\win64\filesystem_stdio.dll
+       7457432      8 eabc36b6f52d2b4653be981d1f609f19a9e40093     0 game\bin\win64\engine2.dll
+       2260120      3 a5732f3634c09729429e6ffcbf9979a8db00fd0b     0 game\bin\win64\filesystem_stdio.dll
           2373      1 58812342d882cc4b5cb2469606929aa413e0ca16     0 game\bin\win64\foreign.signatures
        5736000      6 7d1f621599d315bbda1c7d2129b689a999a20bd8     0 game\bin\win64\gfsdk_aftermath_lib.x64.dll
-        755864      1 c73b16d6a1c7309bfb4618c84192657f7b152bb6     0 game\bin\win64\helpsystem.dll
-        248472      1 db1175ea2c6d6df5a776e0bfebdb11843bdb692c     0 game\bin\win64\imemanager.dll
-        302232      1 0f62c4bb0f84fe7a43dc01fe0abc7c31a1da5b33     0 game\bin\win64\inputsystem.dll
+        755864      1 c364475bc38c2217a1d60e64ba855dce7f2ab728     0 game\bin\win64\helpsystem.dll
+        248472      1 3091aa5ea281e9df97a34fd790fb2a7bdfab8391     0 game\bin\win64\imemanager.dll
+        302232      1 2658c701219731bd36aee00f8597794e20ecdbed     0 game\bin\win64\inputsystem.dll
        6627176      7 49b2ad8a4e67451776d9c4e62c7aaf62a51e9735     0 game\bin\win64\libavcodec-58.dll
        1847656      2 612200abbd317ae2c2173e52248cb5bcdcf6a9a1     0 game\bin\win64\libavformat-58.dll
         756584      1 8949c887bd27fe265d1b4df08eb2d86cc74695a5     0 game\bin\win64\libavresample-4.dll
@@ -40,21 +40,21 @@ Total bytes compressed : 5159018368
         400744      1 a4a6273b4de588fa2302d45bcc994fecfb6c5fea     0 game\bin\win64\libpango-1.0-0.dll
         389992      1 a3d673d56314c10a6b742e88b4261dc9df857269     0 game\bin\win64\libpangoft2-1.0-0.dll
        1283432      2 9867b4ab6b1a430242eae51aa2b1700a1ace4a2e     0 game\bin\win64\libswscale-5.dll
-        382104      1 abf426070a51a455bef394d08ae1841f09e54735     0 game\bin\win64\localize.dll
-       1429144      2 077edb1ad40be50df9226cf8d90e89cdd8aa1296     0 game\bin\win64\materialsystem2.dll
-       1664664      2 27eeef028c98d96d7d51eddd46a898b19ae5b0e6     0 game\bin\win64\meshsystem.dll
-       1314968      2 2b89b1bc1798b808240553c1a27ed43dc8800e2e     0 game\bin\win64\navsystem.dll
-       2818712      3 d83a47ab8416b137a0afdf7072341ac5bc36afb6     0 game\bin\win64\networksystem.dll
+        382104      1 081a38791c7da76a88d1d91671878e9533f9d32f     0 game\bin\win64\localize.dll
+       1429144      2 f5284479bf2006f00c47c380baae22826f66d070     0 game\bin\win64\materialsystem2.dll
+       1664664      2 8d47ba34abc819078e78a80bc5827e4fe62906d0     0 game\bin\win64\meshsystem.dll
+       1314968      2 4d5da1fb53e65db812a05c0381707c72460d6365     0 game\bin\win64\navsystem.dll
+       2818712      3 b1d9044f42537403e8d3b86a6377dc3023ba26bb     0 game\bin\win64\networksystem.dll
         147608      1 e39bb6bdc3b7b9050f1b15647f76245a3a10cb15     0 game\bin\win64\p4lib.dll
-       6108312      6 e7c401d2254cc104a97d63c8be577d264c8f2e39     0 game\bin\win64\panorama.dll
-       2746520      3 fb8a45fff1df2113ab4e78287f45345c2c5fee7b     0 game\bin\win64\panoramauiclient.dll
-       2997912      3 f89cfea5bf5ffbbd02618dfd4e5ffd35dee468e5     0 game\bin\win64\panorama_text_pango.dll
-       6459544      7 d6d01c5e24726c553ce2ed7ed4874858a16f7691     0 game\bin\win64\particles.dll
+       6108312      6 57a0408e45a34b0b617815653fc15ac377010dc9     0 game\bin\win64\panorama.dll
+       2746520      3 d79a91dbe3c496fccc9d5a131002d32434e7ecee     0 game\bin\win64\panoramauiclient.dll
+       2997912      3 2f48b4665c6e8ce7b8309df26a8e67c675bdd3aa     0 game\bin\win64\panorama_text_pango.dll
+       6459544      7 e2f357950819ca033a74e0495f5d5f383846c6ea     0 game\bin\win64\particles.dll
       53322904     53 19e9e40c9a4780b26353e1a4d78f2a4f61ff8f3c     0 game\bin\win64\phonon.dll
         567656      1 79759ec5c92853b73627da14e5e70f6c6c580a78     0 game\bin\win64\phonon4.dll
-      13950616     14 7f9c17c177307306ceed392812d0fd3e252c5eee     0 game\bin\win64\physicsbuilder.dll
-       1522840      2 d53d30a4565765f9cd52481e453e97ab7ec2c96f     0 game\bin\win64\propertyeditor.dll
-       2032792      2 38e8139ddf76a8aefe56d17d1a9f1c12dc3371c3     0 game\bin\win64\pulse_system.dll
+      13950616     14 c3b47c6415bb34ae81f3bbc7f2f558580c9aa2fd     0 game\bin\win64\physicsbuilder.dll
+       1522840      2 faad1164bc1d539c2d1036cd93de4740d82e3956     0 game\bin\win64\propertyeditor.dll
+       2032792      2 45547a67d9e1fbbaf3eea0855d31c04faa7dda13     0 game\bin\win64\pulse_system.dll
         131432      1 3177661f6e066460f2c859d2d5453323b68d6eda     0 game\bin\win64\Qt5Concurrent.dll
        6288744      6 5f5173c825810bbd849e32b5e6e2cb32f6c456d2     0 game\bin\win64\Qt5Core.dll
        7007080      7 08882a63e4c0962b33376da66224655f2b1d5e06     0 game\bin\win64\Qt5Gui.dll
@@ -67,92 +67,58 @@ Total bytes compressed : 5159018368
        1616384      2 f5dc8fe31229639bd3fe28b52249af29722e0301     0 game\bin\win64\qt5_plugins\platforms\qwindows.dll
         231424      1 8fc6fa3f8cda0ffc55725d817c782115322cd574     0 game\bin\win64\qt5_plugins\styles\qwindowsvistastyle.dll
         828928      1 bbb2cff7f465f33d68bb00cb32c4ca897334cc94     0 game\bin\win64\qtadvanceddocking-qt5.dll
-       4546200      5 cbc9441b6613255abe716c01f85966feb34b15e8     0 game\bin\win64\rendersystemdx11.dll
-       1774744      2 1809d950ad3925663ca6a490eb9fd585f448c3a8     0 game\bin\win64\rendersystemempty.dll
-       6249624      7 33ff71036149fcd3c41f126da4420d0a8e8c390d     0 game\bin\win64\rendersystemvulkan.dll
-      56351384     54 0b2f9dabdf2d79cb30cf9110d1c95b005318b098     0 game\bin\win64\resourcecompiler.dll
-        532632      1 b770e429f92f1bdf3bf9125cd67474fbd5061cd9     0 game\bin\win64\resourcesystem.dll
-       1297048      2 c90135641285b1f7f0d705adc9275f0c2582ca29     0 game\bin\win64\scenefilecache.dll
-       7094936      7 a65103f605507c6da7c4d0096e01a458cfe33435     0 game\bin\win64\scenesystem.dll
-        445592      1 3c97ca0ab9bc78827d192bc4dc4192c1a703fa71     0 game\bin\win64\schemasystem.dll
+       4546200      5 1ffccad93b478e9de3f1652d528dfd2fecb1ea90     0 game\bin\win64\rendersystemdx11.dll
+       1774744      2 77cf8d154df92acfe2bc64a25b439a3c2453e85b     0 game\bin\win64\rendersystemempty.dll
+       6249624      7 77eb7a1ca13923f9772a01f7f3ab18a8573b203e     0 game\bin\win64\rendersystemvulkan.dll
+      56351384     54 ff4cf4cf648f78077b2392c070a7c78be4bd5fb4     0 game\bin\win64\resourcecompiler.dll
+        532632      1 38316887ebf56df4c45dfde435483bb7efac55ab     0 game\bin\win64\resourcesystem.dll
+       1297048      2 b941aa949bfec28b7e7a603f4100f33e5d46e1c9     0 game\bin\win64\scenefilecache.dll
+       7094936      7 18a3b2cb8e573d113c153312b7d6152529cbcab9     0 game\bin\win64\scenesystem.dll
+        445592      1 4c668a75b9e44100038601ddce948f0209a0d6ba     0 game\bin\win64\schemasystem.dll
        2891928      3 2455bae3c453025d4d481afebdc517ac9e3f3659     0 game\bin\win64\SDL3.dll
-       5839000      6 4ec3855859e6d3e1fed3a923a1355b37dbfdc204     0 game\bin\win64\soundsystem.dll
-       3545752      4 82e438cac70098b5b6a74d7d1b680ffb8f5b42fe     0 game\bin\win64\steamaudio.dll
+       5839000      6 8c12d332c08a61b76139638379ab912d335bab3c     0 game\bin\win64\soundsystem.dll
+       3545752      4 fa59bdec5da3df0c5eb79a506d1070917f539d14     0 game\bin\win64\steamaudio.dll
        4304536      5 a293182dd1ef2c6a832c496a8629999a175115ef     0 game\bin\win64\steamnetworkingsockets.dll
         317080      1 a9fd85dbfdcee3209768facb284b8788df41c3d3     0 game\bin\win64\steam_api64.dll
-        887448      1 bf6c1d641440c7f46fc3c80f4632671ef58cfa1b     0 game\bin\win64\subtools\convarhelper_subtool.dll
-        227992      1 e47bc0867b7d19eec6aed6309222082b5ea3b942     0 game\bin\win64\subtools\dashboard_subtool.dll
-        364184      1 dc1a4f2327c2bd52cf61f689b8d990f0c4864e14     0 game\bin\win64\subtools\netgraph_subtool.dll
-        418968      1 edf6339d6d1a43c67c3ae33d2645e3b0ad18a794     0 game\bin\win64\subtools\soundviewer_subtool.dll
-        338584      1 e92f4fd344f2b966a027600f7be3592227b0d263     0 game\bin\win64\subtools\vprof_subtool.dll
+        887448      1 c0fb7043e2fe94e93b3f2c45a000cfab7b0ff217     0 game\bin\win64\subtools\convarhelper_subtool.dll
+        227992      1 292f107d51595be30aea27170b6fab661c71e89a     0 game\bin\win64\subtools\dashboard_subtool.dll
+        364184      1 e80218c823a9e27e2c2f90948cfd33fcde11fce7     0 game\bin\win64\subtools\netgraph_subtool.dll
+        418968      1 bcd8ff6b086e1604b25e5dc30f8302f3cd799619     0 game\bin\win64\subtools\soundviewer_subtool.dll
+        338584      1 fdfb03065a2def2d8698929dc1c8f04711b5ff2f     0 game\bin\win64\subtools\vprof_subtool.dll
         149264      1 4b46db2a99a47ff6a6ee376f4d79f5298bff28a2     0 game\bin\win64\symsrv.dll
           1473      1 a2f63b30356a09266d8e598c4a4949ad00733230     0 game\bin\win64\system.signatures
        3979416      4 ecd34f0da7327fbb0f2c220b37604467e5a0cd7e     0 game\bin\win64\tier0.dll
-      13708952     14 cfe25a7990f6ea18ac80bfbf023405626b5996f0     0 game\bin\win64\toolframework2.dll
+      13708952     14 7ff2f135acfd01a98c8e5fa28faf6d4c22404a33     0 game\bin\win64\toolframework2.dll
       50473832     49 29b8401736bcbb130ad79cde21b1cb70c4fefabf     0 game\bin\win64\v8.dll
-        233624      1 ca5aef22fae4004a320f226a164c8aa22c7cb503     0 game\bin\win64\v8system.dll
+        233624      1 727dc5f33608d9cae9dfa5fd5f370f2495e480af     0 game\bin\win64\v8system.dll
        3937128      4 3a8e40f31868314b88d6514cd096dd0908f24a1b     0 game\bin\win64\v8_icui18n.dll
        2849640      3 95d6436822bcf47bb4315c0c20d69775662163b6     0 game\bin\win64\v8_icuuc.dll
        1637736      2 8402ca7e7ffb4c8db27c05c7d7c3d10c224a0750     0 game\bin\win64\v8_libbase.dll
        1455464      2 9beacc20acdc683129c258a97432e6beb8701d71     0 game\bin\win64\v8_libplatform.dll
         844136      1 97b323fba40640622eb756c42206dc088474b21a     0 game\bin\win64\v8_zlib.dll
-        194200      1 355f0961a6d7d781e5a9123733439d6f7877cf5d     0 game\bin\win64\valve_avi.dll
-      11384472     12 1ee7fa6c2242e1d35f8813433e98487d361e79d2     0 game\bin\win64\valve_webm.dll
-        177304      1 43458696e761bf4f7c23170d75dbe3747536d65f     0 game\bin\win64\valve_wmf.dll
-        259736      1 a356f42236bd7d2159974306ef37347185d827f8     0 game\bin\win64\vconcomm.dll
-       5104280      5 e66bf3c72ff59659c98cc29983d316b5a67e97ac     0 game\bin\win64\vconsole2.exe
-       1327256      2 a1afb78a0104c1647cd01e14c5dc3f2f6ff651ab     0 game\bin\win64\vfx_dx11.dll
+        194200      1 c18822be7f3267f25385b70ee844b30354b07e65     0 game\bin\win64\valve_avi.dll
+      11384472     12 85ec1569fad99adc9fabe2659d67c272e7703501     0 game\bin\win64\valve_webm.dll
+        177304      1 dbce8036387fe11e6579b6c68e20c72b00144c60     0 game\bin\win64\valve_wmf.dll
+        259736      1 1b199e8ea7ce112cefb699f0e1c464c4b165eeb1     0 game\bin\win64\vconcomm.dll
+       5104280      5 e035e135018d23295658f77e81a15a5c93addb17     0 game\bin\win64\vconsole2.exe
+       1327256      2 04a94a874007c8254cb66d6ca12f521d4b3b90b5     0 game\bin\win64\vfx_dx11.dll
        4610448      5 6e02ca508c3fcbd7972475e7b1530d0a2dfa12c3     0 game\bin\win64\video64.dll
-       1855640      2 eddcfe99fd61ad03bdfbc4d02a43cae3baa86f59     0 game\bin\win64\visbuilder.dll
-       4829848      5 4f3e36e88f2c98a6211faf983957c69aa6f535c3     0 game\bin\win64\vphysics2.dll
-       1352856      2 1db03695eeb21e1df18c7aa2ea0350b1d8d95d2e     0 game\bin\win64\vscript.dll
-       2029720      2 94ba39ef1eafe15c2308f51fac9195d94d9ffd6b     0 game\bin\win64\worldrenderer.dll
+       1855640      2 46c35f2105d327a22635d2e35486c2d62c4faf50     0 game\bin\win64\visbuilder.dll
+       4829848      5 fea1e8a76a8ebaa4263694c10367d2849e62bf7a     0 game\bin\win64\vphysics2.dll
+       1352856      2 74040b0e8e70236b5e251c62e890311b9adbbc68     0 game\bin\win64\vscript.dll
+       2029720      2 9897ad03e367a0302d5d67c68b7be7716379a28d     0 game\bin\win64\worldrenderer.dll
        3185298      4 10bea5cfe6883540880c748e9506a04ad11e53ca     0 game\core\shaders_pc_000.vpk
          25563      1 72204b8136ab7b8df21a52fb0b8b674f8c578b06     0 game\core\shaders_pc_dir.vpk
        1728360      2 4e48ff45949c7f3cd8fd8ab5b7514ae27f44e53a     0 game\csgo\bin\legacy\csgo_legacy_app.exe
-      39141016     38 f1b7096e3b65d4c4bc5c77634b66902ae55c85e1     0 game\csgo\bin\win64\client.dll
-       1388184      2 fa5c47c2c5cf081bdab0a946e62ea4bb44d796f0     0 game\csgo\bin\win64\host.dll
-       1888920      2 b567263620f0e8050b67cfe7dd7e77c2a27e30e6     0 game\csgo\bin\win64\matchmaking.dll
-      34545816     33 d3ff4beeaaa9fcef8dfffaf4245321ce59e6719d     0 game\csgo\bin\win64\server.dll
+      39141016     38 356d24d4ca1cf9f7fbe0f9c1232c201252284de6     0 game\csgo\bin\win64\client.dll
+       1388184      2 d9b5213aac4509a45971bd1b41ca8e4ded41adf3     0 game\csgo\bin\win64\host.dll
+       1888920      2 dbaec89fd455d68b18488d3b03e50325266f3e2b     0 game\csgo\bin\win64\matchmaking.dll
+      34545816     33 cc1b8e4219dd2147212d418dcd933f29a17f5562     0 game\csgo\bin\win64\server.dll
      107051403    109 db91bdd5d007829ee1970f003136b5e6b4a738eb     0 game\csgo\shaders_pc_000.vpk
      136077566    130 a61c09b08f0719d5018914765955ec26a3a664cf     0 game\csgo\shaders_pc_001.vpk
      207470863    198 db913f5529a3e3e1d400f2fff64165df420fcd70     0 game\csgo\shaders_pc_002.vpk
       41217874     40 5c6b35875514919f3be724f5e7426c2bf70c792e     0 game\csgo\shaders_pc_003.vpk
          33638      1 42ffaede6f97cd6374f883437c1bbdfe1f6a9f4c     0 game\csgo\shaders_pc_dir.vpk
-     182648578    175 d4b7d7aea361a8b94c54e79904d642d712a1a3f5     0 game\csgo_community_addons\cs_shelter\cs_shelter_000.vpk
-     107052112    105 2c61877687a4e433f04a62340fb3ce54b70e039c     0 game\csgo_community_addons\cs_shelter\cs_shelter_001.vpk
-     106101480    104 e5dc305d96a55ae88a396ac6d98037209b4520ce     0 game\csgo_community_addons\cs_shelter\cs_shelter_002.vpk
-     105126974    101 6e129e4ab59b61d1f288aaa1beca1eaa547a5339     0 game\csgo_community_addons\cs_shelter\cs_shelter_003.vpk
-     104909952    101 34cf5be524f0eb93dd8f70db3ec8ee09b39631a2     0 game\csgo_community_addons\cs_shelter\cs_shelter_004.vpk
-     109995824    105 178c3f1d2e96aba362e0b183d4ba0932102cdc94     0 game\csgo_community_addons\cs_shelter\cs_shelter_005.vpk
-     105276701    101 5b6c0b0df1fb31fe3cbb92b74061bbbda4d59024     0 game\csgo_community_addons\cs_shelter\cs_shelter_006.vpk
-     106544143    103 3465a01567c2a936b9c0e6be48e6354dba1d8c78     0 game\csgo_community_addons\cs_shelter\cs_shelter_007.vpk
-     106683273    104 69fd5dabd76de1595e343a2a75c0d13cf0666b79     0 game\csgo_community_addons\cs_shelter\cs_shelter_008.vpk
-     109384382    105 0e6c87b50d16e4fa426486b734fda9ac60d5104c     0 game\csgo_community_addons\cs_shelter\cs_shelter_009.vpk
-     106183080    104 090983c38d4a3a5f347265d2c0dcf24083445d5c     0 game\csgo_community_addons\cs_shelter\cs_shelter_010.vpk
-     105355608    101 353a8d3e66a6f31364284f95363aa2b1c4394762     0 game\csgo_community_addons\cs_shelter\cs_shelter_011.vpk
-     107835069    107 25bda58fef3c7d5f582c7c65484daf97426f5d29     0 game\csgo_community_addons\cs_shelter\cs_shelter_012.vpk
-       9717887     10 e2694b152234c6966fc3c35ee0dc5ed68ba51bf2     0 game\csgo_community_addons\cs_shelter\cs_shelter_013.vpk
-         95707      1 e9cc13d9dc71145bbbf7e77ff1906a1542e3e7ac     0 game\csgo_community_addons\cs_shelter\cs_shelter_dir.vpk
-     106176134    103 86a998fa22ea713712bb7d4ea00a1bc051baf81d     0 game\csgo_community_addons\de_boulder\de_boulder_000.vpk
-     120335782    117 d2f1060a99dd394af64d07b0e5f8abeb81a929fa     0 game\csgo_community_addons\de_boulder\de_boulder_001.vpk
-     105318487    104 0da61bfa7aa2837ea431a1aba52f55010be066ac     0 game\csgo_community_addons\de_boulder\de_boulder_002.vpk
-     107610491    105 c12ecb20bd1087de9dfbe27678e26167ad22fa38     0 game\csgo_community_addons\de_boulder\de_boulder_003.vpk
-     105318873    102 048b1d1633f74a928a95021b0666ec70e751c55e     0 game\csgo_community_addons\de_boulder\de_boulder_004.vpk
-     105543046    103 2e92443f420455ee2e8d0ab9d0d54d3a38570b73     0 game\csgo_community_addons\de_boulder\de_boulder_005.vpk
-     109881148    106 de0d33e9e804082567a44b25e48d63290576ddc1     0 game\csgo_community_addons\de_boulder\de_boulder_006.vpk
-     105483944    103 da253ac5e0e8c2dcc3f3f2c8677061d0f21eb667     0 game\csgo_community_addons\de_boulder\de_boulder_007.vpk
-     109563580    108 c328fbd5a28b65f848e23e9607ae327b392ed486     0 game\csgo_community_addons\de_boulder\de_boulder_008.vpk
-     106297180    104 9dfb323bf9aa2e005685cc3f593c7e642e0272eb     0 game\csgo_community_addons\de_boulder\de_boulder_009.vpk
-     109877427    110 fa3745dd5325d09a36a4ff56dc7306a02330b01b     0 game\csgo_community_addons\de_boulder\de_boulder_010.vpk
-     105056283    107 6886d19111c6a21e199602cc6e8d2cc1726450d0     0 game\csgo_community_addons\de_boulder\de_boulder_011.vpk
-     104917996    103 8e356bdeea47c7d2c2dfcbdc5bc5b8baf87fe54d     0 game\csgo_community_addons\de_boulder\de_boulder_012.vpk
-     109126936    108 5dbd5e4c3360c7f5326e00bd91d4a09de68e20d1     0 game\csgo_community_addons\de_boulder\de_boulder_013.vpk
-     108726784    107 609d1cb31d9dbc04680d9816b36c635ff56e7dc6     0 game\csgo_community_addons\de_boulder\de_boulder_014.vpk
-     104982049    105 8fe4be229db4c328e0586e5c91ee57745f4a94fe     0 game\csgo_community_addons\de_boulder\de_boulder_015.vpk
-     105354037    105 7f9b5f2ecc4c6f452a6faf0ab8aeb1b0d844240b     0 game\csgo_community_addons\de_boulder\de_boulder_016.vpk
-      37953211     40 5aa5c2c268b5284e8e6b10a402d0241b06143e74     0 game\csgo_community_addons\de_boulder\de_boulder_017.vpk
-        186011      1 9917bcd03cf4da5039f39f2003f8d94c94604ef4     0 game\csgo_community_addons\de_boulder\de_boulder_dir.vpk
      105039795    103 c0a2726c8c1c73762f578a7d2e91a95f58678a98     0 game\csgo_community_addons\de_debris\de_debris_000.vpk
      107269718    105 a9a2829dbecedc64146410548e6cab7dc749c14c     0 game\csgo_community_addons\de_debris\de_debris_001.vpk
      106054491    102 bcdcf8908307380cbe3e9b17a66c50af6775eaf7     0 game\csgo_community_addons\de_debris\de_debris_002.vpk
@@ -167,26 +133,6 @@ Total bytes compressed : 5159018368
      106348272    102 87e920af70d151e42c24d64a6589ca6ae4ed702a     0 game\csgo_community_addons\de_eldorado\de_eldorado_004.vpk
       97479189     97 053322265d78ad034720d14beda2baea4b5b015a     0 game\csgo_community_addons\de_eldorado\de_eldorado_005.vpk
          38350      1 d30ee9476a4990e590695f371a422c093008da0c     0 game\csgo_community_addons\de_eldorado\de_eldorado_dir.vpk
-     108563999    104 775f83bac69b6244cf7b8b276685f11b6c3d61f3     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_000.vpk
-     107760754    109 89bf2c531c6f778319a278c4704073e4b812c972     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_001.vpk
-     108318548    107 18f94862241ddb2cf95bfda63c0b64636e0d3fbb     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_002.vpk
-     107754156    109 772033884e364ca163ea326739c8f171fc586504     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_003.vpk
-     108337537    107 c1eb8497a615e2bd2672cc09a3da4f92a30805b8     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_004.vpk
-     109881539    107 50336fff324c84a1005a1b20a0185eabb22bc462     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_005.vpk
-     107091610    109 262e9e15f5d76e1be4a48dc7f1016fcb86029d8a     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_006.vpk
-     105344253    106 48696263781addea225a4de11e7d3e6cee909331     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_007.vpk
-     104924396    103 f1327f2f17a7bfcf4175ebc5a4451944f42bde6a     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_008.vpk
-     107314006    107 ec3253feb5ae48039e448e742dd7723471f265b7     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_009.vpk
-     106671597    105 c632bbddbe999ce823c187cb643082b671318b86     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_010.vpk
-     106337325    108 7d535b6931caaaaa2bc8e25d0e375b397f2855de     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_011.vpk
-     109328538    108 76daebfc88ce13c84dc4bd580464bcfc926ba218     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_012.vpk
-     107659846    106 07ccda63c16f39c215f35c495306859e8c433a69     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_013.vpk
-     106331041    108 c066036752a9997dd753123451e75bda3838a62b     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_014.vpk
-     104918092    104 caf840123c812e17ba15797ca3a01245216e6187     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_015.vpk
-     104860485    107 d1c62686ed26ba99414d603ac78ebf763ba2470c     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_016.vpk
-     108619724    106 a1191852b15a31c2dc5e46c4ac8805d41b0a6708     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_017.vpk
-        116243      1 a80d56de53c53128c3a850b687904c61d83ea6d9     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_018.vpk
-        142398      1 0ddb1693030d6be3732083cea70ce473af1a55ca     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_dir.vpk
      104986147    102 f27723fc3e7de8002d875ef29ac3f6fea321bdb5     0 game\csgo_community_addons\de_poseidon\de_poseidon_000.vpk
      107170728    104 df130376866b34df682f0d9fd39c2c956fcf3a31     0 game\csgo_community_addons\de_poseidon\de_poseidon_001.vpk
      105640796    103 a83ca2cd21d173539a646b3943f45e4505e855b9     0 game\csgo_community_addons\de_poseidon\de_poseidon_002.vpk

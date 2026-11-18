@@ -1176,6 +1176,7 @@ $tI(knN
 .?AV?$CNetMessagePB@$08VCNETMsg_SpawnGroup_ManifestUpdate@@$0P@$00$0A@@@
 .?AV?$CNetMessagePB@$0?0VC2S_CONNECTION_Message@@$0A@$00$0A@@@
 .?AV?$CNetMessagePB@$0?0VC2S_CONNECT_Message@@$0A@$00$0A@@@
+.?AV?$CNetMessagePB@$0?0VC2S_CONNECT_SameProcessCheck@@$0A@$00$0A@@@
 .?AV?$CNetMessagePB@$0?0VNetMessageConnectionClosed@@$0L@$00$0A@@@
 .?AV?$CNetMessagePB@$0?0VNetMessageConnectionCrashed@@$0L@$00$0A@@@
 .?AV?$CNetMessagePB@$0?0VNetMessageSplitscreenUserChanged@@$0L@$00$0A@@@

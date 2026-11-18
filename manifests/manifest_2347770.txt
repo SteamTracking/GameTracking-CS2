@@ -1,16 +1,16 @@
 Content Manifest for Depot 2347770 
 
-Manifest ID / date     : 807392217824910805 / 11/17/2026 18:23:39 
-Total number of files  : 3038 
-Total number of chunks : 69623 
-Total bytes on disk    : 70075190132 
-Total bytes compressed : 59985764608 
+Manifest ID / date     : 5223530167766528354 / 11/18/2026 02:20:08 
+Total number of files  : 3035 
+Total number of chunks : 67653 
+Total bytes on disk    : 68004801925 
+Total bytes compressed : 58166028016 
 
 
           Size Chunks File SHA                                 Flags Name
-            10      1 bae252681ad1e20556bd008342410bc911ab174e     0 game\bin\built_from_cl.txt
-         10347      1 9b2d311db45539a8435661500a17b2a5b594c401     0 game\bin\win64\csgo.signatures
-          8941      1 e280b4edcacc135714aab4fcbc38dfb7c385b4eb     0 game\bin\win64\vpk.signatures
+            10      1 1d49ba0e59ba0fe580d892933a597ac088750428     0 game\bin\built_from_cl.txt
+         10347      1 6f066a88307876ff635e8358b6cb09fddc6a980d     0 game\bin\win64\csgo.signatures
+          9050      1 6cd2cb7e4912edf04af30d0d1925492b6bfc916c     0 game\bin\win64\vpk.signatures
          51357      1 0f5112698b482f8c1190c89192a4c0c8b0e50198     0 game\core\cfg\sfm_default_animation_groups.vcfg
           2270      1 ab4e0ee92367ba6d28a89dae8f6000631ffdb641     0 game\core\cfg\user_keys_default.vcfg
           2474      1 c4ff2f85048812f02c2403b0675208acfc00c7b0     0 game\core\gameinfo.gi
@@ -2279,14 +2279,12 @@ Total bytes compressed : 59985764608
       13541700     13 ef7e13f21caf02358298030e21b1529ae5f9aa2a     0 game\csgo\maps\cs_italy_vanity.vpk
      166720455    159 705cc749c9f3b58d30105c1e8f475a9f1ecea6f8     0 game\csgo\maps\cs_office.vpk
       10272054     10 e9090487f929b1a34b720ede84ce28fa1ce3144f     0 game\csgo\maps\cs_office_vanity.vpk
-     576843514    556 8856322181cec62c7338b61a1e6c1cfed875e3ff     0 game\csgo\maps\cs_shelter.vpk
      405482447    392 23345406e58342cea5140e6cfa15e96907d362cc     0 game\csgo\maps\de_ancient.vpk
      412181266    399 4522e2097f16eac26c3d69523bdcd9342a518ae7     0 game\csgo\maps\de_ancient_night.vpk
       27935880     27 ab376ef0c7f44b85792131abb1fe2743c0ed9f9f     0 game\csgo\maps\de_ancient_night_vanity.vpk
       27711746     27 c69f3a941dc5dd7c47c2a6ff0955caa5e7ebc6c6     0 game\csgo\maps\de_ancient_vanity.vpk
      269890099    258 64100874d251bf367a368419ea6fc06f4e271fc5     0 game\csgo\maps\de_anubis.vpk
        8043488      8 16119575e0b8546da573e295c2db59c3733ebcd7     0 game\csgo\maps\de_anubis_vanity.vpk
-     841228704    803 2cb0358f77c14928e48585181e3e883a6e37b1a0     0 game\csgo\maps\de_boulder.vpk
      308788626    296 76d08cd0428053bb9f87b389ac16e69f3b40924f     0 game\csgo\maps\de_cache.vpk
       17078099     17 20eb4dbf08dbd6555ab97eb9f1ae1a6fc757c7f3     0 game\csgo\maps\de_cache_vanity.vpk
      271132591    259 ee9c57a12fb6ce3398e7f46babbca720e51eda00     0 game\csgo\maps\de_cbble.vpk
@@ -2294,7 +2292,6 @@ Total bytes compressed : 59985764608
      262476433    253 7dc529cd65d843a2b8a98c297e79b9923dd70a5d     0 game\csgo\maps\de_dust2.vpk
       10568851     11 70f8bc93182f23c30571de8a48ea94407b57770f     0 game\csgo\maps\de_dust2_vanity.vpk
      346142959    331 b127e873fdea52a550f3dbbd09d5ab5744947985     0 game\csgo\maps\de_eldorado.vpk
-     633345009    605 1a920d503a194e1a020e5c16ee52a87865a4660d     0 game\csgo\maps\de_fachwerk.vpk
      453401552    434 ffba75060715b1f315209c28df94646781fe3365     0 game\csgo\maps\de_inferno.vpk
       12935297     13 6dac948748c35d64135d0ea426a15340b8d42422     0 game\csgo\maps\de_inferno_vanity.vpk
      176187297    170 0def8c7402b1ecf6d387f6e559d210b5a1856b32     0 game\csgo\maps\de_mirage.vpk
@@ -2564,7 +2561,7 @@ Total bytes compressed : 59985764608
      116354463    115 ee37540e2e8594c9ee2c221609a4f4476c775f22     0 game\csgo\pak01_157.vpk
      103986280    105 3bfd27ed565eca9a4f682d27187e74c904ecb0f3     0 game\csgo\pak01_158.vpk
      104799827    102 0120727d7c0f8ae3314e29a5900636320972bdce     0 game\csgo\pak01_159.vpk
-     118623600    117 b66b88fb5623ea39f13cc234c493605bb1b90eb6     0 game\csgo\pak01_160.vpk
+     100364267    105 1b5169a9e7c4ab7adfe11ebc8173718529aef7de     0 game\csgo\pak01_160.vpk
      120280333    124 e8af2771b5876f586c9d54724fcfaf63ac3a2ced     0 game\csgo\pak01_161.vpk
      103905000    101 b77c8fb5d5f9d69af278e76d0d95e6e0e2fda835     0 game\csgo\pak01_162.vpk
      104528936    101 ddf759de7925a82817b629e768e1add130b27b95     0 game\csgo\pak01_163.vpk
@@ -2906,7 +2903,7 @@ Total bytes compressed : 59985764608
      105338067    116 4af7ebb5429b351ff2b76c4f9b300cd176157ada     0 game\csgo\pak01_499.vpk
      102090495    101 6cac088baddee5012d7a47318b06d119f3cbb859     0 game\csgo\pak01_500.vpk
      104832527    100 98c6b41c3112a9ab7c5003a7a28907ad6706706e     0 game\csgo\pak01_501.vpk
-      99618250    105 568b65b644448b85efe132f8eaebe59c309c3fb3     0 game\csgo\pak01_502.vpk
+     103323780    107 f214cc1626d1446441751e78bbcc1abb800a3e9f     0 game\csgo\pak01_502.vpk
      100220508    102 60654a3f3231ef5de3b458ed332ba064c153c465     0 game\csgo\pak01_503.vpk
      105007336    101 c72ba58888f8d6a3fd6fded86102391078ed6a43     0 game\csgo\pak01_504.vpk
      104999148    101 f9115583e91e97760525d9cc400223ad079f5b29     0 game\csgo\pak01_505.vpk
@@ -2950,8 +2947,8 @@ Total bytes compressed : 59985764608
      101821067    101 2ca9d110a0bea10ae8889256a3c3f492a2b93659     0 game\csgo\pak01_543.vpk
      104447027    102 10e118f902b764b0f93125aa807a3b4eab72bf4c     0 game\csgo\pak01_544.vpk
       99637610     99 0b8da850de8cef52fb27503006ccba4b43810704     0 game\csgo\pak01_545.vpk
-      38740815     37 0b84f53928e0fb91b7f2b19d88d06dbd6795b4ea     0 game\csgo\pak01_546.vpk
-       8183192      8 3700c777a00b48565bb958abbd05f10bd533e184     0 game\csgo\pak01_dir.vpk
+      34324476     38 8ea14e68ac56e4af8c0713d74ed6a6cd50a54b83     0 game\csgo\pak01_546.vpk
+       8182245      8 75b5eedba79a5e0ccc2c3f33bd07233e7bd6e9f9     0 game\csgo\pak01_dir.vpk
          11893      1 d2f5c237fcac89835ab901bf3cc83850c71d9b46     0 game\csgo\panorama\fonts\fonts.conf
         107848      1 90edfc11fa568cd0fb5b9d6e6d369dddadfdb8c4     0 game\csgo\panorama\fonts\notomono-regular.ttf
         310556      1 84e39ddc72cd1d2ac4be132d235979f10f916c2b     0 game\csgo\panorama\fonts\notosans-bold.ttf
@@ -3042,7 +3039,7 @@ Total bytes compressed : 59985764608
      104925248    106 c815915131a6dedcd6ce0c03f045177787214c11     0 game\csgo\shaders_vulkan_005.vpk
          11266      1 fd9c7c8ac2129d1c231685e04792de53118fb066     0 game\csgo\shaders_vulkan_006.vpk
          51180      1 e5ed47818be81b1f7958844965ea96ed09c35632     0 game\csgo\shaders_vulkan_dir.vpk
-           190      1 0726b9a10656bf80873c32f4d6a7eca21e78d30d     0 game\csgo\steam.inf
+           190      1 b4ff3d8eb012e168e6dfc95ea60e2f03b7a31386     0 game\csgo\steam.inf
            209      1 cb2eaab8dbda9f075491a5410326356e127f60ec     0 game\csgo_lv\gameinfo.gi
            135      1 7769174b103a021d6390cb2a31b758dbfff04639     0 game\csgo_lv\gameinfo_branchspecific.gi
         473822      1 f5ca24bf12b20fee2ffb5d8bbc465ba8805d8abe     0 game\thirdpartylegalnotices.txt

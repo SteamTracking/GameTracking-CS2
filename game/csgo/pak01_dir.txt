@@ -7376,7 +7376,7 @@ maps/de_train_retake.txt CRC:00a2229546 size:4870
 maps/de_vertigo_camera_nodes.kv3 CRC:003995c8c5 size:16095
 maps/de_vertigo_retake.txt CRC:00a22f3061 size:4675
 maps/scripts/rush_001.vjs_c CRC:00424dd750 size:58191
-maps/workshop_compatibility_versions.txt CRC:0041137ecb size:1787
+maps/workshop_compatibility_versions.txt CRC:009b4b7424 size:1868
 materials/anubis/anubis_water_canal.vmat_c CRC:0049c034fb size:5916
 materials/anubis/anubis_water_coast.vmat_c CRC:009956d66b size:5916
 materials/anubis/anubis_water_coast_skybox.vmat_c CRC:000bdf7718 size:5036
@@ -87575,18 +87575,15 @@ panorama/images/map_icons/map_icon_ar_shoots.vsvg_c CRC:000aa9b187 size:335477
 panorama/images/map_icons/map_icon_ar_shoots_night.vsvg_c CRC:0031ebce91 size:259424
 panorama/images/map_icons/map_icon_cs_italy.vsvg_c CRC:003475a75f size:77468
 panorama/images/map_icons/map_icon_cs_office.vsvg_c CRC:006218aace size:19578
-panorama/images/map_icons/map_icon_cs_shelter.vsvg_c CRC:004e9fdb7f size:24616
 panorama/images/map_icons/map_icon_de_ancient.vsvg_c CRC:0080273585 size:45188
 panorama/images/map_icons/map_icon_de_ancient_night.vsvg_c CRC:004068946b size:239343
 panorama/images/map_icons/map_icon_de_anubis.vsvg_c CRC:00beb2629c size:60164
-panorama/images/map_icons/map_icon_de_boulder.vsvg_c CRC:000eaf93c5 size:21672
 panorama/images/map_icons/map_icon_de_cache.vsvg_c CRC:0050904c6a size:29024
 panorama/images/map_icons/map_icon_de_cbble.vsvg_c CRC:006c75cf99 size:244321
 panorama/images/map_icons/map_icon_de_debris.vsvg_c CRC:00114674e0 size:18827
 panorama/images/map_icons/map_icon_de_dust.vsvg_c CRC:002a9fe750 size:28762
 panorama/images/map_icons/map_icon_de_dust2.vsvg_c CRC:004bc7037f size:237568
 panorama/images/map_icons/map_icon_de_eldorado.vsvg_c CRC:00c9546f58 size:23689
-panorama/images/map_icons/map_icon_de_fachwerk.vsvg_c CRC:008e5a6db8 size:23732
 panorama/images/map_icons/map_icon_de_inferno.vsvg_c CRC:00099672e1 size:35103
 panorama/images/map_icons/map_icon_de_mirage.vsvg_c CRC:00a82eac5a size:15205
 panorama/images/map_icons/map_icon_de_nuke.vsvg_c CRC:00b993a31d size:71186
@@ -87624,7 +87621,6 @@ panorama/images/map_icons/screenshots/1080p/cs_office_2_png.vtex_c CRC:0077686c3
 panorama/images/map_icons/screenshots/1080p/cs_office_3_png.vtex_c CRC:000f9912f6 size:2724013
 panorama/images/map_icons/screenshots/1080p/cs_office_4_png.vtex_c CRC:00468a1ab1 size:2691176
 panorama/images/map_icons/screenshots/1080p/cs_office_png.vtex_c CRC:00626771a6 size:2990776
-panorama/images/map_icons/screenshots/1080p/cs_shelter_png.vtex_c CRC:00ef0b25f3 size:2753253
 panorama/images/map_icons/screenshots/1080p/de_ancient_1_png.vtex_c CRC:0012e63b2c size:1899794
 panorama/images/map_icons/screenshots/1080p/de_ancient_2_png.vtex_c CRC:008c673d9a size:4120235
 panorama/images/map_icons/screenshots/1080p/de_ancient_3_png.vtex_c CRC:004aa54c37 size:3990990
@@ -87641,7 +87637,6 @@ panorama/images/map_icons/screenshots/1080p/de_anubis_3_png.vtex_c CRC:003d4a5f8
 panorama/images/map_icons/screenshots/1080p/de_anubis_4_png.vtex_c CRC:00dce4bddf size:3289664
 panorama/images/map_icons/screenshots/1080p/de_anubis_5_png.vtex_c CRC:004d17b6ba size:3301480
 panorama/images/map_icons/screenshots/1080p/de_anubis_png.vtex_c CRC:007a33dcc0 size:3133792
-panorama/images/map_icons/screenshots/1080p/de_boulder_png.vtex_c CRC:00b44846ef size:3189032
 panorama/images/map_icons/screenshots/1080p/de_cache_1_png.vtex_c CRC:00c3c142ae size:3945682
 panorama/images/map_icons/screenshots/1080p/de_cache_2_png.vtex_c CRC:00c38c7d6f size:3680966
 panorama/images/map_icons/screenshots/1080p/de_cache_3_png.vtex_c CRC:00f000028c size:3547398
@@ -87654,7 +87649,6 @@ panorama/images/map_icons/screenshots/1080p/de_dust2_2_png.vtex_c CRC:00cdabb119
 panorama/images/map_icons/screenshots/1080p/de_dust2_3_png.vtex_c CRC:000af2da08 size:1923607
 panorama/images/map_icons/screenshots/1080p/de_dust2_png.vtex_c CRC:00a775b35e size:3453340
 panorama/images/map_icons/screenshots/1080p/de_eldorado_png.vtex_c CRC:0018d73954 size:3248294
-panorama/images/map_icons/screenshots/1080p/de_fachwerk_png.vtex_c CRC:006dd9a9e3 size:2676419
 panorama/images/map_icons/screenshots/1080p/de_inferno_1_png.vtex_c CRC:0066d26a98 size:3475453
 panorama/images/map_icons/screenshots/1080p/de_inferno_2_png.vtex_c CRC:0079259f5f size:3107650
 panorama/images/map_icons/screenshots/1080p/de_inferno_3_png.vtex_c CRC:00b5ee0420 size:3418165
@@ -87701,18 +87695,15 @@ panorama/images/map_icons/screenshots/360p/ar_shoots_night_png.vtex_c CRC:000c08
 panorama/images/map_icons/screenshots/360p/ar_shoots_png.vtex_c CRC:0024bc3dbe size:492758
 panorama/images/map_icons/screenshots/360p/cs_italy_png.vtex_c CRC:008cabada8 size:435731
 panorama/images/map_icons/screenshots/360p/cs_office_png.vtex_c CRC:00bbdcbe36 size:375480
-panorama/images/map_icons/screenshots/360p/cs_shelter_png.vtex_c CRC:0061c80093 size:432503
 panorama/images/map_icons/screenshots/360p/de_ancient_night_png.vtex_c CRC:00be390f65 size:349978
 panorama/images/map_icons/screenshots/360p/de_ancient_png.vtex_c CRC:00374119c9 size:413597
 panorama/images/map_icons/screenshots/360p/de_anubis_png.vtex_c CRC:00f83727f1 size:379407
-panorama/images/map_icons/screenshots/360p/de_boulder_png.vtex_c CRC:00e6cf813f size:458545
 panorama/images/map_icons/screenshots/360p/de_cache_png.vtex_c CRC:00609ea44f size:390091
 panorama/images/map_icons/screenshots/360p/de_cbble_png.vtex_c CRC:00f9c8199d size:410527
 panorama/images/map_icons/screenshots/360p/de_debris_png.vtex_c CRC:009f9cbbd7 size:429118
 panorama/images/map_icons/screenshots/360p/de_dust2_png.vtex_c CRC:00195e2162 size:417677
 panorama/images/map_icons/screenshots/360p/de_dust_png.vtex_c CRC:007fd5e1b6 size:358102
 panorama/images/map_icons/screenshots/360p/de_eldorado_png.vtex_c CRC:00134f4512 size:499469
-panorama/images/map_icons/screenshots/360p/de_fachwerk_png.vtex_c CRC:00ffeeace4 size:454972
 panorama/images/map_icons/screenshots/360p/de_inferno_png.vtex_c CRC:00d68ea67e size:404055
 panorama/images/map_icons/screenshots/360p/de_mirage_png.vtex_c CRC:0012ea28ca size:454339
 panorama/images/map_icons/screenshots/360p/de_nuke_png.vtex_c CRC:00d9d0d1fd size:352952
@@ -87753,7 +87744,6 @@ panorama/images/map_icons/screenshots/720p/cs_office_2_png.vtex_c CRC:0096484498
 panorama/images/map_icons/screenshots/720p/cs_office_3_png.vtex_c CRC:00f124ee39 size:1226713
 panorama/images/map_icons/screenshots/720p/cs_office_4_png.vtex_c CRC:00853a6d03 size:1264978
 panorama/images/map_icons/screenshots/720p/cs_office_png.vtex_c CRC:0067d084b9 size:1389762
-panorama/images/map_icons/screenshots/720p/cs_shelter_png.vtex_c CRC:0009daf8aa size:1468757
 panorama/images/map_icons/screenshots/720p/de_ancient_1_png.vtex_c CRC:006031064e size:1930048
 panorama/images/map_icons/screenshots/720p/de_ancient_2_png.vtex_c CRC:00131e3116 size:1892249
 panorama/images/map_icons/screenshots/720p/de_ancient_3_png.vtex_c CRC:0059e30c2d size:1821163
@@ -87770,7 +87760,6 @@ panorama/images/map_icons/screenshots/720p/de_anubis_3_png.vtex_c CRC:00d94be94e
 panorama/images/map_icons/screenshots/720p/de_anubis_4_png.vtex_c CRC:0064dd4709 size:1514006
 panorama/images/map_icons/screenshots/720p/de_anubis_5_png.vtex_c CRC:006c74697c size:1550351
 panorama/images/map_icons/screenshots/720p/de_anubis_png.vtex_c CRC:0060281299 size:1434623
-panorama/images/map_icons/screenshots/720p/de_boulder_png.vtex_c CRC:001cb4ac94 size:1605962
 panorama/images/map_icons/screenshots/720p/de_cache_1_png.vtex_c CRC:00400759aa size:1781302
 panorama/images/map_icons/screenshots/720p/de_cache_2_png.vtex_c CRC:00b27c656a size:1695471
 panorama/images/map_icons/screenshots/720p/de_cache_3_png.vtex_c CRC:0019d1af5b size:1625789
@@ -87784,7 +87773,6 @@ panorama/images/map_icons/screenshots/720p/de_dust2_2_png.vtex_c CRC:003699d080 
 panorama/images/map_icons/screenshots/720p/de_dust2_3_png.vtex_c CRC:0004828dd1 size:1902304
 panorama/images/map_icons/screenshots/720p/de_dust2_png.vtex_c CRC:00b7f92e7a size:1575486
 panorama/images/map_icons/screenshots/720p/de_eldorado_png.vtex_c CRC:002e70c144 size:1748120
-panorama/images/map_icons/screenshots/720p/de_fachwerk_png.vtex_c CRC:00de70b419 size:1448286
 panorama/images/map_icons/screenshots/720p/de_inferno_1_png.vtex_c CRC:009471a2b3 size:1654151
 panorama/images/map_icons/screenshots/720p/de_inferno_2_png.vtex_c CRC:00a48d1194 size:1448495
 panorama/images/map_icons/screenshots/720p/de_inferno_3_png.vtex_c CRC:00b63591d7 size:1583237
@@ -87959,7 +87947,7 @@ panorama/images/overheadmaps/de_ancient_v1_radar_psd.vtex_c CRC:009793f407 size:
 panorama/images/overheadmaps/de_anubis_radar_psd.vtex_c CRC:00ead30193 size:272254
 panorama/images/overheadmaps/de_cache_radar_psd.vtex_c CRC:0013306a5a size:130991
 panorama/images/overheadmaps/de_cache_radar_tga.vtex_c CRC:0016a6b740 size:1001660
-panorama/images/overheadmaps/de_cbble_radar_psd.vtex_c CRC:00103427be size:239521
+panorama/images/overheadmaps/de_cbble_radar_psd.vtex_c CRC:0068dc8148 size:216775
 panorama/images/overheadmaps/de_cbble_radar_tga.vtex_c CRC:000900c920 size:218747
 panorama/images/overheadmaps/de_dust2_radar_psd.vtex_c CRC:00c757b3ef size:212310
 panorama/images/overheadmaps/de_inferno_radar_psd.vtex_c CRC:00e76445b2 size:181948
@@ -89114,7 +89102,7 @@ panorama/scripts/friend_advertise_tile.vts_c CRC:008e34a77f size:9406
 panorama/scripts/friendlobby.vts_c CRC:00596b86fb size:24670
 panorama/scripts/friendslist.vts_c CRC:00444f4e54 size:37806
 panorama/scripts/friendtile.vts_c CRC:004afd5c90 size:12734
-panorama/scripts/generated/items_event_current_generated_store.vts_c CRC:00872acb0b size:107982
+panorama/scripts/generated/items_event_current_generated_store.vts_c CRC:003e273488 size:107982
 panorama/scripts/hud/huddeathpanel.vts_c CRC:0004e8a641 size:6942
 panorama/scripts/hud/huddemocontroller.vts_c CRC:00346de02f size:74894
 panorama/scripts/hud/hudinstructor.vts_c CRC:0088688998 size:8286
@@ -89205,7 +89193,7 @@ panorama/scripts/popups/popup_leaderboards.vjs_c CRC:00ed7e2452 size:9180
 panorama/scripts/popups/popup_leaderboards.vts_c CRC:00c20eaa18 size:20158
 panorama/scripts/popups/popup_license_register.vts_c CRC:003476971f size:4206
 panorama/scripts/popups/popup_mainmenu_overwatch_verdict.vts_c CRC:008e472329 size:7518
-panorama/scripts/popups/popup_major_hub.vts_c CRC:0004055cdb size:82526
+panorama/scripts/popups/popup_major_hub.vts_c CRC:00f870cf80 size:83038
 panorama/scripts/popups/popup_major_store.vts_c CRC:0096fd58d9 size:133710
 panorama/scripts/popups/popup_major_store_balance.vts_c CRC:0046bb67e2 size:4542
 panorama/scripts/popups/popup_news.vts_c CRC:00361a6446 size:6030
@@ -92547,7 +92535,7 @@ resource/csgo_bulgarian.txt CRC:006b0200a9 size:7910448
 resource/csgo_czech.txt CRC:00ab2cc68c size:5118639
 resource/csgo_danish.txt CRC:0065478253 size:5079119
 resource/csgo_dutch.txt CRC:00a4bd5621 size:5265299
-resource/csgo_english.txt CRC:0080166ab1 size:5083754
+resource/csgo_english.txt CRC:009c11d33b size:5083798
 resource/csgo_finnish.txt CRC:0073fb760c size:5165693
 resource/csgo_french.txt CRC:00b7f1824d size:5482037
 resource/csgo_german.txt CRC:002f31283b size:5366428
@@ -92819,7 +92807,7 @@ soundevents/music/alleycvt_01/game_sounds_music.vsndevts_c CRC:00103c297c size:3
 soundevents/music/alrt_01/game_sounds_music.vsndevts_c CRC:00d5208f76 size:4293
 soundevents/music/altare_01/game_sounds_music.vsndevts_c CRC:00f0d32ac2 size:4004
 soundevents/music/amontobin_01/game_sounds_music.vsndevts_c CRC:00e345c17e size:4185
-soundevents/music/arcando_01/game_sounds_music.vsndevts_c CRC:00574ca023 size:3910
+soundevents/music/arcando_01/game_sounds_music.vsndevts_c CRC:0040f8c21f size:3911
 soundevents/music/austinwintory_01/game_sounds_music.vsndevts_c CRC:00c1b86e6f size:4038
 soundevents/music/austinwintory_02/game_sounds_music.vsndevts_c CRC:00f4002576 size:4004
 soundevents/music/austinwintory_03/game_sounds_music.vsndevts_c CRC:00f740c8fd size:3955
@@ -94773,9 +94761,9 @@ sounds/music/amontobin_01/wonround.vsnd_c CRC:00c7659c6d size:164640
 sounds/music/arcando_01/bombplanted.vsnd_c CRC:003e7c2902 size:615708
 sounds/music/arcando_01/bombtenseccount.vsnd_c CRC:0008b6b4d4 size:194089
 sounds/music/arcando_01/chooseteam.vsnd_c CRC:0031610f51 size:377610
-sounds/music/arcando_01/deathcam.vsnd_c CRC:00cd69363c size:124400
+sounds/music/arcando_01/deathcam.vsnd_c CRC:00613e352d size:78321
 sounds/music/arcando_01/endofmatch.vsnd_c CRC:006766d2da size:1614355
-sounds/music/arcando_01/lostround.vsnd_c CRC:00287b8ade size:119998
+sounds/music/arcando_01/lostround.vsnd_c CRC:00d4512e38 size:135047
 sounds/music/arcando_01/mainmenu.vsnd_c CRC:0083357032 size:3253493
 sounds/music/arcando_01/roundmvpanthem_01.vsnd_c CRC:0033208595 size:141019
 sounds/music/arcando_01/roundmvpanthem_02.vsnd_c CRC:003ced7be4 size:146320
@@ -94783,7 +94771,7 @@ sounds/music/arcando_01/roundtenseccount.vsnd_c CRC:00f89a110d size:200549
 sounds/music/arcando_01/startaction_01.vsnd_c CRC:00235cf7c3 size:215569
 sounds/music/arcando_01/startofmatch.vsnd_c CRC:00e403f257 size:226265
 sounds/music/arcando_01/startround_01.vsnd_c CRC:00efd22449 size:193977
-sounds/music/arcando_01/wonround.vsnd_c CRC:007bb65584 size:124074
+sounds/music/arcando_01/wonround.vsnd_c CRC:00f91bb0b7 size:135777
 sounds/music/austinwintory_01/bombplanted.vsnd_c CRC:00f752085d size:695449
 sounds/music/austinwintory_01/bombtenseccount.vsnd_c CRC:002d298eeb size:263279
 sounds/music/austinwintory_01/chooseteam.vsnd_c CRC:0003f3e188 size:417088

@@ -573,7 +573,7 @@ var g_ActiveTournamentTeams = [
             11845
         ],
         rankingids: [],
-        team_group: 'legends',
+        team_group: 'challengers',
         players: [
             {
                 playerid: 1353702531,
@@ -649,7 +649,7 @@ var g_ActiveTournamentTeams = [
             11849
         ],
         rankingids: [],
-        team_group: 'challengers',
+        team_group: 'legends',
         players: [
             {
                 playerid: 83503844,
@@ -1105,7 +1105,7 @@ var g_ActiveTournamentTeams = [
             11873
         ],
         rankingids: [],
-        team_group: 'challengers',
+        team_group: 'contenders',
         players: [
             {
                 playerid: 890801811,
@@ -1409,7 +1409,7 @@ var g_ActiveTournamentTeams = [
             11889
         ],
         rankingids: [],
-        team_group: 'contenders',
+        team_group: 'challengers',
         players: [
             {
                 playerid: 101158002,

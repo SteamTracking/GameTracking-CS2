@@ -256,8 +256,12 @@ var PopupMajorHub;
         const range = MajorStorePrices.GetStickerPriceRange();
         const bOnSale = range.maxDiscountPct > 0;
         elPrice.SetDialogVariableInt('discount', range.maxDiscountPct);
+        elPrice.SetDialogVariableInt('price_red', 3000);
+        elPrice.SetDialogVariableInt('price_pink', 800);
+        elPrice.SetDialogVariableInt('price_purp', 150);
+        elPrice.SetDialogVariableInt('price_blue', 25);
         elPrice.FindChildInLayoutFile('id-major-hub-store-price-label').text =
-            $.Localize(bOnSale ? '#major_store_sale_banner' : '#major_hub_store_finish_prices', elPrice);
+            $.Localize(bOnSale ? '#major_store_sale_banner' : '#major_hub_store_finish_prices_v', elPrice);
         elPrice.SetHasClass('on-sale', bOnSale);
     }
     function _OnStorePricesChanged() {

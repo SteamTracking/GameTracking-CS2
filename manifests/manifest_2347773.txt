@@ -1,22 +1,22 @@
 Content Manifest for Depot 2347773 
 
-Manifest ID / date     : 6590564568174469475 / 11/17/2026 18:24:58 
-Total number of files  : 135 
-Total number of chunks : 6673 
-Total bytes on disk    : 7223842278 
-Total bytes compressed : 4605599312 
+Manifest ID / date     : 4838211175569621862 / 11/18/2026 02:20:48 
+Total number of files  : 81 
+Total number of chunks : 1889 
+Total bytes on disk    : 1952948486 
+Total bytes compressed : 1247308864 
 
 
           Size Chunks File SHA                                 Flags Name
         155548      1 17bbe7faccf14a0b22497a6d34df9776c6567d61     0 game\bin\linuxsteamrt64\cs2
          84104      1 17f3c133b5c62e6e2bbb0280e038912414412579     0 game\bin\linuxsteamrt64\fltlnx64.flt
-      15431576     15 3c2aabc2cdcb5f3550cda8227e1c8bdd98a4c7a1     0 game\bin\linuxsteamrt64\libanimationsystem.so
+      15431576     15 5c5cdc3c7c771dbf6181e0e974a511a3b9b33f40     0 game\bin\linuxsteamrt64\libanimationsystem.so
        3678216      4 68f95c77a3ab19b380f142ab7e6ccb543af9d37c     0 game\bin\linuxsteamrt64\libavcodec.so.58
         888848      1 bcfdd74b8bc4268cc6af190a10c8d64d27b71bc9     0 game\bin\linuxsteamrt64\libavformat.so.58
         129496      1 4895da33d08a56dfb48daa79a3bcee9f9c361649     0 game\bin\linuxsteamrt64\libavresample.so.4
         712672      1 451e7c11727fefe58f2cca8fc0e0cd0bc562f43e     0 game\bin\linuxsteamrt64\libavutil.so.56
        1596148      2 b96dfdf2fe9a36436fd4f04ca78e292982ea15b1     0 game\bin\linuxsteamrt64\libcairo.so
-      11041952     11 cf977ddd5ed74e3bb80f169c4baab7d7260be67a     0 game\bin\linuxsteamrt64\libengine2.so
+      11044416     11 7d788d1843213d42c7b89defcaf912f2d997a4b4     0 game\bin\linuxsteamrt64\libengine2.so
        3108744      3 b66fbdcc12b01ba9248a40996f2206a69db4f16d     0 game\bin\linuxsteamrt64\libfilesystem_stdio.so
        1304272      2 0af1352041c54e16129773dc8d038872f9f839be     0 game\bin\linuxsteamrt64\libfontconfig.so.1
        3930056      4 0b64e7c4eab1a6313867cb39c0fafbeb026aac7f     0 game\bin\linuxsteamrt64\libfreetype.so.6
@@ -25,12 +25,12 @@ Total bytes compressed : 4605599312
        1796256      2 944fdfae789bb0d23a934a9bbd395ef2805a7e9c     0 game\bin\linuxsteamrt64\libmaterialsystem2.so
        2011620      2 19e7adc6a08ba09d1a038491c530a5099114a6e2     0 game\bin\linuxsteamrt64\libmeshsystem.so
        1051154      2 312f15ffc6ca79979618858b7e371c056b5b74b2     0 game\bin\linuxsteamrt64\libmpg123.so.0
-       4822068      5 32ae13139b88529fa204230e5e9f34278dae7b0d     0 game\bin\linuxsteamrt64\libnetworksystem.so
+       4822068      5 d5d089783abe122c68d05c3a429d15594d724fe2     0 game\bin\linuxsteamrt64\libnetworksystem.so
          35112      1 5f38ba115a525c4dee3dea7d9625a2164b84d457     0 game\bin\linuxsteamrt64\libogg.so.0
        1278424      2 e99953922de86b898b2f0c9abc38ae24c6aea2b4     0 game\bin\linuxsteamrt64\libpango-1.0.so.0
         442632      1 9e20da60c2343c610624175113428f4089236585     0 game\bin\linuxsteamrt64\libpangoft2-1.0.so.0
        7025424      7 4935d3668fb51017ae99874bf516ae1e65c4dbed     0 game\bin\linuxsteamrt64\libpanorama.so
-       4871320      5 7924f0207d1dcf2a7f295d6c7bb951f6ee1e3c0b     0 game\bin\linuxsteamrt64\libpanoramauiclient.so
+       4871320      5 40dfdb2164d7b8ddfc755cd05e37bce6b8a5ec61     0 game\bin\linuxsteamrt64\libpanoramauiclient.so
        3202820      4 de87614654672d68a35fdc978f2047ed220005b1     0 game\bin\linuxsteamrt64\libpanorama_text_pango.so
        8604856      9 e9d9f9eb7b1490edc473d90e44bc522e20b20876     0 game\bin\linuxsteamrt64\libparticles.so
       40786720     40 850311e7b530d04bcfbdee1e3e7d026a7791098d     0 game\bin\linuxsteamrt64\libphonon.so
@@ -42,8 +42,8 @@ Total bytes compressed : 4605599312
       10777468     11 b3b5b79f5f3ab90a01c20f4d4ff2ce4158965c7b     0 game\bin\linuxsteamrt64\libscenesystem.so
         713948      1 094bc32942d7cdeaef80c71fd7a4e22da387748a     0 game\bin\linuxsteamrt64\libschemasystem.so
        3229400      4 0558f1091e79b187e42491955cf362112598cff5     0 game\bin\linuxsteamrt64\libSDL3.so.0
-       7955316      8 e9cf7a44e047e078242aa3d19d33a54ba7813df4     0 game\bin\linuxsteamrt64\libsoundsystem.so
-       4764548      5 3c7dcf40a5dfd27b59eff6db5d78e5a662a807ca     0 game\bin\linuxsteamrt64\libsteamaudio.so
+       7955316      8 d28c65eb7473028642dd5c22e0dedce408ad41ca     0 game\bin\linuxsteamrt64\libsoundsystem.so
+       4764548      5 2063d26ef8bd1808dba5163a72b11b4627a059d1     0 game\bin\linuxsteamrt64\libsteamaudio.so
        5700658      6 8721e595067b25c3188f32a1cc06ecb36088bc70     0 game\bin\linuxsteamrt64\libsteamnetworkingsockets.so
         381976      1 c109666c839a433b5ff8f635ad173cde77bdcdb6     0 game\bin\linuxsteamrt64\libsteam_api.so
         555448      1 a1191c624317a97fbf634aa13990bc12abd45179     0 game\bin\linuxsteamrt64\libswscale.so.5
@@ -64,46 +64,12 @@ Total bytes compressed : 4605599312
        5739752      6 9fa1b0ce32cf3b268d4e0afa0aadf19ba372e42b     0 game\bin\linuxsteamrt64\libvphysics2.so
        3205768      4 7ee108b86e414426587fcf8d64e037c7f3f78544     0 game\bin\linuxsteamrt64\libvpx.so.6
        1296400      2 edc5a944de39c30ed936dbaae11d6415e3ca20ea     0 game\bin\linuxsteamrt64\libvscript.so
-       4561380      5 f2e931b6af73498c5e6278e6c4e042168799544c     0 game\bin\linuxsteamrt64\libworldrenderer.so
+       4561380      5 a5566943935e57baa6fb00b90b7b94ae166cbb26     0 game\bin\linuxsteamrt64\libworldrenderer.so
           3822      1 956919b920713ce452f46c20cf8643674f7543f7     0 game\cs2.sh
-      73977592     71 ebf300462ba410872134bebd93483fae95fbcc2d     0 game\csgo\bin\linuxsteamrt64\libclient.so
-       3176892      4 e7297102485bac001aad23b9345d0ffaea90b2a4     0 game\csgo\bin\linuxsteamrt64\libhost.so
-       3764196      4 7dd862304aa0158a4bc6bf9be95da991453fea4f     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
-      41626808     40 8f71eea62a089a931753ce9be6ced9d08f7e96d3     0 game\csgo\bin\linuxsteamrt64\libserver.so
-     182648578    175 d4b7d7aea361a8b94c54e79904d642d712a1a3f5     0 game\csgo_community_addons\cs_shelter\cs_shelter_000.vpk
-     107052112    105 2c61877687a4e433f04a62340fb3ce54b70e039c     0 game\csgo_community_addons\cs_shelter\cs_shelter_001.vpk
-     106101480    104 e5dc305d96a55ae88a396ac6d98037209b4520ce     0 game\csgo_community_addons\cs_shelter\cs_shelter_002.vpk
-     105126974    101 6e129e4ab59b61d1f288aaa1beca1eaa547a5339     0 game\csgo_community_addons\cs_shelter\cs_shelter_003.vpk
-     104909952    101 34cf5be524f0eb93dd8f70db3ec8ee09b39631a2     0 game\csgo_community_addons\cs_shelter\cs_shelter_004.vpk
-     109995824    105 178c3f1d2e96aba362e0b183d4ba0932102cdc94     0 game\csgo_community_addons\cs_shelter\cs_shelter_005.vpk
-     105276701    101 5b6c0b0df1fb31fe3cbb92b74061bbbda4d59024     0 game\csgo_community_addons\cs_shelter\cs_shelter_006.vpk
-     106544143    103 3465a01567c2a936b9c0e6be48e6354dba1d8c78     0 game\csgo_community_addons\cs_shelter\cs_shelter_007.vpk
-     106683273    104 69fd5dabd76de1595e343a2a75c0d13cf0666b79     0 game\csgo_community_addons\cs_shelter\cs_shelter_008.vpk
-     109384382    105 0e6c87b50d16e4fa426486b734fda9ac60d5104c     0 game\csgo_community_addons\cs_shelter\cs_shelter_009.vpk
-     106183080    104 090983c38d4a3a5f347265d2c0dcf24083445d5c     0 game\csgo_community_addons\cs_shelter\cs_shelter_010.vpk
-     105355608    101 353a8d3e66a6f31364284f95363aa2b1c4394762     0 game\csgo_community_addons\cs_shelter\cs_shelter_011.vpk
-     107835069    107 25bda58fef3c7d5f582c7c65484daf97426f5d29     0 game\csgo_community_addons\cs_shelter\cs_shelter_012.vpk
-       9717887     10 e2694b152234c6966fc3c35ee0dc5ed68ba51bf2     0 game\csgo_community_addons\cs_shelter\cs_shelter_013.vpk
-         95707      1 e9cc13d9dc71145bbbf7e77ff1906a1542e3e7ac     0 game\csgo_community_addons\cs_shelter\cs_shelter_dir.vpk
-     106176134    103 86a998fa22ea713712bb7d4ea00a1bc051baf81d     0 game\csgo_community_addons\de_boulder\de_boulder_000.vpk
-     120335782    117 d2f1060a99dd394af64d07b0e5f8abeb81a929fa     0 game\csgo_community_addons\de_boulder\de_boulder_001.vpk
-     105318487    104 0da61bfa7aa2837ea431a1aba52f55010be066ac     0 game\csgo_community_addons\de_boulder\de_boulder_002.vpk
-     107610491    105 c12ecb20bd1087de9dfbe27678e26167ad22fa38     0 game\csgo_community_addons\de_boulder\de_boulder_003.vpk
-     105318873    102 048b1d1633f74a928a95021b0666ec70e751c55e     0 game\csgo_community_addons\de_boulder\de_boulder_004.vpk
-     105543046    103 2e92443f420455ee2e8d0ab9d0d54d3a38570b73     0 game\csgo_community_addons\de_boulder\de_boulder_005.vpk
-     109881148    106 de0d33e9e804082567a44b25e48d63290576ddc1     0 game\csgo_community_addons\de_boulder\de_boulder_006.vpk
-     105483944    103 da253ac5e0e8c2dcc3f3f2c8677061d0f21eb667     0 game\csgo_community_addons\de_boulder\de_boulder_007.vpk
-     109563580    108 c328fbd5a28b65f848e23e9607ae327b392ed486     0 game\csgo_community_addons\de_boulder\de_boulder_008.vpk
-     106297180    104 9dfb323bf9aa2e005685cc3f593c7e642e0272eb     0 game\csgo_community_addons\de_boulder\de_boulder_009.vpk
-     109877427    110 fa3745dd5325d09a36a4ff56dc7306a02330b01b     0 game\csgo_community_addons\de_boulder\de_boulder_010.vpk
-     105056283    107 6886d19111c6a21e199602cc6e8d2cc1726450d0     0 game\csgo_community_addons\de_boulder\de_boulder_011.vpk
-     104917996    103 8e356bdeea47c7d2c2dfcbdc5bc5b8baf87fe54d     0 game\csgo_community_addons\de_boulder\de_boulder_012.vpk
-     109126936    108 5dbd5e4c3360c7f5326e00bd91d4a09de68e20d1     0 game\csgo_community_addons\de_boulder\de_boulder_013.vpk
-     108726784    107 609d1cb31d9dbc04680d9816b36c635ff56e7dc6     0 game\csgo_community_addons\de_boulder\de_boulder_014.vpk
-     104982049    105 8fe4be229db4c328e0586e5c91ee57745f4a94fe     0 game\csgo_community_addons\de_boulder\de_boulder_015.vpk
-     105354037    105 7f9b5f2ecc4c6f452a6faf0ab8aeb1b0d844240b     0 game\csgo_community_addons\de_boulder\de_boulder_016.vpk
-      37953211     40 5aa5c2c268b5284e8e6b10a402d0241b06143e74     0 game\csgo_community_addons\de_boulder\de_boulder_017.vpk
-        186011      1 9917bcd03cf4da5039f39f2003f8d94c94604ef4     0 game\csgo_community_addons\de_boulder\de_boulder_dir.vpk
+      73977592     71 8c45dc3b3ca7eb25b79ffa4a563c7836e6f41a06     0 game\csgo\bin\linuxsteamrt64\libclient.so
+       3176892      4 5a66e905fbac4471e12a4e3d294fa7fc7c9e7821     0 game\csgo\bin\linuxsteamrt64\libhost.so
+       3764196      4 573877b471ee1afbca8cc4a3018f4d4732804758     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
+      41626808     40 ed0cf6c71d0553607a11ef9607323a2cb8f22fc0     0 game\csgo\bin\linuxsteamrt64\libserver.so
      105039795    103 c0a2726c8c1c73762f578a7d2e91a95f58678a98     0 game\csgo_community_addons\de_debris\de_debris_000.vpk
      107269718    105 a9a2829dbecedc64146410548e6cab7dc749c14c     0 game\csgo_community_addons\de_debris\de_debris_001.vpk
      106054491    102 bcdcf8908307380cbe3e9b17a66c50af6775eaf7     0 game\csgo_community_addons\de_debris\de_debris_002.vpk
@@ -118,26 +84,6 @@ Total bytes compressed : 4605599312
      106348272    102 87e920af70d151e42c24d64a6589ca6ae4ed702a     0 game\csgo_community_addons\de_eldorado\de_eldorado_004.vpk
       97479189     97 053322265d78ad034720d14beda2baea4b5b015a     0 game\csgo_community_addons\de_eldorado\de_eldorado_005.vpk
          38350      1 d30ee9476a4990e590695f371a422c093008da0c     0 game\csgo_community_addons\de_eldorado\de_eldorado_dir.vpk
-     108563999    104 775f83bac69b6244cf7b8b276685f11b6c3d61f3     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_000.vpk
-     107760754    109 89bf2c531c6f778319a278c4704073e4b812c972     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_001.vpk
-     108318548    107 18f94862241ddb2cf95bfda63c0b64636e0d3fbb     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_002.vpk
-     107754156    109 772033884e364ca163ea326739c8f171fc586504     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_003.vpk
-     108337537    107 c1eb8497a615e2bd2672cc09a3da4f92a30805b8     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_004.vpk
-     109881539    107 50336fff324c84a1005a1b20a0185eabb22bc462     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_005.vpk
-     107091610    109 262e9e15f5d76e1be4a48dc7f1016fcb86029d8a     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_006.vpk
-     105344253    106 48696263781addea225a4de11e7d3e6cee909331     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_007.vpk
-     104924396    103 f1327f2f17a7bfcf4175ebc5a4451944f42bde6a     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_008.vpk
-     107314006    107 ec3253feb5ae48039e448e742dd7723471f265b7     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_009.vpk
-     106671597    105 c632bbddbe999ce823c187cb643082b671318b86     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_010.vpk
-     106337325    108 7d535b6931caaaaa2bc8e25d0e375b397f2855de     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_011.vpk
-     109328538    108 76daebfc88ce13c84dc4bd580464bcfc926ba218     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_012.vpk
-     107659846    106 07ccda63c16f39c215f35c495306859e8c433a69     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_013.vpk
-     106331041    108 c066036752a9997dd753123451e75bda3838a62b     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_014.vpk
-     104918092    104 caf840123c812e17ba15797ca3a01245216e6187     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_015.vpk
-     104860485    107 d1c62686ed26ba99414d603ac78ebf763ba2470c     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_016.vpk
-     108619724    106 a1191852b15a31c2dc5e46c4ac8805d41b0a6708     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_017.vpk
-        116243      1 a80d56de53c53128c3a850b687904c61d83ea6d9     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_018.vpk
-        142398      1 0ddb1693030d6be3732083cea70ce473af1a55ca     0 game\csgo_community_addons\de_fachwerk\de_fachwerk_dir.vpk
      104986147    102 f27723fc3e7de8002d875ef29ac3f6fea321bdb5     0 game\csgo_community_addons\de_poseidon\de_poseidon_000.vpk
      107170728    104 df130376866b34df682f0d9fd39c2c956fcf3a31     0 game\csgo_community_addons\de_poseidon\de_poseidon_001.vpk
      105640796    103 a83ca2cd21d173539a646b3943f45e4505e855b9     0 game\csgo_community_addons\de_poseidon\de_poseidon_002.vpk

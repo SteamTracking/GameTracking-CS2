@@ -43826,7 +43826,7 @@
 		"major_hub_store_title_event" 	"{s:tournament_name} Major Shop"
 		"major_hub_store_title_hud_store" 	"{s:tournament_name} Major Hub & Shop"
 		"major_hub_store_desc" 	"Get your favorite team and player autograph stickers"
-		"major_hub_store_finish_prices"	"Gold 3,000 <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>, Holo 625 <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>, Foil 125 <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>, and Paper 25 <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>"
+		"major_hub_store_finish_prices_v"	"Gold {d:price_red} <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>, Holo {d:price_pink} <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>, Foil {d:price_purp} <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>, and Paper {d:price_blue} <img src='file://{images}/icons/ui/major_coin.svg' class='inline-coin-icon'/>"
 		"major_hub_store_desc_2" 	"Now Available - Champions Stickers and Highlight Charms"
 		"major_hub_store_desc_3" 	"The Ranked Series Stickers"
 		"major_hub_make_souvenir_title"  "Make Souvenirs"
