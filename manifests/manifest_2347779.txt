@@ -1,6 +1,6 @@
 Content Manifest for Depot 2347779 
 
-Manifest ID / date     : 8135606259652574560 / 11/18/2026 02:21:10 
+Manifest ID / date     : 3644184035583804861 / 11/18/2026 03:20:59 
 Total number of files  : 910 
 Total number of chunks : 2526 
 Total bytes on disk    : 2111079498 
@@ -639,7 +639,7 @@ Total bytes compressed : 576653808
        5703320      6 6270f8aa98bbbcd062f9b41264346c939ce69e9d     0 game\bin\win64\assetsystem.dll
        1529856      2 45e7d0873608e5424312fa289a270f2faacfe8fa     0 game\bin\win64\bc7e.dll
         396952      1 88ebebb4e0b032dfe12548c2a132ad8a753e3e96     0 game\bin\win64\cs2_build_econ_items_workshop.exe
-         13866      1 f233481ce88f495c9efa94e0e6942f25270baa1c     0 game\bin\win64\csgo.signatures
+         13866      1 30c6d95361c7a6b813ac2b8be50d500244cfbae9     0 game\bin\win64\csgo.signatures
        1271448      2 b156727c4440c4cc678d05b2fe503de784f57ec5     0 game\bin\win64\csgocfg.exe
       15683224     15 2c63723f079409af6fdda0851bf996db78f1ab29     0 game\bin\win64\cs_mdl_import.exe
        1195672      2 83fe4ec02edf1686ec59186517a47cac8357afb5     0 game\bin\win64\dmxconvert.exe
@@ -722,7 +722,7 @@ Total bytes compressed : 576653808
         133435      1 5c5acf7bffba281b1fb2de939a6953c385e26ac3     0 game\csgo\lighting\postprocessing\editor\toolsscene_default.vpost_c
           3823      1 aaa9517703492629cade78571c39f5fdc2c417e3     0 game\csgo\models_gamedata.fgd
           1559      1 ccef3c777e99029f1956e3ad23a718a99fd36d14     0 game\csgo\postprocessing.fgd
-      53686354     52 364fb72f567703494e974ffa344d567efd516155     0 game\csgo\readonly_tools_asset_info.bin
+      53686354     52 3301daf47f0c36245f945f8c3895c9e6e0e2533f     0 game\csgo\readonly_tools_asset_info.bin
           3009      1 8374c54025aad8c3d4a72b5f7f198d99951b7844     0 game\csgo\tools\cs2_icon_gen\icon_camera.png
           2390      1 436ef3b91600906f462a33b9973b3f0955ddf1d6     0 game\csgo\tools\cs2_icon_gen\icon_item.png
           2566      1 d78fd6c17e836a35c1cff4b375de7928ea5aea40     0 game\csgo\tools\cs2_icon_gen\icon_light_fill.png

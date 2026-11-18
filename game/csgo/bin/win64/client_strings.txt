@@ -13582,7 +13582,7 @@ CRenderGameSystem::OnClientPreOutputParallelWithServer
 CRenderGameSystem::OnClientPreOutputParallelWithServer(), C:\buildworker\csgo_rel_win64\build\src\game\shared\rendergamesystem.cpp:1265
 CRenderGameSystem::OnClientPreOutputParallelWithServer(1365): 
 CRenderingPipelineCS2Shadows
-CRenderingPipelineCsgo::AddLayersToView(11431): 
+CRenderingPipelineCsgo::AddLayersToView(11443): 
 CResourceName
 CResourceNameTyped
 CResourcePrecacherGameSystem

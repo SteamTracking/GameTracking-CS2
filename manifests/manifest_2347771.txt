@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347771 
 
-Manifest ID / date     : 6729017085491141898 / 11/18/2026 02:20:32 
+Manifest ID / date     : 6054210037651104742 / 11/18/2026 03:20:43 
 Total number of files  : 130 
-Total number of chunks : 2571 
-Total bytes on disk    : 2630164647 
-Total bytes compressed : 1800726736 
+Total number of chunks : 2572 
+Total bytes on disk    : 2630165159 
+Total bytes compressed : 1800768464 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -110,7 +110,7 @@ Total bytes compressed : 1800726736
        3185298      4 10bea5cfe6883540880c748e9506a04ad11e53ca     0 game\core\shaders_pc_000.vpk
          25563      1 72204b8136ab7b8df21a52fb0b8b674f8c578b06     0 game\core\shaders_pc_dir.vpk
        1728360      2 4e48ff45949c7f3cd8fd8ab5b7514ae27f44e53a     0 game\csgo\bin\legacy\csgo_legacy_app.exe
-      39141016     38 356d24d4ca1cf9f7fbe0f9c1232c201252284de6     0 game\csgo\bin\win64\client.dll
+      39141528     39 5d5c5f9091f52548ba063f80c62358fc08e10845     0 game\csgo\bin\win64\client.dll
        1388184      2 d9b5213aac4509a45971bd1b41ca8e4ded41adf3     0 game\csgo\bin\win64\host.dll
        1888920      2 dbaec89fd455d68b18488d3b03e50325266f3e2b     0 game\csgo\bin\win64\matchmaking.dll
       34545816     33 cc1b8e4219dd2147212d418dcd933f29a17f5562     0 game\csgo\bin\win64\server.dll

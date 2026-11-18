@@ -1,16 +1,16 @@
 Content Manifest for Depot 2347770 
 
-Manifest ID / date     : 5223530167766528354 / 11/18/2026 02:20:08 
+Manifest ID / date     : 239443625111074552 / 11/18/2026 03:20:11 
 Total number of files  : 3035 
 Total number of chunks : 67653 
-Total bytes on disk    : 68004801925 
-Total bytes compressed : 58166028016 
+Total bytes on disk    : 68004801541 
+Total bytes compressed : 58166027840 
 
 
           Size Chunks File SHA                                 Flags Name
-            10      1 1d49ba0e59ba0fe580d892933a597ac088750428     0 game\bin\built_from_cl.txt
-         10347      1 6f066a88307876ff635e8358b6cb09fddc6a980d     0 game\bin\win64\csgo.signatures
-          9050      1 6cd2cb7e4912edf04af30d0d1925492b6bfc916c     0 game\bin\win64\vpk.signatures
+            10      1 c3c6c9811c836c9582d6ab647a544a1a5d818fe1     0 game\bin\built_from_cl.txt
+         10347      1 29d9571d2ad200fcb56ed3d31e4e31e85356d8f1     0 game\bin\win64\csgo.signatures
+          8666      1 623b919160eaf7d679001a2bb0dc89b0f06b8c8f     0 game\bin\win64\vpk.signatures
          51357      1 0f5112698b482f8c1190c89192a4c0c8b0e50198     0 game\core\cfg\sfm_default_animation_groups.vcfg
           2270      1 ab4e0ee92367ba6d28a89dae8f6000631ffdb641     0 game\core\cfg\user_keys_default.vcfg
           2474      1 c4ff2f85048812f02c2403b0675208acfc00c7b0     0 game\core\gameinfo.gi
@@ -3039,7 +3039,7 @@ Total bytes compressed : 58166028016
      104925248    106 c815915131a6dedcd6ce0c03f045177787214c11     0 game\csgo\shaders_vulkan_005.vpk
          11266      1 fd9c7c8ac2129d1c231685e04792de53118fb066     0 game\csgo\shaders_vulkan_006.vpk
          51180      1 e5ed47818be81b1f7958844965ea96ed09c35632     0 game\csgo\shaders_vulkan_dir.vpk
-           190      1 b4ff3d8eb012e168e6dfc95ea60e2f03b7a31386     0 game\csgo\steam.inf
+           190      1 6fbef90ff0a60336feae41c2f1bc613528a6b4d5     0 game\csgo\steam.inf
            209      1 cb2eaab8dbda9f075491a5410326356e127f60ec     0 game\csgo_lv\gameinfo.gi
            135      1 7769174b103a021d6390cb2a31b758dbfff04639     0 game\csgo_lv\gameinfo_branchspecific.gi
         473822      1 f5ca24bf12b20fee2ffb5d8bbc465ba8805d8abe     0 game\thirdpartylegalnotices.txt

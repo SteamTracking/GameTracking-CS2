@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347773 
 
-Manifest ID / date     : 4838211175569621862 / 11/18/2026 02:20:48 
+Manifest ID / date     : 5185046280295927252 / 11/18/2026 03:20:49 
 Total number of files  : 81 
 Total number of chunks : 1889 
-Total bytes on disk    : 1952948486 
-Total bytes compressed : 1247308864 
+Total bytes on disk    : 1952949190 
+Total bytes compressed : 1247307296 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -66,7 +66,7 @@ Total bytes compressed : 1247308864
        1296400      2 edc5a944de39c30ed936dbaae11d6415e3ca20ea     0 game\bin\linuxsteamrt64\libvscript.so
        4561380      5 a5566943935e57baa6fb00b90b7b94ae166cbb26     0 game\bin\linuxsteamrt64\libworldrenderer.so
           3822      1 956919b920713ce452f46c20cf8643674f7543f7     0 game\cs2.sh
-      73977592     71 8c45dc3b3ca7eb25b79ffa4a563c7836e6f41a06     0 game\csgo\bin\linuxsteamrt64\libclient.so
+      73978296     71 570eb98fa4b00f336842edab1226d01a9637a9a4     0 game\csgo\bin\linuxsteamrt64\libclient.so
        3176892      4 5a66e905fbac4471e12a4e3d294fa7fc7c9e7821     0 game\csgo\bin\linuxsteamrt64\libhost.so
        3764196      4 573877b471ee1afbca8cc4a3018f4d4732804758     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
       41626808     40 ed0cf6c71d0553607a11ef9607323a2cb8f22fc0     0 game\csgo\bin\linuxsteamrt64\libserver.so
