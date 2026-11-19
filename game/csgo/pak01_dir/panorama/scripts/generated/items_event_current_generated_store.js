@@ -42,6 +42,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 1,
         players: [
             {
                 playerid: 350295751,
@@ -118,6 +119,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 2,
         players: [
             {
                 playerid: 18569432,
@@ -194,6 +196,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 3,
         players: [
             {
                 playerid: 424467,
@@ -270,6 +273,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 4,
         players: [
             {
                 playerid: 895109597,
@@ -346,6 +350,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 5,
         players: [
             {
                 playerid: 425999755,
@@ -422,6 +427,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 6,
         players: [
             {
                 playerid: 185941338,
@@ -498,6 +504,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 7,
         players: [
             {
                 playerid: 29164525,
@@ -574,6 +581,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 9,
         players: [
             {
                 playerid: 1353702531,
@@ -650,6 +658,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'legends',
+        team_seeding: 8,
         players: [
             {
                 playerid: 83503844,
@@ -726,6 +735,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 10,
         players: [
             {
                 playerid: 196885990,
@@ -802,6 +812,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 11,
         players: [
             {
                 playerid: 107737265,
@@ -878,6 +889,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 12,
         players: [
             {
                 playerid: 196512686,
@@ -954,6 +966,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 13,
         players: [
             {
                 playerid: 52977598,
@@ -1030,6 +1043,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 14,
         players: [
             {
                 playerid: 160291620,
@@ -1106,6 +1120,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 17,
         players: [
             {
                 playerid: 890801811,
@@ -1182,6 +1197,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 15,
         players: [
             {
                 playerid: 1243297617,
@@ -1258,6 +1274,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 18,
         players: [
             {
                 playerid: 35551773,
@@ -1334,6 +1351,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 19,
         players: [
             {
                 playerid: 178562747,
@@ -1410,6 +1428,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'challengers',
+        team_seeding: 16,
         players: [
             {
                 playerid: 101158002,
@@ -1486,6 +1505,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 20,
         players: [
             {
                 playerid: 108157034,
@@ -1562,6 +1582,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 21,
         players: [
             {
                 playerid: 106428011,
@@ -1638,6 +1659,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 22,
         players: [
             {
                 playerid: 450484535,
@@ -1714,6 +1736,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 23,
         players: [
             {
                 playerid: 27447936,
@@ -1790,6 +1813,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 24,
         players: [
             {
                 playerid: 256625848,
@@ -1866,6 +1890,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 25,
         players: [
             {
                 playerid: 223887847,
@@ -1942,6 +1967,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 26,
         players: [
             {
                 playerid: 135630812,
@@ -2018,6 +2044,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 27,
         players: [
             {
                 playerid: 107498100,
@@ -2094,6 +2121,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 28,
         players: [
             {
                 playerid: 211453961,
@@ -2170,6 +2198,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 29,
         players: [
             {
                 playerid: 68391216,
@@ -2246,6 +2275,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 30,
         players: [
             {
                 playerid: 138080982,
@@ -2322,6 +2352,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 31,
         players: [
             {
                 playerid: 882582488,
@@ -2398,6 +2429,7 @@ var g_ActiveTournamentTeams = [
         ],
         rankingids: [],
         team_group: 'contenders',
+        team_seeding: 32,
         players: [
             {
                 playerid: 456122416,
@@ -2463,6 +2495,7 @@ var g_ActiveTournamentTeams = [
         champions: [],
     },
 ];
+g_ActiveTournamentTeams.sort((a, b) => a.team_seeding - b.team_seeding);
 var g_ActiveTournamentHighlights = [];
 var g_ActiveTournamentStoreLayout = [
     [

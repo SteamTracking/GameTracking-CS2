@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347779 
 
-Manifest ID / date     : 3644184035583804861 / 11/18/2026 03:20:59 
+Manifest ID / date     : 72389016460899265 / 11/19/2026 00:35:53 
 Total number of files  : 910 
 Total number of chunks : 2526 
-Total bytes on disk    : 2111079498 
-Total bytes compressed : 576653808 
+Total bytes on disk    : 2111079972 
+Total bytes compressed : 576654288 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -639,7 +639,7 @@ Total bytes compressed : 576653808
        5703320      6 6270f8aa98bbbcd062f9b41264346c939ce69e9d     0 game\bin\win64\assetsystem.dll
        1529856      2 45e7d0873608e5424312fa289a270f2faacfe8fa     0 game\bin\win64\bc7e.dll
         396952      1 88ebebb4e0b032dfe12548c2a132ad8a753e3e96     0 game\bin\win64\cs2_build_econ_items_workshop.exe
-         13866      1 30c6d95361c7a6b813ac2b8be50d500244cfbae9     0 game\bin\win64\csgo.signatures
+         13866      1 52287b2e9900e494b7812edd508e4751fd7b04f2     0 game\bin\win64\csgo.signatures
        1271448      2 b156727c4440c4cc678d05b2fe503de784f57ec5     0 game\bin\win64\csgocfg.exe
       15683224     15 2c63723f079409af6fdda0851bf996db78f1ab29     0 game\bin\win64\cs_mdl_import.exe
        1195672      2 83fe4ec02edf1686ec59186517a47cac8357afb5     0 game\bin\win64\dmxconvert.exe
@@ -665,7 +665,7 @@ Total bytes compressed : 576653808
          47744      1 5e52608c5ff4fffb626a9ab3a81a0913c132fd93     0 game\bin\win64\tbbbind_2_0.dll
          48768      1 b28a6fd65fe96ff562b07fcbcfe740e63a73604a     0 game\bin\win64\tbbbind_2_5.dll
       14936728     15 6f5eaceb7de13c21ffae25d81455106efe11d6b6     0 game\bin\win64\toolscenenodes.dll
-       6683800      7 41872229641406253f145f6a5f04cf93972a95cd     0 game\bin\win64\tools\cs2_item_editor.dll
+       6683800      7 38cfb998befa2cb86a3e3ef2899d1d3b5321de28     0 game\bin\win64\tools\cs2_item_editor.dll
        2348184      3 df346dc66eb57c3f4a1763e19e0f423c72a225ff     0 game\bin\win64\tools\cs2_workshop_manager.dll
       39615128     39 ad42a5bba3e2fc1985d0f1f664ce4ba8590a4b9a     0 game\bin\win64\tools\hammer.dll
        4785816      5 fd8534c75026cfbb93a9de735712e11c903bcf6b     0 game\bin\win64\tools\met.dll
@@ -722,7 +722,7 @@ Total bytes compressed : 576653808
         133435      1 5c5acf7bffba281b1fb2de939a6953c385e26ac3     0 game\csgo\lighting\postprocessing\editor\toolsscene_default.vpost_c
           3823      1 aaa9517703492629cade78571c39f5fdc2c417e3     0 game\csgo\models_gamedata.fgd
           1559      1 ccef3c777e99029f1956e3ad23a718a99fd36d14     0 game\csgo\postprocessing.fgd
-      53686354     52 3301daf47f0c36245f945f8c3895c9e6e0e2533f     0 game\csgo\readonly_tools_asset_info.bin
+      53686828     52 1a2f9a0a72f1dcb370b192d3e0105af02b985d6d     0 game\csgo\readonly_tools_asset_info.bin
           3009      1 8374c54025aad8c3d4a72b5f7f198d99951b7844     0 game\csgo\tools\cs2_icon_gen\icon_camera.png
           2390      1 436ef3b91600906f462a33b9973b3f0955ddf1d6     0 game\csgo\tools\cs2_icon_gen\icon_item.png
           2566      1 d78fd6c17e836a35c1cff4b375de7928ea5aea40     0 game\csgo\tools\cs2_icon_gen\icon_light_fill.png

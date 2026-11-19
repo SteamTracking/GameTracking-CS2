@@ -1,10 +1,10 @@
 Content Manifest for Depot 2347773 
 
-Manifest ID / date     : 5185046280295927252 / 11/18/2026 03:20:49 
+Manifest ID / date     : 9019027683964018897 / 11/19/2026 00:35:29 
 Total number of files  : 81 
 Total number of chunks : 1889 
 Total bytes on disk    : 1952949190 
-Total bytes compressed : 1247307296 
+Total bytes compressed : 1247306864 
 
 
           Size Chunks File SHA                                 Flags Name
@@ -66,10 +66,10 @@ Total bytes compressed : 1247307296
        1296400      2 edc5a944de39c30ed936dbaae11d6415e3ca20ea     0 game\bin\linuxsteamrt64\libvscript.so
        4561380      5 a5566943935e57baa6fb00b90b7b94ae166cbb26     0 game\bin\linuxsteamrt64\libworldrenderer.so
           3822      1 956919b920713ce452f46c20cf8643674f7543f7     0 game\cs2.sh
-      73978296     71 570eb98fa4b00f336842edab1226d01a9637a9a4     0 game\csgo\bin\linuxsteamrt64\libclient.so
+      73978296     71 94e562664d96afcf21c2074de1d986d537612346     0 game\csgo\bin\linuxsteamrt64\libclient.so
        3176892      4 5a66e905fbac4471e12a4e3d294fa7fc7c9e7821     0 game\csgo\bin\linuxsteamrt64\libhost.so
        3764196      4 573877b471ee1afbca8cc4a3018f4d4732804758     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
-      41626808     40 ed0cf6c71d0553607a11ef9607323a2cb8f22fc0     0 game\csgo\bin\linuxsteamrt64\libserver.so
+      41626808     40 06e60a1300f6d85699c77461ffe2b51c32feba9d     0 game\csgo\bin\linuxsteamrt64\libserver.so
      105039795    103 c0a2726c8c1c73762f578a7d2e91a95f58678a98     0 game\csgo_community_addons\de_debris\de_debris_000.vpk
      107269718    105 a9a2829dbecedc64146410548e6cab7dc749c14c     0 game\csgo_community_addons\de_debris\de_debris_001.vpk
      106054491    102 bcdcf8908307380cbe3e9b17a66c50af6775eaf7     0 game\csgo_community_addons\de_debris\de_debris_002.vpk
