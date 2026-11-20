@@ -2,11 +2,11 @@
 class CHitReactUpdateNode : public CUnaryUpdateNode
 {
 	HitReactFixedSettings_t m_opFixedSettings;
-	CAnimParamHandle m_triggerParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hitBoneParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hitOffsetParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hitDirectionParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hitStrengthParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_triggerParam;
+	CAnimParamHandle m_hitBoneParam;
+	CAnimParamHandle m_hitOffsetParam;
+	CAnimParamHandle m_hitDirectionParam;
+	CAnimParamHandle m_hitStrengthParam;
 	float32 m_flMinDelayBetweenHits;
 	bool m_bResetChild;
 };

@@ -6,7 +6,7 @@
 class CPulseCell_IntervalTimer : public CPulseCell_BaseYieldingInflow
 {
 	// MPropertyDescription = "Called when timer reaches the duration OR is stopped. NOTE: This will run a little while AFTER the last interval fires unless they line up perfectly."
-	CPulse_ResumePoint m_Completed; // = { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 }
+	CPulse_ResumePoint m_Completed; // = { "m_nDestChunk": -1, "m_nInstruction": -1 }
 	// MPropertyDescription = "New child cursor starts here every time the wait interval elapses"
-	SignatureOutflow_Continue m_OnInterval; // = { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 }
+	SignatureOutflow_Continue m_OnInterval; // = { "m_nDestChunk": -1, "m_nInstruction": -1 }
 };

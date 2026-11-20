@@ -35,7 +35,7 @@ class CAnimGraphDoc_OrientationWarpNode : public CAnimGraphDoc_Node
 	OrientationWarpRootMotionSource_t m_eRootMotionSource; // = "eAnimationOrProcedural"
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 	// MPropertyFriendlyName = "Enable Preferred Rotation Direction"
 	// MPropertyAutoRebuildOnChange
 	// MPropertyDescription = "Normally the orientation warp will take the shortest arc to align entity's forward vector with the target. With this option enabled it will rotate in the direction that includes passing through the preferred rotation direction parameter unless the resulting rotion is larger than the threshold specified."

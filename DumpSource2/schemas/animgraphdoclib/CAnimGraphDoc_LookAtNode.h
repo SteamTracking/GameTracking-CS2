@@ -56,5 +56,5 @@ class CAnimGraphDoc_LookAtNode : public CAnimGraphDoc_Node
 	// MPropertyGroupName = "Hysteresis"
 	float32 m_flHysteresisOuterAngle; // = 20
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 };

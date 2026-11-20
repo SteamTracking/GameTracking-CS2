@@ -6,7 +6,7 @@ class CSteamAudioBakedReverbData
 	CSteamAudioProbeGrid m_grid;
 	SteamAudioReverbSettings_t m_reverbSettings;
 	SteamAudioReverbClusteringSettings_t m_reverbClusteringSettings;
-	SteamAudioReverbCompressionSettings_t m_reverbCompressionSettings; // = { "m_bEnableCompression": false, "m_flQuality": 0.95 }
+	SteamAudioReverbCompressionSettings_t m_reverbCompressionSettings; // = { "m_bEnableCompression": false }
 	CSteamAudioProbeData m_clusteredProbes;
 	CUtlVector< int16 > m_vecClusterForProbe;
 	CSteamAudioCompressedReverb m_compressedData;

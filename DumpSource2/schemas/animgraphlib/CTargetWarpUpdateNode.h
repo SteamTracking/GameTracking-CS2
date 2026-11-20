@@ -2,11 +2,11 @@
 class CTargetWarpUpdateNode : public CUnaryUpdateNode
 {
 	TargetWarpAngleMode_t m_eAngleMode; // = "eFacingHeading"
-	CAnimParamHandle m_hTargetPositionParameter; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hTargetUpVectorParameter; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hTargetFacePositionParameter; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hMoveHeadingParameter; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hDesiredMoveHeadingParameter; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hTargetPositionParameter;
+	CAnimParamHandle m_hTargetUpVectorParameter;
+	CAnimParamHandle m_hTargetFacePositionParameter;
+	CAnimParamHandle m_hMoveHeadingParameter;
+	CAnimParamHandle m_hDesiredMoveHeadingParameter;
 	TargetWarpCorrectionMethod m_eCorrectionMethod; // = "ScaleMotion"
 	TargetWarpTimingMethod m_eTargetWarpTimingMethod; // = "ReachDestinationOnRootMotionEnd"
 	bool m_bTargetFacePositionIsWorldSpace;

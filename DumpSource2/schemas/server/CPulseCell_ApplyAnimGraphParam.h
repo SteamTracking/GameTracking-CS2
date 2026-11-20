@@ -3,5 +3,5 @@
 // MHasKV3TransferPolymorphicClassname
 class CPulseCell_ApplyAnimGraphParam : public CPulseCell_BaseYieldingInflow
 {
-	CPulseObservableExpression< CPulseVariant > m_value; // = { "m_DependentObservableBlackboardReferences": [  ], "m_DependentObservableTempVars": [  ], "m_DependentObservableVars": [  ], "m_EvaluateConnection": { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 } }
+	CPulseObservableExpression< CPulseVariant > m_value; // = { "m_EvaluateConnection": { "m_nDestChunk": -1, "m_nInstruction": -1 } }
 };

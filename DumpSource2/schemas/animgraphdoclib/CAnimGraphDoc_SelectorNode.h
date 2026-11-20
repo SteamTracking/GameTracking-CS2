@@ -31,7 +31,7 @@ class CAnimGraphDoc_SelectorNode : public CAnimGraphDoc_Node
 	// MPropertyAttrStateCallback
 	AnimTagID m_tagID;
 	// MPropertyFriendlyName = "Blend Duration"
-	CFloatAnimValue m_blendDuration; // = { "_class": "CFloatAnimValue", "m_eSource": "Constant", "m_flConstValue": 0.2, "m_paramID": { "m_id": 0 }, "m_paramName": "" }
+	CFloatAnimValue m_blendDuration; // = { "m_flConstValue": 0.2 }
 	// MPropertyFriendlyName = "Tag Behavior"
 	SelectorTagBehavior_t m_tagBehavior; // = "SelectorTagBehavior_OffWhenFinished"
 	// MPropertyFriendlyName = "Reset On Change"
@@ -41,5 +41,5 @@ class CAnimGraphDoc_SelectorNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Lock Selection When Waning"
 	bool m_bLockWhenWaning;
 	// MPropertySuppressField
-	CBlendCurve m_blendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
+	CBlendCurve m_blendCurve;
 };

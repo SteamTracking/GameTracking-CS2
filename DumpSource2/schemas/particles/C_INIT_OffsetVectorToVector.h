@@ -14,5 +14,5 @@ class C_INIT_OffsetVectorToVector : public CParticleFunctionInitializer
 	// MVectorIsSometimesCoordinate = "m_nFieldOutput"
 	Vector m_vecOutputMax; // = [ 1, 1, 1 ]
 	// MPropertyFriendlyName = "Random number generator controls"
-	CRandomNumberGeneratorParameters m_randomnessParameters; // = { "m_bDistributeEvenly": false, "m_nSeed": -1 }
+	CRandomNumberGeneratorParameters m_randomnessParameters;
 };

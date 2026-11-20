@@ -1,6 +1,6 @@
 class FootFixedSettings
 {
-	TraceSettings_t m_traceSettings; // = { "m_flTraceHeight": 40, "m_flTraceRadius": 4 }
+	TraceSettings_t m_traceSettings;
 	VectorAligned m_vFootBaseBindPosePositionMS;
 	float32 m_flFootBaseLength;
 	float32 m_flMaxRotationLeft; // = 90

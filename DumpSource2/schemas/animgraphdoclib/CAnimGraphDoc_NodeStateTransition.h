@@ -2,13 +2,13 @@
 class CAnimGraphDoc_NodeStateTransition : public CAnimGraphDoc_StateTransition
 {
 	// MPropertyFriendlyName = "Blend Duration"
-	CFloatAnimValue m_blendDuration; // = { "_class": "CFloatAnimValue", "m_eSource": "Constant", "m_flConstValue": 0.2, "m_paramID": { "m_id": 0 }, "m_paramName": "" }
+	CFloatAnimValue m_blendDuration; // = { "m_flConstValue": 0.2 }
 	// MPropertyFriendlyName = "Reset Destination"
 	bool m_bReset; // = true
 	// MPropertyFriendlyName = "Start Cycle At"
 	ResetCycleOption m_resetCycleOption; // = "Beginning"
 	// MPropertyFriendlyName = "Fixed Start Cycle Value"
-	CFloatAnimValue m_flFixedCycleValue; // = { "_class": "CFloatAnimValue", "m_eSource": "Constant", "m_flConstValue": 0, "m_paramID": { "m_id": 0 }, "m_paramName": "" }
+	CFloatAnimValue m_flFixedCycleValue;
 	// MPropertySuppressField
-	CBlendCurve m_blendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
+	CBlendCurve m_blendCurve;
 };

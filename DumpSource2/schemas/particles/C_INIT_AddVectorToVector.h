@@ -14,5 +14,5 @@ class C_INIT_AddVectorToVector : public CParticleFunctionInitializer
 	// MPropertyFriendlyName = "random offset max"
 	Vector m_vOffsetMax;
 	// MPropertyFriendlyName = "Random number generator controls"
-	CRandomNumberGeneratorParameters m_randomnessParameters; // = { "m_bDistributeEvenly": false, "m_nSeed": -1 }
+	CRandomNumberGeneratorParameters m_randomnessParameters;
 };

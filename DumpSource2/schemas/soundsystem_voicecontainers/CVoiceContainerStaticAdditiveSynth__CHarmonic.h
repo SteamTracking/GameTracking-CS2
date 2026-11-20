@@ -12,5 +12,5 @@ class CVoiceContainerStaticAdditiveSynth::CHarmonic
 	float32 m_flPhase;
 	// MPropertyFriendlyName = "Envelope (Relative to Tone Envelope)"
 	CPiecewiseCurve m_curve;
-	CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance m_volumeScaling; // = { "m_flMaxVolume": 1, "m_flMinVolume": 1, "m_nInstancesAtMaxVolume": 1, "m_nInstancesAtMinVolume": 1 }
+	CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance m_volumeScaling;
 };

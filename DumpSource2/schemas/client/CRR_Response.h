@@ -4,7 +4,7 @@ class CRR_Response
 	char[192] m_szResponseName;
 	// MNotSaved
 	char[128] m_szMatchingRule;
-	ResponseParams m_Params; // = { "flags": 0, "odds": 100 }
+	ResponseParams m_Params;
 	// MNotSaved
 	float32 m_fMatchScore;
 	// MNotSaved

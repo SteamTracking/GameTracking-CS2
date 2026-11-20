@@ -20,5 +20,5 @@ class CAnimGraphDoc_DirectionalBlendNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Playback Speed"
 	float32 m_playbackSpeed; // = 1
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 };

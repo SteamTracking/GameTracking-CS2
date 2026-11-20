@@ -9,7 +9,7 @@ class C_OP_ConstrainDistanceToPath : public CParticleFunctionConstraint
 	float32 m_flMaxDistanceMid; // = -1
 	// MPropertyFriendlyName = "maximum distance end"
 	float32 m_flMaxDistance1; // = -1
-	CPathParameters m_PathParameters; // = { "m_flBulge": 0, "m_flMidPoint": 0.5, "m_nBulgeControl": 0, "m_nEndControlPointNumber": 0, "m_nMidControlPointNumber": -1, "m_nStartControlPointNumber": 0, "m_vEndOffset": [ 0, 0, 0 ], "m_vMidPointOffset": [ 0, 0, 0 ], "m_vStartPointOffset": [ 0, 0, 0 ] }
+	CPathParameters m_PathParameters;
 	// MPropertyFriendlyName = "travel time"
 	float32 m_flTravelTime; // = 10
 	// MPropertyFriendlyName = "travel time scale field"

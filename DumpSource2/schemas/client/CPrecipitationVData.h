@@ -12,5 +12,5 @@ class CPrecipitationVData : public CEntitySubclassVDataBase
 	CUtlString m_szModifier;
 	// MPropertyDescription = "If set, we will populate a snapshot from the surface graph"
 	int32 m_nUseSnapshotFromSurfaceGraph; // = -1
-	PrecipitationFilter_t m_snapshotFilter; // = { "m_flMaxRadius": 200 }
+	PrecipitationFilter_t m_snapshotFilter;
 };

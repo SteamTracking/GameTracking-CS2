@@ -1,7 +1,7 @@
 // MHasKV3TransferPolymorphicClassname
 class CStateMachineUpdateNode : public CAnimUpdateNodeBase
 {
-	CAnimStateMachineUpdater m_stateMachine; // = { "_class": "CAnimStateMachineUpdater", "m_startStateIndex": -1, "m_states": [  ], "m_transitions": [  ] }
+	CAnimStateMachineUpdater m_stateMachine;
 	CUtlVector< CStateNodeStateData > m_stateData;
 	CUtlVector< CStateNodeTransitionData > m_transitionData;
 	bool m_bBlockWaningTags;

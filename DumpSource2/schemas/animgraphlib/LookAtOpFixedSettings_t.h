@@ -1,7 +1,7 @@
 class LookAtOpFixedSettings_t
 {
 	CAnimAttachment m_attachment;
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 	CUtlVector< LookAtBone_t > m_bones;
 	float32 m_flYawLimit; // = 45
 	float32 m_flPitchLimit; // = 45

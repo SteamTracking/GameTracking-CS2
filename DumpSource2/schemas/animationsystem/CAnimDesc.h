@@ -15,5 +15,5 @@ class CAnimDesc
 	Vector m_vecRootMax;
 	CUtlVector< Vector > m_vecBoneWorldMin;
 	CUtlVector< Vector > m_vecBoneWorldMax;
-	CAnimSequenceParams m_sequenceParams; // = { "m_flFadeInTime": 0.2, "m_flFadeOutTime": 0.2 }
+	CAnimSequenceParams m_sequenceParams;
 };

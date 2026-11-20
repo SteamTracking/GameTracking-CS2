@@ -1,5 +1,5 @@
 class CNmFloatChannelData::ChannelSettings_t
 {
-	NmCompressionSettings_t::QuantizationRange_t m_range; // = { "m_flRangeLength": -1, "m_flRangeStart": 0 }
+	NmCompressionSettings_t::QuantizationRange_t m_range;
 	bool m_bIsStatic;
 };

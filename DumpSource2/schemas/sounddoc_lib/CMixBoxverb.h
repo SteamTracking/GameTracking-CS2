@@ -29,7 +29,7 @@ class CMixBoxverb : public CMixPropertyBase
 	// MPropertyDescription = "Configure the filter to apply to the delay output.  Usually this should be a lowpass filter."
 	// MPropertyFriendlyName = "Filter Type"
 	// MPropertyGroupName = "Filter"
-	VMixFilterDesc_t m_filterType; // = { "m_bEnabled": true, "m_flCutoffFreq": 1000, "m_flQ": 0.707107, "m_fldbGain": 0, "m_nFilterSlope": "FILTER_SLOPE_12dB", "m_nFilterType": "FILTER_LOWPASS" }
+	VMixFilterDesc_t m_filterType; // = { "m_nFilterType": "FILTER_LOWPASS" }
 	// MPropertyDescription = "If width, height, or depth is set min/max size will be ignored.  These dimensions are the size of the room in milliseconds to first reflection."
 	// MPropertyFriendlyName = "Width (milliseconds)"
 	// MPropertyAttributeRange = "0 1000.0"

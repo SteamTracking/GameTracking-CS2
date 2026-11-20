@@ -4,7 +4,7 @@
 class CVoiceContainerEnum : public CVoiceContainerBase
 {
 	// MPropertyFriendlyName = "Sounds To Play"
-	CSoundContainerReferenceArray m_soundsToPlay; // = { "m_bUseReference": true, "m_pSounds": [  ], "m_sounds": [  ] }
+	CSoundContainerReferenceArray m_soundsToPlay;
 	// MPropertyFriendlyName = "Index"
 	int32 m_iSelection;
 	// MPropertyFriendlyName = "Crossfade Time"

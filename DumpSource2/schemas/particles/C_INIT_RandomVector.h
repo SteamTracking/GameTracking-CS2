@@ -11,5 +11,5 @@ class C_INIT_RandomVector : public CParticleFunctionInitializer
 	// MPropertyAttributeChoiceName = "particlefield_vector"
 	ParticleAttributeIndex_t m_nFieldOutput;
 	// MPropertyFriendlyName = "Random number generator controls"
-	CRandomNumberGeneratorParameters m_randomnessParameters; // = { "m_bDistributeEvenly": false, "m_nSeed": -1 }
+	CRandomNumberGeneratorParameters m_randomnessParameters;
 };

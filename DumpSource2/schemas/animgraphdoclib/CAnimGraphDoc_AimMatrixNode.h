@@ -49,7 +49,7 @@ class CAnimGraphDoc_AimMatrixNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Clamp Blend Curve"
 	// MPropertyAttributeEditor = "AnimGraphBlendCurve()"
 	// MPropertyAttrStateCallback
-	CBlendCurve m_biasAndClampBlendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
+	CBlendCurve m_biasAndClampBlendCurve;
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 };

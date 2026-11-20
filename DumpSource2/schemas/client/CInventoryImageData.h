@@ -20,5 +20,5 @@ class CInventoryImageData
 	CUtlString name;
 	// MPropertyFriendlyName = "Inventory Image Data"
 	// MPropertyAutoExpandSelf
-	inv_image_data_t inventory_image_data; // = { "camera": { "angle": [ 0, 0, 0 ], "fov_h": 0, "fov_v": 45, "orbit_distance": 0, "target": [ 0, 0, 0 ], "target_nudge": [ 0, 0, 0 ], "zfar": 1000, "znear": 4 }, "clearcolor": { "color": [ 0.2, 0.2, 0.2 ] }, "item": { "angle": [ 0, 0, 0 ], "pose_sequence": "", "position": [ 0, 0, 0 ] }, "light0": { "angle": [ 0, 0, 0 ], "brightness": 0, "color": [ 0, 0, 0 ], "orbit_distance": 1 }, "light1": { "angle": [ 0, 0, 0 ], "brightness": 0, "color": [ 0, 0, 0 ], "orbit_distance": 1 }, "lightfill": { "angle": [ 0, 0, 0 ], "brightness": 1, "color": [ 0, 0, 0 ] }, "lightsun": { "angle": [ 0, 0, 0 ], "brightness": 1, "color": [ 0, 0, 0 ] }, "map": { "map_name": "ui/icon_generation_basic_nuke_bombsitea", "map_rotation": 0 } }
+	inv_image_data_t inventory_image_data;
 };

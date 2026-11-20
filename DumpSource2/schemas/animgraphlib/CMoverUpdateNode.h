@@ -1,11 +1,11 @@
 // MHasKV3TransferPolymorphicClassname
 class CMoverUpdateNode : public CUnaryUpdateNode
 {
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 	AnimValueSource m_facingTarget; // = "MoveHeading"
-	CAnimParamHandle m_hMoveVecParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hMoveHeadingParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hTurnToFaceParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hMoveVecParam;
+	CAnimParamHandle m_hMoveHeadingParam;
+	CAnimParamHandle m_hTurnToFaceParam;
 	float32 m_flTurnToFaceOffset;
 	float32 m_flTurnToFaceLimit; // = 180
 	bool m_bAdditive;

@@ -4,5 +4,5 @@
 // MHasKV3TransferPolymorphicClassname
 class CSmartPropFilter_VariableValue : public CSmartPropFilter
 {
-	CSmartPropVariableComparison m_VariableComparison; // = { "m_Comparison": "EQUAL", "m_Name": "", "m_Value": null }
+	CSmartPropVariableComparison m_VariableComparison; // = { "m_Comparison": "EQUAL" }
 };

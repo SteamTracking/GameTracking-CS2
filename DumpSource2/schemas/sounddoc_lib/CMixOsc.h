@@ -4,5 +4,5 @@
 class CMixOsc : public CMixPropertyBase
 {
 	// MPropertyAutoExpandSelf
-	VMixOscDesc_t m_desc; // = { "m_flPhase": 0, "m_freq": 440, "oscType": "LFO_SHAPE_SINE" }
+	VMixOscDesc_t m_desc;
 };

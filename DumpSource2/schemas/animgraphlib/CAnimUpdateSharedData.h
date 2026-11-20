@@ -7,7 +7,7 @@ class CAnimUpdateSharedData
 	CSmartPtr< CAnimParameterManagerUpdater > m_pParamListUpdater;
 	CSmartPtr< CAnimTagManagerUpdater > m_pTagManagerUpdater;
 	CSmartPtr< CAnimScriptManager > m_scriptManager;
-	CAnimGraphSettingsManager m_settings; // = { "_class": "CAnimGraphSettingsManager", "m_settingsGroups": [ { "_class": "CAnimGraphNetworkSettings", "m_bNetworkingEnabled": true } ] }
+	CAnimGraphSettingsManager m_settings;
 	CSmartPtr< CStaticPoseCacheBuilder > m_pStaticPoseCache;
 	CSmartPtr< CAnimSkeleton > m_pSkeleton;
 	CAnimNodePath m_rootNodePath;

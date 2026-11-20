@@ -7,7 +7,7 @@ class CMovementComponent : public CAnimGraphDoc_Component
 	bool m_bNetworkPath; // = true
 	// MPropertyGroupName = "+Facing"
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_facingDamping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_facingDamping;
 	// MPropertyGroupName = "+Facing"
 	// MPropertyFriendlyName = "Network Facing"
 	bool m_bNetworkFacing; // = true

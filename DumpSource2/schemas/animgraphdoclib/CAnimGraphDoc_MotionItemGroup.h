@@ -6,5 +6,5 @@ class CAnimGraphDoc_MotionItemGroup
 	CUtlVector< CSmartPtr< CAnimGraphDoc_MotionItem > > m_motions;
 	// MPropertyFriendlyName = "Name"
 	CUtlString m_name; // = "Unnamed Group"
-	CAnimGraphDoc_ConditionContainer m_conditions; // = { "_class": "CAnimGraphDoc_ConditionContainer", "m_conditions": [  ] }
+	CAnimGraphDoc_ConditionContainer m_conditions;
 };

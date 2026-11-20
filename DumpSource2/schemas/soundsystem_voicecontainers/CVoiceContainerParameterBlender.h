@@ -4,9 +4,9 @@
 class CVoiceContainerParameterBlender : public CVoiceContainerBase
 {
 	// MPropertyFriendlyName = "First Sound"
-	CSoundContainerReference m_firstSound; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
+	CSoundContainerReference m_firstSound;
 	// MPropertyFriendlyName = "Second Sound"
-	CSoundContainerReference m_secondSound; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
+	CSoundContainerReference m_secondSound;
 	// MPropertyStartGroup = "Occlusion"
 	// MPropertyFriendlyName = "Enable Occlusion Blend"
 	bool m_bEnableOcclusionBlend;

@@ -3,7 +3,7 @@ class ConstraintSoundInfo
 {
 	// MNotSaved
 	VelocitySampler m_vSampler;
-	SimpleConstraintSoundProfile m_soundProfile; // = { "_class": "SimpleConstraintSoundProfile", "m_flKeyPointMaxSoundThreshold": 0, "m_flKeyPointMinSoundThreshold": 0, "m_reversalSoundThresholdLarge": 0, "m_reversalSoundThresholdMedium": 0, "m_reversalSoundThresholdSmall": 0 }
+	SimpleConstraintSoundProfile m_soundProfile;
 	// MNotSaved
 	Vector m_forwardAxis;
 	CUtlSymbolLarge m_iszTravelSoundFwd;

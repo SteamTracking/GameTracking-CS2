@@ -6,7 +6,7 @@ class CMixSubgraphSwitch : public CMixPropertyBase
 	// MPropertyFriendlyName = "Show Detailed Plug Names"
 	bool bUseDetailedPlugNames;
 	// MPropertyFriendlyName = "Default Subgraph"
-	CSelectableSubgraph defaultSubgraph; // = { "_class": "CSelectableSubgraph", "file": "soundstacks/subgraph_default.vmix", "subgraphName": "" }
+	CSelectableSubgraph defaultSubgraph;
 	// MPropertyFriendlyName = "Mode"
 	// MPropertyGroupName = "+Transition Behavior"
 	VMixSubgraphSwitchInterpolationType_t interpolationMode; // = "SUBGRAPH_INTERPOLATION_TEMPORAL_CROSSFADE"

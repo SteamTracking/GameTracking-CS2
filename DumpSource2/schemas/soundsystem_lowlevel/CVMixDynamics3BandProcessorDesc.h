@@ -1,5 +1,5 @@
 // MHasKV3TransferPolymorphicClassname
 class CVMixDynamics3BandProcessorDesc : public CVMixBaseProcessorDesc
 {
-	VMixDynamics3BandDesc_t m_desc; // = { "m_bPeakMode": false, "m_bandDesc": [ { "m_bEnable": false, "m_bSolo": false, "m_flAttackTimeMS": 50, "m_flRatioAbove": 4, "m_flRatioBelow": 12, "m_flReleaseTimeMS": 200, "m_fldbGainInput": 0, "m_fldbGainOutput": 0, "m_fldbThresholdAbove": -30, "m_fldbThresholdBelow": -40 }, { "m_bEnable": false, "m_bSolo": false, "m_flAttackTimeMS": 50, "m_flRatioAbove": 4, "m_flRatioBelow": 12, "m_flReleaseTimeMS": 200, "m_fldbGainInput": 0, "m_fldbGainOutput": 0, "m_fldbThresholdAbove": -30, "m_fldbThresholdBelow": -40 }, { "m_bEnable": false, "m_bSolo": false, "m_flAttackTimeMS": 50, "m_flRatioAbove": 4, "m_flRatioBelow": 12, "m_flReleaseTimeMS": 200, "m_fldbGainInput": 0, "m_fldbGainOutput": 0, "m_fldbThresholdAbove": -30, "m_fldbThresholdBelow": -40 } ], "m_flDepth": 0, "m_flHighCutoffFreq": 0, "m_flLowCutoffFreq": 0, "m_flRMSTimeMS": 0, "m_flTimeScale": 0, "m_flWetMix": 0, "m_fldbGainOutput": 0, "m_fldbKneeWidth": 0 }
+	VMixDynamics3BandDesc_t m_desc;
 };

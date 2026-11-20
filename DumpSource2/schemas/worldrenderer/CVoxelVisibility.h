@@ -7,10 +7,10 @@ class CVoxelVisibility
 	float32 m_flGridSize;
 	uint32 m_nSkyVisibilityCluster;
 	uint32 m_nSunVisibilityCluster;
-	VoxelVisBlockOffset_t m_NodeBlock;
-	VoxelVisBlockOffset_t m_RegionBlock;
-	VoxelVisBlockOffset_t m_EnclosedClusterListBlock;
-	VoxelVisBlockOffset_t m_EnclosedClustersBlock;
-	VoxelVisBlockOffset_t m_MasksBlock;
-	VoxelVisBlockOffset_t m_nVisBlocks;
+	VoxelVisBlockOffset_t m_NodeBlock; // = { "m_nElementCount": 0, "m_nOffset": 0 }
+	VoxelVisBlockOffset_t m_RegionBlock; // = { "m_nElementCount": 0, "m_nOffset": 0 }
+	VoxelVisBlockOffset_t m_EnclosedClusterListBlock; // = { "m_nElementCount": 0, "m_nOffset": 0 }
+	VoxelVisBlockOffset_t m_EnclosedClustersBlock; // = { "m_nElementCount": 0, "m_nOffset": 0 }
+	VoxelVisBlockOffset_t m_MasksBlock; // = { "m_nElementCount": 0, "m_nOffset": 0 }
+	VoxelVisBlockOffset_t m_nVisBlocks; // = { "m_nElementCount": 0, "m_nOffset": 0 }
 };

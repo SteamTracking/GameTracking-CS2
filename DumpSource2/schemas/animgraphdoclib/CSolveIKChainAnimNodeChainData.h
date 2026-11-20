@@ -18,7 +18,7 @@ class CSolveIKChainAnimNodeChainData
 	// MPropertyFriendlyName = "Override Target Settings"
 	// MPropertyAutoExpandSelf
 	// MPropertyAttrStateCallback
-	IKTargetSettings_t m_OverrideTargetSettings; // = { "m_AnimgraphParameterNameOrientation": { "m_id": 0 }, "m_AnimgraphParameterNamePosition": { "m_id": 0 }, "m_Bone": { "m_Name": "" }, "m_TargetCoordSystem": "World Space", "m_TargetSource": "Bone" }
+	IKTargetSettings_t m_OverrideTargetSettings; // = { "m_TargetCoordSystem": "World Space", "m_TargetSource": "Bone" }
 	// MPropertyFriendlyName = "Debug Setting"
 	// MPropertyGroupName = "Debug"
 	SolveIKChainAnimNodeDebugSetting m_DebugSetting; // = "SOLVEIKCHAINANIMNODEDEBUGSETTING_None"

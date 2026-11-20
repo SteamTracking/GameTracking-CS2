@@ -7,7 +7,7 @@ class CAnimGraphDoc_MotionMatchingNode : public CAnimGraphDoc_Node
 	// MPropertySuppressField
 	CUtlVector< CSmartPtr< CAnimGraphDoc_MotionMetric > > m_metrics;
 	// MPropertySuppressField
-	CBlendCurve m_blendCurve; // = { "m_flControlPoint1": 0, "m_flControlPoint2": 1 }
+	CBlendCurve m_blendCurve;
 	// MPropertySuppressField
 	int32 m_nRandomSeed;
 	// MPropertyFriendlyName = "Sample Rate"
@@ -74,5 +74,5 @@ class CAnimGraphDoc_MotionMatchingNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyGroupName = "Distance Scaling"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_distanceScale_Damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_distanceScale_Damping;
 };

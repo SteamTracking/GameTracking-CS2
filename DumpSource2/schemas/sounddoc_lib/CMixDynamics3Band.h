@@ -23,12 +23,12 @@ class CMixDynamics3Band : public CMixPropertyBase
 	// MPropertyFriendlyName = "Knee width (dB) 0 = hard knee"
 	float32 m_fldbKneeWidth; // = 5
 	// MPropertyFriendlyName = "Low Cutoff Freq (Hz)"
-	float32 m_flLowCutoffFreq; // = 88.300003
+	float32 m_flLowCutoffFreq; // = 88.3
 	// MPropertyFriendlyName = "High Cutoff Freq (Hz)"
 	float32 m_flHighCutoffFreq; // = 2500
 	// MPropertyFriendlyName = "Peak Mode"
 	bool m_bPeakMode;
 	// MPropertyHideField
 	int32 m_nSelectedPage;
-	VMixDynamicsBand_t[3] m_bands; // = [ { "m_bEnable": true, "m_bSolo": false, "m_flAttackTimeMS": 47.799999, "m_flRatioAbove": 39, "m_flRatioBelow": 4.17, "m_flReleaseTimeMS": 282, "m_fldbGainInput": 5.2, "m_fldbGainOutput": 8, "m_fldbThresholdAbove": -33.799999, "m_fldbThresholdBelow": -40.799999 }, { "m_bEnable": true, "m_bSolo": false, "m_flAttackTimeMS": 22.4, "m_flRatioAbove": 39, "m_flRatioBelow": 4.17, "m_flReleaseTimeMS": 282, "m_fldbGainInput": 5.2, "m_fldbGainOutput": 4.42, "m_fldbThresholdAbove": -30.200001, "m_fldbThresholdBelow": -41.799999 }, { "m_bEnable": true, "m_bSolo": false, "m_flAttackTimeMS": 13.5, "m_flRatioAbove": 80, "m_flRatioBelow": 4.17, "m_flReleaseTimeMS": 132, "m_fldbGainInput": 5.2, "m_fldbGainOutput": 8, "m_fldbThresholdAbove": -35.5, "m_fldbThresholdBelow": -40.799999 } ]
+	VMixDynamicsBand_t[3] m_bands; // = [ { "m_bEnable": true, "m_flAttackTimeMS": 47.8, "m_flRatioAbove": 39, "m_flRatioBelow": 4.17, "m_flReleaseTimeMS": 282, "m_fldbGainInput": 5.2, "m_fldbGainOutput": 8, "m_fldbThresholdAbove": -33.8, "m_fldbThresholdBelow": -40.8 }, { "m_bEnable": true, "m_flAttackTimeMS": 22.4, "m_flRatioAbove": 39, "m_flRatioBelow": 4.17, "m_flReleaseTimeMS": 282, "m_fldbGainInput": 5.2, "m_fldbGainOutput": 4.42, "m_fldbThresholdAbove": -30.2, "m_fldbThresholdBelow": -41.8 }, { "m_bEnable": true, "m_flAttackTimeMS": 13.5, "m_flRatioAbove": 80, "m_flRatioBelow": 4.17, "m_flReleaseTimeMS": 132, "m_fldbGainInput": 5.2, "m_fldbGainOutput": 8, "m_fldbThresholdAbove": -35.5, "m_fldbThresholdBelow": -40.8 } ]
 };

@@ -8,7 +8,7 @@ class CNmClip
 	CUtlVector< uint32 > m_compressedPoseOffsets;
 	CUtlVectorFixedGrowable< CNmClip*, 1 > m_secondaryAnimations;
 	CUtlVectorFixedGrowable< CNmFloatChannelData*, 2 > m_floatChannelData;
-	CNmSyncTrack m_syncTrack; // = { "m_nStartEventOffset": 0, "m_syncEvents": [ { "m_ID": "", "m_duration": { "m_flValue": 1 }, "m_startTime": { "m_flValue": 0 } } ] }
+	CNmSyncTrack m_syncTrack;
 	CNmRootMotionData m_rootMotion;
 	bool m_bIsAdditive;
 	CUtlVector< CNmClip::ModelSpaceSamplingChainLink_t > m_modelSpaceSamplingChain;

@@ -6,6 +6,6 @@ class CPulseCell_WaitForObservable : public CPulseCell_BaseYieldingInflow
 {
 	// MPropertyDescription = "Condition to evaluate when any of its dependent values change."
 	// MPropertyFriendlyName = "Observable"
-	CPulseObservableExpression< bool > m_Condition; // = { "m_DependentObservableBlackboardReferences": [  ], "m_DependentObservableTempVars": [  ], "m_DependentObservableVars": [  ], "m_EvaluateConnection": { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 } }
-	CPulse_ResumePoint m_OnTrue; // = { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 }
+	CPulseObservableExpression< bool > m_Condition; // = { "m_EvaluateConnection": { "m_nDestChunk": -1, "m_nInstruction": -1 } }
+	CPulse_ResumePoint m_OnTrue; // = { "m_nDestChunk": -1, "m_nInstruction": -1 }
 };

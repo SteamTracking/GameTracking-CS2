@@ -2,7 +2,7 @@
 class C_INIT_RemapInitialTransformDirectionToRotation : public CParticleFunctionInitializer
 {
 	// MPropertyFriendlyName = "transform input"
-	CParticleTransformInput m_TransformInput; // = { "m_NamedValue": "", "m_bFollowNamedValue": false, "m_bSupportsDisabled": false, "m_bUseOrientation": true, "m_flEndCPGrowthTime": 0, "m_nControlPoint": 0, "m_nControlPointRangeMax": 0, "m_nType": "PT_TYPE_CONTROL_POINT" }
+	CParticleTransformInput m_TransformInput;
 	// MPropertyFriendlyName = "rotation field"
 	// MPropertyAttributeChoiceName = "particlefield_rotation"
 	ParticleAttributeIndex_t m_nFieldOutput; // = 12

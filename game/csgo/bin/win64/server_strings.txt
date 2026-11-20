@@ -96,7 +96,7 @@
   wait forces async .sav to finish before returning\n
  %02X
  %02d. %-30s  %s\n
- %[^=, ] = %[^=, ] , %[^=, ] , %[^=, ] , %[^=, ] 
+ %127[^=, ] = %31[^=, ] , %31[^=, ] , %31[^=, ] , %31[^=, ] 
  %s %s score %d:%d after %d min\n
  %s%lu (%s0x%lx)\n
  (%ld unused bits)\n
@@ -17031,6 +17031,8 @@ Player Open
 Player interp: [%d, %d, %.3f]\n
 Player is active, replaying last kill will interfere with the gameplay
 Player sent bad jointeam syntax\n
+Player slot %d sent invalid cl_interp_ratio '%s'\n
+Player slot %d sent invalid viewmodel offset/fov\n
 Player.BurnDamage
 Player.BurnDamageKevlar
 Player.DamageBody.AttackerFeedback
@@ -19021,6 +19023,7 @@ StartFollowing
 StartFrame
 StartGravity
 StartLagCompensation
+StartLagCompensation: bogus lerp time %g for %s\n
 StartMap
 StartSoundEvent
 StartSoundEventFromPosition

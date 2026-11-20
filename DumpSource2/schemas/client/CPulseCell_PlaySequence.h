@@ -6,5 +6,5 @@ class CPulseCell_PlaySequence : public CPulseCell_BaseYieldingInflow
 	// MPropertyAttributeSuggestionName = "pulse_model_sequence_name"
 	CUtlString m_SequenceName;
 	PulseNodeDynamicOutflows_t m_PulseAnimEvents;
-	CPulse_ResumePoint m_OnFinished; // = { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 }
+	CPulse_ResumePoint m_OnFinished; // = { "m_nDestChunk": -1, "m_nInstruction": -1 }
 };

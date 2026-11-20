@@ -40,7 +40,7 @@ class CompMatPropertyMutator_t
 	CUtlString m_strCopyKeysWithSuffix_ReplaceSuffix;
 	// MPropertyFriendlyName = "Value"
 	// MPropertyAttrStateCallback
-	CompositeMaterialInputLooseVariable_t m_nSetValue_Value; // = { "m_bExposeExternally": false, "m_bExposedVariableIsFixedRange": false, "m_bHasFloatBounds": false, "m_bValueBoolean": false, "m_cValueColor4": [ 0, 0, 0, 0 ], "m_flValueFloatW": 0, "m_flValueFloatW_Max": 1, "m_flValueFloatW_Min": 0, "m_flValueFloatX": 0, "m_flValueFloatX_Max": 1, "m_flValueFloatX_Min": 0, "m_flValueFloatY": 0, "m_flValueFloatY_Max": 1, "m_flValueFloatY_Min": 0, "m_flValueFloatZ": 0, "m_flValueFloatZ_Max": 1, "m_flValueFloatZ_Min": 0, "m_nPanoramaRenderRes": 512, "m_nTextureType": "INPUT_TEXTURE_TYPE_DEFAULT", "m_nValueIntW": 0, "m_nValueIntX": 0, "m_nValueIntY": 0, "m_nValueIntZ": 0, "m_nValueSystemVar": "COMPMATSYSVAR_COMPOSITETIME", "m_nVariableType": "LOOSE_VARIABLE_TYPE_FLOAT1", "m_strExposedFriendlyGroupName": "", "m_strExposedFriendlyName": "", "m_strExposedHiddenWhenTrue": "", "m_strExposedValueList": "", "m_strExposedVisibleWhenTrue": "", "m_strName": "", "m_strPanoramaPanelPath": "", "m_strResourceMaterial": "", "m_strString": "", "m_strTextureCompilationVtexTemplate": "", "m_strTextureContentAssetPath": "", "m_strTextureRuntimeResourcePath": "" }
+	CompositeMaterialInputLooseVariable_t m_nSetValue_Value;
 	// MPropertyFriendlyName = "Target Texture Param"
 	// MPropertyAttrStateCallback
 	CUtlString m_strGenerateTexture_TargetParam;

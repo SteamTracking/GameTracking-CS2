@@ -12,7 +12,7 @@ class CSndBeatPattern
 	// MPropertyFriendlyName = "Sync Type"
 	SndBeatSyncType_t m_syncType; // = "eSndBeatSyncTypeReset"
 	// MPropertyFriendlyName = "Time Signature"
-	SndBeatTimeSignature_t m_timeSignature; // = { "nDenominator": 4, "nNumerator": 4 }
+	SndBeatTimeSignature_t m_timeSignature;
 	// MPropertyFriendlyName = "Length (beats)"
 	float32 m_flLength; // = 4
 	// MPropertyFriendlyName = "Looping"

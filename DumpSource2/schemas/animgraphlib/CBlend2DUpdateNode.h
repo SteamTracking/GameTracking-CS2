@@ -5,11 +5,11 @@ class CBlend2DUpdateNode : public CAnimUpdateNodeBase
 	CUtlVector< TagSpan_t > m_tags;
 	CParamSpanUpdater m_paramSpans;
 	CUtlVector< int32 > m_nodeItemIndices;
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 	AnimValueSource m_blendSourceX; // = "MoveHeading"
-	CAnimParamHandle m_paramX; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_paramX;
 	AnimValueSource m_blendSourceY; // = "MoveHeading"
-	CAnimParamHandle m_paramY; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_paramY;
 	Blend2DMode m_eBlendMode; // = "Blend2DMode_General"
 	float32 m_playbackSpeed;
 	bool m_bLoop;

@@ -5,5 +5,5 @@
 // MHasKV3TransferPolymorphicClassname
 class CSmartPropOperation_SetVariable : public CSmartPropOperation
 {
-	CSmartPropAttributeVariableValue m_VariableValue; // = { "m_DataType": "INVALID", "m_TargetName": "", "m_Value": null }
+	CSmartPropAttributeVariableValue m_VariableValue; // = { "m_DataType": "INVALID" }
 };

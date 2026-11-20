@@ -4,7 +4,7 @@
 class CVoiceContainerMultiBlender : public CVoiceContainerBase
 {
 	// MPropertyFriendlyName = "Sounds To Blend"
-	CSoundContainerReferenceArray m_soundsToPlay; // = { "m_bUseReference": true, "m_pSounds": [  ], "m_sounds": [  ] }
+	CSoundContainerReferenceArray m_soundsToPlay;
 	// MPropertyFriendlyName = "Blend Amount (0.0 = 100% first sound, 1.0 = 100% last sound)"
 	float32 m_flBlendFactor;
 	// MPropertyFriendlyName = "Crossfade Amount (0.0 = no crossfade, 1.0 = constant crossfading)"

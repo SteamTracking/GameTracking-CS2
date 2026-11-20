@@ -5,19 +5,19 @@ class CVsndRadioButtonSlot
 	bool m_bEnableVsnd; // = true
 	// MPropertyGroupName = "Vsnd"
 	// MPropertyFriendlyName = "Vsnd File"
-	CSoundContainerReference m_vsnd; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
+	CSoundContainerReference m_vsnd;
 	// MPropertyGroupName = "Endcap"
 	// MPropertyFriendlyName = "Enable Endcap"
 	bool m_bEnableEndcap;
 	// MPropertyGroupName = "Endcap"
 	// MPropertyFriendlyName = "Endcap Vsnd (Stop)"
-	CSoundContainerReference m_endcapVsnd; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
+	CSoundContainerReference m_endcapVsnd;
 	// MPropertyGroupName = "Loopcap"
 	// MPropertyFriendlyName = "Enable Loopcap"
 	bool m_bEnableLoopcap;
 	// MPropertyGroupName = "Loopcap"
 	// MPropertyFriendlyName = "Loopcap Vsnd (Loop)"
-	CSoundContainerReference m_loopcapVsnd; // = { "m_bUseReference": true, "m_namespace": "", "m_pSound": null, "m_sound": "" }
+	CSoundContainerReference m_loopcapVsnd;
 	// MPropertyFriendlyName = "Group"
 	int32 m_group; // = 1
 	// MPropertyFriendlyName = "Volume"

@@ -57,5 +57,5 @@ class CAnimGraphDoc_FollowPathNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyGroupName = "Turn to Face"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 };

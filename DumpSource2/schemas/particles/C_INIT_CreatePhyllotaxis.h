@@ -15,7 +15,7 @@ class C_INIT_CreatePhyllotaxis : public CParticleFunctionInitializer
 	// MPropertyFriendlyName = "radius max (-1 procedural growth)"
 	float32 m_fRadPerPointTo; // = -1
 	// MPropertyFriendlyName = "golden angle (is 137.508)"
-	float32 m_fpointAngle; // = 137.507996
+	float32 m_fpointAngle; // = 137.508
 	// MPropertyFriendlyName = "overall size multiplier (-1 count based distribution)"
 	float32 m_fsizeOverall; // = 60
 	// MPropertyFriendlyName = "radius bias"

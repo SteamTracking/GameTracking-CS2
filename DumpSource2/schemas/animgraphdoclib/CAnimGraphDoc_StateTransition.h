@@ -3,7 +3,7 @@
 class CAnimGraphDoc_StateTransition
 {
 	// MPropertySuppressField
-	CAnimGraphDoc_ConditionContainer m_conditionList; // = { "_class": "CAnimGraphDoc_ConditionContainer", "m_conditions": [  ] }
+	CAnimGraphDoc_ConditionContainer m_conditionList;
 	// MPropertySuppressField
 	AnimStateID m_srcState;
 	// MPropertySuppressField

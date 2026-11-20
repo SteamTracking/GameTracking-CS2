@@ -1127,8 +1127,6 @@
 #SFUI_ItemInfo_WearAmount_None
 #SFUI_Jump
 #SFUI_LOADING
-#SFUI_LobbyClan_PersonJoined
-#SFUI_LobbyClan_PersonJoinedStopQM
 #SFUI_LobbyFriend_PersonJoined
 #SFUI_LobbyFriend_PersonJoinedStopQM
 #SFUI_LobbyNearby_PersonJoined
@@ -20852,6 +20850,7 @@ Parent:
 ParentWithProperties
 Parse error on %s: %s\n
 ParseEXRHeaderFromMemory() failed! Error message: %s\n
+ParseEventList: invalid event id %d for '%s'\n
 ParseImageDataSection failed
 ParseSubclass
 Particle (%s) (%s)
@@ -29164,7 +29163,6 @@ game/clantag
 game/commends
 game/gamemodeflags
 game/hosted
-game/jclantag
 game/jfriend
 game/level
 game/loc

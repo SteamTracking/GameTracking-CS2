@@ -5,5 +5,5 @@ class CPulseCell_Step_CallExternalMethod : public CPulseCell_BaseYieldingInflow
 	PulseRuntimeBlackboardReferenceIndex_t m_nBlackboardIndex; // = -1
 	CUtlLeanVector< CPulseRuntimeMethodArg > m_ExpectedArgs;
 	PulseMethodCallMode_t m_nAsyncCallMode; // = "ASYNC_FIRE_AND_FORGET"
-	CPulse_ResumePoint m_OnFinished; // = { "m_SourceOutflowName": "", "m_nDestChunk": -1, "m_nInstruction": -1 }
+	CPulse_ResumePoint m_OnFinished; // = { "m_nDestChunk": -1, "m_nInstruction": -1 }
 };

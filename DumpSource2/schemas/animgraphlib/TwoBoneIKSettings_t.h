@@ -5,8 +5,8 @@ class TwoBoneIKSettings_t
 	IkTargetType m_targetType; // = "IkTarget_Bone"
 	CAnimAttachment m_targetAttachment;
 	int32 m_targetBoneIndex; // = -1
-	CAnimParamHandle m_hPositionParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
-	CAnimParamHandle m_hRotationParam; // = { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }
+	CAnimParamHandle m_hPositionParam;
+	CAnimParamHandle m_hRotationParam;
 	bool m_bAlwaysUseFallbackHinge;
 	VectorAligned m_vLsFallbackHingeAxis; // = [ 0, 1, 0 ]
 	int32 m_nFixedBoneIndex; // = -1

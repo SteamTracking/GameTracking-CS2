@@ -11,7 +11,7 @@
 		<snippet name="snippet-clantag-item">
 			<Button class="clantag-item">
 				<Label id="id-clan-tag__label" class="clan-tag__label" text="true" />
-				<Label id="id-clan-name__label" class="clan-name__label" html="true" text="" />
+				<Label id="id-clan-name__label" class="clan-name__label" text="" />
 			</Button>
 		</snippet>
 		<snippet name="snippet-clantag-text-button">

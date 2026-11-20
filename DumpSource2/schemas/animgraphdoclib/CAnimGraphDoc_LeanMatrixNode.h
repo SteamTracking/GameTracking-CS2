@@ -19,5 +19,5 @@ class CAnimGraphDoc_LeanMatrixNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Horizontal Axis"
 	Vector m_horizontalAxisDirection; // = [ 0, 1, 0 ]
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 };

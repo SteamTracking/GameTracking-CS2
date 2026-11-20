@@ -14,6 +14,6 @@ class WorldNode_t
 	CUtlVector< CUtlString > m_layerNames;
 	CUtlVector< uint8 > m_sceneObjectLayerIndices;
 	CUtlString m_grassFileName;
-	BakedLightingInfo_t m_nodeLightingInfo; // = { "m_bBakedShadowsGamma20": false, "m_bCompressionEnabled": false, "m_bHasLightmaps": false, "m_bakedShadows": [  ], "m_lightMaps": [  ], "m_nChartPackIterations": 0, "m_nLPVEncoding": -1, "m_nLightmapEncoding": -1, "m_nLightmapGameVersionNumber": 0, "m_nLightmapVersionNumber": 0, "m_nVradQuality": 0, "m_vLightmapUvScale": [ 1, 1 ] }
+	BakedLightingInfo_t m_nodeLightingInfo;
 	bool m_bHasBakedGeometryFlag;
 };

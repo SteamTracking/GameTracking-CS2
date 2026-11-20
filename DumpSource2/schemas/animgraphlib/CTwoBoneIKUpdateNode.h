@@ -1,5 +1,5 @@
 // MHasKV3TransferPolymorphicClassname
 class CTwoBoneIKUpdateNode : public CUnaryUpdateNode
 {
-	TwoBoneIKSettings_t m_opFixedData; // = { "m_bAlwaysUseFallbackHinge": false, "m_bConstrainTwist": false, "m_bMatchTargetOrientation": false, "m_endEffectorAttachment": { "m_influenceIndices": [ 0, 0, 0 ], "m_influenceOffsets": [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ], "m_influenceRotations": [ [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ] ], "m_influenceWeights": [ 0, 0, 0 ], "m_numInfluences": 0 }, "m_endEffectorType": "IkEndEffector_Bone", "m_flMaxTwist": 15, "m_hPositionParam": { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }, "m_hRotationParam": { "m_index": 255, "m_type": "ANIMPARAM_UNKNOWN" }, "m_nEndBoneIndex": -1, "m_nFixedBoneIndex": -1, "m_nMiddleBoneIndex": -1, "m_targetAttachment": { "m_influenceIndices": [ 0, 0, 0 ], "m_influenceOffsets": [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ], "m_influenceRotations": [ [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ] ], "m_influenceWeights": [ 0, 0, 0 ], "m_numInfluences": 0 }, "m_targetBoneIndex": -1, "m_targetType": "IkTarget_Bone", "m_vLsFallbackHingeAxis": [ 0, 1, 0 ] }
+	TwoBoneIKSettings_t m_opFixedData;
 };

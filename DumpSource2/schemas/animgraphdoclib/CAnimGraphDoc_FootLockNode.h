@@ -64,7 +64,7 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	float32 m_flHipShiftScale; // = 0.5
 	// MPropertyFriendlyName = "Damping"
 	// MPropertyGroupName = "Hip Shift"
-	CAnimInputDamping m_hipShiftDamping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_hipShiftDamping;
 	// MPropertyFriendlyName = "Apply Tilt"
 	// MPropertyGroupName = "Tilt"
 	bool m_bApplyTilt;
@@ -118,7 +118,7 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Hip Damping"
 	// MPropertyGroupName = "Ground IK"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_hipDampingSettings; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_hipDampingSettings;
 	// MPropertyFriendlyName = "Enable Root Height Damping"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAutoRebuildOnChange
@@ -126,7 +126,7 @@ class CAnimGraphDoc_FootLockNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Damping Settings"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAttrStateCallback
-	CAnimInputDamping m_rootHeightDamping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 12, "m_fSpeedScale": 12, "m_speedFunction": "Spring" }
+	CAnimInputDamping m_rootHeightDamping; // = { "m_fFallingSpeedScale": 12, "m_fSpeedScale": 12, "m_speedFunction": "Spring" }
 	// MPropertyFriendlyName = "Max Offset"
 	// MPropertyGroupName = "Root Height Damping"
 	// MPropertyAttrStateCallback

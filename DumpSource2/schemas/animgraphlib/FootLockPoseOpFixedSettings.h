@@ -1,7 +1,7 @@
 class FootLockPoseOpFixedSettings
 {
 	CUtlVector< FootFixedData_t > m_footInfo;
-	CAnimInputDamping m_hipDampingSettings; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_hipDampingSettings;
 	int32 m_nHipBoneIndex; // = -1
 	IKSolverType m_ikSolverType; // = "IKSOLVER_TwoBone"
 	bool m_bApplyTilt;

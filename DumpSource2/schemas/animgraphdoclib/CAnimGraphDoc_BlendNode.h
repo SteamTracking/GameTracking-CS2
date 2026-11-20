@@ -26,7 +26,7 @@ class CAnimGraphDoc_BlendNode : public CAnimGraphDoc_Node
 	// MPropertyFriendlyName = "Is Angle"
 	bool m_bIsAngle;
 	// MPropertyFriendlyName = "Damping"
-	CAnimInputDamping m_damping; // = { "_class": "CAnimInputDamping", "m_fFallingSpeedScale": 1, "m_fSpeedScale": 1, "m_speedFunction": "NoDamping" }
+	CAnimInputDamping m_damping;
 	// MPropertyFriendlyName = "Linear Root Motion Blend Mode"
 	LinearRootMotionBlendMode_t m_eLinearRootMotionBlendMode; // = "LERP"
 };
