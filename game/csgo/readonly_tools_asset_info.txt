@@ -142260,3 +142260,5 @@ stickers/singapore2026/wcrd_holo_color_psd_6d3272ad.vtex
 models/de_cbble/cbble_window_wood_05/cbble_window_wood_breakable_37_by_54/piece.vmdl
 models/de_cbble/cbble_window_wood_05/cbble_window_wood_breakable_34_by_36/piece.vmdl
 models/de_cbble/windows/cbble_window_breakable_44_by_44/piece.vmdl
+models/de_cbble/doors/cbble_door_03/cbble_door_03_left_lp.vmdl
+models/de_cbble/doors/cbble_door_03/cbble_door_03_right_lp.vmdl

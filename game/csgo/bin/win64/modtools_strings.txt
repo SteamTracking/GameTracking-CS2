@@ -1211,6 +1211,7 @@ $modelname$_surface
 .?AUCAttr_m_flSpeedIn@?1??GetAttributeTable_Impl@CNmClipDocEvent_Cloth@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flSpeedMultiplier@?1??GetAttributeTable_Impl@CData@CNmGraphDocClipNode@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flSpeedOut@?1??GetAttributeTable_Impl@CNmClipDocEvent_Cloth@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_flSpeedScale@?1??GetAttributeTable_Impl@CNmClipDocument@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flSpeedup@?1??GetStaticAttributes@CModelDocClothEffectSpeedup@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flSpinAxisFriction@?1??GetStaticAttributes@CModelDocPhysicsJoint_Wheel@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_flSpinDegrees@?1??GetStaticAttributes@CModelDocAnimForceBoneSpin@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -1701,6 +1702,7 @@ $modelname$_surface
 .?AUCAttr_m_soundeventOverrideID@?1??GetAttributeTable_Impl@NmContactAudioInfo_t@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_sourceFilename@?1??GetAttributeTable_Impl@CNmClipDocument@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_sourceFilename@?1??GetAttributeTable_Impl@CNmSkeletonDocument@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
+.?AUCAttr_m_speedScaleMode@?1??GetAttributeTable_Impl@CNmClipDocument@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_stateEvents@?1??GetAttributeTable_Impl@CNmGraphDocStateNode@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_strAOMap@?1??GetStaticAttributes@CModelDocTextureGenerator_CavityMap@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
 .?AUCAttr_m_strAlignmentBoneName@?1??GetAttributeTable_Impl@CData@CNmGraphDocTargetSelectorNode@@SAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlVectorMemory_Growable@PEAVIBaseToolAttr@@H$0A@@@@@@Z@
@@ -2904,6 +2906,7 @@ $modelname$_surface
 .?AV?$CBaseConcreteToolAttr@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CBaseConcreteToolAttr@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@V2@@@
 .?AV?$CBaseConcreteToolAttr@W4SpawnEntity_t@CModelDocBaseBreakPiece@@V2@@@
+.?AV?$CBaseConcreteToolAttr@W4SpeedScale_t@CNmClipDocument@@V2@@@
 .?AV?$CBaseConcreteToolAttr@W4StateType_t@CNmGraphDocStateNode@@V2@@@
 .?AV?$CBaseConcreteToolAttr@W4TargetUpdateRule_t@CNmTargetWarpNode@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CBaseConcreteToolAttr@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@V2@@@
@@ -3844,6 +3847,7 @@ $modelname$_surface
 .?AV?$CBaseConcreteToolAttrValue@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CBaseConcreteToolAttrValue@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@V2@@@
 .?AV?$CBaseConcreteToolAttrValue@W4SpawnEntity_t@CModelDocBaseBreakPiece@@V2@@@
+.?AV?$CBaseConcreteToolAttrValue@W4SpeedScale_t@CNmClipDocument@@V2@@@
 .?AV?$CBaseConcreteToolAttrValue@W4StateType_t@CNmGraphDocStateNode@@V2@@@
 .?AV?$CBaseConcreteToolAttrValue@W4TargetUpdateRule_t@CNmTargetWarpNode@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CBaseConcreteToolAttrValue@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@V2@@@
@@ -4873,6 +4877,7 @@ $modelname$_surface
 .?AV?$CConcreteToolAttr@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocTargetWarpNode@@X@@
 .?AV?$CConcreteToolAttr@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@V2@X@@
 .?AV?$CConcreteToolAttr@W4SpawnEntity_t@CModelDocBaseBreakPiece@@V2@X@@
+.?AV?$CConcreteToolAttr@W4SpeedScale_t@CNmClipDocument@@V2@X@@
 .?AV?$CConcreteToolAttr@W4StateType_t@CNmGraphDocStateNode@@V2@X@@
 .?AV?$CConcreteToolAttr@W4TargetUpdateRule_t@CNmTargetWarpNode@@VCNmGraphDocTargetWarpNode@@X@@
 .?AV?$CConcreteToolAttr@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@V2@X@@
@@ -5273,6 +5278,7 @@ $modelname$_surface
 .?AV?$CConcreteToolAttrDirectMember@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocOrientationWarpNode@@@@
 .?AV?$CConcreteToolAttrDirectMember@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CConcreteToolAttrDirectMember@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@V2@@@
+.?AV?$CConcreteToolAttrDirectMember@W4SpeedScale_t@CNmClipDocument@@V2@@@
 .?AV?$CConcreteToolAttrDirectMember@W4StateType_t@CNmGraphDocStateNode@@V2@@@
 .?AV?$CConcreteToolAttrDirectMember@W4TargetUpdateRule_t@CNmTargetWarpNode@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CConcreteToolAttrDirectMember@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@V2@@@
@@ -7143,6 +7149,7 @@ $modelname$_surface
 .?AV?$CToolAttrDirectMemberAccess@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocOrientationWarpNode@@@@
 .?AV?$CToolAttrDirectMemberAccess@W4SamplingMode_t@CNmRootMotionData@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CToolAttrDirectMemberAccess@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@V2@@@
+.?AV?$CToolAttrDirectMemberAccess@W4SpeedScale_t@CNmClipDocument@@V2@@@
 .?AV?$CToolAttrDirectMemberAccess@W4StateType_t@CNmGraphDocStateNode@@V2@@@
 .?AV?$CToolAttrDirectMemberAccess@W4TargetUpdateRule_t@CNmTargetWarpNode@@VCNmGraphDocTargetWarpNode@@@@
 .?AV?$CToolAttrDirectMemberAccess@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@V2@@@
@@ -8062,6 +8069,7 @@ $modelname$_surface
 .?AV?$IToolAttrConcreteDataAccess@W4SamplingMode_t@CNmRootMotionData@@@@
 .?AV?$IToolAttrConcreteDataAccess@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@@@
 .?AV?$IToolAttrConcreteDataAccess@W4SpawnEntity_t@CModelDocBaseBreakPiece@@@@
+.?AV?$IToolAttrConcreteDataAccess@W4SpeedScale_t@CNmClipDocument@@@@
 .?AV?$IToolAttrConcreteDataAccess@W4StateType_t@CNmGraphDocStateNode@@@@
 .?AV?$IToolAttrConcreteDataAccess@W4TargetUpdateRule_t@CNmTargetWarpNode@@@@
 .?AV?$IToolAttrConcreteDataAccess@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@@@
@@ -8173,6 +8181,7 @@ $modelname$_surface
 .?AV?$IToolAttr_TypedValue@W4SamplingMode_t@CNmRootMotionData@@@@
 .?AV?$IToolAttr_TypedValue@W4SearchRule_t@CNmGraphDocIDEventConditionNode@@@@
 .?AV?$IToolAttr_TypedValue@W4SpawnEntity_t@CModelDocBaseBreakPiece@@@@
+.?AV?$IToolAttr_TypedValue@W4SpeedScale_t@CNmClipDocument@@@@
 .?AV?$IToolAttr_TypedValue@W4StateType_t@CNmGraphDocStateNode@@@@
 .?AV?$IToolAttr_TypedValue@W4TargetUpdateRule_t@CNmTargetWarpNode@@@@
 .?AV?$IToolAttr_TypedValue@W4TimeMatchMode_t@CNmGraphDocTransitionNode@@@@
@@ -9786,7 +9795,7 @@ CCITT Group 3
 CCITT Group 4
 CCITT RLE
 CCITT RLE/W
-CCS2BombDamageBaker::PopulateNodeDistancesFromBombsite(), C:\buildworker\csgo_rel_win64\build\src\game\modtools\csgo\mapcompile\mapcompile_modifier_bombdamage_bake.cpp:423
+CCS2BombDamageBaker::PopulateNodeDistancesFromBombsite(), C:\buildworker\csgo_rel_win64\build\src\game\modtools\csgo\mapcompile\mapcompile_modifier_bombdamage_bake.cpp:429
 CCW Limit
 CColorGradient
 CDualHullAgglomerator: Degenerate topology, %d faces removed\n
@@ -11933,6 +11942,7 @@ Make
 MakerNoteSafety
 Manual Mode (Suppress smart-creation)
 Map Name
+Map has func_bomb_target but no NavMesh; skipping baked bomb damage.\n
 Mappings
 Marker ID To Match
 Mask
@@ -12234,6 +12244,7 @@ No event conditions specified for condition node!
 No faces selected by facing angle.
 No faces selected.
 No follow target bone set for variation: %s!
+No func_bomb_target found; skipping baked bomb damage.\n
 No input pose data
 No input target bone ID specified
 No inputs on selector
@@ -13160,6 +13171,7 @@ Specify which specific shapes belong to this detail layer(s)<br><br><em>(NOTE: A
 Speed In
 Speed Multiplier
 Speed Out
+Speed Scale Mode
 Speedup
 Spew Wrinkle Stats
 Sphere: %s

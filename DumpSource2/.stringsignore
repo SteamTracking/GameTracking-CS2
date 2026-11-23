@@ -2562,6 +2562,7 @@ CNmClipDocEvent_Transition
 CNmClipDocument
 CNmClipDocument::AdditiveBaseFrame_t
 CNmClipDocument::AdditiveType_t
+CNmClipDocument::SpeedScale_t
 CNmClipNode::CDefinition
 CNmClipReferenceNode::CDefinition
 CNmClipSelectorNode::CDefinition
@@ -5939,6 +5940,7 @@ Duration of ent_skeleton display
 Duration of the fade in and of the fade out transitions (fade in + fade out is 2x this value).
 Duration value for path point
 Duration, in seconds, to hold onto the data of disconnected players, for scoreboard display.
+DurationOverride
 DurationValue
 During Outro
 During a VMA defrag, number of MB in moves per pass.
@@ -10689,6 +10691,7 @@ Override height of shadow atlas texture
 Override maximum visible barn lights
 Override maximum visible envmaps
 Override the far clipping plane. -1 means to use the value in env_fog_controller.
+Override the final duration of this clip by using a multiplier
 Override the final duration of this clip in seconds (0 or a negative value means use the authored duration)
 Override the near clipping plane. -1 means use the default.
 Override tracer frequency (-1 to disable)
@@ -14076,6 +14079,7 @@ Speed above which surf sounds are played.
 Speed to stop when sticking
 Speed up the spread rate of the Incendiary until max number of nodes are created. slowdown < 1 > Speedup
 Speed up the spreadrate of the Molotov until max number of nodes are created.  slowdown < 1 > Speedup
+SpeedScale
 SpendMoneyFromPlayer
 Spew CSerializedEntity memory
 Spew CSerializedEntity metadata information
@@ -27047,6 +27051,7 @@ m_flSpeedMin
 m_flSpeedMultiplier
 m_flSpeedOut
 m_flSpeedRatio
+m_flSpeedScale
 m_flSpeedScaleBlending
 m_flSpeedWhenSpinUpOrSpinDownStarted
 m_flSphereRadius
@@ -31221,6 +31226,7 @@ m_spectators
 m_specularColor
 m_speed
 m_speedFunction
+m_speedScaleMode
 m_spheres
 m_spinDown
 m_spinUp

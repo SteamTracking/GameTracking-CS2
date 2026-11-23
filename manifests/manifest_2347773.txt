@@ -1,22 +1,22 @@
 Content Manifest for Depot 2347773 
 
-Manifest ID / date     : 5121219979210617382 / 11/19/2026 23:58:15 
+Manifest ID / date     : 4380993310429599899 / 11/23/2026 22:51:30 
 Total number of files  : 81 
 Total number of chunks : 1889 
-Total bytes on disk    : 1952951302 
-Total bytes compressed : 1247304192 
+Total bytes on disk    : 1952943590 
+Total bytes compressed : 1247314928 
 
 
           Size Chunks File SHA                                 Flags Name
         155548      1 17bbe7faccf14a0b22497a6d34df9776c6567d61     0 game\bin\linuxsteamrt64\cs2
          84104      1 17f3c133b5c62e6e2bbb0280e038912414412579     0 game\bin\linuxsteamrt64\fltlnx64.flt
-      15431576     15 5c5cdc3c7c771dbf6181e0e974a511a3b9b33f40     0 game\bin\linuxsteamrt64\libanimationsystem.so
+      15431576     15 6a1c14947a9dedf1949c4c8fb2fc933ab3138f8a     0 game\bin\linuxsteamrt64\libanimationsystem.so
        3678216      4 68f95c77a3ab19b380f142ab7e6ccb543af9d37c     0 game\bin\linuxsteamrt64\libavcodec.so.58
         888848      1 bcfdd74b8bc4268cc6af190a10c8d64d27b71bc9     0 game\bin\linuxsteamrt64\libavformat.so.58
         129496      1 4895da33d08a56dfb48daa79a3bcee9f9c361649     0 game\bin\linuxsteamrt64\libavresample.so.4
         712672      1 451e7c11727fefe58f2cca8fc0e0cd0bc562f43e     0 game\bin\linuxsteamrt64\libavutil.so.56
        1596148      2 b96dfdf2fe9a36436fd4f04ca78e292982ea15b1     0 game\bin\linuxsteamrt64\libcairo.so
-      11044288     11 428e829bb481758270e4f3fac9b573198d1e9f98     0 game\bin\linuxsteamrt64\libengine2.so
+      11044608     11 bd9156f764d48f77908e0ad2d24ec3087c6329b5     0 game\bin\linuxsteamrt64\libengine2.so
        3108744      3 b66fbdcc12b01ba9248a40996f2206a69db4f16d     0 game\bin\linuxsteamrt64\libfilesystem_stdio.so
        1304272      2 0af1352041c54e16129773dc8d038872f9f839be     0 game\bin\linuxsteamrt64\libfontconfig.so.1
        3930056      4 0b64e7c4eab1a6313867cb39c0fafbeb026aac7f     0 game\bin\linuxsteamrt64\libfreetype.so.6
@@ -25,14 +25,14 @@ Total bytes compressed : 1247304192
        1796256      2 944fdfae789bb0d23a934a9bbd395ef2805a7e9c     0 game\bin\linuxsteamrt64\libmaterialsystem2.so
        2011620      2 19e7adc6a08ba09d1a038491c530a5099114a6e2     0 game\bin\linuxsteamrt64\libmeshsystem.so
        1051154      2 312f15ffc6ca79979618858b7e371c056b5b74b2     0 game\bin\linuxsteamrt64\libmpg123.so.0
-       4822068      5 d5d089783abe122c68d05c3a429d15594d724fe2     0 game\bin\linuxsteamrt64\libnetworksystem.so
+       4823572      5 8fa9fed86f770808df371506c35a21b2fd047748     0 game\bin\linuxsteamrt64\libnetworksystem.so
          35112      1 5f38ba115a525c4dee3dea7d9625a2164b84d457     0 game\bin\linuxsteamrt64\libogg.so.0
        1278424      2 e99953922de86b898b2f0c9abc38ae24c6aea2b4     0 game\bin\linuxsteamrt64\libpango-1.0.so.0
         442632      1 9e20da60c2343c610624175113428f4089236585     0 game\bin\linuxsteamrt64\libpangoft2-1.0.so.0
-       7025424      7 4935d3668fb51017ae99874bf516ae1e65c4dbed     0 game\bin\linuxsteamrt64\libpanorama.so
+       7026128      7 2b3e8e25a14a5cd0d5dab454c450807e2e0bdc31     0 game\bin\linuxsteamrt64\libpanorama.so
        4871320      5 40dfdb2164d7b8ddfc755cd05e37bce6b8a5ec61     0 game\bin\linuxsteamrt64\libpanoramauiclient.so
        3202820      4 de87614654672d68a35fdc978f2047ed220005b1     0 game\bin\linuxsteamrt64\libpanorama_text_pango.so
-       8604856      9 e9d9f9eb7b1490edc473d90e44bc522e20b20876     0 game\bin\linuxsteamrt64\libparticles.so
+       8604728      9 e2ee2d875dc8084fc6e45a36287e6ad5f577f8d0     0 game\bin\linuxsteamrt64\libparticles.so
       40786720     40 850311e7b530d04bcfbdee1e3e7d026a7791098d     0 game\bin\linuxsteamrt64\libphonon.so
        2358716      3 e19272fa0ef8da117b471e10885a7b83e7307ddd     0 game\bin\linuxsteamrt64\libpulse_system.so
        3679424      4 1337e8fc95969c88eb5a103a115fbbbf54a35516     0 game\bin\linuxsteamrt64\librendersystemempty.so
@@ -42,8 +42,8 @@ Total bytes compressed : 1247304192
       10777468     11 b3b5b79f5f3ab90a01c20f4d4ff2ce4158965c7b     0 game\bin\linuxsteamrt64\libscenesystem.so
         713948      1 094bc32942d7cdeaef80c71fd7a4e22da387748a     0 game\bin\linuxsteamrt64\libschemasystem.so
        3229400      4 0558f1091e79b187e42491955cf362112598cff5     0 game\bin\linuxsteamrt64\libSDL3.so.0
-       7955316      8 d28c65eb7473028642dd5c22e0dedce408ad41ca     0 game\bin\linuxsteamrt64\libsoundsystem.so
-       4764548      5 2063d26ef8bd1808dba5163a72b11b4627a059d1     0 game\bin\linuxsteamrt64\libsteamaudio.so
+       7955316      8 dc295e53b1eda99f16509baec9f0d30adba3a67c     0 game\bin\linuxsteamrt64\libsoundsystem.so
+       4764548      5 245417b15d9d9cf4a737449d468f09dad69b4aa2     0 game\bin\linuxsteamrt64\libsteamaudio.so
        5700658      6 8721e595067b25c3188f32a1cc06ecb36088bc70     0 game\bin\linuxsteamrt64\libsteamnetworkingsockets.so
         381976      1 c109666c839a433b5ff8f635ad173cde77bdcdb6     0 game\bin\linuxsteamrt64\libsteam_api.so
         555448      1 a1191c624317a97fbf634aa13990bc12abd45179     0 game\bin\linuxsteamrt64\libswscale.so.5
@@ -64,12 +64,12 @@ Total bytes compressed : 1247304192
        5739752      6 9fa1b0ce32cf3b268d4e0afa0aadf19ba372e42b     0 game\bin\linuxsteamrt64\libvphysics2.so
        3205768      4 7ee108b86e414426587fcf8d64e037c7f3f78544     0 game\bin\linuxsteamrt64\libvpx.so.6
        1296400      2 edc5a944de39c30ed936dbaae11d6415e3ca20ea     0 game\bin\linuxsteamrt64\libvscript.so
-       4561380      5 a5566943935e57baa6fb00b90b7b94ae166cbb26     0 game\bin\linuxsteamrt64\libworldrenderer.so
+       4561380      5 c420f72ee7ba3f42da580e1043efbc718eaa2ed1     0 game\bin\linuxsteamrt64\libworldrenderer.so
           3822      1 956919b920713ce452f46c20cf8643674f7543f7     0 game\cs2.sh
-      73978872     71 98bd2551835ed80ddabea2c27750b5453dac0b1f     0 game\csgo\bin\linuxsteamrt64\libclient.so
-       3176892      4 5a66e905fbac4471e12a4e3d294fa7fc7c9e7821     0 game\csgo\bin\linuxsteamrt64\libhost.so
-       3764196      4 573877b471ee1afbca8cc4a3018f4d4732804758     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
-      41628472     40 587176de3097f8bdee7c1841b13bc4e02d7d0b99     0 game\csgo\bin\linuxsteamrt64\libserver.so
+      73966968     71 87edc47621d77c6954ed0482b730575f6df3894b     0 game\csgo\bin\linuxsteamrt64\libclient.so
+       3176892      4 4c2b2e8ebf03fd2f0e09f10e49d8365df26ffb46     0 game\csgo\bin\linuxsteamrt64\libhost.so
+       3764196      4 8fe046fdaf73267906b3fcb8dee737722c49c582     0 game\csgo\bin\linuxsteamrt64\libmatchmaking.so
+      41630264     40 4891c496ba2dc1119db10fa7e3f99beec8fe378f     0 game\csgo\bin\linuxsteamrt64\libserver.so
      105039795    103 c0a2726c8c1c73762f578a7d2e91a95f58678a98     0 game\csgo_community_addons\de_debris\de_debris_000.vpk
      107269718    105 a9a2829dbecedc64146410548e6cab7dc749c14c     0 game\csgo_community_addons\de_debris\de_debris_001.vpk
      106054491    102 bcdcf8908307380cbe3e9b17a66c50af6775eaf7     0 game\csgo_community_addons\de_debris\de_debris_002.vpk

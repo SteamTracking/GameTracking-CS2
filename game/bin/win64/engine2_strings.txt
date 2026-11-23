@@ -3179,19 +3179,19 @@ C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:2681
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:3706
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:4550
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:4846
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:4851
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp:2819
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp:4519
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp:4561
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp:2825
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp:4535
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp:4577
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserver.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserver.cpp:1053
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:3086
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5764
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5830
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5919
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5925
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:3098
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5776
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5842
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5931
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserverbase.cpp:5937
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkp2pservice.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkserverservice.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkstringtable.cpp
@@ -6116,6 +6116,7 @@ Packet Entities has a larger spawn group creation sequence (%u) than we received
 Packet Entities has a larger spawn group creation sequence (%u) than we received, forcing to max %u\n
 PacketEntities @%d\n
 PacketEntities tick not set\n
+PacketEntities with baseline=%d\n
 PacketEntities with delta_from=%d, tick=%d??\n
 Packets
 Pagefile: estimated %llumb CPU %llumb GPU needed, %llumb pagefile free\n

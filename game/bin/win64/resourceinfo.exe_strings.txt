@@ -4731,7 +4731,7 @@ enc_key
 encapContentInfo
 encipherOnly
 encode error
-encoding %s %d format %s %d\n
+encoding %63s %d format %63s %d\n
 encoding error
 encrypt error
 encrypted length too long

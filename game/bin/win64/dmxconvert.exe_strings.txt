@@ -844,7 +844,7 @@ embeddedTarget
 emissionStopTime
 emitting
 enablemotionongravitygrab
-encoding %s %d format %s %d\n
+encoding %63s %d format %63s %d\n
 endTime
 ent_dota_lightinfo
 entity_properties

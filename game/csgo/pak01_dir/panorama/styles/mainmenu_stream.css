@@ -252,8 +252,8 @@
 .news-panel-streamfeed__navbar__btns .IconButton.TextFullbright
 {
 	border: 1px solid #ffffff17;
-	padding: 2px 6px;
-	margin: 8px;
+	padding: 1px 6px 2px 6px;
+	margin: 1px;
 	brightness: .85;
 }
 

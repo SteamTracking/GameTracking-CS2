@@ -289,6 +289,7 @@ Average Number of Field Paths     :  %8.3f\n
 AvgSz
 BUG! Failed to read from buffer after checking size?
 BetaUniverse
+Bogus unreliable sequence number %d, last was %d
 BufType
 Buffer overflow
 BuildDelta
@@ -841,6 +842,7 @@ Writing %d bits for path %s of serializer %s entity %d, this will fail to parse\
 [ent %d] Decode path %s names field %d of %s, which has %d fields.  Rejecting the rest of the entity.\n
 [ent %d] Decode path %s repeats array of structs %s::%s [%d].  Rejecting the rest of the entity.\n
 [ent %d] Field %s::%s [%d] is a pointer to a primitive, which is not a supported combination of features.  Rejecting the rest of the entity.\n
+[ent %d] Networked CUtlVector %s::%s has count %d, valid range is 0..%d.  Rejecting.\n
 [opaque]
 [removed]
 \nNon-networkables\n\n

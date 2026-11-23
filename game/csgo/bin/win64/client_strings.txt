@@ -11716,6 +11716,7 @@ Body Component Scriptdesc
 Body Group Name
 Body Group Value
 BodyGroup: Group = %s, Choice = %s
+Bogus HostageStateChanged %d\n
 BombAbove
 BombBelow
 BombBlast
@@ -18646,6 +18647,7 @@ Ignoring CSVCMsg_UserCommands_t from bot\n
 Ignoring CSVCMsg_UserCommands_t with no command data
 Ignoring CSVCMsg_UserCommands_t: Missing command to delta from\n
 Ignoring CSVCMsg_UserCommands_t: delta apply failed
+Ignoring close caption placeholder of %d chars\n
 Iguana
 Image
 Image Too Large
@@ -19996,6 +19998,7 @@ Netscape Revocation Url
 Netscape SSL Server Name
 Netscape SSL server
 Netscape Server Gated Crypto
+Networked CUtlVector has count %d, max is %d\n
 Never close the group automatically (used to indicate an error like the process exiting unexpectedly)
 New Bloom
 New Enemy
@@ -24187,6 +24190,8 @@ TrueView predicted no commands this frame.  Last executed %d, last created %d, f
 TrueView target tick %d is behind last snapshot tick %d\n
 TrueViewDeadOnServer
 TrueViewDeadOnServerChanged
+Truncated %d char args of close caption command '%s'\n
+Truncated %d char close caption command '%s'\n
 Truncated header.
 Trust Root
 TrustedLaunch
@@ -24408,6 +24413,7 @@ Unsupported SpawnKeyType_t for entity "%s" class "%s" field "%s": %s (%d)
 Unsupported extension feature
 Unsupported version %d for resource '%s' (Expected %d)\n
 UnsupportedSpawnKeyType: %s
+Unterminated close caption command '%s'\n
 Unused
 UnusedHealthBars
 UnusedPlayerIDs

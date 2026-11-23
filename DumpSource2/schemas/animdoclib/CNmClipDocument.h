@@ -17,8 +17,16 @@ class CNmClipDocument : public CNmAnimDocument
 	// MPropertyDescription = "Specify the import end frame (0 or a negative value means use the last frame in the authored animation)"
 	int32 m_nEndFrame; // = -1
 	// MPropertyGroupName = "+Import Options"
+	// MPropertyDescription = "Override the final duration of this clip by using a multiplier"
+	CNmClipDocument::SpeedScale_t m_speedScaleMode; // = "None"
+	// MPropertyGroupName = "+Import Options"
 	// MPropertyDescription = "Override the final duration of this clip in seconds (0 or a negative value means use the authored duration)"
+	// MPropertyAttrStateCallback
 	float32 m_flDurationOverrideSeconds; // = -1
+	// MPropertyGroupName = "+Import Options"
+	// MPropertyDescription = "Override the final duration of this clip by using a multiplier"
+	// MPropertyAttrStateCallback
+	float32 m_flSpeedScale; // = 1
 	// MPropertyGroupName = "+Additive"
 	CNmClipDocument::AdditiveType_t m_additiveType; // = "None"
 	// MPropertyGroupName = "+Additive"

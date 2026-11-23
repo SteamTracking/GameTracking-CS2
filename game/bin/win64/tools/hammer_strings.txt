@@ -158,7 +158,7 @@ $worldspacetype
 %1: %2 references%3
 %1\n\nWarning - This file is currently opened by:\n\n%2
 %4i   [%4i]:    %6i
-%d "%[^"]" %d
+%d "%511[^"]" %d
 %d duplicate objects
 %d fgd class(es) have no c++ entity class:\n
 %d fgd input(s)/output(s) have no c++ backing:\n
@@ -10899,6 +10899,7 @@ hammer.dll
 hammer_asset_tag_visualizations.txt
 hammer_commands
 hammer_fake_io_test
+hammermesh-%9s
 hammermesh-%s
 handle_to_door
 hardware_key

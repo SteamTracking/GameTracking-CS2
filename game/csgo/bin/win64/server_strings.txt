@@ -12112,7 +12112,7 @@ CSoundscapeSystem::Init:  Manifest '%s' with bogus file type '%s', expecting 'fi
 CSource1LegacyGameEventGameSystem
 CSource2GameClients::StartHLTVServer: game event %s not found.\n
 CSource2GameEntities::CheckEntities: %d ents\n
-CSource2GameEntities::CheckTransmit(), C:\buildworker\csgo_rel_win64\build\src\game\server\gameinterface.cpp:3339
+CSource2GameEntities::CheckTransmit(), C:\buildworker\csgo_rel_win64\build\src\game\server\gameinterface.cpp:3344
 CSource2Server::ApplyGameSettings game settings payload received:\n
 CSource2Server::GameFrame
 CSource2Server::GameServerSteamAPIActivated()\n
@@ -16344,6 +16344,7 @@ Netscape Revocation Url
 Netscape SSL Server Name
 Netscape SSL server
 Netscape Server Gated Crypto
+Networked CUtlVector has count %d, max is %d\n
 Never close the group automatically (used to indicate an error like the process exiting unexpectedly)
 New Activity Event Collection
 New Enemy
